@@ -64,6 +64,34 @@ Minimal Mistakes의 [Configuration](https://mmistakes.github.io/minimal-mistakes
 gem 'tzinfo'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 ```
+
+## 4. 스킨을 수정하고 싶을 때
+스킨을 수정하고 싶을 때는  
+1. `assets/css/main.scss` 파일에 입력해서 오버라이드 하거나  
+2. `_sass/minimal-mistakes/skins`에서 각 스킨들을 직접 건드리면 된다.  
+
+나는 default 스킨을 아주 조금만 건드리고 싶고, 다른 스킨들은 건드리기 싫어서  
+`_default.scss` 파일에 아래와 같은 내용을 입력해줬다.  
+
+```scss
+$background-color: #eeeeee !default;
+$text-color: #222831 !default;
+$muted-text-color: #393e46 !default;
+$primary-color: #343434 !default;
+$border-color: mix(#fff, #393e46, 75%) !default;
+$footer-background-color: $primary-color !default;
+$masthead-link-color: $text-color !default;
+$masthead-link-color-hover: $text-color !default;
+$navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
+
+.page__footer {
+  color: #fff !important; // override
+}
+
+.page__footer-follow .social-icons .svg-inline--fa {
+  color: inherit;
+}
+```
 ---
 # Reference
 - [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)
