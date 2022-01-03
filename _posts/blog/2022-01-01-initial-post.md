@@ -1,5 +1,5 @@
 ---
-title:  "github 블로그 시작하기"
+title:  "Github 블로그 시작하기"
 excerpt: "github.io 블로그로 결정한 이유"
 published: true
 
@@ -7,7 +7,7 @@ categories:
   - Blog
 tags:
   - blog
-updated_at: 2022-01-03 #T08:06:00-05:00
+updated_at: 2022-01-01 #T08:06:00-05:00
 
 toc: true
 toc_sticky: true
@@ -20,6 +20,7 @@ toc_sticky: true
 
 Github Pages는 다른 블로그 플랫폼들에 비해 진입 장벽이 좀 있긴 하지만,  
 마이크로소프트가 Github을 인수했고, 그래서 아마도 영원히 사용할 수 있을 것 같아 GitHub Pages로 결정했다.  
+
 실질적인 블로그의 내용들을 마크다운 파일로 작성해서 local에도 저장해둘 수 있다는 점이 만약의 사태에 대비하기에도 좋고..
 
 블로그 플랫폼이 폭파되면서 이전에 어려움을 겪는 블로거들을 종종 봤기 때문에 꽤나 중요한 사항이었다.

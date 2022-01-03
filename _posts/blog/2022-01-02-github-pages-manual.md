@@ -1,6 +1,6 @@
 ---
 title:  "블로그 사용법"
-excerpt: "Github Pages 블로그 사용법"
+excerpt: "Github Pages 블로그와 Minimal Mistakes theme 사용법"
 published: true
 
 categories:
@@ -17,6 +17,7 @@ toc_sticky: true
 
 ## 1. 기본적인 문법은 markdown을 참고하면 된다.
 markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다.  
+
 그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨린다.  
 
 앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다  
@@ -29,6 +30,11 @@ YAML은 일종의 구조화된 데이터 형식으로, 프로그래밍에서 변
 ### 2-1. YFM에서 정의한 제목을 이중 괄호 구문으로 본문에 추가할 수 있다.  
 YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있다.  
 정의된 YFM을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.
+```{% raw %}
+이 글의 제목은 {{ page.title }}이고,
+작성된 날짜는 {{ page.updated_at }}이다.
+블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.
+{% endraw %}```
 ```
 이 글의 제목은 {{ page.title }}이고,
 작성된 날짜는 {{ page.updated_at }}이다.
@@ -37,13 +43,14 @@ YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있
 
 ### 2-2. 비밀글을 작성하고 싶을 때
 YFM에서 `published: false`로 정의하면 된다.  
-`published: false`로 정의된 글을 local에서 미리 확인하고 싶을 때, 아래와 같이 `--unpublished`을 붙여서 jekyll을 구동하면 된다.
+`published: false`로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`을 붙여서 jekyll을 구동하면 된다.
 ```powershell
 > bundler exec jekyll serve --unpublished
 # or
 > jekyll serve --unpublished
 ```
-repository에 md 파일이 다 보일텐데 무슨 소용인지 싶긴한데.. 아무튼 가능하긴하다
+~~repository에 md 파일이 다 보일텐데 무슨 소용인지 싶긴한데.. 아무튼 가능하긴하다~~  
+devinlife님의 블로그를 보면서 질문하다 알게 되었는데, Github Pro를 사용하면 Github Pages의 repo를 비공개 설정 할 수 있다고 한다.
 
 ## 3. local에서 Jekyll을 구동해 수정 결과를 확인할 수 있다.  
 github pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 은근히 걸리기 때문에, local에서 바로바로 확인하고 업로드하는게 편하다.  
@@ -56,6 +63,11 @@ local에 설치된 Jekyll을 작동시켜서 local 호스팅을 띄우는 명령
 > bundle exec jekyll serve --future
 ```
 local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확인할 수 있다.  
+
+개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--unpublished`를 둘 모두 적용해서 사용한다.  
+```powershell
+> bundle exec jekyll serve --future --unpublished
+```
 
 ### 3-1. _config.yml에 timezone이 설정된 경우
 Gemfile에 아래 코드를 넣어줘야 local에서 Jekyll을 구동시킬 수 있다.  
@@ -92,6 +104,34 @@ $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
   color: inherit;
 }
 ```
+## 5. 문단에 박스를 넣고 싶을 때
+Minimal Mistakes 테마는 notice 스타일을 제공하는데,  
+사용법은 문단 뒤에 {% raw %}`{: .notice}`{% endraw %}를 입력하면 된다.  
+
+{% raw %}notice  
+문단 뒤에 `{: .notice}` 추가{% endraw %}
+{: .notice}
+
+{% raw %}primary notice  
+문단 뒤에 `{: .notice--primary}` 추가{% endraw %}
+{: .notice--primary}
+
+{% raw %}info notice  
+문단 뒤에 `{: .notice--info}` 추가{% endraw %}
+{: .notice--info}
+
+{% raw %}warning notice  
+문단 뒤에 `{: .notice--warning}` 추가{% endraw %}
+{: .notice--warning}
+
+{% raw %}success notice  
+문단 뒤에 `{: .notice--success}` 추가{% endraw %}
+{: .notice--success}
+
+{% raw %}danger notice  
+문단 뒤에 `{: .notice--danger}` 추가{% endraw %}
+{: .notice--danger}
+
 ---
 # Reference
 - [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)
