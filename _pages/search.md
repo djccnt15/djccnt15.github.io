@@ -1,0 +1,4 @@
+---
+permalink: /search/
+layout: search
+---

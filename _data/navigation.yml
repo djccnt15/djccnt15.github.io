@@ -1,0 +1,14 @@
+# main links
+main:
+  - title: "Home"
+    url: https://djccnt15.github.io/
+  - title: "about"
+    url: /about/
+  - title: "categories"
+    url: /categories/
+  - title: "tags"
+    url: /tags/
+  # - title: "posts"
+  #   url: /year-archive/
+  - title: "search"
+    url: /search/
