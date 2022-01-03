@@ -21,7 +21,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Note of Amateur Developer"
 description              : "Notes of practices and studies"
-url                      : "https://djccnt15.github.io/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://djccnt15.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : djccnt15/djccnt15.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -85,7 +85,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : "/assets/images/googling_does_make_you_a_programmer.PNG"
+og_image                 : "/assets/images/googling_does_make_you_a_programmer.png"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -104,7 +104,7 @@ analytics:
 # Site Author
 author:
   name             : "야매개발자"
-  avatar           : "/assets/images/googling_does_make_you_a_programmer.PNG"
+  avatar           : "/assets/images/googling_does_make_you_a_programmer.png"
   bio              : "아마추어 개발자, 데이터사이언티스트 지망생, 야매AI개발자 <br> 내용 중 잘못된 부분 발견 시 알려주시면 감사하겠습니다."
   location         : "Republic of Korea"
   email            : 
@@ -114,7 +114,7 @@ author:
       url: "mailto:djccnt15@email.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://djccnt15.github.io/"
+      url: "https://djccnt15.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/djccnt15"
