@@ -3,16 +3,15 @@ title:  "Python 가상환경"
 excerpt: "windows와 linux에서 python 가상환경 만들고 사용하기"
 published: true
 
+toc: true
+toc_sticky: true
+
 categories:
   - Programming
 tags:
   - python
   - virtual environments
   - venv
-updated_at: 2022-01-03
-
-toc: true
-toc_sticky: true
 ---
 # {{ page.excerpt }}
 ---
@@ -21,7 +20,7 @@ Python은 패키지 버전관리가 까다롭기 때문에 프로젝트 별로 �
 venv외에도 pipenv, pyenv, conda 등이 있다고 한다.  
 
 # windows에서
-## 1. venv로 Python 가상환경 만들고 실행시키기
+## 1. venv로 가상환경 만들고 실행
 
 `python -m venv` 명령어로 파이썬 가상환경을 만든다.
 
@@ -44,7 +43,7 @@ venv외에도 pipenv, pyenv, conda 등이 있다고 한다.
 (venv_name) > Scripts\deactivate.bat
 ```
 
-## 2. ❗중요❗ 특정 Python version 사용하기
+## 2. ❗중요❗ 특정 Python version 사용
 몇몇 패키지들은 업데이트 속도가 느려서 최신 버전의 python과 호환되지 않는 경우가 종종 있다.  
 머신러닝 계열의 거대 패키지들이 주로 그런데, 이런 패키지들을 사용할 때는 특정 버전의 python 가상환경을 만들 필요가 있다.  
 
@@ -55,8 +54,8 @@ venv외에도 pipenv, pyenv, conda 등이 있다고 한다.
 > C:\python\Python*\python.exe -m venv [venv_name]
 ```
 
-## 3. package 목록 관리하기
-### 3-1. 패키지 목록 생성하기
+## 3. package 목록 관리
+### 3-1. 패키지 목록 생성
 설치된 패키지 버전을 저장해서 파일로 생성 및 관리하는 방법이다.  
 위의 python 버전 관리와 함께 가상환경을 사용하는 이유다.  
 나는 이 방법을 모르는 두 사람이 패키지 이름과 버전을 복창하면서 지적확인하는 것을 본 적이 있다..  
@@ -66,7 +65,7 @@ venv외에도 pipenv, pyenv, conda 등이 있다고 한다.
 > pip freeze > requirements.txt
 ```
 
-### 3-2. 패키지 목록 전체 설치/삭제하기
+### 3-2. 패키지 목록 전체 설치/삭제
 위에서 만든 `requirements.txt`의 목록대로 패키지를 설치하는 명령어는 아래와 같다.
 
 ```powershell
@@ -85,8 +84,8 @@ venv외에도 pipenv, pyenv, conda 등이 있다고 한다.
 > pip uninstall -r requirements.txt -y
 ```
 
-## 4. package 버전 관리하기
-### 4-1. 패키지의 특정 버전 설치하기
+## 4. package 버전 관리
+### 4-1. 패키지의 특정 버전 설치
 패키지의 특정 버전을 설치하고 싶을 때는 아래와 같이 명령어를 입력하면 된다.  
 패키지 간의 호환성이 중요한 경우나 신버전의 패키지에서 삭제된 구버전 기능을 사용하고 싶을 경우 사용한다.
 
@@ -94,7 +93,7 @@ venv외에도 pipenv, pyenv, conda 등이 있다고 한다.
 pip install [package_name]==[version]
 ```
 
-### 4-2. 패키지 업그레이드하기
+### 4-2. 패키지 업그레이드
 패키지를 업그레이드하고 싶을 때는 아래와 같이 명령어를 입력하며 된다.
 
 ```powershell
@@ -102,7 +101,7 @@ pip install --upgrade [package_name]
 ```
 
 ## 5. 그 외 알아두면 좋은 팁들
-### 5-1. 특정 python 버전 실행하기
+### 5-1. 특정 python 버전 실행
 `.py`파일을 특정 python 버전으로 실행시키고 싶을 경우, 아래 명령어처럼 하면 된다고 한다.
 
 ```powershell
@@ -118,11 +117,11 @@ py -version -m pip install virtualenv
 **명백하게도, 가상환경을 사용하는 편이 훨씬 쉽고 안정적이다.**  
 특히 여러 프로젝트를 한 컴퓨터에서 동시에 작업하고 있다면.  
 
-### 5-2. 가상환경 삭제하기
+### 5-2. 가상환경 삭제
 python 가상환경을 삭제하는 별도의 명령어는 없다.  
 필요한 내용만 백업하고 폴더째로 지우면 된다.  
 
-### 5-3. 파이썬 가상환경을 옮기고 싶을 때
+### 5-3. 파이썬 가상환경을 옮기기
 우선, **절대 추천하지 않는다.**  
 차라리 저장소에 필요한 파일들만 백업한 후 가상환경을 원하는 위치에 처음부터 다시 만드는게 속편하다.  
 그래도 반드시 옮겨야겠다면 이동 후 아래 세 파일들의 내용을 수정하면 된다고 한다.
@@ -166,7 +165,7 @@ python3-venv 설치
 $ sudo apt-get install python3-venv
 ```
 
-## 2. ❗중요❗ 특정 Python version 사용하기
+## 2. ❗중요❗ 특정 Python version 사용
 사용하고 싶은 파이썬 버전 * 자리에 입력 (e.g. python3.7)
 
 ```powershell

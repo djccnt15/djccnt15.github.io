@@ -3,14 +3,13 @@ title:  "Github 블로그 시작하기"
 excerpt: "github.io 블로그로 결정한 이유"
 published: true
 
+toc: true
+toc_sticky: true
+
 categories:
   - Blog
 tags:
   - blog
-updated_at: 2022-01-01 #T08:06:00-05:00
-
-toc: true
-toc_sticky: true
 ---
 # {{ page.excerpt }}
 ---
