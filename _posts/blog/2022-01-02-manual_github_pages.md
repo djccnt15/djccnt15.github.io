@@ -33,11 +33,9 @@ YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있
 정의된 YFM을 이중 괄호 구문을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.
 
 ```
-{% raw %}
-이 글의 제목은 {{ page.title }}이고,
+{% raw %}이 글의 제목은 {{ page.title }}이고,
 작성된 날짜는 {{ page.updated_at }}이다.
-블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.
-{% endraw %}
+블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.{% endraw %}
 ```
 
 ```
