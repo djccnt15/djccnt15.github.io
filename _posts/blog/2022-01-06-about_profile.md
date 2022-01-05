@@ -21,8 +21,8 @@ tags:
 
 비전공에 학원도 다녀본적 없고 어쩌다 시작한 프로그래밍인데, 재미를 붙여버렸는지 자꾸 코딩에 투자하는 시간이 늘어나는 나로서는 모든걸 구글링으로 공부할 수 밖에 없었고, 구글링이 프로그래머를 만들어준다는 말에 공감이 가지 않을 수 없다.
 
-![googling_does_make_you_a_programmer](/assets/images/googling_does_make_you_a_programmer.png){: width="200px" height="200px"}
-![googling_does_make_you_a_programmer_space](/assets/images/googling_does_make_you_a_programmer_space.png){: width="200px" height="200px"}
+![googling_does_make_you_a_programmer](/assets/images/googling_does_make_you_a_programmer.png){: width="150px" height="150px"}
+![googling_does_make_you_a_programmer_space](/assets/images/googling_does_make_you_a_programmer_space.png){: width="150px" height="150px"}
 
 그래서 블로그를 만들면서 이 문구를 활용해서 프로필 사진을 만들고, 겸사겸사 깃헙 프로필 사진도 바꿨다.  
 원본 그림에 더해서 위아래에 빈공간이 붙은 그림 하나를 만들었는데, 원본 그림은 깃헙 프로필에 예쁘게 들어가지 않아서 추가로 만들 게 되었다.  

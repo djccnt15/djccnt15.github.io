@@ -47,12 +47,10 @@ YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있
 ### 2-2. 비밀글 작성
 
 YFM에서 `published: false`로 정의하면 된다.  
-`published: false`로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`을 붙여서 jekyll을 구동하면 된다.
+비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`을 붙여서 jekyll을 구동하면 된다.
 
 ```powershell
 > bundler exec jekyll serve --unpublished
-# or
-> jekyll serve --unpublished
 ```
 
 ~~repository에 md 파일이 다 보일텐데 무슨 소용인지 싶긴한데.. 아무튼 가능하긴하다~~  
@@ -76,13 +74,29 @@ local에 설치된 Jekyll을 작동시켜서 local 호스팅을 띄우는 명령
 
 local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확인할 수 있다.  
 
+그림 사이즈를 모바일에서 미리 확인하는 등 다른 디바이스의 브라우저로 테스트 컴퓨터의 호스팅에 접속하고 싶을 경우가 있는데,  
+그럴 때는 아래와 같이 서버의 주소를 지정해서 구동하면 된다.  
+
+```powershell
+> bundle exec jekyll serve -H 192.168.0.5
+```
+
+서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig/ifconfig` 명령어로 확인할 수 있다.  
+위의 경우에는 `192.168.0.5`으로 호스팅 했기 때문에, `http:192.168.0.5:4000`으로 접속해야 내용을 확인할 수 있다.
+
+### 3-1. 작업할 때
 개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--unpublished`를 둘 모두 적용해서 사용한다.
 
 ```powershell
+# local에서만 확인할 때
 > bundle exec jekyll serve --future --unpublished
+
+# 호스팅을 해서 다른 디바이스에서도 확인하고 싶을 때
+> bundle exec jekyll serve -H 192.168.0.5 --future --unpublished
 ```
 
-### 3-1. timezone 설정
+
+### 3-2. timezone 설정
 _config.yml에 timezone이 설정된 경우 Gemfile에 아래 코드를 넣어줘야 local에서 Jekyll을 구동시킬 수 있다.  
 
 ```ruby
@@ -122,7 +136,7 @@ $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 ```
 
 ### 4-2. 줄간격 조정
-[Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)는 기본 줄간격이 너무 좁아 가독성이 떨어진다.  
+Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다.  
 이럴 때는 `_sass/_page.scss`를 수정해주면 된다.  
 나는 아래와 같이 `.page__content`의 `p`에 `line-height`를 추가해서 문단 스타일을 수정했다.
 
@@ -135,8 +149,19 @@ $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 }
 ```
 
-### 4-3. 문단을 박스 안에
-[Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) 테마는 notice 스타일을 제공하는데,  
+### 4-3. 좌우 여백 조정
+Minimal Mistakes 테마의 좌우 여백은 여기 저기에 정의 되어 있는데,  
+공통적으로 `$right-sidebar-width` 변수를 활용하고 있으니 `_sass/_variables.scss`의 관련 내용을 수정하면 된다.  
+나의 경우에는 아래와 같이 수정했다.  
+
+```scss
+$right-sidebar-width-narrow: 200px !default;  // default 200px
+$right-sidebar-width: 250px !default;         // default 300px
+$right-sidebar-width-wide: 250px !default;    // default 400px
+```
+
+### 4-4. 문단을 박스 안에
+Minimal Mistakes 테마는 notice 스타일을 제공하는데,  
 사용법은 문단 뒤에 {% raw %}`{: .notice}`{% endraw %}를 입력하면 된다.  
 
 {% raw %}notice  
