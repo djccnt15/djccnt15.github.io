@@ -1,5 +1,5 @@
 ---
-title:  "profile에 대해"
+title: "profile에 대해"
 excerpt: "googling stuff online does make you a programmer"
 published: true
 

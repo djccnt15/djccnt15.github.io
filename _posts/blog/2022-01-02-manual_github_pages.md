@@ -1,5 +1,5 @@
 ---
-title:  "블로그 사용법"
+title: "블로그 사용법"
 excerpt: "Github Pages 블로그와 Minimal Mistakes theme 사용법"
 published: true
 

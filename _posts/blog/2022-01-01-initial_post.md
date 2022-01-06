@@ -1,5 +1,5 @@
 ---
-title:  "Github 블로그 시작하기"
+title: "Github 블로그 시작하기"
 excerpt: "github.io 블로그로 결정한 이유"
 published: true
 
