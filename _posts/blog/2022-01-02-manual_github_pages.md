@@ -7,7 +7,7 @@ toc: true
 toc_sticky: true
 
 categories:
-  - Blog
+  - blog
 tags:
   - blog
 

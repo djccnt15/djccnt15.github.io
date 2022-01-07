@@ -1,13 +1,13 @@
 ---
 title: "깨끗한 코드"
 excerpt: "깨끗한 코드를 위한 팁"
-published: false
+published: true
 
 toc: true
 toc_sticky: true
 
 categories:
-  - Programming
+  - programming
 tags:
   - clean code
 ---

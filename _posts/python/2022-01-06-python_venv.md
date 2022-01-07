@@ -7,7 +7,7 @@ toc: true
 toc_sticky: true
 
 categories:
-  - Python
+  - python
 tags:
   - python
   - virtual environments
