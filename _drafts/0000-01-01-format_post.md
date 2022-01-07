@@ -9,8 +9,7 @@ toc_sticky: true
 categories:
   - category
 tags:
-  - tag1
-  - tag2
+  - tag
 ---
 # {{ page.excerpt }}
 ---
