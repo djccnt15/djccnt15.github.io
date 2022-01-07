@@ -102,7 +102,7 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 > bundle exec jekyll serve --future --unpublished
 
 # 호스팅을 해서 다른 디바이스에서도 확인하고 싶을 때
-> bundle exec jekyll serve -H 192.168.0.5 --future --unpublished
+> bundle exec jekyll serve --future --unpublished -H 192.168.0.5
 ```
 
 ### 4-2. timezone 설정
