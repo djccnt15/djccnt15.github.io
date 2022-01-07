@@ -17,4 +17,4 @@ text
 
 ---
 # Reference
-text
+- text
