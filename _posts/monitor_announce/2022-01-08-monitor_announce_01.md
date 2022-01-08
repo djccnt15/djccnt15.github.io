@@ -7,10 +7,10 @@ toc: true
 toc_sticky: true
 
 categories:
-  - monitoring and reporting project
+  - announcement monitoring and reporting project
 tags:
   - web scraping
-  - incomplete
+  - unpublished
 ---
 # {{ page.excerpt }}
 ---
@@ -20,8 +20,8 @@ tags:
 
 ## 프로젝트의 기초 구상
 1. 각 대상 사이트 자료를 긁어와서 보기 좋게 만들어주는 웹 스크래퍼 개발
-    - 1회/1일 스크랩 및 전일과 차이 있을 경우 해당 내용 출력
-    - 주 1회 요약 보고서 출력
+  - 1회/1일 스크랩 및 전일과 차이 있을 경우 해당 내용 출력
+  - 주 1회 요약 보고서 출력
 2. 웹 스크래퍼가 출력하는 보고서를 메일로 발송하는 메일링 프로그램 개발
 3. 서버에서 작동 시켜야 하니 하나로 묶어줄 container에 탑재하여 docker에서 구동 확인
 4. docker에서 구동 확인 후 AWE나 MS Azure같은 클라우드 서버에 올려서 구동
