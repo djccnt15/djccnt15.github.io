@@ -1,5 +1,5 @@
 ---
-title: "블로그 소개"
+title: "About"
 permalink: /about/
 layout: single
 ---
