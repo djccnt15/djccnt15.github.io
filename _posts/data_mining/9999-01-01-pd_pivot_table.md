@@ -12,7 +12,7 @@ tags:
   - python
   - data mining
   - pandas
-  - pivot
+  - pivot table
   - unpublished
 ---
 # {{ page.excerpt }}
