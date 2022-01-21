@@ -51,7 +51,7 @@ YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있
 
 ### 3-1. YFM으로 비밀글 태그
 YFM에서 `published: false`로 정의하면 된다.  
-비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`을 붙여서 jekyll을 구동하면 된다.
+비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`를 붙여서 jekyll을 구동하면 된다.
 
 ```powershell
 > bundler exec jekyll serve --unpublished
@@ -96,7 +96,7 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 위의 경우에는 `192.168.0.5`으로 호스팅 했기 때문에, `http:192.168.0.5:4000`으로 접속해야 내용을 확인할 수 있다.
 
 ### 4-1. ❗작업할 때
-개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--unpublished`를 둘 모두 적용해서 사용한다.
+개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--unpublished` 두 옵션을 적용해서 사용한다.
 
 ```powershell
 # local에서만 확인할 때
@@ -160,8 +160,7 @@ Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다.
 ```
 
 ### 5-3. 좌우 여백 조정
-Minimal Mistakes 테마의 좌우 여백은 여기 저기에 정의 되어 있는데,  
-공통적으로 `$right-sidebar-width` 변수를 활용하고 있으니 `_sass/_variables.scss`의 관련 내용을 수정하면 된다.  
+Minimal Mistakes 테마의 좌우 여백은 `_sass/_variables.scss`에 정의된 `$right-sidebar-width` 변수를 따른다.  
 나의 경우에는 아래와 같이 수정했다.  
 
 ```scss

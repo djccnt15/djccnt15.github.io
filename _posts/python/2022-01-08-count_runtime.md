@@ -22,7 +22,6 @@ time_start = time.time()
 
 # your code hear
 
-print("run time: %s" %(time.time() - time_start)) # % 연산자 사용 시
-# or
-print(f"run time: {(time.time() - time_start):.3f}")  # python 3.6 부터 추가된 f-string 사용 시
+runtime = time.time() - time_start
+print(f"run time: {runtime:.3f}")
 ```

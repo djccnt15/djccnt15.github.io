@@ -48,7 +48,7 @@ venv외에도 pipenv, pyenv, conda 등이 있다고 한다.
 몇몇 패키지들은 업데이트 속도가 느려서 최신 버전의 python과 호환되지 않는 경우가 종종 있다.  
 머신러닝 계열의 거대 패키지들이 주로 그런데, 이런 패키지들을 사용할 때는 특정 버전의 python 가상환경을 만들 필요가 있다.  
 
-아래 명령어에서 * 자리에 사용하고 싶은 파이썬 버전을 입력하자  
+아래 명령어에서 `*` 자리에 사용하고 싶은 파이썬 버전을 입력하자  
 나의 경우에는 `C:\python\Python*\python.exe`경로로 python을 설치하기 때문에, python 3.9를 사용하고 싶을 때는 `C:\python\Python39\python.exe -m venv [venv_name]`를 입력한다.
 
 ```powershell
@@ -79,7 +79,7 @@ venv외에도 pipenv, pyenv, conda 등이 있다고 한다.
 > pip uninstall -r requirements.txt
 ```
 
-이때 모든 패키지 하나하나 삭제 확인 명령을 내려줘야 하기 때문에 매우 귀찮은데 `-y` 파라미터를 추가하면 확인없이 삭제한다.
+이때 모든 패키지 하나하나 삭제 확인 명령을 내려줘야 하기 때문에 매우 귀찮은데 `-y` 옵션을 사용하면 추가 확인없이 삭제한다.
 
 ```powershell
 > pip uninstall -r requirements.txt -y
@@ -115,8 +115,7 @@ pip를 사용할 경우 아래 명령어처럼 하면 된다고 한다.
 py -version -m pip install virtualenv
 ```
 
-**명백하게도, 가상환경을 사용하는 편이 훨씬 쉽고 안정적이다.**  
-특히 여러 프로젝트를 한 컴퓨터에서 동시에 작업하고 있다면.  
+**명백하게도, 가상환경을 사용하는 편이 훨씬 쉽고 안정적이다.** 특히 여러 프로젝트를 한 컴퓨터에서 동시에 작업하고 있다면 더더욱 그렇다.  
 
 ### 5-2. 가상환경 삭제
 python 가상환경을 삭제하는 별도의 명령어는 없다.  
@@ -131,7 +130,7 @@ python 가상환경을 삭제하는 별도의 명령어는 없다.
 2. activate.bat
 3. Activate.ps1
 
-```powershell
+```markdown
 VIRTUAL_ENV=venv_location_b4 -> VIRTUAL_ENV=venv_location_now
 ```
 나는 해보지 않아서 잘 되는지 모르겠다. 사실 시도해보고 싶지도 않다.  
@@ -167,7 +166,7 @@ $ sudo apt-get install python3-venv
 ```
 
 ## 2. ❗특정 Python version 사용
-사용하고 싶은 파이썬 버전 * 자리에 입력 (e.g. python3.7)
+사용하고 싶은 파이썬 버전 `*` 자리에 입력 (e.g. python3.7)
 
 ```powershell
 $ python* -m venv [venv_name]

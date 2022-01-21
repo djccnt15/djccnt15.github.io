@@ -23,7 +23,7 @@ tags:
 함수는 단 하나의 기능만 수행해야 하며, 그 기능을 함수의 이름으로 사용하면 됨  
 함수의 기능이 늘어날 것 같으면 함수를 분리하는 것이 좋다.  
 
-정말 아무것도 모르고 개발했을 때 하나의 함수에 여러개의 기능울 욱여넣은 적이 있다.  
+정말 아무것도 모르고 개발했을 때 하나의 함수에 여러개의 기능을 욱여넣은 적이 있다.  
 그 때 그 코드는 다시 볼 때마다 아주 골머리가 아프다.. 언젠가 그 코드를 수정할지도 모르는 누군가에게 애도..  
 
 ## 3. 함수의 argument는 3개나 그 이하로
@@ -49,9 +49,7 @@ if else에 따라 동작이 달라지는 함수는 기능별로 쪼개는 것이
 ## 5. 짧은 변수명이나 이해하기 힘든 축약어를 쓰지 마라
 코드는 읽기 쉽고 명확해야 한다.  
 
-
-[![보러가기](https://img.youtube.com/vi/Jz8Sx1XYb04/0.jpg)](https://youtu.be/Jz8Sx1XYb04)
-
 ---
 # Reference
-[노마드코더](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ): [깨끗한 코드를 위한 5가지 팁](https://youtu.be/Jz8Sx1XYb04)
+- [노마드코더](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ): [깨끗한 코드를 위한 5가지 팁](https://youtu.be/Jz8Sx1XYb04)
+[![보러가기](https://img.youtube.com/vi/Jz8Sx1XYb04/0.jpg)](https://youtu.be/Jz8Sx1XYb04)
