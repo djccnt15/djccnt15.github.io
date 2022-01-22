@@ -9,7 +9,7 @@ toc_sticky: true
 categories:
   - python
 tags:
-  - bookmark
+  - ⭐starred
   - python
   - virtual environments
   - venv

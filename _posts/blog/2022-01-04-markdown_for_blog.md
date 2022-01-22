@@ -1,6 +1,6 @@
 ---
 title: "마크다운 활용팁"
-excerpt: "블로그 작성에 사용한 유용한 마크다운 활용 팁들"
+excerpt: "블로그 작성에 사용한 유용한 팁들"
 published: true
 
 toc: true
@@ -9,6 +9,7 @@ toc_sticky: true
 categories:
   - blog
 tags:
+  - ⭐starred
   - blog
 ---
 # {{ page.excerpt }}
@@ -28,3 +29,15 @@ tags:
 ```markdown
 [![IMAGE ALT TEXT](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/YOUTUBE_VIDEO_ID_HERE)
 ```
+
+## 2. 이모지들
+
+⭐❗🏷️🔖📎💡  
+⚡🌟🌠☄️🌈🔥💧❄️  
+🥞🧀🥓🍔🍕🍺  
+🏆🥇🥈🥉🏅  
+🇰🇷💣💢💥💯💤🦈🧭🎓💎🔔💰💲  
+🔋💻🖥️📌🔑🗝️🔒🔗  
+⭕❌✔️©️®️™️  
+
+전체 이모지는 [여기](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)에서 확인할 수 있다.  

@@ -9,7 +9,7 @@ toc_sticky: true
 categories:
   - blog
 tags:
-  - bookmark
+  - ⭐starred
   - blog
 
 updated_at: 2022-01-02 #T08:06:00-05:00
