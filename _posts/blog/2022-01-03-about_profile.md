@@ -2,6 +2,7 @@
 title: "profile에 대해"
 excerpt: "googling stuff online does make you a programmer"
 published: true
+use_math: false
 
 toc: true
 toc_sticky: true

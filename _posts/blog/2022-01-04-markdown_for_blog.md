@@ -2,6 +2,7 @@
 title: "마크다운 활용팁"
 excerpt: "블로그 작성에 사용한 유용한 팁들"
 published: true
+use_math: false
 
 toc: true
 toc_sticky: true

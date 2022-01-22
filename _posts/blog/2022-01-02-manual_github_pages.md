@@ -2,6 +2,7 @@
 title: "블로그 사용법"
 excerpt: "Github Pages 블로그와 Minimal Mistakes theme 사용법"
 published: true
+use_math: false
 
 toc: true
 toc_sticky: true
@@ -35,11 +36,11 @@ YAML은 일종의 구조화된 데이터 형식으로, 프로그래밍에서 변
 YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있다.  
 정의된 YFM을 이중 괄호 구문을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.
 
-```markdown
-{% raw %}이 글의 제목은 {{ page.title }}이고,
+```markdown{% raw %}
+이 글의 제목은 {{ page.title }}이고,
 작성된 날짜는 {{ page.updated_at }}이다.
-블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.{% endraw %}
-```
+블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.
+{% endraw %}```
 
 ```markdown
 이 글의 제목은 {{ page.title }}이고,
@@ -160,7 +161,7 @@ Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다.
 ```
 
 ### 5-3. 좌우 여백 조정
-Minimal Mistakes 테마의 좌우 여백은 `_sass/_variables.scss`에 정의된 `$right-sidebar-width` 변수를 따른다.  
+Minimal Mistakes 테마의 좌우 여백은 `_sass/minimal-mistakes/_variables.scss`에 정의된 `$right-sidebar-width` 변수를 따른다.  
 나의 경우에는 아래와 같이 수정했다.  
 
 ```scss
@@ -173,31 +174,83 @@ $right-sidebar-width-wide: 250px !default;    // default 400px
 Minimal Mistakes 테마는 notice 스타일을 제공하는데,  
 사용법은 문단 뒤에 {% raw %}`{: .notice}`{% endraw %}를 입력하면 된다.  
 
-{% raw %}notice  
-문단 뒤에 `{: .notice}` 추가{% endraw %}
-{: .notice}
+{% raw %}
+notice  
+문단 뒤에 `{: .notice}` 추가
+{% endraw %}{: .notice}
 
-{% raw %}primary notice  
-문단 뒤에 `{: .notice--primary}` 추가{% endraw %}
-{: .notice--primary}
+{% raw %}
+primary notice  
+문단 뒤에 `{: .notice--primary}` 추가
+{% endraw %}{: .notice--primary}
 
-{% raw %}info notice  
-문단 뒤에 `{: .notice--info}` 추가{% endraw %}
-{: .notice--info}
+{% raw %}
+info notice  
+문단 뒤에 `{: .notice--info}` 추가
+{% endraw %}{: .notice--info}
 
-{% raw %}warning notice  
-문단 뒤에 `{: .notice--warning}` 추가{% endraw %}
-{: .notice--warning}
+{% raw %}
+warning notice  
+문단 뒤에 `{: .notice--warning}` 추가
+{% endraw %}{: .notice--warning}
 
-{% raw %}success notice  
-문단 뒤에 `{: .notice--success}` 추가{% endraw %}
-{: .notice--success}
+{% raw %}
+success notice  
+문단 뒤에 `{: .notice--success}` 추가
+{% endraw %}{: .notice--success}
 
-{% raw %}danger notice  
-문단 뒤에 `{: .notice--danger}` 추가{% endraw %}
-{: .notice--danger}
+{% raw %}
+danger notice  
+문단 뒤에 `{: .notice--danger}` 추가
+{% endraw %}{: .notice--danger}
+
+## 6. MathJax로 수학식 표시하기
+[Jekyll Github 블로그에 MathJax로 수학식 표시하기](https://mkkim85.github.io/blog-apply-mathjax-to-jekyll-and-github-pages/)을 참고하여 추가했다.  
+
+`_includes/mathjax_support.html` 파일 생성 및 아래 내용 입력  
+
+```html
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+```
+
+`_layouts/default.html`의 `<head>` 부분에 아래 내용 삽입
+
+```html{% raw %}
+{% if page.use_math %}
+  {% include mathjax_support.html %}
+{% endif %}
+{% endraw %}```
+
+`YAML front-matter` 설정
+
+```markdown
+use_math: true
+```
 
 ---
 # Reference
 - [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)
 - [devinlife](https://devinlife.com/)님의 [하우투: 같이 따라하기 시리즈](https://devinlife.com/howto/)
+- [Jekyll Github 블로그에 MathJax로 수학식 표시하기](https://mkkim85.github.io/blog-apply-mathjax-to-jekyll-and-github-pages/)

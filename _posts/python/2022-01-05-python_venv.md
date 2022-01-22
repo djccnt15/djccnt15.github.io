@@ -2,6 +2,7 @@
 title: "Python 가상환경"
 excerpt: "windows와 linux에서 python 가상환경 만들고 사용하기"
 published: true
+use_math: false
 
 toc: true
 toc_sticky: true

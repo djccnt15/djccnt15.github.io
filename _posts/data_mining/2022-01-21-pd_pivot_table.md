@@ -2,6 +2,7 @@
 title: "pandas의 pivot_table"
 excerpt: "pivot_table로 데이터 정제하기"
 published: true
+use_math: false
 
 toc: true
 toc_sticky: true
