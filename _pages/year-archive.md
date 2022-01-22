@@ -1,5 +1,5 @@
 ---
-title: "포스트"
+title: "posts"
 layout: posts
 permalink: /year-archive/
 ---

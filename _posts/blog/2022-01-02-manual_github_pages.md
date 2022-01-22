@@ -1,6 +1,6 @@
 ---
 title: "블로그 사용법"
-excerpt: "Github Pages 블로그와 Minimal Mistakes theme 사용법"
+excerpt: "Github Pages와 Minimal Mistakes 사용법"
 published: true
 use_math: false
 
@@ -148,7 +148,7 @@ $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 
 ### 5-2. 줄간격 조정
 Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다.  
-이럴 때는 `_sass/_page.scss`를 수정해주면 된다.  
+줄간격을 조정하려면 `_sass/_page.scss`를 수정해주면 된다.  
 나는 아래와 같이 `.page__content`의 `p`에 `line-height`를 추가해서 문단 스타일을 수정했다.
 
 ```scss
@@ -161,8 +161,7 @@ Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다.
 ```
 
 ### 5-3. 좌우 여백 조정
-Minimal Mistakes 테마의 좌우 여백은 `_sass/minimal-mistakes/_variables.scss`에 정의된 `$right-sidebar-width` 변수를 따른다.  
-나의 경우에는 아래와 같이 수정했다.  
+Minimal Mistakes 테마의 좌우 여백은 `_sass/minimal-mistakes/_variables.scss`에 정의된 `$right-sidebar-width`, `Breakpoints` 변수를 수정해서 조절할 수 있다.  
 
 ```scss
 $right-sidebar-width-narrow: 200px !default;  // default 200px
@@ -170,42 +169,25 @@ $right-sidebar-width: 250px !default;         // default 300px
 $right-sidebar-width-wide: 250px !default;    // default 400px
 ```
 
-### 5-4. 문단을 박스 안에
-Minimal Mistakes 테마는 notice 스타일을 제공하는데,  
-사용법은 문단 뒤에 {% raw %}`{: .notice}`{% endraw %}를 입력하면 된다.  
+기본 좌우 여백이 거슬려서 `Breakpoints`도 아래와 같이 수정해봤는데, 막상 최소한으로 줄이니 답답한 느낌이 든다. 기본 값을 사용하는게 좋을 듯 하다.  
 
-{% raw %}
-notice  
-문단 뒤에 `{: .notice}` 추가
-{% endraw %}{: .notice}
+```scss
+/*
+   Breakpoints
+   ========================================================================== */
 
-{% raw %}
-primary notice  
-문단 뒤에 `{: .notice--primary}` 추가
-{% endraw %}{: .notice--primary}
-
-{% raw %}
-info notice  
-문단 뒤에 `{: .notice--info}` 추가
-{% endraw %}{: .notice--info}
-
-{% raw %}
-warning notice  
-문단 뒤에 `{: .notice--warning}` 추가
-{% endraw %}{: .notice--warning}
-
-{% raw %}
-success notice  
-문단 뒤에 `{: .notice--success}` 추가
-{% endraw %}{: .notice--success}
-
-{% raw %}
-danger notice  
-문단 뒤에 `{: .notice--danger}` 추가
-{% endraw %}{: .notice--danger}
+$small: 768px !default;          // default 600px
+$medium: 900px !default;         // default 768px
+$medium-wide: 1024px !default;   // default 900px
+$large: 1280px !default;         // default 1024px
+$x-large: 1440px !default;       // default 1280px
+$max-width: $x-large !default;
+```
 
 ## 6. MathJax로 수학식 표시하기
-[Jekyll Github 블로그에 MathJax로 수학식 표시하기](https://mkkim85.github.io/blog-apply-mathjax-to-jekyll-and-github-pages/)을 참고하여 추가했다.  
+[Jekyll Github 블로그에 MathJax로 수학식 표시하기](https://mkkim85.github.io/blog-apply-mathjax-to-jekyll-and-github-pages/)를 참고하여 기능을 추가했다.  
+
+### 6-1. 기능 추가
 
 `_includes/mathjax_support.html` 파일 생성 및 아래 내용 입력  
 
@@ -243,7 +225,9 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 {% endif %}
 {% endraw %}```
 
-`YAML front-matter` 설정
+### 6-2. YFM 설정
+
+수식을 사용할 포스트의 `YAML front-matter` 설정
 
 ```markdown
 use_math: true
