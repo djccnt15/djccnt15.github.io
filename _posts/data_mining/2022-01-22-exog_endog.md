@@ -8,7 +8,7 @@ toc: true
 toc_sticky: true
 
 categories:
-  - data maning
+  - data mining
 tags:
   - data mining
   - statsmodels
