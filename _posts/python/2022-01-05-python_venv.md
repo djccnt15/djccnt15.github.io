@@ -101,6 +101,14 @@ pip install [package_name]==[version]
 pip install --upgrade [package_name]
 ```
 
+### 4-3. 패키지 다운그레이드
+패키지 간의 호환성 문제로 다운그레이드 할 때는 패키지를 삭제하고 재설치 하면 된다.  
+또는 아래와 같이 `--force-reinstall`을 통해 강제로 삭제하고 재설치하는 방법도 있다.  
+
+```powershell
+pip install [package_name]==[version] --force-reinstall
+```
+
 ## 5. 그 외 알아두면 좋은 팁들
 ### 5-1. 특정 python 버전 실행
 `.py`파일을 특정 python 버전으로 실행시키고 싶을 경우, 아래 명령어처럼 하면 된다고 한다.
