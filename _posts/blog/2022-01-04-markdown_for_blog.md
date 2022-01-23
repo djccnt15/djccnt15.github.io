@@ -18,7 +18,6 @@ tags:
 블로그 내용을 작성하는데 사용된 유용한 마크다운 팁들 모음
 
 ## 1. 이모지들
-
 ⭐❗🏷️🔖📎💡  
 ⚡🌟🌠☄️🌈🔥💧❄️  
 🥞🧀🥓🍔🍕🍺  
@@ -26,6 +25,8 @@ tags:
 🇰🇷💣💢💥💯💤🦈🧭🎓💎🔔💰💲  
 🔋💻🖥️📌🔑🗝️🔒🔗  
 ⭕❌✔️©️®️™️  
+
+전체 이모지는 [여기](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)에서 확인할 수 있다.  
 
 ## 2. 이미지/동영상 삽입
 ### 2-1. 이미지 삽입
@@ -36,7 +37,7 @@ tags:
 마크다운 코드는 아래와 같다.  
 
 ```markdown
-![IMAGE ALT TEXT](/assets/images/posts/image_file_name)
+![IMAGE_ALT_TEXT](/assets/images/posts/file_name)
 ```
 
 ### 2-2. 동영상 삽입
@@ -44,15 +45,13 @@ tags:
 
 예시 동영상은 유튜브의 첫번째 비디오이다.  
 
-[![the first video](https://img.youtube.com/vi/jNQXAC9IVRw/0.jpg)](https://youtu.be/jNQXAC9IVRw)
+[![the_first_video](https://img.youtube.com/vi/jNQXAC9IVRw/0.jpg)](https://youtu.be/jNQXAC9IVRw)
 
 위와 같이 띄우는 마크다운 코드는 아래와 같다.  
 
 ```markdown
-[![IMAGE ALT TEXT](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/YOUTUBE_VIDEO_ID_HERE)
+[![IMAGE_ALT_TEXT](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/YOUTUBE_VIDEO_ID_HERE)
 ```
-
-전체 이모지는 [여기](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)에서 확인할 수 있다.  
 
 ## 3. notice 스타일
 Minimal Mistakes 테마는 notice 스타일을 제공하는데,  

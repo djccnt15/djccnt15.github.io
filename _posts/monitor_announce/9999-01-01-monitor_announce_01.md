@@ -8,7 +8,7 @@ toc: true
 toc_sticky: true
 
 categories:
-  - announcement monitoring and reporting project
+  - announcement monitoring
 tags:
   - web scraping
   - unpublished

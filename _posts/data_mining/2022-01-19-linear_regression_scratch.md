@@ -1,7 +1,7 @@
 ---
 title: "선형회귀 구현"
 excerpt: "단순 선형회귀를 기초부터 구현해보자"
-published: false
+published: true
 use_math: true
 
 toc: true
@@ -13,7 +13,6 @@ tags:
   - python
   - data mining
   - regression
-  - simple linear regression
 ---
 # {{ page.excerpt }}
 ---

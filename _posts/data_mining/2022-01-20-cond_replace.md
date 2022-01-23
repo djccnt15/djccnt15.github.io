@@ -33,7 +33,6 @@ df['a'], df['b'] = a, b
 
 print(df)
 ```
-
 ```markdown
    a  b
 0  2  1
@@ -58,7 +57,6 @@ df['t'] = df['t'].fillna(df['b'])
 
 print(df)
 ```
-
 ```markdown
    a  b     t
 0  2  1   1.0
@@ -79,7 +77,6 @@ df.rename(columns={'t': 'b'}, inplace=True)
 
 print(df)
 ```
-
 ```markdown
    a   b
 0  2   1
@@ -104,7 +101,6 @@ df['b'] = np.where((df['b'] > 3) & (df['a'] >= 5), df['b'] ** 2, df['b'])
 
 print(df)
 ```
-
 ```markdown
    a   b
 0  2   1
@@ -149,7 +145,6 @@ df['b'] = np.select(
 
 print(df)
 ```
-
 ```markdown
    a   b
 0  2   1

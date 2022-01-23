@@ -23,7 +23,6 @@ venv외에도 pipenv, pyenv, conda 등이 있다고 한다.
 
 # windows에서
 ## 1. venv로 가상환경 만들고 실행
-
 `python -m venv` 명령어로 파이썬 가상환경을 만든다.
 
 ```powershell

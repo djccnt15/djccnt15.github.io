@@ -10,7 +10,7 @@ toc_sticky: true
 categories:
   - data maning
 tags:
-  - data maning
+  - data mining
   - statsmodels
 ---
 # {{ page.excerpt }}
