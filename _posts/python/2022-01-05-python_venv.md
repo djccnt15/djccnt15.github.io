@@ -44,7 +44,7 @@ venv외에도 pipenv, pyenv, conda 등이 있다고 한다.
 (venv_name) > Scripts\deactivate.bat
 ```
 
-## 2. ❗특정 Python version 사용
+## 2. ⚡특정 Python version 사용
 몇몇 패키지들은 업데이트 속도가 느려서 최신 버전의 python과 호환되지 않는 경우가 종종 있다.  
 머신러닝 계열의 거대 패키지들이 주로 그런데, 이런 패키지들을 사용할 때는 특정 버전의 python 가상환경을 만들 필요가 있다.  
 
@@ -173,7 +173,7 @@ python3-venv 설치
 $ sudo apt-get install python3-venv
 ```
 
-## 2. ❗특정 Python version 사용
+## 2. ⚡특정 Python version 사용
 사용하고 싶은 파이썬 버전 `*` 자리에 입력 (e.g. python3.7)
 
 ```powershell

@@ -51,8 +51,8 @@ print(df)
 ```
 
 ## 1. statsmodels.api
-`statsmodels.api`을 통해서 회귀분석을 시행할 경우 별도로 독립변수에 상수항을 추가해줘야 한다.  
-{: .notice--danger}
+💡`statsmodels.api`을 통해서 회귀분석을 시행할 경우 별도로 독립변수에 상수항을 추가해줘야 한다.  
+{: .notice--warning}
 
 상수항을 추가하기 위해서는 `statsmodels`이 제공하는 `add_constant()`를 사용해주면 간단하다.  
 
@@ -113,7 +113,7 @@ strong multicollinearity or other numerical problems.
 
 
 ## 2. statsmodels.formula.api
-`statsmodels.formula.api`을 사용하면 회귀모델 공식을 먼저 작성한 후 공식으로 기준으로 회귀분석을 시행한다.  
+`statsmodels.formula.api`을 사용하면 회귀모델 공식을 먼저 작성한 후 공식에 따라 회귀분석을 시행한다.  
 상수항 추가나 범주형 변수의 더미변수화를 자동으로 해결해주는 장점이 있다.  
 
 ```python
