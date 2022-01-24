@@ -1,5 +1,5 @@
 ---
-title: "data의 조건부 변환"
+title: "DataFrame의 조건부 변환"
 excerpt: "조건에 맞는 데이터를 찾고 수정하기"
 published: true
 use_math: false
@@ -109,7 +109,7 @@ print(df)
 3  5  16
 ```
 
-## 3. ❗numpy.select 사용
+## 3. 💡numpy.select 사용
 내가 가장 선호하는 방식으로, 앞선 두 방법들은 하나의 조건에 따른 `True/False` 결과만을 연산하기 때문에 조건의 목록을 늘리고 싶을 경우 연산을 여러차례 진행해야 하며 연산 순서를 신경 써야 하는 반면 `numpy.select`는 조건의 리스트를 무한정 늘릴 수 있고, 연산 순서는 고려하지 않아도 된다.  
 
 함수의 주요 인자는 아래와 같다.  

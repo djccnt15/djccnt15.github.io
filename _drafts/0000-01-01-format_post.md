@@ -1,7 +1,7 @@
 ---
 title: "기초서식"
 excerpt: "기초서식"
-published: false
+published: true
 use_math: false
 
 toc: true

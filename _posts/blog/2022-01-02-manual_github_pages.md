@@ -71,7 +71,7 @@ YFM에서 `published: false`로 정의하면 된다.
 ## 4. local Jekyll로 결과 확인
 github pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 은근히 걸리기 때문에, local에서 바로바로 확인하고 업로드하는게 편하다.  
 
-local에 설치된 Jekyll을 작동시켜서 local 호스팅을 띄우는 명령어는 다음과 같다.
+local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명령어는 다음과 같다.
 
 ```powershell
 > bundle exec jekyll serve
@@ -98,7 +98,7 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 {: .notice--warning}
 
 ### 4-1. ⚡작업할 때
-개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--unpublished` 두 옵션을 주로 사용한다.
+개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--drafts` 두 옵션을 주로 사용한다.
 
 - 업로드 결과와 동일하게 구동할 때
 
@@ -107,17 +107,17 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 > bundle exec jekyll serve --future
 
 # 호스팅을 해서 다른 디바이스에서도 확인하고 싶을 때
-> bundle exec jekyll serve --future -H 192.168.0.5
+> bundle exec jekyll serve --future -H [IP_address]
 ```
 
 - 전체 작성물을 모두 확인할 때
 
 ```powershell
 # local에서만 확인할 때
-> bundle exec jekyll serve --future --unpublished
+> bundle exec jekyll serve --future --drafts
 
 # 호스팅을 해서 다른 디바이스에서도 확인하고 싶을 때
-> bundle exec jekyll serve --future --unpublished -H 192.168.0.5
+> bundle exec jekyll serve --future --drafts -H [IP_address]
 ```
 
 ## 5. 각종 블로그 스타일 수정

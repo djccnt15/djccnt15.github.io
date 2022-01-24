@@ -1,7 +1,7 @@
 ---
 title: "웹사이트 모니터링 프로젝트 01"
 excerpt: "프로젝트의 목적과 기초 구상"
-published: false
+published: true
 use_math: false
 
 toc: true
@@ -11,7 +11,6 @@ categories:
   - announcement monitoring
 tags:
   - web scraping
-  - unpublished
 ---
 # {{ page.excerpt }}
 ---
