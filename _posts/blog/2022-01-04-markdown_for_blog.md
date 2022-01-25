@@ -73,14 +73,14 @@ info notice
 {% endraw %}{: .notice--info}
 
 {% raw %}
-warning notice  
-문단 뒤에 `{: .notice--warning}` 추가
-{% endraw %}{: .notice--warning}
-
-{% raw %}
 success notice  
 문단 뒤에 `{: .notice--success}` 추가
 {% endraw %}{: .notice--success}
+
+{% raw %}
+warning notice  
+문단 뒤에 `{: .notice--warning}` 추가
+{% endraw %}{: .notice--warning}
 
 {% raw %}
 danger notice  

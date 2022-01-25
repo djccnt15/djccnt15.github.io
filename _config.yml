@@ -72,9 +72,9 @@ google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
 # SEO Related
-google_site_verification :
+google_site_verification : "googledcc9b004c09e33d2"
 bing_site_verification   :
-naver_site_verification  :
+naver_site_verification  : "naver0ef14c1f7e42352df2b376f52fe3870b"
 yandex_site_verification :
 baidu_site_verification  :
 
@@ -111,13 +111,16 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:djccnt15@email.com"
+      url: "mailto:djccnt15@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://djccnt15.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/djccnt15"
+    - label: "Business Contact"
+      icon: "fas fa-fw fa-envelop"
+      url: "mailto:doorheon.jeong@wizcore.co.kr"
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
     #   # url: "https://twitter.com/"
