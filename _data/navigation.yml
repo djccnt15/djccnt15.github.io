@@ -2,8 +2,8 @@
 main:
   - title: "Home"
     url: https://djccnt15.github.io/
-  - title: "About"
-    url: /about/
+  # - title: "About"
+  #   url: /about/
   # - title: "Posts by Year"
   #   url: /year-archive/
   - title: "Posts by Month"

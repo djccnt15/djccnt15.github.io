@@ -12,7 +12,6 @@ categories:
 tags:
   - python
   - data mining
-  - dataframe
   - pandas
   - numpy
 ---
@@ -145,6 +144,10 @@ df['b'] = np.select(
 
 print(df)
 ```
+
+💡위와 같이 원본데이터를 수정하면서 `default`에 원본 데이터가 그대로 들어가는 경우 `dafault`는 생략해도 된다.
+{: .notice--info}
+
 ```markdown
    a   b
 0  2   1

@@ -119,7 +119,7 @@ author:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/djccnt15"
     - label: "Business Contact"
-      icon: "fas fa-fw fa-envelop"
+      icon: "fas fa-fw fa-address-card"
       url: "mailto:doorheon.jeong@wizcore.co.kr"
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
