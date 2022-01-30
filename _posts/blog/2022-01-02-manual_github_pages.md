@@ -1,6 +1,6 @@
 ---
-title: "블로그 사용법"
-excerpt: "Github Pages와 Minimal Mistakes 사용법"
+title: "블로그 customizing"
+excerpt: "Minimal Mistakes customizing"
 published: true
 use_math: false
 
@@ -17,7 +17,7 @@ updated_at: 2022-01-02 #T08:06:00-05:00
 ---
 # {{ page.excerpt }}
 ---
-블로그의 각종 설정들에 대한 기록들
+블로그의 각종 설정 및 수정들에 대한 정리
 
 ## 1. 포스트 작성은 markdown으로
 markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다.  
@@ -123,28 +123,40 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 ## 5. 각종 블로그 스타일 수정
 ### 5-1. 스킨 수정
 스킨을 수정하고 싶을 때는  
-1. `/assets/css/main.scss` 파일에 입력해서 오버라이드 하거나  
+1. `/assets/css/main.scss`에 입력해서 오버라이드 하거나  
 2. `/_sass/minimal-mistakes/skins`에서 각 스킨들을 직접 건드리면 된다.  
 
-나는 default 스킨을 아주 조금만 건드리고 싶고, 다른 스킨들은 건드리기 싫어서 `_default.scss` 파일에 아래와 같은 내용을 입력해줬다.
+나는 default 스킨만 조금 수정하고 다른 스킨들은 건드리기 싫어서 `/_sass/minimal-mistakes/skins/_default.scss`에 아래와 같은 내용을 추가해줬다.
 
 ```scss
+// customize skin color
 $background-color: #eeeeee !default;
-$text-color: #222831 !default;
-$muted-text-color: #393e46 !default;
-$primary-color: #7a7a7a !default;
+$text-color: #2a2231 !default;
+$muted-text-color: #403946 !default;
+$primary-color: #222222 !default;
 $border-color: mix(#fff, #393e46, 75%) !default;
-$footer-background-color: $primary-color !default;
+$footer-background-color: mix(#fff, $primary-color, 80%) !default;
+$link-color: #39006e !default;
 $masthead-link-color: $text-color !default;
 $masthead-link-color-hover: $text-color !default;
 $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 
-.page__footer {
-  color: #fff !important; // override
+.pagination--pager:hover {
+  background-color: $link-color !important; //override
+  // color: #fff;
 }
 
-.page__footer-follow .social-icons .svg-inline--fa {
-  color: inherit;
+// customize remote buttons color
+.fa-h-square:before {
+  color: #a3a3a3;
+}
+
+.fa-caret-square-up:before {
+  color: #a3a3a3;
+}
+
+.fa-caret-square-down:before {
+  color: #a3a3a3;
 }
 ```
 
@@ -197,7 +209,7 @@ $max-width: $x-large !default;
 }
 ```
 
-### 5-5. 링크 밑줄
+### 5-5. 링크 밑줄 설정
 `/_sass/minimal-mistakes/_base.scss`의 `/* links */` 수정
 
 ```scss
@@ -206,7 +218,7 @@ a {
 }
 ```
 
-### 5-6. favicon 지정
+### 5-6. favicon 설정
 `/assets/images/logo.ico` 폴더에 favicon 파일들 저장 후 `/_includes/head/custom.html`에 아래 내용 추가
 
 ```html
@@ -220,7 +232,7 @@ a {
 ```
 
 ### 5-7. Posts by Month 작성
-`/_layouts/monthly.html`파일을 만들고 아래 내용을 입력
+`/_layouts/monthly.html` 생성 후 아래 내용 입력
 
 ```html{% raw %}
 ---
@@ -254,7 +266,7 @@ layout: archive
 {% endfor %}
 {% endraw %}```
 
-`/_pages/monthly-archive.md`파일 생성 후 아래 내용 입력
+`/_pages/monthly-archive.md` 생성 후 아래 내용 입력
 
 ```markdown
 ---
@@ -265,7 +277,7 @@ author_profile: true
 ---
 ```
 
-`/_data/navigation.yml`파일의 `main`항목에 아래 내용 추가
+`/_data/navigation.yml`의 `main`항목에 아래 내용 추가
 
 ```yml
 main:
@@ -274,7 +286,7 @@ main:
 ```
 
 ### 5-8. timezone 설정
-`/_config.yml`에 timezone이 설정된 경우 `Gemfile`에 아래 코드를 넣어줘야 local에서 Jekyll을 구동시킬 수 있다.  
+`/_config.yml`에 timezone이 설정된 경우 `/Gemfile`에 아래 코드를 넣어줘야 local에서 Jekyll을 구동시킬 수 있다.  
 
 ```ruby
 gem 'tzinfo'
@@ -283,8 +295,85 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 Minimal Mistakes의 [Configuration](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) 문서에 따르면 default는 os에 설정된 local timezone으로 설정되어 있기 때문에 어지간해서는 굳이 설정할 필요는 없다.
 
+### 5-9. 업로드 날짜 보이기
+`minimal mistakes`는 기본 설정으로 읽는 시간이 표시되어 있도록 구성되어 있는데, 영 쓸모가 없다. 읽는 시간 대신 업로드 날짜를 보이게 하려면, 아래와 같이 `/_config.yml`에서 `read_time`을 `false`로, `show_date`를 `true`로 수정해주면 된다.  
+
+```yml
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      show_date: true
+      comments: false
+      share: true
+      related: false
+
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      show_date: true
+      comments: false
+      share: true
+      related: false
+```
+
+### 5-10. 단축 버튼 만들기
+홈페이지, 맨 위로, 맨 아래로 보내는 단축 버튼 만드는 방법  
+`/_sass/minimal-mistakes/_sidebar.scss`에 아래 내용 추가
+
+```scss
+.sidebar__home {
+  position: fixed;
+  bottom: 0.5em;
+  right: 5.2em;
+  z-index: 10;
+}
+
+.sidebar__top {
+  position: fixed;
+  bottom: 0.5em;
+  right: 3.2em;
+  z-index: 10;
+}
+
+.sidebar__bottom {
+  position: fixed;
+  bottom: 0.5em;
+  right: 1.2em;
+  z-index: 10;
+}
+```
+
+`/layouts/default.html`의 `<body>`에 아래 내용 추가
+
+```html
+<html>
+  <body>
+    <aside class="sidebar__home">
+      <a href="/"> <i class="fas fa-h-square fa-2x"></i></a>
+    </aside>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav"> <i class="fas fa-caret-square-up fa-2x"></i></a>
+    </aside>
+
+    <aside class="sidebar__bottom">
+      <a href="#footer"> <i class="fas fa-caret-square-down fa-2x"></i></a>
+    </aside>
+```
+
 ## 6. MathJax로 수학식 표시하기
-`/_includes/mathjax_support.html` 파일 생성 및 아래 내용 입력  
+`/_includes/mathjax_support.html` 생성 및 아래 내용 입력  
 
 ```html
 <script type="text/x-mathjax-config">
@@ -314,13 +403,13 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
 
 `/_layouts/default.html`의 `<head>` 부분에 아래 내용 삽입
 
-```html{% raw %}
+```scss{% raw %}
 {% if page.use_math %}
   {% include mathjax_support.html %}
 {% endif %}
 {% endraw %}```
 
-수식을 사용할 포스트의 `YFM`을 `true`로 설정해야 한다.  
+수식을 사용할 포스트의 `YFM`을 아래와 같이 설정해야 한다.  
 
 ```markdown
 use_math: true
@@ -333,3 +422,4 @@ use_math: true
 - [Jekyll Github 블로그에 MathJax로 수학식 표시하기](https://mkkim85.github.io/blog-apply-mathjax-to-jekyll-and-github-pages/)
 - [[Github Blog] 파비콘(Favicon) 세팅하기](https://velog.io/@eona1301/Github-Blog-%ED%8C%8C%EB%B9%84%EC%BD%98Favicon-%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0)
 - [Github.io 월별 게시글 분류 추가하기](https://danggai.github.io/github.io/Github.io-%EC%9B%94%EB%B3%84-%EA%B2%8C%EC%8B%9C%EA%B8%80-%EB%B6%84%EB%A5%98-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0/)
+- [Include "Back to top" Icon](https://github.com/mmistakes/minimal-mistakes/issues/1731)
