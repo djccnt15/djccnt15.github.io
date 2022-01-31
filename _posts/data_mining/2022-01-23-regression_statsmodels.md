@@ -2,7 +2,7 @@
 title: "python 회귀분석"
 excerpt: "statsmodels을 이용해서 회귀분석을 해보자"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true
@@ -51,7 +51,7 @@ print(df)
 ```
 
 ## 1. statsmodels.api
-💡`statsmodels.api`을 통해서 회귀분석을 시행할 경우 별도로 독립변수에 상수항을 추가해줘야 한다.  
+💡 `statsmodels.api`을 통해서 회귀분석을 시행할 경우 별도로 독립변수에 상수항을 추가해줘야 한다.  
 {: .notice--warning}
 
 상수항을 추가하기 위해서는 `statsmodels`이 제공하는 `add_constant()`를 사용해주면 간단하다.  
@@ -202,9 +202,8 @@ res = smf.ols(formula='Lottery ~ np.log(Literacy)', data=df).fit()
 ```
 
 ## 3. 결과 해석
-이 글은 미완성입니다.
+❗ 이 글은 미완성입니다.
 {: .notice--warning}
-
 `summary()` 화면에 나오는 용어들의 뜻은 다음과 같다.  
 
 - Dep. Variable: 종속변수

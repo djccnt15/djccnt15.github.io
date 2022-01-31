@@ -2,7 +2,7 @@
 title: "선형회귀 구현"
 excerpt: "단순 선형회귀를 기초부터 구현해보자"
 published: true
-use_math: true
+mathjax: true
 
 toc: true
 toc_sticky: true

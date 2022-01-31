@@ -2,7 +2,7 @@
 title: "DataFrame의 조건부 변환"
 excerpt: "조건에 맞는 데이터를 찾고 수정하기"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true

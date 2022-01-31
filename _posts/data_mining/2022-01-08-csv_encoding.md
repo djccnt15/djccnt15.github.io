@@ -2,7 +2,7 @@
 title: "csv 인코딩"
 excerpt: "pandas로 csv 인코딩 바꾸기"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true

@@ -1,8 +1,8 @@
 ---
 title: "마크다운 활용팁"
-excerpt: "블로그 작성에 사용한 유용한 팁들"
+excerpt: "posting에 유용한 팁들"
 published: true
-use_math: true
+mathjax: true
 
 toc: true
 toc_sticky: true
@@ -15,9 +15,7 @@ tags:
 ---
 # {{ page.excerpt }}
 ---
-블로그 내용을 작성하는데 사용된 유용한 마크다운 팁들 모음
-
-## 1. 이모지들
+## 1. 이모지
 ⭐❗💡🏷️🔖📎  
 ⚡🌟🌠☄️🌈🔥💧❄️  
 🥞🧀🥓🍔🍕🍺  
@@ -41,7 +39,7 @@ tags:
 ```
 
 ### 2-2. 동영상 삽입
-마크다운은 동영상 임베드를 허용하지 않아서 아래와 같이 미리보기를 띄우고 링크를 거는 수밖에 없다. 난 평소에도 임베드 보다는 유튜브에서 직접 보는 것을 선호하는데 아주 내 취향이다.  
+마크다운은 기본적으로 동영상 임베드를 허용하지 않아서 아래와 같이 미리보기를 띄우고 링크를 걸어야 한다. 난 평소에도 임베드 보다는 유튜브에서 직접 보는 것을 선호하는데 아주 내 취향이다.  
 
 예시 동영상은 유튜브의 첫번째 비디오이다.  
 
@@ -52,6 +50,14 @@ tags:
 ```markdown
 [![IMAGE_ALT_TEXT](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/YOUTUBE_VIDEO_ID_HERE)
 ```
+
+만약 유튜브 동영상을 임베드 하고 싶다면 유튜브 동영상을 우클릭하여 `소스 코드 복사`를 한 다음에 붙여넣으면 된다.  
+
+<iframe width="675" height="506" src="https://www.youtube.com/embed/jNQXAC9IVRw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+\
+Minimal Mistakes 테마가 제공하는 방법을 써도 된다.  
+
+{% include video id="jNQXAC9IVRw" provider="youtube" %}
 
 ## 3. notice 스타일
 Minimal Mistakes 테마는 notice 스타일을 제공하는데,  
@@ -91,12 +97,31 @@ danger notice
 수식을 입력할 때는 우선 수식을 사용할 포스트의 `YFM`을 설정한 후,  
 
 ```markdown
-use_math: true
+mathjax: true
 ```
 
-아래와 같이 양 끝에 `$`표시를 하고 `LaTex`문법을 사용하면 된다.  
+양 끝에 `$`, `$$`표시를 하고 `LaTex`문법을 사용하면 된다.  
 
-- 입력: `$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$`
-- 출력: $\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$
+- inlineMath: `$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$`
 
-[CodeCogs Equation Editor](https://latex.codecogs.com/)을 이용하면 쉽게 `LaTex`수식을 만들 수 있다.  
+$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$
+{: .notice}
+
+- displayMath: `$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$`  
+
+$$ \bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i} $$
+{: .notice}
+
+
+💡 [CodeCogs Equation Editor](https://latex.codecogs.com/)을 이용하면 쉽게 `LaTex`수식을 만들 수 있다.  
+{: .notice--info}
+
+## 5. 강제 줄바꿈
+마크다운은 엔터 공백이나 double space로 줄을 바꿔주는데, 기본 기능으로는 한 줄 이상 빈 줄이 들어가지도 않고, html 코드와 겹치면서 줄바꿈이 되지 않는 경우도 있다. 그럴 땐 `<br>`이나 `\`을 넣어주면 된다.
+
+## 6. Django 템플릿 인식 금지
+Django 템플릿 ```{% raw %} {% %} {% endraw %}```을 인식하지 않도록 작성하고 싶을 때는 앞 뒤로 `{{ "{% raw "}}%}  {{ "{% endraw "}}%}`을 넣어주면 된다.
+
+```markdown
+{{ "{% raw "}}%}  {{ "{% endraw "}}%}
+```

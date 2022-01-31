@@ -12,8 +12,8 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
-    {% if page.use_math %}
-      {% include mathjax_support.html %}
+    {% if page.mathjax %}
+      {% include mathjax.html %}
     {% endif %}
   </head>
 
@@ -40,15 +40,21 @@
     </div>
 
     <aside class="sidebar__home">
-      <a href="/"> <i class="fas fa-h-square fa-2x"></i></a>
+      <a href="/">
+        <div style="font-size: 0.5rem;"><i class="fas fa-h-square fa-5x"></i></div>
+      </a>
     </aside>
 
     <aside class="sidebar__top">
-      <a href="#site-nav"> <i class="fas fa-caret-square-up fa-2x"></i></a>
+      <a href="#site-nav">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-up fa-5x"></i></div>
+      </a>
     </aside>
 
     <aside class="sidebar__bottom">
-      <a href="#footer"> <i class="fas fa-caret-square-down fa-2x"></i></a>
+      <a href="#footer">
+        <div style="font-size: 0.5rem;"><i class="fas fa-caret-square-down fa-5x"></i></div>
+      </a>
     </aside>
 
     {% include scripts.html %}

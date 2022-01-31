@@ -2,7 +2,7 @@
 title: "런타임 확인"
 excerpt: "코드의 런타임을 확인하는 방법"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true

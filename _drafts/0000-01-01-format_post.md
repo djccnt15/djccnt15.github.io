@@ -2,7 +2,7 @@
 title: "기초서식"
 excerpt: "기초서식"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true

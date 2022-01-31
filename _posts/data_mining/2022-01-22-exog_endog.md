@@ -2,7 +2,7 @@
 title: "exog, endog"
 excerpt: "독립변수와 종속변수의 변수명"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true

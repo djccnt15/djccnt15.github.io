@@ -2,7 +2,7 @@
 title: "Github 블로그 시작하기"
 excerpt: "github.io 블로그로 결정한 이유"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true

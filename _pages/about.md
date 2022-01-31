@@ -1,14 +1,13 @@
 ---
-title: "About Me"
+title: "Portfolio and Resume"
 permalink: /about/
 layout: single
 
 toc: true
 toc_sticky: true
 ---
-# Portfolio and Resume
-
-## 정도현 (Doorheon, Jeong)
+## About Me
+- Name: **정도현 (Doorheon, Jeong)**
 - Github: **[github.com/djccnt15](https://github.com/djccnt15)**
 - Personal Contact: **[djccnt15@gmail.com](mailto:djccnt15@gmail.com)**
 - Business Contact: **[doorheon.jeong@wizcore.co.kr](mailto:doorheon.jeong@wizcore.co.kr)**
@@ -37,9 +36,9 @@ toc_sticky: true
 
 ### Projects
 - 2021 ~ 2022. 데이터인프라구축 AI 솔루션 실증 지원사업: 위즈코어
-    - CAST(깁스) 제품 LOT 수율 예측 AI 모델 개발
-    - SPLINT(반깁스) 제품 LOT 수율 예측 AI 모델 개발
-    - STL(Steel Plate 철판) 제품 양/불 판정 예측 AI 모델 개발
+    - AI 기반 CAST(깁스) 제품 LOT 수율 예측 모델 개발
+    - AI 기반 SPLINT(반깁스) 제품 LOT 수율 예측 모델 개발
+    - AI 기반 STL(Steel Plate 철판) 제품 양/불 판정 예측 모델 개발
 - 2020 ~ 2021. 빅데이터 플랫폼 및 센터 구축사업: 충북대학교 지능정보시스템 연구실
     - 농작물 분류 AI 학습데이터셋 구축
 

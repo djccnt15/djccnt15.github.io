@@ -2,7 +2,7 @@
 title: "pandas 옵션 설정"
 excerpt: "pandas.set_option"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true

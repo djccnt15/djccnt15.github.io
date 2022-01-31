@@ -2,7 +2,7 @@
 title: "깨끗한 코드"
 excerpt: "깨끗한 코드를 위한 팁"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true

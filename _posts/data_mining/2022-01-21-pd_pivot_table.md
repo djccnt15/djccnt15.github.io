@@ -1,8 +1,8 @@
 ---
-title: "pandas의 pivot_table"
-excerpt: "pivot_table로 데이터 정제하기"
+title: "python으로 pivot table 작업하기"
+excerpt: "pandas pivot_table, groupby"
 published: true
-use_math: false
+mathjax: false
 
 toc: true
 toc_sticky: true
@@ -18,7 +18,7 @@ tags:
 # {{ page.excerpt }}
 ---
 엑셀에는 데이터 재구조화 및 요약 기능을 제공하는 `pivot table`이라는 아주 강력한 데이터 분석 툴이 있다.  
-거의 똑같은 기능을 `pandas`에서도 `pivot_table`이라는 함수를 통해 제공하는데 심지어 공식문서에서 대놓고 `An Excel style pivot table.`을 리턴한다고 명시하고 있다. 그 기능을 알아보자  
+거의 똑같은 기능을 `pandas`에서도 `pivot_table`이라는 함수를 통해 제공하는데 심지어 공식문서에서 대놓고 `An Excel style pivot table.`을 리턴한다고 명시하고 있다.  
 
 ## 0. 데이터 준비
 샘플데이터는 `pydataset` 패키지가 제공하는 `Housing`을 사용한다.  
@@ -43,10 +43,12 @@ print(df)
 544  103000.0     6000         3        2        4      yes     yes       no    no   yes         1       no
 545  105000.0     6000         3        2        2      yes     yes       no    no   yes         1       no
 546  105000.0     6000         3        1        2      yes      no       no    no   yes         1       no
+
+[546 rows x 12 columns]
 ```
 
-## 1. pandas.pivot_table의 인자들
-`pandas.pivot_table`의 주요 인자들은 아래와 같다.  
+## 1. pandas.pivot_table
+`pivot_table`은 요약할 데이터를 인자로 받는 함수다. `pandas.pivot_table`의 주요 인자들은 아래와 같다.  
 
 - data: 분석할 데이터
 - values: 요약될 값
@@ -59,7 +61,6 @@ print(df)
 - margins_name: 그룹별 부분합계와 총합계의 이름으로 표시될 문자열 데이터
 {: .notice}
 
-## 2. 실습
 `recroom`과 `bedrooms`에 따른 `lotsize`의 평균을 구하려면 아래와 같다.  
 
 ```python
@@ -163,6 +164,38 @@ yes   no          6540  3968.000000  2175      15
       yes        15600  6034.841772  2275     158
 ```
 
+## 2. pandas.DataFrame.groupby
+`groupby`는 `pivot_table`과 비슷한 기능을 하는 DataFrame의 메서드로 그룹화에 강점이 있다. `pandas.DataFrame.groupby`의 주요 인자는 아래와 같다.  
+
+- by: 요약될 칼럼
+- axis: 0 or ‘index’, 1 or ‘columns’
+{: .notice}
+
+`recroom`과 `bedrooms` 값의 요약을 아래와 같이 구할 수 있다.  
+
+```python
+import pandas as pd
+
+res = df.groupby(by=['recroom', 'bedrooms'], axis=0).size()
+
+print(res)
+```
+```markdown
+recroom  bedrooms
+no       1             2
+         2           120
+         3           243
+         4            74
+         5             8
+         6             2
+yes      2            16
+         3            58
+         4            21
+         5             2
+dtype: int64
+```
+
 ---
 # Reference
 - [pandas.pivot_table](https://pandas.pydata.org/docs/reference/api/pandas.pivot_table.html)
+- [pandas.DataFrame.groupby](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html)
