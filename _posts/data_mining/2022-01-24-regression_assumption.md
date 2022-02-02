@@ -17,7 +17,7 @@ tags:
 # {{ page.excerpt }}
 ---
 선형회귀는 분석 데이터가 선형성, 독립성, 등분산성, 정규성의 성질을 갖는다고 가정하기 때문에 좋은 선형 회귀분석 모델을 만들기 위해서는 네개의 기본가정을 모두 만족하는지 확인해야 한다.  
-`iris` 데이터를 통해 네가지 기본가정이 선형회귀 모델에 미치는 영향을 확인해보자.  
+`iris` 데이터를 통해 네 가지 기본가정이 선형회귀 모델에 미치는 영향을 확인해보자.  
 
 ## 0. 예제 데이터
 
@@ -127,7 +127,15 @@ plt.show()
 
 ![iris_pairplot](/assets/images/posts/iris_pairplot_2.png)
 
-Petal_Length와 Petal_Width의 영향도를 제거한 Rest_Sepal_Width를 Sepal_Width와 비교해보면 선형성이 아주 약간 생긴 것을 확인할 수 있다. Sepal_Width의 영향력을 확인하기 위해 Sepal_Width와 Sepal_Length를 단변량 회귀 분석을 통해 확인해보자.  
+Petal_Length와 Petal_Width의 영향도를 제거한 Rest_Sepal_Width를 Sepal_Width와 비교해보면 선형성이 아주 약간 생긴 것을 확인할 수 있다.  
+
+Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값을 위와 같이 계산하는 이유는 Sepal_Length를 $y$, Sepal_Width를 $x_{0}$, Petal_Length를 $x_{1}$, Petal_Width를 $x_{2}$라고 할 때 회귀식은 아래와 같이 정리되고,<br><br>
+$y = \beta_{0}x_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \varepsilon$<br><br>
+따라서 $\beta_{0}x_{0}$인 Rest_Sepal_Width는 아래와 같이 정리되기 때문이다.<br><br>
+$\beta_{0}x_{0} = y - \beta_{1}x_{1} - \beta_{2}x_{2} + \varepsilon$ ($\varepsilon$은 잔차이기 때문에 무시)
+{: .notice--info}
+
+Sepal_Width의 영향력(결정계수)을 확인하기 위해 Sepal_Width와 Sepal_Length를 단변량 회귀 분석을 통해 확인해보자.  
 
 ```python
 import statsmodels.formula.api as smf
@@ -167,7 +175,7 @@ Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 ```
 
-Sepal_Width의 유의확률(p-value)이 0.152로 0.05보다 크기 때문에 Sepal_Width 단독으로는 Sepal_Length에 영향력이 없다는 귀무가설을 기각할 수 없다. 즉, Sepal_Width가 Sepal_Width에 영향력이 없다고 해석된다.
+Sepal_Width의 유의확률(p-value)이 0.152로 0.05보다 크기 때문에 Sepal_Width 단독으로는 Sepal_Length에 영향력이 없다는 귀무가설을 기각할 수 없다. 즉, Sepal_Width가 Sepal_Length에 영향력이 없다고 해석된다.
 
 ## 2. 독립성(다중공선성)
 독립성이란 독립변수 간에 상관관계가 없이 독립성을 만족하는 특성을 의미하며, 다중회귀분석에서 중요하게 다뤄지는 가정이다.  
@@ -213,7 +221,8 @@ Petal_Length와 Petal_Width의 상관성이 0.96으로 매우 높게 나오는�
 
 $$VIF_{i} = \tfrac{1}{1-{R_{i}}^{2}}$$
 
-**VIF가 10이 넘으면 다중공선성 있다고 판단하며 5가 넘으면 주의할 필요가 있는 것**으로 보는데, 독립 변수 a와 b가 서로 상관 관계가 있다고 했을 때 두 변수 모두 VIF가 높고, 어느 하나만 VIF가 높은 경우는 없다. 서로 연관 있는 변수끼리 VIF가 높다.
+❗ **VIF가 10이 넘으면 다중공선성이 있으며 5가 넘으면 주의할 필요가 있다**고 보는데, 독립 변수 a와 b가 서로 상관 관계가 있다고 했을 때 두 변수 모두 VIF가 높고, 어느 하나만 VIF가 높은 경우는 없다. 서로 연관 있는 변수끼리 VIF가 높다.
+{: .notice--warning}
 
 ```python
 import statsmodels.formula.api as smf
@@ -388,7 +397,7 @@ Notes:
 
 ---
 # Alternatives
-만약 통계분석이 아닌 머신러닝이나 딥러닝 기법을 사용해서 예측 모델을 만드는 것만이 목표라면 위의 네가지 전제조건들을 굳이 고려할 필요는 없다고 한다.  
+만약 통계분석이 아닌 머신러닝이나 딥러닝 기법을 사용해서 예측 모델을 만드는 것만이 목표라면 위의 네 가지 전제조건들을 굳이 고려할 필요는 없다고 한다.  
 회귀분석의 설명력이나 각 변수들의 유의확률과는 관계없이 반복 학습을 통해서 정확도가 높은 모델을 만들 수 있기 때문이 아닐까 생각한다.  
 그래도 모델 성능을 최대한으로 끌어올리기 위해서는 회귀분석의 전제조건을 한번쯤 고려해보는 것이 좋지 않을까 한다.
 

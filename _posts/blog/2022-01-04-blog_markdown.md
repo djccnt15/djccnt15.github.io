@@ -109,15 +109,19 @@ $\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$
 
 - displayMath: `$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$`  
 
-$$ \bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i} $$
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 {: .notice}
 
+❗ `LaTex`문법 중간에 띄어쓰기가 들어가 있으면 수식이 제대로 인식 되지 않는다.  
+입력: `$\beta_{0}x_{0}$`, `$\beta _{0}x_{0}$`  
+출력: $\beta_{0}x_{0}$, $\beta _{0}x_{0}$
+{: .notice--warning}
 
 💡 [CodeCogs Equation Editor](https://latex.codecogs.com/)을 이용하면 쉽게 `LaTex`수식을 만들 수 있다.  
 {: .notice--info}
 
 ## 5. 강제 줄바꿈
-마크다운은 엔터 공백이나 double space로 줄을 바꿔주는데, 기본 기능으로는 한 줄 이상 빈 줄이 들어가지도 않고, html 코드와 겹치면서 줄바꿈이 되지 않는 경우도 있다. 그럴 땐 `<br>`이나 `\`을 넣어주면 된다.
+마크다운은 엔터 공백이나 double space로 줄을 바꿔주는데, 기본 기능으로는 한 줄 이상 빈 줄이 들어가지도 않고, html 코드와 겹치면서 줄바꿈이 되지 않는 경우도 있다. 그럴 땐 `<br>`이나 `\`을 넣어주면 된다. `<br>`를 이용하면 문단단위로 박스에 들어가는 `{: .notice}` 안 에서 빈 줄을 넣어 줄 수 있다.
 
 ## 6. Django 템플릿 인식 금지
 Django 템플릿 ```{% raw %} {% %} {% endraw %}```을 인식하지 않도록 작성하고 싶을 때는 앞 뒤로 `{{ "{% raw "}}%}  {{ "{% endraw "}}%}`을 넣어주면 된다.
