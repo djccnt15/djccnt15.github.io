@@ -29,7 +29,9 @@ tags:
 
 ## 3. 함수의 argument는 3개나 그 이하로
 인자가 3개 이상이 될 경우 configuration object를 사용할 것을 추천함  
-파이썬에서는 의미 없는 듯? 굳이 하고 싶다면 아래와 같이 asterisk를 사용해서 argument unpacking을 통해 인자를 하면 된다.  
+데이터 분석이나 AI분야들은 유용한 패키지들 부터가 인자를 10개도 넘게 받는 경우가 많아 크게 의미는 없다.  
+그래도 해당 패키지들을 사용하는 연구자가 이 부분을 고려해서 작업한다면 코드가 훨씬 깨끗하고 나중에 다시 이해하기 쉬울 것이다.  
+아래와 같이 `asterisk`를 사용해서 `argument unpacking`을 통해 인자를 인식하게 하면 된다. 상황에 따라 다르겠지만 개인적으로는 가능하다면 `args` 방식보다는 `kwargs` 방식을 더 선호한다. 코드는 언제나 `explicit`해야 한다.
 
 ```python
 def func(a, b):
@@ -40,7 +42,7 @@ args = [1, 2]
 test2 = test_func(*args)
 
 # kwargs일 때
-kwargs = {'a' : 1, 'b' : 3}
+kwargs = {'a': 1, 'b': 3}
 test = test_func(**kwargs)
 ```
 
@@ -52,5 +54,5 @@ if else에 따라 동작이 달라지는 함수는 기능별로 쪼개는 것이
 
 ---
 # Reference
-- [노마드코더](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ): [깨끗한 코드를 위한 5가지 팁](https://youtu.be/Jz8Sx1XYb04)
-[![보러가기](https://img.youtube.com/vi/Jz8Sx1XYb04/0.jpg)](https://youtu.be/Jz8Sx1XYb04)
+- [노마드코더](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ): [깨끗한 코드를 위한 5가지 팁](https://youtu.be/Jz8Sx1XYb04)  
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/Jz8Sx1XYb04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

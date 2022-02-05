@@ -59,6 +59,12 @@ Minimal Mistakes 테마가 제공하는 방법을 써도 된다.
 
 {% include video id="jNQXAC9IVRw" provider="youtube" %}
 
+사용하는 코드는 아래와 같다.  
+
+```scss{% raw %}
+{% include video id="YOUTUBE_VIDEO_ID" provider="youtube" %}
+{% endraw %}```
+
 ## 3. notice 스타일
 Minimal Mistakes 테마는 notice 스타일을 제공하는데,  
 사용법은 문단 뒤에 {% raw %}`{: .notice}`{% endraw %}를 입력하면 된다.  

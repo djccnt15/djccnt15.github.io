@@ -131,8 +131,8 @@ Petal_Length와 Petal_Width의 영향도를 제거한 Rest_Sepal_Width를 Sepal_
 
 Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값을 위와 같이 계산하는 이유는 Sepal_Length를 $y$, Sepal_Width를 $x_{0}$, Petal_Length를 $x_{1}$, Petal_Width를 $x_{2}$라고 할 때 회귀식은 아래와 같이 정리되고,<br><br>
 $y = \beta_{0}x_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \varepsilon$<br><br>
-따라서 $\beta_{0}x_{0}$인 Rest_Sepal_Width는 아래와 같이 정리되기 때문이다.<br><br>
-$\beta_{0}x_{0} = y - \beta_{1}x_{1} - \beta_{2}x_{2} + \varepsilon$ ($\varepsilon$은 잔차이기 때문에 무시)
+따라서 종속변수 $y$에서 Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값인 Rest_Sepal_Width($\beta_{0}x_{0} + \varepsilon$)는 아래와 같이 정리되기 때문이다.<br><br>
+$\beta_{0}x_{0} + \varepsilon = y - \beta_{1}x_{1} - \beta_{2}x_{2}$
 {: .notice--info}
 
 Sepal_Width의 영향력(결정계수)을 확인하기 위해 Sepal_Width와 Sepal_Length를 단변량 회귀 분석을 통해 확인해보자.  
