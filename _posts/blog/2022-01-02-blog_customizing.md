@@ -166,7 +166,7 @@ defaults:
 <html>
   <body>
     <aside class="sidebar__home">
-      <a href="/">
+      <a href="/home/">
         <div style="font-size: 0.5rem;"><i class="fas fa-h-square fa-5x"></i></div>
       </a>
     </aside>

@@ -46,8 +46,7 @@ toc_sticky: true
 - ![numpy_logo](/assets/images/posts/logo_numpy.svg){: width="3%" height="3%"} [NumPy](https://numpy.org/)
 
 ## AI, Machine Learning, Deep Learning
-- ![tensorflow_logo](/assets/images/posts/logo_Tensorflow.svg){: width="3%" height="3%"} [TensorFlow](https://www.tensorflow.org/)
-- ![keras_logo](/assets/images/posts/logo_Keras.svg){: width="3%" height="3%"} [Keras](https://keras.io/)
+- ![tensorflow_logo](/assets/images/posts/logo_Tensorflow.svg){: width="3%" height="3%"} [TensorFlow](https://www.tensorflow.org/), ![keras_logo](/assets/images/posts/logo_Keras.svg){: width="3%" height="3%"} [Keras](https://keras.io/)
 - ![sklearn_logo](/assets/images/posts/logo_scikit-learn.png){: width="5%" height="5%"} [scikit-learn](https://scikit-learn.org/)
 
 ## Visualization
