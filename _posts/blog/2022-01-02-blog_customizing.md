@@ -76,7 +76,7 @@ $right-sidebar-width: 250px !default;         // default 300px
 $right-sidebar-width-wide: 250px !default;    // default 400px
 ```
 
-기본 좌우 여백이 거슬려서 `Breakpoints`도 아래와 같이 수정해봤는데, 막상 최소한으로 줄이니 답답한 느낌이 든다. 기본 값을 사용하는게 좋을 듯 하다.  
+기본 좌우 여백이 거슬려서 `Breakpoints`도 아래와 같이 수정해봤는데, 막상 최소한으로 줄이니 답답한 느낌이 들어 기본값으로 되돌렸다.  
 
 ```scss
 /*
@@ -185,7 +185,7 @@ defaults:
 ```
 
 ## 3. MathJax로 수학식 표시하기
-Github Pages에 수학식을 출력하는 방법은 여러가지가 있는데, 페이지 로딩이나 작성 편의성등을 고려했을 때 아래 방식이 제일 좋은 것 같다.  
+Github Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 페이지 로딩이나 작성 편의성 등을 고려했을 때 아래 방식이 제일 좋은 것 같다.  
 
 `/_includes/mathjax.html` 생성 및 아래 내용 입력  
 
@@ -225,7 +225,7 @@ Github Pages에 수학식을 출력하는 방법은 여러가지가 있는데, �
 mathjax: true
 ```
 
-글 작성 시 수식 입력 방법은 [여기](/blog/markdown_for_blog/#4-%EC%88%98%EC%8B%9D-%EC%9E%85%EB%A0%A5)에서 확인할 수 있다.
+글 작성 시 수식 입력 방법은 [여기](/blog/blog_markdown/#4-수식-입력)에서 확인할 수 있다.
 
 ## 4. favicon 설정
 `/assets/images/logo.ico` 폴더에 favicon 파일들 저장 후 `/_includes/head/custom.html`에 아래 내용 추가

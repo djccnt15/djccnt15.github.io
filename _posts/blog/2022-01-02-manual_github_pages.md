@@ -18,14 +18,15 @@ updated_at: 2022-01-02 #T08:06:00-05:00
 # {{ page.excerpt }}
 ---
 ## 1. 포스트 작성은 markdown으로
-markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다.  
+엄밀히 말하면 Github Pages를 통해 배포되기 때문에, `GitHub Flavored Markdown`이라는 별도의 markdown을 사용한다.  
+`GFM(GitHub Flavored Markdown)`에 대한 자세한 설명은 [여기](https://github.github.com/gfm/)로  
 
-그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨린다.  
+- [이 블로그에서 사용된 마크다운 활용법들 보러가기](/blog/blog_markdown)
 
-앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다  
-기본적으로 켜고 특정 workspace에서만 끄는게 안 되기 때문에.. 반대는 가능하지만  
+<sub>markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다.  
+그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨리기 때문에 앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다.  
+기본적으로 켜고 특정 workspace에서만 끄는게 안 되기 때문에.. 반대는 가능하지만</sub>
 
-[이 블로그에서 사용된 마크다운 활용법들 보러가기](/blog/markdown_for_blog)
 
 ## 2. YFM 정의 및 활용
 YFM(YAML Front Matter)은 markdown 파일의 최상단에 위치하며 3개의 하이픈으로 시작과 끝을 표시한다.  
@@ -53,21 +54,21 @@ YFM에서 `published: false`로 정의하면 된다.
 비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`를 붙여서 jekyll을 구동하면 된다.
 
 ```powershell
-> bundler exec jekyll serve --unpublished
+> bundle exec jekyll serve --unpublished
 ```
 
 ~~repository에 md 파일이 다 보일텐데 무슨 소용인지 싶긴한데.. 아무튼 가능하긴하다~~  
 [devinlife님의 블로그](https://devinlife.com/)를 보면서 질문하다 알게 되었는데, Github Pro를 사용하면 Github Pages의 repo를 비공개 설정 할 수 있다고 한다.  
 
 ### 3-2. _drafts 폴더에 작성하기
-`/_drafts` 폴더는 Github Pages가 외부로 보이게 출력하지 않는다. local에서 내용을 확인하고 싶다면 Jekyll에 `--drafts`를 붙여서 구동해야 한다.  
+`/_drafts` 폴더는 Github Pages가 외부로 배포하지 않도록 설정되어 있다. local에서 내용을 확인하고 싶다면 Jekyll에 `--drafts`를 붙여서 구동해야 한다.  
 
 ```powershell
-> bundler exec jekyll serve --drafts
+> bundle exec jekyll serve --drafts
 ```
 
 ## 4. local Jekyll로 결과 확인
-github pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 은근히 걸리기 때문에, local에서 바로바로 확인하고 업로드하는게 편하다.  
+github pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 은근히 걸리기 때문에, local에서 확인하고 검토한 다음에 최종본을 업로드하는게 편하다.  
 
 local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명령어는 다음과 같다.
 
@@ -76,7 +77,7 @@ local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명
 ```
 
 미래 날짜로 작성한 포스트를 local에서 확인하려면 아래와 같이 `--future`를 붙여야 한다.  
-직접 확인해보지는 않았지만 Github Pages에서는 미래날짜로 업로드해도 정상적으로 출력된다고 한다.  
+직접 확인해보지는 않았지만 Github Pages에서는 미래 날짜로 업로드해도 정상적으로 출력된다고 한다.  
 
 ```powershell
 > bundle exec jekyll serve --future

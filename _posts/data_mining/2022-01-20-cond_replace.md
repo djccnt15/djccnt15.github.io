@@ -21,6 +21,7 @@ tags:
 그럴 때 사용할 수 있는 방법들이 있다.  
 
 ## 0. 예제 데이터 생성
+
 ```python
 import pandas as pd
 
