@@ -11,6 +11,7 @@ categories:
   - python
 tags:
   - python
+  - datetime
   - time
 ---
 # {{ page.excerpt }}

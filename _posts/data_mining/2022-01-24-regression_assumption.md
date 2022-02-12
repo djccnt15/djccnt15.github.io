@@ -380,9 +380,9 @@ Notes:
 등분산검정(Equal-variance test)은 두 정규분포로부터 생성된 두 개의 데이터 집합으로부터 두 정규분포의 분산 모수가 같은지 확인하기 위한 검정이다. `scipy` 패키지를 통해서 검정할 수 있다.
 
 - scipy
-  - sp.stats.bartlett: 바틀렛 검정
-  - sp.stats.fligner: 플리그너 검정
-  - sp.stats.levene: 레빈 검정
+  - scipy.stats.bartlett: 바틀렛 검정
+  - scipy.stats.fligner: 플리그너 검정
+  - scipy.stats.levene: 레빈 검정
 
 ## 4. 정규성
 마지막 정규성은 확률분포가 가우시안 정규분포를 따르는지의 여부를 의미한다. 모델 요약의 Omnibus, Prob(Omnibus), Durbin-Watson, Jarque-Bera (JB), Prob(JB) 등이 정규성을 확인하는 지표이며, `scipy`, `statsmodels` 패키지를 통해서 별도로 확인할 수 있다.

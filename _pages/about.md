@@ -13,7 +13,7 @@ toc_sticky: true
 - Business Contact: **[doorheon.jeong@wizcore.co.kr](mailto:doorheon.jeong@wizcore.co.kr)**
 - LinkedIn: **[doorheon-b3aa56212](https://www.linkedin.com/in/doorheon-b3aa56212/)**
 
-독학으로 공부하는 아마추어 개발자, 데이터사이언티스트 지망생, 야매AI개발자입니다. 컴퓨터공학이나 통계학 전공은 아니지만, 산업용 AI 개발에 흥미가 있어 관련 분야를 꾸준히 공부하며 실무 경험을 쌓기 위해 노력중입니다.  
+독학으로 공부하는 야매개발자, 데이터사이언티스트 지망생, 아마추어AI연구자입니다. 컴퓨터공학이나 통계학 전공은 아니지만, 산업용 AI 개발에 흥미가 있어 관련 분야를 꾸준히 공부하며 실무 경험을 쌓기 위해 노력중입니다.  
 
 취미로 이런저런 토이 프로젝트도 진행 중입니다.  
 
