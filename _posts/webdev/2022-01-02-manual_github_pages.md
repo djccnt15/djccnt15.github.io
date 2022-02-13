@@ -67,11 +67,14 @@ local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명
 > bundle exec jekyll serve --livereload
 ```
 
-미래 날짜로 작성한 포스트를 local에서 확인하려면 아래와 같이 `--future`를 붙여야 한다. 직접 확인해보지는 않았지만 GitHub Pages에서는 미래 날짜로 업로드해도 정상적으로 출력된다고 한다.  
+미래 날짜로 작성한 포스트를 local에서 확인하려면 아래와 같이 `--future`를 붙여야 한다.  
 
 ```powershell
 > bundle exec jekyll serve --future
 ```
+
+❗ 현재 서버 구성으로는 저장소로 push 한 시점에만 빌드와 배포가 이루어지기 때문에, 미래 날짜의 문서는 출력이 되지 않고 해당 날짜가 도래해도 자동으로 출력되게 바뀐하거나 하지는 않는다.  
+{:.note title='attention'}
 
 local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http://localhost:4000](http://localhost:4000)에서 확인할 수 있다.  
 
