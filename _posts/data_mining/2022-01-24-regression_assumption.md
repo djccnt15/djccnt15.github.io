@@ -235,18 +235,21 @@ formula = 'Sepal_Length ~ Sepal_Width + Petal_Length + Petal_Width'
 model = smf.ols(formula=formula, data=df)
 
 vif = pd.DataFrame(
-    {'columns': column, 'VIF': variance_inflation_factor(model.exog, i)}
+    {'VIF': variance_inflation_factor(model.exog, i), 'columns': column}
     for i, column in enumerate(model.exog_names)
-    if column != 'Intercept'
 )
+
+vif.sort_values(by='VIF', ascending=False, inplace=True)
+vif.reset_index(drop=True, inplace=True)
 
 print(vif)
 ```
 ```
-        columns        VIF
-0   Sepal_Width   1.270815
-1  Petal_Length  15.097572
-2   Petal_Width  14.234335
+         VIF       columns
+0  95.343302     Intercept
+1  15.097572  Petal_Length
+2  14.234335   Petal_Width
+3   1.270815   Sepal_Width
 ```
 
 Petal_Length와 Petal_Width가 모두 10 이상이 나와 다중공선성이 있는 것으로 나타났다. 이러면 회귀분석 결과에 왜곡을 줘서 변수들의 결정계수가 틀리게 나오게 된다. 좀 더 정확한 회귀분석 결과를 위해 둘 중 하나를 제외하고 회귀분석을 시행해보자.  
@@ -265,10 +268,12 @@ result = model.fit()
 print(result.summary(), end="\n\n")
 
 vif = pd.DataFrame(
-    {'columns': column, 'VIF': variance_inflation_factor(model.exog, i)}
+    {'VIF': variance_inflation_factor(model.exog, i), 'columns': column}
     for i, column in enumerate(model.exog_names)
-    if column != 'Intercept'
 )
+
+vif.sort_values(by='VIF', ascending=False, inplace=True)
+vif.reset_index(drop=True, inplace=True)
 
 print(vif)
 ```
@@ -278,8 +283,8 @@ print(vif)
 Dep. Variable:           Sepal_Length   R-squared:                       0.840
 Model:                            OLS   Adj. R-squared:                  0.838
 Method:                 Least Squares   F-statistic:                     386.4
-Date:                Mon, 31 Jan 2022   Prob (F-statistic):           2.93e-59
-Time:                        21:38:03   Log-Likelihood:                -46.513
+Date:                Sun, 13 Feb 2022   Prob (F-statistic):           2.93e-59
+Time:                        18:09:59   Log-Likelihood:                -46.513
 No. Observations:                 150   AIC:                             99.03
 Df Residuals:                     147   BIC:                             108.1
 Df Model:                           2
@@ -300,9 +305,10 @@ Kurtosis:                       2.792   Cond. No.                         48.3
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 
-        columns       VIF
-0   Sepal_Width  1.224831
-1  Petal_Length  1.224831
+         VIF       columns
+0  83.033291     Intercept
+1   1.224831   Sepal_Width
+2   1.224831  Petal_Length
 ```
 
 다음으로 Petal_Length를 제외하고 회귀분석을 시행한 결과는 아래와 같다.  
@@ -319,10 +325,12 @@ result = model.fit()
 print(result.summary(), end="\n\n")
 
 vif = pd.DataFrame(
-    {'columns': column, 'VIF': variance_inflation_factor(model.exog, i)}
+    {'VIF': variance_inflation_factor(model.exog, i), 'columns': column}
     for i, column in enumerate(model.exog_names)
-    if column != 'Intercept'
 )
+
+vif.sort_values(by='VIF', ascending=False, inplace=True)
+vif.reset_index(drop=True, inplace=True)
 
 print(vif)
 ```
@@ -332,8 +340,8 @@ print(vif)
 Dep. Variable:           Sepal_Length   R-squared:                       0.707
 Model:                            OLS   Adj. R-squared:                  0.703
 Method:                 Least Squares   F-statistic:                     177.6
-Date:                Mon, 31 Jan 2022   Prob (F-statistic):           6.15e-40
-Time:                        21:38:36   Log-Likelihood:                -91.910
+Date:                Sun, 13 Feb 2022   Prob (F-statistic):           6.15e-40
+Time:                        18:11:02   Log-Likelihood:                -91.910
 No. Observations:                 150   AIC:                             189.8
 Df Residuals:                     147   BIC:                             198.9
 Df Model:                           2
@@ -354,9 +362,10 @@ Kurtosis:                       3.198   Cond. No.                         30.3
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 
-       columns       VIF
-0  Sepal_Width  1.154799
-1  Petal_Width  1.154799
+         VIF      columns
+0  70.472677    Intercept
+1   1.154799  Sepal_Width
+2   1.154799  Petal_Width
 ```
 
 아래와 같이 R-squared는 크게 변하지 않으면서 VIF가 크게 개선된 것을 확인할 수 있다.  
@@ -375,6 +384,48 @@ Notes:
 💡 다중공선성을 해결하는 방법은 위에서 진행한 것과 같이 다중공선성이 높은 변수를 제외하는 방법과,  
 다중공선성이 높은 변수들을 합쳐서 하나로 치환해주는 방법이 있다.
 {: .notice--info}
+
+### 2-1. 💡 다중공선성 계산용 모듈
+`statsmodels`의 `model`을 거치지 않고 계산 하는 함수는 아래와 같다.  
+
+```python
+import statsmodels.api as sm
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+def vif_check(dataset, target=False):
+
+    dataset = dataset.select_dtypes(exclude=['object'])
+    dataset = sm.add_constant(dataset)
+
+    if target: dataset.drop([target], axis=1, inplace=True)
+    else: pass
+    
+    vif = pd.DataFrame()
+    vif['VIF'] = [variance_inflation_factor(exog=dataset.values, exog_idx=i) for i in range(dataset.shape[1])]
+    vif['features'] = dataset.columns
+    vif.sort_values(by='VIF', ascending=False, inplace=True)
+    vif.reset_index(drop=True, inplace=True)
+
+    return vif
+```
+```python
+import pydataset as pds
+import pandas as pd
+
+df = pds.data('iris')
+
+vif = vif_check(dataset=df)
+
+print(vif)
+```
+```markdown
+          VIF      features
+0  131.113086         const
+1   31.261498  Petal.Length
+2   16.090175   Petal.Width
+3    7.072722  Sepal.Length
+4    2.100872   Sepal.Width
+```
 
 ## 3. 등분산성
 등분산검정(Equal-variance test)은 두 정규분포로부터 생성된 두 개의 데이터 집합으로부터 두 정규분포의 분산 모수가 같은지 확인하기 위한 검정이다. `scipy` 패키지를 통해서 검정할 수 있다.

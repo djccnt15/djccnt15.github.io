@@ -112,7 +112,7 @@ $ clear
 디렉토리 만들기
 
 ```powershell
-> mkdir [directory_name]
+> mkdir <directory_name>
 ```
 
 ### 2-6. rmdir
@@ -121,10 +121,10 @@ $ clear
 
 ```powershell
 # 기본 사용
-> rmdir [directory_name]
+> rmdir <directory_name>
 
 # 옵션 사용
-> rmdir /s/q [directory_name]
+> rmdir /s/q <directory_name>
 ```
 
 - /s 지정된 디렉토리와 하위 디렉토리 및 파일을 모두 삭제
@@ -136,14 +136,26 @@ $ clear
 
 ```powershell
 # windows
-> del [file_name]
+> del <file_name>
 
 # linux
-$ rm [file_name]
+$ rm <file_name>
 
 # linux 하위 디렉토리 및 파일 지우기
-$ rm -rf [dir_name]
+$ rm -rf <dir_name>
 ```
+
+### 2-8. copy/cp
+파일을 복사하는 명령어
+
+```powershell
+# windows
+> copy <source> <destination>
+
+# linux
+$ cp <source> <destination>
+```
+
 
 ## 3. 네트워크 관련 명령어들
 ### 3-1. ipconfig/ifconfig
@@ -162,7 +174,7 @@ $ ifconfig
 명령어는 같지만 옵션은 조금 다르다.  
 
 ```powershell
-> ping [host_name]
+> ping <host_name>
 ```
 
 윈도우 옵션
