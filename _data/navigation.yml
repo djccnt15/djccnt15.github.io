@@ -1,9 +1,9 @@
 # main links
 main:
-  - title: "Home"
-    url: /home/
   - title: "About"
     url: /about/
+  - title: "Recent"
+    url: /recent/
   # - title: "Posts by Year"
   #   url: /year-archive/
   - title: "Posts by Month"

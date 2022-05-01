@@ -8,9 +8,9 @@ toc_sticky: true
 ---
 # About Me
 ---
-- Github: **[github.com/djccnt15](https://github.com/djccnt15)**
 - Personal Contact: **[djccnt15@gmail.com](mailto:djccnt15@gmail.com)**
 - Business Contact: **[doorheon.jeong@wizcore.co.kr](mailto:doorheon.jeong@wizcore.co.kr)**
+- Github: **[github.com/djccnt15](https://github.com/djccnt15)**
 - LinkedIn: **[doorheon-b3aa56212](https://www.linkedin.com/in/doorheon-b3aa56212/)**
 
 독학으로 공부하는 야매개발자, 데이터사이언티스트 지망생, 아마추어 AI연구자입니다. 컴퓨터공학이나 통계학 전공은 아니지만, 산업용 AI 개발에 흥미가 있어 관련 분야를 꾸준히 공부하며 실무 경험을 쌓기 위해 노력중입니다.  
@@ -64,10 +64,9 @@ toc_sticky: true
     <!-- - LSTM 기반 운동 분류 및 카운팅 모델 개발 -->
 <br><br>
 - 2021 ~ 2022. 데이터인프라구축 AI 솔루션 실증 지원사업
-    - DNN 기반 STL(Steel Plate) 코일 제품 양/불 판정 예측 모델 개발
-    - ANN 기반 CAST/SPLINT(석고붕대) 제품 LOT 수율 예측 모델 개발
-    <!-- - ANN 기반 MCCB(배선용 차단기) 제품 양/불 판정 예측 모델 개발 -->
-    <!-- - LSTM 기반 Resistor(저항기) LOT 평균 변화율 예측 모델 개발 -->
+    - DNN 기반 STL(Steel Plate) 리코일 공정 양/불 예측 모델 개발
+    - DNN 기반 CAST/SPLINT(석고붕대) 제품 LOT 수율 예측 모델 개발
+    - CNN 기반 골판지 인쇄상태 양/불 판정 모델 개발
 <br><br>
 - 2019 ~ 2020. 빅데이터 플랫폼 및 센터 구축사업
     - 농작물 분류 AI 학습용 데이터셋 구축

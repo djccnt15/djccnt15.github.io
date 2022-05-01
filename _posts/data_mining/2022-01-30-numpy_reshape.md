@@ -50,7 +50,7 @@ print(reshape)
 ```
 
 ## 2. transpose, ndarray.T
-함수냐 메서드냐 차이만 있을 뿐 둘 모두 원본 데이터의 축을 뒤집어 주는 기능은 똑같다.  
+함수냐 메서드냐 차이만 있을 뿐 둘 모두 원본행렬의 전치행렬을 반환하는 것은 똑같다.  
 
 ```python
 import numpy as np
@@ -86,49 +86,6 @@ print(reshape.T)
  [ 7 15 23]]
 ```
 
-다차원의 데이터도 뒤집을 수 있다.
-
-```python
-import numpy as np
-
-array = np.arange(24)
-
-reshape = np.reshape(a=array, newshape=(2, 3, -1))
-
-print(reshape)
-```
-```markdown
-[[[ 0  1  2  3]
-  [ 4  5  6  7]
-  [ 8  9 10 11]]
-
- [[12 13 14 15]
-  [16 17 18 19]
-  [20 21 22 23]]]
-```
-
-```python
-import numpy as np
-
-print(reshape.T)
-```
-```markdown
-[[[ 0 12]
-  [ 4 16]
-  [ 8 20]]
-
- [[ 1 13]
-  [ 5 17]
-  [ 9 21]]
-
- [[ 2 14]
-  [ 6 18]
-  [10 22]]
-
- [[ 3 15]
-  [ 7 19]
-  [11 23]]]
-```
 ---
 # Reference
 - [numpy.reshape](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html)

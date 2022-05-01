@@ -166,7 +166,7 @@ defaults:
 <html>
   <body>
     <aside class="sidebar__home">
-      <a href="/home/">
+      <a href="/recent/">
         <div style="font-size: 0.5rem;"><i class="fas fa-h-square fa-5x"></i></div>
       </a>
     </aside>
@@ -294,7 +294,23 @@ main:
     url: /month-archive/
 ```
 
-## 7. timezone 설정
+## 7. Home 화면 설정
+블로그의 첫 화면에 대한 설정은 `root`의 `index.html`에서 변경할 수 있다.  
+현재 설정은 아래와 같다.  
+
+```html
+---
+layout: splash
+author_profile: true
+---
+
+<br>
+<p align="center">
+    <a href="/recent/"><img src="/assets/images/standing_on_the_shoulders_of_giants.png" alt="Visit the Homepage">
+</p>
+```
+
+## 8. timezone 설정
 `/_config.yml`에 timezone이 설정된 경우 `/Gemfile`에 아래 코드를 넣어줘야 local에서 Jekyll을 구동시킬 수 있다.  
 
 ```ruby
