@@ -16,7 +16,7 @@ related_posts:
   - _posts/linearalgebra/2022-05-01-linear_algebra_01.md
 
 categories:
-  - linearalgebra
+  - linear_algebra
 tags:
   - linear algebra
   - python

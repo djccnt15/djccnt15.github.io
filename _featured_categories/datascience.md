@@ -3,17 +3,15 @@
 layout: list
 
 # The title of the tag's page.
-title: Linear Algebra
+title: Data Science
 
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
-slug: linear_algebra
+slug: data_science
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-  Posts in Linear Algebra category
+  Posts in Data Science category
 
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
-
-permalink: linear_algebra
 ---

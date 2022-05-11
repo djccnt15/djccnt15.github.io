@@ -13,10 +13,10 @@ hide_description: false
   #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
   #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
 related_posts:
-  - _posts/data_science/2022-01-09-pd_set_option.md
+  - _posts/datascience/2022-01-09-pd_set_option.md
 
 categories:
-  - data_science
+  - datascience
 tags:
   - python
   - data mining
