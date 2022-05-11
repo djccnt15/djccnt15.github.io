@@ -1,20 +1,30 @@
 ---
-title: "깨끗한 코드"
-excerpt: "깨끗한 코드를 위한 팁"
 published: true
-mathjax: false
+layout: post
 
-toc: true
-toc_sticky: true
+title: 깨끗한 코드
+description: >
+  깨끗한 코드를 위한 팁
+hide_description: false
+# image: 
+#   path: /path/to/thumbnail/of/the/post
+  # srcset:
+  #   1060w: /assets/img/blog/example-content-iii.jpg
+  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
+  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
+related_posts:
+  - _posts/programming/2022-01-08-clean_code.md
 
 categories:
   - programming
 tags:
   - clean code
 ---
-# {{ page.excerpt }}
----
-노마드코더님이 올리신 영상 중에 깨끗한 코드를 위한 좋은 팁이 있어서 까먹지 않기 위해 내 생각을 추가해서 정리해둔다.  
+
+* toc
+{:toc}
+
+[노마드코더](https://www.youtube.com/c/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94NomadCoders)님이 올리신 영상 중에 깨끗한 코드를 위한 좋은 팁이 있어서 까먹지 않기 위해 내 생각을 추가해서 정리해둔다.  
 
 ## 1. 검색 가능한 이름 사용해라
 상수를 사용해야 할 경우, 변수로 지정해서 사용할 것  
@@ -53,6 +63,6 @@ if else에 따라 동작이 달라지는 함수는 기능별로 쪼개는 것이
 코드는 읽기 쉽고 명확해야 한다.  
 
 ---
-# Reference
+## Reference
 - [노마드코더](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ): [깨끗한 코드를 위한 5가지 팁](https://youtu.be/Jz8Sx1XYb04)  
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/Jz8Sx1XYb04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/Jz8Sx1XYb04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

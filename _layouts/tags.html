@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: about
 ---
 
 {{ content }}
@@ -36,7 +36,8 @@ layout: archive
             {% include archive-single.html type=entries_layout %}
           {% endfor %}
         </div>
-        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+        <a href="/tags" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+        <hr>
       </section>
     {% endif %}
   {% endfor %}

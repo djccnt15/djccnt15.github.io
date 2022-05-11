@@ -1,3 +1,7 @@
-Github Pages를 이용한 블로그 구축 및 연습 저장소  
+# Github Pages를 이용한 블로그 구축 및 공부노트
 
-[Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/)를 사용한다.
+**Powered by**  
+
+- [jekyll](https://jekyllrb.com/)
+- [Hydejack](https://hydejack.com/)
+- [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/)

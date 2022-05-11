@@ -1,19 +1,32 @@
 ---
-title: "블로그 customizing"
-excerpt: "블로그의 각종 설정 및 수정들에 대한 정리"
 published: true
-mathjax: false
+layout: post
 
-toc: true
-toc_sticky: true
+title: Minimal Mistakes 테마 커스터마이징
+description: >
+  Minimal Mistakes 테마의 각종 설정 및 수정들에 대한 정리
+hide_description: false
+# image: 
+#   path: /path/to/thumbnail/of/the/post.png
+  # srcset:
+  #   1060w: /assets/img/blog/example-content-iii.jpg
+  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
+  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
+related_posts:
+  - _posts/blog/2022-01-02-manual_github_pages.md
 
 categories:
   - blog
 tags:
   - blog
 ---
-# {{ page.excerpt }}
----
+
+* toc
+{:toc}
+
+**아래 내용은 블로그에 처음에 적용했던 Minimal Mistakes 테마를 커스터마이징 했던 내용들이다.**  
+**현재 테마와는 관련 없다.**
+
 ## 1. 각종 블로그 스타일 수정
 ### 1-1. 스킨 수정
 스킨을 수정하고 싶을 때는  
@@ -112,7 +125,7 @@ a {
 }
 ```
 ### 1-6. 업로드 날짜 보이기
-`minimal mistakes`는 기본 설정으로 읽는 시간이 표시되어 있도록 구성되어 있는데, 영 쓸모가 없다. 읽는 시간 대신 업로드 날짜를 보이게 하려면, 아래와 같이 `/_config.yml`에서 `read_time`을 `false`로, `show_date`를 `true`로 수정해주면 된다.  
+Minimal Mistakes는 기본 설정으로 읽는 시간이 표시되어 있도록 구성되어 있는데, 영 쓸모가 없다. 읽는 시간 대신 업로드 날짜를 보이게 하려면, 아래와 같이 `/_config.yml`에서 `read_time`을 `false`로, `show_date`를 `true`로 수정해주면 된다.  
 
 ```yml
 defaults:
@@ -225,7 +238,7 @@ Github Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 
 mathjax: true
 ```
 
-글 작성 시 수식 입력 방법은 [여기](/blog/blog_markdown/#4-수식-입력)에서 확인할 수 있다.
+글 작성 시 수식 입력 방법은 [여기](/blog/2022-01-04-blog_markdown/#4-수식-입력)에서 확인할 수 있다.
 
 ## 4. favicon 설정
 `/assets/images/logo.ico` 폴더에 favicon 파일들 저장 후 `/_includes/head/custom.html`에 아래 내용 추가
@@ -321,7 +334,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 Minimal Mistakes의 [Configuration](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) 문서에 따르면 default는 os에 설정된 local timezone으로 설정되어 있기 때문에 어지간해서는 굳이 설정할 필요는 없다.
 
 ---
-# Reference
+## Reference
 - [Include "Back to top" Icon](https://github.com/mmistakes/minimal-mistakes/issues/1731)
 - [Jekyll Github 블로그에 MathJax로 수학식 표시하기](https://mkkim85.github.io/blog-apply-mathjax-to-jekyll-and-github-pages/)
 - [How to add Latex to Minimal Mistakes](https://www.janmeppe.com/blog/How-to-add-mathjax-to-minimal-mistakes/)

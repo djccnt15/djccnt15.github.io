@@ -1,27 +1,35 @@
 ---
-title: "Github Pages 사용법"
-excerpt: "Minimal Mistakes 기반 Github Pages의 기본 사용법"
 published: true
-mathjax: false
+layout: post
 
-toc: true
-toc_sticky: true
+title: Github Pages 사용법
+description: >
+  Jekyll 기반 Github Pages의 각종 사용법
+hide_description: false
+# image: 
+#   path: /path/to/thumbnail/of/the/post.png
+  # srcset:
+  #   1060w: /assets/img/blog/example-content-iii.jpg
+  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
+  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
+related_posts:
+  - _posts/blog/2022-01-04-blog_markdown.md
 
 categories:
   - blog
 tags:
   - ⭐starred
   - blog
+---
 
-updated_at: 2022-01-02 #T08:06:00-05:00
----
-# {{ page.excerpt }}
----
+* toc
+{:toc}
+
 ## 1. 포스트 작성은 markdown으로
 엄밀히 말하면 Github Pages를 통해 배포되기 때문에, `GitHub Flavored Markdown`이라는 별도의 markdown을 사용한다.  
 `GFM(GitHub Flavored Markdown)`에 대한 자세한 설명은 [여기](https://github.github.com/gfm/)로  
 
-- [이 블로그에서 사용된 마크다운 활용법들 보러가기](/blog/blog_markdown)
+- [이 블로그에서 사용된 마크다운 활용법들 보러가기](/blog/2022-01-04-blog_markdown/)
 
 <sub>markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다.  
 그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨리기 때문에 앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다.  
@@ -38,13 +46,13 @@ YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있
 
 ```markdown{% raw %}
 이 글의 제목은 {{ page.title }}이고,
-작성된 날짜는 {{ page.updated_at }}이다.
+카테고리는 {{ page.categories }}이다.
 블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.
 {% endraw %}```
 
 ```markdown
 이 글의 제목은 {{ page.title }}이고,
-작성된 날짜는 {{ page.updated_at }}이다.
+카테고리는 {{ page.categories }}이다.
 블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.
 ```
 
@@ -67,7 +75,7 @@ YFM에서 `published: false`로 정의하면 된다.
 > bundle exec jekyll serve --drafts
 ```
 
-## 4. local Jekyll로 결과 확인
+## 4. local에서 빌드 결과 확인
 github pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 은근히 걸리기 때문에, local에서 확인하고 검토한 다음에 최종본을 업로드하는게 편하다.  
 
 local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명령어는 다음과 같다.
@@ -93,8 +101,7 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 
 서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig/ifconfig` 명령어로 확인할 수 있다. 위의 경우에는 `IPv4`주소인 `192.168.0.5`으로 호스팅 했기 때문에, `http:192.168.0.5:4000`으로 접속해야 내용을 확인할 수 있다.
 
-❗ **주의** `https:192.168.0.5:4000`가 아니고 `http:192.168.0.5:4000`이다.
-{: .notice--warning}
+> ❗ **주의** `https:192.168.0.5:4000`가 아니고 `http:192.168.0.5:4000`이다.  
 
 ### 4-1. ⚡ 작업할 때
 개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--drafts` 두 옵션을 주로 사용한다.
@@ -123,6 +130,6 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 ```
 
 ---
-# Reference
-- [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)
+## Reference
+- [Jekyll](https://jekyllrb.com/)
 - [devinlife](https://devinlife.com/)님의 [하우투: 같이 따라하기 시리즈](https://devinlife.com/howto/)

@@ -1,20 +1,28 @@
 ---
-title: "cmd/terminal 사용법"
-excerpt: "cmd와 terminal에서 주로 사용하는 명령어를 알아보자"
 published: true
-mathjax: false
+layout: post
 
-toc: true
-toc_sticky: true
+title: cmd/terminal 사용법
+description: >
+  windows cmd와 linux terminal에서 유용하게 사용하는 명령어들 모음  
+hide_description: false
+# image: 
+#   path: /path/to/thumbnail/of/the/post
+  # srcset:
+  #   1060w: /assets/img/blog/example-content-iii.jpg
+  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
+  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
+related_posts:
+  - _posts/programming/2022-01-13-manual_cmd.md
 
 categories:
   - programming
 tags:
   - cmd/terminal
 ---
-# {{ page.excerpt }}
----
-windows cmd와 linux terminal에서 유용하게 사용하는 명령어들 모음  
+
+* toc
+{:toc}
 
 ## 1. 기본 사용 팁
 ### 1-1. help/--help
@@ -76,6 +84,7 @@ $ cd -
 주요 옵션들은 아래와 같다.  
 
 ```powershell
+# windows
 # 기본 사용
 > dir
 
@@ -94,6 +103,7 @@ $ cd -
 {: .notice}
 
 ```powershell
+# linux
 $ ls
 ```
 

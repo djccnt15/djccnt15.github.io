@@ -1,11 +1,19 @@
 ---
-title: "런타임 확인"
-excerpt: "코드의 런타임을 확인하는 방법"
 published: true
-mathjax: false
+layout: post
 
-toc: true
-toc_sticky: true
+title: 런타임 확인
+description: >
+  코드의 런타임을 확인하는 방법
+hide_description: false
+# image: 
+#   path: /path/to/thumbnail/of/the/post
+  # srcset:
+  #   1060w: /assets/img/blog/example-content-iii.jpg
+  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
+  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
+related_posts:
+  - _posts/python/2022-01-06-about_PEP.md
 
 categories:
   - python
@@ -14,8 +22,10 @@ tags:
   - datetime
   - time
 ---
-# {{ page.excerpt }}
----
+
+* toc
+{:toc}
+
 ## 1. time 사용
 python 내장 모듈 `time`을 활용해서 코드의 전체 또는 일부의 런타임을 잴 수 있다.  
 
@@ -49,6 +59,6 @@ print(runtime)
 
 
 ---
-# Reference
+## Reference
 - [time — 시간 액세스와 변환](https://docs.python.org/ko/3/library/time.html)([영문](https://docs.python.org/3/library/time.html))
 - [datetime — 기본 날짜와 시간 형](https://docs.python.org/ko/3/library/datetime.html)([영문](https://docs.python.org/3/library/datetime.html))
