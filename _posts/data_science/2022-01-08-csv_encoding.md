@@ -13,10 +13,10 @@ image:
   #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
   #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
 related_posts:
-  - _posts/datascience/2022-01-08-csv_encoding.md
+  - _posts/data_science/2022-01-08-csv_encoding.md
 
 categories:
-  - datascience
+  - data_science
 tags:
   - python
   - data mining
