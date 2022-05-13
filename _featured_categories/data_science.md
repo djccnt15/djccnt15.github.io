@@ -14,4 +14,5 @@ description: >
 
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
+permalink: data_science
 ---

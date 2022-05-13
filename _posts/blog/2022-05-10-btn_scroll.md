@@ -57,7 +57,7 @@ body 위치에 들어가는 html 코드는 `/_includes/my-body.html`을 수정�
 
 ```html
 <aside class="scroll_top">
-  <div">
+  <div>
     <i onclick="window.scrollTo({top:0,left:0, behavior:'smooth'})">
       <img src="/assets/img/blog/arrow_up.png" alt="top">
     </i>
@@ -65,7 +65,7 @@ body 위치에 들어가는 html 코드는 `/_includes/my-body.html`을 수정�
 </aside>
 
 <aside class="scroll_bot">
-  <div">
+  <div>
     <i onclick="window.scrollTo({top:document.body.scrollHeight,left:0, behavior:'smooth'})">
       <img src="/assets/img/blog/arrow_down.png" alt="bottom">
     </i>

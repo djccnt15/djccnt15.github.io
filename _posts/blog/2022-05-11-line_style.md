@@ -128,9 +128,9 @@ hydejack 테마는 style에 적용되는 scss 코드를 추가할 때 `/_sass/my
   <div>
     <time style="display: inline-block; width: 2.2rem" class="faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:format }}</time>
     <a href="{{ post.url | relative_url }}" class="flip-title"><span>{{ post.title }}</span></a>
+    <span style="font-weight: lighter; font-size: small;">{{ post.description }}</span>
   </div>
-</li>
-```
+</li>```
 
 ---
 ## Reference

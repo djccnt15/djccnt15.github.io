@@ -65,8 +65,8 @@ scikit learn 패키지의 경우 `outlier detection`와 `novelty detection`에 �
 ![IQR](/assets/img/posts/iqr.jpg)  
 [출처](https://www.statisticshowto.com/probability-and-statistics/interquartile-range/)
 
-$IQR$이란 InterQuartile Range(사분위수 범위)의 약자로, 데이터를 순서대로 나열했을 때 25% 지점(1분위수)에 있는 데이터와 75% 지점(3분위수)에 있는 데이터의 차이를 말한다.  
-위 그림에서 볼 수 있듯이, $IQR$ 방식에서 정상 데이터로 분류될 범위를 계산하는 방식은 아래와 같다.
+$$IQR$$이란 InterQuartile Range(사분위수 범위)의 약자로, 데이터를 순서대로 나열했을 때 25% 지점(1분위수)에 있는 데이터와 75% 지점(3분위수)에 있는 데이터의 차이를 말한다.  
+위 그림에서 볼 수 있듯이, $$IQR$$ 방식에서 정상 데이터로 분류될 범위를 계산하는 방식은 아래와 같다.
 
 $$IQR = Q3 - Q1$$  
 최저: $$Q1-1.5*IQR$$  
