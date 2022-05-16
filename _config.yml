@@ -20,15 +20,15 @@
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 djccnt15
+title:                 Jaeger
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Note of djccnt15, an junior AI Researcher
+  Note of Jaeger, an junior AI Researcher
 
 # A shorter description for the sidebar.
-tagline:               주니어 AI 개발자의 공부노트
+tagline:               예거의 공부노트
 
 # A list of keywords for your blog
 keywords:              [data science, AI, machine learning, programming, python]
@@ -36,12 +36,12 @@ keywords:              [data science, AI, machine learning, programming, python]
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo:                  /assets/img/blog/logo_v02_w.png
+logo:                  /assets/img/blog/logo_w.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                djccnt15           # <firstname> <lastname>
+  name:                jaeger           # <firstname> <lastname>
   email:               djccnt15@gmail.com # <mail@domain.tld>
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
@@ -49,13 +49,13 @@ author:
 # Add links to the sidebar.
 menu:
   - title:             About
-    url:               /about/
+    url:               /about
   - title:             Posts
-    url:               /posts/
+    url:               /posts
   - title:             Categories
-    url:               /categories/
+    url:               /categories
   - title:             Tags
-    url:               /tags/
+    url:               /tags
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -401,13 +401,13 @@ jekyll_compose:
     drafts:
       layout: post
       description: > 
-        Note of djccnt15, an junior AI Researcher
+        Note of Jaeger, an junior AI Researcher
       image:
         path: /assets/img/blog/sidebar-bg.jpg
     posts:
       layout: post
       description: > 
-        Note of djccnt15, an junior AI Researcher
+        Note of Jaeger, an junior AI Researcher
       image:
         path: /assets/img/blog/sidebar-bg.jpg
     projects:

@@ -6,8 +6,8 @@ title: cmd/terminal 사용법
 description: >
   windows cmd와 linux terminal에서 유용하게 사용하는 명령어들 모음  
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/cmd.png
   # srcset:
   #   1060w: /assets/img/blog/example-content-iii.jpg
   #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg

@@ -6,8 +6,8 @@ title: 마크다운 활용팁
 description: >
   posting에 유용한 팁들
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/markdown.png
   # srcset:
   #   1060w: /assets/img/blog/example-content-iii.jpg
   #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg

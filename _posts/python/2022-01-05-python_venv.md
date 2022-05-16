@@ -6,8 +6,8 @@ title: Python 가상환경
 description: >
   windows와 linux에서 python 가상환경 만들고 사용하기
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/python_venv.png
   # srcset:
   #   1060w: /assets/img/blog/example-content-iii.jpg
   #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
