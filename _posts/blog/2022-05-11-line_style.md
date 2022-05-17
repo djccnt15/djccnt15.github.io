@@ -6,12 +6,8 @@ title: list layout 수정하기
 description: >
   list layout을 시계열로 연결된 디자인으로 수정하기
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
-  # srcset:
-  #   1060w: /assets/img/blog/example-content-iii.jpg
-  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
-  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
+image: 
+  path: /assets/img/posts/list_layout.png
 related_posts:
   - _posts/blog/2022-05-11-line_style.md
 
@@ -114,23 +110,56 @@ hydejack 테마는 style에 적용되는 scss 코드를 추가할 때 `/_sass/my
 }
 ```
 
-## 2. layout 수정하기
+## 2. layout 수정
 
-`_layouts/list.html`을 수정했는데 코드가 꼬여서인지 코드블럭이 잘 적용되지 않는다.  
-저장소 가서 확인하세요..
-
-## 3. components 수정하기
-
-`_includes/components/post-list-item.html`을 아래와 같이 수정하자
+`_layouts/list.html`을 아래와 같이 수정하자.  
 
 ```html
+---
+layout: page
+---
+<div class="markdown-body">
+  {{ '{{ content '}}}}
+</div>
+{{ '{% assign posts = site.categories[page.slug] | default:site.tags[page.slug] | default:site.posts '}}%}
+
+{{ '{% assign date_formats  = site.data.strings.date_formats               '}}%}
+{{ '{% assign list_group_by = date_formats.list_group_by | default:"%Y"    '}}%}
+{{ '{% assign list_entry    = date_formats.list_entry    | default:"%m %d" '}}%}
+
+{{ '{% assign prev_date = 0 '}}%}
+{{ '{% if page.no_groups '}}%}<ul class="related-posts">{{ '{% endif '}}%}
+<div class="list-post">
+{{ '{% for post in posts '}}%}
+  {{ '{% assign current_date = post.date | date:list_group_by '}}%}
+  {{ '{% unless page.no_groups '}}%}{{ '{% if current_date != prev_date '}}%}
+    {{ '{% unless forloop.first '}}%}</ul>{{ '{% endunless '}}%}
+    <h2 class="list-lead">{{ '{{ current_date '}}}}</h2>
+    <ul class="related-posts">
+    {{ '{% assign prev_date = current_date '}}%}
+  {{ '{% endif '}}%}{{ '{% endunless '}}%}
+  {{ '{% include_cached components/post-list-item.html post=post format=list_entry '}}%}
+  {{ '{% if forloop.last '}}%}</ul>{{ '{% endif '}}%}
+{{ '{% endfor '}}%}
+</div>
+```
+
+## 3. components 수정
+
+`_includes/components/post-list-item.html`을 아래와 같이 수정하자.  
+
+```html
+{{ "{% assign post = include.post "}}%}
+{{ '{% assign format = include.format | default:site.data.date_formats.related_post | default:"%Y %m %d" '}}%}
+
 <li class="h6">
   <div>
-    <time style="display: inline-block; width: 2.2rem" class="faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:format }}</time>
-    <a href="{{ post.url | relative_url }}" class="flip-title"><span>{{ post.title }}</span></a>
-    <span style="font-weight: lighter; font-size: small;">{{ post.description }}</span>
+    <time style="display: inline-block; width: 2.2rem" class="faded fine" datetime="{{ '{{ post.date | date_to_xmlschema '}}}}">{{ '{{ post.date | date:format '}}}}</time>
+    <a href="{{ '{{ post.url | relative_url '}}}}" class="flip-title"><span>{{ '{{ post.title '}}}}</span></a>
+    <span style="font-weight: normal; font-size: smaller;">{{ '{{ post.description '}}}}</span>
   </div>
-</li>```
+</li>
+```
 
 ---
 ## Reference

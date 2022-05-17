@@ -8,10 +8,6 @@ description: >
 hide_description: false
 image: 
   path: /assets/img/blog/googling_does_make_you_a_programmer_space.png
-  # srcset:
-  #   1060w: /assets/img/blog/example-content-iii.jpg
-  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
-  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
 related_posts:
   - _posts/blog/2022-01-03-about_profile.md
 

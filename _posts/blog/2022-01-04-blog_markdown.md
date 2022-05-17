@@ -8,10 +8,6 @@ description: >
 hide_description: false
 image: 
   path: /assets/img/posts/markdown.png
-  # srcset:
-  #   1060w: /assets/img/blog/example-content-iii.jpg
-  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
-  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
 related_posts:
   - _posts/blog/2022-01-02-manual_github_pages.md
 

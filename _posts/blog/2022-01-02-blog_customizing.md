@@ -6,12 +6,8 @@ title: Minimal Mistakes 테마 커스터마이징
 description: >
   Minimal Mistakes 테마의 각종 설정 및 수정들에 대한 정리
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post.png
-  # srcset:
-  #   1060w: /assets/img/blog/example-content-iii.jpg
-  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
-  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
+image: 
+  path: /assets/img/posts/minimal_mistakes.png
 related_posts:
   - _posts/blog/2022-01-02-manual_github_pages.md
 

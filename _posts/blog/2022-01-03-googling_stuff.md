@@ -2,16 +2,12 @@
 published: true
 layout: post
 
-title: profile에 대해
+title: Googling stuff online
 description: >
   Googling stuff online does make you a programmer
 hide_description: false
 image: 
   path: /assets/img/posts/googling_stuff_online_does_not_make_you_a_doctor.jpg
-  # srcset:
-  #   1060w: /assets/img/blog/example-content-iii.jpg
-  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
-  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
 related_posts:
   - _posts/blog/2022-01-01-initial_post.md
 

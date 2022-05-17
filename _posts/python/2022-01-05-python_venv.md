@@ -8,10 +8,6 @@ description: >
 hide_description: false
 image: 
   path: /assets/img/posts/python_venv.png
-  # srcset:
-  #   1060w: /assets/img/blog/example-content-iii.jpg
-  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
-  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
 related_posts:
   - _posts/python/2022-01-06-about_PEP.md
 
@@ -197,4 +193,4 @@ $ source bin/activate
 
 ---
 ## Reference
-- [Python Documentation](https://docs.python.org/ko/3/tutorial/venv.html)
+- [Python Documentation](https://docs.python.org/3/tutorial/venv.html)([한글](https://docs.python.org/ko/3/tutorial/venv.html))

@@ -6,12 +6,8 @@ title: Github Pages 사용법
 description: >
   Jekyll 기반 Github Pages의 각종 사용법
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post.png
-  # srcset:
-  #   1060w: /assets/img/blog/example-content-iii.jpg
-  #   530w:  /assets/img/blog/example-content-iii@0,5x.jpg
-  #   265w:  /assets/img/blog/example-content-iii@0,25x.jpg
+image: 
+  path: /assets/img/posts/github_pages.png
 related_posts:
   - _posts/blog/2022-01-04-blog_markdown.md
 
