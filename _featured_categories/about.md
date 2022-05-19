@@ -1,14 +1,14 @@
 ---
 layout: about
 title: About
-image: 
-  path: /assets/img/blog/googling_does_make_you_a_programmer.png
 description: >
   Portfolio and Resume
 hide_description: true
 ---
 * toc
 {:toc}
+
+![googling_does_make_you_a_programmer](/assets/img/blog/googling_does_make_you_a_programmer.png)
 
 ## About Me
 ---
