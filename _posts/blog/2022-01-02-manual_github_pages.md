@@ -80,6 +80,12 @@ local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명
 > bundle exec jekyll serve
 ```
 
+`--livereload`옵션을 사용하면 파일이 수정되었을 때 자동으로 새로고침 해준다.  
+
+```powershell
+> bundle exec jekyll serve --livereload
+```
+
 미래 날짜로 작성한 포스트를 local에서 확인하려면 아래와 같이 `--future`를 붙여야 한다.  
 직접 확인해보지는 않았지만 Github Pages에서는 미래 날짜로 업로드해도 정상적으로 출력된다고 한다.  
 
@@ -106,23 +112,23 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 
 ```powershell
 # local에서만 확인할 때
-> bundle exec jekyll serve --future
+> bundle exec jekyll serve --livereload --future
 
 # 호스팅을 해서 다른 디바이스에서도 확인하고 싶을 때
-> bundle exec jekyll serve --future -H [IP_address]
+> bundle exec jekyll serve --livereload --future -H [IP_address]
 ```
 
 - `_drafts`에 있는 초안까지 확인할 때
 
 ```powershell
 # local에서만 확인할 때
-> bundle exec jekyll serve --future --drafts
+> bundle exec jekyll serve --livereload --future --drafts
 
 # 호스팅을 해서 다른 디바이스에서도 확인하고 싶을 때
-> bundle exec jekyll serve --future --drafts -H [IP_address]
+> bundle exec jekyll serve --livereload --future --drafts -H [IP_address]
 
 # unpublished 된 비밀글 까지 같이 확인할 때
-> bundle exec jekyll serve --future --drafts --unpublished
+> bundle exec jekyll serve --livereload --future --drafts --unpublished
 ```
 
 ---

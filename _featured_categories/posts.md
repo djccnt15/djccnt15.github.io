@@ -2,6 +2,6 @@
 layout: list
 title: Posts
 description: >
-  Every posts by upload order
+  Every post by upload order
 grouped: true
 ---
