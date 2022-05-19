@@ -70,7 +70,7 @@ copyright:             © 2021. All rights reserved.
 permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              30
+paginate:              10
 paginate_path:         /:num/
 
 
@@ -126,6 +126,7 @@ defaults:
     values:
       sitemap:         false
 
+  # Don't include licenses in sitemap (feel free to delete)
   - scope:
       path:            licenses/
     values:
@@ -269,9 +270,6 @@ hydejack:
     # Set to `true` to use the dark theme based on visitors' preference (OS setting).
     dynamic:           true
 
-    sunrise:           6
-    sunset:            18
-
     # Set to `true` to allow visitors to switch between light and dark mode.
     icon:              true
 
@@ -307,6 +305,8 @@ collections:
 # ----------------------------------------------------------------------------------------
 
 exclude:
+  - ./#jekyll-theme-hydejack/node_modules
+  - ./#jekyll-theme-hydejack/.git
   - .jekyll-cache
   - .sass-cache
   - '*.toml'
