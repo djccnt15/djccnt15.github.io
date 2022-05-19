@@ -4,7 +4,7 @@ layout: post
 
 title: 선형회귀 구현
 description: >
-  선형회귀 수식 구현하기. 대학원 모 수업에서 쪽지시험으로 진행했던 문제
+  선형회귀 수식 구현하기. 모 수업에서 쪽지시험으로 진행했던 문제
 hide_description: false
 image: 
   path: /assets/img/posts/linear_regression_scratch.png
@@ -16,7 +16,7 @@ categories:
   - data_science
 tags:
   - python
-  - data mining
+  - data science
   - regression
 ---
 

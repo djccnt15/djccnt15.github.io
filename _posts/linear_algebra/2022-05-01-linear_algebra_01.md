@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 
 title: 선형대수 01. 행렬

@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: python의 함수
+title: Python의 함수
 description: >
   python의 함수에 대한 노트
 hide_description: false

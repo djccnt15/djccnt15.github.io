@@ -6,8 +6,8 @@ title: python 회귀분석
 description: >
   statsmodels을 이용해서 회귀분석을 해보자
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/linear_regression.png
 related_posts:
   - _posts/data_science/2022-01-24-regression_assumption.md
 
@@ -15,7 +15,7 @@ categories:
   - data_science
 tags:
   - python
-  - data mining
+  - data science
   - statsmodels
   - regression
   - incomplete

@@ -6,15 +6,15 @@ title: 회귀분석의 전제조건
 description: >
   선형성, 독립성, 등분산성, 정규성
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/linear_regression.png
 related_posts:
   -_posts/data_science/2022-01-23-regression_statsmodels.md
 
 categories:
   - data_science
 tags:
-  - data mining
+  - data science
   - regression
   - python
 ---

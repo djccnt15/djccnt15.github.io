@@ -6,8 +6,8 @@ title: numpy array의 변형
 description: >
   `numpy.array`를 쉽게 변형해보자. reshape, transpose, T의 활용
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/np_reshape.png
 related_posts:
   - _posts/data_science/2022-01-30-numpy_reshape.md
 
@@ -15,7 +15,7 @@ categories:
   - data_science
 tags:
   - python
-  - data mining
+  - data science
   - numpy
 ---
 

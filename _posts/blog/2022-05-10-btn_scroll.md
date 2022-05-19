@@ -6,8 +6,8 @@ title: 스크롤 버튼 만들기
 description: >
   scroll to top/bottom 버튼 만들기
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/btn.png
 related_posts:
   - _posts/blog/2022-05-11-btn_scroll.md
 

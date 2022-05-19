@@ -14,7 +14,7 @@ related_posts:
 categories:
   - data_science
 tags:
-  - data mining
+  - data science
   - python
   - preprocessing
   - outlier detection

@@ -6,8 +6,8 @@ title: python으로 pivot table 작업하기
 description: >
   pandas pivot_table, groupby
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/pd_pivot_table.png
 related_posts:
   - _posts/data_science/2022-01-21-pd_pivot_table.md
 
@@ -15,7 +15,7 @@ categories:
   - data_science
 tags:
   - python
-  - data mining
+  - data science
   - pandas
   - pivot table
 ---

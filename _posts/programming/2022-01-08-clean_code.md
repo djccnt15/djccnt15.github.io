@@ -6,8 +6,8 @@ title: 깨끗한 코드
 description: >
   깨끗한 코드를 위한 팁
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/clean_code.png
 related_posts:
   - _posts/programming/2022-01-08-clean_code.md
 

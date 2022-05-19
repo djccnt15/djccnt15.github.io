@@ -6,8 +6,8 @@ title: pandas 옵션 설정
 description: >
   pandas.set_option 사용법
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/pd_set_option.png
 related_posts:
   - _posts/data_science/2022-01-09-pd_set_option.md
 
@@ -15,7 +15,7 @@ categories:
   - data_science
 tags:
   - python
-  - data mining
+  - data science
   - pandas
 ---
 

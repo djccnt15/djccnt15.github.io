@@ -6,8 +6,8 @@ title: 런타임 확인
 description: >
   코드의 런타임을 확인하는 방법
 hide_description: false
-# image: 
-#   path: /path/to/thumbnail/of/the/post
+image: 
+  path: /assets/img/posts/python_datetime.png
 related_posts:
   - _posts/python/2022-01-06-about_PEP.md
 

@@ -15,7 +15,7 @@ related_posts:
 categories:
   - data_science
 tags:
-  - data mining
+  - data science
   - statsmodels
 ---
 

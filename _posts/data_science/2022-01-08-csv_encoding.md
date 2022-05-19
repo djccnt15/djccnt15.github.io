@@ -15,7 +15,7 @@ categories:
   - data_science
 tags:
   - python
-  - data mining
+  - data science
   - pandas
   - csv
 ---
