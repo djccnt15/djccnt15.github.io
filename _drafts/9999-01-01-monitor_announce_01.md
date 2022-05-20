@@ -1,19 +1,26 @@
 ---
-title: "웹사이트 모니터링 프로젝트 01"
-excerpt: "프로젝트의 목적과 기초 구상"
 published: true
-mathjax: false
+layout: post
 
-toc: true
-toc_sticky: true
+title: 웹사이트 모니터링 프로젝트 01
+description: >
+  프로젝트의 목적과 기초 구상
+hide_description: false
+image: 
+  path: /assets/img/posts/github_pages.png
+# related_posts:
+#   - _posts/blog/2017-11-23-example-content-ii.md
+#   - /example/2012-02-07-example-content/
 
 categories:
-  - announcement monitoring
+  - programming
 tags:
   - web scraping
 ---
-# {{ page.excerpt }}
----
+
+* toc
+{:toc}
+
 회사를 다니다보면, 관련 정부기관의 지원사업의 공고문이라든가 기술 동향 보고서가 업로드 되었는지 주기적으로 확인해야 하는 업무들이 있다.  
 
 솔직히 매우 귀찮은 일인데 안 할 수는 없고.. 그래서 이 업무를 자동으로 처리해주는 웹 스크래핑 프로그램을 하나 만들어보려고 한다.  

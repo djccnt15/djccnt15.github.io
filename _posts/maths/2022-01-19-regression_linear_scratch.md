@@ -13,7 +13,7 @@ related_posts:
   - _posts/data_science/2022-01-24-regression_assumption.md
 
 categories:
-  - data_science
+  - maths
 tags:
   - python
   - data science
@@ -72,7 +72,7 @@ def lineFit(x, y):
     y_bar = sum(y) / len(y)
     w = sum((x - x_bar) * y) / sum((x - x_bar) * x)
     b = y_bar - (w * x_bar)
-    return(b, w)
+    return (b, w)
 ```
 
 ## 3번 문제 풀이

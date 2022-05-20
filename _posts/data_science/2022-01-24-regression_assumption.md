@@ -7,9 +7,10 @@ description: >
   선형성, 독립성, 등분산성, 정규성
 hide_description: false
 image: 
-  path: /assets/img/posts/linear_regression.png
+  path: /assets/img/posts/multiple_regression.png
 related_posts:
-  -_posts/data_science/2022-01-23-regression_statsmodels.md
+  - _posts/maths/2022-01-19-regression_linear_scratch.md
+  - _posts/data_science/2022-01-23-regression_statsmodels.md
 
 categories:
   - data_science
@@ -33,7 +34,7 @@ import pandas as pd
 
 df = pds.data('iris')
 df.reset_index(drop=True, inplace=True)
-df.columns = map(lambda x: x.replace('.', '_'), df.columns)
+df.columns = [i.replace('.', '_') for i in df.columns]
 
 print(df.info())
 ```
@@ -136,11 +137,11 @@ plt.show()
 Petal_Length와 Petal_Width의 영향도를 제거한 Rest_Sepal_Width를 Sepal_Width와 비교해보면 선형성이 아주 약간 생긴 것을 확인할 수 있다.  
 
 Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값을 위와 같이 계산하는 이유는 Sepal_Length를 $$y$$, Sepal_Width를 $$x_{0}$$, Petal_Length를 $$x_{1}$$, Petal_Width를 $$x_{2}$$라고 할 때 회귀식은 아래와 같이 정리되고,  
-<br>
+
 $$y = \beta_{0}x_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \varepsilon$$  
-<br>
+
 따라서 종속변수 $$y$$에서 Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값인 Rest_Sepal_Width($$\beta_{0}x_{0} + \varepsilon$$)는 아래와 같이 정리되기 때문이다.  
-<br>
+
 $$\beta_{0}x_{0} + \varepsilon = y - \beta_{1}x_{1} - \beta_{2}x_{2}$$
 
 Sepal_Width의 영향력(결정계수)을 확인하기 위해 Sepal_Width와 Sepal_Length를 단변량 회귀 분석을 통해 확인해보자.  
@@ -226,7 +227,7 @@ plt.show()
 
 Petal_Length와 Petal_Width의 상관성이 0.96으로 매우 높게 나오는데, 독립변수 간의 상관성이 있을 경우 다중공선성(Multicollinearity)이 있다고 표현되며, 분산팽창요인(VIF, Variance Inflation Factors)을 통해 다중공선성을 계산할 수 있다.  
 VIF를 계산하는 공식은 아래와 같고, $${R^{2}_{i}}$$은 $$i$$번째 독립변수에 대해 다른 독립변수들로 회귀 분석을 시행한 선형 모델의 $$R^{2}$$라는 뜻이다.  
-<br>
+
 $$VIF_{i} = \tfrac{1}{1-{R^{2}_{i}}}$$
 
 ❗ **VIF가 10이 넘으면 다중공선성이 있으며 5가 넘으면 주의할 필요가 있다**고 보는데, 독립 변수 a와 b가 서로 상관 관계가 있다고 했을 때 두 변수 모두 VIF가 높고, 어느 하나만 VIF가 높은 경우는 없다. 서로 연관 있는 변수끼리 VIF가 높다.

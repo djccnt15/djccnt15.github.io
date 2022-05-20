@@ -12,7 +12,7 @@ related_posts:
   - _posts/linear_algebra/2022-05-01-linear_algebra_01.md
 
 categories:
-  - linear_algebra
+  - maths
 tags:
   - linear algebra
   - python
@@ -30,7 +30,7 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 $$A = \begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\\a_{31}&a_{32}\\\end{pmatrix}\to A^{T} = \begin{pmatrix}a_{11}&a_{21}&a_{31}\\a_{12}&a_{22}&a_{32}\\\end{pmatrix}$$
 
-전치 행렬의 성질 중 행렬 곱의 전치 행렬은 아래와 같이 조금 주의해야 한다.  
+전치 행렬의 성질 중 행렬 곱의 전치 행렬은 아래와 같아 조금 주의해야 한다.  
 
 $$(AB^{T}) = B^{T}A^{T}$$
 

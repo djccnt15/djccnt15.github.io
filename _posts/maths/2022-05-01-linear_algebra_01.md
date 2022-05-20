@@ -12,7 +12,7 @@ related_posts:
   - _posts/linear_algebra/2022-05-19-linear_algebra_02.md
 
 categories:
-  - linear_algebra
+  - maths
 tags:
   - linear algebra
   - python
@@ -123,11 +123,11 @@ import numpy as np
 a = np.array([1, 2, 3])
 b = np.array([2, 4, 8])
 
-v_add = a + b
-v_sub = a - b
-v_mul_scaler = 3 * a
-v_hmul = a * b
-v_hdiv = a / b
+vadd = a + b
+vsub = a - b
+vsmul = 3 * a
+vhmul = a * b
+vhdiv = a / b
 ```
 
 ## 2. 행렬

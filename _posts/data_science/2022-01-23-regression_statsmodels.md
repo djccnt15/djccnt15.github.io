@@ -7,8 +7,9 @@ description: >
   statsmodels을 이용해서 회귀분석을 해보자
 hide_description: false
 image: 
-  path: /assets/img/posts/linear_regression.png
+  path: /assets/img/posts/multiple_regression.png
 related_posts:
+  - _posts/maths/2022-01-19-regression_linear_scratch.md
   - _posts/data_science/2022-01-24-regression_assumption.md
 
 categories:

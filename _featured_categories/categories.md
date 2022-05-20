@@ -1,4 +1,6 @@
 ---
 layout: categories
-title: Posts by Category
+title: Categories
+description: >
+  Posts by Category
 ---

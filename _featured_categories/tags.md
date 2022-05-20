@@ -1,4 +1,6 @@
 ---
 layout: tags
-title: Posts by Tag
+title: Tags
+description: >
+  Posts by Tag
 ---
