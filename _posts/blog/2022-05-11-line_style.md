@@ -9,7 +9,7 @@ hide_description: false
 image: 
   path: /assets/img/posts/list_layout.png
 related_posts:
-  - _posts/blog/2022-05-11-line_style.md
+  - _posts/blog/2022-05-21-text_align.md
 
 categories:
   - blog

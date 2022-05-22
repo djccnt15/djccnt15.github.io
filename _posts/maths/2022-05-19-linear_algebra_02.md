@@ -9,7 +9,8 @@ hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_02.png
 related_posts:
-  - _posts/linear_algebra/2022-05-01-linear_algebra_01.md
+  - _posts/maths/2022-05-01-linear_algebra_01.md
+  - _posts/maths/2022-05-22-linear_algebra_03.md
 
 categories:
   - maths
@@ -26,14 +27,14 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 [구현한 함수 저장소](https://github.com/djccnt15/maths)
 
-## 전치 행렬
+## 1. 전치 행렬
 
-전치 행렬(transposed matrix)은 기존 행렬의 행과 열을 바꾼 행렬을 말하며 $$A^{T}$$와 같이 표기한다. 수식으로 표현하면 아래와 같다.  
+**전치 행렬(transposed matrix)**은 기존 행렬의 행과 열을 바꾼 행렬을 말하며 $$A^{T}$$와 같이 표기한다. 수식으로 표현하면 아래와 같다.  
 
 $$A  = \begin{pmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22} \\
-a_{31} & a_{33} \\
+a_{31} & a_{32} \\
 \end{pmatrix}
 \to A^{T} = \begin{pmatrix}
 a_{11} & a_{21} & a_{31} \\
@@ -77,9 +78,9 @@ mat_transpose = np.transpose(a=a)
 mat_transpose = a.T
 ```
 
-## 대칭 행렬
+## 2. 대칭 행렬
 
-대칭 행렬(symmetric matrix)이란 아래와 같이 기존 행렬과 전치 행렬이 동일한 행렬을 말한다.  
+**대칭 행렬(symmetric matrix)**이란 아래와 같이 기존 행렬과 전치 행렬이 동일한 행렬을 말한다.  
 
 $$A = \begin{pmatrix}
 a & b & c \\
@@ -101,9 +102,9 @@ def symmetric_check(a):
     return a == At
 ```
 
-## 대각 행렬
+## 3. 대각 행렬
 
-대각 행렬(diagonal matrix)은 아래와 같이 행렬의 주 대각 원소가 아닌 원소가 0인 **정사각** 행렬을 말하며, $$D$$로 표기한다.  
+**대각 행렬(diagonal matrix)**은 아래와 같이 행렬의 주 대각 원소가 아닌 원소가 0인 **정사각** 행렬을 말하며, $$D$$로 표기한다.  
 
 $$D = \begin{pmatrix}
 d_{11} & 0 & 0 \\
@@ -185,7 +186,7 @@ diagonal_matrix = np.diag(diagonal_ele)
 
 ### 이중 대각 행렬
 
-이중 대각 행렬(bidiagonal matrix)은 아래와 같이 대각 원소에 더해 대각 원소의 바로 위나 아래의 원소가 0이 아닌 행렬을 말한다. 삼각 행렬과 마찬가지로 upper bidiagonal matrix와 lower bidiagonal matrix가 있다.  
+**이중 대각 행렬(bidiagonal matrix)**은 아래와 같이 대각 원소에 더해 대각 원소의 바로 위나 아래의 원소가 0이 아닌 행렬을 말한다. 삼각 행렬과 마찬가지로 upper bidiagonal matrix와 lower bidiagonal matrix가 있다.  
 
 $$A = \begin{pmatrix}
 a_{11} & a_{12} & 0 & 0 \\
@@ -258,9 +259,9 @@ diag_l = np.diag(v=np.diag(v=f, k=-1), k=-1)
 mat_bidiag_l = diag + diag_l
 ```
 
-## 단위 행렬
+## 4. 단위 행렬
 
-단위 행렬(identity matrix)은 아래와 같이 주 대각 원소가 1이고 그 외 나머지 원소는 모두 0인 **대각 행렬**을 의미한다. $$I$$로 표기하며, 달리 항등 행렬이라고도 부른다.  
+**단위 행렬(identity matrix)**은 아래와 같이 주 대각 원소가 1이고 그 외 나머지 원소는 모두 0인 **대각 행렬**을 의미한다. $$I$$로 표기하며, 항등 행렬이라고도 부른다.  
 
 $$I = \begin{pmatrix}
 1 & 0 & 0 \\
@@ -299,9 +300,9 @@ import numpy as np
 i = np.identity(3)
 ```
 
-## 영 행렬
+## 5. 영 행렬
 
-영 행렬(zero matrix)은 아래와 같이 행렬의 구성 원소가 모두 0인 행렬을 말한다.  
+**영 행렬(zero matrix)**은 아래와 같이 행렬의 구성 원소가 모두 0인 행렬을 말한다.  
 
 $$0 = \begin{pmatrix}
 0 & 0 \\
@@ -332,9 +333,9 @@ import numpy as np
 z = np.zeros((3, 2))
 ```
 
-## 삼각 행렬
+## 6. 삼각 행렬
 
-삼각 행렬(triangular matrix)은 0이 아닌 구성 원소가 삼각형 형태인 행렬로, 주 대각 원소 아래쪽의 모든 원소가 0인 상 삼각 행렬(upper triangular matrix)과 주 대각 원소 위쪽의 모든 원소가 0인 하 삼각 행렬(lower triangular matrix)이 있다.  
+**삼각 행렬(triangular matrix)**은 0이 아닌 구성 원소가 삼각형 형태인 행렬로, 주 대각 원소 아래쪽의 모든 원소가 0인 상 삼각 행렬(upper triangular matrix)과 주 대각 원소 위쪽의 모든 원소가 0인 하 삼각 행렬(lower triangular matrix)이 있다.  
 
 $$A = \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
@@ -395,9 +396,9 @@ mat_tri_u = np.triu(a)
 mat_tri_l = np.trul(a)
 ```
 
-## 토플리츠 행렬
+## 7. 토플리츠 행렬
 
-토플리츠 행렬(toeplitz matrix)은 아래와 같이 1행의 원소가 2행으로 가면서 한 열씩 오른쪽으로 이동하는 행렬을 말하며, $$T$$로 표시한다. **시계열 데이터를 행렬 형태로 변환할 때 사용**한다.  
+**토플리츠 행렬(toeplitz matrix)**은 아래와 같이 1행의 원소가 2행으로 가면서 한 열씩 오른쪽으로 이동하는 행렬을 말하며, $$T$$로 표시한다. **시계열 데이터를 행렬 형태로 변환할 때 사용**한다.  
 
 $$T = \begin{pmatrix}
 t_{0} & t_{-1} & t_{-2} & \cdots & t_{-(n-1)} \\
@@ -444,9 +445,9 @@ h = [5, 6, 7, 8]
 mat_toeplitz = toeplitz(g, h)
 ```
 
-## 하우스홀더 행렬
+## 8. 하우스홀더 행렬
 
-하우스홀더 행렬(householder matrix)은 모든 열이 정규 직교(orthonormal)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
+**하우스홀더 행렬(householder matrix)**은 모든 열이 정규 직교(orthonormal)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
 
 $$v = \begin{pmatrix}
 v_{1} \\
@@ -456,11 +457,11 @@ v_{n}\end{pmatrix}$$
 
 $$H = I - 2\frac{vv^{T}}{v^{T}v}$$
 
-$${vv^{T}}$$은 행렬의 외적, $${v^{T}v}$$은 행렬의 내적을 뜻하기 때문에 하우스홀더 행렬을 `python`으로 구현하기 위해서는 내적과 외적의 함수를 먼저 구현해야 한다.  
+$${vv^{T}}$$은 벡터의 외적, $${v^{T}v}$$은 벡터의 내적을 뜻하기 때문에 하우스홀더 행렬을 `python`으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 ```python
-# outer product
-def mat_outer(a, b):
+# outer product of vector
+def v_outer(a, b):
     n1 = len(a)
     n2 = len(b)
     res = []
@@ -474,8 +475,8 @@ def mat_outer(a, b):
 
     return res
 
-# inner product
-def mat_inner(a, b):
+# inner product of vector
+def v_inner(a, b):
     n = len(a)
     res = 0
 
@@ -491,10 +492,10 @@ def mat_inner(a, b):
 # householder matrix
 def householder(v):
     n = len(v)
-    v_outer = mat_outer(v, v)
-    v_inner = mat_inner(v, v)
+    outer = v_outer(v, v)
+    inner = v_inner(v, v)
 
-    V1 = mat_smul(1/v_inner, v_outer)
+    V1 = mat_smul(1/inner, outer)
     V2 = mat_smul(2, V1)
 
     H = mat_sub(mat_identity(n), V2)

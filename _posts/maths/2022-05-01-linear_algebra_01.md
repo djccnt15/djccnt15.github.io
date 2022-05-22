@@ -9,7 +9,7 @@ hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_01.png
 related_posts:
-  - _posts/linear_algebra/2022-05-19-linear_algebra_02.md
+  - _posts/maths/2022-05-19-linear_algebra_02.md
 
 categories:
   - maths
@@ -80,7 +80,7 @@ def v_sub(a, b):
 
 ### 스칼라 곱
 
-벡터의 스칼라 곱(scalar multiplication)은 스칼라의 부호가 벡터의 방향을 결정하고, 절대값의 크기가 벡터의 길이에 영향을 미친다. `python`으로 구현하면 아래와 같다.  
+벡터의 **스칼라 곱(scalar multiplication)**은 스칼라의 부호가 벡터의 방향을 결정하고, 절대값의 크기가 벡터의 길이에 영향을 미친다. `python`으로 구현하면 아래와 같다.  
 
 ```python
 # scalar multiplication of vector
@@ -97,7 +97,7 @@ def v_smul(n, a):
 
 ### 원소 곱
 
-두 벡터의 각 성분을 곱하는 연산은 원소 곱 또는 아다마르 곱(Hadamard product)이라고 부른다. `python`으로 구현하면 아래와 같다.  
+두 벡터의 각 성분을 곱하는 연산은 **원소 곱** 또는 **아다마르 곱(Hadamard product)**이라고 부른다. `python`으로 구현하면 아래와 같다.  
 
 ```python
 # hadamard product of vector
@@ -142,8 +142,7 @@ v_hdiv = a / b
 
 ## 2. 행렬
 
-행렬은 행(row)과 열(column)로 구성되어 있으며, [행 벡터와 열 백터](https://ko.wikipedia.org/wiki/%EB%B2%A1%ED%84%B0_%ED%96%89%EB%A0%AC)([Row and Column Vectors](https://en.wikipedia.org/wiki/Row_and_column_vectors))라고도 부른다.  
-수학적으로는 아래와 같이 표기한다.  
+행렬은 행(row)과 열(column)로 구성되어 있으며, [행 벡터와 열 백터](https://ko.wikipedia.org/wiki/%EB%B2%A1%ED%84%B0_%ED%96%89%EB%A0%AC)([Row and Column Vectors](https://en.wikipedia.org/wiki/Row_and_column_vectors))라고도 부른다. 수학적으로는 아래와 같이 표기한다.  
 
 $$A = \begin{pmatrix}
 1 & 2 \\
@@ -195,7 +194,7 @@ def mat_sub(a, b):
 
 ### 스칼라 곱
 
-행렬의 스칼라 곱은 벡터의 스칼라 곱과 마찬가지로 각 원소에 스칼라를 곱하는 것으로, 행렬을 구성하는 벡터의 길이를 스칼라 곱으로 늘리는 것을 의미한다. `python`으로 구현하면 아래와 같다.  
+행렬의 **스칼라 곱(scalar multiplication)**은 벡터의 스칼라 곱과 마찬가지로 각 원소에 스칼라를 곱하는 것으로, 행렬을 구성하는 벡터의 길이를 스칼라 곱으로 늘리는 것을 의미한다. `python`으로 구현하면 아래와 같다.  
 
 ```python
 # scalar multiplication of matrix
@@ -216,7 +215,7 @@ def mat_smul(b, a):
 
 ### 원소 곱
 
-두 행렬의 각 성분을 곱하는 연산은 벡터와 마찬가지로 원소 곱 또는 아다마르 곱(Hadamard product)이라고 부른다. `python`으로 구현하면 아래와 같다.  
+두 행렬의 각 성분을 곱하는 연산은 벡터와 마찬가지로 **원소 곱** 또는 **아다마르 곱(Hadamard product)**이라고 부른다. `python`으로 구현하면 아래와 같다.  
 
 ```python
 # hadamard product of matrix
@@ -252,7 +251,7 @@ def mat_hdiv(a, b):
 
 ### 행렬 곱
 
-행렬 곱(matrix multiplication)은 앞 행렬의 행 벡터와 뒤 행렬의 열 벡터의 곱셈합(SUMPRODUCT of excel)이며, 따라서 교환 법칙이 성립하지 않는다. `python`으로 구현하면 아래와 같다.  
+**행렬 곱(matrix multiplication)**의 결과 행렬은 앞 행렬의 행 벡터와 뒤 행렬의 열 벡터의 곱셈합(SUMPRODUCT of excel)을 원소로 갖기 때문에 교환 법칙이 성립하지 않는다. `python`으로 구현하면 아래와 같다.  
 
 ```python
 # multiplication of matrix
@@ -276,7 +275,7 @@ def mat_mul(a, b):
 
 ### 대각합
 
-행렬의 대각합(trace)은 주 대각 원소를 모두 더한 값을 의미하며 $$tr(A)$$로 표기한다.  
+**행렬의 대각합(trace)**은 주 대각 원소를 모두 더한 값을 의미하며 $$tr(A)$$로 표기한다.  
 
 $$A = \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
@@ -314,9 +313,9 @@ e = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 mat_add = c + d
 mat_sub = c - d
 mat_smul = 3 * c
-mat_hmul = np.multiply(c, d)
+mat_hmul = c * d == np.multiply(c, d)
 mat_hdiv = c / d
-mat_mul = np.matmul(c, d)
+mat_mul = c @ d == np.matmul(c, d)
 mat_tr = np.trace(e)
 ```
 

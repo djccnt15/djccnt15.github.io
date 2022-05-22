@@ -23,7 +23,8 @@ tags:
 * toc
 {:toc}
 
-# 문제
+## 문제
+
 0. read the `data.txt` and define first column as $$t$$, second column as $$v$$, third column as $$e$$.
 0. use following formulas below to create `python def LineFit(x, y)` which defines $$y = b + Wx$$.<br><br>
 $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$<br>  
@@ -50,8 +51,8 @@ time (s) velocity (m/s) uncertainty (m/s)
 23.21 -55 10
 ```
 
-# 풀이
-## 1번 문제 풀이
+## 풀이
+### 1번 문제 풀이
 
 ```python
 import numpy as np
@@ -64,7 +65,7 @@ v = data[:, 1]
 e = data[:, 2]
 ```
 
-## 2번 문제 풀이
+### 2번 문제 풀이
 
 ```python
 def lineFit(x, y):
@@ -75,7 +76,7 @@ def lineFit(x, y):
     return (b, w)
 ```
 
-## 3번 문제 풀이
+### 3번 문제 풀이
 
 ```python
 v0, g = lineFit(t, v)
@@ -86,7 +87,7 @@ v0 = 171.89273556960842
 g = -9.23414248039144
 ```
 
-## 4번 문제 풀이
+### 4번 문제 풀이
 
 ```python
 exog = np.linspace(0, 25, 251)
