@@ -18,7 +18,6 @@ tags:
   - data science
   - numpy
 ---
-
 * toc
 {:toc}
 
@@ -36,11 +35,11 @@ print(array)
 ```
 
 ## 1. reshape
+
 `numpy.array`의 데이터 변형 없이 모양만 바꿔주는 함수로, 주요 인자는 아래와 같다.  
 
 - a: array_like, 변형될 데이터
 - newshape: 변형할 모양, -1이 입력되면 나머지 차원의 설정에 따라 자동으로 계산된다
-{: .notice}
 
 ```python
 import numpy as np
@@ -56,6 +55,7 @@ print(reshape)
 ```
 
 ## 2. transpose, ndarray.T
+
 함수냐 메서드냐 차이만 있을 뿐 둘 모두 원본행렬의 전치행렬을 반환하는 것은 똑같다.  
 
 ```python

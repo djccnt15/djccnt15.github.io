@@ -17,7 +17,6 @@ tags:
   - linear algebra
   - python
 ---
-
 * toc
 {:toc}
 

@@ -21,7 +21,6 @@ tags:
   - regression
   - incomplete
 ---
-
 * toc
 {:toc}
 
@@ -30,6 +29,7 @@ tags:
 패키지 자체를 소개하는게 목적이기 때문에 data scaling, correlation, VIF, stepwise selection 등은 생략한다.  
 
 ## 0. 예제 데이터 준비
+
 먼저 예제 데이터를 준비한다.
 
 ```python
@@ -58,8 +58,9 @@ print(df)
 ```
 
 ## 1. statsmodels.api
+
 ❗ `statsmodels.api`을 통해서 회귀분석을 시행할 경우 **별도로 독립변수에 상수항을 추가**해줘야 한다.  
-{:.note title="Attention"}
+{:.note title='attention'}
 
 상수항을 추가하기 위해서는 `statsmodels`이 제공하는 `add_constant()`를 사용해주면 간단하다.  
 
@@ -118,8 +119,8 @@ Notes:
 strong multicollinearity or other numerical problems.
 ```
 
-
 ## 2. statsmodels.formula.api
+
 `statsmodels.formula.api`을 사용하면 회귀모델 공식을 먼저 작성한 후 공식에 따라 회귀분석을 시행한다.  
 상수항 추가나 범주형 변수의 더미변수화를 자동으로 해결해주는 장점이 있다.  
 
@@ -209,8 +210,9 @@ res = smf.ols(formula='Lottery ~ np.log(Literacy)', data=df).fit()
 ```
 
 ## 3. 결과 해석
+
 ❗ 이 글은 미완성입니다.
-{:.note title="Attention"}
+{:.note title='attention'}
 `summary()` 화면에 나오는 용어들의 뜻은 다음과 같다.  
 
 - Dep. Variable: 종속변수

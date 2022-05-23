@@ -19,9 +19,10 @@ tags:
   - pandas
   - csv
 ---
-
 * toc
 {:toc}
+
+## csv encoding
 
 인터넷에서 가져온 csv파일의 경우 위와 같이 인코딩 문제로 다 깨져서 나오는 경우가 많다.  
 
@@ -38,3 +39,7 @@ df.to_csv('FILE_NAME.csv', encoding='utf-8-sig')
 결과물은 아래와 같다.  
 
 ![scrap_result_2021_encoded.png](/assets/img/posts/scrap_result_2021_encoded.png)  
+
+---
+## Reference
+[pandas.DataFrame.to_csv](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)

@@ -29,7 +29,8 @@ text
 
 ---
 ## Alternatives
-- text
+
+text
 
 ---
 ## Reference

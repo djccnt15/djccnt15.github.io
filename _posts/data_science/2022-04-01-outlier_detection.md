@@ -19,7 +19,6 @@ tags:
   - preprocessing
   - outlier detection
 ---
-
 * toc
 {:toc}
 
@@ -45,6 +44,7 @@ scikit learn 패키지의 경우 `outlier detection`와 `novelty detection`에 �
 |The training data contains outliers which are defined as observations that are far from the others. Outlier detection estimators thus try to fit the regions where the training data is the most concentrated, ignoring the deviant observations.|The training data is not polluted by outliers and we are interested in detecting whether a new observation is an outlier. In this context an outlier is also called a novelty.|
 
 ## 1. 이상치 탐지 방법
+
 우선 나는 지도교수님의 영향을 받아서인지, 모델링을 무작정 시작하기 전에 범주형 데이터를 기반으로 데이터셋을 분리해서 각각의 범주별로 특화된 모델을 만드는 것이 통합된 데이터로 일반화된 모델을 만드는 것보다 더 좋다고 생각하는 편이다.  
 
 아무튼 데이터 분리 단계를 넘어간 후에 모델링 하는 과정에서의 전처리 단계에서 데이터의 noise를 처리하는 방법은 일반적으로 다음의 네 가지 방식을 사용한다.  
@@ -56,6 +56,7 @@ scikit learn 패키지의 경우 `outlier detection`와 `novelty detection`에 �
 {:.note}
 
 ## 2. IQR 방식을 사용한 이상치 제거
+
 앞서 소개한 네 가지 이상치 처리 방법 중에 가장 편하게 많이 사용되는 방식은 IQR 방식의 이상치 탐지 및 제거로, 기본 원리는 아래 그림과 같다.  
 
 ![IQR](/assets/img/posts/iqr.jpg)  
@@ -72,6 +73,7 @@ $$IQR = Q3 - Q1$$
 계산식에서 계수로 1.5를 곱하는 이유는 짧게 얘기하자면 적당해서.. 인데 자세히 설명하자면 다음과 같다.  
 
 ### 2-1. IQR 방식에서 IQR의 계수로 1.5를 사용하는 이유
+
 ![Normal Distribution](/assets/img/posts/Normal-Distribution-curve.jpg)  
 [출처](https://studiousguy.com/real-life-examples-normal-distribution/)  
 
@@ -134,9 +136,10 @@ $$= 2.7\sigma$$
 추가로, 실제 데이터의 분포에 상관없이 표준정규분포를 가정하고 IQR 방식을 사용할 수 있는 이유는 [중심극한정리](https://ko.wikipedia.org/wiki/%EC%A4%91%EC%8B%AC_%EA%B7%B9%ED%95%9C_%EC%A0%95%EB%A6%AC)가 이론적 배경이라고 한다.  
 중심극한정리를 요약하자면, 모집단이 어떤 분포를 가지고 있던지 간에 (모집단 분포가 모양이던 상관없이) 일단 표본의 크기가 충분히 크다면 표본평균들의 분포가 모집단의 모수를 기반으로한 정규분포를 이룬다는 정리인데,  
 정확히 어떤 논리적 전개를 통해서 중심극한정리가 IQR방식의 이론적 근거가 되는지는 명확한 설명을 아직 못 찾았다. ㅠㅠ 관련된 논문도 잘 안 나오고..
-{:.note title="attention"}
+{:.note title='attention'}
 
 ## 3. 💡 python으로 구현하기
+
 이제 복잡한 이론적 배경은 치워두고 python으로 구현하는 방법을 알아보자.
 
 ```python

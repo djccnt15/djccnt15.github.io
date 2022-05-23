@@ -19,7 +19,6 @@ tags:
   - data science
   - regression
 ---
-
 * toc
 {:toc}
 
@@ -52,6 +51,7 @@ time (s) velocity (m/s) uncertainty (m/s)
 ```
 
 ## 풀이
+
 ### 1번 문제 풀이
 
 ```python

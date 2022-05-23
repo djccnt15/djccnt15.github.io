@@ -18,11 +18,11 @@ tags:
   - data science
   - pandas
 ---
-
 * toc
 {:toc}
 
 ## 1. display.max_rows
+
 DataFrame의 출력이 생략되서 나올 때는 `display.max_rows`옵션을 수정해서 출력 가능 숫자를 확인할 수 있다.  
 물론 별도의 파일로 저장해서 Excel이나 Access를 통해 확인하는게 더 효과적이긴 할텐데, 별도의 파일을 만들지 않고 싶을 때는 `display.max_rows`옵션을 수정해서 출력하면 된다.
 
@@ -129,7 +129,6 @@ print(df)
 63    63
 64    64
 ```
-
 
 ---
 ## Reference

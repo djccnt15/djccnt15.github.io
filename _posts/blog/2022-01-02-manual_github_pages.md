@@ -17,11 +17,11 @@ tags:
   - ⭐starred
   - blog
 ---
-
 * toc
 {:toc}
 
 ## 1. 포스트 작성은 markdown으로
+
 엄밀히 말하면 Github Pages를 통해 배포되기 때문에, `GitHub Flavored Markdown`이라는 별도의 markdown을 사용한다.  
 `GFM(GitHub Flavored Markdown)`에 대한 자세한 설명은 [여기](https://github.github.com/gfm/)로  
 
@@ -31,8 +31,8 @@ tags:
 그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨리기 때문에 앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다.  
 기본적으로 켜고 특정 workspace에서만 끄는게 안 되기 때문에.. 반대는 가능하지만</sub>
 
-
 ## 2. YFM 정의 및 활용
+
 YFM(YAML Front Matter)은 markdown 파일의 최상단에 위치하며 3개의 하이픈으로 시작과 끝을 표시한다.  
 
 YAML은 일종의 구조화된 데이터 형식으로, 프로그래밍에서 변수를 설정하듯이 사용할 수 있다.  
@@ -53,7 +53,9 @@ YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있
 ```
 
 ## 3. 비밀글 작성
+
 ### 3-1. YFM으로 비밀글 태그
+
 YFM에서 `published: false`로 정의하면 된다.  
 비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`를 붙여서 jekyll을 구동하면 된다.
 
@@ -65,6 +67,7 @@ YFM에서 `published: false`로 정의하면 된다.
 [devinlife님의 블로그](https://devinlife.com/)를 보면서 질문하다 알게 되었는데, Github Pro를 사용하면 Github Pages의 repo를 비공개 설정 할 수 있다고 한다.  
 
 ### 3-2. _drafts 폴더에 작성하기
+
 `/_drafts` 폴더는 Github Pages가 외부로 배포하지 않도록 설정되어 있다. local에서 내용을 확인하고 싶다면 Jekyll에 `--drafts`를 붙여서 구동해야 한다.  
 
 ```powershell
@@ -72,6 +75,7 @@ YFM에서 `published: false`로 정의하면 된다.
 ```
 
 ## 4. local에서 빌드 결과 확인
+
 github pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 은근히 걸리기 때문에, local에서 확인하고 검토한 다음에 최종본을 업로드하는게 편하다.  
 
 local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명령어는 다음과 같다.
@@ -106,6 +110,7 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 > ❗ **주의** `https:192.168.0.5:4000`가 아니고 `http:192.168.0.5:4000`이다.  
 
 ### 4-1. ⚡ 작업할 때
+
 개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--drafts` 두 옵션을 주로 사용한다.
 
 - 업로드 결과와 동일하게 출력할 때

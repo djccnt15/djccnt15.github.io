@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: python으로 pivot table 작업하기
+title: python으로 pivot table 분석하기
 description: >
   pandas pivot_table, groupby
 hide_description: false
@@ -19,14 +19,11 @@ tags:
   - pandas
   - pivot table
 ---
-
 * toc
 {:toc}
 
-엑셀에는 데이터 재구조화 및 요약 기능을 제공하는 `pivot table`이라는 아주 강력한 데이터 분석 툴이 있다.  
-거의 똑같은 기능을 `pandas`에서도 `pivot_table`이라는 함수를 통해 제공하는데 심지어 공식문서에서 대놓고 `An Excel style pivot table.`을 리턴한다고 명시하고 있다.  
-
 ## 0. 데이터 준비
+
 샘플데이터는 `pydataset` 패키지가 제공하는 `Housing`을 사용한다.  
 
 ```python
@@ -54,6 +51,10 @@ print(df)
 ```
 
 ## 1. pandas.pivot_table
+
+엑셀에는 데이터 재구조화 및 요약 기능을 제공하는 `pivot table`이라는 아주 강력한 데이터 분석 툴이 있다.  
+거의 똑같은 기능을 `pandas`에서도 `pivot_table`이라는 함수를 통해 제공하는데 심지어 공식문서에서 대놓고 `An Excel style pivot table.`을 리턴한다고 명시하고 있다.  
+
 `pivot_table`은 요약할 데이터를 인자로 받는 함수다. `pandas.pivot_table`의 주요 인자들은 아래와 같다.  
 
 - data: 분석할 데이터  
@@ -170,6 +171,7 @@ yes   no          6540  3968.000000  2175      15
 ```
 
 ## 2. pandas.DataFrame.groupby
+
 `groupby`는 `pivot_table`과 비슷한 기능을 하는 DataFrame의 메서드로 그룹화에 강점이 있다. `pandas.DataFrame.groupby`의 주요 인자는 아래와 같다.  
 
 - by: 요약될 칼럼  

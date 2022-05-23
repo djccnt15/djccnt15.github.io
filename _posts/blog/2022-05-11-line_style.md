@@ -16,7 +16,6 @@ categories:
 tags:
   - blog
 ---
-
 * toc
 {:toc}
 
@@ -114,52 +113,52 @@ hydejack 테마는 style에 적용되는 scss 코드를 추가할 때 `/_sass/my
 
 `_layouts/list.html`을 아래와 같이 수정하자.  
 
-```html
+```html{% raw %}
 ---
 layout: page
 ---
 <div class="markdown-body">
-  {{ '{{ content '}}}}
+  {{ content }}
 </div>
-{{ '{% assign posts = site.categories[page.slug] | default:site.tags[page.slug] | default:site.posts '}}%}
+{% assign posts = site.categories[page.slug] | default:site.tags[page.slug] | default:site.posts %}
 
-{{ '{% assign date_formats  = site.data.strings.date_formats               '}}%}
-{{ '{% assign list_group_by = date_formats.list_group_by | default:"%Y"    '}}%}
-{{ '{% assign list_entry    = date_formats.list_entry    | default:"%m %d" '}}%}
+{% assign date_formats  = site.data.strings.date_formats               %}
+{% assign list_group_by = date_formats.list_group_by | default:"%Y"    %}
+{% assign list_entry    = date_formats.list_entry    | default:"%m %d" %}
 
-{{ '{% assign prev_date = 0 '}}%}
-{{ '{% if page.no_groups '}}%}<ul class="related-posts">{{ '{% endif '}}%}
+{% assign prev_date = 0 %}
+{% if page.no_groups %}<ul class="related-posts">{% endif %}
 <div class="list-post">
-{{ '{% for post in posts '}}%}
-  {{ '{% assign current_date = post.date | date:list_group_by '}}%}
-  {{ '{% unless page.no_groups '}}%}{{ '{% if current_date != prev_date '}}%}
-    {{ '{% unless forloop.first '}}%}</ul>{{ '{% endunless '}}%}
-    <h2 class="list-lead">{{ '{{ current_date '}}}}</h2>
+{% for post in posts %}
+  {% assign current_date = post.date | date:list_group_by %}
+  {% unless page.no_groups %}{% if current_date != prev_date %}
+    {% unless forloop.first %}</ul>{% endunless %}
+    <h2 class="list-lead">{{ current_date }}</h2>
     <ul class="related-posts">
-    {{ '{% assign prev_date = current_date '}}%}
-  {{ '{% endif '}}%}{{ '{% endunless '}}%}
-  {{ '{% include_cached components/post-list-item.html post=post format=list_entry '}}%}
-  {{ '{% if forloop.last '}}%}</ul>{{ '{% endif '}}%}
-{{ '{% endfor '}}%}
+    {% assign prev_date = current_date %}
+  {% endif %}{% endunless %}
+  {% include_cached components/post-list-item.html post=post format=list_entry %}
+  {% if forloop.last %}</ul>{% endif %}
+{% endfor %}
 </div>
-```
+{% endraw %}```
 
 ## 3. components 수정
 
 `_includes/components/post-list-item.html`을 아래와 같이 수정하자.  
 
-```html
-{{ "{% assign post = include.post "}}%}
-{{ '{% assign format = include.format | default:site.data.date_formats.related_post | default:"%Y %m %d" '}}%}
+```html{% raw %}
+{% assign post = include.post %}
+{% assign format = include.format | default:site.data.date_formats.related_post | default:"%Y %m %d" %}
 
 <li class="h6">
   <div>
-    <time style="display: inline-block; width: 2.2rem" class="faded fine" datetime="{{ '{{ post.date | date_to_xmlschema '}}}}">{{ '{{ post.date | date:format '}}}}</time>
-    <a href="{{ '{{ post.url | relative_url '}}}}" class="flip-title"><span>{{ '{{ post.title '}}}}</span></a>
-    <span style="font-weight: normal; font-size: smaller;">{{ '{{ post.description '}}}}</span>
+    <time style="display: inline-block; width: 2.2rem" class="faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:format }}</time>
+    <a href="{{ post.url | relative_url }}" class="flip-title"><span>{{ post.title }}</span></a>
+    <span style="font-weight: normal; font-size: smaller;">{{ post.description }}</span>
   </div>
 </li>
-```
+{% endraw %}```
 
 ---
 ## Reference

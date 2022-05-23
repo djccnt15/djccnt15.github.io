@@ -18,11 +18,11 @@ tags:
   - datetime
   - time
 ---
-
 * toc
 {:toc}
 
 ## 1. time 사용
+
 python 내장 모듈 `time`을 활용해서 코드의 전체 또는 일부의 런타임을 잴 수 있다.  
 
 ```python
@@ -36,6 +36,7 @@ print(f"run time: {runtime:.3f}")
 ```
 
 ## 2. 💡 datetime 사용
+
 python 내장 모듈 `datetime`을 사용하면 날짜 변경으로 인한 계산 오류 등을 예방할 수 있다. 나는 로그를 남기는 코드에서는 `import`를 하나 줄일 수 있다는 점 때문에 이 방식을 더 선호한다.  
 
 ```python
@@ -52,7 +53,6 @@ print(time_end)
 runtime = time_end - time_start
 print(runtime)
 ```
-
 
 ---
 ## Reference

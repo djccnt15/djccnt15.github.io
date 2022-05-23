@@ -4,7 +4,7 @@ layout: post
 
 title: 글자 정렬 기능 만들기
 description: >
-  how to add aligning text
+  how to align text
 hide_description: false
 image: 
   path: /assets/img/posts/text_align.png

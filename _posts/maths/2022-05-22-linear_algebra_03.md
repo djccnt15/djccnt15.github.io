@@ -4,12 +4,13 @@ layout: post
 
 title: 선형대수 03. 선형 시스템
 description: >
-  선형대수: 선형 방정식/선형 시스템/동차 선형 시스템
+  선형대수: 선형 방정식, 선형 시스템, 동차 선형 시스템
 hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_03.png
 related_posts:
   - _posts/maths/2022-05-19-linear_algebra_02.md
+  - _posts/maths/2022-05-23-linear_algebra_04.md
 
 categories:
   - maths
@@ -17,7 +18,6 @@ tags:
   - linear algebra
   - python
 ---
-
 * toc
 {:toc}
 
@@ -47,7 +47,7 @@ $$\begin{align*}
 
 위와 같은 선형 시스템에서 상수 부분만 모아서 행렬 형태로 나타낸 것을 **첨가 행렬(확대행렬, augmented matrix)**라 부르고, 위의 선형 시스템을 첨가 행렬의 형태로 나타내면 다음과 같다.  
 
-$$\left( \begin{array}{cccc|c}
+$$\left(\begin{array}{cccc|c}
 \beta_{11} & \beta_{12} & \cdots & \beta_{1m} & y_{1} \\
 \beta_{21} & \beta_{22} & \cdots & \beta_{2m} & y_{2} \\
 \vdots & \vdots & \ddots & \vdots & \vdots \\
@@ -79,7 +79,7 @@ def aug_mat(a, b):
     return x
 
 # separating coefficient matrix
-def sep_mat(a):
+def coef_mat(a):
     n = len(a)
     x, y = [], []
 
@@ -155,7 +155,7 @@ def gauss_jordan_eli(a, b):
 
             mat[j] = mat_next
 
-    x, y = sep_mat(mat)
+    x, y = coef_mat(mat)
 
     return y
 ```
@@ -165,7 +165,6 @@ def gauss_jordan_eli(a, b):
 첨가 행렬을 가우스 행렬로 변환한 후(전방 소거법, forward elimination) 역대입(후방 대입법, backward substitution)을 통해 해를 구하는 방법을 **가우스 소거법(Gauss elimination)**이라고 부르는데, `python`으로 구현하면 아래와 같다.  
 
 ```python
-
 # Gauss elimination
 def gauss_eli(a, b):
     mat = pivot_mat(a, b)
@@ -184,11 +183,11 @@ def gauss_eli(a, b):
             mat[i][n] = mat[i][n] - mat[i][k] * mat[k][n]
         mat[i][n] /= mat[i][i]
 
-    x, y = sep_mat(mat)
+    x, y = coef_mat(mat)
 
     return y
 ```
-[JuHyeong.dev](https://dkswnkk.tistory.com/67)을 참고해서 작성했다.  
+[JuHyeong.dev](https://dkswnkk.tistory.com/67)를 참고해서 작성했다.  
 
 ### numpy 활용
 
@@ -205,7 +204,7 @@ solve = np.linalg.solve(x, y)
 
 ## 3. 동차 선형 시스템
 
-선형 시스템이 아래와 같이 우변이 모두 0이면 **동차 선형 시스템(homogeneous linear system)**이라고 부르는데, 반드시 해가 존재한다는 특징이 있다.  
+선형 시스템이 아래와 같이 우변이 모두 0이면 **동차 선형 시스템(homogeneous linear system)**이라고 부르는데, 반드시 (한개 또는 무한개의)해가 존재한다는 특징이 있다.  
 
 $$\begin{align*}
 \beta_{11}x_{11} + \beta_{12}x_{12} + \cdots + \beta_{1m}x_{1m} & = 0 \\

@@ -16,7 +16,6 @@ categories:
 tags:
   - blog
 ---
-
 * toc
 {:toc}
 
@@ -24,7 +23,9 @@ tags:
 **현재 테마와는 관련 없다.**
 
 ## 1. 각종 블로그 스타일 수정
+
 ### 1-1. 스킨 수정
+
 스킨을 수정하고 싶을 때는  
 1. `/assets/css/main.scss`에 입력해서 오버라이드 하거나  
 2. `/_sass/minimal-mistakes/skins`에서 각 스킨들을 직접 건드리면 된다.  
@@ -64,6 +65,7 @@ $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 ```
 
 ### 1-2. 줄간격 조정
+
 Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다. 줄간격을 조정하려면 `/_sass/_page.scss`를 수정해주면 된다.  
 나는 아래와 같이 `.page__content`의 `p`에 `line-height`를 추가해서 문단 스타일을 수정했다.
 
@@ -77,6 +79,7 @@ Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다.
 ```
 
 ### 1-3. 좌우 여백 조정
+
 Minimal Mistakes 테마의 좌우 여백은 `/_sass/minimal-mistakes/_variables.scss`에 정의된 `$right-sidebar-width`, `Breakpoints` 변수를 수정해서 조절할 수 있다.  
 
 ```scss
@@ -101,6 +104,7 @@ $max-width: $x-large !default;
 ```
 
 ### 1-4. 프로필 사진 칸 수정
+
 `/_sass/minimal-mistakes/_sidebar.scss`의 `.author__avatar` 항목 수정
 
 ```scss
@@ -113,6 +117,7 @@ $max-width: $x-large !default;
 ```
 
 ### 1-5. 링크 밑줄 설정
+
 `/_sass/minimal-mistakes/_base.scss`의 `/* links */` 수정
 
 ```scss
@@ -120,7 +125,9 @@ a {
   text-decoration: none;
 }
 ```
+
 ### 1-6. 업로드 날짜 보이기
+
 Minimal Mistakes는 기본 설정으로 읽는 시간이 표시되어 있도록 구성되어 있는데, 영 쓸모가 없다. 읽는 시간 대신 업로드 날짜를 보이게 하려면, 아래와 같이 `/_config.yml`에서 `read_time`을 `false`로, `show_date`를 `true`로 수정해주면 된다.  
 
 ```yml
@@ -143,6 +150,7 @@ defaults:
 ```
 
 ## 2. 단축 버튼 만들기
+
 홈페이지, 맨 위로, 맨 아래로 보내는 단축 버튼 만드는 방법  
 `/_sass/minimal-mistakes/_sidebar.scss`에 아래 내용 추가
 
@@ -194,6 +202,7 @@ defaults:
 ```
 
 ## 3. MathJax로 수학식 표시하기
+
 Github Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 페이지 로딩이나 작성 편의성 등을 고려했을 때 아래 방식이 제일 좋은 것 같다.  
 
 `/_includes/mathjax.html` 생성 및 아래 내용 입력  
@@ -237,6 +246,7 @@ mathjax: true
 글 작성 시 수식 입력 방법은 [여기](/blog/2022-01-04-blog_markdown/#4-수식-입력)에서 확인할 수 있다.
 
 ## 4. favicon 설정
+
 `/assets/images/logo.ico` 폴더에 favicon 파일들 저장 후 `/_includes/head/custom.html`에 아래 내용 추가
 
 ```html
@@ -250,6 +260,7 @@ mathjax: true
 ```
 
 ## 6. Posts by Month 작성
+
 `/_layouts/monthly.html` 생성 후 아래 내용 입력
 
 ```html{% raw %}
@@ -304,6 +315,7 @@ main:
 ```
 
 ## 7. Home 화면 설정
+
 블로그의 첫 화면에 대한 설정은 `root`의 `index.html`에서 변경할 수 있다.  
 현재 설정은 아래와 같다.  
 
@@ -320,6 +332,7 @@ author_profile: true
 ```
 
 ## 8. timezone 설정
+
 `/_config.yml`에 timezone이 설정된 경우 `/Gemfile`에 아래 코드를 넣어줘야 local에서 Jekyll을 구동시킬 수 있다.  
 
 ```ruby
