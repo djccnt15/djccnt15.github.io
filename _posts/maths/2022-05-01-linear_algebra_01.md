@@ -39,7 +39,8 @@ $$s = 3$$
 
 **스칼라의 집합**으로 **크기와 방향**을 모두 나타내는 개념으로, 수학적으로 아래와 같이 표기한다.  
 
-$$v = \begin{pmatrix}
+$$v
+= \begin{pmatrix}
 1 \\
 2 \\
 3\end{pmatrix}$$
@@ -143,15 +144,27 @@ v_hdiv = a / b
 
 행렬은 행(row)과 열(column)로 구성되어 있으며, [행 벡터와 열 백터](https://ko.wikipedia.org/wiki/%EB%B2%A1%ED%84%B0_%ED%96%89%EB%A0%AC)([Row and Column Vectors](https://en.wikipedia.org/wiki/Row_and_column_vectors))라고도 부른다. 수학적으로는 아래와 같이 표기한다.  
 
-$$A = \begin{pmatrix}
+$$A
+= \begin{pmatrix}
 1 & 2 \\
 2 & 4 \\
 3 & 8 \\
-\end{pmatrix} = \begin{pmatrix}
+\end{pmatrix}
+= \begin{pmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22} \\
 a_{31} & a_{33} \\
 \end{pmatrix}$$
+
+행렬의 차원은 행렬의 크기를 말하는 것으로, 행의 개수가 $$n$$이고 열의 개수가 $$m$$이면 $$n \times m$$차원 행렬이라고 한다.  
+
+### 기본 행 연산
+
+**기본 행 연산(elementary row operations, ERO)**은 아래와 같다.  
+
+- 한 행에 영이 아닌 상수를 모두 곱한다.
+- 두 행을 교환한다.
+- 한 행의 배수를 다른 행에 더한다.
 
 ## 3. 행렬의 연산
 
@@ -276,7 +289,8 @@ def mat_mul(a, b):
 
 **행렬의 대각합(trace)**은 주 대각 원소를 모두 더한 값을 의미하며 $$tr(A)$$로 표기한다.  
 
-$$A = \begin{pmatrix}
+$$A
+= \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\

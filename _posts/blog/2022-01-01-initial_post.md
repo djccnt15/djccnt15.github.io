@@ -19,6 +19,8 @@ tags:
 * toc
 {:toc}
 
+## 첫 글
+
 > Googling stuff online does make you a Programmer.
 
 연구노트랄까 공부노트랄까 여하튼 공부한 내용을 정리해서 필요할 때마다 찾아보고, 한편으로는 포트폴리오도 정리할만한 블로그를 하나 운영하고 싶어서 블로그를 시작하게 되었다.

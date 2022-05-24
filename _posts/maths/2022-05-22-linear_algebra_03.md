@@ -42,7 +42,7 @@ $$\begin{align*}
 \beta_{11}x_{11} + \beta_{12}x_{12} + \cdots + \beta_{1m}x_{1m} & = y_{1} \\
 \beta_{21}x_{21} + \beta_{22}x_{22} + \cdots + \beta_{2m}x_{2m} & = y_{2} \\
 \vdots \\
-\beta_{n1}x_{n1} + \beta_{n2}x_{n2} + \cdots + \beta_{nm}x_{nm} & = y_{n}
+\beta_{n1}x_{n1} + \beta_{n2}x_{n2} + \cdots + \beta_{nm}x_{nm} & = y_{n} \\
 \end{align*}$$
 
 위와 같은 선형 시스템에서 상수 부분만 모아서 행렬 형태로 나타낸 것을 **첨가 행렬(확대행렬, augmented matrix)**라 부르고, 위의 선형 시스템을 첨가 행렬의 형태로 나타내면 다음과 같다.  
@@ -51,7 +51,7 @@ $$\left(\begin{array}{cccc|c}
 \beta_{11} & \beta_{12} & \cdots & \beta_{1m} & y_{1} \\
 \beta_{21} & \beta_{22} & \cdots & \beta_{2m} & y_{2} \\
 \vdots & \vdots & \ddots & \vdots & \vdots \\
-\beta_{n1} & \beta_{n2} & \cdots & \beta_{nm} & y_{n}
+\beta_{n1} & \beta_{n2} & \cdots & \beta_{nm} & y_{n} \\
 \end{array} \right)$$
 
 그리고 아래와 같이 첨가행렬에서 변수의 계수들만 분리한 행렬을 **계수 행렬(coefficient matrix)**이라고 부른다.  
@@ -114,7 +114,7 @@ a_{11} & a_{12}& a_{13} & a_{14} & \cdots & a_{1n} \\
 0 & 0 & 0 &a_{34} & \cdots & a_{3n} \\
 0 & 0 & 0 & 0 & \cdots & 0 \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & 0 & 0 & \cdots & 0
+0 & 0 & 0 & 0 & \cdots & 0 \\
 \end{pmatrix}$$
 
 그리고 아래와 같이 첫 원소가 1인 열에 대해 1을 제외한 나머지 열 원소가 0인 행렬을 **기약 행사다리꼴 행렬(reduced row echelon form matrix, RREF)**이라 한다.  
@@ -125,7 +125,7 @@ $$\begin{pmatrix}
 0 & 0 & 0 & 1 & \cdots & a_{3n} \\
 0 & 0 & 0 & 0 & \cdots & 0 \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & 0 & 0 & \cdots & 0
+0 & 0 & 0 & 0 & \cdots & 0 \\
 \end{pmatrix}$$
 
 주어진 선형 시스템을 기약 행사다리꼴 행렬의 형태로 만들어 방정식의 해를 구하는 방법을 **가우스-조던 소거법(Gauss Jordan elimination)**이라고 한다. `python`으로 구현하면 아래와 같다.  
@@ -204,13 +204,13 @@ solve = np.linalg.solve(x, y)
 
 ## 3. 동차 선형 시스템
 
-선형 시스템이 아래와 같이 우변이 모두 0이면 **동차 선형 시스템(homogeneous linear system)**이라고 부르는데, 반드시 (한개 또는 무한개의)해가 존재한다는 특징이 있다.  
+선형 시스템이 아래와 같이 우변이 모두 0이면 **동차 선형 시스템(homogeneous linear system)**이라고 부르는데, 반드시 (한 개 또는 무한개의)해가 존재한다는 특징이 있다.  
 
 $$\begin{align*}
 \beta_{11}x_{11} + \beta_{12}x_{12} + \cdots + \beta_{1m}x_{1m} & = 0 \\
 \beta_{21}x_{21} + \beta_{22}x_{22} + \cdots + \beta_{2m}x_{2m} & = 0 \\
 \vdots \\
-\beta_{n1}x_{n1} + \beta_{n2}x_{n2} + \cdots + \beta_{nm}x_{nm} & = 0
+\beta_{n1}x_{n1} + \beta_{n2}x_{n2} + \cdots + \beta_{nm}x_{nm} & = 0 \\
 \end{align*}$$
 
 ---
