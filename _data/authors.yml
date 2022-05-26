@@ -1,16 +1,16 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
 # Change `author1` to your shortname.
-jaeger:
-  name:              jaeger           # <firstname> <lastname>
+Jay.D:
+  name:              Jay.D           # <firstname> <lastname>
   email:             djccnt15@gmail.com # <mail@domain.tld>
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Hello, I'm Jaeger, an amateur AI Researcher.
+    Hello, I'm Jay.D, an amateur AI Researcher.
     
-    독학으로 공부하는 AI 기획자, 데이터사이언티스트 지망생, 아마추어 AI 연구자입니다.
+    AI 기획자, 데이터사이언티스트 지망생, 아마추어 AI 연구자입니다.
     
     내용 중 잘못된 부분 발견 시 알려주시면 감사하겠습니다.
 

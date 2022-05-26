@@ -11,7 +11,6 @@ hide_description: true
 ![googling_does_make_you_a_programmer](/assets/img/blog/googling_does_make_you_a_programmer.png)
 
 ## About Me
----
 
 Personal Contact: **[djccnt15@gmail.com](mailto:djccnt15@gmail.com)**  
 Business Contact: **[doorheon.jeong@wizcore.co.kr](mailto:doorheon.jeong@wizcore.co.kr)**  
@@ -29,40 +28,43 @@ LinkedIn: **[doorheon-b3aa56212](https://www.linkedin.com/in/doorheon-b3aa56212/
 - 각종 AI 기반 예측 모델 기획 및 개발
 - 사무자동화 관련 프로그램
 
-## Motto
 ---
 
-- 느린 것을 두려워하지 말고, 다만 멈추는 것을 경계하라.(不怕慢 只怕站) - 중국 속담
-- Standing on the shoulders of giants. - 유럽속담
+## Motto
 
-- 엔지니어는 구현을 못하면 모르는 것이다. - [Carl's Tech Blog](https://wotres.tistory.com/)
-- Googling stuff online does make you a Programmer.
+> 느린 것을 두려워하지 말고, 다만 멈추는 것을 경계하라.(不怕慢 只怕站) - 중국 속담  
+> Standing on the shoulders of giants. - 유럽속담  
+>  
+> 엔지니어는 구현을 못하면 모르는 것이다. - [Carl's Tech Blog](https://wotres.tistory.com/)  
+> Googling stuff online does make you a Programmer.  
+
+---
 
 ## Interests and Skills
----
 
 ### Programming Language
 
-> ![python_logo](/assets/img/posts/logo_Python.svg){: width="3%" height="3%"} [Python](https://www.python.org/)
+> [![python_logo](/assets/img/posts/logo_Python.svg){: width="3%" height="3%"} Python](https://www.python.org/)
 
 ### Data Science
 
-> ![statsmodels_logo](/assets/img/posts/logo_statsmodels.svg){: width="3%" height="3%"} [statsmodels](https://www.statsmodels.org/)  
-> ![pandas_logo](/assets/img/posts/logo_pandas.svg){: width="3%" height="3%"} [pandas](https://pandas.pydata.org/)
-> ![numpy_logo](/assets/img/posts/logo_numpy.svg){: width="3%" height="3%"} [NumPy](https://numpy.org/)
+> [![statsmodels_logo](/assets/img/posts/logo_statsmodels.svg){: width="3%" height="3%"} statsmodels](https://www.statsmodels.org/)
+> [![pandas_logo](/assets/img/posts/logo_pandas.svg){: width="3%" height="3%"} pandas](https://pandas.pydata.org/)
+> [![numpy_logo](/assets/img/posts/logo_numpy.svg){: width="3%" height="3%"} NumPy](https://numpy.org/)
 
 ### AI, Machine Learning, Deep Learning
 
-> ![tensorflow_logo](/assets/img/posts/logo_Tensorflow.svg){: width="3%" height="3%"} [TensorFlow](https://www.tensorflow.org/), ![keras_logo](/assets/img/posts/logo_Keras.svg){: width="3%" height="3%"} [Keras](https://keras.io/)  
-> ![sklearn_logo](/assets/img/posts/logo_scikit-learn.png){: width="5%" height="5%"} [scikit-learn](https://scikit-learn.org/)
+> [![tensorflow_logo](/assets/img/posts/logo_Tensorflow.svg){: width="3%" height="3%"} TensorFlow](https://www.tensorflow.org/), [![keras_logo](/assets/img/posts/logo_Keras.svg){: width="3%" height="3%"} Keras](https://keras.io/)
+> [![sklearn_logo](/assets/img/posts/logo_scikit-learn.png){: width="5%" height="5%"} scikit-learn](https://scikit-learn.org/)
 
 ### Visualization
 
-> ![matplotlib_logo](/assets/img/posts/logo_Matplotlib.svg){: width="3%" height="3%"} [Matplotlib](https://matplotlib.org/)
-> ![seaborn_logo](/assets/img/posts/logo_seaborn.svg){: width="3%" height="3%"} [seaborn](https://seaborn.pydata.org/)
+> [![matplotlib_logo](/assets/img/posts/logo_Matplotlib.svg){: width="3%" height="3%"} Matplotlib](https://matplotlib.org/)
+> [![seaborn_logo](/assets/img/posts/logo_seaborn.svg){: width="3%" height="3%"} seaborn](https://seaborn.pydata.org/)
+
+---
 
 ## Resume
----
 
 ### Projects
 

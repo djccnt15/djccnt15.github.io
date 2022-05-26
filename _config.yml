@@ -20,15 +20,15 @@
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Jaeger
+title:                 Jay.D
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Note of Jaeger, an junior AI Researcher
+  Note of Jay.D, an junior AI Researcher
 
 # A shorter description for the sidebar.
-tagline:               예거의 공부노트
+tagline:               Jay.D의 공부노트
 
 # A list of keywords for your blog
 keywords:              [data science, AI, machine learning, programming, python]
@@ -41,7 +41,7 @@ logo:                  /assets/img/blog/logo_w.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                jaeger           # <firstname> <lastname>
+  name:                Jay.D           # <firstname> <lastname>
   email:               djccnt15@gmail.com # <mail@domain.tld>
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
@@ -401,13 +401,13 @@ jekyll_compose:
     drafts:
       layout: post
       description: > 
-        Note of Jaeger, an junior AI Researcher
+        Note of Jay.D, an junior AI Researcher
       image:
         path: /assets/img/blog/sidebar-bg.jpg
     posts:
       layout: post
       description: > 
-        Note of Jaeger, an junior AI Researcher
+        Note of Jay.D, an junior AI Researcher
       image:
         path: /assets/img/blog/sidebar-bg.jpg
     projects:
