@@ -71,21 +71,17 @@ import copy
 # creating augmented matrix
 def aug_mat(a, b):
     x = copy.deepcopy(a)
-    n = len(a)
 
-    for i in range(n):
-        x[i].append(b[i])
+    x = [x + [b[i]] for i, x in enumerate(x)]
 
     return x
 
 # separating coefficient matrix
 def coef_mat(a):
     n = len(a)
-    x, y = [], []
 
-    for i in range(n):
-        x.append(a[i][:-1])
-        y.extend(a[i][-1:])
+    x = [a[i][:-1] for i in range(n)]
+    y = [y for i in range(n) for y in a[i][-1:]]
 
     return x, y
 ```
@@ -137,23 +133,16 @@ def gauss_jordan_eli(a, b):
     n = len(mat)
 
     for i in range(n):
-        mat_row = mat[i]
-        tmp = 1/mat_row[i]
-
-        mat_row = [ele * tmp for ele in mat_row]
-        mat[i] = mat_row
+        mat[i] = [ele / mat[i][i] for ele in mat[i]]
 
         for j in range(n):
             if i == j:
                 continue
 
-            mat_next = mat[j]
-            mat_tmp = [ele * -mat_next[i] for ele in mat_row]
+            mat_tmp = [ele * -mat[j][i] for ele in mat[i]]
 
-            for k in range(len(mat_row)):
-                mat_next[k] += mat_tmp[k]
-
-            mat[j] = mat_next
+            for k in range(len(mat[i])):
+                mat[j][k] += mat_tmp[k]
 
     x, y = coef_mat(mat)
 

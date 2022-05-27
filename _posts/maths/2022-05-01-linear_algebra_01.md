@@ -58,22 +58,16 @@ $$v
 # addition of vector
 def v_add(a, b):
     n = len(a)
-    res = []
 
-    for i in range(n):
-        val = a[i] + b[i]
-        res.append(val)
+    res = [a[i] + b[i] for i in range(n)]
 
     return res
 
 # subtraction of vector
 def v_sub(a, b):
     n = len(a)
-    res = []
 
-    for i in range(n):
-        val = a[i] - b[i]
-        res.append(val)
+    res = [a[i] - b[i] for i in range(n)]
 
     return res
 ```
@@ -84,13 +78,10 @@ def v_sub(a, b):
 
 ```python
 # scalar multiplication of vector
-def v_smul(n, a):
+def v_smul(s, a):
     n = len(a)
-    res = []
 
-    for i in range(n):
-        val = n * a[i]
-        res.append(val)
+    res = [s * a[i] for i in range(n)]
 
     return res
 ```
@@ -103,22 +94,16 @@ def v_smul(n, a):
 # hadamard product of vector
 def v_hmul(a, b):
     n = len(a)
-    res = []
 
-    for i in range(n):
-        val = a[i] * b[i]
-        res.append(val)
+    res = [a[i] * b[i] for i in range(n)]
 
     return res
 
 # hadamard division of vector
 def v_hdiv(a, b):
     n = len(a)
-    res = []
 
-    for i in range(n):
-        val = a[i] / b[i]
-        res.append(val)
+    res = [a[i] / b[i] for i in range(n)]
 
     return res
 ```
@@ -177,14 +162,8 @@ a_{31} & a_{33} \\
 def mat_add(a, b):
     n = len(a)
     m = len(a[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            val = a[i][j] + b[i][j]
-            row.append(val)
-        res.append(row)
+    res = [[a[i][j] + b[i][j] for j in range(m)] for i in range(n)]
 
     return res
 
@@ -192,14 +171,8 @@ def mat_add(a, b):
 def mat_sub(a, b):
     n = len(a)
     m = len(a[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            val = a[i][j] - b[i][j]
-            row.append(val)
-        res.append(row)
+    res = [[a[i][j] - b[i][j] for j in range(m)] for i in range(n)]
 
     return res
 ```
@@ -210,17 +183,11 @@ def mat_sub(a, b):
 
 ```python
 # scalar multiplication of matrix
-def mat_smul(b, a):
+def mat_smul(s, a):
     n = len(a)
     m = len(a[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            val = b * a[i][j]
-            row.append(val)
-        res.append(row)
+    res = [[s * a[i][j] for j in range(m)] for i in range(n)]
 
     return res
 ```
@@ -234,14 +201,8 @@ def mat_smul(b, a):
 def mat_hmul(a, b):
     n = len(a)
     m = len(a[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            val = a[i][j] * b[i][j]
-            row.append(val)
-        res.append(row)
+    res = [[a[i][j] * b[i][j] for j in range(m)] for i in range(n)]
 
     return res
 
@@ -249,14 +210,8 @@ def mat_hmul(a, b):
 def mat_hdiv(a, b):
     n = len(a)
     m = len(a[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            val = a[i][j] / b[i][j]
-            row.append(val)
-        res.append(row)
+    res = [[a[i][j] / b[i][j] for j in range(m)] for i in range(n)]
 
     return res
 ```
@@ -271,16 +226,8 @@ def mat_mul(a, b):
     n = len(a)
     m1 = len(a[0])
     m2 = len(b[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m2):
-            val = 0
-            for k in range(m1):
-                val += a[i][k] * b[k][j]
-            row.append(val)
-        res.append(row)
+    res = [[sum(a[i][k] * b[k][j] for k in range(m1)) for j in range(m2)] for i in range(n)]
 
     return res
 ```
@@ -304,12 +251,10 @@ $$tr(A) = a_{11} + a_{22} + a_{33}$$
 # trace of matrix
 def mat_tr(a):
     n = len(a)
-    val = 0
 
-    for i in range(n):
-        val += a[i][i]
+    res = sum(a[i][i] for i in range(n))
 
-    return val
+    return res
 ```
 
 ### numpy 사용

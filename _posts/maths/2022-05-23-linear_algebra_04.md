@@ -71,8 +71,10 @@ $$n \times n$$행렬의 여인수 전개는 아래와 같이 재귀적이기 때
 
 $$\begin{align*}
 det(A) & = a_{11}M_{11} - a_{12}M_{12} + \cdots \pm a_{1n}M_{1n} \\
-& = a_{11}(a_{21}M_{21}) + a_{12}(a_{22}M_{22}) + \cdots + a_{1n}(a_{2n}M_{2n}) \\
-& = a_{11}(a_{21}(a_{31}M_{31})) + a_{12}(a_{22}(a_{32}M_{32})) + \cdots + a_{1n}(a_{2n}(a_{3n}M_{3n})) \\
+& = a_{11}det(B) - a_{12}det(B) + \cdots \pm a_{1n}det(B) \\
+& = a_{11}(b_{11}M_{11} \pm \cdots \pm b_{1n}M_{1n}) \pm \cdots \pm a_{1n}(b_{11}M_{11} \pm \cdots \pm b_{1n}M_{1n}) \\
+& = a_{11}(b_{11}det(C) \pm \cdots \pm b_{1n}det(C)) \pm \cdots \pm a_{1n}(b_{11}M_{11} \pm \cdots \pm b_{1n}det(C)) \\
+& = a_{11}(b_{11}(c_{11}M_{11} \pm \cdots \pm c_{1n}M_{1n}) \pm \cdots )) \pm \cdots \pm a_{1n}(b_{11}(c_{11}M_{11} \pm \cdots \pm c_{1n}M_{1n})) \\
 \end{align*}$$
 
 `python`으로 구현하면 아래와 같다.  
@@ -121,7 +123,7 @@ $$det(A) = det(A^{T})$$
 
 - 한 행에 영이 아닌 상수를 모두 곱한다.
 
-$$k det(A)
+$$kdet(A)
 \to k \begin{vmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\

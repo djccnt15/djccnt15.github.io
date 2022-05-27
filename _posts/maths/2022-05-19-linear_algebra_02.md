@@ -53,14 +53,8 @@ $$(AB)^{T} = B^{T}A^{T}$$
 def mat_transpose(a):
     n = len(a)
     m = len(a[0])
-    At = []
 
-    for i in range(m):
-        row = []
-        for j in range(n):
-            val = a[j][i]
-            row.append(val)
-        At.append(row)
+    At = [[a[j][i] for j in range(n)] for i in range(m)]
 
     return At
 ```
@@ -156,10 +150,8 @@ a_{31} \times d_{33} & a_{32} \times d_{33} & a_{33} \times d_{33} \\
 # elements of diagonal matrix
 def diag_ele(a):
     n = len(a)
-    d = []
 
-    for i in range(n):
-        d.append(a[i][i])
+    d = [a[i][i] for i in range(n)]
 
     return d
 
@@ -167,16 +159,8 @@ def diag_ele(a):
 def mat_diag(a):
     d = diag_ele(a)
     n = len(d)
-    D = []
 
-    for i in range(n):
-        row = []
-        for j in range(n):
-            if i == j:
-                row.append(d[i])
-            else:
-                row.append(0)
-        D.append(row)
+    D = [[d[i] if i == j else 0 for j in range(n)] for i in range(n)]
 
     return D
 ```
@@ -218,16 +202,8 @@ a_{21} & a_{22} & 0 & 0 \\
 def mat_bidiag_u(a):
     n = len(a)
     m = len(a[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            if i > j or j-i > 1:
-                row.append(0)
-            else:
-                row.append(a[i][j])
-        res.append(row)
+    res = [[0 if i > j or j-i > 1 else a[i][j] for j in range(m)] for i in range(n)]
 
     return res
 
@@ -235,16 +211,8 @@ def mat_bidiag_u(a):
 def mat_bidiag_l(a):
     n = len(a)
     m = len(a[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            if i < j or i-j > 1:
-                row.append(0)
-            else:
-                row.append(a[i][j])
-        res.append(row)
+    res = [[0 if i < j or i-j > 1 else a[i][j] for j in range(m)] for i in range(n)]
 
     return res
 ```
@@ -290,16 +258,8 @@ $$AI = IA = A$$
 ```python
 # identity matrix
 def mat_identity(size):
-    I = []
 
-    for i in range(size):
-        row = []
-        for j in range(size):
-            if i == j:
-                row.append(1)
-            else:
-                row.append(0)
-        I.append(row)
+    I = [[1 if i == j else 0 for j in range(size)] for i in range(size)]
 
     return I
 ```
@@ -327,13 +287,8 @@ $$0
 ```python
 # zero matrix
 def mat_zeros(row, col):
-    Z = []
 
-    for i in range(row):
-        row = []
-        for j in range(col):
-            row.append(0)
-        Z.append(row)
+    Z = [[0 for j in range(col)] for i in range(row)]
 
     return Z
 ```
@@ -370,16 +325,8 @@ a_{31} & a_{32} & a_{33} \\
 def mat_tri_u(a):
     n = len(a)
     m = len(a[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            if i > j:
-                row.append(0)
-            else:
-                row.append(a[i][j])
-        res.append(row)
+    res = [[0 if i > j else a[i][j] for j in range(m)] for i in range(n)]
 
     return res
 
@@ -387,16 +334,8 @@ def mat_tri_u(a):
 def mat_tri_l(a):
     n = len(a)
     m = len(a[0])
-    res = []
 
-    for i in range(n):
-        row = []
-        for j in range(m):
-            if i < j:
-                row.append(0)
-            else:
-                row.append(a[i][j])
-        res.append(row)
+    res = [[0 if i < j else a[i][j] for j in range(m)] for i in range(n)]
 
     return res
 ```
@@ -437,16 +376,8 @@ $$T_{i,j} = T_{i+1,j+1} = t_{i-j}$$
 def mat_toeplitz(a, b):
     n1 = len(a)
     n2 = len(b)
-    T = []
 
-    for i in range(n1):
-        row = []
-        for j in range(n2):
-            if i >= j:
-                row.append(a[i-j])
-            else:
-                row.append(b[j-i])
-        T.append(row)
+    T = [[a[i-j] if i >= j else b[j-i] for j in range(n2)] for i in range(n1)]
 
     return T
 ```
@@ -482,24 +413,16 @@ $${vv^{T}}$$은 벡터의 외적, $${v^{T}v}$$은 벡터의 내적을 뜻하기 
 def v_outer(a, b):
     n1 = len(a)
     n2 = len(b)
-    res = []
 
-    for i in range(n1):
-        row = []
-        for j in range(n2):
-            val = a[i] * b[j]
-            row.append(val)
-        res.append(row)
+    res = [[a[i] * b[j] for j in range(n2)] for i in range(n1)]
 
     return res
 
 # inner product of vector
 def v_inner(a, b):
     n = len(a)
-    res = 0
 
-    for i in range(n):
-        res += a[i] * b[i]
+    res = sum(a[i] * b[i] for i in range(n))
 
     return res
 ```
