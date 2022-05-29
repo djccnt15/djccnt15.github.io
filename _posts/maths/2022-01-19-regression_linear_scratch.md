@@ -73,6 +73,7 @@ def lineFit(x, y):
     y_bar = sum(y) / len(y)
     w = sum((x - x_bar) * y) / sum((x - x_bar) * x)
     b = y_bar - (w * x_bar)
+    
     return (b, w)
 ```
 

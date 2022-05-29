@@ -222,8 +222,7 @@ def mat_bidiag_l(a):
 ```python
 import numpy as np
 
-f = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
-f = np.array(f)
+f = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]])
 
 # upper bidiagonal matrix
 diag = np.diag(np.diag(f))
@@ -345,7 +344,7 @@ def mat_tri_l(a):
 ```python
 import numpy as np
 
-a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
 mat_tri_u = np.triu(a)
 mat_tri_l = np.trul(a)
@@ -449,9 +448,7 @@ def householder(v):
 ```python
 import numpy as np
 
-a = [1, 2, 3, 4]
-a = np.array(a)
-
+a = np.array([1, 2, 3, 4])
 n = len(a)
 
 outer = np.outer(a, a)

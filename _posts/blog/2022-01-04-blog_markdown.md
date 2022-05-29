@@ -69,6 +69,7 @@ tags:
 ## 3. 수식 입력
 
 hydejack 테마에서 수식을 입력할 때는 양 끝에 `$$`표시를 하고 `LaTex`문법을 사용하면 된다.  
+[위키백과 TeX 문법](https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:TeX_%EB%AC%B8%EB%B2%95)([영어](https://en.wikipedia.org/wiki/Help:Displaying_a_formula))  
 
 ```markdown
 $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
@@ -77,7 +78,6 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 
 💡 [CodeCogs Equation Editor](https://latex.codecogs.com/)을 이용하면 쉽게 `LaTex`수식을 만들 수 있다.  
-❗ `LaTex`문법 중간에 띄어쓰기가 들어가 있으면 수식이 제대로 인식 되지 않는 경우가 있다.  
 {:.note}
 
 ## 4. {% raw %} {% %} {% endraw %} 인식 금지

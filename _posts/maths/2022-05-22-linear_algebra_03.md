@@ -39,11 +39,13 @@ $$\beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \cdots + \beta_{n}x_{n} = y$$
 아래와 같이 선형 방정식이 다수 존재하는 경우, 아래와 같은 선형 방정식의 집합을 연립 1차 방정식(system of linear equation), 또는 **선형 시스템(linear system)**이라고 부른다.  
 
 $$\begin{align*}
-\beta_{11}x_{11} + \beta_{12}x_{12} + \cdots + \beta_{1m}x_{1m} & = y_{1} \\
-\beta_{21}x_{21} + \beta_{22}x_{22} + \cdots + \beta_{2m}x_{2m} & = y_{2} \\
-\vdots \\
-\beta_{n1}x_{n1} + \beta_{n2}x_{n2} + \cdots + \beta_{nm}x_{nm} & = y_{n} \\
+\beta_{11}x_{11} + \beta_{12}x_{12} + \cdots & + \beta_{1m}x_{1m} = y_{1} \\
+\beta_{21}x_{21} + \beta_{22}x_{22} + \cdots & + \beta_{2m}x_{2m} = y_{2} \\
+& \vdots \\
+\beta_{n1}x_{n1} + \beta_{n2}x_{n2} + \cdots & + \beta_{nm}x_{nm} = y_{n} \\
 \end{align*}$$
+
+### 첨가 행렬, 계수 행렬
 
 위와 같은 선형 시스템에서 상수 부분만 모아서 행렬 형태로 나타낸 것을 **첨가 행렬(확대행렬, augmented matrix)**라 부르고, 위의 선형 시스템을 첨가 행렬의 형태로 나타내면 다음과 같다.  
 
@@ -54,7 +56,7 @@ $$\left(\begin{array}{cccc|c}
 \beta_{n1} & \beta_{n2} & \cdots & \beta_{nm} & y_{n} \\
 \end{array} \right)$$
 
-그리고 아래와 같이 첨가행렬에서 변수의 계수들만 분리한 행렬을 **계수 행렬(coefficient matrix)**이라고 부른다.  
+그리고 아래와 같이 첨가 행렬에서 변수의 계수들만 분리한 행렬을 **계수 행렬(coefficient matrix)**이라고 부른다.  
 
 $$\begin{pmatrix}
 \beta_{11} & \beta_{12} & \cdots & \beta_{1m} \\
@@ -63,13 +65,13 @@ $$\begin{pmatrix}
 \beta_{n1} & \beta_{n2} & \cdots & \beta_{nm} \\
 \end{pmatrix}$$
 
-선형 시스템의 계수들을 받아 첨가 행렬을 만드는 것과 첨가행렬을 계수 행렬로 분리하는 것을 `python`으로 구현하면 다음과 같다.  
+선형 시스템의 계수들을 받아 첨가 행렬을 만드는 것과 첨가 행렬을 계수 행렬로 분리하는 것을 `python`으로 구현하면 다음과 같다.  
 
 ```python
 import copy
 
 # creating augmented matrix
-def aug_mat(a, b):
+def mat_aug(a, b):
     x = copy.deepcopy(a)
 
     x = [x + [b[i]] for i, x in enumerate(x)]
@@ -77,7 +79,7 @@ def aug_mat(a, b):
     return x
 
 # separating coefficient matrix
-def coef_mat(a):
+def mat_coef(a):
     n = len(a)
 
     x = [a[i][:-1] for i in range(n)]
@@ -88,21 +90,20 @@ def coef_mat(a):
 
 ### 피벗
 
-선형대수학에서, 피벗(pivot) 또는 피벗 성분(pivot entry, pivot element)은 가우스 소거법과 같이 특정 계산을 수행하기 위한 임의의 알고리즘에 의해 먼저 선택된 행렬의 성분(항, 원소)을 말하며, 이러한 성분을 찾는 것을 피벗팅(pivoting)이라고 한다. 피벗은 일반적으로 0이 아니어야 하는데, 피벗팅을 `python`으로 구현하면 아래와 같다.  
+선형대수학에서, 피벗(pivot) 또는 **피벗 성분(pivot entry, pivot element)**은 가우스 소거법과 같이 특정 계산을 수행하기 위한 임의의 알고리즘에 의해 먼저 선택된 행렬의 성분(항, 원소)을 말하며, 이러한 **피벗 성분을 찾는 것을 피벗팅(pivoting)**이라고 한다. 피벗은 일반적으로 0이 아니어야 하는데, 피벗팅을 `python`으로 구현하면 아래와 같다.  
 
 ```python
 # pivoting augmented matrix
-def pivot_mat(a, b):
-    mat = aug_mat(a, b)
+def mat_pivot(mat):
 
     mat = sorted(mat, key=lambda x: abs(x[0]), reverse=True)
 
     return mat
 ```
 
-### 가우스-조던 소거법
+### 행사다리꼴 행렬, 기약 행사다리꼴 행렬
 
-아래와 같이 각 행의 가장 첫 원소는 1이고, 1 아래에 위치하는 원소는 모두 0인 행렬을 **행사다리꼴 행렬(row echelon form matrix, REF)**이라 한다. 가우스 행렬은 행렬의 구성 원소가 사다리꼴 형태로 남는 성질이 있다.  
+아래와 같이 각 행의 가장 첫 원소는 1이고, 1 아래에 위치하는 원소는 모두 0인 행렬을 **행사다리꼴 행렬(row echelon form matrix, REF)**이라 한다. 행사다리꼴 행렬은 행렬의 구성 원소가 사다리꼴 형태로 남는 성질이 있다.  
 
 $$\begin{pmatrix}
 a_{11} & a_{12}& a_{13} & a_{14} & \cdots & a_{1n} \\
@@ -124,39 +125,15 @@ $$\begin{pmatrix}
 0 & 0 & 0 & 0 & \cdots & 0 \\
 \end{pmatrix}$$
 
-주어진 선형 시스템을 기약 행사다리꼴 행렬의 형태로 만들어 방정식의 해를 구하는 방법을 **가우스-조던 소거법(Gauss Jordan elimination)**이라고 한다. `python`으로 구현하면 아래와 같다.  
-
-```python
-# Gauss-Jordan elimination
-def gauss_jordan_eli(a, b):
-    mat = pivot_mat(a, b)
-    n = len(mat)
-
-    for i in range(n):
-        mat[i] = [ele / mat[i][i] for ele in mat[i]]
-
-        for j in range(n):
-            if i == j:
-                continue
-
-            mat_tmp = [ele * -mat[j][i] for ele in mat[i]]
-
-            for k in range(len(mat[i])):
-                mat[j][k] += mat_tmp[k]
-
-    x, y = coef_mat(mat)
-
-    return y
-```
-
 ### 가우스 소거법
 
-첨가 행렬을 가우스 행렬로 변환한 후(전방 소거법, forward elimination) 역대입(후방 대입법, backward substitution)을 통해 해를 구하는 방법을 **가우스 소거법(Gauss elimination)**이라고 부르는데, `python`으로 구현하면 아래와 같다.  
+첨가 행렬을 행사다리꼴 행렬로 변환한 후(전방 소거법, forward elimination) 역대입(후방 대입법, backward substitution)을 통해 해를 구하는 방법을 **가우스 소거법(Gauss elimination)**이라고 부르는데, `python`으로 구현하면 아래와 같다.  
 
 ```python
 # Gauss elimination
 def gauss_eli(a, b):
-    mat = pivot_mat(a, b)
+    mat = mat_aug(a, b)
+    mat = mat_pivot(mat)
     n = len(mat)
 
     # gauss elimination
@@ -172,11 +149,46 @@ def gauss_eli(a, b):
             mat[i][n] = mat[i][n] - mat[i][k] * mat[k][n]
         mat[i][n] /= mat[i][i]
 
-    x, y = coef_mat(mat)
+    x, y = mat_coef(mat)
 
     return y
 ```
 [JuHyeong.dev](https://dkswnkk.tistory.com/67)를 참고해서 작성했다.  
+
+### 가우스-조르단 소거법
+
+주어진 선형 시스템을 [기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)을 통해 기약 행사다리꼴 행렬의 형태로 만들어 방정식의 해를 구하는 방법을 **가우스-조르단 소거법(Gauss Jordan elimination)**이라고 한다.  
+[Wolfram](https://mathworld.wolfram.com/Gauss-JordanElimination.html)에 따르면 가우스-조르단 소거법은 역행렬을 구하기 위한 방법이지만 응용해서 선형 시스템을 해를 구할 때도 사용할 수 있다. 아무튼 `python`으로 구현하면 아래와 같다.  
+
+```python
+# Gauss-Jordan elimination
+def gauss_jordan_eli(a):
+    mat = copy.deepcopy(a)
+    n = len(mat)
+
+    for i in range(n):
+        mat[i] = [ele / mat[i][i] for ele in mat[i]]
+
+        for j in range(n):
+            if i == j:
+                continue
+
+            mat_tmp = [ele * -mat[j][i] for ele in mat[i]]
+
+            for k in range(len(mat[i])):
+                mat[j][k] += mat_tmp[k]
+
+    return mat
+
+# solve equation with Gauss-Jordan elimination
+def solve(a, b):
+    mat = mat_aug(a, b)
+    mat = mat_pivot(mat)
+    mat = gauss_jordan_eli(mat)
+    x, y = mat_coef(mat)
+
+    return y
+```
 
 ### numpy 활용
 
@@ -185,8 +197,8 @@ def gauss_eli(a, b):
 ```python
 import numpy as np
 
-x = [[1, 0, -2], [0, 5, 6], [7, 8, 0]]
-y = [4, 5, 3]
+x = np.array([[1, 0, -2], [0, 5, 6], [7, 8, 0]])
+y = np.array([4, 5, 3])
 
 solve = np.linalg.solve(x, y)
 ```
@@ -206,4 +218,6 @@ $$\begin{align*}
 ## Reference
 - 교재: [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([교재 코드](https://github.com/bjpublic/linearalgebra))
 - 저자 블로그: [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
+- [Wolfram MathWorld : Gaussian Elimination](https://mathworld.wolfram.com/GaussianElimination.html)
+- [Wolfram MathWorld : Gauss-Jordan Elimination](https://mathworld.wolfram.com/Gauss-JordanElimination.html)
 - [JuHyeong.dev](https://dkswnkk.tistory.com/): [[수치해석] [c++,python] 가우스 소거법(Gaussian Elimination) 구현하기](https://dkswnkk.tistory.com/67)
