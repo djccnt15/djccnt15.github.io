@@ -50,4 +50,4 @@ print(func(1))
 
 ---
 ## Reference
-- [Python Documentation](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)([한글](https://docs.python.org/ko/3/tutorial/controlflow.html#defining-functions))
+- [Python Documentation: Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)([한글](https://docs.python.org/ko/3/tutorial/controlflow.html#defining-functions))

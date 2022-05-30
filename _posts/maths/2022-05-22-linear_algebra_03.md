@@ -208,10 +208,10 @@ solve = np.linalg.solve(x, y)
 선형 시스템이 아래와 같이 우변이 모두 0이면 **동차 선형 시스템(homogeneous linear system)**이라고 부르는데, 반드시 (한 개 또는 무한개의)해가 존재한다는 특징이 있다.  
 
 $$\begin{align*}
-\beta_{11}x_{11} + \beta_{12}x_{12} + \cdots + \beta_{1m}x_{1m} & = 0 \\
-\beta_{21}x_{21} + \beta_{22}x_{22} + \cdots + \beta_{2m}x_{2m} & = 0 \\
-\vdots \\
-\beta_{n1}x_{n1} + \beta_{n2}x_{n2} + \cdots + \beta_{nm}x_{nm} & = 0 \\
+\beta_{11}x_{11} + \beta_{12}x_{12} + \cdots & + \beta_{1m}x_{1m} = 0 \\
+\beta_{21}x_{21} + \beta_{22}x_{22} + \cdots & + \beta_{2m}x_{2m} = 0 \\
+& \vdots \\
+\beta_{n1}x_{n1} + \beta_{n2}x_{n2} + \cdots & + \beta_{nm}x_{nm} = 0 \\
 \end{align*}$$
 
 ---

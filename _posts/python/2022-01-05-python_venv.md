@@ -210,4 +210,4 @@ $ source bin/activate
 
 ---
 ## Reference
-- [Python Documentation](https://docs.python.org/3/tutorial/venv.html)([한글](https://docs.python.org/ko/3/tutorial/venv.html))
+- [Python Documentation: Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html)([한글](https://docs.python.org/ko/3/tutorial/venv.html))

@@ -4,7 +4,7 @@ layout: post
 
 title: 런타임 확인
 description: >
-  코드의 런타임을 확인하는 방법
+  python 코드의 런타임을 확인하는 방법
 hide_description: false
 image: 
   path: /assets/img/posts/python_datetime.png
@@ -56,5 +56,5 @@ print(runtime)
 
 ---
 ## Reference
-- [time — 시간 액세스와 변환](https://docs.python.org/ko/3/library/time.html)([영문](https://docs.python.org/3/library/time.html))
-- [datetime — 기본 날짜와 시간 형](https://docs.python.org/ko/3/library/datetime.html)([영문](https://docs.python.org/3/library/datetime.html))
+- [Python Documentation: time — 시간 액세스와 변환](https://docs.python.org/ko/3/library/time.html)([영문](https://docs.python.org/3/library/time.html))
+- [Python Documentation: datetime — 기본 날짜와 시간 형](https://docs.python.org/ko/3/library/datetime.html)([영문](https://docs.python.org/3/library/datetime.html))

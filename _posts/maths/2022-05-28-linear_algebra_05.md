@@ -69,7 +69,7 @@ $$A^{-1}
 -3 & 6 & 6 \\
 \end{array} \right)$$
 
-`python`으로 구현하면 아래와 같다. [선형 시스템](/maths/2022-05-22-linear_algebra_03/)에서 구현했던 함수들을 응용하여 만들었다.  
+`python`으로 구현하면 아래와 같다. [선형 시스템](/maths/2022-05-22-linear_algebra_03/#2-선형-시스템)에서 구현했던 함수들을 응용하여 만들었다.  
 
 ```python
 # creating matrix augmented matrix
