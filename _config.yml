@@ -20,15 +20,15 @@
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Jay.D
+title:                 Jay.D의 연구노트
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Note of Jay.D, an junior AI Researcher
+  Research Note of Jay.D, an junior AI Researcher
 
 # A shorter description for the sidebar.
-tagline:               Jay.D의 공부노트
+tagline:               Jay.D의 연구노트
 
 # A list of keywords for your blog
 keywords:              [data science, AI, machine learning, programming, python]
