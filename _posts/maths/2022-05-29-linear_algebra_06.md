@@ -36,10 +36,10 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 어떤 공간의 좌표 축의 기본 벡터를 **유닛 벡터(unit vector)**라고 하는데, 따라서 벡터는 아래의 예시와 같이 유닛 벡터의 선형 조합으로 나타낼 수 있다.  
 
 $$\begin{align*}
-a & = (2, 1, 3) \\
+\mathbf{a} & = (2, 1, 3) \\
 & = (2, 0, 0) + (0, 1, 0) + (0, 0, 3) \\
 & = 2(1, 0, 0) + 1(0, 1, 0) + 3(0, 0, 1) \\
-& = 2i + j + 3k \\
+& = 2\mathrm{i} + \mathrm{j} + 3\mathrm{k} \\
 \end{align*}$$
 
 ### 부분 공간
@@ -50,9 +50,9 @@ $$W = span(S)$$
 
 ## 2. 선형 변환
 
-**선형 변황(linear transformation)**은 두 벡터 공간 사이의 함수를 말하며, 예를 들어 행렬과 벡터의 곱 $$Ax$$는 벡터 $$x$$에 선형 변환 $$A$$를 취한 것을 의미한다. 따라서 '행렬'은 선형 변환의 의미를 포함하고 있다고 할 수 있다.  
+**선형 변황(linear transformation)**은 두 벡터 공간 사이의 함수를 말하며, 예를 들어 행렬과 벡터의 곱 $$Ax$$는 벡터 $$\mathrm{x}$$에 선형 변환 $$A$$를 취한 것을 의미한다. 따라서 '행렬'은 선형 변환의 의미를 포함하고 있다고 할 수 있다.  
 
-$$Ax
+$$A\mathrm{x}
 = \begin{pmatrix}
 2 & 3 \\
 4 & 2 \\
@@ -69,11 +69,11 @@ $$Ax
 
 ## 3. 선형 조합과 선형 독립
 
-아래와 같이 벡터 $$w$$를 벡터 $$u_{n}$$과 스칼라 $$a_{n}$$의 조합으로 나타낼 수 있을 때 벡터 $$w$$를 벡터 $$u_{n}$$의 **선형 조합(linear combination)**으로 나타낼 수 있다고 말한다.  
+아래와 같이 벡터 $$\mathrm{w}$$를 벡터 $$\mathrm{u}_{n}$$과 스칼라 $$a_{n}$$의 조합으로 나타낼 수 있을 때 벡터 $$\mathrm{w}$$를 벡터 $$\mathrm{u}_{n}$$의 **선형 조합(linear combination)**으로 나타낼 수 있다고 말한다.  
 
-$$w = a_{1}u_{1} + a_{2}u_{2} + \cdots + a_{n}u_{n}$$
+$$\mathrm{w} = a_{1}\mathrm{u}_{1} + a_{2}\mathrm{u}_{2} + \cdots + a_{n}\mathrm{u}_{n}$$
 
-$$A = \{a_{1}, a_{2}, \cdots a_{n}\}$$이 벡터공간 $$S$$내의 벡터들의 집합일 때, $$A$$에 속하는 벡터를 $$A$$에 속하는 다른 벡터들의 선형 조합(linear combination)으로 표현할 수 없을 때 $$A$$를 **선형 독립(linear independent)**이라고 하며, 반대로 특정 벡터를 다른 벡터의 선형 조합으로 표현할 수 있다면 **선형 종속(linear dependent)**이라고 한다.  
+$$A = \{a_{1}, a_{2}, \cdots a_{n}\}$$이 벡터공간 $$S$$내의 벡터들의 집합이고, $$A$$에 속하는 벡터를 $$A$$에 속하는 다른 벡터들의 선형 조합(linear combination)으로 표현할 수 없을 때 $$A$$를 **선형 독립(linear independent)**이라고 하며, 반대로 특정 벡터를 다른 벡터의 선형 조합으로 표현할 수 있다면 **선형 종속(linear dependent)**이라고 한다.  
 
 ## 4. 기저
 
@@ -126,7 +126,7 @@ a_{2m} \\
 a_{nm} \\
 \end{pmatrix}$$
 
-또한 $$Ax = 0$$을 만족하는 해(solution) 공간을 **영 공간(null space)**이라고 한다. 다른 말로 하자면, 행렬 $$A$$의 **영 공간(null space)**이란 행렬 $$A$$가 주어질 때 $$Ax = 0$$을 만족하는 모든 벡터 $$x$$의 집합이라고 할 수 있다.  
+또한 $$A\mathrm{x} = 0$$을 만족하는 해(solution) 공간을 **영 공간(null space)**이라고 한다. 다른 말로 하자면, 행렬 $$A$$의 **영 공간(null space)**이란 행렬 $$A$$가 주어질 때 $$A\mathrm{x} = 0$$을 만족하는 모든 벡터 $$\mathrm{x}$$의 집합이라고 할 수 있다.  
 
 ## 7. 랭크와 널리티
 
@@ -147,5 +147,5 @@ $$nullity(A)$$
 
 ---
 ## Reference
-- 교재: [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([교재 코드](https://github.com/bjpublic/linearalgebra))
+- 교재: [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
 - 저자 블로그: [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)

@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 
 title: title of the post
@@ -16,7 +16,6 @@ categories:
   - category
 tags:
   - tag
-  - unpublished
 ---
 
 * toc

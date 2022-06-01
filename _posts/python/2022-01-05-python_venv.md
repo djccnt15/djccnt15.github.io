@@ -110,7 +110,11 @@ pip install [package_name]==[version]
 패키지를 업그레이드하고 싶을 때는 아래와 같이 명령어를 입력하며 된다.
 
 ```powershell
+# 최신 버전으로 업그레이드
 pip install --upgrade [package_name]
+
+# 특정 버전으로 업그레이드
+pip install --upgrade [package_name]==[version]
 ```
 
 #### 4-3. 패키지 다운그레이드

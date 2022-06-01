@@ -37,9 +37,9 @@ $$s = 3$$
 
 - 벡터(vector)
 
-**스칼라의 집합**으로 **크기와 방향**을 모두 나타내는 개념으로, 수학적으로 아래와 같이 표기한다.  
+**스칼라의 집합**으로 **크기와 방향**을 모두 나타내는 개념으로, 아래와 같이 영문 소문자 볼드체로 표기한다.  
 
-$$v
+$$\mathbf{v}
 = \begin{pmatrix}
 1 \\
 2 \\
@@ -131,7 +131,7 @@ v_hdiv = a / b
 
 ## 2. 행렬
 
-행렬은 행(row)과 열(column)로 구성되어 있으며, [행 벡터와 열 백터](https://ko.wikipedia.org/wiki/%EB%B2%A1%ED%84%B0_%ED%96%89%EB%A0%AC)([Row and Column Vectors](https://en.wikipedia.org/wiki/Row_and_column_vectors))라고도 부른다. 수학적으로는 아래와 같이 표기한다.  
+행렬은 행(row)과 열(column)로 구성되어 있으며, [행 벡터와 열 백터](https://ko.wikipedia.org/wiki/%EB%B2%A1%ED%84%B0_%ED%96%89%EB%A0%AC)([Row and Column Vectors](https://en.wikipedia.org/wiki/Row_and_column_vectors))라고도 부른다. 아래와 같이 표기한다.  
 
 $$A
 = \begin{pmatrix}
@@ -299,5 +299,5 @@ mat_tr = np.trace(e)
 
 ---
 ## Reference
-- 교재: [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([교재 코드](https://github.com/bjpublic/linearalgebra))
-- 저자 블로그: [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
+- [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
+- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)

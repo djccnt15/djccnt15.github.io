@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: 상관계수 구현하기
+title: 상관계수
 description: >
-  implementing correlation analysis with python
+  python으로 상관분석 구현하기
 hide_description: false
 image: 
   path: /assets/img/posts/github_pages.png

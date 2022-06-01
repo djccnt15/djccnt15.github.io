@@ -158,7 +158,7 @@ def gauss_eli(a, b):
 ### 가우스-조르단 소거법
 
 주어진 선형 시스템을 [기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)을 통해 기약 행사다리꼴 행렬의 형태로 만들어 방정식의 해를 구하는 방법을 **가우스-조르단 소거법(Gauss Jordan elimination)**이라고 한다.  
-[Wolfram](https://mathworld.wolfram.com/Gauss-JordanElimination.html)에 따르면 가우스-조르단 소거법은 역행렬을 구하기 위한 방법이지만 응용해서 선형 시스템을 해를 구할 때도 사용할 수 있다. 아무튼 `python`으로 구현하면 아래와 같다.  
+[Wolfram](https://mathworld.wolfram.com/Gauss-JordanElimination.html)에 따르면 가우스-조르단 소거법은 [역행렬](/maths/2022-05-28-linear_algebra_05/)을 구하기 위한 방법이지만 응용해서 선형 시스템을 해를 구할 때도 사용할 수 있다. 아무튼 `python`으로 구현하면 아래와 같다.  
 
 ```python
 # Gauss-Jordan elimination
@@ -216,8 +216,8 @@ $$\begin{align*}
 
 ---
 ## Reference
-- 교재: [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([교재 코드](https://github.com/bjpublic/linearalgebra))
-- 저자 블로그: [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
+- [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
+- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
 - [Wolfram MathWorld : Gaussian Elimination](https://mathworld.wolfram.com/GaussianElimination.html)
 - [Wolfram MathWorld : Gauss-Jordan Elimination](https://mathworld.wolfram.com/Gauss-JordanElimination.html)
 - [JuHyeong.dev](https://dkswnkk.tistory.com/): [[수치해석] [c++,python] 가우스 소거법(Gaussian Elimination) 구현하기](https://dkswnkk.tistory.com/67)

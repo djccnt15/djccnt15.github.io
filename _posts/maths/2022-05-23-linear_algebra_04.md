@@ -85,6 +85,12 @@ $$\begin{align*}
 
 여인수 전개를 통한 행렬식의 계산은 재귀함수의 특성상 **시간 복잡도**에 문제가 발생하기 때문에 실제 계산에 사용하지는 않는 것을 권장한다고 한다.  
 
+### 수반 행렬
+
+행렬 $$A$$가 있을 때, 행렬 $$A$$의 여인수 행렬 $$C_{ij}$$의 전치 행렬을 행렬 $$A$$의 **수반 행렬(adjoint of A)**이라고 부르고 아래와 같이 표기한다.  
+
+$$\mathrm{adj}(A)$$
+
 ## 3. 행렬식의 성질
 
 ### 특이한 행렬의 행렬식
@@ -176,5 +182,5 @@ $$\det(AB) = \det(A) \det(B)$$
 
 ---
 ## Reference
-- 교재: [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([교재 코드](https://github.com/bjpublic/linearalgebra))
-- 저자 블로그: [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
+- [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
+- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)

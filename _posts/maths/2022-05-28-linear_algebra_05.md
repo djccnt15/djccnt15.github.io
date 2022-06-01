@@ -37,9 +37,26 @@ $$(AB)^{-1} = B^{-1}A^{-1}$$
 
 역행렬이 존재하는 행렬을 **가역 행렬(invertible matrix)**이라 부르며, 행렬식이 $$0$$이어서 역행렬이 존재하지 않는 행렬을 **특이 행렬(singular matrix)**이라고 부른다.  
 
+### 2 * 2 행렬의 역행렬
+
+2 * 2 행렬의 역행렬을 구하는 방법은 아래와 같다.  
+
+$$A^{-1}
+= \frac{1}{a_{11}a_{22}-a_{12}a_{21}}\begin{pmatrix}
+a_{22} & -a_{12} \\
+-a_{21} & a_{11} \\
+\end{pmatrix}, (a_{11}a_{22}-a_{12}a_{21}\neq 0)$$
+
+### n * n 행렬의 역행렬
+
+n * n 행렬의 역행렬을 구하는 방법은 행렬식에서 다룬 [수반 행렬](/maths/2022-05-23-linear_algebra_04/#수반-행렬)을 사용해야 한다. 구하는 방법은 아래와 같다.  
+
+$$A^{-1}
+= \frac{1}{\det(A)}\mathrm{adj}(A)$$
+
 ## 2. 역행렬 계산
 
-역행렬을 구하는 방법은 다양하지만, 앞서 다뤘던 **가우스-조던 소거법(Gauss Jordan elimination)**을 사용하는 것이 가장 간편하다. 절차는 아래와 같다.  
+역행렬을 구하는 방법은 다양하지만, 앞서 다뤘던 [**가우스-조르단 소거법(Gauss Jordan elimination)**](/maths/2022-05-22-linear_algebra_03/#가우스-조르단-소거법)을 사용하는 것이 가장 간편하다. 절차는 아래와 같다.  
 
 - 행렬 $$A$$의 오른쪽에 같은 크기를 갖는 단위 행렬 $$I$$를 첨가해 아래와 같이 첨가 행렬 $$[A \vert I]$$를 만든다.  
 
@@ -150,6 +167,6 @@ $$\det(A^{-1}) = \frac{1}{\det(A)}$$
 
 ---
 ## Reference
-- 교재: [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([교재 코드](https://github.com/bjpublic/linearalgebra))
-- 저자 블로그: [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
+- [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
+- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
 - [Wolfram MathWorld : Gauss-Jordan Elimination](https://mathworld.wolfram.com/Gauss-JordanElimination.html)

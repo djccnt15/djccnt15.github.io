@@ -396,16 +396,16 @@ mat_toeplitz = toeplitz(g, h)
 
 **하우스홀더 행렬(householder matrix)**은 모든 열이 정규 직교(orthonormal)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
 
-$$v
+$$\mathbf{v}
 = \begin{pmatrix}
 v_{1} \\
 v_{2} \\
 \vdots \\
 v_{n}\end{pmatrix}$$
 
-$$H = I - 2\frac{vv^{T}}{v^{T}v}$$
+$$H = I - 2\frac{\mathbf{vv}^{T}}{\mathbf{v}^{T}\mathbf{v}}$$
 
-$${vv^{T}}$$은 벡터의 외적, $${v^{T}v}$$은 벡터의 내적을 뜻하기 때문에 하우스홀더 행렬을 `python`으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
+$${\mathbf{vv}^{T}}$$은 벡터의 외적, $${\mathbf{v}^{T}\mathbf{v}}$$은 벡터의 내적을 뜻하기 때문에 하우스홀더 행렬 공식을 `python`으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 ```python
 # outer product of vector
@@ -461,5 +461,5 @@ H = i - 2*(outer/inner)
 
 ---
 ## Reference
-- 교재: [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([교재 코드](https://github.com/bjpublic/linearalgebra))
-- 저자 블로그: [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
+- [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
+- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
