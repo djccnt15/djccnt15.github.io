@@ -83,13 +83,14 @@ inner_product = np.inner(a, b)
 - 내적 < 0 이면, 두 벡터 사이의 각도는 90°보다 크다.
 - 내적 = 0 이면, 두 벡터 사이의 각도는 90°와 같다.
 
-**노름(norm)**은 $$\Vert \mathbf{v} \Vert$$로 표기하고, 구하는 방법은 아래와 같다.  
+**노름(norm)**은 $$\Vert \mathbf{v} \Vert$$로 표기하고, 구하는 방법은 아래와 같다. 보다시피 벡터의 **노름(norm)**은 자기 자신의 **내적(inner product)의 제곱근**과 같다.  
 
 $$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert = \sqrt{\sum_{i=1}^{n}{v_{i}}^{2}}$$
 
 **노름(norm)**을 구하는 공식을 `python`으로 구현하면 아래와 같다.  
 
 ```python
+# norm of vector
 def norm(a):
     n = len(a)
     res = sum(a[i] ** 2 for i in range(n)) ** 0.5
@@ -117,17 +118,45 @@ $$\cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert 
 
 **정사영(projection)**이란 한 벡터 공간에 속한 벡터를 부분 공간으로 수직으로 투영하는 것을 말하며, 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시키는 것을 아래와 같이 표기한다.  
 
-$$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert$$
+$$\begin{align*}
+proj_{\mathbf{v}} \mathbf{u} & = \Vert \mathbf{u} \Vert \vert \cos \theta \vert \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} = \Vert \mathbf{u} \Vert \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert} \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} \\
+& \\
+& = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}\mathbf{v} \\
+\end{align*}$$
 
-벡터 $$\mathbf{u}$$를 벡터$$\mathbf{v}$$에 정사영 시킨 길이는 $$\Vert \mathbf{u} \Vert \vert \cos \theta \vert$$이다.  
+`python`으로 구현하면 아래와 같다.  
+
+```python
+# projection
+def proj(a, b):
+    tmp = v_inner(a, b) / v_inner(b, b)
+    res = v_smul(tmp, b)
+
+    return res
+```
+
+`numpy`를 사용해서 구현하면 아래와 같다.  
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([2, 4, 8])
+
+res = (np.inner(a, b) / np.inner(b, b)) * b
+```
+
+벡터 $$\mathbf{u}$$를 벡터$$\mathbf{v}$$에 정사영 시킨 길이 $$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert$$는 다음과 같다.  
 
 $$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert = \Vert \mathbf{u} \Vert \vert \cos \theta \vert$$
 
-따라서 정사영을 이용해 내적을 정리하면, 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 내적이란 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시킨 벡터의 길이, 즉 $$\Vert \mathbf{u} \Vert \vert \cos \theta \vert$$와 기존 벡터 $$\mathbf{v}$$의 길이인 $$\Vert \mathbf{v} \Vert$$의 곱과 같다.  
+정사영을 이용해 내적을 정리하면, 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 내적이란 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시킨 벡터의 길이, 즉 $$\Vert \mathbf{u} \Vert \vert \cos \theta \vert$$와 기존 벡터 $$\mathbf{v}$$의 길이인 $$\Vert \mathbf{v} \Vert$$의 곱과 같다.  
 
 $$\begin{align*}
 \langle \mathbf{u}, \mathbf{v} \rangle & = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \cos \theta \\
+& \\
 & = (\Vert \mathbf{v} \Vert) \times (\Vert \mathbf{u} \Vert \cos \theta) \\
+& \\
 & = (length \ of \ vector \ \mathbf{v}) \times (length \ of \ vector \ proj_{\mathbf{v}}\mathbf{u}) \\
 \end{align*}$$
 
@@ -142,6 +171,7 @@ $$\mathbf{v}_{n} = \frac{1}{\Vert \mathbf{u}_{n} \Vert}\mathbf{u}_{n}$$
 벡터의 정규화를 `python`으로 구현하면 아래와 같다.  
 
 ```python
+# normalize vector
 def normalize(a):
     n = len(a)
     v = [a[i] / norm(a) for i in range(n)]

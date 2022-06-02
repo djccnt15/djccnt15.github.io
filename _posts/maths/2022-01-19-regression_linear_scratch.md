@@ -26,10 +26,10 @@ tags:
 
 0. read the `data.txt` and define first column as $$t$$, second column as $$v$$, third column as $$e$$.
 0. use following formulas below to create `python def LineFit(x, y)` which defines $$y = b + Wx$$.<br><br>
-$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i}$$<br>  
-$$\bar{y} = \frac{1}{n} \sum_{i=1}^{n}y_{i}$$<br>  
-$$W = \frac{\sum_{i=1}^{n}(x_{i} - \bar{x})y_{i}}{\sum_{i=1}^{n}(x_{i} - \bar{x})x_{i}}$$<br>  
-$$b = \bar{y} - W\bar{x}$$<br><br>  
+$$\overline{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i}$$<br>  
+$$\overline{y} = \frac{1}{n} \sum_{i=1}^{n}y_{i}$$<br>  
+$$W = \frac{\sum_{i=1}^{n}(x_{i} - \overline{x})y_{i}}{\sum_{i=1}^{n}(x_{i} - \overline{x})x_{i}}$$<br>  
+$$b = \overline{y} - W\overline{x}$$<br><br>  
 0. in case of $$v = v_{0} + gt$$, find values of $$v_{0}$$, $$g$$.
 0. plotting linear regression of $$t$$ and $$v$$.
 
