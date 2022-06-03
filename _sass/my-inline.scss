@@ -3,6 +3,8 @@
 //   text-shadow: rgba(0, 0, 0, 0.25) 0.1rem 0.1rem 0.15rem;
 // }
 
+// scroll btn
+
 .scroll_top {
   position: fixed;
   bottom: 0.5em;
@@ -25,4 +27,14 @@
   right: 5.3em;
   z-index: 10;
   cursor: pointer;
+}
+
+// taxonomy__index columns
+
+.taxonomy__index {
+  column-count: 2;
+}
+
+.archive__item {
+  line-height: 2.5;
 }
