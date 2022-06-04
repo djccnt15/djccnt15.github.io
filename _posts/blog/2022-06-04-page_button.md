@@ -7,10 +7,9 @@ description: >
   이전 글, 다음 글 버튼 만들기
 hide_description: false
 image: 
-  path: /assets/img/posts/github_pages.png
-# related_posts:
-#   - _posts/blog/2017-11-23-example-content-ii.md
-#   - /example/2012-02-07-example-content/
+  path: /assets/img/posts/page_button.png
+related_posts:
+  - _posts/blog/2022-06-04-page_button.md
 
 categories:
   - blog
