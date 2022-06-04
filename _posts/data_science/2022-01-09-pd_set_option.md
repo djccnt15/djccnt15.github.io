@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: pandas 옵션 설정
+title: '[데이터 분석] pandas 옵션 설정'
 description: >
   pandas.set_option 사용법
 hide_description: false
@@ -14,8 +14,8 @@ related_posts:
 categories:
   - data_science
 tags:
-  - python
   - data science
+  - python
   - pandas
 ---
 * toc

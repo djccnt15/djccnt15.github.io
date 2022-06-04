@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: python 회귀분석
+title: '[회귀분석] python 회귀분석'
 description: >
   statsmodels을 이용해서 회귀분석을 해보자
 hide_description: false
@@ -15,8 +15,8 @@ related_posts:
 categories:
   - data_science
 tags:
-  - python
   - data science
+  - python
   - statsmodels
   - regression
   - incomplete

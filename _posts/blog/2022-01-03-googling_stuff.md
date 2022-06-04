@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: Googling stuff online
+title: '[블로그] Googling stuff online'
 description: >
   Googling stuff online does make you a programmer
 hide_description: false

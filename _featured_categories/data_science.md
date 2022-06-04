@@ -1,5 +1,5 @@
 ---
-layout: list
+layout: grid
 title: Data Science
 slug: data_science
 description: >

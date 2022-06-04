@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: 상관 분석과 상관 계수
+title: '[데이터 분석] 상관 분석과 상관 계수'
 description: >
   python으로 상관 분석 구현하기
 hide_description: false
@@ -14,8 +14,11 @@ related_posts:
 categories:
   - maths
 tags:
-  - python
+  - data science
   - correlation coefficient
+  - python
+  - numpy
+  - scipy
 ---
 
 * toc
@@ -89,7 +92,7 @@ print(res)
 
 $$\begin{align*}
 r_{xy} & = \frac{\frac{\sum_{i=1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{n - 1}}{\sqrt{\frac{\sum_{i=1}^{n}(x_{i} - \overline{x})^{2}}{n - 1}} \sqrt{\frac{\sum_{i}^{n}(y_{i} - \overline{y})^{2}}{n - 1}}} \\
-& \\
+\\
 & = \frac{\sum_{i=1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sqrt{\sum_{i=1}^{n}(x_{i} - \overline{x})^{2}}  \sqrt{\sum_{i=1}^{n}(y_{i} - \overline{y})^{2}}}
 \end{align*}$$
 

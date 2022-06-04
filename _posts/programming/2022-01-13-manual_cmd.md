@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: cmd/terminal 사용법
+title: '[cmd/terminal] 사용법'
 description: >
-  windows cmd와 linux terminal에서 유용하게 사용하는 명령어들 모음  
+  windows cmd/linux terminal의 유용한 명령어 모음  
 hide_description: false
 image: 
   path: /assets/img/posts/cmd.png

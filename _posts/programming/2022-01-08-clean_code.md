@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: 깨끗한 코드
+title: '[coding] 깨끗한 코드'
 description: >
   깨끗한 코드를 위한 팁
 hide_description: false

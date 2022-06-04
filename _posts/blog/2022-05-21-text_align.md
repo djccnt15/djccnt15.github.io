@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: 글자 정렬 기능 만들기
+title: '[블로그] 글자 정렬'
 description: >
   how to align text
 hide_description: false
@@ -15,6 +15,7 @@ categories:
   - blog
 tags:
   - blog
+  - scss
 ---
 
 * toc

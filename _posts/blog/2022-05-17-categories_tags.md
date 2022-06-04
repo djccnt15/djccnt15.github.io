@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: 카테고리, 태그 페이지 만들기
+title: '[블로그] 카테고리/태그 페이지'
 description: >
   posts by Category, posts by Tag
 hide_description: false
@@ -15,6 +15,9 @@ categories:
   - blog
 tags:
   - blog
+  - html
+  - scss
+  - jekyll
 ---
 * toc
 {:toc}
@@ -44,9 +47,7 @@ layout: about
     {% for category in site.categories %}
       {% if category[1].size == i %}
         <li>
-          <a href="#{{ category[0] | slugify }}">
-            <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
-          </a>
+          <a href="#{{ category[0] }}"><strong>{{ category[0] }}</strong></a> <a href="/{{ category[0] }}">{{ i }}</a>
         </li>
       {% endif %}
     {% endfor %}
@@ -57,14 +58,14 @@ layout: about
 {% for i in (1..categories_max) reversed %}
   {% for category in site.categories %}
     {% if category[1].size == i %}
-      <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
-        <h2 class="archive__subtitle">{{ category[0] }}</h2>
-        <div class="entries-{{ entries_layout }}">
+      <section id="{{ category[0] }}">
+        <h2>{{ category[0] }}</h2>
+        <div>
           {% for post in category.last %}
             {% include archive-single.html type=entries_layout %}
           {% endfor %}
         </div>
-        <a href="/categories" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+        <a href="/categories">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
         <hr>
       </section>
     {% endif %}
@@ -95,9 +96,7 @@ layout: about
     {% for tag in site.tags %}
       {% if tag[1].size == i %}
         <li>
-          <a href="#{{ tag[0] | slugify }}">
-            <strong>{{ tag[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
-          </a>
+          <a href="#{{ tag[0] }}"><strong>{{ tag[0] }}</strong> {{ i }}</a>
         </li>
       {% endif %}
     {% endfor %}
@@ -108,14 +107,14 @@ layout: about
 {% for i in (1..tags_max) reversed %}
   {% for tag in site.tags %}
     {% if tag[1].size == i %}
-      <section id="{{ tag[0] | slugify | downcase }}" class="taxonomy__section">
-        <h2 class="archive__subtitle">{{ tag[0] }}</h2>
-        <div class="entries-{{ entries_layout }}">
+      <section id="{{ tag[0] }}">
+        <h2>{{ tag[0] }}</h2>
+        <div>
           {% for post in tag.last %}
             {% include archive-single.html type=entries_layout %}
           {% endfor %}
         </div>
-        <a href="/tags" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+        <a href="/tags">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
         <hr>
       </section>
     {% endif %}
@@ -152,14 +151,14 @@ layout: about
         <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
       {% endif %}
     </b>
-    {% if post.description %}<p style="font-weight: normal; font-size: smaller;">{{ post.description | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% if post.description %}<p class="description">{{ post.description | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
   </article>
 </div>
 {% endraw %}```
 
 ## 3. 스타일 수정하기
 
-`_sass/my-inline.scss`에 아래와 같이 추가하자.  
+`_sass/my-style.scss`에 아래와 같이 추가하자.  
 
 ```scss
 // taxonomy__index columns

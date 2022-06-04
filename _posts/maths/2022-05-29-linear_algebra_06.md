@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: 선형대수 06. 기저와 차원
+title: '[선형대수] 06. 기저와 차원'
 description: >
-  선형대수: 벡터 공간, 선형 변환, 선형 독립, 기저, 차원, 행/열/영 공간, 랭크와 널리티
+  벡터 공간, 선형 변환, 선형 독립, 기저, 차원, 행/열/영 공간, 랭크와 널리티
 hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_06.png
@@ -15,8 +15,8 @@ related_posts:
 categories:
   - maths
 tags:
+  - data science
   - linear algebra
-  - python
 ---
 
 * toc
@@ -37,8 +37,11 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 $$\begin{align*}
 \mathbf{a} & = (2, 1, 3) \\
+\\
 & = (2, 0, 0) + (0, 1, 0) + (0, 0, 3) \\
+\\
 & = 2(1, 0, 0) + 1(0, 1, 0) + 3(0, 0, 1) \\
+\\
 & = 2\mathrm{i} + \mathrm{j} + 3\mathrm{k} \\
 \end{align*}$$
 

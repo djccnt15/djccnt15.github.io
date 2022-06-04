@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: csv 인코딩
+title: '[데이터 분석] csv 인코딩'
 description: >
   pandas로 csv 인코딩 바꾸기
 hide_description: false
@@ -14,8 +14,8 @@ related_posts:
 categories:
   - data_science
 tags:
-  - python
   - data science
+  - python
   - pandas
   - csv
 ---

@@ -115,3 +115,21 @@
 .text-nowrap {
   white-space: nowrap;
 }
+
+// taxonomy__index columns
+
+.taxonomy__index {
+  column-count: 2;
+}
+
+.archive__item {
+  line-height: 2.5;
+}
+
+// post description style
+
+.description {
+  font-weight: normal;
+  font-size: smaller;
+  font-family: var(--font-family);
+}

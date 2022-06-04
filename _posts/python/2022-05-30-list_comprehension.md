@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: list comprehension
+title: '[Python] list comprehension'
 description: >
   List Comprehensions of Python
 hide_description: false

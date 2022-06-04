@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: DataFrame의 조건부 변환
+title: '[데이터 분석] DataFrame의 조건부 변환'
 description: >
   조건에 따라 데이터를 특정하게 수정하는 방법들
 hide_description: false
@@ -14,8 +14,8 @@ related_posts:
 categories:
   - data_science
 tags:
-  - python
   - data science
+  - python
   - pandas
   - numpy
 ---

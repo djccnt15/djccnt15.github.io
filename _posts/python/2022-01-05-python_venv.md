@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: Python 가상환경
+title: '[Python] 가상환경'
 description: >
   windows와 linux에서 python 가상환경 만들고 사용하기
 hide_description: false

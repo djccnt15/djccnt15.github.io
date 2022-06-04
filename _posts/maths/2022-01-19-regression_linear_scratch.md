@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: 선형회귀 구현
+title: '[회귀분석] 선형회귀 구현'
 description: >
   선형회귀 수식 구현하기. 모 수업에서 쪽지시험으로 진행했던 문제
 hide_description: false
@@ -15,9 +15,11 @@ related_posts:
 categories:
   - maths
 tags:
-  - python
   - data science
   - regression
+  - python
+  - numpy
+  - matplotlib
 ---
 * toc
 {:toc}
@@ -26,12 +28,19 @@ tags:
 
 0. read the `data.txt` and define first column as $$t$$, second column as $$v$$, third column as $$e$$.
 0. use following formulas below to create `python def LineFit(x, y)` which defines $$y = b + Wx$$.<br><br>
-$$\overline{x} = \frac{1}{n} \sum_{i=1}^{n}x_{i}$$<br>  
-$$\overline{y} = \frac{1}{n} \sum_{i=1}^{n}y_{i}$$<br>  
-$$W = \frac{\sum_{i=1}^{n}(x_{i} - \overline{x})y_{i}}{\sum_{i=1}^{n}(x_{i} - \overline{x})x_{i}}$$<br>  
-$$b = \overline{y} - W\overline{x}$$<br><br>  
+$$\begin{align*}
+\overline{x} & = \frac{1}{n} \sum_{i=1}^{n}x_{i} \\
+\\
+\overline{y} & = \frac{1}{n} \sum_{i=1}^{n}y_{i} \\
+\\
+W & = \frac{\sum_{i=1}^{n}(x_{i} - \overline{x})y_{i}}{\sum_{i=1}^{n}(x_{i} - \overline{x})x_{i}} \\
+\\
+b & = \overline{y} - W\overline{x} \\
+\\
+\end{align*}$$  
 0. in case of $$v = v_{0} + gt$$, find values of $$v_{0}$$, $$g$$.
 0. plotting linear regression of $$t$$ and $$v$$.
+
 
 `data.txt`는 아래와 같다.  
 
@@ -81,6 +90,7 @@ def lineFit(x, y):
 
 ```python
 v0, g = lineFit(t, v)
+
 print(f'v0 = {v0}\ng = {g}')
 ```
 ```markdown

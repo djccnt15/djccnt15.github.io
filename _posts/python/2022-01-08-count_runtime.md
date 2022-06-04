@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: 런타임 확인
+title: '[Python] 런타임 확인'
 description: >
   python 코드의 런타임을 확인하는 방법
 hide_description: false

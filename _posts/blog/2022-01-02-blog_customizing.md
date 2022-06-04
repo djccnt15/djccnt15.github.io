@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: Minimal Mistakes 테마 커스터마이징
+title: '[블로그] Minimal Mistakes 커스터마이징'
 description: >
-  Minimal Mistakes 테마의 각종 설정 및 수정들에 대한 정리
+  Minimal Mistakes 테마의 각종 설정 및 수정들
 hide_description: false
 image: 
   path: /assets/img/posts/minimal_mistakes.png
@@ -15,11 +15,14 @@ categories:
   - blog
 tags:
   - blog
+  - scss
+  - html
+  - jekyll
 ---
 * toc
 {:toc}
 
-**아래 내용은 블로그에 처음에 적용했던 Minimal Mistakes 테마를 커스터마이징 했던 내용들이다.**  
+아래 내용은 블로그에 처음에 적용했던 Minimal Mistakes 테마를 커스터마이징 했던 내용들이다.  
 **현재 테마와는 관련 없다.**
 
 ## 1. 각종 블로그 스타일 수정

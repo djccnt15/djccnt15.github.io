@@ -1,5 +1,5 @@
 ---
-layout: list
+layout: grid
 title: Mathematics
 slug: maths
 description: >

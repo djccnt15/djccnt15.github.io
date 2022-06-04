@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: 마크다운 활용팁
+title: '[블로그] 마크다운 활용팁'
 description: >
   posting에 유용한 팁들
 hide_description: false
@@ -16,6 +16,10 @@ categories:
 tags:
   - ⭐starred
   - blog
+  - markdown
+  - html
+  - LaTex
+  - jekyll
 ---
 * toc
 {:toc}

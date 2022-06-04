@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: 선형대수 05. 역행렬
+title: '[선형대수] 05. 역행렬'
 description: >
-  선형대수: 역행렬, 역행렬 계산, 역행렬과 거듭제곱
+  역행렬, 역행렬 계산, 역행렬과 거듭제곱
 hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_05.png
@@ -15,8 +15,10 @@ related_posts:
 categories:
   - maths
 tags:
+  - data science
   - linear algebra
   - python
+  - numpy
 ---
 
 * toc
@@ -151,11 +153,13 @@ res = np.linalg.inv(x)
 
 - 역행렬과 거듭 제곱
 
-$$(A^{-1})^{-1} = A$$
-
-$$(A^{n})^{-1} = (A^{-1})^{n}$$
-
-$$(aA)^{-1} = \frac{1}{a}A^{-1}$$
+$$\begin{align*}
+(A^{-1})^{-1} & = A \\
+\\
+(A^{n})^{-1} & = (A^{-1})^{n} \\
+\\
+(aA)^{-1} & = \frac{1}{a}A^{-1} \\
+\end{align*}$$
 
 - 역행렬과 전치 행렬
 

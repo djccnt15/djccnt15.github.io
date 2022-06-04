@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: 선형대수 03. 선형 시스템
+title: '[선형대수] 03. 선형 시스템'
 description: >
-  선형대수: 선형 방정식, 선형 시스템, 동차 선형 시스템
+  선형 방정식, 선형 시스템, 동차 선형 시스템
 hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_03.png
@@ -15,8 +15,10 @@ related_posts:
 categories:
   - maths
 tags:
+  - data science
   - linear algebra
   - python
+  - numpy
 ---
 * toc
 {:toc}

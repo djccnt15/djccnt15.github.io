@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: 선형대수 02. 다양한 행렬
+title: '[선형대수] 02. 다양한 행렬'
 description: >
-  선형대수: 전치/대칭/대각/이중대각/단위/영/삼각/토플리츠/하우스홀더 행렬
+  전치/대칭/대각/이중대각/단위/영/삼각/토플리츠/하우스홀더 행렬
 hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_02.png
@@ -15,8 +15,11 @@ related_posts:
 categories:
   - maths
 tags:
+  - data science
   - linear algebra
   - python
+  - numpy
+  - scipy
 ---
 * toc
 {:toc}

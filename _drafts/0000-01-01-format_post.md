@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: title of the post
+title: '[topic] title of the post'
 description: >
   description of the post
 hide_description: false

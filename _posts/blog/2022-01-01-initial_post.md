@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: 블로그 시작하기
+title: '[블로그] 첫 글'
 description: >
-  github.io로 블로그를 시작한 이유
+  감격의 첫 글
 hide_description: false
 image: 
   path: /assets/img/blog/googling_does_make_you_a_programmer_space.png

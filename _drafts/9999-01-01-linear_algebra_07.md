@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: 선형대수 07. 내적
+title: '[선형대수] 07. 내적'
 description: >
-  선형대수: 내적, 직교 공간, 그램 슈미트 과정, QR 분해
+  내적, 직교 공간, 그램 슈미트 과정, QR 분해
 hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_07.png
@@ -16,6 +16,7 @@ categories:
 tags:
   - linear algebra
   - python
+  - numpy
 ---
 
 * toc
@@ -120,7 +121,7 @@ $$\cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert 
 
 $$\begin{align*}
 proj_{\mathbf{v}} \mathbf{u} & = \Vert \mathbf{u} \Vert \vert \cos \theta \vert \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} = \Vert \mathbf{u} \Vert \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert} \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} \\
-& \\
+\\
 & = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}\mathbf{v} \\
 \end{align*}$$
 
@@ -154,9 +155,9 @@ $$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert = \Vert \mathbf{u} \Vert \vert \cos \
 
 $$\begin{align*}
 \langle \mathbf{u}, \mathbf{v} \rangle & = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \cos \theta \\
-& \\
+\\
 & = (\Vert \mathbf{v} \Vert) \times (\Vert \mathbf{u} \Vert \cos \theta) \\
-& \\
+\\
 & = (length \ of \ vector \ \mathbf{v}) \times (length \ of \ vector \ proj_{\mathbf{v}}\mathbf{u}) \\
 \end{align*}$$
 

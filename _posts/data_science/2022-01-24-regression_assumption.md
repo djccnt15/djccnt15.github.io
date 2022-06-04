@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: 회귀분석의 전제조건
+title: '[회귀분석] 회귀분석의 전제조건'
 description: >
   선형성, 독립성, 등분산성, 정규성
 hide_description: false
@@ -18,6 +18,9 @@ tags:
   - data science
   - regression
   - python
+  - pandas
+  - statsmodels
+  - matplotlib
 ---
 * toc
 {:toc}

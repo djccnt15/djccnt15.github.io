@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: python으로 pivot table 분석하기
+title: '[데이터 분석] python으로 pivot table 분석하기'
 description: >
   pandas pivot_table, groupby
 hide_description: false
@@ -14,10 +14,11 @@ related_posts:
 categories:
   - data_science
 tags:
-  - python
   - data science
-  - pandas
   - pivot table
+  - python
+  - pandas
+  - numpy
 ---
 * toc
 {:toc}

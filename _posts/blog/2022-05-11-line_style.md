@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: list layout 수정하기
+title: '[블로그] time series style layout'
 description: >
-  list layout을 시계열로 연결된 디자인으로 수정하기
+  list layout을 시계열 디자인으로 수정하기
 hide_description: false
 image: 
   path: /assets/img/posts/list_layout.png
@@ -15,6 +15,9 @@ categories:
   - blog
 tags:
   - blog
+  - scss
+  - html
+  - jekyll
 ---
 * toc
 {:toc}
@@ -155,10 +158,24 @@ layout: page
   <div>
     <time style="display: inline-block; width: 2.2rem" class="faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:format }}</time>
     <a href="{{ post.url | relative_url }}" class="flip-title"><span>{{ post.title }}</span></a>
-    <span style="font-weight: normal; font-size: smaller;">{{ post.description }}</span>
+    <span class="description">{{ post.description }}</span>
   </div>
 </li>
 {% endraw %}```
+
+## 4. description style 설정
+
+`_sass/my-style.scss`에 아래 내용 추가
+
+```scss
+// post description style
+
+.description {
+  font-weight: normal;
+  font-size: smaller;
+  font-family: var(--font-family);
+}
+```
 
 ---
 ## Reference

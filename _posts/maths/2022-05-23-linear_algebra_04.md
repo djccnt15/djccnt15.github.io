@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: 선형대수 04. 행렬식
+title: '[선형대수] 04. 행렬식'
 description: >
-  선형대수: 행렬식, 행렬식 계산, 행렬식의 성질
+  행렬식, 행렬식 계산, 행렬식의 성질
 hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_04.png
@@ -15,8 +15,10 @@ related_posts:
 categories:
   - maths
 tags:
+  - data science
   - linear algebra
   - python
+  - numpy
 ---
 
 * toc
