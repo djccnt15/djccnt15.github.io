@@ -38,9 +38,7 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 행렬 $$A$$의 행렬식은 $$\det (A)$$ 또는 $$\begin{vmatrix}A\end{vmatrix}$$라고 표기하며, $$2 \times 2$$ 행렬의 경우 아래와 같이 간단하게 구할 수 있다.  
 
-$$\det(A)
-= |A|
-= \begin{vmatrix}
+$$\det(A) = |A| = \begin{vmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22} \\
 \end{vmatrix}
@@ -48,9 +46,7 @@ a_{21} & a_{22} \\
 
 아래와 같이 행렬식의 절대값 기호가 두 겹인 경우 행렬식의 절대값을 구하라는 뜻이다.  
 
-$$\begin{Vmatrix}
-A\end{Vmatrix}
-= \begin{Vmatrix}
+$$\Vert A \Vert = \begin{Vmatrix}
 a & b \\
 c & d \\
 \end{Vmatrix}
@@ -113,8 +109,7 @@ $$\det(A) = \det(A^{T})$$
 
 - 한 행에 영이 아닌 상수를 모두 곱한다.
 
-$$k \det(A)
-\to k \begin{vmatrix}
+$$k \det(A) \to k \begin{vmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
@@ -127,9 +122,7 @@ a_{31} & a_{32} & a_{33} \\
 
 행렬 $$A$$가 $$n \times n$$ 행렬일 때, 
 
-$$\det(kA)
-= k^{n}\det(A)
-\to \begin{vmatrix}
+$$\det(kA) = k^{n}\det(A) \to \begin{vmatrix}
 ka_{11} & ka_{12} & ka_{13} \\
 ka_{21} & ka_{22} & ka_{23} \\
 ka_{31} & ka_{32} & ka_{33} \\
@@ -142,8 +135,7 @@ a_{31} & a_{32} & a_{33} \\
 
 - 두 행을 교환한다.
 
-$$-\det(A)
-\to -\begin{vmatrix}
+$$-\det(A) \to -\begin{vmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
@@ -158,8 +150,7 @@ a_{31} & a_{32} & a_{33} \\
 
 - 한 행의 배수를 다른 행에 더한다.
 
-$$\det(A)
-\to \begin{vmatrix}
+$$\det(A) \to \begin{vmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\

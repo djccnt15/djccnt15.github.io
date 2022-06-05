@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: '[데이터 분석] 상관 분석과 상관 계수'
+title: '[상관 분석] 상관 계수'
 description: >
-  python으로 상관 분석 구현하기
+  python으로 상관 계수 구현하기
 hide_description: false
 image: 
   path: /assets/img/posts/correlation_coef.png

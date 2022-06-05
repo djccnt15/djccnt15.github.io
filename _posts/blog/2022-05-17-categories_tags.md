@@ -26,7 +26,7 @@ Minimal Mistakes 테마를 참고해서 만들었다.
 
 ## 1. Category 레이아웃 만들기
 
-`_layout/categories.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
+`/_layout/categories.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
 
 ```html{% raw %}
 ---
@@ -75,7 +75,7 @@ layout: about
 
 ## 2. Tag 레이아웃 만들기
 
-`_layout/categories.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
+`/_layout/categories.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
 
 ```html{% raw %}
 ---
@@ -124,7 +124,7 @@ layout: about
 
 ## 3. 보조 레이아웃 만들기
 
-`_includes/archive-single.html`을 아래 내용으로 만들어주자.  
+`/_includes/archive-single.html`을 아래 내용으로 만들어주자.  
 
 ```html{% raw %}
 {% assign format = include.format | default:site.data.date_formats.related_post | default:"%Y-%m-%d" %}
@@ -146,9 +146,9 @@ layout: about
     <b>
       <time class="faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:format }}</time>
       {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><span class="sr-only">Permalink</span></a>
+        <a href="{{ post.link }}">{{ post.title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><span class="sr-only">Permalink</span></a>
       {% else %}
-        <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+        <a href="{{ post.url | relative_url }}" rel="permalink" class="flip-title">{{ post.title }}</a>
       {% endif %}
     </b>
     {% if post.description %}<p class="description">{{ post.description | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
@@ -158,7 +158,7 @@ layout: about
 
 ## 3. 스타일 수정하기
 
-`_sass/my-style.scss`에 아래와 같이 추가하자.  
+`/_sass/my-style.scss`에 아래와 같이 추가하자.  
 
 ```scss
 // taxonomy__index columns

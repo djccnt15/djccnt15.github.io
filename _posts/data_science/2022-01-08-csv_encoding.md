@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[데이터 분석] csv 인코딩'
+title: '[전처리] csv 인코딩'
 description: >
   pandas로 csv 인코딩 바꾸기
 hide_description: false
@@ -15,6 +15,7 @@ categories:
   - data_science
 tags:
   - data science
+  - preprocessing
   - python
   - pandas
   - csv

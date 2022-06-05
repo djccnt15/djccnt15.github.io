@@ -55,8 +55,7 @@ $$W = span(S)$$
 
 **선형 변환(linear transformation)**은 두 벡터 공간 사이의 함수를 말하며, 예를 들어 행렬과 벡터의 곱 $$Ax$$는 벡터 $$\mathrm{x}$$에 선형 변환 $$A$$를 취한 것을 의미한다. 따라서 **행렬**은 선형 변환의 의미를 포함하고 있다고 할 수 있다.  
 
-$$A\mathrm{x}
-= \begin{pmatrix}
+$$A\mathrm{x} = \begin{pmatrix}
 2 & 3 \\
 4 & 2 \\
 5 & 1 \\
@@ -95,8 +94,8 @@ a_{11} & a_{12} & \cdots & a_{1m} \\
 a_{21} & a_{22} & \cdots & a_{2m} \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{n1} & a_{n2} & \cdots & a_{nm} \\
-\end{pmatrix} \to
-\begin{align*}
+\end{pmatrix}
+\to \begin{align*}
 (a_{11}, a_{12}, & \cdots, a_{1m}) \\
 (a_{21}, a_{22}, & \cdots, a_{2m}) \\
 & \vdots \\
@@ -108,8 +107,8 @@ a_{11} & a_{12} & \cdots & a_{1m} \\
 a_{21} & a_{22} & \cdots & a_{2m} \\
 \vdots & \vdots & \ddots & \vdots \\
 a_{n1} & a_{n2} & \cdots & a_{nm} \\
-\end{pmatrix} \to
-\begin{pmatrix}
+\end{pmatrix}
+\to \begin{pmatrix}
 a_{11} \\
 a_{21} \\
 \vdots \\

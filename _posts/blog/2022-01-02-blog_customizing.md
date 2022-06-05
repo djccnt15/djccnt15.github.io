@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: '[블로그] Minimal Mistakes 커스터마이징'
+title: '[블로그] 커스터마이징'
 description: >
-  Minimal Mistakes 테마의 각종 설정 및 수정들
+  Minimal Mistakes 테마 커스터마이징
 hide_description: false
 image: 
   path: /assets/img/posts/minimal_mistakes.png

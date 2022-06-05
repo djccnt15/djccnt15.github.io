@@ -16,7 +16,7 @@ categories:
 tags:
   - blog
   - html
-  - css
+  - scss
   - jekyll
 ---
 
@@ -25,18 +25,18 @@ tags:
 
 ## 1. 버튼 만들기
 
-`./_includes/page-button.html`를 아래와 같은 내용을 만들어 주자.  
+`/_includes/page-button.html`를 아래와 같은 내용을 만들어 주자.  
 
 ```html{% raw %}
 <div class="page-control">
     <div>
         {% if page.previous.url %}
-        <a id="prev" class="button" href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
+        &laquo; <a id="prev" class="flip-title" href="{{ page.previous.url }}">{{ page.previous.title }}</a>
         {% endif %}
     </div>
     <div>
         {% if page.next.url %}
-        <a id="next" class="button" href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
+        <a id="next" class="flip-title" href="{{ page.next.url }}">{{ page.next.title }}</a> &raquo;
         {% endif %}
     </div>
 </div>
@@ -44,7 +44,7 @@ tags:
 
 ## 2. 페이지에 버튼 넣기
 
-`./_layouts/post.html`의 적당한 위치에 아래 내용 추가  
+`/_layouts/post.html`의 적당한 위치에 아래 내용 추가  
 
 ```html{% raw %}
 {% include page-button.html %}
@@ -52,7 +52,7 @@ tags:
 
 ## 3. 버튼 스타일 부여
 
-`./_sass/my-inline.scss`에 아래 내용 추가  
+`/_sass/my-inline.scss`에 아래 내용 추가  
 
 ```scss
 // previous, next btn

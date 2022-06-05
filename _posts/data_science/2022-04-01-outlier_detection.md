@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: '[데이터 분석] 전처리 단계에서의 이상치 탐지'
+title: '[이상치 탐지] IQR 방법론'
 description: >
-  데이터의 이상치를 탐지하는 방법
+  IQR 방식의 이상치 탐지
 hide_description: false
 image: 
   path: /assets/img/posts/iqr.jpg

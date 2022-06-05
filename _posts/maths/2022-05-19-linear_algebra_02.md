@@ -33,14 +33,12 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 **전치 행렬(transposed matrix)**은 기존 행렬의 행과 열을 바꾼 행렬을 말하며 $$A^{T}$$와 같이 표기한다. 수식으로 표현하면 아래와 같다.  
 
-$$A
-= \begin{pmatrix}
+$$A = \begin{pmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22} \\
 a_{31} & a_{32} \\
 \end{pmatrix}
-\to A^{T}
-= \begin{pmatrix}
+\to A^{T} = \begin{pmatrix}
 a_{11} & a_{21} & a_{31} \\
 a_{12} & a_{22} & a_{32} \\
 \end{pmatrix}$$
@@ -80,8 +78,7 @@ mat_transpose = a.T
 
 **대칭 행렬(symmetric matrix)**이란 아래와 같이 기존 행렬과 전치 행렬이 동일한 행렬을 말한다.  
 
-$$A
-= \begin{pmatrix}
+$$A = \begin{pmatrix}
 a & b & c \\
 b & d & e \\
 c & e & f \\
@@ -106,8 +103,7 @@ def symmetric_check(a):
 
 **대각 행렬(diagonal matrix)**은 아래와 같이 행렬의 주 대각 원소가 아닌 원소가 0인 **정사각** 행렬을 말하며, $$D$$로 표기한다.  
 
-$$D
-= \begin{pmatrix}
+$$D = \begin{pmatrix}
 d_{11} & 0 & 0 \\
 0 & d_{22} & 0 \\
 0 & 0 & d_{33} \\
@@ -115,8 +111,7 @@ d_{11} & 0 & 0 \\
 
 대각 행렬은 다음과 같이 행렬에 대각 행렬을 곱하면 열 벡터가 배수가 되고, 대각 행렬에 행렬을 곱하면 행 백터가 배수가 되는 성질 때문에 선형대수에서 중요한 역할을 한다.  
 
-$$AD
-= \begin{pmatrix}
+$$AD = \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
@@ -131,8 +126,7 @@ a_{21} \times d_{11} & a_{22} \times d_{22} & a_{23} \times d_{33} \\
 a_{31} \times d_{11} & a_{32} \times d_{22} & a_{33} \times d_{33} \\
 \end{pmatrix}$$
 
-$$DA
-= \begin{pmatrix}
+$$DA = \begin{pmatrix}
 d_{11} & 0 & 0 \\
 0 & d_{22} & 0 \\
 0 & 0 & d_{33} \\
@@ -183,15 +177,13 @@ diagonal_matrix = np.diag(diagonal_ele)
 
 **이중 대각 행렬(bidiagonal matrix)**은 아래와 같이 대각 원소에 더해 대각 원소의 바로 위나 아래의 원소가 0이 아닌 행렬을 말한다. 삼각 행렬과 마찬가지로 upper bidiagonal matrix와 lower bidiagonal matrix가 있다.  
 
-$$A
-= \begin{pmatrix}
+$$A = \begin{pmatrix}
 a_{11} & a_{12} & 0 & 0 \\
 0 & a_{22} & a_{23} & 0 \\
 0 & 0 & a_{33} & a_{34} \\
 0 & 0 & 0 & a_{44} \\
 \end{pmatrix},
-A
-= \begin{pmatrix}
+A = \begin{pmatrix}
 a_{11} & 0 & 0 & 0 \\
 a_{21} & a_{22} & 0 & 0 \\
 0 & a_{32} & a_{33} & 0 \\
@@ -244,8 +236,7 @@ mat_bidiag_l = diag + diag_l
 
 **단위 행렬(identity matrix)**은 아래와 같이 주 대각 원소가 1이고 그 외 나머지 원소는 모두 0인 **대각 행렬**을 의미한다. $$I$$로 표기하며, 항등 행렬이라고도 부른다.  
 
-$$I
-= \begin{pmatrix}
+$$I = \begin{pmatrix}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1 \\
@@ -278,8 +269,7 @@ i = np.identity(3)
 
 **영 행렬(zero matrix)**은 아래와 같이 행렬의 구성 원소가 모두 0인 행렬을 말한다.  
 
-$$0
-= \begin{pmatrix}
+$$0 = \begin{pmatrix}
 0 & 0 \\
 0 & 0 \\
 \end{pmatrix}$$
@@ -291,6 +281,13 @@ $$0
 def mat_zeros(row, col):
 
     Z = [[0 for j in range(col)] for i in range(row)]
+
+    return Z
+
+# zero vector
+def v_zeros(size):
+
+    Z = [0 for i in range(size)]
 
     return Z
 ```
@@ -307,14 +304,12 @@ z = np.zeros((3, 2))
 
 **삼각 행렬(triangular matrix)**은 0이 아닌 구성 원소가 삼각형 형태인 행렬로, 주 대각 원소 아래쪽의 모든 원소가 0인 상 삼각 행렬(upper triangular matrix)과 주 대각 원소 위쪽의 모든 원소가 0인 하 삼각 행렬(lower triangular matrix)이 있다.  
 
-$$A
-= \begin{pmatrix}
+$$A = \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
 0 & a_{22} & a_{23} \\
 0 & 0 & a_{33} \\
 \end{pmatrix},
-A
-= \begin{pmatrix}
+A = \begin{pmatrix}
 a_{11} & 0 & 0 \\
 a_{21} & a_{22} & 0 \\
 a_{31} & a_{32} & a_{33} \\
@@ -357,8 +352,7 @@ mat_tri_l = np.trul(a)
 
 **토플리츠 행렬(toeplitz matrix)**은 아래와 같이 1행의 원소가 2행으로 가면서 한 열씩 오른쪽으로 이동하는 행렬을 말하며, $$T$$로 표시한다. **시계열 데이터를 행렬 형태로 변환할 때 사용**한다.  
 
-$$T
-= \begin{pmatrix}
+$$T = \begin{pmatrix}
 t_{0} & t_{-1} & t_{-2} & \cdots & t_{-(n-1)} \\
 t_{1} & t_{0} & t_{-1} & \ddots & \vdots \\
 t_{2} & t_{1} & \ddots & \ddots & \vdots \\
@@ -399,12 +393,12 @@ mat_toeplitz = toeplitz(g, h)
 
 **하우스홀더 행렬(householder matrix)**은 모든 열이 정규 직교(orthonormal)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
 
-$$\mathbf{v}
-= \begin{pmatrix}
+$$\mathbf{v} = \begin{pmatrix}
 v_{1} \\
 v_{2} \\
 \vdots \\
-v_{n}\end{pmatrix}$$
+v_{n}
+\end{pmatrix}$$
 
 $$H = I - 2\frac{\mathbf{vv}^{T}}{\mathbf{v}^{T}\mathbf{v}}$$
 
@@ -438,7 +432,7 @@ def householder(v):
     outer = v_outer(v, v)
     inner = v_inner(v, v)
 
-    V1 = mat_smul(1/inner, outer)
+    V1 = mat_smul(1 / inner, outer)
     V2 = mat_smul(2, V1)
 
     H = mat_sub(mat_identity(n), V2)
@@ -459,7 +453,7 @@ inner = np.inner(a, a)
 
 i = np.identity(n)
 
-H = i - 2*(outer/inner)
+H = i - 2 * (outer / inner)
 ```
 
 ---

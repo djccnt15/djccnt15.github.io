@@ -9,7 +9,7 @@ hide_description: false
 image: 
   path: /assets/img/posts/btn.png
 related_posts:
-  - _posts/blog/2022-05-11-btn_scroll.md
+  - _posts/blog/2022-05-10-btn_scroll.md
 
 categories:
   - blog

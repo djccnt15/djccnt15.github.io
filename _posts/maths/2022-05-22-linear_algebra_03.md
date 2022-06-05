@@ -220,6 +220,6 @@ $$\begin{align*}
 ## Reference
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
 - [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
-- [Wolfram MathWorld : Gaussian Elimination](https://mathworld.wolfram.com/GaussianElimination.html)
-- [Wolfram MathWorld : Gauss-Jordan Elimination](https://mathworld.wolfram.com/Gauss-JordanElimination.html)
-- [JuHyeong.dev](https://dkswnkk.tistory.com/): [[수치해석] [c++,python] 가우스 소거법(Gaussian Elimination) 구현하기](https://dkswnkk.tistory.com/67)
+- [Gaussian Elimination](https://mathworld.wolfram.com/GaussianElimination.html)
+- [Gauss-Jordan Elimination](https://mathworld.wolfram.com/Gauss-JordanElimination.html)
+- [[수치해석] [c++,python] 가우스 소거법(Gaussian Elimination) 구현하기](https://dkswnkk.tistory.com/67)

@@ -17,6 +17,7 @@ tags:
   - linear algebra
   - python
   - numpy
+  - scipy
 ---
 
 * toc
@@ -84,7 +85,7 @@ inner_product = np.inner(a, b)
 - 내적 < 0 이면, 두 벡터 사이의 각도는 90°보다 크다.
 - 내적 = 0 이면, 두 벡터 사이의 각도는 90°와 같다.
 
-**노름(norm)**은 $$\Vert \mathbf{v} \Vert$$로 표기하고, 구하는 방법은 아래와 같다. 보다시피 벡터의 **노름(norm)**은 자기 자신의 **내적(inner product)의 제곱근**과 같다.  
+**노름(norm)**은 $$\Vert \mathbf{v} \Vert$$로 표기하고, 구하는 방법은 아래와 같다. 보다시피 벡터의 **노름(norm)**은 **자기 자신의 내적(inner product)의 제곱근**과 같다.  
 
 $$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert = \sqrt{\sum_{i=1}^{n}{v_{i}}^{2}}$$
 
@@ -113,53 +114,36 @@ res = np.linalg.norm(a)
 
 $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \cos \theta$$
 
-$$\cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert}$$
+### 코사인 유사도
 
-### 정사영
+노름(norm)을 다시 정리하면 **[코사인 유사도](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)(cosine similarity)**를 다음과 같이 유도할 수 있다.  
 
-**정사영(projection)**이란 한 벡터 공간에 속한 벡터를 부분 공간으로 수직으로 투영하는 것을 말하며, 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시키는 것을 아래와 같이 표기한다.  
+$$\mathrm{cosine \ similarity} = S_{c}(\mathbf{u}, \mathbf{v}) = \cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert}$$
 
-$$\begin{align*}
-proj_{\mathbf{v}} \mathbf{u} & = \Vert \mathbf{u} \Vert \vert \cos \theta \vert \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} = \Vert \mathbf{u} \Vert \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert} \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} \\
-\\
-& = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}\mathbf{v} \\
-\end{align*}$$
-
-`python`으로 구현하면 아래와 같다.  
+**코사인 유사도(cosine similarity)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미한다. 각도가 0°일 때의 코사인값은 1이며, 다른 모든 각도의 코사인값은 1보다 작다. 따라서 이 값은 벡터의 크기가 아닌 방향의 유사도를 판단하는 목적으로 사용되며, 두 벡터의 방향이 완전히 같을 경우 1, 90°의 각을 이룰 경우 0, 180°로 완전히 반대 방향인 경우 -1의 값을 갖는다. `python`으로 구현하면 아래와 같다.  
 
 ```python
-# projection
-def proj(a, b):
-    tmp = v_inner(a, b) / v_inner(b, b)
-    res = v_smul(tmp, b)
+# cosine theta
+def cos_similarity(a, b):
+    inner = v_inner(a, b)
+    norm_a = norm(a)
+    norm_b = norm(b)
+
+    res = inner / (norm_a * norm_b)
 
     return res
 ```
 
-`numpy`를 사용해서 구현하면 아래와 같다.  
+`scipy`를 활용해서 구하면 아래와 같다.  
 
 ```python
-import numpy as np
+from scipy import spatial
 
-a = np.array([1, 2, 3])
-b = np.array([2, 4, 8])
+a = [1, 2, 3]
+b = [4, 5, 6]
 
-res = (np.inner(a, b) / np.inner(b, b)) * b
+res = 1 - spatial.distance.cosine(a, b)
 ```
-
-벡터 $$\mathbf{u}$$를 벡터$$\mathbf{v}$$에 정사영 시킨 길이 $$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert$$는 다음과 같다.  
-
-$$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert = \Vert \mathbf{u} \Vert \vert \cos \theta \vert$$
-
-정사영을 이용해 내적을 정리하면, 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 내적이란 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시킨 벡터의 길이, 즉 $$\Vert \mathbf{u} \Vert \vert \cos \theta \vert$$와 기존 벡터 $$\mathbf{v}$$의 길이인 $$\Vert \mathbf{v} \Vert$$의 곱과 같다.  
-
-$$\begin{align*}
-\langle \mathbf{u}, \mathbf{v} \rangle & = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \cos \theta \\
-\\
-& = (\Vert \mathbf{v} \Vert) \times (\Vert \mathbf{u} \Vert \cos \theta) \\
-\\
-& = (length \ of \ vector \ \mathbf{v}) \times (length \ of \ vector \ proj_{\mathbf{v}}\mathbf{u}) \\
-\end{align*}$$
 
 ## 2. 직교 공간
 
@@ -208,6 +192,52 @@ $$\mathbf{a} = \left\{ \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \
 
 ## 3. 그램 슈미트 과정
 
+### 정사영
+
+**정사영(projection)**이란 한 벡터 공간에 속한 벡터를 부분 공간으로 수직으로 투영하는 것을 말하며, 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시키는 것을 아래와 같이 표기한다.  
+
+$$\begin{align*}
+proj_{\mathbf{v}} \mathbf{u} & = \Vert \mathbf{u} \Vert \vert \cos \theta \vert \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} = \Vert \mathbf{u} \Vert \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert} \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} \\
+\\
+& = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}\mathbf{v} \\
+\end{align*}$$
+
+`python`으로 구현하면 아래와 같다.  
+
+```python
+# projection
+def proj(a, b):
+    tmp = v_inner(a, b) / v_inner(b, b)
+    res = v_smul(tmp, b)
+
+    return res
+```
+
+`numpy`를 사용해서 구현하면 아래와 같다.  
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([2, 4, 8])
+
+res = (np.inner(a, b) / np.inner(b, b)) * b
+```
+
+벡터 $$\mathbf{u}$$를 벡터$$\mathbf{v}$$에 정사영 시킨 길이 $$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert$$는 다음과 같다.  
+
+$$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert = \Vert \mathbf{u} \Vert \vert \cos \theta \vert$$
+
+정사영을 이용해 내적을 정리하면, 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 내적이란 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시킨 벡터의 길이, 즉 $$\Vert \mathbf{u} \Vert \vert \cos \theta \vert$$와 기존 벡터 $$\mathbf{v}$$의 길이인 $$\Vert \mathbf{v} \Vert$$의 곱과 같다.  
+
+$$\begin{align*}
+\langle \mathbf{u}, \mathbf{v} \rangle & = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \cos \theta \\
+\\
+& = (\Vert \mathbf{v} \Vert) \times (\Vert \mathbf{u} \Vert \cos \theta) \\
+\\
+& = (length \ of \ vector \ \mathbf{v}) \times (length \ of \ vector \ proj_{\mathbf{v}}\mathbf{u}) \\
+\end{align*}$$
+
 ### 정사영 정리
 
 **부분 공간에 대한 정사영 정리(projection theorem for subspaces)**의 내용은 아래와 같다.  
@@ -251,11 +281,72 @@ $$\mathbf{u}_{n} = \mathbf{s}_{n} - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{1}
 
 앞서 구현한 함수들을 바탕으로 `python`으로 구현하면 아래와 같다.  
 
+```python
+# Gram-Schmidt Process
+def gram_schmidt(s):
+    n = len(s)
+    m = len(s[0])
+    res = []
+
+    for i in range(n):
+        if i == 0:
+            res.append(s[i])
+
+        else:
+            tmp_list = []
+            for j in range(i):
+                tmp = proj(s[i], res[j])
+                tmp_list.append(tmp)
+
+            tmp = v_zeros(m)
+            for k in range(len(tmp_list)):
+                tmp = v_add(tmp, tmp_list[k])
+            tmp = v_sub(s[i], tmp)
+            res.append(tmp)
+
+    return res
+```
+
 ## 4. QR분해
 
-### 기본적인 QR분해 방법
+### QR분해의 기초
 
+행렬 $$A$$의 열 벡터끼리 모두 선형 독립일 때, 행렬 $$A$$는 아래와 같이 정규 직교 벡터(orthonormal vector) $$n \times p$$ 행렬 $$Q$$와 가역 상 삼각행렬(invertible upper triangular matrix) $$R$$로 분해할 수 있다.  
 
+$$A = QR$$
+
+이러한 QR분해는 크기가 큰 행렬의 고유값을 구할 때 유용하게 사용된다.  
+위의 [정규 직교 벡터를 활용한 좌표 표현](#정규-직교-벡터를-활용한-좌표-표현)을 참고하면, 행렬 $$A$$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
+
+$$\begin{align*}
+\mathbf{a}_{1} = \langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + & \cdots + \langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
+\mathbf{a}_{2} = \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + & \cdots + \langle \mathbf{a}_{2}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
+& \vdots \\
+\mathbf{a}_{n} = \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + & \cdots + \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
+\end{align*}$$
+
+따라서 행렬 $$A$$는 다음과 같이 정리할 수 있다.  
+
+$$(\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{n}) = (\mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n})\begin{pmatrix}
+\langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \\
+\langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \\
+\vdots & \vdots & \ddots & \vdots \\
+\langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{n} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \\
+\end{pmatrix}$$
+
+그램 슈미트 과정에 의해 정규 직교 벡터 $$\mathbf{v}_{j}$$는 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$과 직교하기 때문에, 정규 직교 벡터 $$\mathbf{v}_{j}$$와 각 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$의 내적값은 $$0$$이다. 이를 바탕으로 $$A = QR$$을 다시 정리하여 $$Q$$와 $$R$$을 분해하면 다음과 같다.  
+
+$$\begin{align*} \\
+& A = QR \\
+\\
+& Q = (\mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n}) \\
+\\
+& R = \begin{pmatrix}\langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \\
+0 & \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \\
+\end{pmatrix}
+\end{align*}$$
 
 ### 그램 슈미트 과정을 이용한 QR분해
 
@@ -269,3 +360,4 @@ $$\mathbf{u}_{n} = \mathbf{s}_{n} - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{1}
 ## Reference
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
 - [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
+- [코사인 유사도](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)[영문](https://en.wikipedia.org/wiki/Cosine_similarity)

@@ -41,8 +41,7 @@ $$s = 3$$
 
 **스칼라의 집합**으로 **크기와 방향**을 모두 나타내는 개념으로, 아래와 같이 영문 소문자 볼드체로 표기한다.  
 
-$$\mathbf{v}
-= \begin{pmatrix}
+$$\mathbf{v} = \begin{pmatrix}
 1 \\
 2 \\
 3\end{pmatrix}
@@ -135,8 +134,7 @@ v_hdiv = a / b
 
 행렬은 행(row)과 열(column)로 구성되어 있으며, [행 벡터와 열 백터](https://ko.wikipedia.org/wiki/%EB%B2%A1%ED%84%B0_%ED%96%89%EB%A0%AC)([Row and Column Vectors](https://en.wikipedia.org/wiki/Row_and_column_vectors))라고도 부른다. 아래와 같이 표기한다.  
 
-$$A
-= \begin{pmatrix}
+$$A = \begin{pmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22} \\
 a_{31} & a_{33} \\
@@ -258,8 +256,7 @@ def mat_mul(a, b):
 
 **행렬의 대각합(trace)**은 주 대각 원소를 모두 더한 값을 의미하며 $$tr(A)$$로 표기한다.  
 
-$$A
-= \begin{pmatrix}
+$$A = \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
