@@ -16,8 +16,7 @@ categories:
 tags:
   - ⭐starred
   - python
-  - virtual environments
-  - venv
+  - programming
 ---
 * toc
 {:toc}

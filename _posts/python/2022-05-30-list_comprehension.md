@@ -16,7 +16,7 @@ categories:
   - python
 tags:
   - python
-  - list comprehension
+  - programming
 ---
 
 * toc

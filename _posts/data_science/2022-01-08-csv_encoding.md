@@ -18,7 +18,6 @@ tags:
   - preprocessing
   - python
   - pandas
-  - csv
 ---
 * toc
 {:toc}

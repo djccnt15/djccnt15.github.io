@@ -14,7 +14,7 @@ related_posts:
 categories:
   - programming
 tags:
-  - cmd/terminal
+  - programming
 ---
 * toc
 {:toc}

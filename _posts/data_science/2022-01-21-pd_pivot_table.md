@@ -15,7 +15,7 @@ categories:
   - data_science
 tags:
   - data science
-  - pivot table
+  - data analysis
   - python
   - pandas
   - numpy

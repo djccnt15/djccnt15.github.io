@@ -86,12 +86,12 @@ $$A^{-1} = B = \frac{1}{12} \left(\begin{array}{ccc}
 
 ```python
 # creating matrix augmented matrix
-def mat_aug_inv(a, b):
-    x = copy.deepcopy(a)
+def mat_aug_mat(a, b):
+    n = len(a)
 
-    x = [x + b[i] for i, x in enumerate(x)]
+    res = [a[i] + b[i] for i in range(n)]
 
-    return x
+    return res
 
 # separating coefficient matrix
 def mat_coef_inv(a, b):
@@ -103,8 +103,7 @@ def mat_coef_inv(a, b):
     return x, y
 
 # Gauss-Jordan elimination
-def gauss_jordan_eli(a):
-    mat = copy.deepcopy(a)
+def gauss_jordan_eli(mat):
     n = len(mat)
 
     for i in range(n):
@@ -125,7 +124,7 @@ def gauss_jordan_eli(a):
 def mat_inv(a):
     n = len(a)
     i = mat_identity(n)
-    mat = mat_aug_inv(a, i)
+    mat = mat_aug_mat(a, i)
     mat = mat_pivot(mat)
     mat = gauss_jordan_eli(mat)
     x, res = mat_coef_inv(mat, n)

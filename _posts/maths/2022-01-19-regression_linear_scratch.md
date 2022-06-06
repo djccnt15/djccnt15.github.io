@@ -16,6 +16,7 @@ categories:
   - maths
 tags:
   - data science
+  - data analysis
   - regression
   - python
   - numpy

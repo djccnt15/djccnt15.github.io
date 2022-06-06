@@ -16,10 +16,12 @@ categories:
   - data_science
 tags:
   - data science
+  - data analysis
   - regression
   - python
   - pandas
   - statsmodels
+  - scipy
   - matplotlib
 ---
 * toc

@@ -4,7 +4,7 @@ layout: post
 
 title: '[선형대수] 07. 내적'
 description: >
-  내적, 직교 공간, 그램 슈미트 과정, QR 분해
+  내적, 직교 공간, 그람-슈미트 과정, QR 분해
 hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_07.png
@@ -14,6 +14,7 @@ related_posts:
 categories:
   - maths
 tags:
+  - data science
   - linear algebra
   - python
   - numpy
@@ -116,14 +117,14 @@ $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \Vert \
 
 ### 코사인 유사도
 
-노름(norm)을 다시 정리하면 **[코사인 유사도](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)(cosine similarity)**를 다음과 같이 유도할 수 있다.  
+노름(norm)을 다시 정리하면 **[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**를 다음과 같이 유도할 수 있다.  
 
 $$\mathrm{cosine \ similarity} = S_{c}(\mathbf{u}, \mathbf{v}) = \cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert}$$
 
 **코사인 유사도(cosine similarity)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미한다. 각도가 0°일 때의 코사인값은 1이며, 다른 모든 각도의 코사인값은 1보다 작다. 따라서 이 값은 벡터의 크기가 아닌 방향의 유사도를 판단하는 목적으로 사용되며, 두 벡터의 방향이 완전히 같을 경우 1, 90°의 각을 이룰 경우 0, 180°로 완전히 반대 방향인 경우 -1의 값을 갖는다. `python`으로 구현하면 아래와 같다.  
 
 ```python
-# cosine theta
+# cosine similarity
 def cos_similarity(a, b):
     inner = v_inner(a, b)
     norm_a = norm(a)
@@ -190,7 +191,7 @@ $$\mathbf{a} = \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u
 
 $$\mathbf{a} = \left\{ \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}, \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}} \right\}$$
 
-## 3. 그램 슈미트 과정
+## 3. 그람-슈미트 과정
 
 ### 정사영
 
@@ -263,9 +264,9 @@ $$proj_{\mathbf{w}} \mathbf{a} = \left\{ \frac{\langle \mathbf{a}, \mathbf{u}_{1
 
 $$proj_{\mathbf{w}} \mathbf{a} = \langle \mathbf{a}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + \cdots + \langle \mathbf{a}, \mathbf{v}_{n} \rangle \mathbf{v}_{n}$$
 
-### 그램 슈미트 과정
+### 그람-슈미트 과정
 
-**그램 슈미트 과정(Gram-Schmidt Process)**은 기저(basis) 벡터 $$\{ \mathbf{s}_{1}, \mathbf{s}_{2}, \cdots, \mathbf{s}_{n} \}$$를 직교 기저(orthogonal basis) 벡터 $$\{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$로 변환하는 과정을 의미한다. 그램 슈미트 과정은 다음과 같은 단계로 진행 된다.  
+**그람-슈미트 과정(Gram-Schmidt Process)**은 기저(basis) 벡터 $$\{ \mathbf{s}_{1}, \mathbf{s}_{2}, \cdots, \mathbf{s}_{n} \}$$를 직교 기저(orthogonal basis) 벡터 $$\{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
 
 - 1) 기존 기저 벡터 $$\mathbf{s}_{1}$$을 통해 새로운 직교 기저 벡터 $$\mathbf{u}_{1}$$을 정의한다.
 
@@ -293,10 +294,7 @@ def gram_schmidt(s):
             res.append(s[i])
 
         else:
-            tmp_list = []
-            for j in range(i):
-                tmp = proj(s[i], res[j])
-                tmp_list.append(tmp)
+            tmp_list = [proj(s[i], res[j]) for j in range(i)]
 
             tmp = v_zeros(m)
             for k in range(len(tmp_list)):
@@ -311,11 +309,11 @@ def gram_schmidt(s):
 
 ### QR분해의 기초
 
-행렬 $$A$$의 열 벡터끼리 모두 선형 독립일 때, 행렬 $$A$$는 아래와 같이 정규 직교 벡터(orthonormal vector) $$n \times p$$ 행렬 $$Q$$와 가역 상 삼각행렬(invertible upper triangular matrix) $$R$$로 분해할 수 있다.  
+행렬 $$A$$의 **열 벡터** $$\mathbf{a}_i$$끼리 모두 선형 독립일 때, 행렬 $$A$$는 아래와 같이 정규 직교 벡터(orthonormal vector) $$n \times p$$ 행렬 $$Q$$와 가역 상 삼각행렬(invertible upper triangular matrix) $$R$$로 분해할 수 있다.  
 
 $$A = QR$$
 
-이러한 QR분해는 크기가 큰 행렬의 고유값을 구할 때 유용하게 사용된다.  
+이러한 **QR분해(QR decomposition, QR factorization)**는 크기가 큰 행렬의 고유값을 구할 때 유용하게 사용된다.  
 위의 [정규 직교 벡터를 활용한 좌표 표현](#정규-직교-벡터를-활용한-좌표-표현)을 참고하면, 행렬 $$A$$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
 
 $$\begin{align*}
@@ -327,19 +325,19 @@ $$\begin{align*}
 
 따라서 행렬 $$A$$는 다음과 같이 정리할 수 있다.  
 
-$$(\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{n}) = (\mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n})\begin{pmatrix}
+$$(\mathbf{a}_{1} \quad \mathbf{a}_{2} \quad \cdots \quad \mathbf{a}_{n}) = (\mathbf{v}_{1} \quad \mathbf{v}_{2} \quad \cdots \quad \mathbf{v}_{n})\begin{pmatrix}
 \langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \\
 \langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \\
 \vdots & \vdots & \ddots & \vdots \\
 \langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{n} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \\
 \end{pmatrix}$$
 
-그램 슈미트 과정에 의해 정규 직교 벡터 $$\mathbf{v}_{j}$$는 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$과 직교하기 때문에, 정규 직교 벡터 $$\mathbf{v}_{j}$$와 각 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$의 내적값은 $$0$$이다. 이를 바탕으로 $$A = QR$$을 다시 정리하여 $$Q$$와 $$R$$을 분해하면 다음과 같다.  
+그람-슈미트 과정에 의해 정규 직교 벡터 $$\mathbf{v}_{j}$$는 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$과 직교하기 때문에, 정규 직교 벡터 $$\mathbf{v}_{j}$$와 각 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$의 내적값은 $$0$$이다. 이를 바탕으로 $$A = QR$$을 다시 정리하여 $$Q$$와 $$R$$을 분해하면 다음과 같다.  
 
 $$\begin{align*} \\
 & A = QR \\
 \\
-& Q = (\mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n}) \\
+& Q = (\mathbf{v}_{1} \quad \mathbf{v}_{2} \quad \cdots \quad \mathbf{v}_{n}) \\
 \\
 & R = \begin{pmatrix}\langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \\
 0 & \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \\
@@ -348,16 +346,58 @@ $$\begin{align*} \\
 \end{pmatrix}
 \end{align*}$$
 
-### 그램 슈미트 과정을 이용한 QR분해
+### 그람-슈미트 과정을 이용한 QR분해
 
+그람-슈미트 과정을 이용한 QR분해를 `python`으로 구현하면 아래와 같다.  
 
+```python
+# QR decomposition, QR factorization with Gram-Schmidt Process
+def qr_gramschmidt(a):
+    mat = mat_transpose(a)
+    n = len(mat)
+    tmp = gram_schmidt(mat)
+
+    q_tmp = [normalize(i) for i in tmp]
+    q = mat_transpose(q_tmp)
+
+    r = [[0 if i > j else v_inner(mat[j], q_tmp[i]) for j in range(n)] for i in range(n)]
+
+    return q, r
+```
 
 ### 하우스홀더 방법을 이용한 QR분해
 
+[하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에, 실제로 더 많이 활용된다.  
 
+
+
+### numpy, scipy 활용
+
+`numpy`를 활용한 QR분해는 아래와 같다.  
+
+```python
+import numpy as np
+
+s = np.array([[1, 0, 1], [0, 1, 1], [1, 2, 0]])
+
+q, r = np.linalg.qr(s)
+```
+
+`scipy`를 활용한 QR분해는 아래와 같다.  
+
+```python
+from scipy import linalg
+
+s = np.array([[1, 0, 1], [0, 1, 1], [1, 2, 0]])
+
+q, r = linalg.qr(s)
+```
+
+직접 구현한 함수와 부호가 반대로 나오는데, 바뀐 부호는 $$Q$$와 $$R$$에 공통적으로 적용되기 때문에 최종 결과는 동일하다.  
 
 ---
 ## Reference
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
 - [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
-- [코사인 유사도](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)[영문](https://en.wikipedia.org/wiki/Cosine_similarity)
+- [위키피디아: 코사인 유사도](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)([영문](https://en.wikipedia.org/wiki/Cosine_similarity))
+- [위키피디아: QR 분해](https://ko.wikipedia.org/wiki/QR_%EB%B6%84%ED%95%B4)([영문](https://en.wikipedia.org/wiki/QR_decomposition))

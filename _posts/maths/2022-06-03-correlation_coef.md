@@ -15,7 +15,9 @@ categories:
   - maths
 tags:
   - data science
-  - correlation coefficient
+  - data analysis
+  - preprocessing
+  - correlation
   - python
   - numpy
   - scipy

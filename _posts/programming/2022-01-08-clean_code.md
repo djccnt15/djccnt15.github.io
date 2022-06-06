@@ -14,7 +14,7 @@ related_posts:
 categories:
   - programming
 tags:
-  - clean code
+  - programming
 ---
 * toc
 {:toc}

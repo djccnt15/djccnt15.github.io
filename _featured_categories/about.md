@@ -5,10 +5,10 @@ description: >
   Portfolio and Resume
 hide_description: true
 ---
+![googling_does_make_you_a_programmer](/assets/img/blog/googling_does_make_you_a_programmer.png)
+
 * toc
 {:toc}
-
-![googling_does_make_you_a_programmer](/assets/img/blog/googling_does_make_you_a_programmer.png)
 
 ## About Me
 

@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[Python] 함수'
+title: '[Python] function'
 description: >
   python의 함수에 대한 노트
 hide_description: false
@@ -15,7 +15,7 @@ categories:
   - python
 tags:
   - python
-  - function
+  - programming
   - incomplete
 ---
 * toc

@@ -70,15 +70,13 @@ $$\begin{pmatrix}
 선형 시스템의 계수들을 받아 첨가 행렬을 만드는 것과 첨가 행렬을 계수 행렬로 분리하는 것을 `python`으로 구현하면 다음과 같다.  
 
 ```python
-import copy
+# creating vector augmented matrix
+def mat_aug_v(a, b):
+    n = len(a)
 
-# creating augmented matrix
-def mat_aug(a, b):
-    x = copy.deepcopy(a)
+    res = [a[i] + [b[i]] for i in range(n)]
 
-    x = [x + [b[i]] for i, x in enumerate(x)]
-
-    return x
+    return res
 
 # separating coefficient matrix
 def mat_coef(a):
@@ -134,7 +132,7 @@ $$\begin{pmatrix}
 ```python
 # Gauss elimination
 def gauss_eli(a, b):
-    mat = mat_aug(a, b)
+    mat = mat_aug_v(a, b)
     mat = mat_pivot(mat)
     n = len(mat)
 
@@ -164,8 +162,7 @@ def gauss_eli(a, b):
 
 ```python
 # Gauss-Jordan elimination
-def gauss_jordan_eli(a):
-    mat = copy.deepcopy(a)
+def gauss_jordan_eli(mat):
     n = len(mat)
 
     for i in range(n):
@@ -184,7 +181,7 @@ def gauss_jordan_eli(a):
 
 # solve equation with Gauss-Jordan elimination
 def solve(a, b):
-    mat = mat_aug(a, b)
+    mat = mat_aug_v(a, b)
     mat = mat_pivot(mat)
     mat = gauss_jordan_eli(mat)
     x, y = mat_coef(mat)

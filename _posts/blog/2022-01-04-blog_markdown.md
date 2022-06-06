@@ -16,9 +16,7 @@ categories:
 tags:
   - ⭐starred
   - blog
-  - markdown
   - html
-  - LaTex
   - jekyll
 ---
 * toc

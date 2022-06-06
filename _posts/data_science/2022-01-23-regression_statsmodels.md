@@ -16,6 +16,7 @@ categories:
   - data_science
 tags:
   - data science
+  - data analysis
   - python
   - statsmodels
   - regression

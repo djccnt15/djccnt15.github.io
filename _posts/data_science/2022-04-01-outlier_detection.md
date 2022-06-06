@@ -15,8 +15,9 @@ categories:
   - data_science
 tags:
   - data science
-  - preprocessing
+  - data analysis
   - outlier detection
+  - preprocessing
   - python
   - numpy
   - pandas
