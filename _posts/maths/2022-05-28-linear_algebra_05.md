@@ -46,7 +46,7 @@ $$(AB)^{-1} = B^{-1}A^{-1}$$
 $$A^{-1} = \frac{1}{a_{11}a_{22}-a_{12}a_{21}} \begin{pmatrix}
 a_{22} & -a_{12} \\
 -a_{21} & a_{11} \\
-\end{pmatrix}, (a_{11}a_{22}-a_{12}a_{21} \neq 0)$$
+\end{pmatrix}, \quad (a_{11}a_{22}-a_{12}a_{21} \neq 0)$$
 
 ### n * n 행렬의 역행렬
 
@@ -66,7 +66,7 @@ $$[A|I] = \left(\begin{array}{ccc|ccc}
 3 & 0 & 1 & 0 & 0 & 1 \\
 \end{array} \right)$$
 
-- 이 행렬에 기본 행 연산을 가하여 아래와 같이 $$[I \vert B]$$를 만든다.  
+- 이 행렬에 [기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)을 가하여 아래와 같이 $$[I \vert B]$$를 만든다.  
 
 $$[I|B] = \left(\begin{array}{ccc|ccc}
 1 & 0 & 0 & 1/12 & -1/6 & 1/6 \\

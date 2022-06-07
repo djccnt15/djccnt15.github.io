@@ -143,7 +143,7 @@ Petal_Length와 Petal_Width의 영향도를 제거한 Rest_Sepal_Width를 Sepal_
 
 Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값을 위와 같이 계산하는 이유는 Sepal_Length를 $$y$$, Sepal_Width를 $$x_{0}$$, Petal_Length를 $$x_{1}$$, Petal_Width를 $$x_{2}$$라고 할 때 회귀식은 아래와 같이 정리되고,  
 
-$$y = \beta_{0}x_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \varepsilon$$  
+$$y = \beta_{0}x_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \varepsilon$$
 
 따라서 종속변수 $$y$$에서 Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값인 Rest_Sepal_Width($$\beta_{0}x_{0} + \varepsilon$$)는 아래와 같이 정리되기 때문이다.  
 

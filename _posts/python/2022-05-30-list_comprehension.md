@@ -41,7 +41,7 @@ print(b)
 [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 ```
 
-[선형대수](/maths)를 공부하면서 `list comprehension`을 많이 사용했는데, 자세한 내용은 [여기](/maths/2022-05-19-linear_algebra_02/)와 [여기](/maths/2022-05-22-linear_algebra_03/)를 참고하자.  
+[선형대수](/tags#linear%20algebra)를 공부하면서 `list comprehension`을 많이 사용했는데, 자세한 내용은 [여기](/maths/2022-05-19-linear_algebra_02/), [여기](/maths/2022-05-22-linear_algebra_03/), [여기](/maths/2022-06-06-linear_algebra_08/)를 참고하자.  
 
 ## for + if
 

@@ -44,13 +44,23 @@ a_{21} & a_{22} \\
 \end{vmatrix}
 = a_{11}a_{22} - a_{12}a_{21}$$
 
+`python`으로 구현하면 아래와 같다.  
+
+```python
+# determinant of 2 by 2 matrix
+def determinant(a):
+    det = (a[0][0] * a[1][1]) - (a[0][1] * a[1][0])
+
+    return det
+```
+
 아래와 같이 행렬식의 절대값 기호가 두 겹인 경우 행렬식의 절대값을 구하라는 뜻이다.  
 
 $$\Vert A \Vert = \begin{Vmatrix}
 a & b \\
 c & d \\
 \end{Vmatrix}
-= |ad-cd| $$
+= |ad-cd|$$
 
 `numpy`를 사용해서 행렬식을 구하는 방법은 아래와 같다.
 
@@ -105,7 +115,7 @@ $$\det(A) = \det(A^{T})$$
 
 ### 행렬의 기본 행 연산과 행렬식
 
-기본 행 연산에 의한 행렬식의 변경은 아래와 같다.  
+[기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)에 의한 행렬식의 변경은 아래와 같다.  
 
 - 한 행에 영이 아닌 상수를 모두 곱한다.
 

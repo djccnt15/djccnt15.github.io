@@ -38,7 +38,7 @@ W & = \frac{\sum_{i=1}^{n}(x_{i} - \overline{x})y_{i}}{\sum_{i=1}^{n}(x_{i} - \o
 \\
 b & = \overline{y} - W\overline{x} \\
 \\
-\end{align*}$$  
+\end{align*}$$
 0. in case of $$v = v_{0} + gt$$, find values of $$v_{0}$$, $$g$$.
 0. plotting linear regression of $$t$$ and $$v$$.
 

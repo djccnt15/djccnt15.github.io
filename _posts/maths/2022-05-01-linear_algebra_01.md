@@ -214,7 +214,7 @@ def mat_smul(s, a):
 
 ### 원소 곱
 
-두 행렬의 각 성분을 곱하는 연산은 벡터와 마찬가지로 **원소 곱** 또는 **아다마르 곱(Hadamard product)**이라고 부른다. `python`으로 구현하면 아래와 같다.  
+두 행렬의 각 성분을 곱하는 연산은 벡터와 마찬가지로 **원소 곱** 또는 **아다마르 곱(hadamard product)**이라고 부른다. `python`으로 구현하면 아래와 같다.  
 
 ```python
 # hadamard product of matrix
@@ -260,9 +260,9 @@ $$A = \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
-\end{pmatrix}$$  
+\end{pmatrix}$$
 
-$$tr(A) = a_{11} + a_{22} + a_{33}$$  
+$$tr(A) = a_{11} + a_{22} + a_{33}$$
 
 `python`으로 구현하면 아래와 같다.  
 

@@ -2,14 +2,14 @@
 published: true
 layout: post
 
-title: '[선형대수] 07. 내적'
+title: '[선형대수] 08. QR 분해'
 description: >
-  내적, 직교 공간, 그람-슈미트 과정, QR 분해
+  정사영, 그람-슈미트 과정, QR 분해
 hide_description: false
 image: 
-  path: /assets/img/posts/linear_algebra_07.png
+  path: /assets/img/posts/linear_algebra_08.png
 related_posts:
-  - _posts/maths/2022-05-29-linear_algebra_06.md
+  - _posts/maths/2022-06-05-linear_algebra_07.md
 
 categories:
   - maths
@@ -29,171 +29,7 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 [구현한 함수 저장소](https://github.com/djccnt15/maths)
 
-## 1. 내적
-
-### 내적의 개념
-
-[벡터 공간](/maths/2022-05-29-linear_algebra_06/#1-벡터-공간)의 설명에서 언급했듯이, **내적(inner product)**이 주어진 벡터 공간을 **내적 공간(inner product space)**이라고 부르고 **내적(inner product)**을 아래와 같이 표기한다.  
-
-$$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v}$$
-
-벡터의 내적일 경우, 아래와 같다.
-
-$$\mathbf{u}
-= \begin{pmatrix}
-u_{1} \\
-\vdots \\
-u_{n} \\
-\end{pmatrix},
-\mathbf{v}
-= \begin{pmatrix}
-v_{1} \\
-\vdots \\
-v_{n} \\
-\end{pmatrix}$$
-
-$$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \mathbf{u}^{T} \mathbf{v} = \sum_{i=1}^{n}u_{i}v_{i}$$
-
-벡터의 내적 공식을 `python`으로 구현하면 아래와 같다. [하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
-
-```python
-# inner product of vector
-def v_inner(a, b):
-    n = len(a)
-
-    res = sum(a[i] * b[i] for i in range(n))
-
-    return res
-```
-
-`numpy`를 사용하면 아래와 같다.  
-
-```python
-import numpy as np
-
-a = np.array([1, 2, 3])
-b = np.array([4, 5, 6])
-
-inner_product = np.inner(a, b)
-```
-
-### 내적의 성질
-
-벡터를 사용하면 벡터 사이의 각도를 추정할 수 있고, 벡터의 크기 또는 길이를 말하는 **노름(norm)**을 구할 수 있다.  
-우선 벡터의 내적과 벡터 사이의 각도의 관계는 아래와 같다.  
-
-- 내적 > 0 이면, 두 벡터 사이의 각도는 90°보다 작다.
-- 내적 < 0 이면, 두 벡터 사이의 각도는 90°보다 크다.
-- 내적 = 0 이면, 두 벡터 사이의 각도는 90°와 같다.
-
-**노름(norm)**은 $$\Vert \mathbf{v} \Vert$$로 표기하고, 구하는 방법은 아래와 같다. 보다시피 벡터의 **노름(norm)**은 **자기 자신의 내적(inner product)의 제곱근**과 같다.  
-
-$$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert = \sqrt{\sum_{i=1}^{n}{v_{i}}^{2}}$$
-
-**노름(norm)**을 구하는 공식을 `python`으로 구현하면 아래와 같다.  
-
-```python
-# norm of vector
-def norm(a):
-    n = len(a)
-    res = sum(a[i] ** 2 for i in range(n)) ** 0.5
-
-    return res
-```
-
-`numpy`를 사용하면 아래와 같다.  
-
-```python
-import numpy as np
-
-a = np.array([4, 5, 3])
-
-res = np.linalg.norm(a)
-```
-
-**노름(norm)**과 두 벡터 사이의 각도 $$\theta$$를 사용해 내적을 다음과 같이 표현할 수 있다.  
-
-$$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \cos \theta$$
-
-### 코사인 유사도
-
-노름(norm)을 다시 정리하면 **[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**를 다음과 같이 유도할 수 있다.  
-
-$$\mathrm{cosine \ similarity} = S_{c}(\mathbf{u}, \mathbf{v}) = \cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert}$$
-
-**코사인 유사도(cosine similarity)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미한다. 각도가 0°일 때의 코사인값은 1이며, 다른 모든 각도의 코사인값은 1보다 작다. 따라서 이 값은 벡터의 크기가 아닌 방향의 유사도를 판단하는 목적으로 사용되며, 두 벡터의 방향이 완전히 같을 경우 1, 90°의 각을 이룰 경우 0, 180°로 완전히 반대 방향인 경우 -1의 값을 갖는다. `python`으로 구현하면 아래와 같다.  
-
-```python
-# cosine similarity
-def cos_similarity(a, b):
-    inner = v_inner(a, b)
-    norm_a = norm(a)
-    norm_b = norm(b)
-
-    res = inner / (norm_a * norm_b)
-
-    return res
-```
-
-`scipy`를 활용해서 구하면 아래와 같다.  
-
-```python
-from scipy import spatial
-
-a = [1, 2, 3]
-b = [4, 5, 6]
-
-res = 1 - spatial.distance.cosine(a, b)
-```
-
-## 2. 직교 공간
-
-### 직교 공간, 정규 직교 벡터, 정규 직교 공간
-
-**직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
-
-$$\mathbf{v}_{n} = \frac{1}{\Vert \mathbf{u}_{n} \Vert}\mathbf{u}_{n}$$
-
-벡터의 정규화를 `python`으로 구현하면 아래와 같다.  
-
-```python
-# normalize vector
-def normalize(a):
-    n = len(a)
-    v = [a[i] / norm(a) for i in range(n)]
-
-    return v
-```
-
-`numpy`를 사용하면 아래와 같다.  
-
-```python
-import numpy as np
-
-v = np.array([4, 5, 3])
-
-normalized_v = v / np.linalg.norm(v)
-```
-
-### 정규 직교 벡터를 활용한 좌표 표현
-
-벡터 공간 $$\mathbf{v}$$의 **정규 직교 기저(orthonormal basis)**를 $$S = \{ \mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n} \}$$이라 할 때, 벡터 공간 $$\mathbf{v}$$에 포함되는 임의의 벡터 $$\mathbf{a}$$는 아래와 같이 좌표축 $$\mathbf{v}_{n}$$과 벡터 $$\mathbf{a}$$의 $$n$$번째 축의 좌표 $$\langle \mathbf{a}, \mathbf{v}_{n} \rangle$$으로 표현할 수 있다.  
-
-$$\mathbf{a} = \langle \mathbf{a}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + \cdots + \langle \mathbf{a}, \mathbf{v}_{n} \rangle \mathbf{v}_{n}$$
-
-### 직교 벡터를 활용한 좌표 표현
-
-벡터 공간 내 $$U = \{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$가 **직교 기저(orthogonal basis)**라면 임의의 벡터 $$\mathbf{a}$$는 다음과 같이 표현할 수 있다.  
-
-$$\mathbf{a} = \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} + \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}\mathbf{u}_{2} + \cdots + \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}}\mathbf{u}_{n}$$
-
-따라서 $$U = \{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$가 **직교 기저(orthogonal basis)**일 때, $$\mathbf{a}$$의 좌표를 다음과 같이 나타낼 수 있다.  
-
-$$\mathbf{a} = \left\{ \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}, \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}} \right\}$$
-
-## 3. 그람-슈미트 과정
-
-### 정사영
+## 1. 정사영
 
 **정사영(projection)**이란 한 벡터 공간에 속한 벡터를 부분 공간으로 수직으로 투영하는 것을 말하며, 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시키는 것을 아래와 같이 표기한다.  
 
@@ -203,7 +39,7 @@ proj_{\mathbf{v}} \mathbf{u} & = \Vert \mathbf{u} \Vert \vert \cos \theta \vert 
 & = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}\mathbf{v} \\
 \end{align*}$$
 
-`python`으로 구현하면 아래와 같다.  
+정사영 $$proj_{\mathbf{v}} \mathbf{u}$$는 $$\mathbf{u}$$가 갖고 있는 $$\mathbf{v}$$의 성분을 의미한다. `python`으로 구현하면 아래와 같다.  
 
 ```python
 # projection
@@ -251,8 +87,7 @@ $$\mathbf{a} = \mathbf{w}_{1} + \mathbf{w}_{2}$$
 
 ### 직교 정사영
 
-벡터 공간 $$S$$의 부분 공간 $$W$$에서, 부분 공간 $$W$$의  **직교 기저(orthogonal basis)**가 $$U = \{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영 시킨 벡터는 다음과 같다.  
-
+벡터 공간 $$S$$의 부분 공간 $$W$$에서 부분 공간 $$W$$의  **직교 기저(orthogonal basis)**가 $$U = \{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영 시킨 벡터는 다음과 같다. [직교 벡터를 활용한 좌표 표현](/maths/2022-06-05-linear_algebra_07/#직교-벡터를-활용한-좌표-표현)을 참고하자.  
 
 $$proj_{\mathbf{w}} \mathbf{a} = \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} + \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}\mathbf{u}_{2} + \cdots + \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}}\mathbf{u}_{n}$$
 
@@ -260,11 +95,11 @@ $$proj_{\mathbf{w}} \mathbf{a} = \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangl
 
 $$proj_{\mathbf{w}} \mathbf{a} = \left\{ \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}, \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}} \right\}$$
 
-벡터 공간 $$S$$의 부분 공간 $$W$$에서, 부분 공간 $$W$$의 **정규 직교 기저(orthonormal basis)**가 $$\{ \mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영시킨 벡터는 다음과 같다.  
+벡터 공간 $$S$$의 부분 공간 $$W$$에서, 부분 공간 $$W$$의 **정규 직교 기저(orthonormal basis)**가 $$\{ \mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영시킨 벡터는 다음과 같다. [정규 직교 벡터를 활용한 좌표 표현](/maths/2022-06-05-linear_algebra_07/#정규-직교-벡터를-활용한-좌표-표현)을 참고하자.  
 
 $$proj_{\mathbf{w}} \mathbf{a} = \langle \mathbf{a}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + \cdots + \langle \mathbf{a}, \mathbf{v}_{n} \rangle \mathbf{v}_{n}$$
 
-### 그람-슈미트 과정
+## 2. 그람-슈미트 과정
 
 **그람-슈미트 과정(Gram-Schmidt Process)**은 기저(basis) 벡터 $$\{ \mathbf{s}_{1}, \mathbf{s}_{2}, \cdots, \mathbf{s}_{n} \}$$를 직교 기저(orthogonal basis) 벡터 $$\{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
 
@@ -274,11 +109,23 @@ $$\mathbf{u}_{1} = \mathbf{s}_{1}$$
 
 - 2) 첫 번째 단계에서 만든 직교 기저 벡터 $$\mathbf{u}_{1}$$를 통해 두 번째 직교 기저 벡터 $$\mathbf{u}_{2}$$를 생성한다.
 
-$$\mathbf{u}_{2} = \mathbf{s}_{2} - \frac{\langle \mathbf{s}_{2}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1}$$
+$$\mathbf{u}_{2} = \mathbf{s}_{2} - \frac{\langle \mathbf{s}_{2}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} = \mathbf{s}_{2} - proj_{\mathbf{u}_{1}} \mathbf{s}_{2}$$
 
 - n) 같은 방식으로 n 번째 직교 기저 벡터까지 구한다.
 
-$$\mathbf{u}_{n} = \mathbf{s}_{n} - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}\mathbf{u}_{2} - \cdots  - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{n-1} \rangle}{\Vert \mathbf{u}_{n-1} \Vert^{2}}\mathbf{u}_{n-1}$$
+$$\begin{align*}
+\mathbf{u}_{n} & = \mathbf{s}_{n} - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}\mathbf{u}_{2} - \cdots - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{n-1} \rangle}{\Vert \mathbf{u}_{n-1} \Vert^{2}}\mathbf{u}_{n-1} \\
+\\
+& = \mathbf{s}_{n} - \sum_{i=1}^{n-1}proj_{\mathbf{u}_{i}} \mathbf{s}_{n}
+\end{align*}$$
+
+이 과정을 그림으로 표현하면 아래와 같다.  
+
+<img src="/assets/img/posts/Gram-Schmidt_orthonormalization_process.gif">
+{:.text-center}
+
+출처: [위키피디아: 그람-슈미트 과정](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C-%EC%8A%88%EB%AF%B8%ED%8A%B8_%EA%B3%BC%EC%A0%95)([영문](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process))
+{:.text-center}
 
 앞서 구현한 함수들을 바탕으로 `python`으로 구현하면 아래와 같다.  
 
@@ -305,7 +152,7 @@ def gram_schmidt(s):
     return res
 ```
 
-## 4. QR분해
+## 3. QR분해
 
 ### QR분해의 기초
 
@@ -314,7 +161,7 @@ def gram_schmidt(s):
 $$A = QR$$
 
 이러한 **QR분해(QR decomposition, QR factorization)**는 크기가 큰 행렬의 고유값을 구할 때 유용하게 사용된다.  
-위의 [정규 직교 벡터를 활용한 좌표 표현](#정규-직교-벡터를-활용한-좌표-표현)을 참고하면, 행렬 $$A$$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
+[정규 직교 벡터를 활용한 좌표 표현](/maths/2022-06-05-linear_algebra_07/#정규-직교-벡터를-활용한-좌표-표현)을 참고하면, 행렬 $$A$$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
 
 $$\begin{align*}
 \mathbf{a}_{1} = \langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + & \cdots + \langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
@@ -365,11 +212,105 @@ def qr_gramschmidt(a):
     return q, r
 ```
 
+하우스홀더 방식으로 구현한 함수 및 `numpy`, `scipy`로 구한 값과는 부호가 반대로 나오는데, 바뀐 부호는 $$Q$$와 $$R$$에 공통적으로 적용되기 때문에 최종 결과는 동일하다.  
+
 ### 하우스홀더 방법을 이용한 QR분해
 
-[하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에, 실제로 더 많이 활용된다.  
+[하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다.  
 
+```python
+# QR decomposition, QR factorization with householder matrix
+# sign of vector
+def v_sign(a):
+    res = 1
+    if a[0] < 0: res = -1
 
+    return res
+
+# get element of househelder matrixes except last one
+def ele_h(a):
+    at = mat_transpose(a)
+    nm = norm(at[0])
+    e = [1 if j == 0 else 0 for j in range(len(at[0]))]
+    sign = v_sign(at[0])
+    tmp = v_smul(sign * nm, e)
+    v = v_add(at[0], tmp)
+    h = householder(v)
+
+    return h
+
+# QR decomposition
+def qr_householder(a):
+    n = len(mat_transpose(a))
+    h_list_tmp = []
+
+    # get househelder matrixes
+    for i in range(n):
+        if i == 0:
+            res = ele_h(a)
+            h_list_tmp.append(res)
+            tmp_res = mat_mul(res, a)
+
+        elif i < n - 1:
+            an = [[tmp_res[j][k] for k in range(1, len(tmp_res[0]))] for j in range(1, len(tmp_res))]
+            res = ele_h(an)
+            h_list_tmp.append(res)
+            tmp_res = mat_mul(res, an)
+
+        else:
+            an = [tmp_res[j][k] for k in range(1, len(tmp_res[0])) for j in range(1, len(tmp_res))]
+            nm = norm(an)
+            e = [1 if j == 0 else 0 for j in range(len(an))]
+            sign = v_sign(an)
+            tmp = v_smul(sign * nm, e)
+            v = v_add(an, tmp)
+            h = householder(v)
+            h_list_tmp.append(h)
+
+    # convert househelder matrixes to H_{i} form
+    m = len(a)
+    I = mat_identity(m)
+    h_list = [h_tmp if len(h_tmp) == m \
+        else [[I[i][j] if i < m - len(h_tmp) or j < m - len(h_tmp) \
+            else h_tmp[i - (m - len(h_tmp))][j - (m - len(h_tmp))] \
+                for i in range(m)] for j in range(m)] for h_tmp in h_list_tmp]
+
+    # calculate Q
+    q = mat_identity(len(h_list[0]))
+    for i in h_list:
+        q = mat_mul(q, i)
+
+    # calculate R
+    tmp = list(reversed(h_list))
+    tmp_i = mat_identity(len(h_list[0]))
+    for i in tmp:
+        tmp_i = mat_mul(tmp_i, i)
+    r = mat_mul(tmp_i, a)
+
+    return q, r
+```
+
+중간에 `list comprehension`을 3중첩해서 작성한 부분을 풀어쓰면 아래와 같다.  
+
+```python
+h_list = []
+for h_tmp in h_list_tmp:
+    p = len(h_tmp)
+
+    if p == m:
+        tmp = h_tmp
+    else:
+        tmp = []
+        for i in range(m):
+            row = []
+            for j in range(m):
+                if i < m - p or j < m - p:
+                    row.append(I[i][j])
+                else:
+                    row.append(h_tmp[i - (m - p)][j - (m - p)])
+            tmp.append(row)
+    h_list.append(tmp)
+```
 
 ### numpy, scipy 활용
 
@@ -378,7 +319,7 @@ def qr_gramschmidt(a):
 ```python
 import numpy as np
 
-s = np.array([[1, 0, 1], [0, 1, 1], [1, 2, 0]])
+s = np.array([[10, -10, 4, 10], [20, 4, -20, 8], [30, 40, 2, 6], [10, -10, 0, 3]])
 
 q, r = np.linalg.qr(s)
 ```
@@ -388,16 +329,15 @@ q, r = np.linalg.qr(s)
 ```python
 from scipy import linalg
 
-s = np.array([[1, 0, 1], [0, 1, 1], [1, 2, 0]])
+s = np.array([[10, -10, 4, 10], [20, 4, -20, 8], [30, 40, 2, 6], [10, -10, 0, 3]])
 
 q, r = linalg.qr(s)
 ```
-
-직접 구현한 함수와 부호가 반대로 나오는데, 바뀐 부호는 $$Q$$와 $$R$$에 공통적으로 적용되기 때문에 최종 결과는 동일하다.  
 
 ---
 ## Reference
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
 - [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
-- [위키피디아: 코사인 유사도](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)([영문](https://en.wikipedia.org/wiki/Cosine_similarity))
+- [위키피디아: 그람-슈미트 과정](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C-%EC%8A%88%EB%AF%B8%ED%8A%B8_%EA%B3%BC%EC%A0%95)([영문](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process))
 - [위키피디아: QR 분해](https://ko.wikipedia.org/wiki/QR_%EB%B6%84%ED%95%B4)([영문](https://en.wikipedia.org/wiki/QR_decomposition))
+- [QR 분해 - 공돌이의 수학정리노트](https://angeloyeo.github.io/2020/11/23/gram_schmidt.html)

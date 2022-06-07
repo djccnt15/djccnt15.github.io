@@ -82,7 +82,7 @@ $$A = \begin{pmatrix}
 a & b & c \\
 b & d & e \\
 c & e & f \\
-\end{pmatrix},
+\end{pmatrix}, \quad
 A_{ij} = A_{ji}$$
 
 $$\therefore A = A^{T}$$
@@ -182,7 +182,7 @@ a_{11} & a_{12} & 0 & 0 \\
 0 & a_{22} & a_{23} & 0 \\
 0 & 0 & a_{33} & a_{34} \\
 0 & 0 & 0 & a_{44} \\
-\end{pmatrix},
+\end{pmatrix}, \quad
 A = \begin{pmatrix}
 a_{11} & 0 & 0 & 0 \\
 a_{21} & a_{22} & 0 & 0 \\
@@ -308,7 +308,7 @@ $$A = \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
 0 & a_{22} & a_{23} \\
 0 & 0 & a_{33} \\
-\end{pmatrix},
+\end{pmatrix}, \quad
 A = \begin{pmatrix}
 a_{11} & 0 & 0 \\
 a_{21} & a_{22} & 0 \\
@@ -405,7 +405,7 @@ $$H = I - 2\frac{\mathbf{vv}^{T}}{\mathbf{v}^{T}\mathbf{v}}$$
 $${\mathbf{vv}^{T}}$$은 벡터의 외적, $${\mathbf{v}^{T}\mathbf{v}}$$은 벡터의 내적을 뜻하기 때문에 하우스홀더 행렬 공식을 `python`으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 ```python
-# outer product of vector
+# outer product, tensor product of vector
 def v_outer(a, b):
     n1 = len(a)
     n2 = len(b)
