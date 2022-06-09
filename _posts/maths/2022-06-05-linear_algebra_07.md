@@ -34,11 +34,7 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 ### 내적의 개념
 
-[벡터 공간](/maths/2022-05-29-linear_algebra_06/#1-벡터-공간)의 설명에서 언급했듯이, **내적(inner product)**이 주어진 벡터 공간을 **내적 공간(inner product space)**이라고 부르고 **내적(inner product)**을 아래와 같이 표기한다.  
-
-$$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v}$$
-
-벡터의 내적일 경우, 아래와 같다.
+[벡터 공간](/maths/2022-05-29-linear_algebra_06/#1-벡터-공간)의 설명에서 언급했듯이 **내적(inner product)**이 주어진 벡터 공간을 **내적 공간(inner product space)**이라고 부르는데, 벡터의 **내적(inner product)**은 벡터를 방향이 일치하는 만큼만 곱한다는 뜻으로 아래와 같이 표기한다.  
 
 $$\mathbf{u}
 = \begin{pmatrix}
@@ -53,7 +49,7 @@ v_{1} \\
 v_{n} \\
 \end{pmatrix}$$
 
-$$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \mathbf{u}^{T} \mathbf{v} = \sum_{i=1}^{n}u_{i}v_{i}$$
+$$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \mathbf{u}^{T} \mathbf{v} = \sum_{i=1}^{n}u_{i}v_{i} = \vert \mathbf{u} \vert \vert \mathbf{v} \vert \cos \theta$$
 
 벡터의 내적을 `python`으로 구현하면 아래와 같다. [하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
@@ -80,14 +76,16 @@ inner_product = np.inner(a, b)
 
 ### 내적의 성질
 
-벡터를 사용하면 벡터 사이의 각도를 추정할 수 있고, 벡터의 크기 또는 길이를 말하는 **노름(norm)**을 구할 수 있다.  
+내적을 사용하면 벡터 사이의 각도를 추정할 수 있다.  
 우선 벡터의 내적과 벡터 사이의 각도의 관계는 아래와 같다.  
 
 - 내적 > 0 이면, 두 벡터 사이의 각도는 90°보다 작다.
 - 내적 < 0 이면, 두 벡터 사이의 각도는 90°보다 크다.
 - 내적 = 0 이면, 두 벡터 사이의 각도는 90°와 같다.
 
-**노름(norm)**은 $$\Vert \mathbf{v} \Vert$$로 표기하고, 구하는 방법은 아래와 같다. 보다시피 벡터의 **노름(norm)**은 **자기 자신의 내적(inner product)의 제곱근**과 같다.  
+### 노름(norm)
+
+**노름(norm)**은 벡터의 크기 또는 길이를 말하는데, $$\Vert \mathbf{v} \Vert$$로 표기하고, 구하는 방법은 아래와 같다. 보다시피 벡터의 **노름(norm)**은 **자기 자신의 내적(inner product)의 제곱근**과 같다.  
 
 $$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert = \sqrt{\sum_{i=1}^{n}{v_{i}}^{2}}$$
 
@@ -118,11 +116,11 @@ $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \Vert \
 
 ## 2. 코사인 유사도
 
-노름(norm)을 다시 정리하면 **[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**를 다음과 같이 유도할 수 있다.  
+**[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미하는데, 노름(norm)을 정리하면 **코사인 유사도(cosine similarity)**를 다음과 같이 유도할 수 있다.  
 
 $$\mathrm{cosine \ similarity} = S_{c}(\mathbf{u}, \mathbf{v}) = \cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert}$$
 
-**코사인 유사도(cosine similarity)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미한다. 각도가 0°일 때의 코사인값은 1이며, 다른 모든 각도의 코사인값은 1보다 작다. 따라서 이 값은 벡터의 크기가 아닌 방향의 유사도를 판단하는 목적으로 사용되며, 두 벡터의 방향이 완전히 같을 경우 1, 90°의 각을 이룰 경우 0, 180°로 완전히 반대 방향인 경우 -1의 값을 갖는다. `python`으로 구현하면 아래와 같다.  
+각도가 0°일 때의 코사인 값은 1이며, 다른 모든 각도의 코사인 값은 1보다 작다. 따라서 이 값은 벡터의 크기가 아닌 방향의 유사도를 판단하는 목적으로 사용되며, 두 벡터의 방향이 완전히 같을 경우 1, 90°의 각을 이룰 경우 0, 180°로 완전히 반대 방향인 경우 -1의 값을 갖는다. `python`으로 구현하면 아래와 같다.  
 
 ```python
 # cosine similarity
@@ -151,9 +149,9 @@ res = 1 - spatial.distance.cosine(a, b)
 
 ### 직교 공간, 정규 직교 벡터, 정규 직교 공간
 
-**직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
+**직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1([단위 벡터](/maths/2022-05-29-linear_algebra_06/#단위-벡터))이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
 
-$$\mathbf{v}_{n} = \frac{1}{\Vert \mathbf{u}_{n} \Vert}\mathbf{u}_{n}$$
+$$\mathbf{v}_{n} = \frac{\mathbf{u}_{n}}{\Vert \mathbf{u}_{n} \Vert}$$
 
 벡터의 정규화를 `python`으로 구현하면 아래와 같다.  
 

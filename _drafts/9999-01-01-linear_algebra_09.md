@@ -30,7 +30,7 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 ## 1. 외적
 
-**외적(outer product)** 또는 **텐서 곱(tensor product)**은 다음과 같은 연산을 의미한다.  
+벡터의 **외적(outer product)** 또는 **텐서 곱(tensor product)**은 다음과 같은 연산을 의미한다.  
 
 $$\mathbf{u} \otimes \mathbf{v} = \mathbf{u} \mathbf{v}^{T}$$
 
@@ -49,7 +49,7 @@ def v_outer(a, b):
 
 ## 2. 벡터 곱
 
-**벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 벡터 곱 $$\mathbf{u} \times \mathbf{v}$$는 벡터 $$\mathbf{u}$$와 $$\mathbf{v}$$에 수직인 벡터를 의미한다. 다음과 같이 단위 벡터를 사용해 구할 수 있다.  
+**벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 벡터 곱 $$\mathbf{u} \times \mathbf{v}$$는 벡터 $$\mathbf{u}$$와 $$\mathbf{v}$$에 수직인 벡터를 의미한다. 다음과 같이 [기저 벡터](/maths/2022-05-29-linear_algebra_06/#기저-벡터)를 사용해 구할 수 있다.  
 
 $$\mathbf{i} = \begin{pmatrix}
 1 \\

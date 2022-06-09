@@ -123,7 +123,6 @@ $$\begin{align*}
 
 <img src="/assets/img/posts/Gram-Schmidt_orthonormalization_process.gif">
 {:.text-center}
-
 출처: [위키피디아: 그람-슈미트 과정](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C-%EC%8A%88%EB%AF%B8%ED%8A%B8_%EA%B3%BC%EC%A0%95)([영문](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process))
 {:.text-center}
 
@@ -160,14 +159,14 @@ def gram_schmidt(s):
 
 $$A = QR$$
 
-이러한 **QR분해(QR decomposition, QR factorization)**는 크기가 큰 행렬의 고유값을 구할 때 유용하게 사용된다.  
+이러한 **QR분해(QR decomposition, QR factorization)**는 주어진 행렬을 직교하는 행렬로 나타내어 행렬을 다루기 편하게 만들어주며, 크기가 큰 행렬의 고유값을 구할 때 유용하게 사용된다.  
 [정규 직교 벡터를 활용한 좌표 표현](/maths/2022-06-05-linear_algebra_07/#정규-직교-벡터를-활용한-좌표-표현)을 참고하면, 행렬 $$A$$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
 
 $$\begin{align*}
-\mathbf{a}_{1} = \langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + & \cdots + \langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
-\mathbf{a}_{2} = \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + & \cdots + \langle \mathbf{a}_{2}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
+\mathbf{a}_{1} = \langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} & + \cdots + \langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
+\mathbf{a}_{2} = \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} & + \cdots + \langle \mathbf{a}_{2}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
 & \vdots \\
-\mathbf{a}_{n} = \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + & \cdots + \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
+\mathbf{a}_{n} = \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} & + \cdots + \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
 \end{align*}$$
 
 따라서 행렬 $$A$$는 다음과 같이 정리할 수 있다.  
@@ -212,11 +211,97 @@ def qr_gramschmidt(a):
     return q, r
 ```
 
-하우스홀더 방식으로 구현한 함수 및 `numpy`, `scipy`로 구한 값과는 부호가 반대로 나오는데, 바뀐 부호는 $$Q$$와 $$R$$에 공통적으로 적용되기 때문에 최종 결과는 동일하다.  
+하우스홀더 행렬을 사용해 구현한 함수 및 `numpy`, `scipy`로 구한 값과는 부호가 반대로 나오는데, 바뀐 부호는 $$Q$$와 $$R$$에 공통적으로 적용되기 때문에 최종 결과는 동일하다.  
 
-### 하우스홀더 방법을 이용한 QR분해
+### 하우스홀더 행렬을 이용한 QR분해
 
-[하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다.  
+[하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다. 하우스홀더 행렬을 사용한 QR분해 방법은 다음과 같다.  
+
+- 1) 주어진 행렬 $$A$$를 통해 $$\mathbf{v}_{1}$$를 구한다. 아래 식에서 $$sign$$은 벡터의 첫 스칼라의 부호로, $$0$$ 이상이면 $$+$$, $$0$$ 미만이면 $$-$$가 된다. $$\mathbf{e}_{1}$$은 [기저 벡터](/maths/2022-05-29-linear_algebra_06/#기저-벡터)를 말한다.  
+
+$$A_{1} = A = \begin{pmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44} \\
+\end{pmatrix}
+= (\mathbf{a}_{1} \quad \mathbf{a}_{2} \quad \cdots \quad \mathbf{a}_{n})$$
+
+$$\begin{align*}
+\mathbf{v}_{1} = \mathbf{a}_{1} + sign(a_{1}) \Vert \mathbf{a}_{1} \Vert \mathbf{e}_{1} \\
+\\
+\mathbf{a}_{1} = \begin{pmatrix}
+a_{11} \\
+a_{21} \\
+a_{31} \\
+a_{41}\end{pmatrix}, \quad
+\mathbf{e}_{1} = \begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix}
+\end{align*}$$
+
+- 2) 위에서 구한 $$\mathbf{v}_{1}$$를 통해서 [하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬)을 구한다.  
+
+$$\begin{align*}
+H_{1} & = I - 2\frac{\mathbf{v}_{1}^{}\mathbf{v}_{1}^{T}}{\mathbf{v}_{1}^{T}\mathbf{v}_{1}^{}} \\
+\\
+& = \begin{pmatrix}
+h_{11} & h_{12} & h_{13} & h_{14} \\
+h_{21} & h_{22} & h_{23} & h_{24} \\
+h_{31} & h_{32} & h_{33} & h_{34} \\
+h_{41} & h_{42} & h_{43} & h_{44} \\
+\end{pmatrix}
+\end{align*}$$
+
+- 3) $$H_{1}$$와 $$A_{1}$$를 곱한 행렬에서 1행 1열을 제외한 나머지 행렬로 $$A_{2}$$를 만들고, 1 ~ 2번 과정을 되풀이 한다.  
+
+$$H_{1}A_{1} = \left(\begin{array}{c|ccc}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+\hline
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44} \\
+\end{array} \right)
+\to A_{2} = \begin{pmatrix}
+a_{22} & a_{23} & a_{24} \\
+a_{32} & a_{33} & a_{34} \\
+a_{42} & a_{43} & a_{44} \\
+\end{pmatrix}$$
+
+- 4) 1 ~ 3번 과정을 되풀이하여 각각의 하우스홀더 행렬이 모두 구해지면, 아래와 같이 단위 행렬과 조합하여 크기를 맞춘다.  
+
+$$\begin{align*}
+H_{1} & = \begin{pmatrix}h_{11} & h_{12} & h_{13} & h_{14} \\
+h_{21} & h_{22} & h_{23} & h_{24} \\
+h_{31} & h_{32} & h_{33} & h_{34} \\
+h_{41} & h_{42} & h_{43} & h_{44} \\
+\end{pmatrix} \\
+\\
+H_{2} & = \begin{pmatrix}1 & 0 & 0 & 0 \\
+0 & h_{11} & h_{12} & h_{13} \\
+0 & h_{21} & h_{22} & h_{23} \\
+0 & h_{31} & h_{32} & h_{33} \\
+\end{pmatrix} \\
+\\
+H_{3} & = \begin{pmatrix}1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & h_{11} & h_{12} \\
+0 & 0 & h_{21} & h_{22} \\
+\end{pmatrix}
+\end{align*}$$
+
+- 5) 아래와 같이 구해진 $$H_{i}$$을 모두 곱해 $$Q$$와 $$R$$을 구한다.  
+
+$$\begin{align*}
+Q & = H_{1}H_{2}H_{3} \cdots H_{n}\\
+\\
+R & = H_{n} \cdots H_{3}H_{2}H_{1}A
+\end{align*}$$
+
+`python`으로 구현하면 아래와 같다.  
 
 ```python
 # QR decomposition, QR factorization with householder matrix
