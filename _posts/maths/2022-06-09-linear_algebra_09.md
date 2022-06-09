@@ -47,9 +47,20 @@ def v_outer(a, b):
     return res
 ```
 
+`numpy`를 사용하면 아래와 같다.  
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+res = np.outer(a, b)
+```
+
 ## 2. 벡터 곱
 
-**벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 벡터 곱 $$\mathbf{u} \times \mathbf{v}$$는 벡터 $$\mathbf{u}$$와 $$\mathbf{v}$$에 수직인 벡터를 의미한다. 다음과 같이 [기저 벡터](/maths/2022-05-29-linear_algebra_06/#기저-벡터)를 사용해 구할 수 있다.  
+**벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 다음과 같이 [기저 벡터](/maths/2022-05-29-linear_algebra_06/#기저-벡터)를 사용해 구할 수 있다.  
 
 $$\mathbf{i} = \begin{pmatrix}
 1 \\
@@ -90,8 +101,30 @@ v_{1} & v_{2} \\
 & = (u_{2}v_{3} - u_{3}v_{2})\mathbf{i} - (u_{1}v_{3} - u_{3}v_{1})\mathbf{j} + (u_{1}v_{2} - u_{2}v_{1})\mathbf{k}
 \end{align*}$$
 
+벡터 곱 $$\mathbf{u} \times \mathbf{v}$$의 방향은 벡터 $$\mathbf{u}$$와 $$\mathbf{v}$$에 수직이고, 크기는 $$\mathbf{u}$$와 $$\mathbf{v}$$ 두 벡터가 이루는 정사각형의 넓이, 즉 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 벡터 곱의 [노름(norm)](/maths/2022-06-05-linear_algebra_07/#노름norm)과 같다. 이를 수식으로 나타내면 다음과 같다.  
+
+$$\Vert \mathbf{u} \times \mathbf{v} \Vert = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \vert \sin \theta \vert$$
+
 ## 3. 삼중 곱
 
+**삼중 곱(triple product)**은 벡터 3개를 특수하게 곱하는 방법으로 스칼라 삼중 곱과 벡터 삼중 곱 두 가지가 있다.  
+
+### 스칼라 삼중 곱
+
+스칼라 삼중 곱은 아래와 같이 [행렬식](/maths/2022-05-23-linear_algebra_04/)을 통해 계산한다.  
+
+$$\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})
+= \begin{vmatrix}
+u_{1} & u_{2} & u_{3} \\
+v_{1} & v_{2} & v_{3} \\
+w_{1} & w_{2} & w_{3} \\
+\end{vmatrix}$$
+
+### 벡터 삼중 곱
+
+벡터 삼중 곱은 아래와 같이 벡터 곱을 세번 하는 것을 의미한다.  
+
+$$\mathbf{u} \times (\mathbf{v} \times \mathbf{w})$$
 
 ---
 ## Reference

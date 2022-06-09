@@ -10,6 +10,7 @@ image:
   path: /assets/img/posts/linear_algebra_08.png
 related_posts:
   - _posts/maths/2022-06-05-linear_algebra_07.md
+  - _posts/maths/2022-06-09-linear_algebra_09.md
 
 categories:
   - maths
