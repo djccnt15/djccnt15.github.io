@@ -87,18 +87,14 @@ $$A^{-1} = B = \frac{1}{12} \left(\begin{array}{ccc}
 ```python
 # creating matrix augmented matrix
 def mat_aug_mat(a, b):
-    n = len(a)
-
-    res = [a[i] + b[i] for i in range(n)]
+    res = [i + j for i, j in zip(a, b)]
 
     return res
 
 # separating coefficient matrix
 def mat_coef_inv(a, b):
-    n = len(a)
-
-    x = [a[i][:b] for i in range(n)]
-    y = [[y for y in a[i][b:]] for i in range(n)]
+    x = [i[:b] for i in a]
+    y = [[y for y in i[b:]] for i in a]
 
     return x, y
 

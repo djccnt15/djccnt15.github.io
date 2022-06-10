@@ -39,10 +39,7 @@ $$\mathbf{u} \otimes \mathbf{v} = \mathbf{u} \mathbf{v}^{T}$$
 ```python
 # outer product, tensor product of vector
 def v_outer(a, b):
-    n1 = len(a)
-    n2 = len(b)
-
-    res = [[a[i] * b[j] for j in range(n2)] for i in range(n1)]
+    res = [[i * j for j in b] for i in a]
 
     return res
 ```
@@ -104,6 +101,17 @@ v_{1} & v_{2} \\
 벡터 곱 $$\mathbf{u} \times \mathbf{v}$$의 방향은 벡터 $$\mathbf{u}$$와 $$\mathbf{v}$$에 수직이고, 크기는 $$\mathbf{u}$$와 $$\mathbf{v}$$ 두 벡터가 이루는 정사각형의 넓이, 즉 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 벡터 곱의 [노름(norm)](/maths/2022-06-05-linear_algebra_07/#노름norm)과 같다. 이를 수식으로 나타내면 다음과 같다.  
 
 $$\Vert \mathbf{u} \times \mathbf{v} \Vert = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \vert \sin \theta \vert$$
+
+`numpy`를 사용해 크로스곱의 결과를 구하면 아래와 같다.  
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+res = np.cross(a, b)
+```
 
 ## 3. 삼중 곱
 

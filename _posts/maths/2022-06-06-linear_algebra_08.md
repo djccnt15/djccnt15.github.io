@@ -133,7 +133,6 @@ $$\begin{align*}
 # Gram-Schmidt Process
 def gram_schmidt(s):
     n = len(s)
-    m = len(s[0])
     res = []
 
     for i in range(n):
@@ -142,11 +141,7 @@ def gram_schmidt(s):
 
         else:
             tmp_list = [proj(s[i], res[j]) for j in range(i)]
-
-            tmp = v_zeros(m)
-            for k in range(len(tmp_list)):
-                tmp = v_add(tmp, tmp_list[k])
-            tmp = v_sub(s[i], tmp)
+            tmp = v_sub(s[i], v_add(*tmp_list[:len(tmp_list)]))
             res.append(tmp)
 
     return res
@@ -202,9 +197,9 @@ $$\begin{align*} \\
 def qr_gramschmidt(a):
     mat = mat_transpose(a)
     n = len(mat)
-    tmp = gram_schmidt(mat)
+    gs = gram_schmidt(mat)
 
-    q_tmp = [normalize(i) for i in tmp]
+    q_tmp = [normalize(i) for i in gs]
     q = mat_transpose(q_tmp)
 
     r = [[0 if i > j else v_inner(mat[j], q_tmp[i]) for j in range(n)] for i in range(n)]

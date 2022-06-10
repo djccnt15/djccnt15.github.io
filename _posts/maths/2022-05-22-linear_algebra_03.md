@@ -72,18 +72,14 @@ $$\begin{pmatrix}
 ```python
 # creating vector augmented matrix
 def mat_aug_v(a, b):
-    n = len(a)
-
-    res = [a[i] + [b[i]] for i in range(n)]
+    res = [i + [j] for i, j in zip(a, b)]
 
     return res
 
 # separating coefficient matrix
 def mat_coef(a):
-    n = len(a)
-
-    x = [a[i][:-1] for i in range(n)]
-    y = [y for i in range(n) for y in a[i][-1:]]
+    x = [i[:-1] for i in a]
+    y = [y for i in a for y in i[-1:]]
 
     return x, y
 ```
@@ -95,7 +91,6 @@ def mat_coef(a):
 ```python
 # pivoting augmented matrix
 def mat_pivot(mat):
-
     mat = sorted(mat, key=lambda x: abs(x[0]), reverse=True)
 
     return mat

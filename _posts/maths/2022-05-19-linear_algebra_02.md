@@ -52,10 +52,7 @@ $$(AB)^{T} = B^{T}A^{T}$$
 ```python
 # transposed matrix
 def mat_transpose(a):
-    n = len(a)
-    m = len(a[0])
-
-    At = [[a[j][i] for j in range(n)] for i in range(m)]
+    At = [[e for e in i] for i in zip(*a)]
 
     return At
 ```
@@ -146,18 +143,13 @@ a_{31} \times d_{33} & a_{32} \times d_{33} & a_{33} \times d_{33} \\
 ```python
 # elements of diagonal matrix
 def diag_ele(a):
-    n = len(a)
-
-    d = [a[i][i] for i in range(n)]
+    d = [i[n] for n, i in enumerate([*a])]
 
     return d
 
 # diagonal matrix
 def mat_diag(a):
-    d = diag_ele(a)
-    n = len(d)
-
-    D = [[d[i] if i == j else 0 for j in range(n)] for i in range(n)]
+    D = [[j if n == m else 0 for m, j in enumerate(i)] for n, i in enumerate(a)]
 
     return D
 ```
@@ -195,19 +187,13 @@ a_{21} & a_{22} & 0 & 0 \\
 ```python
 # upper bidiagonal matrix
 def mat_bidiag_u(a):
-    n = len(a)
-    m = len(a[0])
-
-    res = [[0 if i > j or j-i > 1 else a[i][j] for j in range(m)] for i in range(n)]
+    res = [[0 if n > m or m - n > 1 else j for m, j in enumerate(i)] for n, i in enumerate(a)]
 
     return res
 
 # lower bidiagonal matrix
 def mat_bidiag_l(a):
-    n = len(a)
-    m = len(a[0])
-
-    res = [[0 if i < j or i-j > 1 else a[i][j] for j in range(m)] for i in range(n)]
+    res = [[0 if n < m or n - m > 1 else j for m, j in enumerate(i)] for n, i in enumerate(a)]
 
     return res
 ```
@@ -251,7 +237,6 @@ $$AI = IA = A$$
 ```python
 # identity matrix
 def mat_identity(size):
-
     I = [[1 if i == j else 0 for j in range(size)] for i in range(size)]
 
     return I
@@ -279,14 +264,12 @@ $$0 = \begin{pmatrix}
 ```python
 # zero matrix
 def mat_zeros(row, col):
-
     Z = [[0 for j in range(col)] for i in range(row)]
 
     return Z
 
 # zero vector
 def v_zeros(size):
-
     Z = [0 for i in range(size)]
 
     return Z
@@ -320,19 +303,13 @@ a_{31} & a_{32} & a_{33} \\
 ```python
 # upper triangular matrix
 def mat_tri_u(a):
-    n = len(a)
-    m = len(a[0])
-
-    res = [[0 if i > j else a[i][j] for j in range(m)] for i in range(n)]
+    res = [[0 if n > m else j for m, j in enumerate(i)] for n, i in enumerate(a)]
 
     return res
 
 # lower triangular matrix
 def mat_tri_l(a):
-    n = len(a)
-    m = len(a[0])
-
-    res = [[0 if i < j else a[i][j] for j in range(m)] for i in range(n)]
+    res = [[0 if n < m else j for m, j in enumerate(i)] for n, i in enumerate(a)]
 
     return res
 ```
@@ -370,10 +347,7 @@ $$T_{i,j} = T_{i+1,j+1} = t_{i-j}$$
 ```python
 # toeplitz matrix
 def mat_toeplitz(a, b):
-    n1 = len(a)
-    n2 = len(b)
-
-    T = [[a[i-j] if i >= j else b[j-i] for j in range(n2)] for i in range(n1)]
+    T = [[a[n - m] if n >= m else b[m - n] for m, j in enumerate(b)] for n, i in enumerate(a)]
 
     return T
 ```
@@ -407,18 +381,13 @@ $${\mathbf{vv}^{T}}$$은 벡터의 외적, $${\mathbf{v}^{T}\mathbf{v}}$$은 벡
 ```python
 # outer product, tensor product of vector
 def v_outer(a, b):
-    n1 = len(a)
-    n2 = len(b)
-
-    res = [[a[i] * b[j] for j in range(n2)] for i in range(n1)]
+    res = [[i * j for j in b] for i in a]
 
     return res
 
 # inner product of vector
 def v_inner(a, b):
-    n = len(a)
-
-    res = sum(a[i] * b[i] for i in range(n))
+    res = sum(x * y for x, y in zip(a, b))
 
     return res
 ```

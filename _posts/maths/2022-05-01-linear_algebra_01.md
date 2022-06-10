@@ -61,18 +61,14 @@ $$\mathbf{v} = \begin{pmatrix}
 
 ```python
 # addition of vector
-def v_add(a, b):
-    n = len(a)
-
-    res = [a[i] + b[i] for i in range(n)]
+def v_add(*a):
+    res = [sum(i) for i in zip(*a)]
 
     return res
 
 # subtraction of vector
 def v_sub(a, b):
-    n = len(a)
-
-    res = [a[i] - b[i] for i in range(n)]
+    res = [i - j for i, j in zip(a, b)]
 
     return res
 ```
@@ -84,9 +80,7 @@ def v_sub(a, b):
 ```python
 # scalar multiplication of vector
 def v_smul(s, a):
-    n = len(a)
-
-    res = [s * a[i] for i in range(n)]
+    res = [s * i for i in a]
 
     return res
 ```
@@ -97,18 +91,16 @@ def v_smul(s, a):
 
 ```python
 # hadamard product of vector
-def v_hmul(a, b):
-    n = len(a)
+from functools import reduce
 
-    res = [a[i] * b[i] for i in range(n)]
+def v_hmul(*a):
+    res = [reduce(lambda x, y: x * y, i) for i in zip(*a)]
 
     return res
 
 # hadamard division of vector
 def v_hdiv(a, b):
-    n = len(a)
-
-    res = [a[i] / b[i] for i in range(n)]
+    res = [i / j for i, j in zip(a, b)]
 
     return res
 ```
@@ -179,20 +171,14 @@ x_2
 
 ```python
 # addition of matrix
-def mat_add(a, b):
-    n = len(a)
-    m = len(a[0])
-
-    res = [[a[i][j] + b[i][j] for j in range(m)] for i in range(n)]
+def mat_add(*a):
+    res = [[sum(j) for j in zip(*i)] for i in zip(*a)]
 
     return res
 
 # subtraction of matrix
 def mat_sub(a, b):
-    n = len(a)
-    m = len(a[0])
-
-    res = [[a[i][j] - b[i][j] for j in range(m)] for i in range(n)]
+    res = [[j - k for j, k in zip(*i)] for i in zip(a, b)]
 
     return res
 ```
@@ -204,10 +190,7 @@ def mat_sub(a, b):
 ```python
 # scalar multiplication of matrix
 def mat_smul(s, a):
-    n = len(a)
-    m = len(a[0])
-
-    res = [[s * a[i][j] for j in range(m)] for i in range(n)]
+    res = [[s * j for j in i] for i in a]
 
     return res
 ```
@@ -217,21 +200,17 @@ def mat_smul(s, a):
 두 행렬의 각 성분을 곱하는 연산은 벡터와 마찬가지로 **원소 곱** 또는 **아다마르 곱(hadamard product)**이라고 부른다. `python`으로 구현하면 아래와 같다.  
 
 ```python
-# hadamard product of matrix
-def mat_hmul(a, b):
-    n = len(a)
-    m = len(a[0])
+from functools import reduce
 
-    res = [[a[i][j] * b[i][j] for j in range(m)] for i in range(n)]
+# hadamard product of matrix
+def mat_hmul(*a):
+    res = [[reduce(lambda x, y: x * y, j) for j in zip(*i)] for i in zip(*a)]
 
     return res
 
 # hadamard division of matrix
 def mat_hdiv(a, b):
-    n = len(a)
-    m = len(a[0])
-
-    res = [[a[i][j] / b[i][j] for j in range(m)] for i in range(n)]
+    res = [[j / k for j, k in zip(*i)] for i in zip(a, b)]
 
     return res
 ```
@@ -241,13 +220,16 @@ def mat_hdiv(a, b):
 **행렬 곱(matrix multiplication)**의 결과 행렬은 앞 행렬의 행 벡터와 뒤 행렬의 열 벡터의 곱셈합(SUMPRODUCT of excel)을 원소로 갖기 때문에 교환 법칙이 성립하지 않는다. `python`으로 구현하면 아래와 같다.  
 
 ```python
+from functools import reduce
+
 # multiplication of matrix
 def mat_mul(a, b):
-    n = len(a)
-    m1 = len(a[0])
-    m2 = len(b[0])
+    res = [[sum(a * b for a, b in zip(row_a, col_b)) for col_b in zip(*b)] for row_a in a]
 
-    res = [[sum(a[i][k] * b[k][j] for k in range(m1)) for j in range(m2)] for i in range(n)]
+    return res
+
+def mat_mul_all(*a):
+    res = reduce(mat_mul, [*a])
 
     return res
 ```
@@ -269,9 +251,7 @@ $$tr(A) = a_{11} + a_{22} + a_{33}$$
 ```python
 # trace of matrix
 def mat_tr(a):
-    n = len(a)
-
-    res = sum(a[i][i] for i in range(n))
+    res = sum(i[n] for n, i in enumerate([*a]))
 
     return res
 ```

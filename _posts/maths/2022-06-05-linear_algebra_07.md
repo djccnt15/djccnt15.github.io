@@ -56,9 +56,7 @@ $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \mathbf
 ```python
 # inner product of vector
 def v_inner(a, b):
-    n = len(a)
-
-    res = sum(a[i] * b[i] for i in range(n))
+    res = sum(x * y for x, y in zip(a, b))
 
     return res
 ```
@@ -94,8 +92,7 @@ $$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert = \sqrt{
 ```python
 # norm of vector
 def norm(a):
-    n = len(a)
-    res = sum(a[i] ** 2 for i in range(n)) ** 0.5
+    res = sum(i ** 2 for i in a) ** 0.5
 
     return res
 ```
@@ -147,7 +144,7 @@ res = 1 - spatial.distance.cosine(a, b)
 
 ## 3. 직교 공간
 
-### 직교 공간, 정규 직교 벡터, 정규 직교 공간
+### 직교, 정규 직교 벡터, 정규 직교 공간, 정규화
 
 **직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1([단위 벡터](/maths/2022-05-29-linear_algebra_06/#단위-벡터))이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
 
@@ -158,8 +155,7 @@ $$\mathbf{v}_{n} = \frac{\mathbf{u}_{n}}{\Vert \mathbf{u}_{n} \Vert}$$
 ```python
 # normalize vector
 def normalize(a):
-    n = len(a)
-    v = [a[i] / norm(a) for i in range(n)]
+    v = [i / norm(a) for i in a]
 
     return v
 ```
