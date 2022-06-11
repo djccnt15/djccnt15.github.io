@@ -72,14 +72,14 @@ $$\begin{pmatrix}
 ```python
 # creating vector augmented matrix
 def mat_aug_v(a, b):
-    res = [i + [j] for i, j in zip(a, b)]
+    res = [v + [u] for v, u in zip(a, b)]
 
     return res
 
 # separating coefficient matrix
 def mat_coef(a):
-    x = [i[:-1] for i in a]
-    y = [y for i in a for y in i[-1:]]
+    x = [r[:-1] for r in a]
+    y = [v for r in a for v in r[-1:]]
 
     return x, y
 ```

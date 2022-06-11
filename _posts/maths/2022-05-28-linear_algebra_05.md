@@ -20,7 +20,6 @@ tags:
   - python
   - numpy
 ---
-
 * toc
 {:toc}
 
@@ -87,14 +86,14 @@ $$A^{-1} = B = \frac{1}{12} \left(\begin{array}{ccc}
 ```python
 # creating matrix augmented matrix
 def mat_aug_mat(a, b):
-    res = [i + j for i, j in zip(a, b)]
+    res = [v + u for v, u in zip(a, b)]
 
     return res
 
 # separating coefficient matrix
 def mat_coef_inv(a, b):
-    x = [i[:b] for i in a]
-    y = [[y for y in i[b:]] for i in a]
+    x = [r[:b] for r in a]
+    y = [r[b:] for r in a]
 
     return x, y
 

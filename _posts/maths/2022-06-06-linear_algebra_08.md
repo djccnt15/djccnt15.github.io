@@ -21,7 +21,6 @@ tags:
   - numpy
   - scipy
 ---
-
 * toc
 {:toc}
 
@@ -132,16 +131,14 @@ $$\begin{align*}
 ```python
 # Gram-Schmidt Process
 def gram_schmidt(s):
-    n = len(s)
     res = []
 
-    for i in range(n):
+    for i, v in enumerate(s):
         if i == 0:
             res.append(s[i])
 
         else:
-            tmp_list = [proj(s[i], res[j]) for j in range(i)]
-            tmp = v_sub(s[i], v_add(*tmp_list[:len(tmp_list)]))
+            tmp = v_sub(s[i], v_add(*[proj(s[i], res[j]) for j in range(i)]))
             res.append(tmp)
 
     return res
@@ -195,19 +192,19 @@ $$\begin{align*} \\
 ```python
 # QR decomposition, QR factorization with Gram-Schmidt Process
 def qr_gramschmidt(a):
-    mat = mat_transpose(a)
+    mat = mat_trans(a)
     n = len(mat)
     gs = gram_schmidt(mat)
 
     q_tmp = [normalize(i) for i in gs]
-    q = mat_transpose(q_tmp)
+    q = mat_trans(q_tmp)
 
     r = [[0 if i > j else v_inner(mat[j], q_tmp[i]) for j in range(n)] for i in range(n)]
 
     return q, r
 ```
 
-하우스홀더 행렬을 사용해 구현한 함수 및 `numpy`, `scipy`로 구한 값과는 부호가 반대로 나오는데, 바뀐 부호는 $$Q$$와 $$R$$에 공통적으로 적용되기 때문에 최종 결과는 동일하다.  
+`numpy`, `scipy`로 구한 값과는 부호가 조금 다르게 나오는데, 바뀐 부호가 $$Q$$와 $$R$$에 공통적으로 적용되어 $$A = QR$$이라는 최종 검산 결과를 만족하면 상관 없다고 한다.  
 
 ### 하우스홀더 행렬을 이용한 QR분해
 
@@ -310,7 +307,7 @@ def v_sign(a):
 
 # get element of househelder matrixes except last one
 def ele_h(a):
-    at = mat_transpose(a)
+    at = mat_trans(a)
     nm = norm(at[0])
     e = [1 if j == 0 else 0 for j in range(len(at[0]))]
     sign = v_sign(at[0])
@@ -322,7 +319,7 @@ def ele_h(a):
 
 # QR decomposition
 def qr_householder(a):
-    n = len(mat_transpose(a))
+    n = len(mat_trans(a))
     h_list_tmp = []
 
     # get househelder matrixes
@@ -392,6 +389,8 @@ for h_tmp in h_list_tmp:
             tmp.append(row)
     h_list.append(tmp)
 ```
+
+역시 `numpy`, `scipy`로 구한 값과는 부호가 조금 다르게 나오는데, 마찬가지로 바뀐 부호가 $$Q$$와 $$R$$에 공통적으로 적용되어 $$A = QR$$이라는 최종 검산 결과를 만족하면 상관 없다고 한다.  
 
 ### numpy, scipy 활용
 

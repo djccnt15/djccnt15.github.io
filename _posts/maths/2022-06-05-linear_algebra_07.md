@@ -21,7 +21,6 @@ tags:
   - numpy
   - scipy
 ---
-
 * toc
 {:toc}
 
@@ -56,7 +55,7 @@ $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \mathbf
 ```python
 # inner product of vector
 def v_inner(a, b):
-    res = sum(x * y for x, y in zip(a, b))
+    res = sum(i * j for i, j in zip(a, b))
 
     return res
 ```
@@ -155,9 +154,9 @@ $$\mathbf{v}_{n} = \frac{\mathbf{u}_{n}}{\Vert \mathbf{u}_{n} \Vert}$$
 ```python
 # normalize vector
 def normalize(a):
-    v = [i / norm(a) for i in a]
+    n = [v / norm(a) for v in a]
 
-    return v
+    return n
 ```
 
 `numpy`를 사용하면 아래와 같다.  

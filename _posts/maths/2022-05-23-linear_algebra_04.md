@@ -20,7 +20,6 @@ tags:
   - python
   - numpy
 ---
-
 * toc
 {:toc}
 

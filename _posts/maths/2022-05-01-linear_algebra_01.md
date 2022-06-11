@@ -62,13 +62,13 @@ $$\mathbf{v} = \begin{pmatrix}
 ```python
 # addition of vector
 def v_add(*a):
-    res = [sum(i) for i in zip(*a)]
+    res = [sum(v) for v in zip(*a)]
 
     return res
 
 # subtraction of vector
 def v_sub(a, b):
-    res = [i - j for i, j in zip(a, b)]
+    res = [v - u for v, u in zip(a, b)]
 
     return res
 ```
@@ -80,7 +80,7 @@ def v_sub(a, b):
 ```python
 # scalar multiplication of vector
 def v_smul(s, a):
-    res = [s * i for i in a]
+    res = [s * v for v in a]
 
     return res
 ```
@@ -90,17 +90,17 @@ def v_smul(s, a):
 두 벡터의 각 성분을 곱하는 연산은 **원소 곱** 또는 **아다마르 곱(hadamard product)**이라고 부른다. `python`으로 구현하면 아래와 같다.  
 
 ```python
-# hadamard product of vector
 from functools import reduce
 
+# hadamard product of vector
 def v_hmul(*a):
-    res = [reduce(lambda x, y: x * y, i) for i in zip(*a)]
+    res = [reduce(lambda n, m: n * m, v) for v in zip(*a)]
 
     return res
 
 # hadamard division of vector
 def v_hdiv(a, b):
-    res = [i / j for i, j in zip(a, b)]
+    res = [v / u for v, u in zip(a, b)]
 
     return res
 ```
@@ -172,13 +172,13 @@ x_2
 ```python
 # addition of matrix
 def mat_add(*a):
-    res = [[sum(j) for j in zip(*i)] for i in zip(*a)]
+    res = [[sum(v) for v in zip(*i)] for i in zip(*a)]
 
     return res
 
 # subtraction of matrix
 def mat_sub(a, b):
-    res = [[j - k for j, k in zip(*i)] for i in zip(a, b)]
+    res = [[v - u for v, u in zip(*i)] for i in zip(a, b)]
 
     return res
 ```
@@ -190,7 +190,7 @@ def mat_sub(a, b):
 ```python
 # scalar multiplication of matrix
 def mat_smul(s, a):
-    res = [[s * j for j in i] for i in a]
+    res = [[s * v for v in r] for r in a]
 
     return res
 ```
@@ -204,13 +204,13 @@ from functools import reduce
 
 # hadamard product of matrix
 def mat_hmul(*a):
-    res = [[reduce(lambda x, y: x * y, j) for j in zip(*i)] for i in zip(*a)]
+    res = [[reduce(lambda n, m: n * m, v) for v in zip(*i)] for i in zip(*a)]
 
     return res
 
 # hadamard division of matrix
 def mat_hdiv(a, b):
-    res = [[j / k for j, k in zip(*i)] for i in zip(a, b)]
+    res = [[v / u for v, u in zip(*i)] for i in zip(a, b)]
 
     return res
 ```
@@ -224,7 +224,7 @@ from functools import reduce
 
 # multiplication of matrix
 def mat_mul(a, b):
-    res = [[sum(a * b for a, b in zip(row_a, col_b)) for col_b in zip(*b)] for row_a in a]
+    res = [[sum(v * u for v, u in zip(r, c)) for c in zip(*b)] for r in a]
 
     return res
 
@@ -251,7 +251,7 @@ $$tr(A) = a_{11} + a_{22} + a_{33}$$
 ```python
 # trace of matrix
 def mat_tr(a):
-    res = sum(i[n] for n, i in enumerate([*a]))
+    res = sum(v[i] for i, v in enumerate([*a]))
 
     return res
 ```

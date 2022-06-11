@@ -18,7 +18,6 @@ tags:
   - data science
   - linear algebra
 ---
-
 * toc
 {:toc}
 

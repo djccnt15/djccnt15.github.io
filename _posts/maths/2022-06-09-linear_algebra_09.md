@@ -9,7 +9,8 @@ hide_description: false
 image: 
   path: /assets/img/posts/linear_algebra_09.png
 related_posts:
-  - _posts/math/2022-06-06-linear_algebra_08.md
+  - _posts/maths/2022-06-06-linear_algebra_08.md
+  - _posts/maths/2022-06-11-linear_algebra_10.md
 
 categories:
   - maths
@@ -19,7 +20,6 @@ tags:
   - python
   - numpy
 ---
-
 * toc
 {:toc}
 
@@ -39,7 +39,7 @@ $$\mathbf{u} \otimes \mathbf{v} = \mathbf{u} \mathbf{v}^{T}$$
 ```python
 # outer product, tensor product of vector
 def v_outer(a, b):
-    res = [[i * j for j in b] for i in a]
+    res = [[v * u for u in b] for v in a]
 
     return res
 ```

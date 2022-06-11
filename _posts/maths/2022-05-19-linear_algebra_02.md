@@ -51,8 +51,8 @@ $$(AB)^{T} = B^{T}A^{T}$$
 
 ```python
 # transposed matrix
-def mat_transpose(a):
-    At = [[e for e in i] for i in zip(*a)]
+def mat_trans(a):
+    At = [list(r) for r in zip(*a)]
 
     return At
 ```
@@ -91,7 +91,7 @@ $$\therefore A = A^{T}$$
 ```python
 # symmetric matrix check
 def symmetric_check(a):
-    At = mat_transpose(a)
+    At = mat_trans(a)
 
     return a == At
 ```
@@ -143,13 +143,13 @@ a_{31} \times d_{33} & a_{32} \times d_{33} & a_{33} \times d_{33} \\
 ```python
 # elements of diagonal matrix
 def diag_ele(a):
-    d = [i[n] for n, i in enumerate([*a])]
+    d = [v[i] for i, v in enumerate([*a])]
 
     return d
 
 # diagonal matrix
 def mat_diag(a):
-    D = [[j if n == m else 0 for m, j in enumerate(i)] for n, i in enumerate(a)]
+    D = [[v if i == j else 0 for j, v in enumerate(r)] for i, r in enumerate(a)]
 
     return D
 ```
@@ -187,13 +187,13 @@ a_{21} & a_{22} & 0 & 0 \\
 ```python
 # upper bidiagonal matrix
 def mat_bidiag_u(a):
-    res = [[0 if n > m or m - n > 1 else j for m, j in enumerate(i)] for n, i in enumerate(a)]
+    res = [[0 if i > j or j - i > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
 
     return res
 
 # lower bidiagonal matrix
 def mat_bidiag_l(a):
-    res = [[0 if n < m or n - m > 1 else j for m, j in enumerate(i)] for n, i in enumerate(a)]
+    res = [[0 if i < j or i - j > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
 
     return res
 ```
@@ -236,8 +236,8 @@ $$AI = IA = A$$
 
 ```python
 # identity matrix
-def mat_identity(size):
-    I = [[1 if i == j else 0 for j in range(size)] for i in range(size)]
+def mat_identity(n):
+    I = [[1 if i == j else 0 for j in range(n)] for i in range(n)]
 
     return I
 ```
@@ -263,14 +263,14 @@ $$0 = \begin{pmatrix}
 
 ```python
 # zero matrix
-def mat_zeros(row, col):
-    Z = [[0 for j in range(col)] for i in range(row)]
+def mat_zeros(r, c):
+    Z = [[0 for j in range(c)] for i in range(r)]
 
     return Z
 
 # zero vector
-def v_zeros(size):
-    Z = [0 for i in range(size)]
+def v_zeros(n):
+    Z = [0 for i in range(n)]
 
     return Z
 ```
@@ -303,13 +303,13 @@ a_{31} & a_{32} & a_{33} \\
 ```python
 # upper triangular matrix
 def mat_tri_u(a):
-    res = [[0 if n > m else j for m, j in enumerate(i)] for n, i in enumerate(a)]
+    res = [[0 if i > j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
 
     return res
 
 # lower triangular matrix
 def mat_tri_l(a):
-    res = [[0 if n < m else j for m, j in enumerate(i)] for n, i in enumerate(a)]
+    res = [[0 if i < j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
 
     return res
 ```
@@ -347,7 +347,7 @@ $$T_{i,j} = T_{i+1,j+1} = t_{i-j}$$
 ```python
 # toeplitz matrix
 def mat_toeplitz(a, b):
-    T = [[a[n - m] if n >= m else b[m - n] for m, j in enumerate(b)] for n, i in enumerate(a)]
+    T = [[a[i - j] if i >= j else b[j - i] for j, m in enumerate(b)] for i, n in enumerate(a)]
 
     return T
 ```
@@ -381,13 +381,13 @@ $${\mathbf{vv}^{T}}$$은 벡터의 외적, $${\mathbf{v}^{T}\mathbf{v}}$$은 벡
 ```python
 # outer product, tensor product of vector
 def v_outer(a, b):
-    res = [[i * j for j in b] for i in a]
+    res = [[v * u for u in b] for v in a]
 
     return res
 
 # inner product of vector
 def v_inner(a, b):
-    res = sum(x * y for x, y in zip(a, b))
+    res = sum(v * u for v, u in zip(a, b))
 
     return res
 ```
@@ -401,10 +401,10 @@ def householder(v):
     outer = v_outer(v, v)
     inner = v_inner(v, v)
 
-    V1 = mat_smul(1 / inner, outer)
-    V2 = mat_smul(2, V1)
+    V = mat_smul(1 / inner, outer)
+    V = mat_smul(2, V)
 
-    H = mat_sub(mat_identity(n), V2)
+    H = mat_sub(mat_identity(n), V)
 
     return H
 ```

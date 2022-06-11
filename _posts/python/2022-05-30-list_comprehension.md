@@ -18,7 +18,6 @@ tags:
   - python
   - programming
 ---
-
 * toc
 {:toc}
 

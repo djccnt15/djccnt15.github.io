@@ -22,7 +22,6 @@ tags:
   - numpy
   - scipy
 ---
-
 * toc
 {:toc}
 
