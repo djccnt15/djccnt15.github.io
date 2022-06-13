@@ -2,14 +2,14 @@
 published: true
 layout: post
 
-title: '[선형대수] 11. 직교 행렬'
+title: '[선형대수] 12. 행렬의 대각화'
 description: >
-  직교와 직교 행렬
+  대각화, 고유값 분해, 특이값 분해
 hide_description: false
 image: 
-  path: /assets/img/posts/linear_algebra_11.png
+  path: /assets/img/posts/linear_algebra_12.png
 related_posts:
-  - _posts/maths/2022-06-11-linear_algebra_10.md
+  - _posts/maths/2022-06-12-linear_algebra_11.md
 
 categories:
   - maths
@@ -27,13 +27,15 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 [구현한 함수 저장소](https://github.com/djccnt15/maths)
 
-## 1. 직교 행렬
+## 행렬의 대각화
 
+### 대각화
 
+### 직교 대각화
 
-## 2. 닮음
+## 고유값 분해
 
-
+## 특이값 분해
 
 ---
 ## Reference

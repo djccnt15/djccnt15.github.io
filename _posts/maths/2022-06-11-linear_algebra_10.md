@@ -10,6 +10,7 @@ image:
   path: /assets/img/posts/linear_algebra_10.png
 related_posts:
   - _posts/maths/2022-06-09-linear_algebra_09.md
+  - _posts/maths/2022-06-12-linear_algebra_11.md
 
 categories:
   - maths
@@ -39,7 +40,7 @@ $$A \mathbf{x} = \lambda \mathbf{x}$$
 
 ### 특성 방정식을 통한 고유값과 고유벡터 계산
 
-아래와 같은 정리에 의해, 고유값 $$\lambda$$가 존재하기 위한 필요충분조건은 $$A - \lambda I$$의 행렬식이 $$0$$인 것이다.  
+아래와 같은 정리에 의해, 고유값 $$\lambda$$가 존재하기 위한 필요충분조건은 $$A - \lambda I$$의 행렬식이 0인 것이다.  
 
 $$\begin{align*}
 & A \mathbf{x} = \lambda \mathbf{x} \\
