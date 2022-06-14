@@ -60,8 +60,8 @@ print(df)
 
 ## 1. statsmodels.api
 
-❗ `statsmodels.api`을 통해서 회귀분석을 시행할 경우 **별도로 독립변수에 상수항을 추가**해줘야 한다.  
-{:.note title='attention'}
+💡 `statsmodels.api`을 통해서 회귀분석을 시행할 경우 **별도로 독립변수에 상수항을 추가**해줘야 한다.  
+{:.note}
 
 상수항을 추가하기 위해서는 `statsmodels`이 제공하는 `add_constant()`를 사용해주면 간단하다.  
 

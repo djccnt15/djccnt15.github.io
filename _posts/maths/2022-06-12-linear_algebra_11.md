@@ -10,6 +10,7 @@ image:
   path: /assets/img/posts/linear_algebra_11.png
 related_posts:
   - _posts/maths/2022-06-11-linear_algebra_10.md
+  - _posts/maths/2022-06-13-linear_algebra_12.md
 
 categories:
   - maths
@@ -17,7 +18,6 @@ tags:
   - data science
   - linear algebra
   - python
-  - numpy
 ---
 * toc
 {:toc}
@@ -54,7 +54,9 @@ def orthogonal_check(a):
 
 $$B = P^{-1}AP$$
 
-닮음 행렬의 성질은 다음과 같다.  
+### 닮은 행렬의 성질
+
+닮은 행렬의 성질은 다음과 같다.  
 
 - 서로 닮은 행렬의 행렬식은 동일하다.
 

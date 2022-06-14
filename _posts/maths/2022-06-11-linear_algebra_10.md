@@ -19,6 +19,7 @@ tags:
   - linear algebra
   - python
   - numpy
+  - incomplete
 ---
 * toc
 {:toc}
@@ -145,7 +146,7 @@ $$\therefore A_{0}(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k}) = (Q_{0}Q_{1} \cdots Q_{k-1}Q
 ```python
 import numpy as np
 
-a = [[4, 0, 1], [-2, 1, 0], [-2, 0, 1]]
+a = np.array([[4, 0, 1], [-2, 1, 0], [-2, 0, 1]])
 
 e, v = np.linalg.eig(a)
 ```
