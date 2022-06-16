@@ -4,25 +4,25 @@ layout: post
 
 title: '[회귀분석] 회귀분석의 전제조건'
 description: >
-  선형성, 독립성, 등분산성, 정규성
+    선형성, 독립성, 등분산성, 정규성
 hide_description: false
-image: 
-  path: /assets/img/posts/multiple_regression.png
+image:
+    path: /assets/img/posts/multiple_regression.png
 related_posts:
-  - _posts/maths/2022-01-19-regression_linear_scratch.md
-  - _posts/data_science/2022-01-23-regression_statsmodels.md
+    - _posts/maths/2022-01-19-regression_linear_scratch.md
+    - _posts/data_science/2022-01-23-regression_statsmodels.md
 
 categories:
-  - data_science
+    - data_science
 tags:
-  - data science
-  - data analysis
-  - regression
-  - python
-  - pandas
-  - statsmodels
-  - scipy
-  - matplotlib
+    - data science
+    - data analysis
+    - regression
+    - python
+    - pandas
+    - statsmodels
+    - scipy
+    - matplotlib
 ---
 * toc
 {:toc}
@@ -236,8 +236,8 @@ VIF를 계산하는 공식은 아래와 같고, $${R^{2}_{i}}$$은 $$i$$번째 �
 
 $$VIF_{i} = \tfrac{1}{1-{R^{2}_{i}}}$$
 
-❗ **VIF가 10이 넘으면 다중공선성이 있으며 5가 넘으면 주의할 필요가 있다**고 보는데, 독립 변수 a와 b가 서로 상관 관계가 있다고 했을 때 두 변수 모두 VIF가 높고, 어느 하나만 VIF가 높은 경우는 없다. 서로 연관 있는 변수끼리 VIF가 높다.
-{:.note title='attention'}
+💡 **VIF가 10이 넘으면 다중공선성이 있으며 5가 넘으면 주의할 필요가 있다**고 보는데, 독립 변수 a와 b가 서로 상관 관계가 있다고 했을 때 두 변수 모두 VIF가 높고, 어느 하나만 VIF가 높은 경우는 없다. 서로 연관 있는 변수끼리 VIF가 높다.
+{:.note}
 
 `python`에서는 `statsmodels` 패키지에서 제공하는 함수를 통해 직접 확인해보자.
 
@@ -434,7 +434,7 @@ vif = vif_check(dataset=df)
 
 print(vif)
 ```
-```markdown
+```
           VIF      features
 0  131.113086         const
 1   31.261498  Petal.Length

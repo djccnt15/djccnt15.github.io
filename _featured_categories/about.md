@@ -2,7 +2,7 @@
 layout: about
 title: About
 description: >
-  Portfolio and Resume
+    Portfolio and Resume
 hide_description: true
 ---
 ![googling_does_make_you_a_programmer](/assets/img/blog/googling_does_make_you_a_programmer.png)
@@ -68,15 +68,15 @@ AI 기획자 겸 주니어 AI 개발자, 데이터사이언티스트 지망생, 
 
 ### Projects
 
-- 2021 ~ 모션인식 기반 운동 분류 모델 개발
-    - [Google MediaPipe](https://google.github.io/mediapipe/) 기반 학습용 데이터셋 구축 모듈 개발 <!-- 및 데이터셋 구축 -->
-    <!-- - LSTM 기반 운동 분류 및 카운팅 모델 개발 -->
-- 2021 데이터인프라구축 AI 솔루션 실증 지원사업
-    - DNN 기반 STL(Steel Plate) 리코일 공정 양/불 예측 모델 개발
-    - DNN 기반 CAST/SPLINT(석고붕대) 제품 LOT 수율 예측 모델 개발
+- 2021
+    - ANN 기반 STL(Steel Plate) 리코일 공정 양/불 예측 모델 개발
+    - ANN 기반 MCCB(배선용 차단기) 양/불 예측 모델 개발
+    - ANN 기반 CAST(석고붕대) 제품 LOT 수율 예측 모델 개발
     - CNN 기반 골판지 인쇄상태 양/불 판정 모델 개발
-- 2020 군집분석을 활용한 스마트공장 성숙도 수준 기반 도입기업 특성 분석
-- 2019 ~ 2020 빅데이터 플랫폼 및 센터 구축사업
+    - [Google MediaPipe](https://google.github.io/mediapipe/) 기반 모션인식 학습용 데이터셋 구축 모듈 개발
+- 2020
+    - 군집분석을 활용한 스마트공장 성숙도 수준 기반 도입기업 특성 분석
+- 2019 ~ 2020
     - 농작물 분류 AI 학습용 데이터셋 구축
 
 ### Articles
@@ -100,5 +100,5 @@ AI 기획자 겸 주니어 AI 개발자, 데이터사이언티스트 지망생, 
 
 ### Certificate
 
-- ADsP  
 - 정보처리기사
+- ADsP  

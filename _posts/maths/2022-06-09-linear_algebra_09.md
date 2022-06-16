@@ -4,21 +4,21 @@ layout: post
 
 title: '[선형대수] 09. 다양한 곱 연산'
 description: >
-  외적, 벡터 곱, 삼중 곱
+    외적, 벡터 곱, 삼중 곱
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_algebra_09.png
+image:
+    path: /assets/img/posts/linear_algebra_09.png
 related_posts:
-  - _posts/maths/2022-06-06-linear_algebra_08.md
-  - _posts/maths/2022-06-11-linear_algebra_10.md
+    - _posts/maths/2022-06-06-linear_algebra_08.md
+    - _posts/maths/2022-06-11-linear_algebra_10.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - linear algebra
-  - python
-  - numpy
+    - data science
+    - linear algebra
+    - python
+    - numpy
 ---
 * toc
 {:toc}

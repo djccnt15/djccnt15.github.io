@@ -4,20 +4,20 @@ layout: post
 
 title: '[전처리] csv 인코딩'
 description: >
-  pandas로 csv 인코딩 바꾸기
+    pandas로 csv 인코딩 바꾸기
 hide_description: false
-image: 
-  path: /assets/img/posts/scrap_result_2021.png
+image:
+    path: /assets/img/posts/scrap_result_2021.png
 related_posts:
-  - _posts/data_science/2022-01-08-csv_encoding.md
+    - _posts/data_science/2022-01-08-csv_encoding.md
 
 categories:
-  - data_science
+    - data_science
 tags:
-  - data science
-  - preprocessing
-  - python
-  - pandas
+    - data science
+    - preprocessing
+    - python
+    - pandas
 ---
 * toc
 {:toc}

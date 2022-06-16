@@ -4,22 +4,22 @@ layout: post
 
 title: '[선형대수] 07. 내적'
 description: >
-  내적, norm, 코사인 유사도, 직교 공간
+    내적, norm, 코사인 유사도, 직교 공간
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_algebra_07.png
+image:
+    path: /assets/img/posts/linear_algebra_07.png
 related_posts:
-  - _posts/maths/2022-05-29-linear_algebra_06.md
-  - _posts/maths/2022-06-06-linear_algebra_08.md
+    - _posts/maths/2022-05-29-linear_algebra_06.md
+    - _posts/maths/2022-06-06-linear_algebra_08.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - linear algebra
-  - python
-  - numpy
-  - scipy
+    - data science
+    - linear algebra
+    - python
+    - numpy
+    - scipy
 ---
 * toc
 {:toc}

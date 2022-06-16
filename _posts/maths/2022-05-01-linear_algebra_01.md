@@ -4,20 +4,20 @@ layout: post
 
 title: '[선형대수] 01. 행렬'
 description: >
-  스칼라, 벡터 그리고 행렬의 기본 개념
+    스칼라, 벡터 그리고 행렬의 기본 개념
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_algebra_01.png
+image:
+    path: /assets/img/posts/linear_algebra_01.png
 related_posts:
-  - _posts/maths/2022-05-19-linear_algebra_02.md
+    - _posts/maths/2022-05-19-linear_algebra_02.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - linear algebra
-  - python
-  - numpy
+    - data science
+    - linear algebra
+    - python
+    - numpy
 ---
 * toc
 {:toc}

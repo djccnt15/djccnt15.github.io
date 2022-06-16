@@ -3,5 +3,5 @@ layout: grid
 title: Mathematics
 slug: maths
 description: >
-  Posts in Maths category
+    Posts in Maths category
 ---

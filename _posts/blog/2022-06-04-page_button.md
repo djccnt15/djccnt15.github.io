@@ -6,18 +6,18 @@ title: '[블로그] 이전 글, 다음 글'
 description: >
   이전 글, 다음 글 버튼 만들기
 hide_description: false
-image: 
-  path: /assets/img/posts/page_button.png
+image:
+    path: /assets/img/posts/page_button.png
 related_posts:
-  - _posts/blog/2022-06-04-page_button.md
+    - _posts/blog/2022-06-04-page_button.md
 
 categories:
-  - blog
+    - blog
 tags:
-  - blog
-  - html
-  - scss
-  - jekyll
+    - blog
+    - html
+    - scss
+    - jekyll
 ---
 * toc
 {:toc}

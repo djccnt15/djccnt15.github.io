@@ -4,21 +4,21 @@ layout: post
 
 title: '[선형대수] 12. 행렬의 대각화'
 description: >
-  대각화, 고유값 분해, 특이값 분해
+    대각화, 고유값 분해, 특이값 분해
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_algebra_12.png
+image:
+    path: /assets/img/posts/linear_algebra_12.png
 related_posts:
-  - _posts/maths/2022-06-12-linear_algebra_11.md
+    - _posts/maths/2022-06-12-linear_algebra_11.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - linear algebra
-  - python
-  - numpy
-  - incomplete
+    - data science
+    - linear algebra
+    - python
+    - numpy
+    - incomplete
 ---
 * toc
 {:toc}

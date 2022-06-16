@@ -4,23 +4,23 @@ layout: post
 
 title: '[이상치 탐지] IQR 방법론'
 description: >
-  IQR 방식의 이상치 탐지
+    IQR 방식의 이상치 탐지
 hide_description: false
-image: 
-  path: /assets/img/posts/iqr.jpg
+image:
+    path: /assets/img/posts/iqr.jpg
 related_posts:
-  - _posts/data_science/2022-04-01-iqr_method.md
+    - _posts/data_science/2022-04-01-iqr_method.md
 
 categories:
-  - data_science
+    - data_science
 tags:
-  - data science
-  - data analysis
-  - outlier detection
-  - preprocessing
-  - python
-  - numpy
-  - pandas
+    - data science
+    - data analysis
+    - outlier detection
+    - preprocessing
+    - python
+    - numpy
+    - pandas
 ---
 * toc
 {:toc}

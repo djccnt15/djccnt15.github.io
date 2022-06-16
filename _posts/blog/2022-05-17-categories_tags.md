@@ -4,20 +4,20 @@ layout: post
 
 title: '[블로그] 카테고리/태그 페이지'
 description: >
-  posts by Category, posts by Tag
+    posts by Category, posts by Tag
 hide_description: false
-image: 
-  path: /assets/img/posts/by_category.png
+image:
+    path: /assets/img/posts/by_category.png
 related_posts:
-  - _posts/blog/2022-05-17-by_category.md
+    - _posts/blog/2022-05-17-by_category.md
 
 categories:
-  - blog
+    - blog
 tags:
-  - blog
-  - html
-  - scss
-  - jekyll
+    - blog
+    - html
+    - scss
+    - jekyll
 ---
 * toc
 {:toc}

@@ -4,18 +4,18 @@ layout: post
 
 title: '[Python] counting runtime'
 description: >
-  python 코드의 런타임을 확인하는 방법
+    python 코드의 런타임을 확인하는 방법
 hide_description: false
-image: 
-  path: /assets/img/posts/python_datetime.png
+image:
+    path: /assets/img/posts/python_datetime.png
 related_posts:
-  - _posts/python/2022-01-06-about_PEP.md
+    - _posts/python/2022-01-06-about_PEP.md
 
 categories:
-  - python
+    - python
 tags:
-  - python
-  - programming
+    - python
+    - programming
 ---
 * toc
 {:toc}

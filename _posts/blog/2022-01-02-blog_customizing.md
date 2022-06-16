@@ -4,20 +4,20 @@ layout: post
 
 title: '[블로그] 커스터마이징'
 description: >
-  Minimal Mistakes 테마 커스터마이징
+    Minimal Mistakes 테마 커스터마이징
 hide_description: false
-image: 
-  path: /assets/img/posts/minimal_mistakes.png
+image:
+    path: /assets/img/posts/minimal_mistakes.png
 related_posts:
-  - _posts/blog/2022-01-02-manual_github_pages.md
+    - _posts/blog/2022-01-02-manual_github_pages.md
 
 categories:
-  - blog
+    - blog
 tags:
-  - blog
-  - scss
-  - html
-  - jekyll
+    - blog
+    - scss
+    - html
+    - jekyll
 ---
 * toc
 {:toc}
@@ -242,7 +242,7 @@ Github Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 
 
 수식을 사용할 포스트의 `YFM`을 아래와 같이 설정 
 
-```markdown
+```
 mathjax: true
 ```
 
@@ -300,7 +300,7 @@ layout: archive
 
 `/_pages/monthly-archive.md` 생성 후 아래 내용 입력
 
-```markdown
+```
 ---
 title: "Posts by Month"
 permalink: /month-archive/

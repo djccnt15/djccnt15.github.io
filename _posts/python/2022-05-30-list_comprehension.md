@@ -4,19 +4,19 @@ layout: post
 
 title: '[Python] list comprehension'
 description: >
-  List Comprehensions of Python
+    List Comprehensions of Python
 hide_description: false
-image: 
-  path: /assets/img/posts/python_list_comprehension.png
+image:
+    path: /assets/img/posts/python_list_comprehension.png
 related_posts:
-  - _posts/maths/2022-05-19-linear_algebra_02.md
-  - _posts/maths/2022-05-22-linear_algebra_03.md
+    - _posts/maths/2022-05-19-linear_algebra_02.md
+    - _posts/maths/2022-05-22-linear_algebra_03.md
 
 categories:
-  - python
+    - python
 tags:
-  - python
-  - programming
+    - python
+    - programming
 ---
 * toc
 {:toc}
@@ -34,8 +34,7 @@ b = [i * 10 for i in range(10)]
 print(a)
 print(b)
 ```
-
-```markdown
+```
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 ```
@@ -51,8 +50,7 @@ a = [i for i in range(10) if i % 2 == 0]
 
 print(a)
 ```
-
-```markdown
+```
 [0, 2, 4, 6, 8]
 ```
 
@@ -65,8 +63,7 @@ a = [i if i % 2 == 0 else 1 for i in range(10) ]
 
 print(a)
 ```
-
-```markdown
+```
 [0, 1, 2, 1, 4, 1, 6, 1, 8, 1]
 ```
 
@@ -80,8 +77,7 @@ l = ['yes' if v == 1 else 'no' if v == 2 else 'idle' for v in a]
 
 print(l)
 ```
-
-```markdown
+```
 ['yes', 'no', 'idle', 'idle', 'idle']
 ```
 
@@ -94,8 +90,7 @@ a = [i * j for i in [4, 5, 6] for j in [1, 2, 3]]
 
 print(a)
 ```
-
-```markdown
+```
 [4, 8, 12, 5, 10, 15, 6, 12, 18]
 ```
 
@@ -108,8 +103,7 @@ a = [[i * j for i in [4, 5, 6]] for j in [1, 2, 3]]
 
 print(a)
 ```
-
-```markdown
+```
 [[4, 5, 6], [8, 10, 12], [12, 15, 18]]
 ```
 

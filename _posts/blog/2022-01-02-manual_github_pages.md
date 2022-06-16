@@ -4,19 +4,19 @@ layout: post
 
 title: '[블로그] Github Pages 사용법'
 description: >
-  Jekyll 기반 Github Pages의 각종 사용법
+    Jekyll 기반 Github Pages의 각종 사용법
 hide_description: false
-image: 
-  path: /assets/img/posts/github_pages.png
+image:
+    path: /assets/img/posts/github_pages.png
 related_posts:
-  - _posts/blog/2022-01-04-blog_markdown.md
+    - _posts/blog/2022-01-04-blog_markdown.md
 
 categories:
-  - blog
+    - blog
 tags:
-  - ⭐starred
-  - blog
-  - jekyll
+    - ⭐starred
+    - blog
+    - jekyll
 ---
 * toc
 {:toc}
@@ -41,13 +41,13 @@ YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있
 
 이를 이용해서 정의된 YFM을 이중 괄호 구문을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.
 
-```markdown{% raw %}
+```{% raw %}
 이 글의 제목은 {{ page.title }}이고,
 카테고리는 {{ page.categories }}이다.
 블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.
 {% endraw %}```
 
-```markdown
+```
 이 글의 제목은 {{ page.title }}이고,
 카테고리는 {{ page.categories }}이다.
 블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.
@@ -108,7 +108,8 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 
 서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig/ifconfig` 명령어로 확인할 수 있다. 위의 경우에는 `IPv4`주소인 `192.168.0.5`으로 호스팅 했기 때문에, `http:192.168.0.5:4000`으로 접속해야 내용을 확인할 수 있다.
 
-> ❗ **주의** `https:192.168.0.5:4000`가 아니고 `http:192.168.0.5:4000`이다.  
+❗ **주의** `https:192.168.0.5:4000`가 아니고 `http:192.168.0.5:4000`이다.  
+{:.note title='attention'}
 
 ### 4-1. ⚡ 작업할 때
 

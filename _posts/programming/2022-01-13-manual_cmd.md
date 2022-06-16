@@ -4,17 +4,17 @@ layout: post
 
 title: '[cmd/terminal] 사용법'
 description: >
-  windows cmd/linux terminal의 유용한 명령어 모음  
+    windows cmd/linux terminal의 유용한 명령어 모음  
 hide_description: false
-image: 
-  path: /assets/img/posts/cmd.png
+image:
+    path: /assets/img/posts/cmd.png
 related_posts:
-  - _posts/programming/2022-01-13-manual_cmd.md
+    - _posts/programming/2022-01-13-manual_cmd.md
 
 categories:
-  - programming
+    - programming
 tags:
-  - programming
+    - programming
 ---
 * toc
 {:toc}

@@ -4,19 +4,19 @@ layout: post
 
 title: '[Python] 가상환경'
 description: >
-  windows와 linux에서 python 가상환경 만들고 사용하기
+    windows와 linux에서 python 가상환경 만들고 사용하기
 hide_description: false
-image: 
-  path: /assets/img/posts/python_venv.png
+image:
+    path: /assets/img/posts/python_venv.png
 related_posts:
-  - _posts/python/2022-01-06-about_PEP.md
+    - _posts/python/2022-01-06-about_PEP.md
 
 categories:
-  - python
+    - python
 tags:
-  - ⭐starred
-  - python
-  - programming
+    - ⭐starred
+    - python
+    - programming
 ---
 * toc
 {:toc}
@@ -101,7 +101,7 @@ Python은 패키지 버전관리가 까다롭기 때문에 프로젝트 별로 �
 패키지 간의 호환성이 중요한 경우나 신버전의 패키지에서 삭제된 구버전 기능을 사용하고 싶을 경우 사용한다.
 
 ```powershell
-pip install [package_name]==[version]
+> pip install [package_name]==[version]
 ```
 
 #### 4-2. 패키지 업그레이드
@@ -110,10 +110,10 @@ pip install [package_name]==[version]
 
 ```powershell
 # 최신 버전으로 업그레이드
-pip install --upgrade [package_name]
+> pip install --upgrade [package_name]
 
 # 특정 버전으로 업그레이드
-pip install --upgrade [package_name]==[version]
+> pip install --upgrade [package_name]==[version]
 ```
 
 #### 4-3. 패키지 다운그레이드
@@ -122,7 +122,7 @@ pip install --upgrade [package_name]==[version]
 또는 아래와 같이 `--force-reinstall`을 통해 강제로 삭제하고 재설치하는 방법도 있다.  
 
 ```powershell
-pip install [package_name]==[version] --force-reinstall
+> pip install [package_name]==[version] --force-reinstall
 ```
 
 ### 5. 그 외 알아두면 좋은 팁들
@@ -132,13 +132,13 @@ pip install [package_name]==[version] --force-reinstall
 `.py`파일을 특정 python 버전으로 실행시키고 싶을 경우, 아래 명령어처럼 하면 된다고 한다.
 
 ```powershell
-py -version .py
+> py -version .py
 ```
 
 pip를 사용할 경우 아래 명령어처럼 하면 된다고 한다.
 
 ```powershell
-py -version -m pip install virtualenv
+> py -version -m pip install virtualenv
 ```
 
 **명백하게도, 가상환경을 사용하는 편이 훨씬 쉽고 안정적이다.** 특히 여러 프로젝트를 한 컴퓨터에서 동시에 작업하고 있다면 더더욱 그렇다.  
@@ -154,13 +154,14 @@ python 가상환경을 삭제하는 별도의 명령어는 없다.
 차라리 저장소에 필요한 파일들만 백업한 후 가상환경을 원하는 위치에 처음부터 다시 만드는게 속편하다.  
 그래도 반드시 옮겨야겠다면 이동 후 아래 세 파일들의 내용을 수정하면 된다고 한다.
 
-0. activate
-0. activate.bat
-0. Activate.ps1
+- activate
+- activate.bat
+- Activate.ps1
 
-```markdown
+```
 VIRTUAL_ENV=venv_location_b4 -> VIRTUAL_ENV=venv_location_now
 ```
+
 나는 해보지 않아서 잘 되는지 모르겠다. 사실 시도해보고 싶지도 않다.  
 
 ---

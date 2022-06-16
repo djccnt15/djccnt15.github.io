@@ -4,19 +4,19 @@ layout: post
 
 title: '[데이터 분석] numpy array의 변형'
 description: >
-  `numpy.array`를 쉽게 변형해보자. reshape, transpose, T의 활용
+    `numpy.array`를 쉽게 변형해보자. reshape, transpose, T의 활용
 hide_description: false
-image: 
-  path: /assets/img/posts/np_reshape.png
+image:
+    path: /assets/img/posts/np_reshape.png
 related_posts:
-  - _posts/data_science/2022-01-30-numpy_reshape.md
+    - _posts/data_science/2022-01-30-numpy_reshape.md
 
 categories:
-  - data_science
+    - data_science
 tags:
-  - data science
-  - python
-  - numpy
+    - data science
+    - python
+    - numpy
 ---
 * toc
 {:toc}
@@ -30,7 +30,7 @@ array = np.arange(24)
 
 print(array)
 ```
-```markdown
+```
 [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23]
 ```
 
@@ -48,7 +48,7 @@ reshape = np.reshape(a=array, newshape=(3, -1))
 
 print(reshape)
 ```
-```markdown
+```
 [[ 0  1  2  3  4  5  6  7]
  [ 8  9 10 11 12 13 14 15]
  [16 17 18 19 20 21 22 23]]
@@ -65,7 +65,7 @@ transpose = np.transpose(a=reshape)
 
 print(transpose)
 ```
-```markdown
+```
 [[ 0  8 16]
  [ 1  9 17]
  [ 2 10 18]
@@ -81,7 +81,7 @@ import numpy as np
 
 print(reshape.T)
 ```
-```markdown
+```
 [[ 0  8 16]
  [ 1  9 17]
  [ 2 10 18]

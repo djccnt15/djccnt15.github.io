@@ -4,21 +4,21 @@ layout: post
 
 title: '[전처리] DataFrame의 조건부 변환'
 description: >
-  조건에 따라 데이터를 특정하게 수정하는 방법들
+    조건에 따라 데이터를 특정하게 수정하는 방법들
 hide_description: false
-image: 
-  path: /assets/img/posts/np_select.png
+image:
+    path: /assets/img/posts/np_select.png
 related_posts:
-  - _posts/data_science/2022-01-08-df_header.md
+    - _posts/data_science/2022-01-08-df_header.md
 
 categories:
-  - data_science
+    - data_science
 tags:
-  - data science
-  - preprocessing
-  - python
-  - pandas
-  - numpy
+    - data science
+    - preprocessing
+    - python
+    - pandas
+    - numpy
 ---
 * toc
 {:toc}
@@ -36,7 +36,7 @@ df['a'], df['b'] = a, b
 
 print(df)
 ```
-```markdown
+```
    a  b
 0  2  1
 1  3  2
@@ -61,7 +61,7 @@ df['t'] = df['t'].fillna(df['b'])
 
 print(df)
 ```
-```markdown
+```
    a  b     t
 0  2  1   1.0
 1  3  2   2.0
@@ -81,7 +81,7 @@ df.rename(columns={'t': 'b'}, inplace=True)
 
 print(df)
 ```
-```markdown
+```
    a   b
 0  2   1
 1  3   2
@@ -106,7 +106,7 @@ df['b'] = np.where((df['b'] > 3) & (df['a'] >= 5), df['b'] ** 2, df['b'])
 
 print(df)
 ```
-```markdown
+```
    a   b
 0  2   1
 1  3   2
@@ -155,7 +155,7 @@ print(df)
 💡 위와 같이 원본데이터를 수정하면서 `default`에 원본 데이터가 그대로 들어가는 경우 `dafault`는 생략해도 된다.
 {:.note}
 
-```markdown
+```
    a   b
 0  2   1
 1  3   2

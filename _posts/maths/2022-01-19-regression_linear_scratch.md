@@ -4,23 +4,23 @@ layout: post
 
 title: '[회귀분석] 선형회귀 구현'
 description: >
-  선형회귀 수식 구현하기. 모 수업에서 쪽지시험으로 진행했던 문제
+    선형회귀 수식 구현하기. 모 수업에서 쪽지시험으로 진행했던 문제
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_regression_scratch.png
+image:
+    path: /assets/img/posts/linear_regression_scratch.png
 related_posts:
-  - _posts/data_science/2022-01-23-regression_statsmodels.md
-  - _posts/data_science/2022-01-24-regression_assumption.md
+    - _posts/data_science/2022-01-23-regression_statsmodels.md
+    - _posts/data_science/2022-01-24-regression_assumption.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - data analysis
-  - regression
-  - python
-  - numpy
-  - matplotlib
+    - data science
+    - data analysis
+    - regression
+    - python
+    - numpy
+    - matplotlib
 ---
 * toc
 {:toc}
@@ -45,7 +45,7 @@ b & = \overline{y} - W\overline{x} \\
 
 `data.txt`는 아래와 같다.  
 
-```markdown
+```
 Velocity vs time data for a falling mass
 time (s) velocity (m/s) uncertainty (m/s)
 2.23 139 16
@@ -94,7 +94,7 @@ v0, g = lineFit(t, v)
 
 print(f'v0 = {v0}\ng = {g}')
 ```
-```markdown
+```
 v0 = 171.89273556960842
 g = -9.23414248039144
 ```

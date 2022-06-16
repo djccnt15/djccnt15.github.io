@@ -4,19 +4,19 @@ layout: post
 
 title: '[데이터 분석] pandas 옵션 설정'
 description: >
-  pandas.set_option 사용법
+    pandas.set_option 사용법
 hide_description: false
-image: 
-  path: /assets/img/posts/pd_set_option.png
+image:
+    path: /assets/img/posts/pd_set_option.png
 related_posts:
-  - _posts/data_science/2022-01-09-pd_set_option.md
+    - _posts/data_science/2022-01-09-pd_set_option.md
 
 categories:
-  - data_science
+    - data_science
 tags:
-  - data science
-  - python
-  - pandas
+    - data science
+    - python
+    - pandas
 ---
 * toc
 {:toc}
@@ -34,7 +34,7 @@ df['test'] = [i for i in range(65)]
 
 print(df)
 ```
-```markdown
+```
     test
 0      0
 1      1
@@ -61,7 +61,7 @@ df['test'] = [i for i in range(65)]
 
 print(df)
 ```
-```markdown
+```
     test
 0      0
 1      1

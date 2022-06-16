@@ -4,21 +4,21 @@ layout: post
 
 title: '[선형대수] 04. 행렬식'
 description: >
-  행렬식, 행렬식 계산, 행렬식의 성질
+    행렬식, 행렬식 계산, 행렬식의 성질
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_algebra_04.png
+image:
+    path: /assets/img/posts/linear_algebra_04.png
 related_posts:
-  - _posts/maths/2022-05-22-linear_algebra_03.md
-  - _posts/maths/2022-05-28-linear_algebra_05.md
+    - _posts/maths/2022-05-22-linear_algebra_03.md
+    - _posts/maths/2022-05-28-linear_algebra_05.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - linear algebra
-  - python
-  - numpy
+    - data science
+    - linear algebra
+    - python
+    - numpy
 ---
 * toc
 {:toc}

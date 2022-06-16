@@ -4,18 +4,18 @@ layout: post
 
 title: '[블로그] 글자 정렬'
 description: >
-  how to align text
+    how to align text
 hide_description: false
-image: 
-  path: /assets/img/posts/text_align.png
+image:
+    path: /assets/img/posts/text_align.png
 related_posts:
-  - _posts/blog/2022-05-11-line_style.md
+    - _posts/blog/2022-05-11-line_style.md
 
 categories:
-  - blog
+    - blog
 tags:
-  - blog
-  - scss
+    - blog
+    - scss
 ---
 * toc
 {:toc}

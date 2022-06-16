@@ -4,19 +4,19 @@ layout: post
 
 title: '[Python] function'
 description: >
-  python의 함수에 대한 노트
+    python의 함수에 대한 노트
 hide_description: false
-image: 
-  path: /assets/img/posts/def_func.png
+image:
+    path: /assets/img/posts/def_func.png
 related_posts:
-  - _posts/python/2022-01-06-about_PEP.md
+    - _posts/python/2022-01-06-about_PEP.md
 
 categories:
-  - python
+    - python
 tags:
-  - python
-  - programming
-  - incomplete
+    - python
+    - programming
+    - incomplete
 ---
 * toc
 {:toc}
@@ -34,8 +34,7 @@ def func(a, b=False):
 
 print(func(1))
 ```
-
-```powershell
+```
 1
 ```
 

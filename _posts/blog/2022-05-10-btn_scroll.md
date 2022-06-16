@@ -4,19 +4,19 @@ layout: post
 
 title: '[블로그] 스크롤 버튼'
 description: >
-  scroll to top/bottom 버튼 만들기
+    scroll to top/bottom 버튼 만들기
 hide_description: false
-image: 
-  path: /assets/img/posts/btn.png
+image:
+    path: /assets/img/posts/btn.png
 related_posts:
-  - _posts/blog/2022-05-10-btn_scroll.md
+    - _posts/blog/2022-05-10-btn_scroll.md
 
 categories:
-  - blog
+    - blog
 tags:
-  - blog
-  - scss
-  - html
+    - blog
+    - scss
+    - html
 ---
 * toc
 {:toc}

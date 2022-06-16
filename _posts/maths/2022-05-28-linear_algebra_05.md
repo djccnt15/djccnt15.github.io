@@ -4,21 +4,21 @@ layout: post
 
 title: '[선형대수] 05. 역행렬'
 description: >
-  역행렬, 역행렬 계산, 역행렬과 거듭제곱
+    역행렬, 역행렬 계산, 역행렬과 거듭제곱
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_algebra_05.png
+image:
+    path: /assets/img/posts/linear_algebra_05.png
 related_posts:
-  - _posts/maths/2022-05-23-linear_algebra_04.md
-  - _posts/maths/2022-05-29-linear_algebra_06.md
+    - _posts/maths/2022-05-23-linear_algebra_04.md
+    - _posts/maths/2022-05-29-linear_algebra_06.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - linear algebra
-  - python
-  - numpy
+    - data science
+    - linear algebra
+    - python
+    - numpy
 ---
 * toc
 {:toc}

@@ -4,21 +4,21 @@ layout: post
 
 title: '[데이터 분석] pandas pivot table'
 description: >
-  pandas pivot_table, groupby
+    pandas pivot_table, groupby
 hide_description: false
-image: 
-  path: /assets/img/posts/pd_pivot_table.png
+image:
+    path: /assets/img/posts/pd_pivot_table.png
 related_posts:
-  - _posts/data_science/2022-01-21-pd_pivot_table.md
+    - _posts/data_science/2022-01-21-pd_pivot_table.md
 
 categories:
-  - data_science
+    - data_science
 tags:
-  - data science
-  - data analysis
-  - python
-  - pandas
-  - numpy
+    - data science
+    - data analysis
+    - python
+    - pandas
+    - numpy
 ---
 * toc
 {:toc}
@@ -34,7 +34,7 @@ df = pds.data('Housing')
 
 print(df)
 ```
-```markdown
+```
         price  lotsize  bedrooms  bathrms  stories driveway recroom fullbase gashw airco  garagepl prefarea
 1     42000.0     5850         3        1        2      yes      no      yes    no    no         1       no
 2     38500.0     4000         2        1        1      yes      no       no    no    no         0       no
@@ -83,7 +83,7 @@ pt = pd.pivot_table(
 
 print(pt)
 ```
-```markdown
+```
 bedrooms       1         2            3            4         5       6
 recroom
 no        3710.0  4687.050  5048.238683  5322.554054  6334.375  3950.0
@@ -105,7 +105,7 @@ pt = pd.pivot_table(
 
 print(pt)
 ```
-```markdown
+```
 bedrooms  1    2    3   4  5  6
 airco
 no        2  114  193  55  7  2
@@ -131,7 +131,7 @@ pt = pd.pivot_table(
 
 print(pt)
 ```
-```markdown
+```
 bedrooms        1    2        3        4      5      6 total
 fullbase       no   no yes   no  yes  no yes no yes no
 airco driveway
@@ -161,7 +161,7 @@ pt = pd.pivot_table(
 
 print(pt)
 ```
-```markdown
+```
                lotsize                    recroom
                    max         mean   min    size
 airco driveway
@@ -187,7 +187,7 @@ res = df.groupby(by=['recroom', 'bedrooms'], axis=0).size()
 
 print(res)
 ```
-```markdown
+```
 recroom  bedrooms
 no       1             2
          2           120

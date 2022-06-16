@@ -4,23 +4,23 @@ layout: post
 
 title: '[회귀분석] python 회귀분석'
 description: >
-  statsmodels을 이용해서 회귀분석을 해보자
+    statsmodels을 이용해서 회귀분석을 해보자
 hide_description: false
-image: 
-  path: /assets/img/posts/multiple_regression.png
+image:
+    path: /assets/img/posts/multiple_regression.png
 related_posts:
-  - _posts/maths/2022-01-19-regression_linear_scratch.md
-  - _posts/data_science/2022-01-24-regression_assumption.md
+    - _posts/maths/2022-01-19-regression_linear_scratch.md
+    - _posts/data_science/2022-01-24-regression_assumption.md
 
 categories:
-  - data_science
+    - data_science
 tags:
-  - data science
-  - data analysis
-  - python
-  - statsmodels
-  - regression
-  - incomplete
+    - data science
+    - data analysis
+    - python
+    - statsmodels
+    - regression
+    - incomplete
 ---
 * toc
 {:toc}
@@ -41,7 +41,7 @@ df = pds.data('Boston')
 
 print(df)
 ```
-```markdown
+```
         crim    zn  indus  chas    nox     rm   age     dis  rad  tax  ptratio   black  lstat  medv
 1    0.00632  18.0   2.31     0  0.538  6.575  65.2  4.0900    1  296     15.3  396.90   4.98  24.0
 2    0.02731   0.0   7.07     0  0.469  6.421  78.9  4.9671    2  242     17.8  396.90   9.14  21.6
@@ -137,7 +137,7 @@ formula = endog_name + ' ~ ' + exog_names           # make formula for modelling
 
 print(formula)
 ```
-```markdown
+```
 medv ~ crim + zn + indus + chas + nox + rm + age + dis + rad + tax + ptratio + black + lstat
 ```
 

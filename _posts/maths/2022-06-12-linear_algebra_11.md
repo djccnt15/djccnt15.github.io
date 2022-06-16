@@ -4,20 +4,20 @@ layout: post
 
 title: '[선형대수] 11. 직교 행렬'
 description: >
-  직교와 직교 행렬
+    직교와 직교 행렬
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_algebra_11.png
+image:
+    path: /assets/img/posts/linear_algebra_11.png
 related_posts:
-  - _posts/maths/2022-06-11-linear_algebra_10.md
-  - _posts/maths/2022-06-13-linear_algebra_12.md
+    - _posts/maths/2022-06-11-linear_algebra_10.md
+    - _posts/maths/2022-06-13-linear_algebra_12.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - linear algebra
-  - python
+    - data science
+    - linear algebra
+    - python
 ---
 * toc
 {:toc}

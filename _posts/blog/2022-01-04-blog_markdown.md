@@ -4,20 +4,20 @@ layout: post
 
 title: '[블로그] 마크다운 활용팁'
 description: >
-  posting에 유용한 팁들
+    posting에 유용한 팁들
 hide_description: false
-image: 
-  path: /assets/img/posts/markdown.png
+image:
+    path: /assets/img/posts/markdown.png
 related_posts:
-  - _posts/blog/2022-01-02-manual_github_pages.md
+    - _posts/blog/2022-01-02-manual_github_pages.md
 
 categories:
-  - blog
+    - blog
 tags:
-  - ⭐starred
-  - blog
-  - html
-  - jekyll
+    - ⭐starred
+    - blog
+    - html
+    - jekyll
 ---
 * toc
 {:toc}
@@ -46,7 +46,7 @@ tags:
 
 마크다운 코드는 아래와 같다.  
 
-```markdown
+```
 ![IMAGE_ALT_TEXT](/assets/img/posts/file_name)
 ```
 
@@ -54,7 +54,7 @@ tags:
 
 마크다운은 기본적으로 동영상 임베드를 허용하지 않아서 아래와 같이 미리보기를 띄우고 링크를 걸어야 한다.
 
-```markdown
+```
 [![IMAGE_ALT_TEXT](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/YOUTUBE_VIDEO_ID_HERE)
 ```
 
@@ -73,7 +73,7 @@ tags:
 hydejack 테마에서 수식을 입력할 때는 양 끝에 `$$`표시를 하고 `LaTex`문법을 사용하면 된다.  
 [위키백과 TeX 문법](https://ko.wikipedia.org/wiki/%EC%9C%84%ED%82%A4%EB%B0%B1%EA%B3%BC:TeX_%EB%AC%B8%EB%B2%95)([영어](https://en.wikipedia.org/wiki/Help:Displaying_a_formula))  
 
-```markdown
+```
 $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 ```
 
@@ -86,6 +86,6 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 
 ```{% raw %} {% %} {% endraw %}```을 인식하지 않도록 작성하고 싶을 때는 앞 뒤로 `{{ "{% raw "}}%}  {{ "{% endraw "}}%}`을 넣어주면 된다.
 
-```markdown
+```
 {{ "{% raw "}}%}  {{ "{% endraw "}}%}
 ```

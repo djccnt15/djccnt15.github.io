@@ -4,23 +4,23 @@ layout: post
 
 title: '[상관 분석] 상관 계수'
 description: >
-  python으로 상관 계수 구현하기
+    python으로 상관 계수 구현하기
 hide_description: false
-image: 
-  path: /assets/img/posts/correlation_coef.png
+image:
+    path: /assets/img/posts/correlation_coef.png
 related_posts:
-  - _posts/maths/2022-01-19-regression_linear_scratch.md
+    - _posts/maths/2022-01-19-regression_linear_scratch.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - data analysis
-  - preprocessing
-  - correlation
-  - python
-  - numpy
-  - scipy
+    - data science
+    - data analysis
+    - preprocessing
+    - correlation
+    - python
+    - numpy
+    - scipy
 ---
 * toc
 {:toc}
@@ -82,8 +82,7 @@ res = np.cov(a, b)[0][1]
 
 print(res)
 ```
-
-```markdown
+```
 -1139.755111111111
 ```
 
@@ -120,8 +119,7 @@ res = np.corrcoef(a, b)[0][1]
 
 print(res)
 ```
-
-```markdown
+```
 -0.7819099681203538
 ```
 
@@ -161,8 +159,7 @@ spearmanr = stats.spearmanr(a, b)
 
 print(spearmanr)
 ```
-
-```markdown
+```
 SpearmanrResult(correlation=0.8207826816681233, pvalue=0.08858700531354381)
 ```
 
@@ -182,8 +179,7 @@ tau = stats.kendalltau(a, b)
 
 print(tau)
 ```
-
-```markdown
+```
 KendalltauResult(correlation=0.7378647873726218, pvalue=0.07697417298126674)
 ```
 

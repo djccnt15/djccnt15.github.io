@@ -4,20 +4,20 @@ layout: post
 
 title: '[블로그] time series style layout'
 description: >
-  list layout을 시계열 디자인으로 수정하기
+    list layout을 시계열 디자인으로 수정하기
 hide_description: false
-image: 
-  path: /assets/img/posts/list_layout.png
+image:
+    path: /assets/img/posts/list_layout.png
 related_posts:
-  - _posts/blog/2022-05-21-text_align.md
+    - _posts/blog/2022-05-21-text_align.md
 
 categories:
-  - blog
+    - blog
 tags:
-  - blog
-  - scss
-  - html
-  - jekyll
+    - blog
+    - scss
+    - html
+    - jekyll
 ---
 * toc
 {:toc}

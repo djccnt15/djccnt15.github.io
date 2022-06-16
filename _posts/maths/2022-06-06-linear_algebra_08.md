@@ -4,22 +4,22 @@ layout: post
 
 title: '[선형대수] 08. QR 분해'
 description: >
-  정사영, 그람-슈미트 과정, QR 분해
+    정사영, 그람-슈미트 과정, QR 분해
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_algebra_08.png
+image:
+    path: /assets/img/posts/linear_algebra_08.png
 related_posts:
-  - _posts/maths/2022-06-05-linear_algebra_07.md
-  - _posts/maths/2022-06-09-linear_algebra_09.md
+    - _posts/maths/2022-06-05-linear_algebra_07.md
+    - _posts/maths/2022-06-09-linear_algebra_09.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - linear algebra
-  - python
-  - numpy
-  - scipy
+    - data science
+    - linear algebra
+    - python
+    - numpy
+    - scipy
 ---
 * toc
 {:toc}

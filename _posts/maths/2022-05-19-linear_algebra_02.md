@@ -4,22 +4,22 @@ layout: post
 
 title: '[선형대수] 02. 다양한 행렬'
 description: >
-  전치/대칭/대각/이중대각/단위/영/삼각/토플리츠/하우스홀더 행렬
+    전치/대칭/대각/이중대각/단위/영/삼각/토플리츠/하우스홀더 행렬
 hide_description: false
-image: 
-  path: /assets/img/posts/linear_algebra_02.png
+image:
+    path: /assets/img/posts/linear_algebra_02.png
 related_posts:
-  - _posts/maths/2022-05-01-linear_algebra_01.md
-  - _posts/maths/2022-05-22-linear_algebra_03.md
+    - _posts/maths/2022-05-01-linear_algebra_01.md
+    - _posts/maths/2022-05-22-linear_algebra_03.md
 
 categories:
-  - maths
+    - maths
 tags:
-  - data science
-  - linear algebra
-  - python
-  - numpy
-  - scipy
+    - data science
+    - linear algebra
+    - python
+    - numpy
+    - scipy
 ---
 * toc
 {:toc}
