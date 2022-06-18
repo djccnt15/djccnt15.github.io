@@ -30,7 +30,7 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 ## 1. 선형 방정식
 
-**선형 방정식(linear equation)**이란 아래와 같이 변수인 $$x_{n}$$과 상수인 $$\beta_{n}$$이 조합되어 선형(linear)으로 표현 되는 1차 방정식을 말한다.  
+**선형 방정식(linear equation)**이란 아래와 같이 변수인 $$x_{n}$$과 상수인 $$\beta_{n}$$이 조합되어 **선형(linear)**으로 표현 되는 1차 방정식을 말한다.  
 
 $$\beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \cdots + \beta_{n}x_{n} = y$$
 
@@ -38,7 +38,7 @@ $$\beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \cdots + \beta_{n}x_{n} = y$$
 
 ## 2. 선형 시스템
 
-아래와 같이 선형 방정식이 다수 존재하는 경우, 아래와 같은 선형 방정식의 집합을 연립 1차 방정식(system of linear equation), 또는 **선형 시스템(linear system)**이라고 부른다.  
+아래와 같이 선형 방정식이 다수 존재하는 경우, 아래와 같은 선형 방정식의 집합을 **연립 1차 방정식(system of linear equation)**, 또는 **선형 시스템(linear system)**이라고 부른다.  
 
 $$\begin{align*}
 \beta_{11}x_{11} + \beta_{12}x_{12} + \cdots & + \beta_{1m}x_{1m} = y_{1} \\

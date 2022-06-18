@@ -365,7 +365,7 @@ mat_toeplitz = toeplitz(g, h)
 
 ## 8. 하우스홀더 행렬
 
-**하우스홀더 행렬(householder matrix)**은 모든 열이 정규 직교(orthonormal)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
+**하우스홀더 행렬(householder matrix)**은 모든 열이 [정규 직교(orthonormal)](/maths/2022-06-06-linear_algebra_08/#1-직교-공간)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
 
 $$\mathbf{v} = \begin{pmatrix}
 v_{1} \\

@@ -18,7 +18,6 @@ tags:
     - linear algebra
     - python
     - numpy
-    - incomplete
 ---
 * toc
 {:toc}
@@ -28,7 +27,7 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 
 [구현한 함수 저장소](https://github.com/djccnt15/maths)
 
-## 행렬의 대각화
+## 1. 행렬의 대각화
 
 ### 대각화
 
@@ -45,7 +44,7 @@ $$n \times n$$ 행렬 $$A$$가 직교 대각화가 가능하려면 다음 조건
 - 행렬 $$A$$의 고유 벡터는 $$n$$개의 정규 직교 벡터를 만족해야 한다.
 - 행렬 $$A$$가 직교 대각화 가능하려면 $$A$$는 반드시 대칭 행렬이어야 한다.
 
-## 고유값 분해
+## 2. 고유값 분해
 
 **고유값 분해(eigenvalue decomposition)**는 직교 대각화의 한 종류로, 아래와 같이 정사각 행렬을 [고유값과 고유 벡터](/maths/2022-06-11-linear_algebra_10/)의 곱으로 분해하는 것을 의미한다.  
 
@@ -69,17 +68,35 @@ A & = PDP^{T} = P \Lambda P^{-1}
 
 위 식에서 $$\lambda_{1}, \lambda_{2}, \lambda_{3}$$는 행렬 $$A$$의 고유값이고, $$\mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{u}_{3}$$는 각 고유값에 해당하는 고유 벡터다.  
 
+고유벡터 구하는 함수를 `python`으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](/maths/2022-06-11-linear_algebra_10/#qr분해를-통한-고유값과-고유벡터-계산)에서 이미 구현한 바 있다.  
+
+```python
+# eigenvalue and eigenvector by qr decomposition
+def eig_qr(a):
+    n = len(a)
+    v = mat_identity(n)
+
+    for i in range(100):
+        q, r = qr_gramschmidt(a)
+        a = mat_mul(r, q)
+        v = mat_mul(v, q)
+
+    e = diag_ele(a)
+
+    return e, v
+```
+
 `numpy`를 사용한 고유값 분해는 아래와 같다. 앞서 [고유값과 고유벡터 계산](/maths/2022-06-11-linear_algebra_10/#2-고유값과-고유벡터-계산)에서 이미 확인한 바 있다.  
 
 ```python
 import numpy as np
 
-a = np.array([[4, 0, 1], [-2, 1, 0], [-2, 0, 1]])
+a = np.array([[3, 2, 1], [2, 1, 4], [1, 4, 2]])
 
 e, v = np.linalg.eig(a)
 ```
 
-## 특이값 분해
+## 3. 특이값 분해
 
 **특이값 분해(singular value decomposition)**는 $$m \times n$$ 행렬 $$A$$를 아래와 같이 특정한 형태로 분해하는 것을 의미한다.  
 
@@ -89,18 +106,58 @@ A & = U \Sigma V^{T}\\
 AV & = U \Sigma
 \end{align*}$$
 
-- 행렬 $$U$$는 $$m \times m$$ 직교 행렬 ($$AA^{T} = U(\Sigma\Sigma^{T})U^{T}$$)
-- 행렬 $$V^{T}$$는 $$n \times n$$ 직교 행렬 ($$A^{T}A = V(\Sigma^{T}\Sigma)V^{T}$$)
+- 행렬 $$U$$는 $$m \times m$$ 직교 행렬이며, 행렬 $$U$$의 열벡터는 $$AA^{T}$$의 고유 벡터로 구성된다.
+
+$$\begin{align*}
+AA^{T} & = (U \Sigma V^{T})(U \Sigma V^{T})^{T} \\
+\\
+& = U \Sigma V^{T} V \Sigma^{T} U^{T} \\
+\\
+& = U \Sigma \Sigma^{T} U^{T} \\
+\end{align*}$$
+
+- 행렬 $$V^{T}$$는 $$n \times n$$ 직교 행렬이며, 행렬 $$V$$의 열벡터는 $$A^{T}A$$의 고유 벡터로 구성된다.
+
+$$\begin{align*}
+A^{T}A & = (U \Sigma V^{T})^{T}(U \Sigma V^{T}) \\
+\\
+& = V \Sigma^{T} U^{T} U \Sigma V^{T} \\
+\\
+& = V \Sigma^{T} \Sigma V^{T} \\
+\end{align*}$$
+
 - 행렬 $$\Sigma$$는 $$m \times n$$ 직사각 대각행렬
 
 위 식에서 행렬 $$U, V$$에 속한 벡터들을 **특이 벡터(singula vector)**, 행렬 $$\Sigma$$의 0이 아닌 대각 원소값들을 **특이값(singular value)**이라고 하며, **특이값(singular value)**은 행렬의 고유값에 루트를 씌운 값과 같다.  
+
+특이값 분해를 `python`으로 구현하면 아래와 같다.  
+
+```python
+# singular value decomposition
+def svd(a):
+    at = mat_trans(a)
+    ata = mat_mul(at, a)
+    e, v = eig_qr(ata)
+
+    s = [i ** 0.5 for i in e]
+
+    vt = mat_trans(v)
+
+    av = mat_mul(a, v)
+    avt = mat_trans(av)
+    ut = [normalize(v) for v in avt]
+
+    u = mat_trans(ut)
+
+    return u, s, vt
+```
 
 `numpy`를 활용한 특이값 분해는 아래와 같다.  
 
 ```python
 import numpy as np
 
-a = np.array([[4, 0, 1], [-2, 1, 0], [-2, 0, 1]])
+a = np.array([[3, 6], [2, 3], [1, 2], [5, 5]])
 
 u, s, vt = np.linalg.svd(a)
 ```

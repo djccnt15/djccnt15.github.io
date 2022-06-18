@@ -101,7 +101,6 @@ r_{xy} & = \frac{\frac{\sum_{i=1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y}
 ```python
 # correlation pearson
 def pearson(a, b):
-
     res = cov(a, b) / ((cov(a, a) * cov(b, b)) ** 0.5)
 
     return res

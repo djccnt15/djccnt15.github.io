@@ -157,7 +157,7 @@ x_2
 
 ### 기본 행 연산
 
-**기본 행 연산(elementary row operations, ERO)**은 아래와 같다.  
+행렬의 **기본 행 연산(elementary row operations, ERO)**은 아래의 연산들을 말한다.  
 
 - 한 행에 영이 아닌 상수를 모두 곱한다.
 - 두 행을 교환한다.
