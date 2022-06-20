@@ -287,15 +287,15 @@ z = np.zeros((3, 2))
 
 **삼각 행렬(triangular matrix)**은 0이 아닌 구성 원소가 삼각형 형태인 행렬로, 주 대각 원소 아래쪽의 모든 원소가 0인 상 삼각 행렬(upper triangular matrix)과 주 대각 원소 위쪽의 모든 원소가 0인 하 삼각 행렬(lower triangular matrix)이 있다.  
 
-$$A = \begin{pmatrix}
-a_{11} & a_{12} & a_{13} \\
-0 & a_{22} & a_{23} \\
-0 & 0 & a_{33} \\
+$$U = \begin{pmatrix}
+u_{11} & u_{12} & u_{13} \\
+0 & u_{22} & u_{23} \\
+0 & 0 & u_{33} \\
 \end{pmatrix}, \quad
-A = \begin{pmatrix}
-a_{11} & 0 & 0 \\
-a_{21} & a_{22} & 0 \\
-a_{31} & a_{32} & a_{33} \\
+L = \begin{pmatrix}
+l_{11} & 0 & 0 \\
+l_{21} & l_{22} & 0 \\
+l_{31} & l_{32} & l_{33} \\
 \end{pmatrix}$$
 
 입력된 행렬을 삼각 행렬로 만들어주는 것을 `python`으로 구현하면 아래와 같다.  

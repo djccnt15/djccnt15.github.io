@@ -135,7 +135,7 @@ def gauss_eli(a, b):
     for i in range(n):
         for j in range(i+1, n):
             tmp = mat[j][i] / mat[i][i]
-            for k in range(n + 1):
+            for k in range(n+1):
                 mat[j][k] -= tmp * mat[i][k]
 
     # solve equation
