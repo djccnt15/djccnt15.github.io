@@ -42,7 +42,6 @@ b & = \overline{y} - W\overline{x} \\
 0. in case of $$v = v_{0} + gt$$, find values of $$v_{0}$$, $$g$$.
 0. plotting linear regression of $$t$$ and $$v$$.
 
-
 `data.txt`는 아래와 같다.  
 
 ```
@@ -78,13 +77,24 @@ e = data[:, 2]
 ### 2번 문제 풀이
 
 ```python
+# expected value of x
+def bar(x):
+    res = sum(x) / len(x)
+
+    return res
+
+# linear regression
 def lineFit(x, y):
-    x_bar = sum(x) / len(x)
-    y_bar = sum(y) / len(y)
-    w = sum((x - x_bar) * y) / sum((x - x_bar) * x)
-    b = y_bar - (w * x_bar)
-    
-    return (b, w)
+    x_bar = bar(x)
+    y_bar = bar(y)
+
+    tmp_0 = [(i - x_bar) * j for i, j in zip(x, y)]
+    tmp_1 = [(i - x_bar) * i for i in x]
+
+    w = sum(tmp_0) / sum(tmp_1)
+    i = y_bar - (w * x_bar)
+
+    return i, w
 ```
 
 ### 3번 문제 풀이
@@ -146,4 +156,6 @@ axes.legend()
 
 plt.show()
 ```
+
 ![linear_regression_scratch_plot](/assets/img/posts/linear_regression_scratch.png)
+{:.text-center}

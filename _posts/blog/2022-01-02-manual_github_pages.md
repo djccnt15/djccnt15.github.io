@@ -28,9 +28,7 @@ tags:
 
 - [이 블로그에서 사용된 마크다운 활용법들 보러가기](/blog/2022-01-04-blog_markdown/)
 
-<sub>markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다.  
-그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨리기 때문에 앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다.  
-기본적으로 켜고 특정 workspace에서만 끄는게 안 되기 때문에.. 반대는 가능하지만</sub>
+<sub>markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다. 그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨리기 때문에 앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다. 기본적으로 켜고 특정 workspace에서만 끄는게 안 되기 때문에.. 반대는 가능하지만</sub>
 
 ## 2. YFM 정의 및 활용
 
@@ -39,7 +37,7 @@ YFM(YAML Front Matter)은 markdown 파일의 최상단에 위치하며 3개의 �
 YAML은 일종의 구조화된 데이터 형식으로, 프로그래밍에서 변수를 설정하듯이 사용할 수 있다.  
 YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있다.  
 
-이를 이용해서 정의된 YFM을 이중 괄호 구문을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.
+이를 이용해서 정의된 YFM을 이중 괄호 구문을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.  
 
 ```{% raw %}
 이 글의 제목은 {{ page.title }}이고,
@@ -58,7 +56,7 @@ YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있
 ### 3-1. YFM으로 비밀글 태그
 
 YFM에서 `published: false`로 정의하면 된다.  
-비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`를 붙여서 jekyll을 구동하면 된다.
+비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`를 붙여서 jekyll을 구동하면 된다.  
 
 ```powershell
 > bundle exec jekyll serve --unpublished
@@ -79,7 +77,7 @@ YFM에서 `published: false`로 정의하면 된다.
 
 github pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 은근히 걸리기 때문에, local에서 확인하고 검토한 다음에 최종본을 업로드하는게 편하다.  
 
-local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명령어는 다음과 같다.
+local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명령어는 다음과 같다.  
 
 ```powershell
 > bundle exec jekyll serve
@@ -106,14 +104,20 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 > bundle exec jekyll serve -H 192.168.0.5
 ```
 
-서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig/ifconfig` 명령어로 확인할 수 있다. 위의 경우에는 `IPv4`주소인 `192.168.0.5`으로 호스팅 했기 때문에, `http:192.168.0.5:4000`으로 접속해야 내용을 확인할 수 있다.
+서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig/ifconfig` 명령어로 확인할 수 있다. 위의 경우에는 `IPv4`주소인 `192.168.0.5`으로 호스팅 했기 때문에, `http:192.168.0.5:4000`으로 접속해야 내용을 확인할 수 있다.  
 
 ❗ **주의** `https:192.168.0.5:4000`가 아니고 `http:192.168.0.5:4000`이다.  
 {:.note title='attention'}
 
+`--incremental` 옵션을 사용하면 마지막으로 빌드한 시점 이후에 갱신된 문서와 페이지만 재생성하여 빌드 시간을 줄여준다. 다만 [Jekyll 공식 문서](https://jekyllrb-ko.github.io/docs/configuration/incremental-regeneration/)를 참고하면 이 기능은 문서나 페이지 혹은 그 의존관계가 변경되었을 때만 파일을 다시 생성하는데, 특정 의존 관계만 감지할 수 있다는 점이 문제가 될 수 있다고 한다.  
+
+```powershell
+> bundle exec jekyll serve --incremental
+```
+
 ### 4-1. ⚡ 작업할 때
 
-개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--drafts` 두 옵션을 주로 사용한다.
+개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--drafts` 두 옵션을 주로 사용한다.  
 
 - 업로드 결과와 동일하게 출력할 때
 
@@ -136,6 +140,9 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 
 # unpublished 된 비밀글 까지 같이 확인할 때
 > bundle exec jekyll serve --livereload --future --drafts --unpublished
+
+# 일부 문제를 감수하고 페이지 재생성 시간을 줄이고 싶을 때
+> bundle exec jekyll serve --livereload --future --drafts --unpublished --incremental
 ```
 
 ---
