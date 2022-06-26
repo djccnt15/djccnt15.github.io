@@ -23,11 +23,6 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
-
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
-
 ## 1. 외적
 
 벡터의 **외적(outer product)** 또는 **텐서 곱(tensor product)**은 다음과 같은 연산을 의미한다.  
@@ -59,21 +54,21 @@ res = np.outer(a, b)
 
 **벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 다음과 같이 [기저 벡터](/maths/2022-05-29-linear_algebra_06/#기저-벡터)를 사용해 구할 수 있다.  
 
-$$\mathbf{i} = \begin{pmatrix}
+$$\mathbf{i} = \begin{bmatrix}
 1 \\
 0 \\
 0 \\
-\end{pmatrix}, \quad
-\mathbf{j} = \begin{pmatrix}
+\end{bmatrix}, \quad
+\mathbf{j} = \begin{bmatrix}
 0 \\
 1 \\
 0 \\
-\end{pmatrix}, \quad
-\mathbf{k} = \begin{pmatrix}
+\end{bmatrix}, \quad
+\mathbf{k} = \begin{bmatrix}
 0 \\
 0 \\
 1 \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 $$\begin{align*}
 \mathbf{u} \times \mathbf{v} & = \begin{vmatrix}
@@ -136,5 +131,6 @@ $$\mathbf{u} \times (\mathbf{v} \times \mathbf{w})$$
 
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)

@@ -2,9 +2,9 @@
 published: true
 layout: post
 
-title: '[선형대수] 01. 행렬'
+title: '[선형대수] 01. 선형대수의 기초'
 description: >
-    스칼라, 벡터 그리고 행렬의 기본 개념
+    스칼라, 벡터, 행렬, 텐서의 기본 개념
 hide_description: false
 image:
     path: /assets/img/posts/linear_algebra_01.png
@@ -22,16 +22,15 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
+## 0. 선형이란
 
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
+**선형(linear)**이란 일차식이나 일차함수와 같이 그래프가 **직선(line)**으로 나타나는 관계를 다룬다는 뜻이다.
 
 ## 1. 스칼라와 벡터
 
 - 스칼라(scalar)
 
-**크기**만으로 나타낼 수 있는 물리량. 데이터 셋을 구성하는 하나의 구성 원소 또는 숫자. 데이터의 feature에 해당하며, 아래와 같이 영문 소문자로 표기한다.  
+**크기(magnitude)**만으로 나타낼 수 있는 물리량. 데이터 셋을 구성하는 하나의 구성 원소 또는 숫자. 데이터의 feature에 해당하며, 아래와 같이 영문 소문자로 표기한다.  
 
 $$s = 3$$
 
@@ -39,7 +38,7 @@ $$s = 3$$
 
 - 벡터(vector)
 
-**스칼라의 집합**으로 **크기와 방향**을 모두 나타내는 개념으로, 아래와 같이 영문 소문자 볼드체로 표기한다.  
+**스칼라의 집합**으로 **크기(magnitude)와 방향(directin)**을 모두 나타내는 개념으로, 아래와 같이 영문 소문자 볼드체로 표기한다.  
 
 $$\mathbf{v} = \begin{pmatrix}
 1 \\
@@ -50,12 +49,13 @@ $$\mathbf{v} = \begin{pmatrix}
 2 \\
 3\end{bmatrix}$$
 
-벡터를 구성하는 각 숫자는 공간상의 좌표를 나타내며, 원점에서 해당 좌표로 이어지는 화살표로 나타낼 수 있다.  
-벡터는 스칼라를 행 방향으로 나열한 **행 벡터(row vector)**와 열 방향으로 나열한 **열 벡터(column vector)**로 나누어지는데, 벡터는 특별한 언급이 없으면 **기본적으로 열 벡터를 의미**한다.  
+벡터를 구성하는 각 숫자는 공간상의 좌표를 나타내며, **시점(initial point)**에서 해당 좌표인 **종점(terminal point)**으로 이어지는 화살표로 나타낼 수 있다. 벡터는 스칼라를 행 방향으로 나열한 **행 벡터(row vector)**와 열 방향으로 나열한 **열 벡터(column vector)**로 나누어지는데, 특별한 언급이 없으면 **기본적으로 열 벡터를 의미**한다. 두 벡터가 놓인 위치에 상관 없이 크기와 방향이 같으면 같은 벡터라고 한다.  
 
 ## 2. 벡터의 연산
 
 ### 덧셈과 뺄셈
+
+두 벡터의 합 $$\mathbf{u} + \mathbf{v}$$는 $$\mathbf{u}$$의 종점에 $$\mathbf{v}$$의 시점을 일치시켰을 때, $$\mathbf{u}$$의 시점을 시점으로, $$\mathbf{v}$$의 종점을 종점으로 하는 벡터를 뜻하고, 두 백터의 차 $$\mathbf{u} - \mathbf{v}$$는 $$\mathbf{u}$$의 시점에 $$\mathbf{v}$$의 시점을 일치시켰을 때, $$\mathbf{v}$$의 종점을 시점으로, $$\mathbf{u}$$의 종점을 종점으로 하는 벡터를 뜻한다.  
 
 벡터의 덧셈과 뺄셈은 동일 위치의 각 원소를 더하고 빼는 것으로, 교환 법칙이 성립하며 두 벡터의 크기가 동일할 때(벡터를 구성하는 스칼라의 개수가 동일할 때)만 연산이 가능하다. `python`으로 구현하면 아래와 같다.  
 
@@ -75,7 +75,7 @@ def v_sub(a, b):
 
 ### 스칼라 곱
 
-벡터의 **스칼라 곱(scalar multiplication)**은 스칼라의 부호가 벡터의 방향을 결정하고, 절대값의 크기가 벡터의 길이에 영향을 미친다. `python`으로 구현하면 아래와 같다.  
+벡터의 **스칼라 곱(scalar multiplication)**은 곱해진 스칼라의 부호로 벡터의 방향을 결정하고, 절대값의 만큼 벡터의 길이를 곱해주는 것이다. `python`으로 구현하면 아래와 같다.  
 
 ```python
 # scalar multiplication of vector
@@ -124,18 +124,18 @@ v_hdiv = a / b
 
 ## 2. 행렬
 
-행렬은 행(row)과 열(column)로 구성되어 있으며, [행 벡터와 열 백터](https://ko.wikipedia.org/wiki/%EB%B2%A1%ED%84%B0_%ED%96%89%EB%A0%AC)([Row and Column Vectors](https://en.wikipedia.org/wiki/Row_and_column_vectors))라고도 부른다. 아래와 같이 표기한다.  
+행렬은 행(row)과 열(column)로 구성되어 있으며, [행 벡터와 열 백터](https://ko.wikipedia.org/wiki/%EB%B2%A1%ED%84%B0_%ED%96%89%EB%A0%AC)([Row and Column Vectors](https://en.wikipedia.org/wiki/Row_and_column_vectors))라고도 부른다. $$m \times n$$ 행렬을 아래와 같이 표기한다. 이때 $$m \times n$$를 **행렬의 모양(shape of a matrix)** 또는 **행렬의 크기(size of a matrix)**라고 부른다.
 
-$$A = \begin{pmatrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22} \\
-a_{31} & a_{33} \\
-\end{pmatrix}
-= \begin{bmatrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22} \\
-a_{31} & a_{33} \\
-\end{bmatrix}$$
+$$\begin{align*}
+A & = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \vdots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix} \\
+\\
+& = [a_{ij}]_{m \times n}
+\end{align*}$$
 
 행렬의 표기에 있어서 $$[]$$와 $$()$$를 모두 사용할 수 있으나, 선형대수학에서는 **치환(permutation)**과의 혼동을 막기 위해 $$[]$$ 표기를 더 많이 사용한다고 한다.  
 또한 아래와 같이 벡터 형태의 변수를 나타낼 때에는 일반 괄호를 쓰고 함수를 의미하는 행렬을 나타낼 때에는 대괄호를 씀으로써 항의 의미를 명확히 하는 경우도 있다고 한다.  
@@ -159,9 +159,9 @@ x_2
 
 행렬의 **기본 행 연산(elementary row operations, ERO)**은 아래의 연산들을 말한다.  
 
-- 한 행에 영이 아닌 상수를 모두 곱한다.
+- 한 행에 0이 아닌 상수를 곱한다.
 - 두 행을 교환한다.
-- 한 행의 배수를 다른 행에 더한다.
+- 한 행의 상수배를 다른 행에 더한다.
 
 ## 3. 행렬의 연산
 
@@ -236,13 +236,13 @@ def mat_mul_all(*a):
 
 ### 대각합
 
-**행렬의 대각합(trace)**은 주 대각 원소를 모두 더한 값을 의미하며 $$tr(A)$$로 표기한다.  
+**행렬의 대각합(trace)**은 아래와 같이 **정사각행렬(square matrix)**의 **주대각선(main diagonal)**에 놓인 주 대각 원소를 모두 더한 값을 의미하며 $$tr(A)$$로 표기한다.  
 
-$$A = \begin{pmatrix}
+$$A = \begin{bmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 $$tr(A) = a_{11} + a_{22} + a_{33}$$
 
@@ -276,7 +276,16 @@ mat_mul = c @ d == np.matmul(c, d)
 mat_tr = np.trace(e)
 ```
 
+## 4. 텐서
+
+위와 같은 벡터와 행렬의 표기의 일반화하여 성분을 $$n$$차원으로 배열한 것을 $$n$$차원 **텐서(tensor)**라고 부르며, 아래와 같이 표기한다.  
+
+$$T = [a_{i_{1} i_{2} \cdots i_{n}}]_{m_{1} \times m_{2} \times \cdots \times m_{n}}$$
+
+이에 따라 스칼라는 0차원 텐서, 벡터는 1차원 텐서, 행렬은 2차원 텐서로 말할 수 있다.  
+
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)

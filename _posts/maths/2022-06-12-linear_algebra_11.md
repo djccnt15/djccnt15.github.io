@@ -22,18 +22,17 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
-
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
-
 ## 1. 직교 행렬
 
 **직교 행렬(orthogonal matrix)**이란 어떤 행렬의 행 벡터와 열 벡터가 [**정규 직교(orthonomal) 기저**](/maths/2022-06-06-linear_algebra_08/#1-직교-공간)를 이루는 행렬을 의미한다. 직교 행렬은 자기 자신의 [전치 행렬](/maths/2022-05-19-linear_algebra_02/#1-전치-행렬)과 곱했을 때 [단위 행렬](/maths/2022-05-19-linear_algebra_02/#4-단위-행렬)이 되는 성질이 있기 때문에 이를 통해 주어진 행렬이 직교 행렬인지 확인할 수 있다.  
 
 - 행렬 $$A$$가 직교 행렬일 때,
 
-$$AA^{T} = A^{T}A = I$$
+$$\begin{align*}
+AA^{T} & = A^{T}A = I \\
+\\
+\therefore A^{T} & = A^{-1}
+\end{align*}$$
 
 행렬의 직교 여부 확인을 `python`으로 구현하면 아래와 같다. 부동소수점으로 인한 문제를 피하기 위한 추가 연산이 필요하다.  
 
@@ -89,5 +88,6 @@ $$tr(A) = tr(P^{-1}AP)$$
 
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)

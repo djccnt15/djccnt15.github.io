@@ -24,11 +24,6 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
-
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
-
 ## 1. 직교 공간
 
 ### 직교, 정규 직교 벡터, 정규 직교 공간, 정규화
@@ -83,7 +78,11 @@ proj_{\mathbf{v}} \mathbf{u} & = \Vert \mathbf{u} \Vert \vert \cos \theta \vert 
 & = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}\mathbf{v} \\
 \end{align*}$$
 
-정사영 $$proj_{\mathbf{v}} \mathbf{u}$$는 $$\mathbf{u}$$가 갖고 있는 $$\mathbf{v}$$의 성분을 의미한다. `python`으로 구현하면 아래와 같다.  
+정사영 $$proj_{\mathbf{v}} \mathbf{u}$$는 $$\mathbf{u}$$가 갖고 있는 $$\mathbf{v}$$의 성분을 의미한다. 따라서 벡터 $$\mathbf{u}$$는 벡터 $$\mathbf{v}$$를 기준으로 아래와 같이 분해할 수 있다.  
+
+$$\mathbf{u} = proj_{\mathbf{v}} \mathbf{u} + (\mathbf{u} - proj_{\mathbf{v}} \mathbf{u})$$
+
+정사영 $$proj_{\mathbf{b}} \mathbf{a}$$를 `python`으로 구현하면 아래와 같다.  
 
 ```python
 # projection
@@ -208,25 +207,25 @@ $$\begin{align*}
 
 따라서 행렬 $$A$$는 다음과 같이 정리할 수 있다.  
 
-$$(\mathbf{a}_{1} \quad \mathbf{a}_{2} \quad \cdots \quad \mathbf{a}_{n}) = (\mathbf{v}_{1} \quad \mathbf{v}_{2} \quad \cdots \quad \mathbf{v}_{n})\begin{pmatrix}
+$$[\mathbf{a}_{1} \quad \mathbf{a}_{2} \quad \cdots \quad \mathbf{a}_{n}] = [\mathbf{v}_{1} \quad \mathbf{v}_{2} \quad \cdots \quad \mathbf{v}_{n}]\begin{bmatrix}
 \langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \\
 \langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \\
 \vdots & \vdots & \ddots & \vdots \\
 \langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{n} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 그람-슈미트 과정에 의해 정규 직교 벡터 $$\mathbf{v}_{j}$$는 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$과 직교하기 때문에, 정규 직교 벡터 $$\mathbf{v}_{j}$$와 각 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$의 내적값은 0이다. 이를 바탕으로 $$A = QR$$을 다시 정리하여 $$Q$$와 $$R$$을 분해하면 다음과 같다.  
 
 $$\begin{align*} \\
 & A = QR \\
 \\
-& Q = (\mathbf{v}_{1} \quad \mathbf{v}_{2} \quad \cdots \quad \mathbf{v}_{n}) \\
+& Q = [\mathbf{v}_{1} \quad \mathbf{v}_{2} \quad \cdots \quad \mathbf{v}_{n}] \\
 \\
-& R = \begin{pmatrix}\langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \\
+& R = \begin{bmatrix}\langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \\
 0 & \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \\
 \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \\
-\end{pmatrix}
+\end{bmatrix}
 \end{align*}$$
 
 ### 그람-슈미트 과정을 이용한 QR분해
@@ -256,28 +255,28 @@ def qr_gramschmidt(a):
 
 - 1) 주어진 행렬 $$A$$를 통해 $$\mathbf{v}_{1}$$를 구한다. 아래 식에서 $$sign$$은 벡터의 첫 스칼라의 부호로, 0 이상이면 $$+$$, 0 미만이면 $$-$$가 된다. $$\mathbf{e}_{1}$$은 [기저 벡터](/maths/2022-05-29-linear_algebra_06/#기저-벡터)를 말한다.  
 
-$$A_{1} = A = \begin{pmatrix}
+$$A_{1} = A = \begin{bmatrix}
 a_{11} & a_{12} & a_{13} & a_{14} \\
 a_{21} & a_{22} & a_{23} & a_{24} \\
 a_{31} & a_{32} & a_{33} & a_{34} \\
 a_{41} & a_{42} & a_{43} & a_{44} \\
-\end{pmatrix}
-= (\mathbf{a}_{1} \quad \mathbf{a}_{2} \quad \cdots \quad \mathbf{a}_{n})$$
+\end{bmatrix}
+= [\mathbf{a}_{1} \quad \mathbf{a}_{2} \quad \cdots \quad \mathbf{a}_{n}]$$
 
 $$\begin{align*}
 \mathbf{v}_{1} = \mathbf{a}_{1} + sign(a_{1}) \Vert \mathbf{a}_{1} \Vert \mathbf{e}_{1} \\
 \\
-\mathbf{a}_{1} = \begin{pmatrix}
+\mathbf{a}_{1} = \begin{bmatrix}
 a_{11} \\
 a_{21} \\
 a_{31} \\
-a_{41}\end{pmatrix}, \quad
-\mathbf{e}_{1} = \begin{pmatrix}
+a_{41}\end{bmatrix}, \quad
+\mathbf{e}_{1} = \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 0
-\end{pmatrix}
+\end{bmatrix}
 \end{align*}$$
 
 - 2) 위에서 구한 $$\mathbf{v}_{1}$$를 통해서 [하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬)을 구한다.  
@@ -285,49 +284,49 @@ a_{41}\end{pmatrix}, \quad
 $$\begin{align*}
 H_{1} & = I - 2\frac{\mathbf{v}_{1}^{}\mathbf{v}_{1}^{T}}{\mathbf{v}_{1}^{T}\mathbf{v}_{1}^{}} \\
 \\
-& = \begin{pmatrix}
+& = \begin{bmatrix}
 h_{11} & h_{12} & h_{13} & h_{14} \\
 h_{21} & h_{22} & h_{23} & h_{24} \\
 h_{31} & h_{32} & h_{33} & h_{34} \\
 h_{41} & h_{42} & h_{43} & h_{44} \\
-\end{pmatrix}
+\end{bmatrix}
 \end{align*}$$
 
 - 3) $$H_{1}$$와 $$A_{1}$$를 곱한 행렬에서 1행 1열을 제외한 나머지 행렬로 $$A_{2}$$를 만들고, 1 ~ 2번 과정을 되풀이 한다.  
 
-$$H_{1}A_{1} = \left(\begin{array}{c|ccc}
+$$H_{1}A_{1} = \left[\begin{array}{c|ccc}
 a_{11} & a_{12} & a_{13} & a_{14} \\
 \hline
 a_{21} & a_{22} & a_{23} & a_{24} \\
 a_{31} & a_{32} & a_{33} & a_{34} \\
 a_{41} & a_{42} & a_{43} & a_{44} \\
-\end{array} \right)
-\to A_{2} = \begin{pmatrix}
+\end{array} \right]
+\to A_{2} = \begin{bmatrix}
 a_{22} & a_{23} & a_{24} \\
 a_{32} & a_{33} & a_{34} \\
 a_{42} & a_{43} & a_{44} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 - 4) 1 ~ 3번 과정을 되풀이하여 각각의 하우스홀더 행렬이 모두 구해지면, 아래와 같이 단위 행렬과 조합하여 크기를 맞춘다.  
 
 $$\begin{align*}
-H_{1} & = \begin{pmatrix}h_{11} & h_{12} & h_{13} & h_{14} \\
+H_{1} & = \begin{bmatrix}h_{11} & h_{12} & h_{13} & h_{14} \\
 h_{21} & h_{22} & h_{23} & h_{24} \\
 h_{31} & h_{32} & h_{33} & h_{34} \\
 h_{41} & h_{42} & h_{43} & h_{44} \\
-\end{pmatrix} \\
+\end{bmatrix} \\
 \\
-H_{2} & = \begin{pmatrix}1 & 0 & 0 & 0 \\
+H_{2} & = \begin{bmatrix}1 & 0 & 0 & 0 \\
 0 & h_{11} & h_{12} & h_{13} \\
 0 & h_{21} & h_{22} & h_{23} \\
 0 & h_{31} & h_{32} & h_{33} \\
-\end{pmatrix} \\
+\end{bmatrix} \\
 \\
-H_{3} & = \begin{pmatrix}1 & 0 & 0 & 0 \\
+H_{3} & = \begin{bmatrix}1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
 0 & 0 & h_{11} & h_{12} \\
 0 & 0 & h_{21} & h_{22} \\
-\end{pmatrix}
+\end{bmatrix}
 \end{align*}$$
 
 - 5) 아래와 같이 구해진 $$H_{i}$$을 모두 곱해 $$Q$$와 $$R$$을 구한다.  
@@ -460,8 +459,9 @@ q, r = linalg.qr(s)
 
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
 - [위키피디아: 그람-슈미트 과정](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C-%EC%8A%88%EB%AF%B8%ED%8A%B8_%EA%B3%BC%EC%A0%95)([영문](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process))
 - [위키피디아: QR 분해](https://ko.wikipedia.org/wiki/QR_%EB%B6%84%ED%95%B4)([영문](https://en.wikipedia.org/wiki/QR_decomposition))
 - [QR 분해 - 공돌이의 수학정리노트](https://angeloyeo.github.io/2020/11/23/gram_schmidt.html)

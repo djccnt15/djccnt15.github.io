@@ -24,11 +24,6 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
-
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
-
 ## 1. 내적
 
 ### 내적의 개념
@@ -36,17 +31,17 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 [벡터 공간](/maths/2022-05-29-linear_algebra_06/#1-벡터-공간)의 설명에서 언급했듯이 **내적(inner product)**이 주어진 벡터 공간을 **내적 공간(inner product space)**이라고 부르는데, 벡터의 **내적(inner product)**은 벡터를 방향이 일치하는 만큼만 곱한다는 뜻으로 아래와 같이 표기한다.  
 
 $$\mathbf{u}
-= \begin{pmatrix}
+= \begin{bmatrix}
 u_{1} \\
 \vdots \\
 u_{n} \\
-\end{pmatrix}, \quad
+\end{bmatrix}, \quad
 \mathbf{v}
-= \begin{pmatrix}
+= \begin{bmatrix}
 v_{1} \\
 \vdots \\
 v_{n} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \mathbf{u}^{T} \mathbf{v} = \sum_{i=1}^{n}u_{i}v_{i} = \vert \mathbf{u} \vert \vert \mathbf{v} \vert \cos \theta$$
 
@@ -73,8 +68,7 @@ inner_product = np.inner(a, b)
 
 ### 내적의 성질
 
-내적을 사용하면 벡터 사이의 각도를 추정할 수 있다.  
-우선 벡터의 내적과 벡터 사이의 각도의 관계는 아래와 같다.  
+내적을 사용하면 벡터 사이의 각도를 추정할 수 있다. 벡터의 내적과 벡터 사이의 각도의 관계는 아래와 같다.  
 
 - 내적 > 0 이면, 두 벡터 사이의 각도는 90°보다 작다.
 - 내적 < 0 이면, 두 벡터 사이의 각도는 90°보다 크다.
@@ -112,11 +106,17 @@ $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \Vert \
 
 ## 2. 코사인 유사도
 
-**[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미하는데, 노름(norm)을 정리하면 **코사인 유사도(cosine similarity)**를 다음과 같이 유도할 수 있다.  
+**[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미하는데, [노름(norm)](#노름norm)을 통해 정리하면 **코사인 유사도(cosine similarity)**를 다음과 같이 유도할 수 있다.  
 
 $$\mathrm{cosine \ similarity} = S_{c}(\mathbf{u}, \mathbf{v}) = \cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert}$$
 
-각도가 0°일 때의 코사인 값은 1이며, 다른 모든 각도의 코사인 값은 1보다 작다. 따라서 이 값은 벡터의 크기가 아닌 방향의 유사도를 판단하는 목적으로 사용되며, 두 벡터의 방향이 완전히 같을 경우 1, 90°의 각을 이룰 경우 0, 180°로 완전히 반대 방향인 경우 -1의 값을 갖는다. `python`으로 구현하면 아래와 같다.  
+코사인 유사도는 벡터의 크기를 제외한 방향의 유사도를 판단하는 목적으로 사용된다. 코사인 유사도와 각도의 관계는 아래와 같다.  
+
+- $$S_{c}(\mathbf{u}, \mathbf{v}) = 1$$ 일 때, 두 벡터의 방향이 같다.
+- $$S_{c}(\mathbf{u}, \mathbf{v}) = 0$$ 일 때, 두 벡터의 각은 90°
+- $$S_{c}(\mathbf{u}, \mathbf{v}) = -1$$ 일 때, 두 벡터의 각은 180°
+
+코사인 유사도를 구하는 함수를 `python`으로 구현하면 아래와 같다.  
 
 ```python
 # cosine similarity
@@ -143,6 +143,7 @@ res = 1 - spatial.distance.cosine(a, b)
 
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
 - [위키피디아: 코사인 유사도](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)([영문](https://en.wikipedia.org/wiki/Cosine_similarity))

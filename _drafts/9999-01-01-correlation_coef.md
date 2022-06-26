@@ -31,7 +31,7 @@ tags:
 
 상관 계수는 **-1에서 1 사이의 값**을 지니며, 부호는 상관 관계의 방향, 수치는 상관의 정도를 나타낸다. 데이터 분석에 있어서 요구되는 상관 계수의 수치는 분석 대상에 따라 달라지지만, 대체로 사회과학에서는 수치가 조금 낮아도 강력한 상관관계로 해석하며 오히려 너무 높은 상관 관계는 데이터 조작을 의심하게 되지만, 공학계통에서는 높은 상관관계를 요구한다.  
 
-## 피어슨 상관 계수
+## 수치형 변수의 상관 계수
 
 ### 공분산
 
@@ -65,10 +65,10 @@ def cov(a, b):
 
 **공분산 행렬(covariance matrix)**은 위의 공분산을 각 변수들마다 계산하는 것으로, 공분산 행렬 $$\Sigma$$는 아래와 같다.  
 
-$$\Sigma = \begin{pmatrix}
+$$\Sigma = \begin{bmatrix}
 \mathrm{cov}_{x, x} & \mathrm{cov}_{x, y} \\
 \mathrm{cov}_{y, x} & \mathrm{cov}_{y, y} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 `numpy`가 제공하는 공분산 행렬을 계산하는 함수를 사용하면 두 변수 간의 공분산을 구할 수 있다.  
 
@@ -142,7 +142,9 @@ print(pearsonr)
 💡 피어슨 상관계수 $$r$$의 제곱과 다중 선형 회귀 모델의 결정 계수(Coefficient of determination) $$r^{2}$$는 같지 않다. 자세한 내용은 [여기](https://rython.tistory.com/17)를 참고하자.  
 {:.note}
 
-## 스피어만 상관 계수
+## 순서형 변수의 상관 계수
+
+### 스피어만 상관 계수
 
 두 변수 간의 **스피어만 상관 계수(Spearman's rank correlation coefficient)**는 두 변수의 순위 값 사이의 피어슨 상관 계수와 같다. 따라서 피어슨 상관 계수가 두 변수 사이의 선형 관계를 평가하는 반면 스피어만의 상관 계수는 단조적 관계(선형인지 여부는 아님)를 평가한다.  
 
@@ -162,7 +164,7 @@ print(spearmanr)
 SpearmanrResult(correlation=0.8207826816681233, pvalue=0.08858700531354381)
 ```
 
-## 켄달 상관 계수
+### 켄달 상관 계수
 
 **켄달 상관 계수(Kendall rank correlation coefficient, Kendall tau)**는 스피어만 상관 계수와 마찬가지로 두 변수들 간의 순위를 비교하여 연관성을 계산한다.  
 

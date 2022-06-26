@@ -23,11 +23,6 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
-
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
-
 ## 1. 고유값과 고유벡터
 
 행렬의 특성값과 특성 벡터를 **고유값(eigenvalue)**과 **고유벡터(eigenvector)**라고 말한다. **고유벡터(eigenvector)**는 벡터를 선형 변환했을 때 방향은 변하지 않고 크기만 변하는 벡터를 의미하고, 선형 변환 이후 변한 크기를 **고유값(eigenvalue)**이라고 말하며 아래와 같이 표기한다.  
@@ -35,6 +30,10 @@ AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해
 - 행렬 $$A$$의 고유값을 상수 $$\lambda$$, 0이 아닌 $$\mathbf{x}$$를 고유값에 따른 고유벡터라 할 때,  
 
 $$A \mathbf{x} = \lambda \mathbf{x}$$
+
+### 우세한 고유값, 우세한 고유벡터
+
+주어진 $$n \times n$$ 정사각행렬 $$A$$의 고유값이 $$\lambda_{1}, \lambda_{2}, \cdots, \lambda_{n}$$일 때, 절대값이 가장 큰 고유값이 유일하면 해당 고유값을 행렬 $$A$$의 **우세한 고유값(dominant eigenvalue)**이라하고, 우세한 고유값에 대응하는 고유벡터를 **우세한 고유벡터(dominant eigenvector)**라고 한다.  
 
 ## 2. 고유값과 고유벡터 계산
 
@@ -52,10 +51,10 @@ $$\det (A - \lambda I) = 0$$
 
 위 식을 **특성 방정식(characteristic equation)**이라고 하는데, 특성 방정식을 만족하는 모든 $$\lambda$$를 찾는 것이 **고유값(eigenvalue)**을 구하는 것이며, $$\lambda$$에 구해진 **고유값(eigenvalue)**들 대입하여 구한 $$\mathbf{x}$$를 정규화한 것이 **고유벡터(eigenvector)**이다. 이를 바탕으로 행렬 $$A$$의 고유값과 고유벡터를 구해보면 다음과 같다.  
 
-$$A = \begin{pmatrix}
+$$A = \begin{bmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 $$\begin{align*}
 \det (A - \lambda I) & = \begin{vmatrix}
@@ -77,24 +76,26 @@ $$\begin{align*}
 이렇게 구해진 고유값 $$\lambda$$를 식 $$(A - \lambda I) \mathbf{x} = 0$$에 대입하여 정리하면 아래와 같은 꼴의 $$\mathbf{x}$$를 구할 수 있고, $$\mathbf{x}$$를 정규화하여 고유벡터를 구할 수 있다.  
 
 $$\begin{align*}
-\mathbf{x} = & \begin{pmatrix}
+\mathbf{x} = & \begin{bmatrix}
 x_{1} \\
 x_{2} \\
-\end{pmatrix}
-= \begin{pmatrix}
+\end{bmatrix}
+= \begin{bmatrix}
 x_{1} \\
 nx_{1} \\
-\end{pmatrix}
-= \begin{pmatrix}
+\end{bmatrix}
+= \begin{bmatrix}
 1 \\
 n \\
-\end{pmatrix}x_{1} \\
+\end{bmatrix}x_{1} \\
 \\
-& \therefore \mathbf{x} = \begin{pmatrix}
+& \therefore \mathbf{x} = \begin{bmatrix}
 1 \\
 n \\
-\end{pmatrix}
+\end{bmatrix}
 \end{align*}$$
+
+이 때, 고유값 $$\lambda$$가 몇 중근인지를 나타내는 개념을 **대수적 중복도**라고 하고, 같은 고유값 $$\lambda$$를 가지면서 서로 일차독립인 고유벡터의 최대 개수를 고유값 $$\lambda$$의 **기하적 중복도**라고 한다.
 
 ### QR분해를 통한 고유값과 고유벡터 계산
 
@@ -168,5 +169,6 @@ e, v = np.linalg.eig(a)
 
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)

@@ -23,14 +23,9 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
-
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
-
 ## 1. 역행렬
 
-행렬 $$A$$의 **역행렬(inverse matrix)**이란 아래와 같이 $$AB = I$$를 만족하는 행렬 $$B$$를 의미한다.  
+행렬 $$A$$의 **역행렬(inverse matrix)**이란 아래와 같이 $$AB = I$$를 만족하는 행렬 $$B$$를 의미한다. 이 때, $$A$$를 $$B$$의 왼쪽 역행렬(left inverse matrix), $$B$$를 $$A$$의 오른쪽 역행렬(right inverse matrix)라고 부른다.  
 
 $$AA^{-1} = A^{-1}A = I$$
 
@@ -42,16 +37,23 @@ $$(AB)^{-1} = B^{-1}A^{-1}$$
 
 2 * 2 행렬의 역행렬을 구하는 방법은 아래와 같다.  
 
-$$A^{-1} = \frac{1}{a_{11}a_{22}-a_{12}a_{21}} \begin{pmatrix}
+$$\begin{align*}
+A^{-1} & = \frac{1}{\det A} \begin{bmatrix}
 a_{22} & -a_{12} \\
 -a_{21} & a_{11} \\
-\end{pmatrix}, \quad (a_{11}a_{22}-a_{12}a_{21} \neq 0)$$
+\end{bmatrix}, \quad (\det A \neq 0) \\
+\\
+& = \frac{1}{a_{11}a_{22} - a_{12}a_{21}} \begin{bmatrix}
+a_{22} & -a_{12} \\
+-a_{21} & a_{11} \\
+\end{bmatrix}, \quad (a_{11}a_{22} - a_{12}a_{21} \neq 0) \\
+\end{align*}$$
 
 ### n * n 행렬의 역행렬
 
 n * n 행렬의 역행렬을 구하는 방법은 행렬식에서 다룬 [수반 행렬](/maths/2022-05-23-linear_algebra_04/#수반-행렬)을 사용해야 한다. 구하는 방법은 아래와 같다.  
 
-$$A^{-1} = \frac{1}{\det(A)} \mathrm{adj}(A)$$
+$$A^{-1} = \frac{\mathrm{adj} A}{\det A}$$
 
 ## 2. 역행렬 계산
 
@@ -59,27 +61,27 @@ $$A^{-1} = \frac{1}{\det(A)} \mathrm{adj}(A)$$
 
 - 행렬 $$A$$의 오른쪽에 같은 크기를 갖는 단위 행렬 $$I$$를 첨가해 아래와 같이 첨가 행렬 $$[A \vert I]$$를 만든다.  
 
-$$[A|I] = \left(\begin{array}{ccc|ccc}
+$$[A|I] = \left[\begin{array}{ccc|ccc}
 2 & 2 & 0 & 1 & 0 & 0 \\
 -2 & 1 & 1 & 0 & 1 & 0 \\
 3 & 0 & 1 & 0 & 0 & 1 \\
-\end{array} \right)$$
+\end{array} \right]$$
 
 - 이 행렬을 [기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)을 통해 아래와 같이 $$[I \vert B]$$를 만든다.  
 
-$$[I|B] = \left(\begin{array}{ccc|ccc}
+$$[I|B] = \left[\begin{array}{ccc|ccc}
 1 & 0 & 0 & 1/12 & -1/6 & 1/6 \\
 0 & 1 & 0 & 5/12 & 1/6 & -1/6 \\
 0 & 0 & 1 & -1/4 & 1/2 & 1/2 \\
-\end{array} \right)$$
+\end{array} \right]$$
 
 - 만약 이 과정에 성공하여 위와 같은 형태의 첨가 행렬이 나왔을 때, $$A^{-1}=B$$이고, 나오지 않는다면 행렬 $$A$$의 역행렬은 존재하지 않는다.
 
-$$A^{-1} = B = \frac{1}{12} \left(\begin{array}{ccc}
+$$A^{-1} = B = \frac{1}{12} \left[\begin{array}{ccc}
 1 & -2 & 2 \\
 5 & 2 & -2 \\
 -3 & 6 & 6 \\
-\end{array} \right)$$
+\end{array} \right]$$
 
 `python`으로 구현하면 아래와 같다. [선형 시스템](/maths/2022-05-22-linear_algebra_03/#2-선형-시스템)에서 구현했던 함수들을 응용하여 만들었다.  
 
@@ -155,10 +157,11 @@ $$(A^{-1})^{T} = (A^{T})^{-1}$$
 
 - 역행렬과 행렬식
 
-$$\det(A^{-1}) = \frac{1}{\det(A)}$$
+$$\det A^{-1} = \frac{1}{\det A}$$
 
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
 - [Wolfram MathWorld : Gauss-Jordan Elimination](https://mathworld.wolfram.com/Gauss-JordanElimination.html)

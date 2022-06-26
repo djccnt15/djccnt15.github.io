@@ -24,24 +24,19 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
-
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
-
 ## 1. 전치 행렬
 
 **전치 행렬(transposed matrix)**은 기존 행렬의 행과 열을 바꾼 행렬을 말하며 $$A^{T}$$와 같이 표기한다. 수식으로 표현하면 아래와 같다.  
 
-$$A = \begin{pmatrix}
+$$A = \begin{bmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22} \\
 a_{31} & a_{32} \\
-\end{pmatrix}
-\to A^{T} = \begin{pmatrix}
+\end{bmatrix}
+\to A^{T} = \begin{bmatrix}
 a_{11} & a_{21} & a_{31} \\
 a_{12} & a_{22} & a_{32} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 전치 행렬의 성질 중 행렬 곱의 전치 행렬은 아래와 같아 조금 주의해야 한다.  
 
@@ -75,12 +70,12 @@ mat_transpose = a.T
 
 **대칭 행렬(symmetric matrix)**이란 아래와 같이 기존 행렬과 전치 행렬이 동일한 행렬을 말한다.  
 
-$$A = \begin{pmatrix}
+$$A = \begin{bmatrix}
 a & b & c \\
 b & d & e \\
 c & e & f \\
-\end{pmatrix}, \quad
-A_{ij} = A_{ji}$$
+\end{bmatrix}, \quad
+a_{ij} = a_{ji}$$
 
 $$\therefore A = A^{T}$$
 
@@ -96,47 +91,53 @@ def symmetric_check(a):
     return a == At
 ```
 
+### 반대칭 행렬
+
+아래와 같이 [전치 행렬](#1-전치-행렬)이 원래 행렬에 $$-1$$을 곱한 행렬일 경우 행렬 $$A$$를 **반대칭 행렬(skew-symmetric matrix)**이라고 한다.  
+
+$$A^{T} = -A$$
+
 ## 3. 대각 행렬
 
 **대각 행렬(diagonal matrix)**은 아래와 같이 행렬의 주 대각 원소가 아닌 원소가 0인 **정사각** 행렬을 말하며, $$D$$로 표기한다.  
 
-$$D = \begin{pmatrix}
+$$D = \begin{bmatrix}
 d_{11} & 0 & 0 \\
 0 & d_{22} & 0 \\
 0 & 0 & d_{33} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 대각 행렬은 다음과 같이 행렬에 대각 행렬을 곱하면 열 벡터가 배수가 되고, 대각 행렬에 행렬을 곱하면 행 백터가 배수가 되는 성질 때문에 선형대수에서 중요한 역할을 한다.  
 
-$$AD = \begin{pmatrix}
+$$AD = \begin{bmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 d_{11} & 0 & 0 \\
 0 & d_{22} & 0 \\
 0 & 0 & d_{33} \\
-\end{pmatrix}
-= \begin{pmatrix}
+\end{bmatrix}
+= \begin{bmatrix}
 a_{11} \times d_{11} & a_{12} \times d_{22} & a_{13} \times d_{33} \\
 a_{21} \times d_{11} & a_{22} \times d_{22} & a_{23} \times d_{33} \\
 a_{31} \times d_{11} & a_{32} \times d_{22} & a_{33} \times d_{33} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
-$$DA = \begin{pmatrix}
+$$DA = \begin{bmatrix}
 d_{11} & 0 & 0 \\
 0 & d_{22} & 0 \\
 0 & 0 & d_{33} \\
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
-\end{pmatrix}
-= \begin{pmatrix}
+\end{bmatrix}
+= \begin{bmatrix}
 a_{11} \times d_{11} & a_{12} \times d_{11} & a_{13} \times d_{11} \\
 a_{21} \times d_{22} & a_{22} \times d_{22} & a_{23} \times d_{22} \\
 a_{31} \times d_{33} & a_{32} \times d_{33} & a_{33} \times d_{33} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 어떤 행렬의 대각 행렬을 구한다는 것은 대각 원소를 제외한 나머지 원소를 0으로 바꾸는 것을 의미하는데, 대각 원소 구하는 것과 대각 행렬 구하는 것을 `python`으로 구현하면 아래와 같다.  
 
@@ -169,18 +170,18 @@ diagonal_matrix = np.diag(diagonal_ele)
 
 **이중 대각 행렬(bidiagonal matrix)**은 아래와 같이 대각 원소에 더해 대각 원소의 바로 위나 아래의 원소가 0이 아닌 행렬을 말한다. 삼각 행렬과 마찬가지로 upper bidiagonal matrix와 lower bidiagonal matrix가 있다.  
 
-$$A = \begin{pmatrix}
+$$A = \begin{bmatrix}
 a_{11} & a_{12} & 0 & 0 \\
 0 & a_{22} & a_{23} & 0 \\
 0 & 0 & a_{33} & a_{34} \\
 0 & 0 & 0 & a_{44} \\
-\end{pmatrix}, \quad
-A = \begin{pmatrix}
+\end{bmatrix}, \quad
+A = \begin{bmatrix}
 a_{11} & 0 & 0 & 0 \\
 a_{21} & a_{22} & 0 & 0 \\
 0 & a_{32} & a_{33} & 0 \\
 0 & 0 & a_{43} & a_{44} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 어떤 행렬을 받아서 이중 대각 행렬을 반환하는 함수를 `python`으로 구현하면 아래와 같다.  
 
@@ -220,13 +221,13 @@ mat_bidiag_l = diag + diag_l
 
 ## 4. 단위 행렬
 
-**단위 행렬(identity matrix)**은 아래와 같이 주 대각 원소가 1이고 그 외 나머지 원소는 모두 0인 **대각 행렬**을 의미한다. $$I$$로 표기하며, 항등 행렬이라고도 부른다.  
+**단위 행렬(identity matrix)**은 아래와 같이 주 대각 원소가 1이고 그 외 나머지 원소는 모두 0인 [대각 행렬](#3-대각-행렬)을 의미한다. $$I$$로 표기하며, 항등 행렬이라고도 부른다.  
 
-$$I = \begin{pmatrix}
+$$I = \begin{bmatrix}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1 \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 단위 행렬은 **단위**라는 말에서 알 수 있듯이, 다른 행렬과 곱했을 때 곱해진 행렬을 그대로 유지하는 성질이 있다.  
 
@@ -252,12 +253,12 @@ i = np.identity(3)
 
 ## 5. 영 행렬
 
-**영 행렬(zero matrix)**은 아래와 같이 행렬의 구성 원소가 모두 0인 행렬을 말한다.  
+**영 행렬(zero matrix)**은 아래와 같이 행렬의 구성 원소가 모두 0인 행렬, **영 벡터(zero vector)**는 구성 원소가 모두 0인 벡터를 말한다.  
 
-$$0 = \begin{pmatrix}
+$$0 = \begin{bmatrix}
 0 & 0 \\
 0 & 0 \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 `python`으로 구현하면 아래와 같다.  
 
@@ -285,18 +286,18 @@ z = np.zeros((3, 2))
 
 ## 6. 삼각 행렬
 
-**삼각 행렬(triangular matrix)**은 0이 아닌 구성 원소가 삼각형 형태인 행렬로, 주 대각 원소 아래쪽의 모든 원소가 0인 상 삼각 행렬(upper triangular matrix)과 주 대각 원소 위쪽의 모든 원소가 0인 하 삼각 행렬(lower triangular matrix)이 있다.  
+**삼각 행렬(triangular matrix)**은 0이 아닌 구성 원소가 삼각형 형태인 행렬로, 주 대각 원소 아래쪽의 모든 원소가 0인 **상 삼각 행렬(upper triangular matrix)**과 주 대각 원소 위쪽의 모든 원소가 0인 **하 삼각 행렬(lower triangular matrix)**이 있다.  
 
-$$U = \begin{pmatrix}
+$$U = \begin{bmatrix}
 u_{11} & u_{12} & u_{13} \\
 0 & u_{22} & u_{23} \\
 0 & 0 & u_{33} \\
-\end{pmatrix}, \quad
-L = \begin{pmatrix}
+\end{bmatrix}, \quad
+L = \begin{bmatrix}
 l_{11} & 0 & 0 \\
 l_{21} & l_{22} & 0 \\
 l_{31} & l_{32} & l_{33} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 입력된 행렬을 삼각 행렬로 만들어주는 것을 `python`으로 구현하면 아래와 같다.  
 
@@ -329,14 +330,14 @@ mat_tri_l = np.trul(a)
 
 **토플리츠 행렬(toeplitz matrix)**은 아래와 같이 1행의 원소가 2행으로 가면서 한 열씩 오른쪽으로 이동하는 행렬을 말하며, $$T$$로 표시한다. **시계열 데이터를 행렬 형태로 변환할 때 사용**한다.  
 
-$$T = \begin{pmatrix}
+$$T = \begin{bmatrix}
 t_{0} & t_{-1} & t_{-2} & \cdots & t_{-(n-1)} \\
 t_{1} & t_{0} & t_{-1} & \ddots & \vdots \\
 t_{2} & t_{1} & \ddots & \ddots & \vdots \\
 \vdots & \ddots & \ddots & t_{-1} & t_{-2} \\
 \vdots & \ddots & t_{1} & t_{0} & t_{-1} \\
 t_{n-1} & t_{n-2} & \cdots & t_{1} & t_{0} \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 토플리츠 행렬 $$T$$의 $$i$$행 $$j$$열 원소는 다음과 같이 표현할 수 있다.  
 
@@ -367,16 +368,15 @@ mat_toeplitz = toeplitz(g, h)
 
 **하우스홀더 행렬(householder matrix)**은 모든 열이 [정규 직교(orthonormal)](/maths/2022-06-06-linear_algebra_08/#1-직교-공간)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
 
-$$\mathbf{v} = \begin{pmatrix}
+$$\mathbf{v} = \begin{bmatrix}
 v_{1} \\
 v_{2} \\
 \vdots \\
 v_{n}
-\end{pmatrix}$$
+\end{bmatrix}
+\to H = I - 2\frac{\mathbf{vv}^{T}}{\mathbf{v}^{T}\mathbf{v}}$$
 
-$$H = I - 2\frac{\mathbf{vv}^{T}}{\mathbf{v}^{T}\mathbf{v}}$$
-
-$${\mathbf{vv}^{T}}$$은 벡터의 외적, $${\mathbf{v}^{T}\mathbf{v}}$$은 벡터의 내적을 뜻하기 때문에 하우스홀더 행렬 공식을 `python`으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
+$${\mathbf{vv}^{T}}$$은 [벡터의 외적](/maths/2022-06-09-linear_algebra_09/#1-외적), $${\mathbf{v}^{T}\mathbf{v}}$$은 [벡터의 내적](/maths/2022-06-05-linear_algebra_07/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 `python`으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 ```python
 # outer product, tensor product of vector
@@ -427,5 +427,6 @@ H = i - 2 * (outer / inner)
 
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)

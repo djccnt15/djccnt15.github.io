@@ -23,11 +23,6 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
-
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
-
 ## 1. 행렬의 대각화
 
 ### 대각화
@@ -50,19 +45,19 @@ $$n \times n$$ 행렬 $$A$$가 직교 대각화가 가능하려면 다음 조건
 **고유값 분해(eigenvalue decomposition)**는 직교 대각화의 한 종류로, 아래와 같이 정사각 행렬을 [고유값과 고유 벡터](/maths/2022-06-11-linear_algebra_10/)의 곱으로 분해하는 것을 의미한다.  
 
 $$\begin{align*}
-\begin{pmatrix}
+\begin{bmatrix}
 \sigma_{11} & \sigma_{12} & \sigma_{13} \\
 \sigma_{21} & \sigma_{22} & \sigma_{23} \\
 \sigma_{31} & \sigma_{32} & \sigma_{33} \\
-\end{pmatrix} &
-= (\mathbf{u}_{1} \quad \mathbf{u}_{2} \quad \mathbf{u}_{3})\begin{pmatrix}
+\end{bmatrix} &
+= (\mathbf{u}_{1} \quad \mathbf{u}_{2} \quad \mathbf{u}_{3})\begin{bmatrix}
 \lambda_{1} & 0 & 0 \\
 0 & \lambda_{2} & 0 \\
 0 & 0 & \lambda_{3} \\
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 \mathbf{u}_{1}^{T} \\
 \mathbf{u}_{2}^{T} \\
-\mathbf{u}_{3}^{T}\end{pmatrix} \\
+\mathbf{u}_{3}^{T}\end{bmatrix} \\
 \\
 A & = PDP^{T} = P \Lambda P^{-1}
 \end{align*}$$
@@ -165,5 +160,6 @@ u, s, vt = np.linalg.svd(a)
 
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)

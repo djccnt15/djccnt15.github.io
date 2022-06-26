@@ -22,40 +22,35 @@ tags:
 * toc
 {:toc}
 
-AI를 제대로 이해하고 구현하려면 선형대수의 이해가 필요해서 선형대수를 기초부터 다시 공부하고 정리하려고 한다.  
-교재로는 **장철원**님의 **알고리즘 구현으로 배우는 선형대수 with 파이썬**을 보고 있다.  
-
-[구현한 함수 저장소](https://github.com/djccnt15/maths)
-
 ## 1. 기본 행렬
 
 **기본 행렬(elementary matrix)**은 단위 행렬에 [기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)을 한 번 실행하여 얻어진 행렬을 말하며, 일반적으로 $$E$$로 표기한다. 기본 행렬은 아래와 같이 일반적인 행렬에 비해 역행렬을 아주 쉽게 구할 수 있다.  
 
 - 기본 행렬이 대각 행렬인 경우, 1이 아닌 원소의 역수를 대입하면 된다.
 
-$$E = \begin{pmatrix}
+$$E = \begin{bmatrix}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & n \\
-\end{pmatrix}
-\to E^{-1} = \begin{pmatrix}
+\end{bmatrix}
+\to E^{-1} = \begin{bmatrix}
 1 & 0 & 0 \\
 0 & 1 & 0 \\
 0 & 0 & 1/n \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 - 기본 행렬이 대각 행렬이 아닌 경우, 0이 아닌 원소의 부호를 바꿔주면 된다.
 
-$$E = \begin{pmatrix}
+$$E = \begin{bmatrix}
 1 & 0 & 0 \\
 n & 1 & 0 \\
 0 & 0 & 1 \\
-\end{pmatrix}
-\to E^{-1} = \begin{pmatrix}
+\end{bmatrix}
+\to E^{-1} = \begin{bmatrix}
 1 & 0 & 0 \\
 -n & 1 & 0 \\
 0 & 0 & 1 \\
-\end{pmatrix}$$
+\end{bmatrix}$$
 
 ## 2. LU 분해
 
@@ -66,20 +61,20 @@ n & 1 & 0 \\
 $$\begin{align*}
 A & = LU \\
 \\
-\begin{pmatrix}
+\begin{bmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
-\end{pmatrix} & = \begin{pmatrix}
+\end{bmatrix} & = \begin{bmatrix}
 l_{11} & 0 & 0 \\
 l_{21} & l_{22} & 0 \\
 l_{31} & l_{32} & l_{33} \\
-\end{pmatrix}
-\begin{pmatrix}
+\end{bmatrix}
+\begin{bmatrix}
 u_{11} & u_{12} & u_{13} \\
 0 & u_{22} & u_{23} \\
 0 & 0 & u_{33} \\
-\end{pmatrix}
+\end{bmatrix}
 \end{align*}$$
 
 ### LU 분해 방법
@@ -137,6 +132,9 @@ def lu_decomp(a):
     return l, u
 ```
 
+출처: [알고리즘 구현으로 배우는 선형대수 with 파이썬](https://github.com/bjpublic/linearalgebra)
+{:.text-center}
+
 `scipy`로 LU 분해를 수행하는 방법은 아래와 같다. `numpy`에는 LU 분해를 위한 함수가 없다.  
 
 ```python
@@ -166,69 +164,70 @@ $$U \mathbf{x} = \mathbf{y} \Leftrightarrow L \mathbf{y} = B$$
 $$\begin{align*}
 A \mathbf{x} & = B \\
 \\
-\Leftrightarrow & \begin{pmatrix}
+\Leftrightarrow & \begin{bmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
 a_{31} & a_{32} & a_{33} \\
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 x_{1} \\
 x_{2} \\
 x_{3} \\
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 b_{1} \\
 b_{2} \\
 b_{3} \\
-\end{pmatrix}\\
+\end{bmatrix}\\
 \\
-\Leftrightarrow & \begin{pmatrix}
+\Leftrightarrow & \begin{bmatrix}
 l_{11} & 0 & 0 \\
 l_{21} & l_{22} & 0 \\
 l_{31} & l_{32} & l_{33} \\
-\end{pmatrix}
-\begin{pmatrix}
+\end{bmatrix}
+\begin{bmatrix}
 u_{11} & u_{12} & u_{13} \\
 0 & u_{22} & u_{23} \\
 0 & 0 & u_{33} \\
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 x_{1} \\
 x_{2} \\
 x_{3} \\
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 b_{1} \\
 b_{2} \\
 b_{3} \\
-\end{pmatrix} \\
+\end{bmatrix} \\
 \\
-\Leftrightarrow & \begin{pmatrix}
+\Leftrightarrow & \begin{bmatrix}
 l_{11} & 0 & 0 \\
 l_{21} & l_{22} & 0 \\
 l_{31} & l_{32} & l_{33} \\
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 y_{1} \\
 y_{2} \\
 y_{3} \\
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 b_{1} \\
 b_{2} \\
 b_{3} \\
-\end{pmatrix} \\
+\end{bmatrix} \\
 \\
-\Leftrightarrow & \begin{pmatrix}
+\Leftrightarrow & \begin{bmatrix}
 u_{11} & u_{12} & u_{13} \\
 0 & u_{22} & u_{23} \\
 0 & 0 & u_{33} \\
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 x_{1} \\
 x_{2} \\
 x_{3} \\
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 y_{1} \\
 y_{2} \\
 y_{3} \\
-\end{pmatrix}
+\end{bmatrix}
 \end{align*}$$
 
 ---
 ## Reference
+- [구현한 함수 git repository](https://github.com/djccnt15/maths)
+- [미적분과 벡터해석 기초 with Python](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791160735314)
 - [알고리즘 구현으로 배우는 선형대수 with 파이썬](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791165921125)([코드](https://github.com/bjpublic/linearalgebra))
-- [로스카츠의 AI 머신러닝](https://losskatsu.github.io/)
