@@ -50,7 +50,7 @@ $$\begin{align*}
 \sigma_{21} & \sigma_{22} & \sigma_{23} \\
 \sigma_{31} & \sigma_{32} & \sigma_{33} \\
 \end{bmatrix} &
-= (\mathbf{u}_{1} \quad \mathbf{u}_{2} \quad \mathbf{u}_{3})\begin{bmatrix}
+= [\mathbf{u}_{1} \quad \mathbf{u}_{2} \quad \mathbf{u}_{3}]\begin{bmatrix}
 \lambda_{1} & 0 & 0 \\
 0 & \lambda_{2} & 0 \\
 0 & 0 & \lambda_{3} \\
