@@ -176,7 +176,7 @@ $$\begin{align*}
 def gram_schmidt(s):
     res = []
 
-    for i, v in enumerate(s):
+    for i, _ in enumerate(s):
         if i == 0:
             res.append(s[i])
 

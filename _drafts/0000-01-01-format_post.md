@@ -27,10 +27,5 @@ tags:
 text
 
 ---
-## Alternatives
-
-text
-
----
 ## Reference
 - text

@@ -265,7 +265,7 @@ $$0 = \begin{bmatrix}
 ```python
 # zero matrix
 def mat_zeros(r, c):
-    Z = [[0 for j in range(c)] for i in range(r)]
+    Z = [[0 for _ in range(c)] for _ in range(r)]
 
     return Z
 
@@ -348,7 +348,7 @@ $$T_{i,j} = T_{i+1,j+1} = t_{i-j}$$
 ```python
 # toeplitz matrix
 def mat_toeplitz(a, b):
-    T = [[a[i - j] if i >= j else b[j - i] for j, m in enumerate(b)] for i, n in enumerate(a)]
+    T = [[a[i - j] if i >= j else b[j - i] for j, _ in enumerate(b)] for i, _ in enumerate(a)]
 
     return T
 ```
