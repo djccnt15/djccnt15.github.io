@@ -24,8 +24,8 @@ AI 기획자 겸 주니어 AI 개발자, 데이터사이언티스트 지망생, 
 
 취미로 이런저런 토이 프로젝트도 진행 중입니다.  
 
+- 각종 AI 관련 프로젝트 기획 및 모델 개발
 - 데이터 분석 및 시각화
-- 각종 AI 기반 예측 모델 기획 및 개발
 - 사무자동화 관련 프로그램
 
 ---
@@ -42,25 +42,15 @@ AI 기획자 겸 주니어 AI 개발자, 데이터사이언티스트 지망생, 
 
 ## Interests and Skills
 
-### Programming Language
-
-> [![python_logo](/assets/img/posts/logo_Python.svg){: width="3%" height="3%"} Python](https://www.python.org/)
-
-### Data Science
-
-> [![statsmodels_logo](/assets/img/posts/logo_statsmodels.svg){: width="3%" height="3%"} statsmodels](https://www.statsmodels.org/)
-> [![pandas_logo](/assets/img/posts/logo_pandas.svg){: width="3%" height="3%"} pandas](https://pandas.pydata.org/)
-> [![numpy_logo](/assets/img/posts/logo_numpy.svg){: width="3%" height="3%"} NumPy](https://numpy.org/)
-
-### AI, Machine Learning, Deep Learning
-
-> [![tensorflow_logo](/assets/img/posts/logo_Tensorflow.svg){: width="3%" height="3%"} TensorFlow](https://www.tensorflow.org/), [![keras_logo](/assets/img/posts/logo_Keras.svg){: width="3%" height="3%"} Keras](https://keras.io/)
-> [![sklearn_logo](/assets/img/posts/logo_scikit-learn.png){: width="5%" height="5%"} scikit-learn](https://scikit-learn.org/)
-
-### Visualization
-
-> [![matplotlib_logo](/assets/img/posts/logo_Matplotlib.svg){: width="3%" height="3%"} Matplotlib](https://matplotlib.org/)
-> [![seaborn_logo](/assets/img/posts/logo_seaborn.svg){: width="3%" height="3%"} seaborn](https://seaborn.pydata.org/)
+- Programming Language
+    - [![python_logo](/assets/img/posts/logo_Python.svg){: width="3%" height="3%"} Python](https://www.python.org/)
+- Data Science
+    - [![statsmodels_logo](/assets/img/posts/logo_statsmodels.svg){: width="3%" height="3%"} statsmodels](https://www.statsmodels.org/)
+    - [![pandas_logo](/assets/img/posts/logo_pandas.svg){: width="3%" height="3%"} pandas](https://pandas.pydata.org/)
+    - [![numpy_logo](/assets/img/posts/logo_numpy.svg){: width="3%" height="3%"} NumPy](https://numpy.org/)
+- AI, Machine Learning, Deep Learning
+    - [![tensorflow_logo](/assets/img/posts/logo_Tensorflow.svg){: width="3%" height="3%"} TensorFlow](https://www.tensorflow.org/), [![keras_logo](/assets/img/posts/logo_Keras.svg){: width="3%" height="3%"} Keras](https://keras.io/)
+    - [![sklearn_logo](/assets/img/posts/logo_scikit-learn.png){: width="5%" height="5%"} scikit-learn](https://scikit-learn.org/)
 
 ---
 
@@ -81,6 +71,8 @@ AI 기획자 겸 주니어 AI 개발자, 데이터사이언티스트 지망생, 
 
 ### Articles
 
+- 2021년
+    - 석사학위논문. [스마트공장 성숙도 수준 기반 도입기업 특성 분석](http://www.riss.kr/link?id=T15766958)
 - 2020년
     - KCI. [6-도메인 스마트팩토리 성숙도 평가 모델 기반 도입기업 군집분석](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002627006)
 
@@ -90,13 +82,12 @@ AI 기획자 겸 주니어 AI 개발자, 데이터사이언티스트 지망생, 
 
 ### Career
 
-- 2021 ~ [위즈코어 주식회사](http://wizcore.co.kr/)  
+- 2021 ~ [WIZCORE 주식회사](http://wizcore.co.kr/)  
 - 2019 ~ 2021 충북대학교 지능정보시스템 연구실
 
 ### Education
 
 - 2021 충북대학교 경영정보학 석사 졸업  
-    - 석사학위논문. [스마트공장 성숙도 수준 기반 도입기업 특성 분석](http://www.riss.kr/link?id=T15766958)
 
 ### Certificate
 

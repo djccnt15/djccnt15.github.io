@@ -4,13 +4,12 @@ layout: post
 
 title: '[자료구조] 01. 자료구조의 기초'
 description: >
-    자료 구조의 기본 개념
+    자료구조의 기본 개념
 hide_description: false
 image:
     path: /assets/img/posts/data_structure_01.png
-# related_posts:
-#     - _posts/blog/2017-11-23-example-content-ii.md
-#     - /example/2012-02-07-example-content/
+related_posts:
+    - _posts/programming/2022-06-25-data_structure_01.md
 
 categories:
     - programming
@@ -31,7 +30,7 @@ tags:
 
 다양한 자료구조가 있지만, 그 중에서도 다음의 자료구조들이 가장 기본적이라고 한다.
 
-- 배열(Array)
+- [배열(Array)](/programming/2022-06-26-data_structure_02/)
     - 가장 기본적인 자료형으로, 자료를 원소로 취급해 나열한 자료구조를 말한다.
     - 생성 시 원소들에게 부여되는 index를 통해 원소들에게 접근 가능하다.
 - 스택(Stack)
@@ -48,6 +47,5 @@ tags:
 ---
 ## Reference
 - [Encyclopedia Britannica](https://www.britannica.com/technology/data-structure)
-- [자료구조 : K-MOOC](http://www.kmooc.kr/courses/course-v1:YeungnamUnivK+YU216002+2018_01/about)
 - [[Data structure] 개발자라면 꼭 알아야 할 7가지 자료구조](https://velog.io/@jha0402/Data-structure-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%9D%BC%EB%A9%B4-%EA%BC%AD-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%A0-7%EA%B0%80%EC%A7%80-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0#%EB%B0%B0%EC%97%B4-array)
-- [[자료구조]1.1 Introductions to Data Structure](https://lizable.github.io/datastructure/Introductions-to-data-structure/#)
+- [[자료구조]1.1 Introductions to Data Structure](https://lizable.github.io/datastructure/Introductions-to-data-structure/)
