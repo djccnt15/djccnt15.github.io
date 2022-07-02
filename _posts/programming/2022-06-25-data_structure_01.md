@@ -9,7 +9,7 @@ hide_description: false
 image:
     path: /assets/img/posts/data_structure_01.png
 related_posts:
-    - _posts/programming/2022-06-25-data_structure_01.md
+    - _posts/programming/2022-06-26-data_structure_02.md
 
 categories:
     - programming

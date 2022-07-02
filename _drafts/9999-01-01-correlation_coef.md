@@ -47,7 +47,7 @@ $$Cov(X,Y) = \frac{\sum_{i}^{n}(X_i - \overline{X})(Y_i - \overline{Y})}{n - 1}$
 
 ```python
 # expected value of x
-def x_bar(x):
+def bar(x):
     res = sum(x) / len(x)
 
     return res
@@ -55,8 +55,8 @@ def x_bar(x):
 # covariance
 def cov(a, b):
     n = len(a)
-    a_bar = x_bar(a)
-    b_bar = x_bar(b)
+    a_bar = bar(a)
+    b_bar = bar(b)
 
     res = sum((a[i] - a_bar) * (b[i] - b_bar) for i in range(n)) / (n - 1)
 
