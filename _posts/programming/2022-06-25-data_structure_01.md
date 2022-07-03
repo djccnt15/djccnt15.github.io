@@ -33,7 +33,7 @@ tags:
 - [배열(Array)](/programming/2022-06-26-data_structure_02/)
     - 가장 기본적인 자료형으로, 자료를 원소로 취급해 나열한 자료구조를 말한다.
     - 생성 시 원소들에게 부여되는 index를 통해 원소들에게 접근 가능하다.
-- 스택(Stack)
+- [스택(Stack)](/programming/2022-07-02-data_structure_03/)
     - 순서가 보존되는 선형 데이터 구조 유형으로, LIFO(Last In First Out) 메커니즘에 따라 데이터를 처리한다.
 - 큐(Queue)
     - 순서가 보존되는 선형 데이터 구조 유형으로, FIFO(First In First Out) 메커니즘에 따라 데이터를 처리한다.

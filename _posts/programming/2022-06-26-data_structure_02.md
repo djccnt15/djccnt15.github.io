@@ -10,6 +10,7 @@ image:
     path: /assets/img/posts/data_structure_02.png
 related_posts:
     - _posts/programming/2022-06-25-data_structure_01.md
+    - _posts/programming/2022-07-02-data_structure_03.md
 
 categories:
     - programming
@@ -33,37 +34,37 @@ tags:
 class DataStructure:
     'all elements must be same type'
 
-    def __init__(self, n:int):
-        self.array = [None] * n
-        self._num = n
-        # self._index = 0 # alternative way to make obj iterator
+    def __init__(self, capacity:int=256) -> None:
+        self.array = [None] * capacity
+        # self._capacity = capacity
+        # self._index = 0
 
-    def __len__(self): # make obj countable by len()
-        return self._num
+    def __contains__(self, val) -> int:  # make obj possible to use 'in' operator
+        if val in self.array:
+            return True
+        else:
+            return False
 
-    def __contains__(self, a): # make obj possible to use 'in' operator
-        return self.count(a)
+    def __iter__(self) -> iter:  # make obj iterable
+        return iter(self.array)  # return obj iterator
 
-    def __iter__(self): # make obj iterable
-        return iter(self.array) # return obj iterator
-
-    # def __next__(self): # alternative way to make obj iterator
-    #     if self._index < self._num:
+    # def __next__(self):  # alternative way to return obj iterator
+    #     if self._index < self._capacity:
     #         idx = self._index
     #         self._index += 1
     #         return self.array[idx]
     #     else:
     #         raise StopIteration
 
-    def count(self, a):
+    def count(self, val) -> int:
         res = 0
         for i in self.array:
-            if a == i:
+            if val == i:
                 res += 1
         return res
 
-    def index(self, a): # linear search
-        res = [i for i, v in enumerate(self.array) if v == a]
+    def index(self, val) -> int:  # linear search
+        res = [i for i, v in enumerate(self.array) if v == val]
         return res if len(res) > 0 else None
 
     def min(self):
@@ -80,39 +81,26 @@ class DataStructure:
                 res = i
         return res
 
+
 class MyArray(DataStructure):
     'all elements must be same type'
 
-    def __init__(self, n:int):
-        self.array = [None] * n
-        self._num = n
+    def __len__(self) -> int:  # make obj countable by len()
+        res = 0
+        for i in self.array:
+            if i != None:
+                res += 1
+        return res
 
-    def replace(self, idx:int, a):
-        self.array = [v if i < idx else a if i == idx else v for i, v in enumerate(self.array)]
+    def replace(self, idx:int, val) -> DataStructure:
+        self.array = [v if i < idx else val if i == idx else v for i, v in enumerate(self.array)]
         return self.array
 
-    def append(self, *a):
-        self._num += len(a)
-        self.array.extend(a)
+    def remove(self, idx:int) -> DataStructure:
+        self.array = [v if i < idx else None if i == idx else v for i, v in enumerate(self.array)]
         return self.array
 
-    def insert(self, idx:int, *a):
-        self._num += len(a)
-        until, after = [], []
-        for i, v in enumerate(self.array):
-            if i < idx:
-                until.append(v)
-            else:
-                after.append(v)
-        self.array = until + [*a] + after
-        return self.array
-
-    def remove(self, idx:int):
-        self._num -= 1
-        del self.array[idx]
-        return self.array
-
-    def reverse(self):
+    def reverse(self) -> DataStructure:
         n = len(self.array)
         for i in range(n // 2):
             self.array[i], self.array[n - i - 1] = self.array[n - i - 1], self.array[i]
