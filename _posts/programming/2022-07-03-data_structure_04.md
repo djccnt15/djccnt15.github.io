@@ -21,7 +21,7 @@ tags:
 * toc
 {:toc}
 
-## 큐
+## 큐의 개념
 
 **큐(Queue)**는 FIFO(First In First Out) 메커니즘에 따라 데이터를 처리하는 자료 구조로, 개념과 관련된 용어들은 다음과 같다.  
 
@@ -36,6 +36,8 @@ tags:
 `python`으로 큐를 구현할 때, `list.pop(0)`을 사용하면 FIFO 방식의 `dequeue`처럼 작동하기는 하는데, 이러면 매 연산마다 모든 객체에 index를 새로 부여하느라 O(n)의 시간 복잡도가 생긴다.  
 
 **원형 버퍼(Ring Buffer)**는 고정 크기의 큐를 마치 양 끝이 연결된 것처럼 사용할 수 있는 자료 구조를 말하는데, index로 인한 시간 복잡도를 해결하기 위해서는 원형 버퍼를 사용하면 된다.  
+
+## 큐의 구현
 
 위 내용들을 고려하면서 `python`으로 큐를 구현하면 아래와 같다.  
 
@@ -114,11 +116,9 @@ from queue import Queue
 queue = Queue()
 ```
 
-## 덱
+## 덱의 개념
 
 **덱(Deque, Double-ended queue)**이란 양 끝에서 `enqueue`와 `dequeue`가 모두 가능한 형태의 자료 구조를 말한다.  
-
-`python`으로 구현하면 아래와 같다.
 
 `python` 내장 모듈 `queue`는 아래와 같이 덱을 지원하고 있다.
 

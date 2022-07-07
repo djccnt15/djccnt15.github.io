@@ -10,6 +10,7 @@ image:
     path: /assets/img/posts/data_structure_03.png
 related_posts:
     - _posts/programming/2022-06-26-data_structure_02.md
+    - _posts/programming/2022-07-03-data_structure_04.md
 
 categories:
     - programming
@@ -21,7 +22,7 @@ tags:
 * toc
 {:toc}
 
-## 스택
+## 스택의 개념
 
 **스택(stack)**은 **LIFO(Last In First Out)** 메커니즘에 따라 데이터를 처리하는 자료 구조로, 개념과 관련된 용어들은 다음과 같다.  
 
@@ -35,6 +36,8 @@ tags:
 - `push`: 입력연산, 스택에 데이터를 추가한다.
 - `pop`: 출력연산, 스택에서 데이터를 꺼낸다.
 - `peek`: 조회연산, 스택의 `top`에 있는 데이터를 확인한다.
+
+## 스택의 구현
 
 스택을 `python`으로 구현하면 아래와 같다.  
 
