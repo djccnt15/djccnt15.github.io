@@ -37,7 +37,7 @@ tags:
     - 순서가 보존되는 선형 데이터 구조 유형으로, LIFO(Last In First Out) 메커니즘에 따라 데이터를 처리한다.
 - [큐(Queue)](/programming/2022-07-03-data_structure_04/)
     - 순서가 보존되는 선형 데이터 구조 유형으로, FIFO(First In First Out) 메커니즘에 따라 데이터를 처리한다.
-- 연결 리스트(Linked List)
+- [연결 리스트(Linked List)](/programming/2022-07-08-data_structure_05/)
     - 노드(node, 데이터 묶음)를 저장할 때 그 다음 순서의 자료가 있는 위치를 데이터에 포함시키는 방식으로 자료를 저장하는 자료 구조를 말한다.
 - 그래프(Graph)
     - 정점(vertex) 사이에 변(edge)이 있는 자료구조로, 일방통행을 나타내는 Directed graph와 양방향 통행을 나타내는 Undirected graph가 있다.

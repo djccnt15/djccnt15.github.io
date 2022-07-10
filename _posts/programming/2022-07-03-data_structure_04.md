@@ -10,6 +10,7 @@ image:
     path: /assets/img/posts/data_structure_04.png
 related_posts:
     - _posts/programming/2022-07-02-data_structure_03.md
+    - _posts/programming/2022-07-08-data_structure_05.md
 
 categories:
     - programming
