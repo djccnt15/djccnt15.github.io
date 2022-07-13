@@ -22,6 +22,17 @@ tags:
 * toc
 {:toc}
 
+<h4>Data Structure Series</h4>
+<div class="taxonomy__index">
+    <ol class="description">
+        <li><a href="/programming/2022-06-25-data_structure_01/">자료구조의 기초</a></li>
+        <li><a href="/programming/2022-06-26-data_structure_02/">배열</a></li>
+        <li><a href="/programming/2022-07-02-data_structure_03/">스택</a></li>
+        <li><a href="/programming/2022-07-03-data_structure_04/">큐, 덱</a></li>
+        <li><a href="/programming/2022-07-08-data_structure_05/">연결 리스트</a></li>
+    </ol>
+</div>
+
 ## 큐의 개념
 
 **큐(Queue)**는 FIFO(First In First Out) 메커니즘에 따라 데이터를 처리하는 자료 구조로, 개념과 관련된 용어들은 다음과 같다.  
