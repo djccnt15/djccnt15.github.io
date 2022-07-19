@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[Python] ensurepip'
+title: '[Python] No module named pip'
 description: >
     How to reinstall pip
 hide_description: false

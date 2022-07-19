@@ -12,7 +12,7 @@ related_posts:
     - _posts/maths/2022-01-19-regression_linear_scratch.md
 
 categories:
-    - maths
+    - data_science
 tags:
     - data science
     - data analysis
