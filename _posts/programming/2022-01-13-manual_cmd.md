@@ -14,6 +14,7 @@ related_posts:
 categories:
     - programming
 tags:
+    - ⭐starred
     - programming
 ---
 * toc
@@ -167,8 +168,11 @@ $ rm -rf <dir_name>
 # windows
 > copy <source> <destination>
 
-# linux
+# linux for file
 $ cp <source> <destination>
+
+# linux for directory
+$ cp -r <source> <destination>
 ```
 
 ## 3. 네트워크 관련 명령어들
