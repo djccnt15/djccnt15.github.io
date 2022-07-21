@@ -62,6 +62,8 @@ menu:
 legal:
   - title:             LICENSE
     url:               /LICENSE/
+  - title:             COOKIES POLICY
+    url:               /cookies-policy/
 
 # This text will appear in a `<small>` tag in the footer of every page.
 copyright:             © 2021. All rights reserved.
