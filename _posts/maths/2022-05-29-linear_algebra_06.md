@@ -24,19 +24,19 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
@@ -82,7 +82,7 @@ $$A = \{a_{1}, a_{2}, \cdots a_{n}\}$$이 벡터공간 $$S$$내의 벡터들의 
 
 ### 단위 벡터
 
-길이가 1인 벡터를 **단위 벡터(unit vector)**라고 하며, 아래와 같이 표기하고 구한다. 아래 표기에서 $$\mathrm{sgn}$$은 부호 함수를 뜻하며, $$\Vert \mathbf{u} \Vert$$는 [노름(norm)](/maths/2022-06-05-linear_algebra_07/#노름norm)을 뜻한다.  
+길이가 1인 벡터를 **단위 벡터(unit vector)**라고 하며, 아래와 같이 표기하고 구한다. 아래 표기에서 $$\mathrm{sgn}$$은 부호 함수를 뜻하며, $$\Vert \mathbf{u} \Vert$$는 [노름(norm)](/maths/linear_algebra_07/#노름norm)을 뜻한다.  
 
 $$\widehat{\mathbf{u}} = \mathrm{sgn} (\mathbf{u}) = \frac{\mathbf{u}}{\Vert \mathbf{u} \Vert}$$
 

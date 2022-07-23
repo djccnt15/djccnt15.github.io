@@ -26,19 +26,19 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
@@ -70,13 +70,13 @@ a_{22} & -a_{12} \\
 
 ### n * n 행렬의 역행렬
 
-n * n 행렬의 역행렬을 구하는 방법은 행렬식에서 다룬 [수반 행렬](/maths/2022-05-23-linear_algebra_04/#수반-행렬)을 사용해야 한다. 구하는 방법은 아래와 같다.  
+n * n 행렬의 역행렬을 구하는 방법은 행렬식에서 다룬 [수반 행렬](/maths/linear_algebra_04/#수반-행렬)을 사용해야 한다. 구하는 방법은 아래와 같다.  
 
 $$A^{-1} = \frac{\mathrm{adj} A}{\det A}$$
 
 ## 2. 역행렬 계산
 
-역행렬을 구하는 방법은 다양하지만, 앞서 다뤘던 [**가우스-조르단 소거법(Gauss Jordan elimination)**](/maths/2022-05-22-linear_algebra_03/#가우스-조르단-소거법)을 사용하는 것이 가장 간편하다. 절차는 아래와 같다.  
+역행렬을 구하는 방법은 다양하지만, 앞서 다뤘던 [가우스-조르단 소거법(Gauss Jordan elimination)](/maths/linear_algebra_03/#가우스-조르단-소거법)을 사용하는 것이 가장 간편하다. 절차는 아래와 같다.  
 
 - 행렬 $$A$$의 오른쪽에 같은 크기를 갖는 단위 행렬 $$I$$를 첨가해 아래와 같이 첨가 행렬 $$[A \vert I]$$를 만든다.  
 
@@ -86,7 +86,7 @@ $$[A|I] = \left[\begin{array}{ccc|ccc}
 3 & 0 & 1 & 0 & 0 & 1 \\
 \end{array} \right]$$
 
-- 이 행렬을 [기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)을 통해 아래와 같이 $$[I \vert B]$$를 만든다.  
+- 이 행렬을 [기본 행 연산](/maths/linear_algebra_01/#기본-행-연산)을 통해 아래와 같이 $$[I \vert B]$$를 만든다.  
 
 $$[I|B] = \left[\begin{array}{ccc|ccc}
 1 & 0 & 0 & 1/12 & -1/6 & 1/6 \\
@@ -102,7 +102,7 @@ $$A^{-1} = B = \frac{1}{12} \left[\begin{array}{ccc}
 -3 & 6 & 6 \\
 \end{array} \right]$$
 
-`python`으로 구현하면 아래와 같다. [선형 시스템](/maths/2022-05-22-linear_algebra_03/#2-선형-시스템)에서 구현했던 함수들을 응용하여 만들었다.  
+`python`으로 구현하면 아래와 같다. [선형 시스템](/maths/linear_algebra_03/#2-선형-시스템)에서 구현했던 함수들을 응용하여 만들었다.  
 
 ```python
 # creating matrix augmented matrix

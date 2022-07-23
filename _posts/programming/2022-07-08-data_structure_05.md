@@ -24,17 +24,17 @@ tags:
 <h4>Data Structure Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/programming/2022-06-25-data_structure_01/">자료구조의 기초</a></li>
-        <li><a href="/programming/2022-06-26-data_structure_02/">배열</a></li>
-        <li><a href="/programming/2022-07-02-data_structure_03/">스택</a></li>
-        <li><a href="/programming/2022-07-03-data_structure_04/">큐, 덱</a></li>
-        <li><a href="/programming/2022-07-08-data_structure_05/">연결 리스트</a></li>
+        <li><a href="/programming/data_structure_01/">자료구조의 기초</a></li>
+        <li><a href="/programming/data_structure_02/">배열</a></li>
+        <li><a href="/programming/data_structure_03/">스택</a></li>
+        <li><a href="/programming/data_structure_04/">큐, 덱</a></li>
+        <li><a href="/programming/data_structure_05/">연결 리스트</a></li>
     </ol>
 </div>
 
 ## 연결 리스트의 개념
 
-**연결 리스트(Linked List)**는 노드(node, 데이터 묶음)를 저장할 때 그 다음 순서의 자료가 있는 위치를 데이터에 포함시키는 방식으로 자료를 저장하는 자료 구조로, 최대 크기가 정해진 [배열](/programming/2022-06-26-data_structure_02/)의 단점을 해결하기 위해 고안된 자료구조다. 연결 리스트의 개념과 관련된 용어들은 다음과 같다.  
+**연결 리스트(Linked List)**는 노드(node, 데이터 묶음)를 저장할 때 그 다음 순서의 자료가 있는 위치를 데이터에 포함시키는 방식으로 자료를 저장하는 자료 구조로, 최대 크기가 정해진 [배열](/programming/data_structure_02/)의 단점을 해결하기 위해 고안된 자료구조다. 연결 리스트의 개념과 관련된 용어들은 다음과 같다.  
 
 - **node**: 데이터와 다음 데이터를 가리키는 주소(포인터) 묶음
 - **pointer**: 각 노드에서 다음 데이터를 가리키는 주소값

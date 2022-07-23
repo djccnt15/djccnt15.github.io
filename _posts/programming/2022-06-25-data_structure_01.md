@@ -23,32 +23,32 @@ tags:
 <h4>Data Structure Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/programming/2022-06-25-data_structure_01/">자료구조의 기초</a></li>
-        <li><a href="/programming/2022-06-26-data_structure_02/">배열</a></li>
-        <li><a href="/programming/2022-07-02-data_structure_03/">스택</a></li>
-        <li><a href="/programming/2022-07-03-data_structure_04/">큐, 덱</a></li>
-        <li><a href="/programming/2022-07-08-data_structure_05/">연결 리스트</a></li>
+        <li><a href="/programming/data_structure_01/">자료구조의 기초</a></li>
+        <li><a href="/programming/data_structure_02/">배열</a></li>
+        <li><a href="/programming/data_structure_03/">스택</a></li>
+        <li><a href="/programming/data_structure_04/">큐, 덱</a></li>
+        <li><a href="/programming/data_structure_05/">연결 리스트</a></li>
     </ol>
 </div>
 
 ## 자료구조의 기초
 
-[**자료구조(Data Structure)**](https://www.britannica.com/technology/data-structure)란 효율적인 검색(search) 및 검색(retrieve)을 위해 데이터가 저장되는 방식을 말한다.  
+**[자료구조(Data Structure)](https://www.britannica.com/technology/data-structure)**란 효율적인 검색(search) 및 검색(retrieve)을 위해 데이터가 저장되는 방식을 말한다.  
 
-컴퓨터공학에서 자료 자체의 형태와 그 자료들에 대한 연산을 정의한 것을 [**추상적 자료형(Abstract Data Type)**](https://en.wikipedia.org/wiki/Abstract_data_type)이라고 하는데, 이 추상적 자료형을 실질적으로 구현한 것을 자료구조라고 한다.  
+컴퓨터 공학에서 자료 자체의 형태와 그 자료들에 대한 연산을 정의한 것을 **[추상적 자료형(Abstract Data Type)](https://en.wikipedia.org/wiki/Abstract_data_type)**이라고 하는데, 이 추상적 자료형을 실질적으로 구현한 것을 자료구조라고 한다.  
 
 ## 기본적인 자료구조
 
 다양한 자료구조가 있지만, 그 중에서도 다음의 자료구조들이 가장 기본적이라고 한다.
 
-- [배열(Array)](/programming/2022-06-26-data_structure_02/)
+- [배열(Array)](/programming/data_structure_02/)
     - 가장 기본적인 자료형으로, 자료를 원소로 취급해 나열한 자료구조를 말한다.
     - 생성 시 원소들에게 부여되는 index를 통해 원소들에게 접근 가능하다.
-- [스택(Stack)](/programming/2022-07-02-data_structure_03/)
+- [스택(Stack)](/programming/data_structure_03/)
     - 순서가 보존되는 선형 데이터 구조 유형으로, LIFO(Last In First Out) 메커니즘에 따라 데이터를 처리한다.
-- [큐(Queue)](/programming/2022-07-03-data_structure_04/)
+- [큐(Queue)](/programming/data_structure_04/)
     - 순서가 보존되는 선형 데이터 구조 유형으로, FIFO(First In First Out) 메커니즘에 따라 데이터를 처리한다.
-- [연결 리스트(Linked List)](/programming/2022-07-08-data_structure_05/)
+- [연결 리스트(Linked List)](/programming/data_structure_05/)
     - 노드(node, 데이터 묶음)를 저장할 때 그 다음 순서의 자료가 있는 위치를 데이터에 포함시키는 방식으로 자료를 저장하는 자료 구조를 말한다.
 - 그래프(Graph)
     - 정점(vertex) 사이에 변(edge)이 있는 자료구조로, 일방통행을 나타내는 Directed graph와 양방향 통행을 나타내는 Undirected graph가 있다.

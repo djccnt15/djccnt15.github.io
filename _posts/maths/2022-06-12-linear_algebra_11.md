@@ -25,25 +25,25 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
 ## 1. 직교 행렬
 
-**직교 행렬(orthogonal matrix)**이란 어떤 행렬의 행 벡터와 열 벡터가 [**정규 직교(orthonomal) 기저**](/maths/2022-06-06-linear_algebra_08/#1-직교-공간)를 이루는 행렬을 의미한다. 직교 행렬은 자기 자신의 [전치 행렬](/maths/2022-05-19-linear_algebra_02/#1-전치-행렬)과 곱했을 때 [단위 행렬](/maths/2022-05-19-linear_algebra_02/#4-단위-행렬)이 되는 성질이 있기 때문에 이를 통해 주어진 행렬이 직교 행렬인지 확인할 수 있다.  
+**직교 행렬(orthogonal matrix)**이란 어떤 행렬의 행 벡터와 열 벡터가 [정규 직교(orthonomal) 기저](/maths/linear_algebra_08/#1-직교-공간)를 이루는 행렬을 의미한다. 직교 행렬은 자기 자신의 [전치 행렬](/maths/linear_algebra_02/#1-전치-행렬)과 곱했을 때 [단위 행렬](/maths/linear_algebra_02/#4-단위-행렬)이 되는 성질이 있기 때문에 이를 통해 주어진 행렬이 직교 행렬인지 확인할 수 있다.  
 
 - 행렬 $$A$$가 직교 행렬일 때,
 
@@ -91,7 +91,7 @@ $$\begin{align*}
 \end{align*}$$
 
 - 행렬 $$A$$가 가역 행렬이라는 말은 $$P^{-1}AP$$가 가역 행렬이라는 말과 같다.
-- 행렬 $$A$$와 $$P^{-1}AP$$의 [랭크(rank)와 널리티(nullity)](/maths/2022-05-29-linear_algebra_06/#7-랭크와-널리티)는 동일하다.
+- 행렬 $$A$$와 $$P^{-1}AP$$의 [랭크(rank)와 널리티(nullity)](/maths/linear_algebra_06/#7-랭크와-널리티)는 동일하다.
 
 $$\begin{align*}
 rank(A) & = rank(P^{-1}AP) \\

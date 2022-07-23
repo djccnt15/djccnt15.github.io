@@ -26,19 +26,19 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
@@ -48,7 +48,7 @@ tags:
 
 $$\mathbf{u} \otimes \mathbf{v} = \mathbf{u} \mathbf{v}^{T}$$
 
-`python`으로 구현하면 아래와 같다. [하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
+`python`으로 구현하면 아래와 같다. [하우스홀더 행렬](/maths/linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
 ```python
 # outer product, tensor product of vector
@@ -71,7 +71,7 @@ res = np.outer(a, b)
 
 ## 2. 벡터 곱
 
-**벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 다음과 같이 [기저 벡터](/maths/2022-05-29-linear_algebra_06/#기저-벡터)를 사용해 구할 수 있다.  
+**벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 다음과 같이 [기저 벡터](/maths/linear_algebra_06/#기저-벡터)를 사용해 구할 수 있다.  
 
 $$\mathbf{i} = \begin{bmatrix}
 1 \\
@@ -112,7 +112,7 @@ v_{1} & v_{2} \\
 & = (u_{2}v_{3} - u_{3}v_{2})\mathbf{i} - (u_{1}v_{3} - u_{3}v_{1})\mathbf{j} + (u_{1}v_{2} - u_{2}v_{1})\mathbf{k}
 \end{align*}$$
 
-벡터 곱 $$\mathbf{u} \times \mathbf{v}$$의 방향은 벡터 $$\mathbf{u}$$와 $$\mathbf{v}$$에 수직이고, 크기는 $$\mathbf{u}$$와 $$\mathbf{v}$$ 두 벡터가 이루는 정사각형의 넓이, 즉 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 벡터 곱의 [노름(norm)](/maths/2022-06-05-linear_algebra_07/#노름norm)과 같다. 이를 수식으로 나타내면 다음과 같다.  
+벡터 곱 $$\mathbf{u} \times \mathbf{v}$$의 방향은 벡터 $$\mathbf{u}$$와 $$\mathbf{v}$$에 수직이고, 크기는 $$\mathbf{u}$$와 $$\mathbf{v}$$ 두 벡터가 이루는 정사각형의 넓이, 즉 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 벡터 곱의 [노름(norm)](/maths/linear_algebra_07/#노름norm)과 같다. 이를 수식으로 나타내면 다음과 같다.  
 
 $$\Vert \mathbf{u} \times \mathbf{v} \Vert = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \vert \sin \theta \vert$$
 
@@ -133,7 +133,7 @@ res = np.cross(a, b)
 
 ### 스칼라 삼중 곱
 
-스칼라 삼중 곱은 아래와 같이 [행렬식](/maths/2022-05-23-linear_algebra_04/)을 통해 계산한다.  
+스칼라 삼중 곱은 아래와 같이 [행렬식](/maths/linear_algebra_04/)을 통해 계산한다.  
 
 $$\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})
 = \begin{vmatrix}

@@ -23,10 +23,9 @@ tags:
 
 ## 1. 포스트 작성은 markdown으로
 
-엄밀히 말하면 Github Pages를 통해 배포되기 때문에, `GitHub Flavored Markdown`이라는 별도의 markdown을 사용한다.  
-`GFM(GitHub Flavored Markdown)`에 대한 자세한 설명은 [여기](https://github.github.com/gfm/)로  
+엄밀히 말하면 Github Pages를 통해 배포되기 때문에, `GitHub Flavored Markdown(GFM)`이라는 별도의 markdown을 사용한다. `GFM`에 대한 자세한 설명은 [여기](https://github.github.com/gfm/)로  
 
-- [이 블로그에서 사용된 마크다운 활용법들 보러가기](/blog/2022-01-04-blog_markdown/)
+- [이 블로그에서 사용된 마크다운 활용법들 보러가기](/blog/blog_markdown/)
 
 <sub>markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다. 그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨리기 때문에 앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다. 기본적으로 켜고 특정 workspace에서만 끄는게 안 되기 때문에.. 반대는 가능하지만</sub>
 

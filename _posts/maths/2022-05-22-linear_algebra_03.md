@@ -26,25 +26,25 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
 ## 1. 선형 방정식
 
-**선형 방정식(linear equation)**이란 아래와 같이 변수인 $$x_{n}$$과 상수인 $$\beta_{n}$$이 [선형 결합](/maths/2022-05-29-linear_algebra_06/#3-선형-결합과-선형-독립)되어 **선형(linear)**으로 표현 되는 1차 방정식을 말한다.  
+**선형 방정식(linear equation)**이란 아래와 같이 변수인 $$x_{n}$$과 상수인 $$\beta_{n}$$이 [선형 결합](/maths/linear_algebra_06/#3-선형-결합과-선형-독립)되어 **선형(linear)**으로 표현 되는 1차 방정식을 말한다.  
 
 $$\beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \cdots + \beta_{n}x_{n} = y$$
 
@@ -170,9 +170,9 @@ def gauss_eli(a, b):
 
 ### 가우스-조르단 소거법
 
-주어진 선형 시스템을 [기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)을 통해 기약 행사다리꼴 행렬의 형태로 만들어 방정식의 해를 구하는 방법을 **가우스-조르단 소거법(Gauss Jordan elimination)**이라고 한다.  
+주어진 선형 시스템을 [기본 행 연산](/maths/linear_algebra_01/#기본-행-연산)을 통해 기약 행사다리꼴 행렬의 형태로 만들어 방정식의 해를 구하는 방법을 **가우스-조르단 소거법(Gauss Jordan elimination)**이라고 한다.  
 
-[Wolfram](https://mathworld.wolfram.com/Gauss-JordanElimination.html)에 따르면 가우스-조르단 소거법은 [역행렬](/maths/2022-05-28-linear_algebra_05/)을 구하기 위한 방법이지만 응용해서 선형 시스템을 해를 구할 때도 사용할 수 있다. 아무튼 `python`으로 구현하면 아래와 같다.  
+[Wolfram](https://mathworld.wolfram.com/Gauss-JordanElimination.html)에 따르면 가우스-조르단 소거법은 [역행렬](/maths/linear_algebra_05/)을 구하기 위한 방법이지만 응용해서 선형 시스템을 해를 구할 때도 사용할 수 있다. 아무튼 `python`으로 구현하면 아래와 같다.  
 
 ```python
 # Gauss-Jordan elimination

@@ -1,7 +1,7 @@
 ---
 layout: grid
 title: AI
-slug: AI
+slug: ai
 description: >
     Posts in AI category
 ---

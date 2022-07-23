@@ -27,19 +27,19 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
@@ -385,7 +385,7 @@ mat_toeplitz = toeplitz(g, h)
 
 ## 8. 하우스홀더 행렬
 
-**하우스홀더 행렬(householder matrix)**은 모든 열이 [정규 직교(orthonormal)](/maths/2022-06-06-linear_algebra_08/#1-직교-공간)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
+**하우스홀더 행렬(householder matrix)**은 모든 열이 [정규 직교(orthonormal)](/maths/linear_algebra_08/#1-직교-공간)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
 
 $$\mathbf{v} = \begin{bmatrix}
 v_{1} \\
@@ -395,7 +395,7 @@ v_{n}
 \end{bmatrix}
 \to H = I - 2\frac{\mathbf{vv}^{T}}{\mathbf{v}^{T}\mathbf{v}}$$
 
-$${\mathbf{vv}^{T}}$$은 [벡터의 외적](/maths/2022-06-09-linear_algebra_09/#1-외적), $${\mathbf{v}^{T}\mathbf{v}}$$은 [벡터의 내적](/maths/2022-06-05-linear_algebra_07/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 `python`으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
+$${\mathbf{vv}^{T}}$$은 [벡터의 외적](/maths/linear_algebra_09/#1-외적), $${\mathbf{v}^{T}\mathbf{v}}$$은 [벡터의 내적](/maths/linear_algebra_07/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 `python`으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 ```python
 # outer product, tensor product of vector

@@ -27,19 +27,19 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
@@ -47,7 +47,7 @@ tags:
 
 ### 직교, 정규 직교 벡터, 정규 직교 공간, 정규화
 
-**직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1([단위 벡터](/maths/2022-05-29-linear_algebra_06/#단위-벡터))이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
+**직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1([단위 벡터](/maths/linear_algebra_06/#단위-벡터))이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
 
 $$\mathbf{v}_{n} = \frac{\mathbf{u}_{n}}{\Vert \mathbf{u}_{n} \Vert}$$
 
@@ -149,7 +149,7 @@ $$\mathbf{a} = \mathbf{w}_{1} + \mathbf{w}_{2}$$
 
 ### 직교 정사영
 
-벡터 공간 $$S$$의 부분 공간 $$W$$에서 부분 공간 $$W$$의  **직교 기저(orthogonal basis)**가 $$U = \{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영 시킨 벡터는 다음과 같다. [직교 벡터를 활용한 좌표 표현](/maths/2022-06-06-linear_algebra_08/#직교-벡터를-활용한-좌표-표현)을 참고하자.  
+벡터 공간 $$S$$의 부분 공간 $$W$$에서 부분 공간 $$W$$의  **직교 기저(orthogonal basis)**가 $$U = \{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영 시킨 벡터는 다음과 같다. [직교 벡터를 활용한 좌표 표현](/maths/linear_algebra_08/#직교-벡터를-활용한-좌표-표현)을 참고하자.  
 
 $$proj_{\mathbf{w}} \mathbf{a} = \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} + \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}\mathbf{u}_{2} + \cdots + \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}}\mathbf{u}_{n}$$
 
@@ -157,13 +157,13 @@ $$proj_{\mathbf{w}} \mathbf{a} = \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangl
 
 $$proj_{\mathbf{w}} \mathbf{a} = \left\{ \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}, \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}} \right\}$$
 
-벡터 공간 $$S$$의 부분 공간 $$W$$에서, 부분 공간 $$W$$의 **정규 직교 기저(orthonormal basis)**가 $$\{ \mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영시킨 벡터는 다음과 같다. [정규 직교 벡터를 활용한 좌표 표현](/maths/2022-06-06-linear_algebra_08/#정규-직교-벡터를-활용한-좌표-표현)을 참고하자.  
+벡터 공간 $$S$$의 부분 공간 $$W$$에서, 부분 공간 $$W$$의 **정규 직교 기저(orthonormal basis)**가 $$\{ \mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영시킨 벡터는 다음과 같다. [정규 직교 벡터를 활용한 좌표 표현](/maths/linear_algebra_08/#정규-직교-벡터를-활용한-좌표-표현)을 참고하자.  
 
 $$proj_{\mathbf{w}} \mathbf{a} = \langle \mathbf{a}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + \cdots + \langle \mathbf{a}, \mathbf{v}_{n} \rangle \mathbf{v}_{n}$$
 
 ## 3. 그람-슈미트 과정
 
-**그람-슈미트 과정(Gram-Schmidt Process)**은 [기저(basis) 벡터](/maths/2022-05-29-linear_algebra_06/#기저-벡터) $$\{ \mathbf{s}_{1}, \mathbf{s}_{2}, \cdots, \mathbf{s}_{n} \}$$를 [직교 기저(orthogonal basis) 벡터](/maths/2022-06-06-linear_algebra_08/#직교-정규-직교-벡터-정규-직교-공간-정규화) $$\{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
+**그람-슈미트 과정(Gram-Schmidt Process)**은 [기저(basis) 벡터](/maths/linear_algebra_06/#기저-벡터) $$\{ \mathbf{s}_{1}, \mathbf{s}_{2}, \cdots, \mathbf{s}_{n} \}$$를 [직교 기저(orthogonal basis) 벡터](/maths/linear_algebra_08/#직교-정규-직교-벡터-정규-직교-공간-정규화) $$\{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
 
 - 1) 기존 기저 벡터 $$\mathbf{s}_{1}$$을 통해 새로운 직교 기저 벡터 $$\mathbf{u}_{1}$$을 정의한다.
 
@@ -215,7 +215,7 @@ def gram_schmidt(s):
 $$A = QR$$
 
 이러한 **QR분해(QR decomposition, QR factorization)**는 주어진 행렬을 직교하는 행렬로 나타내어 행렬을 다루기 편하게 만들어주며, 크기가 큰 행렬의 고유값을 구할 때 유용하게 사용된다.  
-[정규 직교 벡터를 활용한 좌표 표현](/maths/2022-06-06-linear_algebra_08/#정규-직교-벡터를-활용한-좌표-표현)을 참고하면, 행렬 $$A$$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
+[정규 직교 벡터를 활용한 좌표 표현](/maths/linear_algebra_08/#정규-직교-벡터를-활용한-좌표-표현)을 참고하면, 행렬 $$A$$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
 
 $$\begin{align*}
 \mathbf{a}_{1} = \langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} & + \cdots + \langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
@@ -270,9 +270,9 @@ def qr_gramschmidt(a):
 
 ### 하우스홀더 행렬을 이용한 QR분해
 
-[하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다. 하우스홀더 행렬을 사용한 QR분해 방법은 다음과 같다.  
+[하우스홀더 행렬](/maths/linear_algebra_02/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다. 하우스홀더 행렬을 사용한 QR분해 방법은 다음과 같다.  
 
-- 1) 주어진 행렬 $$A$$를 통해 $$\mathbf{v}_{1}$$를 구한다. 아래 식에서 $$sign$$은 벡터의 첫 스칼라의 부호로, 0 이상이면 $$+$$, 0 미만이면 $$-$$가 된다. $$\mathbf{e}_{1}$$은 [기저 벡터](/maths/2022-05-29-linear_algebra_06/#기저-벡터)를 말한다.  
+- 1) 주어진 행렬 $$A$$를 통해 $$\mathbf{v}_{1}$$를 구한다. 아래 식에서 $$sign$$은 벡터의 첫 스칼라의 부호로, 0 이상이면 $$+$$, 0 미만이면 $$-$$가 된다. $$\mathbf{e}_{1}$$은 [기저 벡터](/maths/linear_algebra_06/#기저-벡터)를 말한다.  
 
 $$A_{1} = A = \begin{bmatrix}
 a_{11} & a_{12} & a_{13} & a_{14} \\
@@ -298,7 +298,7 @@ a_{41}\end{bmatrix}, \quad
 \end{bmatrix}
 \end{align*}$$
 
-- 2) 위에서 구한 $$\mathbf{v}_{1}$$를 통해서 [하우스홀더 행렬](/maths/2022-05-19-linear_algebra_02/#8-하우스홀더-행렬)을 구한다.  
+- 2) 위에서 구한 $$\mathbf{v}_{1}$$를 통해서 [하우스홀더 행렬](/maths/linear_algebra_02/#8-하우스홀더-행렬)을 구한다.  
 
 $$\begin{align*}
 H_{1} & = I - 2\frac{\mathbf{v}_{1}^{}\mathbf{v}_{1}^{T}}{\mathbf{v}_{1}^{T}\mathbf{v}_{1}^{}} \\

@@ -12,7 +12,7 @@ related_posts:
     - _posts/ai/2022-07-09-about_ai.md
 
 categories:
-    - AI
+    - ai
 tags:
     - AI
 ---

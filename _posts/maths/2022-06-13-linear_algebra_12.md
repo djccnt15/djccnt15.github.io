@@ -26,19 +26,19 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
@@ -46,11 +46,11 @@ tags:
 
 ### 대각화
 
-행렬을 [대각 행렬(diagonal matrix)](/maths/2022-05-19-linear_algebra_02/#3-대각-행렬)로 만드는 것을 **대각화(diagonalization)**라고 하며, $$n \times n$$ 행렬 $$A$$가 대각화 가능하려면 $$n$$개의 서로 다른 고유값을 가져야 한다.  
+행렬을 [대각 행렬(diagonal matrix)](/maths/linear_algebra_02/#3-대각-행렬)로 만드는 것을 **대각화(diagonalization)**라고 하며, $$n \times n$$ 행렬 $$A$$가 대각화 가능하려면 $$n$$개의 서로 다른 고유값을 가져야 한다.  
 
 ### 직교 대각화
 
-[직교 닮음](/maths/2022-06-12-linear_algebra_11/#2-닮음)인 행렬이 대각 행렬일 때, 즉 아래 식 처럼 행렬 $$A$$가 행렬 $$P$$에 의해 대각화 될 때 직교 행렬 $$P$$가 행렬 $$A$$를 **직교 대각화(orthogonal diagonalization)**한다고 말한다.  
+[직교 닮음](/maths/linear_algebra_11/#2-닮음)인 행렬이 대각 행렬일 때, 즉 아래 식 처럼 행렬 $$A$$가 행렬 $$P$$에 의해 대각화 될 때 직교 행렬 $$P$$가 행렬 $$A$$를 **직교 대각화(orthogonal diagonalization)**한다고 말한다.  
 
 $$D = P^{-1}AP = P^{T}AP$$
 
@@ -61,7 +61,7 @@ $$n \times n$$ 행렬 $$A$$가 직교 대각화가 가능하려면 다음 조건
 
 ## 2. 고유값 분해
 
-**고유값 분해(eigenvalue decomposition)**는 직교 대각화의 한 종류로, 아래와 같이 정사각 행렬을 [고유값과 고유 벡터](/maths/2022-06-11-linear_algebra_10/)의 곱으로 분해하는 것을 의미한다.  
+**고유값 분해(eigenvalue decomposition)**는 직교 대각화의 한 종류로, 아래와 같이 정사각 행렬을 [고유값과 고유 벡터](/maths/linear_algebra_10/)의 곱으로 분해하는 것을 의미한다.  
 
 $$\begin{align*}
 \begin{bmatrix}
@@ -83,7 +83,7 @@ A & = PDP^{T} = P \Lambda P^{-1}
 
 위 식에서 $$\lambda_{1}, \lambda_{2}, \lambda_{3}$$는 행렬 $$A$$의 고유값이고, $$\mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{u}_{3}$$는 각 고유값에 해당하는 고유 벡터다.  
 
-고유벡터 구하는 함수를 `python`으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](/maths/2022-06-11-linear_algebra_10/#qr분해를-통한-고유값과-고유벡터-계산)에서 이미 구현한 바 있다.  
+고유벡터 구하는 함수를 `python`으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](/maths/linear_algebra_10/#qr분해를-통한-고유값과-고유벡터-계산)에서 이미 구현한 바 있다.  
 
 ```python
 # eigenvalue and eigenvector by qr decomposition
@@ -101,7 +101,7 @@ def eig_qr(a):
     return e, v
 ```
 
-`numpy`를 사용한 고유값 분해는 아래와 같다. 앞서 [고유값과 고유벡터 계산](/maths/2022-06-11-linear_algebra_10/#2-고유값과-고유벡터-계산)에서 이미 확인한 바 있다.  
+`numpy`를 사용한 고유값 분해는 아래와 같다. 앞서 [고유값과 고유벡터 계산](/maths/linear_algebra_10/#2-고유값과-고유벡터-계산)에서 이미 확인한 바 있다.  
 
 ```python
 import numpy as np

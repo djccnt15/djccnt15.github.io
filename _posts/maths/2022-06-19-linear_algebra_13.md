@@ -25,25 +25,25 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
 ## 1. 기본 행렬
 
-**기본 행렬(elementary matrix)**은 단위 행렬에 [기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)을 한 번 실행하여 얻어진 행렬을 말하며, 일반적으로 $$E$$로 표기한다. 기본 행렬은 아래와 같이 일반적인 행렬에 비해 역행렬을 아주 쉽게 구할 수 있다.  
+**기본 행렬(elementary matrix)**은 단위 행렬에 [기본 행 연산](/maths/linear_algebra_01/#기본-행-연산)을 한 번 실행하여 얻어진 행렬을 말하며, 일반적으로 $$E$$로 표기한다. 기본 행렬은 아래와 같이 일반적인 행렬에 비해 역행렬을 아주 쉽게 구할 수 있다.  
 
 - 기본 행렬이 대각 행렬인 경우, 1이 아닌 원소의 역수를 대입하면 된다.
 
@@ -75,7 +75,7 @@ n & 1 & 0 \\
 
 ### LU 분해의 기본 개념
 
-**LU 분해(LU decomposition, LU factorization)**는 행렬 $$A$$를 아래와 같이 [하 삼각 행렬](/maths/2022-05-19-linear_algebra_02/#6-삼각-행렬) $$L$$과 [상 삼각 행렬](/maths/2022-05-19-linear_algebra_02/#6-삼각-행렬) $$U$$로 분해하는 것을 말하며, [가우스-조르단 소거법](/maths/2022-05-22-linear_algebra_03/#가우스-조르단-소거법)을 사용해 선형 시스템의 해를 구하는 것보다 컴퓨팅 리소스를 효율적으로 사용할 수 있다고 한다.  
+**LU 분해(LU decomposition, LU factorization)**는 행렬 $$A$$를 아래와 같이 [하 삼각 행렬](/maths/linear_algebra_02/#6-삼각-행렬) $$L$$과 [상 삼각 행렬](/maths/linear_algebra_02/#6-삼각-행렬) $$U$$로 분해하는 것을 말하며, [가우스-조르단 소거법](/maths/linear_algebra_03/#가우스-조르단-소거법)을 사용해 선형 시스템의 해를 구하는 것보다 컴퓨팅 리소스를 효율적으로 사용할 수 있다고 한다.  
 
 $$\begin{align*}
 A & = LU \\
@@ -100,9 +100,9 @@ u_{11} & u_{12} & u_{13} \\
 
 LU 분해 방법은 아래와 같다.  
 
-- 1) 위 정리에서 $$a_{11} \neq 0$$ 이어야 하기 때문에, [피벗팅](/maths/2022-05-22-linear_algebra_03/#피벗)을 해준다.
+- 1) 위 정리에서 $$a_{11} \neq 0$$ 이어야 하기 때문에, [피벗팅](/maths/linear_algebra_03/#피벗)을 해준다.
 
-- 2) 주어진 행렬 $$A$$를 [기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)을 통해 [상 삼각 행렬](/maths/2022-05-19-linear_algebra_02/#6-삼각-행렬) $$U$$로 변환한다.
+- 2) 주어진 행렬 $$A$$를 [기본 행 연산](/maths/linear_algebra_01/#기본-행-연산)을 통해 [상 삼각 행렬](/maths/linear_algebra_02/#6-삼각-행렬) $$U$$로 변환한다.
 
 $$E_{n}E_{n-1} \cdots E_{2}E_{1}A = U$$
 
@@ -164,7 +164,7 @@ a = [[3, 2, 1], [2, 1, 4], [1, 4, 2]]
 p, l, u = linalg.lu(a)
 ```
 
-위 함수들을 실제로 사용해보면 LU 분해의 결과가 조금 다른 것을 알 수 있는데, LU 분해는 그 자체로 의미가 있기 보다는 [하 삼각 행렬과 상 삼각 행렬](/maths/2022-05-19-linear_algebra_02/#6-삼각-행렬)로 분해한 후의 활용이 중요하기 때문에 $$A = LU$$의 검산만 맞으면 결과는 상관 없다.  
+위 함수들을 실제로 사용해보면 LU 분해의 결과가 조금 다른 것을 알 수 있는데, LU 분해는 그 자체로 의미가 있기 보다는 [하 삼각 행렬과 상 삼각 행렬](/maths/linear_algebra_02/#6-삼각-행렬)로 분해한 후의 활용이 중요하기 때문에 $$A = LU$$의 검산만 맞으면 결과는 상관 없다.  
 
 ## 3. LU 분해를 통한 선형 시스템의 풀이
 

@@ -26,19 +26,19 @@ tags:
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/maths/2022-05-01-linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/maths/2022-05-19-linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/maths/2022-05-22-linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/maths/2022-05-23-linear_algebra_04/">행렬식</a></li>
-        <li><a href="/maths/2022-05-28-linear_algebra_05/">역행렬</a></li>
-        <li><a href="/maths/2022-05-29-linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/maths/2022-06-05-linear_algebra_07/">내적</a></li>
-        <li><a href="/maths/2022-06-06-linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/maths/2022-06-09-linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/maths/2022-06-11-linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/maths/2022-06-12-linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/maths/2022-06-13-linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/maths/2022-06-19-linear_algebra_13/">LU 분해</a></li>
+        <li><a href="/maths/linear_algebra_01/">선형대수의 기초</a></li>
+        <li><a href="/maths/linear_algebra_02/">다양한 행렬</a></li>
+        <li><a href="/maths/linear_algebra_03/">선형 시스템</a></li>
+        <li><a href="/maths/linear_algebra_04/">행렬식</a></li>
+        <li><a href="/maths/linear_algebra_05/">역행렬</a></li>
+        <li><a href="/maths/linear_algebra_06/">기저와 차원</a></li>
+        <li><a href="/maths/linear_algebra_07/">내적</a></li>
+        <li><a href="/maths/linear_algebra_08/">직교공간과 QR 분해</a></li>
+        <li><a href="/maths/linear_algebra_09/">다양한 곱 연산</a></li>
+        <li><a href="/maths/linear_algebra_10/">고유값과 고유벡터</a></li>
+        <li><a href="/maths/linear_algebra_11/">직교 행렬</a></li>
+        <li><a href="/maths/linear_algebra_12/">행렬의 대각화</a></li>
+        <li><a href="/maths/linear_algebra_13/">LU 분해</a></li>
     </ol>
 </div>
 
@@ -115,11 +115,11 @@ $$\mathrm{adj} A = C_{ij} = (-1)^{i+j}M_{ij}$$
 
 ### 특이한 행렬의 행렬식
 
-[삼각 행렬](/maths/2022-05-19-linear_algebra_02/#6-삼각-행렬), [대각 행렬](/maths/2022-05-19-linear_algebra_02/#3-대각-행렬)의 행렬식은 주 대각 원소의 곱과 같다.  
+[삼각 행렬](/maths/linear_algebra_02/#6-삼각-행렬), [대각 행렬](/maths/linear_algebra_02/#3-대각-행렬)의 행렬식은 주 대각 원소의 곱과 같다.  
 
 $$\det A = a_{11} a_{22} \cdots a_{nn}$$
 
-[전치 행렬](/maths/2022-05-19-linear_algebra_02/#1-전치-행렬)의 행렬식: 행렬 $$A$$가 정사각 행렬일 경우 행렬 $$A$$와 그 전치 행렬 $$A^{T}$$의 행렬식은 동일하다.  
+[전치 행렬](/maths/linear_algebra_02/#1-전치-행렬)의 행렬식: 행렬 $$A$$가 정사각 행렬일 경우 행렬 $$A$$와 그 전치 행렬 $$A^{T}$$의 행렬식은 동일하다.  
 
 $$\det A = \det A^{T}$$
 
@@ -127,7 +127,7 @@ $$\det A = \det A^{T}$$
 
 ### 행렬의 기본 행 연산과 행렬식
 
-[기본 행 연산](/maths/2022-05-01-linear_algebra_01/#기본-행-연산)에 의한 행렬식의 변경은 아래와 같다.  
+[기본 행 연산](/maths/linear_algebra_01/#기본-행-연산)에 의한 행렬식의 변경은 아래와 같다.  
 
 - 한 행에 영이 아닌 상수를 모두 곱한다.
 
