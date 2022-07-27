@@ -106,7 +106,11 @@ def v_smul(s, a):
 
 ### 원소 곱
 
-두 벡터의 각 성분을 곱하는 연산은 **원소 곱** 또는 **아다마르 곱(hadamard product)**이라고 부른다. `python`으로 구현하면 아래와 같다.  
+두 벡터의 각 성분을 곱하는 연산은 **원소 곱** 또는 **아다마르 곱(hadamard product)**이라고 부르고 아래와 같이 표기한다.  
+
+$$\mathbf{u} ⊙ \mathbf{v}$$
+
+`python`으로 구현하면 아래와 같다.  
 
 ```python
 from functools import reduce
@@ -216,7 +220,11 @@ def mat_smul(s, a):
 
 ### 원소 곱
 
-두 행렬의 각 성분을 곱하는 연산은 벡터와 마찬가지로 **원소 곱** 또는 **아다마르 곱(hadamard product)**이라고 부른다. `python`으로 구현하면 아래와 같다.  
+두 행렬의 각 성분을 곱하는 연산은 벡터와 마찬가지로 **원소 곱** 또는 **아다마르 곱(hadamard product)**이라고 부르고 아래와 같이 표기한다.  
+
+$$A ⊙ B$$
+
+`python`으로 구현하면 아래와 같다.  
 
 ```python
 from functools import reduce
