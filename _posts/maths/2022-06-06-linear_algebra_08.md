@@ -183,10 +183,11 @@ $$\begin{align*}
 
 이 과정을 그림으로 표현하면 아래와 같다.  
 
-<img src="/assets/img/posts/Gram-Schmidt_orthonormalization_process.gif">
+![Gram-Schmidt_orthonormalization_process](/assets/img/posts/Gram-Schmidt_orthonormalization_process.gif)
 {:.text-center}
-출처: [위키피디아: 그람-슈미트 과정](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C-%EC%8A%88%EB%AF%B8%ED%8A%B8_%EA%B3%BC%EC%A0%95)([영문](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process))
-{:.text-center}
+
+출처: [위키피디아 그람-슈미트 과정](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C-%EC%8A%88%EB%AF%B8%ED%8A%B8_%EA%B3%BC%EC%A0%95)([영문](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process))
+{:.figcaption}
 
 앞서 구현한 함수들을 바탕으로 `python`으로 구현하면 아래와 같다.  
 

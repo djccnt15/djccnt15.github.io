@@ -152,7 +152,7 @@ def lu_decomp(a):
 ```
 
 출처: [알고리즘 구현으로 배우는 선형대수 with 파이썬](https://github.com/bjpublic/linearalgebra)
-{:.text-center}
+{:.figcaption}
 
 `scipy`로 LU 분해를 수행하는 방법은 아래와 같다. `numpy`에는 LU 분해를 위한 함수가 없다.  
 

@@ -165,8 +165,8 @@ def gauss_eli(a, b):
     return y
 ```
 
-출처: [JuHyeong.dev](https://dkswnkk.tistory.com/67)
-{:.text-center}
+출처: [https://dkswnkk.tistory.com/67](https://dkswnkk.tistory.com/67)
+{:.figcaption}
 
 ### 가우스-조르단 소거법
 
