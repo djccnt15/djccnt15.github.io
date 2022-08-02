@@ -13,7 +13,7 @@ image:
 #     - /example/2012-02-07-example-content/
 
 categories:
-    - programming
+    - Programming
 tags:
     - web scraping
 ---
