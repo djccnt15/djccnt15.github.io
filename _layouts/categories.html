@@ -16,7 +16,7 @@ layout: about
     {% for category in site.categories %}
       {% if category[1].size == i %}
         <li>
-          <a href="#{{ category[0] }}"><strong>{{ category[0] }}</strong></a> <a href="/{{ category[0] }}">{{ i }}</a>
+          <a href="#{{ category[0] }}"><strong>{{ category[0] }}</strong></a> <a href="/{{ category[0] | downcase }}">{{ i }}</a>
         </li>
       {% endif %}
     {% endfor %}
