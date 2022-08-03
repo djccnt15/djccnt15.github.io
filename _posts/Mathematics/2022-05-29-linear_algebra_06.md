@@ -30,7 +30,7 @@ tags:
         <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
         <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
         <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/mathematics/linear_algebra_07/">내적</a></li>
+        <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
         <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
         <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
         <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
@@ -82,9 +82,20 @@ $$A = \{a_{1}, a_{2}, \cdots a_{n}\}$$이 벡터공간 $$S$$내의 벡터들의 
 
 ### 단위 벡터
 
-길이가 1인 벡터를 **단위 벡터(unit vector)**라고 하며, 아래와 같이 표기하고 구한다. 아래 표기에서 $$\mathrm{sgn}$$은 부호 함수를 뜻하며, $$\Vert \mathbf{u} \Vert$$는 [노름(norm)](/mathematics/linear_algebra_07/#노름norm)을 뜻한다.  
+길이가 1인 벡터를 **단위 벡터(unit vector)**라고 하며 방향에 관한 정보만을 담고 있기 때문에 **방향 벡터(direction vector)**라고 부르기도 한다. 단위 벡터(unit vector)는 $$\widehat{\mathbf{u}}$$와 같이 $$hat$$기호를 사용해 나타내며, 특정 벡터 $$\mathbf{u}$$를 단위 벡터 $$\widehat{\mathbf{u}}$$로 **정규화(normalization)**하는 방법은 아래와 같다.  
 
-$$\widehat{\mathbf{u}} = \mathrm{sgn} (\mathbf{u}) = \frac{\mathbf{u}}{\Vert \mathbf{u} \Vert}$$
+$$\begin{align*}
+\widehat{\mathbf{u}} = \mathrm{sgn} (\mathbf{u}) = \frac{\mathbf{u}}{\Vert \mathbf{u} \Vert} \\
+\\
+\because \mathbf{u} = \widehat{\mathbf{u}} \times \Vert \mathbf{u} \Vert
+\end{align*}$$
+
+위 표기에서 $$\mathrm{sgn}$$은 부호 함수를 뜻하며, $$\Vert \mathbf{u} \Vert$$는 [노름(norm)](/mathematics/linear_algebra_07/#2-노름norm)을 뜻한다.  
+
+
+
+💡참고로 **^** 기호를 수학에서 **Hat(모자)** 기호라고 부르는데, 상황에 따라 단위 벡터, 추정량 등 의미가 달라진다. 자세한 내용은 [위키피디아](https://en.wikipedia.org/wiki/Hat_operator)를 참고하자.  
+{:.note}
 
 ### 기저 벡터
 

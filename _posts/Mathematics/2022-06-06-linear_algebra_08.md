@@ -33,7 +33,7 @@ tags:
         <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
         <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
         <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/mathematics/linear_algebra_07/">내적</a></li>
+        <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
         <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
         <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
         <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
@@ -127,14 +127,14 @@ res = (np.inner(a, b) / np.inner(b, b)) * b
 
 $$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert = \Vert \mathbf{u} \Vert \vert \cos \theta \vert$$
 
-정사영을 이용해 내적을 정리하면, 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 내적이란 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시킨 벡터의 길이, 즉 $$\Vert \mathbf{u} \Vert \vert \cos \theta \vert$$와 기존 벡터 $$\mathbf{v}$$의 길이인 $$\Vert \mathbf{v} \Vert$$의 곱과 같다.  
+정사영을 이용해 내적을 정리하면, 벡터 $$\mathbf{v}$$와 벡터 $$\mathbf{u}$$의 내적이란 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시킨 벡터의 길이, 즉 $$\Vert \mathbf{u} \Vert \vert \cos \theta \vert$$와 기존 벡터 $$\mathbf{v}$$의 길이인 $$\Vert \mathbf{v} \Vert$$의 곱과 같다.  
 
 $$\begin{align*}
-\langle \mathbf{u}, \mathbf{v} \rangle & = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \cos \theta \\
+\langle \mathbf{v}, \mathbf{u} \rangle & = \Vert \mathbf{v} \Vert \Vert \mathbf{u} \Vert \cos \theta \\
 \\
-& = (\Vert \mathbf{v} \Vert) \times (\Vert \mathbf{u} \Vert \cos \theta) \\
+& = \Vert \mathbf{v} \Vert \times \Vert \mathbf{u} \Vert \cos \theta \\
 \\
-& = (length \ of \ vector \ \mathbf{v}) \times (length \ of \ vector \ proj_{\mathbf{v}}\mathbf{u}) \\
+& = length \ of \ vector \ \mathbf{v} \times length \ of \ vector \ proj_{\mathbf{v}}\mathbf{u} \\
 \end{align*}$$
 
 ### 정사영 정리

@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[선형대수] 07. 내적'
+title: '[선형대수] 07. 내적과 norm'
 description: >
     내적, norm, 코사인 유사도
 hide_description: false
@@ -33,7 +33,7 @@ tags:
         <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
         <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
         <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/mathematics/linear_algebra_07/">내적</a></li>
+        <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
         <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
         <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
         <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
@@ -93,16 +93,24 @@ inner_product = np.inner(a, b)
 - 내적 < 0 이면, 두 벡터 사이의 각도는 90°보다 크다.
 - 내적 = 0 이면, 두 벡터 사이의 각도는 90°와 같다.
 
-### 노름(norm)
+## 2. 노름(norm)
 
-**노름(norm)**은 벡터의 크기 또는 길이를 말하는데, $$\Vert \mathbf{v} \Vert$$로 표기하고, 구하는 방법은 아래와 같다. 보다시피 벡터의 **노름(norm)**은 **자기 자신의 내적(inner product)의 제곱근**과 같다.  
+**노름(norm)**은 벡터의 크기 또는 길이를 말하며 $$\Vert \mathbf{v} \Vert$$로 표기한다. 내적이 정의되면 노름(norm)은 자기 자신의 [내적(inner product)](/mathematics/linear_algebra_07/#1-내적)의 제곱근으로 정의할 수 있다. (그러나 노름(norm)이 있다고 해서 그에 자연스럽게 대응되는 내적이 항상 존재하는 것은 아니다.)  
 
-$$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert = \sqrt{\sum_{i=1}^{n}{v_{i}}^{2}}$$
+벡터 $$\mathbf{v}$$의 $$p$$차 노름(norm)은 아래와 같이 정의된다.  
 
-**노름(norm)**을 구하는 공식을 `python`으로 구현하면 아래와 같다.  
+$$\Vert \mathbf{v} \Vert_{p} = \left( \sum_{i=1}^{n} \vert v_{i} \vert^{p} \right)^{1 \over p}, \quad p \geqq 1$$
+
+### Euclidean norm
+
+노름(norm)의 정의에서 $$p = 2$$이면 $$l_{2}$$ **노름(norm)**, 또는 **유클리드 노름(Euclidean norm)**이라고 부른다. 유클리드 노름(Euclidean norm)은 거리 개념에서 일반적으로 많이 사용하는 점과 점 사이의 직선거리를 말하며 구하는 방법은 아래와 같다.  
+
+$$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert_{2} = \sqrt{\sum_{i=1}^{n}{v_{i}}^{2}}$$
+
+유클리드 노름(Euclidean norm)은 머신러닝/통계학에서는 $$l_{2}$$ 정규화(L2 Regularization)에 사용되며, 유클리드 노름(Euclidean norm)을 구하는 함수를 `python`으로 구현하면 아래와 같다.  
 
 ```python
-# norm of vector
+# euclidean norm of vector
 def norm(a):
     res = sum(i ** 2 for i in a) ** 0.5
 
@@ -119,13 +127,45 @@ a = np.array([4, 5, 3])
 res = np.linalg.norm(a)
 ```
 
-**노름(norm)**과 두 벡터 사이의 각도 $$\theta$$를 사용해 내적을 다음과 같이 표현할 수 있다.  
+$$l_{2}$$ 노름(norm)과 두 벡터 사이의 각도 $$\theta$$를 사용해 내적을 다음과 같이 표현할 수 있다.  
 
 $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \cos \theta$$
 
-## 2. 코사인 유사도
+### Manhattan norm
 
-**[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미하는데, [노름(norm)](#노름norm)을 통해 정리하면 **코사인 유사도(cosine similarity)**를 다음과 같이 유도할 수 있다.  
+노름(norm)의 정의에서 $$p = 1$$이면 $$l_{1}$$ **노름(norm)**, 또는 **맨해튼 노름(Manhattan norm)**이라고 부른다. **택시 노름(Taxicab norm)**이라고 부르기도 한다. 맨해튼 노름(Manhattan norm)을 구하는 방법은 아래와 같다.  
+
+$$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert_{1} = \sum_{i=1}^{n} \vert v_{i} \vert$$
+
+맨해튼 노름(Manhattan norm)은 머신러닝/통계학에서는 $$l_{1}$$ 정규화(L1 Regularization)에 사용되며, 맨해튼 노름(Manhattan norm)을 구하는 함수를 `python`으로 구현하면 아래와 같다.  
+
+```python
+# manhattan norm of vector
+def norm_man(a):
+    res = sum(abs(i) for i in a)
+
+    return res
+```
+
+`numpy`를 사용하면 아래와 같다.  
+
+```python
+import numpy as np
+
+a = np.array([4, 5, 3])
+
+res = np.linalg.norm(x=a, ord=1)
+```
+
+### Maximum norm
+
+$$p$$차 노름(norm)의 정의에서 p가 무한대로 가면, 그 값이 해당 벡터의 원소 중 가장 큰 값에 수렴하며 이를 최대값 노름(Maximum norm), 또는 상한 노름이라고 부른다.  
+
+$$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert_{\infty} = max(v_{1}, v_{2}, \cdots, v_{n})$$
+
+## 3. 코사인 유사도
+
+**[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미하는데, [노름(norm)](#2-노름norm)을 통해 정리하면 **코사인 유사도(cosine similarity)**를 다음과 같이 유도할 수 있다.  
 
 $$\mathrm{cosine \ similarity} = S_{c}(\mathbf{u}, \mathbf{v}) = \cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert}$$
 

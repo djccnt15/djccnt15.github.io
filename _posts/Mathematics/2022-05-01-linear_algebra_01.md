@@ -31,7 +31,7 @@ tags:
         <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
         <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
         <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/mathematics/linear_algebra_07/">내적</a></li>
+        <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
         <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
         <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
         <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
@@ -68,13 +68,18 @@ $$\mathbf{v} = \begin{pmatrix}
 2 \\
 3\end{bmatrix}$$
 
-벡터를 구성하는 각 숫자는 공간상의 좌표를 나타내며, **시점(initial point)**에서 해당 좌표인 **종점(terminal point)**으로 이어지는 화살표로 나타낼 수 있다. 벡터는 스칼라를 행 방향으로 나열한 **행 벡터(row vector)**와 열 방향으로 나열한 **열 벡터(column vector)**로 나누어지는데, 특별한 언급이 없으면 **기본적으로 열 벡터를 의미**한다. 두 벡터가 놓인 위치에 상관 없이 크기와 방향이 같으면 같은 벡터라고 한다.  
+벡터를 구성하는 각 숫자는 공간상의 좌표를 나타내며, **시점(initial point)**에서 해당 좌표인 **종점(terminal point)**으로 이어지는 화살표로 나타낼 수 있다. 벡터는 스칼라를 행 방향으로 나열한 **행 벡터(row vector)**와 열 방향으로 나열한 **열 벡터(column vector)**로 나누어지는데, 특별한 언급이 없으면 **기본적으로 열 벡터를 의미**한다. 두 벡터가 놓인 위치에 상관 없이 크기와 방향이 같으면 같은 벡터, 또는 **동등 벡터(equivalent vector)**라고 한다.  
 
 ## 2. 벡터의 연산
 
 ### 덧셈과 뺄셈
 
 두 벡터의 합 $$\mathbf{u} + \mathbf{v}$$는 $$\mathbf{u}$$의 종점에 $$\mathbf{v}$$의 시점을 일치시켰을 때, $$\mathbf{u}$$의 시점을 시점으로, $$\mathbf{v}$$의 종점을 종점으로 하는 벡터를 뜻하고, 두 백터의 차 $$\mathbf{u} - \mathbf{v}$$는 $$\mathbf{u}$$의 시점에 $$\mathbf{v}$$의 시점을 일치시켰을 때, $$\mathbf{v}$$의 종점을 시점으로, $$\mathbf{u}$$의 종점을 종점으로 하는 벡터를 뜻한다.  
+
+![Vector_Addition](/assets/img/posts/Vector_Addition.png){: width="25%"}
+{:.text-center}
+출처: [https://commons.wikimedia.org/wiki/File:Vector_Addition.png](https://commons.wikimedia.org/wiki/File:Vector_Addition.png)
+{:.figcaption}
 
 벡터의 덧셈과 뺄셈은 동일 위치의 각 원소를 더하고 빼는 것으로, 교환 법칙이 성립하며 두 벡터의 크기가 동일할 때(벡터를 구성하는 스칼라의 개수가 동일할 때)만 연산이 가능하다. `python`으로 구현하면 아래와 같다.  
 

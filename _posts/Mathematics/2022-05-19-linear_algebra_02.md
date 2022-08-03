@@ -33,7 +33,7 @@ tags:
         <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
         <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
         <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/mathematics/linear_algebra_07/">내적</a></li>
+        <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
         <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
         <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
         <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
