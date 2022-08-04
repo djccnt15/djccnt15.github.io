@@ -15,7 +15,7 @@ related_posts:
 categories:
     - Mathematics
 tags:
-    - Mathematics
+    - mathematics
     - regression
     - python
     - numpy

@@ -15,7 +15,7 @@ related_posts:
 categories:
     - Mathematics
 tags:
-    - Mathematics
+    - mathematics
     - linear algebra
     - python
     - numpy

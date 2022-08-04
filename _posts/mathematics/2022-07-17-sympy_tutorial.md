@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Mathematics
 tags:
-    - Mathematics
+    - mathematics
     - sympy
 ---
 * toc
