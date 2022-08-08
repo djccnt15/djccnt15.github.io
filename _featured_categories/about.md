@@ -18,7 +18,7 @@ Github: **[github.com/djccnt15](https://github.com/djccnt15)**
 LinkedIn: **[doorheon-b3aa56212](https://www.linkedin.com/in/doorheon-b3aa56212/)**
 {:.note title='contacts'}
 
-AI 솔루션 기획자 겸 Machine Learning 개발자, 데이터 사이언티스트 지망생, 아마추어 AI 연구자입니다.  
+AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티스트 지망생, 아마추어 AI 연구자입니다.  
 
 컴퓨터공학이나 통계학 전공은 아니지만, 산업용 AI 개발에 흥미가 있어 관련 분야를 꾸준히 공부하며 실무 경험을 쌓기 위해 노력중입니다.  
 
