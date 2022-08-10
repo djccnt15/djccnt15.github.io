@@ -53,8 +53,7 @@ print(df)
 
 ## 1. pandas.pivot_table
 
-엑셀에는 데이터 재구조화 및 요약 기능을 제공하는 `pivot table`이라는 아주 강력한 데이터 분석 툴이 있다.  
-거의 똑같은 기능을 `pandas`에서도 `pivot_table`이라는 함수를 통해 제공하는데 심지어 공식문서에서 대놓고 `An Excel style pivot table.`을 리턴한다고 명시하고 있다.  
+엑셀에는 데이터 재구조화 및 요약 기능을 제공하는 `pivot table`이라는 아주 강력한 데이터 분석 툴이 있다. 거의 똑같은 기능을 `pandas`에서도 `pivot_table`이라는 함수를 통해 제공하는데 심지어 공식문서에서 대놓고 `An Excel style pivot table.`을 리턴한다고 명시하고 있다.  
 
 `pivot_table`은 요약할 데이터를 인자로 받는 함수다. `pandas.pivot_table`의 주요 인자들은 아래와 같다.  
 
@@ -112,8 +111,7 @@ no        2  114  193  55  7  2
 yes       0   22  108  40  3  0
 ```
 
-아래와 같이 `index`와 `columns`에 둘 이상의 기준을 사용해서 그룹화 하고, `fill_value`를 사용해 데이터가 없는 그룹에 표기할 기본값을 지정할 수 있다.  
-또한 `margins`와 `margins_name`를 사용해 부분합계와 총합계를 표기할 수 있다.  
+아래와 같이 `index`와 `columns`에 둘 이상의 기준을 사용해서 그룹화 하고, `fill_value`를 사용해 데이터가 없는 그룹에 표기할 기본값을 지정할 수 있다. 또한 `margins`와 `margins_name`를 사용해 부분합계와 총합계를 표기할 수 있다.  
 
 ```python
 import pandas as pd

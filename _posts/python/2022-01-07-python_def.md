@@ -50,7 +50,6 @@ parameter의 초기값은 아래와 같이 지정할 수 있다. `__defaults__` 
 
 ```python
 def add(a=1, b=False):
-
     return a + b
 
 print(add.__defaults__)
@@ -78,7 +77,6 @@ print(add(1))
 
 ```python
 def add(a:'a is int', b:int) -> int:
-
     return a + b
 
 print(add.__annotations__)
@@ -94,7 +92,6 @@ print(add.__annotations__)
 ```python
 def add(a, b):
     'this is test function'
-
     return a + b
 
 print(add.__doc__)
@@ -115,7 +112,6 @@ c = [a, b, b, b]
 # addition of vector
 def v_add(*a): # packing
     res = [sum(v) for v in zip(*a)]
-
     return res
 
 res = v_add(*c) # unpacking
@@ -128,7 +124,6 @@ print(res)
 
 ```python
 def test(**kwargs): # packing
-
     return kwargs
 
 print(test(name='John Doe', age=30))

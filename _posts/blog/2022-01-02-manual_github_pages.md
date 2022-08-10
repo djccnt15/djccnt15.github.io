@@ -25,18 +25,15 @@ tags:
 
 엄밀히 말하면 Github Pages를 통해 배포되기 때문에, `GitHub Flavored Markdown(GFM)`이라는 별도의 markdown을 사용한다. `GFM`에 대한 자세한 설명은 [여기](https://github.github.com/gfm/)로  
 
-- [이 블로그에서 사용된 마크다운 활용법들 보러가기](/Blog/blog_markdown/)
+- [이 블로그에서 사용된 마크다운 활용법들 보러가기](/blog/blog_markdown/)
 
 <sub>markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다. 그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨리기 때문에 앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다. 기본적으로 켜고 특정 workspace에서만 끄는게 안 되기 때문에.. 반대는 가능하지만</sub>
 
 ## 2. YFM 정의 및 활용
 
-YFM(YAML Front Matter)은 markdown 파일의 최상단에 위치하며 3개의 하이픈으로 시작과 끝을 표시한다.  
+`YFM(YAML Front Matter)`은 markdown 파일의 최상단에 위치하며 3개의 하이픈으로 시작과 끝을 표시한다. `YAML`은 일종의 구조화된 데이터 형식으로 프로그래밍에서 변수를 설정하듯이 사용할 수 있다. `YFM`을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있다.  
 
-YAML은 일종의 구조화된 데이터 형식으로, 프로그래밍에서 변수를 설정하듯이 사용할 수 있다.  
-YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있다.  
-
-이를 이용해서 정의된 YFM을 이중 괄호 구문을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.  
+이를 이용해서 정의된 `YFM`을 이중 괄호 구문을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.  
 
 ```{% raw %}
 이 글의 제목은 {{ page.title }}이고,
@@ -54,8 +51,7 @@ YFM을 사용해서 글의 제목, 카테고리, 태그 등을 정의할 수 있
 
 ### 3-1. YFM으로 비밀글 태그
 
-YFM에서 `published: false`로 정의하면 된다.  
-비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`를 붙여서 jekyll을 구동하면 된다.  
+`YFM`에서 `published: false`로 정의하면 된다. 비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`를 붙여서 jekyll을 구동하면 된다.  
 
 ```powershell
 > bundle exec jekyll serve --unpublished
