@@ -1,6 +1,6 @@
 ---
 layout: grid
-title: ResearchLog
+title: Research Log
 slug: ResearchLog
 description: >
     Posts in Research Log category
