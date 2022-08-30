@@ -28,7 +28,7 @@ tags:
 ModuleNotFoundError: No module named 'pip'
 ```
 
-이 때는 아래 명령어들로 해결할 수 있다.
+이 때는 아래 명령어들로 해결할 수 있다.  
 
 ```powershell
 # install pip into the current environment

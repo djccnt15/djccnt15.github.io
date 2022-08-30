@@ -44,9 +44,9 @@ print(test())
 None
 ```
 
-## parameter의 초기값 지정
+## parameter의 default값 지정
 
-parameter의 초기값은 아래와 같이 지정할 수 있다. `__defaults__` 속성을 사용하면 각 parameter에 지정된 초기값을 확인할 수 있다.  
+parameter의 default값은 아래와 같이 지정할 수 있다. `__defaults__` 속성을 사용하면 각 parameter에 지정된 default값을 확인할 수 있다.  
 
 ```python
 def add(a=1, b=False):
@@ -65,10 +65,10 @@ print(add(1))
 1
 ```
 
-💡 함수에 입력값이 없어도 되는 parameter를 만들고 싶을 때는 초기값을 `False`로 지정하면 된다.  
+💡 함수에 입력값이 없어도 되는 parameter를 만들고 싶을 때는 default값을 `False`로 지정하면 된다.  
 {:.note}
 
-❗ 초기값이 설정된 parameter는 초기값이 설정되지 않는 parameter보다 반드시 뒤에 나와야 한다.  
+❗ default값이 설정된 parameter는 default값이 설정되지 않는 parameter보다 반드시 뒤에 나와야 한다.  
 {:.note title='attention'}
 
 ## Function Annotation
@@ -76,22 +76,22 @@ print(add(1))
 `python`의 함수를 작성할 때, 다음과 같이 각 `parameter`와 `return`의 형태에 대한 주석을 달아서 작성할 수 있다. `#`을 이용해서 표기한 주석과 마찬가지로 어떠한 강제성도 없다. `__annotations__` 속성을 사용하면 내용을 확인할 수 있다.  
 
 ```python
-def add(a:'a is int', b:int) -> int:
+def add(a: 'expression', b: int) -> int:
     return a + b
 
 print(add.__annotations__)
 ```
 ```
-{'a': 'a is int', 'b': <class 'int'>, 'return': <class 'int'>}
+{'a': 'expression', 'b': <class 'int'>, 'return': <class 'int'>}
 ```
 
-## Function Document
+## Documentation Strings
 
-함수에 대한 문서를 코드 내부에 작성하고 싶을 때는 아래와 같이 작성하면 된다. `__doc__` 속성을 사용해서 내용을 확인할 수 있다.
+함수에 대한 설명(Docstring)을 코드 내부에 작성하고 싶을 때는 아래와 같이 작성하면 된다. `__doc__` 속성을 사용해서 내용을 확인할 수 있다.
 
 ```python
 def add(a, b):
-    'this is test function'
+    """this is test function"""
     return a + b
 
 print(add.__doc__)
