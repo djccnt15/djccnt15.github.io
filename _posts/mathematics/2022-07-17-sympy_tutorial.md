@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[수학] SymPy 입문'
+title: '[SymPy] SymPy 입문'
 description: >
     SymPy로 입문하는 symbolic computation
 hide_description: false
@@ -14,7 +14,6 @@ related_posts:
 categories:
     - Mathematics
 tags:
-    - mathematics
     - sympy
 ---
 * toc

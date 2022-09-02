@@ -15,9 +15,6 @@ categories:
     - Blog
 tags:
     - blog
-    - html
-    - scss
-    - jekyll
 ---
 * toc
 {:toc}

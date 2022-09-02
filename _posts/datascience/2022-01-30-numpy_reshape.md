@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[데이터 분석] numpy array의 변형'
+title: '[NumPy] numpy array의 변형'
 description: >
     `numpy.array`를 쉽게 변형해보자. reshape, transpose, T의 활용
 hide_description: false
@@ -14,8 +14,6 @@ related_posts:
 categories:
     - DataScience
 tags:
-    - data science
-    - python
     - numpy
 ---
 * toc

@@ -14,11 +14,8 @@ related_posts:
 categories:
     - DataScience
 tags:
-    - data science
     - preprocessing
-    - python
     - pandas
-    - numpy
 ---
 * toc
 {:toc}
@@ -119,7 +116,7 @@ print(df)
 
 함수의 주요 인자는 아래와 같다.  
 
-- condlist: choicelist가 적용될 조건으로, **여러 조건을 동시에 만족하면 가장 처음 조건이 적용 된다.**  
+- condlist: choicelist가 적용될 조건으로, **여러 조건을 동시에 만족하면 가장 처음 조건이 적용된다.**  
 - choicelist: condlist에 따라 반환된 요소에 적용될 계산으로, **반드시 condlist와 길이가 동일해야 한다.**  
 - default: 어떤 조건도 해당하지 않는 경우에 적용된다.  
 

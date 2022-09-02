@@ -15,11 +15,7 @@ related_posts:
 categories:
     - Mathematics
 tags:
-    - mathematics
     - regression
-    - python
-    - numpy
-    - matplotlib
 ---
 * toc
 {:toc}

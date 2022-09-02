@@ -15,11 +15,7 @@ related_posts:
 categories:
     - Mathematics
 tags:
-    - mathematics
     - linear algebra
-    - python
-    - numpy
-    - scipy
 ---
 * toc
 {:toc}

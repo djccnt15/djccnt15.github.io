@@ -15,14 +15,7 @@ related_posts:
 categories:
     - DataScience
 tags:
-    - data science
-    - data analysis
     - regression
-    - python
-    - pandas
-    - statsmodels
-    - scipy
-    - matplotlib
     - incomplete
 ---
 * toc

@@ -15,7 +15,6 @@ related_posts:
 categories:
     - Mathematics
 tags:
-    - mathematics
     - linear algebra
 ---
 * toc

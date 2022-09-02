@@ -14,13 +14,8 @@ related_posts:
 categories:
     - DataScience
 tags:
-    - data science
     - data analysis
-    - preprocessing
     - correlation
-    - python
-    - numpy
-    - scipy
 ---
 * toc
 {:toc}

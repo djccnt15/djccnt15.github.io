@@ -14,10 +14,7 @@ related_posts:
 categories:
     - DataScience
 tags:
-    - data science
-    - data analysis
     - text mining
-    - python
     - konlpy
 ---
 * toc

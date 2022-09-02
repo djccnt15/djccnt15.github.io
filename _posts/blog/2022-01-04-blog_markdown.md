@@ -14,10 +14,8 @@ related_posts:
 categories:
     - Blog
 tags:
-    - ⭐starred
     - blog
-    - html
-    - jekyll
+    - ⭐starred
 ---
 * toc
 {:toc}

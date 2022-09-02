@@ -14,13 +14,7 @@ related_posts:
 categories:
     - DataScience
 tags:
-    - data science
-    - data analysis
     - outlier detection
-    - preprocessing
-    - python
-    - numpy
-    - pandas
 ---
 * toc
 {:toc}

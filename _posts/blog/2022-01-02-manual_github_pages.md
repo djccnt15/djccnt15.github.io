@@ -14,9 +14,8 @@ related_posts:
 categories:
     - Blog
 tags:
-    - ⭐starred
     - blog
-    - jekyll
+    - ⭐starred
 ---
 * toc
 {:toc}
@@ -133,7 +132,7 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 # 호스팅을 해서 다른 디바이스에서도 확인하고 싶을 때
 > bundle exec jekyll serve --livereload --future --drafts -H [IP_address]
 
-# unpublished 된 비밀글 까지 같이 확인할 때
+# unpublished된 비밀글 까지 같이 확인할 때
 > bundle exec jekyll serve --livereload --future --drafts --unpublished
 
 # 일부 문제를 감수하고 페이지 재생성 시간을 줄이고 싶을 때

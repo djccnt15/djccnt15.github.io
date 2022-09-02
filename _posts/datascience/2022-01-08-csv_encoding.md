@@ -14,9 +14,7 @@ related_posts:
 categories:
     - DataScience
 tags:
-    - data science
     - preprocessing
-    - python
     - pandas
 ---
 * toc

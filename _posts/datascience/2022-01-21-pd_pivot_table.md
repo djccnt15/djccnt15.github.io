@@ -14,11 +14,8 @@ related_posts:
 categories:
     - DataScience
 tags:
-    - data science
     - data analysis
-    - python
     - pandas
-    - numpy
 ---
 * toc
 {:toc}
