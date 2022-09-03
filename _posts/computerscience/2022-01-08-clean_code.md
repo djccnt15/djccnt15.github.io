@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/clean_code.png
 related_posts:
-    - _posts/softwareengineering/2022-01-08-clean_code.md
+    - _posts/computerscience/2022-01-08-clean_code.md
 
 categories:
-    - SoftwareEngineering
+    - ComputerScience
 tags:
     - coding
 ---

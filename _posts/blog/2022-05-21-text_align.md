@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[블로그] 글자 정렬'
+title: '[Jekyll] 글자 정렬'
 description: >
     how to align text
 hide_description: false
@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Blog
 tags:
-    - blog
+    - jekyll
 ---
 * toc
 {:toc}

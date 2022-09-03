@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[블로그] 커스터마이징'
+title: '[MM] 커스터마이징'
 description: >
     Minimal Mistakes 테마 커스터마이징
 hide_description: false
@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Blog
 tags:
-    - blog
+    - Minimal Mistakes
 ---
 * toc
 {:toc}

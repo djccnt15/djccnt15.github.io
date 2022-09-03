@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[블로그] 마크다운 활용팁'
+title: '[Markdown] 마크다운 활용팁'
 description: >
     posting에 유용한 팁들
 hide_description: false
@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Blog
 tags:
-    - blog
+    - Markdown
     - ⭐starred
 ---
 * toc

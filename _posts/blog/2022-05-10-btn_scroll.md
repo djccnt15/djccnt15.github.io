@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[블로그] 스크롤 버튼'
+title: '[HTML] 스크롤 버튼'
 description: >
     scroll to top/bottom 버튼 만들기
 hide_description: false
@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Blog
 tags:
-    - blog
+    - HTML
 ---
 * toc
 {:toc}

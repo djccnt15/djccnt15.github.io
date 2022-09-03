@@ -9,11 +9,11 @@ hide_description: false
 image:
     path: /assets/img/posts/data_structure_02.png
 related_posts:
-    - _posts/softwareengineering/2022-06-25-data_structure_01.md
-    - _posts/softwareengineering/2022-07-02-data_structure_03.md
+    - _posts/computerscience/2022-06-25-data_structure_01.md
+    - _posts/computerscience/2022-07-02-data_structure_03.md
 
 categories:
-    - SoftwareEngineering
+    - ComputerScience
 tags:
     - data structure
 ---
@@ -23,11 +23,11 @@ tags:
 <h4>Data Structure Series</h4>
 <div class="taxonomy__index">
     <ol class="description">
-        <li><a href="/softwareengineering/data_structure_01/">자료구조의 기초</a></li>
-        <li><a href="/softwareengineering/data_structure_02/">배열</a></li>
-        <li><a href="/softwareengineering/data_structure_03/">스택</a></li>
-        <li><a href="/softwareengineering/data_structure_04/">큐, 덱</a></li>
-        <li><a href="/softwareengineering/data_structure_05/">연결 리스트</a></li>
+        <li><a href="/computerscience/data_structure_01/">자료구조의 기초</a></li>
+        <li><a href="/computerscience/data_structure_02/">배열</a></li>
+        <li><a href="/computerscience/data_structure_03/">스택</a></li>
+        <li><a href="/computerscience/data_structure_04/">큐, 덱</a></li>
+        <li><a href="/computerscience/data_structure_05/">연결 리스트</a></li>
     </ol>
 </div>
 

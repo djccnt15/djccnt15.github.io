@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[이상치 탐지] IQR 방법론'
+title: '[전처리] IQR 방법론'
 description: >
     IQR 방식의 이상치 탐지
 hide_description: false
@@ -14,7 +14,8 @@ related_posts:
 categories:
     - DataScience
 tags:
-    - outlier detection
+    - preprocessing
+    - noise detection
 ---
 * toc
 {:toc}

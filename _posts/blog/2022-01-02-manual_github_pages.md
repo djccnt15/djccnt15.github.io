@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[블로그] Github Pages 사용법'
+title: '[Jekyll] Github Pages 사용법'
 description: >
     Jekyll 기반 Github Pages의 각종 사용법
 hide_description: false
@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Blog
 tags:
-    - blog
+    - jekyll
     - ⭐starred
 ---
 * toc

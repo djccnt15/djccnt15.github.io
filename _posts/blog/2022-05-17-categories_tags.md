@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[블로그] 카테고리/태그 페이지'
+title: '[Jekyll] 카테고리/태그 페이지'
 description: >
     posts by Category, posts by Tag
 hide_description: false
@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Blog
 tags:
-    - blog
+    - jekyll
 ---
 * toc
 {:toc}
