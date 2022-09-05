@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/np_select.png
 related_posts:
-    - _posts/datascience/2022-01-08-df_header.md
+    - _posts/dataanalysis/2022-01-08-df_header.md
 
 categories:
-    - DataScience
+    - DataAnalysis
 tags:
     - preprocessing
     - pandas

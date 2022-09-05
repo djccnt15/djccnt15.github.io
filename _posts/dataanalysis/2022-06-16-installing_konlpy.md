@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/installing_konlpy.png
 related_posts:
-    - _posts/datascience/2022-06-16-installing_konlpy.md
+    - _posts/dataanalysis/2022-06-16-installing_konlpy.md
 
 categories:
-    - DataScience
+    - DataAnalysis
 tags:
     - text mining
     - konlpy

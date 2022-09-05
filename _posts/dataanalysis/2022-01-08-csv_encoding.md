@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/scrap_result_2021.png
 related_posts:
-    - _posts/datascience/2022-01-08-csv_encoding.md
+    - _posts/dataanalysis/2022-01-08-csv_encoding.md
 
 categories:
-    - DataScience
+    - DataAnalysis
 tags:
     - preprocessing
     - pandas

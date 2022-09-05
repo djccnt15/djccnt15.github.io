@@ -10,10 +10,10 @@ image:
     path: /assets/img/posts/multiple_regression.png
 related_posts:
     - _posts/mathematics/2022-01-19-regression_linear_scratch.md
-    - _posts/datascience/2022-01-23-regression_statsmodels.md
+    - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
 
 categories:
-    - DataScience
+    - DataAnalysis
 tags:
     - regression
     - incomplete

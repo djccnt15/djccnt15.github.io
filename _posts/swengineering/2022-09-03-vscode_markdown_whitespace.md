@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/vscode_markdown_whitespace.png
 related_posts:
-    - _posts/computerscience/2022-09-03-vscode_markdown_whitespace.md
+    - _posts/swengineering/2022-09-03-vscode_markdown_whitespace.md
 
 categories:
-    - ComputerScience
+    - SWEngineering
 tags:
     - VS Code
 ---

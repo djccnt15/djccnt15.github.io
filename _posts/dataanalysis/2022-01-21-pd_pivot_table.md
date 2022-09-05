@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/pd_pivot_table.png
 related_posts:
-    - _posts/datascience/2022-01-21-pd_pivot_table.md
+    - _posts/dataanalysis/2022-01-21-pd_pivot_table.md
 
 categories:
-    - DataScience
+    - DataAnalysis
 tags:
     - data analysis
     - pandas

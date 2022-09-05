@@ -9,11 +9,11 @@ hide_description: false
 image:
     path: /assets/img/posts/exog_endog.png
 related_posts:
-    - _posts/datascience/2022-01-23-regression_statsmodels.md
-    - _posts/datascience/2022-01-24-regression_assumption.md
+    - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
+    - _posts/dataanalysis/2022-01-24-regression_assumption.md
 
 categories:
-    - DataScience
+    - DataAnalysis
 tags:
     - data analysis
 ---

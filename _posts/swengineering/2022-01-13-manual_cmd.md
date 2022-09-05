@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/cmd.png
 related_posts:
-    - _posts/computerscience/2022-01-13-manual_cmd.md
+    - _posts/swengineering/2022-01-13-manual_cmd.md
 
 categories:
-    - ComputerScience
+    - SWEngineering
 tags:
     - cmd/terminal
     - ⭐starred

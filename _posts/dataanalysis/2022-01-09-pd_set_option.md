@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/pd_set_option.png
 related_posts:
-    - _posts/datascience/2022-01-09-pd_set_option.md
+    - _posts/dataanalysis/2022-01-09-pd_set_option.md
 
 categories:
-    - DataScience
+    - DataAnalysis
 tags:
     - pandas
 ---

@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/np_reshape.png
 related_posts:
-    - _posts/datascience/2022-01-30-numpy_reshape.md
+    - _posts/dataanalysis/2022-01-30-numpy_reshape.md
 
 categories:
-    - DataScience
+    - DataAnalysis
 tags:
     - numpy
 ---
