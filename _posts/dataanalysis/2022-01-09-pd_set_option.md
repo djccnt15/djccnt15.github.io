@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[데이터 분석] pandas 옵션 설정'
+title: '[Pandas] pandas 옵션 설정'
 description: >
     pandas.set_option 사용법
 hide_description: false

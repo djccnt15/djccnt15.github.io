@@ -9,10 +9,10 @@ hide_description: false
 image:
     path: /assets/img/posts/markdown.png
 related_posts:
-    - _posts/blog/2022-01-02-manual_github_pages.md
+    - _posts/programming/2022-01-02-manual_github_pages.md
 
 categories:
-    - Blog
+    - Programming
 tags:
     - Markdown
     - ⭐starred

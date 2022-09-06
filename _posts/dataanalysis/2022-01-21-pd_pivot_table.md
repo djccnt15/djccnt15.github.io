@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[데이터 분석] pandas pivot table'
+title: '[PivotTable] pandas 피봇 테이블 분석'
 description: >
     pandas pivot_table, groupby
 hide_description: false

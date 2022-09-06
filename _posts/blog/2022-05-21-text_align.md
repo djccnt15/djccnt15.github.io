@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[Jekyll] 글자 정렬'
+title: '[Hydejack] 글자 정렬'
 description: >
     how to align text
 hide_description: false
@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Blog
 tags:
-    - jekyll
+    - Hydejack
 ---
 * toc
 {:toc}

@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[Jekyll] time series style layout'
+title: '[Hydejack] time series style layout'
 description: >
     list layout을 시계열 디자인으로 수정하기
 hide_description: false
@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Blog
 tags:
-    - jekyll
+    - Hydejack
 ---
 * toc
 {:toc}

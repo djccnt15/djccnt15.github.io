@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[데이터 분석] exog, endog'
+title: '[데이터분석] exog, endog'
 description: >
     독립변수와 종속변수의 변수명
 hide_description: false

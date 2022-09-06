@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[Jekyll] 이전 글, 다음 글'
+title: '[Hydejack] 이전 글, 다음 글'
 description: >
     이전 글, 다음 글 버튼 만들기
 hide_description: false
@@ -14,7 +14,7 @@ related_posts:
 categories:
     - Blog
 tags:
-    - jekyll
+    - Hydejack
 ---
 * toc
 {:toc}

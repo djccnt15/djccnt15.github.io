@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[전처리] csv 인코딩'
+title: '[Pandas] csv 인코딩'
 description: >
     pandas로 csv 인코딩 바꾸기
 hide_description: false
@@ -14,7 +14,6 @@ related_posts:
 categories:
     - DataAnalysis
 tags:
-    - preprocessing
     - pandas
 ---
 * toc

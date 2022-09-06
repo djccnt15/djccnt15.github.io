@@ -2,7 +2,7 @@
 published: true
 layout: post
 
-title: '[전처리] DataFrame의 조건부 변환'
+title: '[Pandas] DataFrame의 조건부 변환'
 description: >
     조건에 따라 데이터를 특정하게 수정하는 방법들
 hide_description: false

@@ -15,7 +15,7 @@ categories:
     - DataAnalysis
 tags:
     - preprocessing
-    - outlier detection
+    - noise detection
 ---
 * toc
 {:toc}
