@@ -23,7 +23,8 @@ tags:
 
 `/_includes/page-button.html`를 아래와 같은 내용을 만들어 주자.  
 
-```html{% raw %}
+{% raw %}
+```html
 <div class="page-control">
     <div>
         {% if page.previous.url %}
@@ -36,15 +37,18 @@ tags:
         {% endif %}
     </div>
 </div>
-{% endraw %}```
+```
+{% endraw %}
 
 ## 2. 페이지에 버튼 넣기
 
 `/_layouts/post.html`의 적당한 위치에 아래 내용 추가  
 
-```html{% raw %}
+{% raw %}
+```html
 {% include page-button.html %}
-{% endraw %}```
+```
+{% endraw %}
 
 ## 3. 버튼 스타일 부여
 

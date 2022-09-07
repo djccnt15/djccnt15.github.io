@@ -228,14 +228,16 @@ Github Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 
 
 `/_layouts/default.html`의 `<head>` 부분에 아래 내용 추가
 
-```scss{% raw %}
+{% raw %}
+```html
 <html>
   <head>
     {% if page.mathjax %}
       {% include mathjax.html %}
     {% endif %}
   </head>
-{% endraw %}```
+```
+{% endraw %}
 
 수식을 사용할 포스트의 `YFM`을 아래와 같이 설정 
 
@@ -263,7 +265,8 @@ mathjax: true
 
 `/_layouts/monthly.html` 생성 후 아래 내용 입력
 
-```html{% raw %}
+{% raw %}
+```html
 ---
 layout: archive
 ---
@@ -293,7 +296,8 @@ layout: archive
     <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
   </section>
 {% endfor %}
-{% endraw %}```
+```
+{% endraw %}
 
 `/_pages/monthly-archive.md` 생성 후 아래 내용 입력
 

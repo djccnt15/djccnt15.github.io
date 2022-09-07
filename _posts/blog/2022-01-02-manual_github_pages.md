@@ -34,11 +34,13 @@ tags:
 
 이를 이용해서 정의된 `YFM`을 이중 괄호 구문을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.  
 
-```{% raw %}
+{% raw %}
+```
 이 글의 제목은 {{ page.title }}이고,
 카테고리는 {{ page.categories }}이다.
 블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.
-{% endraw %}```
+```
+{% endraw %}
 
 ```
 이 글의 제목은 {{ page.title }}이고,

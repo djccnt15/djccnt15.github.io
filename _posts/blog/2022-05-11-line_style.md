@@ -113,7 +113,8 @@ hydejack 테마는 style에 적용되는 scss 코드를 추가할 때 `/_sass/my
 
 `/_layouts/list.html`을 아래와 같이 수정하자.  
 
-```html{% raw %}
+{% raw %}
+```html
 ---
 layout: page
 ---
@@ -141,13 +142,15 @@ layout: page
   {% if forloop.last %}</ul>{% endif %}
 {% endfor %}
 </div>
-{% endraw %}```
+```
+{% endraw %}
 
 ## 3. components 수정
 
 `_includes/components/post-list-item.html`을 아래와 같이 수정하자.  
 
-```html{% raw %}
+{% raw %}
+```html
 {% assign post = include.post %}
 {% assign format = include.format | default:site.data.date_formats.related_post | default:"%Y %m %d" %}
 
@@ -158,7 +161,8 @@ layout: page
     <span class="description">{{ post.description }}</span>
   </div>
 </li>
-{% endraw %}```
+```
+{% endraw %}
 
 ## 4. description style 설정
 
