@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[SymPy] SymPy 입문'
 description: >
     SymPy로 입문하는 symbolic computation
-hide_description: false
+categories: [Mathematics]
+tags: [sympy]
 image:
     path: /assets/img/posts/sympy_tutorial.png
 related_posts:
-    - _posts/mathematics/2022-07-17-sympy_tutorial.md
-
-categories:
-    - Mathematics
-tags:
-    - sympy
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

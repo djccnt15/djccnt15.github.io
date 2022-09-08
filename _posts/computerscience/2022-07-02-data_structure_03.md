@@ -1,21 +1,16 @@
 ---
 published: true
 layout: post
-
 title: '[자료구조] 03. 스택'
 description: >
     python으로 스택(Stack) 구현하기
-hide_description: false
+categories: [ComputerScience]
+tags: [data structure]
 image:
     path: /assets/img/posts/data_structure_03.png
 related_posts:
     - _posts/computerscience/2022-06-26-data_structure_02.md
     - _posts/computerscience/2022-07-03-data_structure_04.md
-
-categories:
-    - ComputerScience
-tags:
-    - data structure
 ---
 * toc
 {:toc}

@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[선형대수] 13. LU 분해'
 description: >
     기본 행렬, LU 분해
-hide_description: false
+categories: [Mathematics]
+tags: [linear algebra]
 image:
     path: /assets/img/posts/linear_algebra_13.png
 related_posts:
     - _posts/mathematics/2022-06-13-linear_algebra_12.md
-
-categories:
-    - Mathematics
-tags:
-    - linear algebra
 ---
 * toc
 {:toc}

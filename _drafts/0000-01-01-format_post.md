@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[topic] title of the post'
 description: >
     description of the post
-hide_description: false
+categories: [category]
+tags: [tag]
 image:
     path: /assets/img/posts/github_pages.png
-# related_posts:
-#     - _posts/blog/2017-11-23-example-content-ii.md
-
-categories:
-    - category
-tags:
-    - tag
+related_posts:
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -27,4 +22,4 @@ text
 
 ---
 ## Reference
-- text
+- [text]()

@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Hydejack] 카테고리/태그 페이지'
 description: >
     posts by Category, posts by Tag
-hide_description: false
+categories: [Blog]
+tags: [Hydejack]
 image:
     path: /assets/img/posts/by_category.png
 related_posts:
-    - _posts/blog/2022-05-17-categories_tags.md
-
-categories:
-    - Blog
-tags:
-    - Hydejack
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -74,7 +69,7 @@ layout: about
 
 ## 2. Tag 레이아웃 만들기
 
-`/_layout/categories.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
+`/_layout/tags.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
 
 {% raw %}
 ```html

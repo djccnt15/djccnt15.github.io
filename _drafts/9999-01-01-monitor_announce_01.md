@@ -1,23 +1,16 @@
 ---
 published: true
 layout: post
-
 title: '[웹사이트 모니터링] 01'
 description: >
     프로젝트의 목적과 기초 구상
-hide_description: false
+categories: [Programming]
+tags: [web scraping]
 image:
     path: /assets/img/posts/github_pages.png
-# related_posts:
-#     - _posts/blog/2017-11-23-example-content-ii.md
-#     - /example/2012-02-07-example-content/
-
-categories:
-    - Programming
-tags:
-    - web scraping
+related_posts:
+    - _posts/category/0000-01-01-format_post.md
 ---
-
 * toc
 {:toc}
 

@@ -1,21 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Python] 가상환경'
 description: >
     windows와 linux에서 python 가상환경 만들고 사용하기
-hide_description: false
+categories: [Programming]
+tags: [python, ⭐starred]
 image:
     path: /assets/img/posts/python_venv.png
 related_posts:
-    - _posts/programming/2022-01-06-about_PEP.md
-
-categories:
-    - Programming
-tags:
-    - python
-    - ⭐starred
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

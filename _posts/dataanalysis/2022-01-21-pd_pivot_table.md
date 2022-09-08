@@ -1,21 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[PivotTable] pandas 피봇 테이블 분석'
 description: >
     pandas pivot_table, groupby
-hide_description: false
+categories: [DataAnalysis]
+tags: [data analysis, pandas]
 image:
     path: /assets/img/posts/pd_pivot_table.png
 related_posts:
-    - _posts/dataanalysis/2022-01-21-pd_pivot_table.md
-
-categories:
-    - DataAnalysis
-tags:
-    - data analysis
-    - pandas
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

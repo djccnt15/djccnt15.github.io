@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Front-end] 스크롤 버튼'
 description: >
     scroll to top/bottom 버튼 만들기
-hide_description: false
+categories: [Programming]
+tags: [Front-end]
 image:
     path: /assets/img/posts/btn.png
 related_posts:
-    - _posts/programming/2022-05-10-btn_scroll.md
-
-categories:
-    - Programming
-tags:
-    - Front-end
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

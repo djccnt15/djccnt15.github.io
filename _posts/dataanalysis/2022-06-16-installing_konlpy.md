@@ -1,21 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[TextMining] KoNLPy 설치법(윈도우)'
 description: >
     python 텍스트마이닝 프레임워크 KoNLPy 윈도우 설치법
-hide_description: false
+categories: [DataAnalysis]
+tags: [text mining, konlpy]
 image:
     path: /assets/img/posts/installing_konlpy.png
 related_posts:
-    - _posts/dataanalysis/2022-06-16-installing_konlpy.md
-
-categories:
-    - DataAnalysis
-tags:
-    - text mining
-    - konlpy
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

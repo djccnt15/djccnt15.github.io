@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[자료구조] 05. 연결 리스트'
 description: >
     python으로 연결 리스트(Linked List) 구현하기
-hide_description: false
+categories: [ComputerScience]
+tags: [data structure]
 image:
     path: /assets/img/posts/data_structure_05.png
 related_posts:
     - _posts/computerscience/2022-07-03-data_structure_04.md
-
-categories:
-    - ComputerScience
-tags:
-    - data structure
 ---
 * toc
 {:toc}

@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Hydejack] 글자 정렬'
 description: >
     how to align text
-hide_description: false
+categories: [Blog]
+tags: [Hydejack]
 image:
     path: /assets/img/posts/text_align.png
 related_posts:
-    - _posts/blog/2022-05-11-line_style.md
-
-categories:
-    - Blog
-tags:
-    - Hydejack
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Bot] Telegram Bot 만들기'
 description: >
     Telegram Bot API로 python 자동 알림 만들기
-hide_description: false
+categories: [Programming]
+tags: [bot]
 image:
     path: /assets/img/posts/telegram_bot_setting.png
 related_posts:
-    - _posts/programming/2022-07-30-telegram_bot.md
-
-categories:
-    - Programming
-tags:
-    - bot
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -35,7 +30,7 @@ Telegram을 가입 후 **BotFather**를 검색해서 새로운 bot을 만들자.
 검정색으로 가려진 부분이 **HTTP access token**이다.  
 
 ❗공식 마크를 잘 확인하자. 사칭이 좀 있다.  
-{:.note title="attention"}
+{:.note title='attention'}
 
 ## 3. HTTP 호출을 통한 bot 생성 확인
 

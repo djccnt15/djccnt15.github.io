@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Python] function'
 description: >
     python의 함수에 대한 노트
-hide_description: false
+categories: [Programming]
+tags: [python]
 image:
     path: /assets/img/posts/def_func.png
 related_posts:
-    - _posts/programming/2022-01-06-about_PEP.md
-
-categories:
-    - Programming
-tags:
-    - python
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

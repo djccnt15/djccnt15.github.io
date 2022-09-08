@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[블로그] Googling stuff online'
 description: >
     Googling stuff online does make you a programmer
-hide_description: false
+categories: [Blog]
+tags: [blog]
 image:
     path: /assets/img/posts/googling_stuff_online_does_not_make_you_a_doctor.jpg
 related_posts:
-    - _posts/blog/2022-01-01-initial_post.md
-
-categories:
-    - Blog
-tags:
-    - blog
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

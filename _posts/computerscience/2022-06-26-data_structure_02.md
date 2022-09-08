@@ -1,21 +1,16 @@
 ---
 published: true
 layout: post
-
 title: '[자료구조] 02. 배열'
 description: >
     python으로 배열(Array) 구현하기
-hide_description: false
+categories: [ComputerScience]
+tags: [data structure]
 image:
     path: /assets/img/posts/data_structure_02.png
 related_posts:
     - _posts/computerscience/2022-06-25-data_structure_01.md
     - _posts/computerscience/2022-07-02-data_structure_03.md
-
-categories:
-    - ComputerScience
-tags:
-    - data structure
 ---
 * toc
 {:toc}

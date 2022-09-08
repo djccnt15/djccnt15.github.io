@@ -1,21 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[cmd/terminal] 사용법'
 description: >
     windows cmd/linux terminal의 유용한 명령어 모음  
-hide_description: false
+categories: [SWEngineering]
+tags: [cmd/terminal, ⭐starred]
 image:
     path: /assets/img/posts/cmd.png
 related_posts:
-    - _posts/swengineering/2022-01-13-manual_cmd.md
-
-categories:
-    - SWEngineering
-tags:
-    - cmd/terminal
-    - ⭐starred
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

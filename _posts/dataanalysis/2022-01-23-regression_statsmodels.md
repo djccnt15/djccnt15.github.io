@@ -1,23 +1,16 @@
 ---
 published: true
 layout: post
-
 title: '[회귀분석] python 회귀분석'
 description: >
     statsmodels을 이용해서 회귀분석을 해보자
-hide_description: false
+categories: [DataAnalysis]
+tags: [regression, statsmodels, incomplete]
 image:
     path: /assets/img/posts/multiple_regression.png
 related_posts:
     - _posts/mathematics/2022-01-19-regression_linear_scratch.md
     - _posts/dataanalysis/2022-01-24-regression_assumption.md
-
-categories:
-    - DataAnalysis
-tags:
-    - regression
-    - statsmodels
-    - incomplete
 ---
 * toc
 {:toc}

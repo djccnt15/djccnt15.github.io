@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[VS Code] 특정 형식에만 옵션 적용하기'
 description: >
     markdown 형식에만 Trim Trailing Whitespace 옵션 끄기
-hide_description: false
+categories: [SWEngineering]
+tags: [VS Code]
 image:
     path: /assets/img/posts/vscode_markdown_whitespace.png
 related_posts:
-    - _posts/swengineering/2022-09-03-vscode_markdown_whitespace.md
-
-categories:
-    - SWEngineering
-tags:
-    - VS Code
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

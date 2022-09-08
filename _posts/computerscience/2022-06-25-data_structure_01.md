@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[자료구조] 01. 자료구조의 기초'
 description: >
     자료구조의 기본 개념
-hide_description: false
+categories: [ComputerScience]
+tags: [data structure]
 image:
     path: /assets/img/posts/data_structure_01.png
 related_posts:
     - _posts/computerscience/2022-06-26-data_structure_02.md
-
-categories:
-    - ComputerScience
-tags:
-    - data structure
 ---
 * toc
 {:toc}

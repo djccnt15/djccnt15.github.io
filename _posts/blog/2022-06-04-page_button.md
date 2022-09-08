@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Hydejack] 이전 글, 다음 글'
 description: >
     이전 글, 다음 글 버튼 만들기
-hide_description: false
+categories: [Blog]
+tags: [Hydejack]
 image:
     path: /assets/img/posts/page_button.png
 related_posts:
-    - _posts/blog/2022-06-04-page_button.md
-
-categories:
-    - Blog
-tags:
-    - Hydejack
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -45,7 +40,7 @@ tags:
 `/_layouts/post.html`의 적당한 위치에 아래 내용 추가  
 
 {% raw %}
-```html
+```liquid
 {% include page-button.html %}
 ```
 {% endraw %}

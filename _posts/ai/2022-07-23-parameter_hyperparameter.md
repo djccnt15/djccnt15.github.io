@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[AI] 파라미터와 하이퍼파라미터'
 description: >
     Parameter와 Hyperparameter
-hide_description: false
+categories: [AI]
+tags: [AI]
 image:
     path: /assets/img/posts/parameter_hyperparameter.png
 related_posts:
-    - _posts/ai/2022-07-09-about_ai.md
-
-categories:
-    - AI
-tags:
-    - AI
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

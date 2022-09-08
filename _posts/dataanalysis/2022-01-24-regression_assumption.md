@@ -1,22 +1,16 @@
 ---
 published: true
 layout: post
-
 title: '[회귀분석] 회귀분석의 전제조건'
 description: >
     선형성, 독립성, 등분산성, 정규성
-hide_description: false
+categories: [DataAnalysis]
+tags: [regression, incomplete]
 image:
     path: /assets/img/posts/multiple_regression.png
 related_posts:
     - _posts/mathematics/2022-01-19-regression_linear_scratch.md
     - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
-
-categories:
-    - DataAnalysis
-tags:
-    - regression
-    - incomplete
 ---
 * toc
 {:toc}

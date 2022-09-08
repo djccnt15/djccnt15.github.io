@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[블로그] 첫 글'
 description: >
     감격의 첫 글
-hide_description: false
+categories: [Blog]
+tags: [blog]
 image:
     path: /assets/img/blog/googling_does_make_you_a_programmer_space.png
 related_posts:
     - _posts/blog/2022-01-03-googling_stuff.md
-
-categories:
-    - Blog
-tags:
-    - blog
 ---
 * toc
 {:toc}

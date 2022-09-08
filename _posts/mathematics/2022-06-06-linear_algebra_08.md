@@ -1,21 +1,16 @@
 ---
 published: true
 layout: post
-
 title: '[선형대수] 08. 직교공간과 QR 분해'
 description: >
     직교 공간, 정사영, 그람-슈미트 과정, QR 분해
-hide_description: false
+categories: [Mathematics]
+tags: [linear algebra]
 image:
     path: /assets/img/posts/linear_algebra_08.png
 related_posts:
     - _posts/mathematics/2022-06-05-linear_algebra_07.md
     - _posts/mathematics/2022-06-09-linear_algebra_09.md
-
-categories:
-    - Mathematics
-tags:
-    - linear algebra
 ---
 * toc
 {:toc}

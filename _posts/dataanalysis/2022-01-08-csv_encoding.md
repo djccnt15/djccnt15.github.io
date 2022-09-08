@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Pandas] csv 인코딩'
 description: >
     pandas로 csv 인코딩 바꾸기
-hide_description: false
+categories: [DataAnalysis]
+tags: [pandas]
 image:
     path: /assets/img/posts/scrap_result_2021.png
 related_posts:
-    - _posts/dataanalysis/2022-01-08-csv_encoding.md
-
-categories:
-    - DataAnalysis
-tags:
-    - pandas
+    - _posts/dataanalysis/2022-09-07-csv_encoding_02.md
 ---
 * toc
 {:toc}
@@ -34,7 +29,7 @@ df.to_csv('FILE_NAME.csv', encoding='utf-8-sig')
 
 결과물은 아래와 같다.  
 
-![scrap_result_2021_encoded.png](/assets/img/posts/scrap_result_2021_encoded.png)  
+![scrap_result_2021_encoded.png](/assets/img/posts/scrap_result_2021_encoded.png)
 
 ---
 ## Reference

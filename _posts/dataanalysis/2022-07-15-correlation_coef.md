@@ -1,21 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[상관분석] 상관 계수'
 description: >
     python으로 상관 계수 구현하기
-hide_description: false
+categories: [DataAnalysis]
+tags: [data analysis, correlation]
 image:
     path: /assets/img/posts/plot_corr.png
 related_posts:
     - _posts/mathematics/2022-01-19-regression_linear_scratch.md
-
-categories:
-    - DataAnalysis
-tags:
-    - data analysis
-    - correlation
 ---
 * toc
 {:toc}

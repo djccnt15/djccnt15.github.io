@@ -1,21 +1,16 @@
 ---
 published: true
 layout: post
-
 title: '[선형대수] 10. 고유값과 고유벡터'
 description: >
     고유값과 고유벡터
-hide_description: false
+categories: [Mathematics]
+tags: [linear algebra]
 image:
     path: /assets/img/posts/linear_algebra_10.png
 related_posts:
     - _posts/mathematics/2022-06-09-linear_algebra_09.md
     - _posts/mathematics/2022-06-12-linear_algebra_11.md
-
-categories:
-    - Mathematics
-tags:
-    - linear algebra
 ---
 * toc
 {:toc}

@@ -1,21 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Jekyll] Github Pages 사용법'
 description: >
     Jekyll 기반 Github Pages의 각종 사용법
-hide_description: false
+categories: [Blog]
+tags: [jekyll, ⭐starred]
 image:
     path: /assets/img/posts/github_pages.png
 related_posts:
-    - _posts/blog/2022-01-04-blog_markdown.md
-
-categories:
-    - Blog
-tags:
-    - jekyll
-    - ⭐starred
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -24,7 +18,7 @@ tags:
 
 엄밀히 말하면 Github Pages를 통해 배포되기 때문에, `GitHub Flavored Markdown(GFM)`이라는 별도의 markdown을 사용한다. `GFM`에 대한 자세한 설명은 [여기](https://github.github.com/gfm/)로  
 
-- [이 블로그에서 사용된 마크다운 활용법들 보러가기](/blog/blog_markdown/)
+- [이 블로그에서 사용된 마크다운 활용법들 보러가기](/programming/blog_markdown/)
 
 <sub>markdown 기반의 블로그를 만들면서 조금 귀찮아진 부분인데, 나는 기본적으로 vscode의 `Trim Trailing Whitespace` 기능을 켜고 사용한다. 그런데 이 옵션을 킨 상태로 저장하면 vscode가 자동으로 문장 끝의 whitespace를 삭제해서 줄바꿈을 망가뜨리기 때문에 앞으로는 해당 기능을 user 단위가 아니라 workspace 단위로 켜줘야 한다. 기본적으로 켜고 특정 workspace에서만 끄는게 안 되기 때문에.. 반대는 가능하지만</sub>
 
@@ -93,6 +87,12 @@ local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명
 ```
 
 local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확인할 수 있다.  
+
+기본 포트가 `4000`으로 잡혀 있기 때문에 웹페이지를 동시에 여럿 빌드하려면 두 번째부터는 포트를 별도로 설정해줘야 한다. 포트를 설정하는 방법은 아래와 같다.  
+
+```powershell
+> bundle exec jekyll serve --port [port_number]
+```
 
 그림 사이즈를 모바일에서 미리 확인하는 등 다른 디바이스의 브라우저로 테스트 컴퓨터의 호스팅에 접속하고 싶을 경우가 있는데, 그럴 때는 아래와 같이 서버의 주소를 지정해서 구동하면 된다.  
 

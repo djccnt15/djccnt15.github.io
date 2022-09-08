@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[MM] 커스터마이징'
 description: >
     Minimal Mistakes 테마 커스터마이징
-hide_description: false
+categories: [Blog]
+tags: [Minimal Mistakes]
 image:
     path: /assets/img/posts/minimal_mistakes.png
 related_posts:
-    - _posts/blog/2022-01-02-manual_github_pages.md
-
-categories:
-    - Blog
-tags:
-    - Minimal Mistakes
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

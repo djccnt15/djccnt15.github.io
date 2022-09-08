@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Python] No module named pip'
 description: >
     How to reinstall pip
-hide_description: false
+categories: [Programming]
+tags: [python]
 image:
     path: /assets/img/posts/python_ensurepip.png
 related_posts:
-    - _posts/python/2022-01-06-about_PEP.md
-
-categories:
-    - Programming
-tags:
-    - python
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

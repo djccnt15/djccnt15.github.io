@@ -1,8 +1,8 @@
 ---
 layout: grid
 title: Research Log
-slug: ResearchLog
 description: >
     Posts in Research Log category
+slug: ResearchLog
 permalink: researchlog
 ---

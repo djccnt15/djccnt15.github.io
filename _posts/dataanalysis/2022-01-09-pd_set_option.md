@@ -1,20 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Pandas] pandas 옵션 설정'
 description: >
     pandas.set_option 사용법
-hide_description: false
+categories: [DataAnalysis]
+tags: [pandas]
 image:
     path: /assets/img/posts/pd_set_option.png
 related_posts:
-    - _posts/dataanalysis/2022-01-09-pd_set_option.md
-
-categories:
-    - DataAnalysis
-tags:
-    - pandas
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

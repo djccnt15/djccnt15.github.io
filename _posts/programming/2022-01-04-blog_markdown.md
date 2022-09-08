@@ -1,21 +1,15 @@
 ---
 published: true
 layout: post
-
 title: '[Markdown] 마크다운 활용팁'
 description: >
     posting에 유용한 팁들
-hide_description: false
+categories: [Programming]
+tags: [Markdown, ⭐starred]
 image:
     path: /assets/img/posts/markdown.png
 related_posts:
     - _posts/programming/2022-01-02-manual_github_pages.md
-
-categories:
-    - Programming
-tags:
-    - Markdown
-    - ⭐starred
 ---
 * toc
 {:toc}

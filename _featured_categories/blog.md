@@ -1,8 +1,8 @@
 ---
 layout: grid
 title: Blog
-slug: Blog
 description: >
     Posts in Blog category
+slug: Blog
 permalink: blog
 ---

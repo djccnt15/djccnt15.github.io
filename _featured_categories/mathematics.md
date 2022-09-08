@@ -1,8 +1,8 @@
 ---
 layout: grid
 title: Mathematics
-slug: Mathematics
 description: >
     Posts in Mathematics category
+slug: Mathematics
 permalink: mathematics
 ---
