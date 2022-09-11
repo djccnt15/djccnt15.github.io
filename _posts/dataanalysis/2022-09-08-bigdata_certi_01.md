@@ -7,9 +7,9 @@ description: >
 categories: [DataAnalysis]
 tags: [data analysis, 빅데이터분석기사]
 image:
-    path: /assets/img/posts/bigdata_certi_01.png
+    path: /assets/img/posts/bigdata_certi.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    - _posts/dataanalysis/2022-09-09-bigdata_certi_02.md
 ---
 * toc
 {:toc}
@@ -145,6 +145,7 @@ dtypes: float64(3), int64(5), object(2)
 memory usage: 273.6+ KB
 None
 ```
+
 </div>
 </details><br>
 
@@ -168,6 +169,7 @@ dtypes: int64(2)
 memory usage: 54.8 KB
 None
 ```
+
 </div>
 </details><br>
 
@@ -199,6 +201,7 @@ dtypes: float64(3), int64(5), object(2)
 memory usage: 194.0+ KB
 None
 ```
+
 </div>
 </details><br>
 
@@ -225,6 +228,7 @@ print(len(pd.unique(exog['주구매상품'])), len(pd.unique(test['주구매상�
  '생활잡화' '주방가전' '란제리/내의' '남성 트랜디' '보석' '주류' '침구/수예' '악기']
 42 41
 ```
+
 </div>
 </details><br>
 
@@ -247,6 +251,7 @@ print(len(pd.unique(exog['주구매지점'])), len(pd.unique(test['주구매지�
  '센텀시티점']
 24 24
 ```
+
 </div>
 </details><br>
 
@@ -306,6 +311,7 @@ dtypes: float64(3), int64(5), object(2)
 memory usage: 514.1+ KB
 None
 ```
+
 </div>
 </details><br>
 
@@ -328,7 +334,7 @@ df['환불금액'].fillna(value=0, inplace=True)
 
 **정규화**
 
-정규화는 이상치에 영향을 적게 받는 `Robust Scaling`을 적용해주는게 무난하다. 자세한 설명은 [이 글](/dataanalysis/scalers/)을 참고하자.  
+정규화는 이상치의 영향을 적게 받는 `Robust Scaling`을 적용해주는게 무난하다. 자세한 설명은 [이 글](/dataanalysis/scalers/)을 참고하자.  
 
 ```python
 import numpy as np
@@ -388,6 +394,7 @@ dtypes: float64(7), uint8(66)
 memory usage: 759.4 KB
 None
 ```
+
 </div>
 </details><br>
 
@@ -402,7 +409,7 @@ test = df.iloc[3500:, :]
 
 **Model 생성 및 학습**
 
-간단하게 로지스틱 회귀를 불러와서 학습을 진행해준다. 후기들을 보니 정상적으로 제출만 해도 대부분 합격이 되는 것 같아 문제에서 요구하는 수준의 하이퍼파라미터 튜닝이나 앙상블은 특별히 적용하지 않았다.  
+간단하게 로지스틱 회귀를 불러와서 학습을 진행해준다. 후기들을 보니 정상적으로 제출만 해도 대부분 합격이 되는 것 같아 문제에서 요구하는 수준의 하이퍼파라미터 튜닝이나 모델 앙상블을 특별히 적용하지는 않았다.  
 
 ```python
 from sklearn.linear_model import LogisticRegression
@@ -413,7 +420,7 @@ model.fit(exog, endog)
 predict = model.predict_proba(test)
 ```
 
-문제에서 **남자일 확률**, 즉 예측값이 1일 확률을 요구하는데, scikit-learn의 인퍼런스를 통해 확률을 도출하면, 0일 확률과 1일 확률이 순서대로 도출되기 때문에 그에 맞춰서 결과값을 정리해준다.  
+문제에서 결과값으로 **남자일 확률**, 즉 **예측값이 1일 확률**을 요구하는데, scikit-learn의 인퍼런스를 통해 확률을 도출하면, 0일 확률과 1일 확률이 순서대로 도출되기 때문에 그에 맞춰서 결과값을 정리해준다.  
 
 ```python
 predict_man = predict[:, 1]
