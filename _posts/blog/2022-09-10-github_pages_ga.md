@@ -41,12 +41,21 @@ Hydejack 테마의 경우 `_includes\body\analytics.html` 파일에 Google Analy
 
 ## 실패의 기록
 
-결과는 개같이 fail..ㅠ Google Analytics 통계화면에서도 지속적으로 카운트 되고 있다. 아래 캡처에서 볼 수 있듯이 `analytics.html`를 수정한 내용이 빌드 결과에 제대로 반영이 안 되는 문제가 있는 것 같은데, 웹 개발이나 Jekyll 프레임워크에 대한 이해가 낮아 어디가 문제인지는 모르겠다..
+결과는 개같이 fail..ㅠ Google Analytics 통계화면에서도 지속적으로 카운트 되고 있다. 아마 `"jekyll-github-metadata"` plugin을 사용하지 않아서 그런 것 같다.  
 
-![github_pages_ga_fail](/assets/img/posts/github_pages_ga_fail.png)
-{:.text-center}
+## 해결
 
-일단은 `analytics.html`은 원상복구 해두고 나중에 좀 더 실력이 쌓이면 다시 수정해봐야겠다.  
+더 간편한 해결책을 찾았는데, Jekyll의 [Variables](https://jekyllrb.com/docs/variables/) 페이지를 보면 `Global Variables` 중에 `site`가 있고, 그 하위 변수로 `site.url`가 있다. 이를 이용해서 현재 사이트의 주소가 GitHub을 통해 배포되었는지를 확인하는 방식으로 적용했고, 실제로 Google Analytics에 집계가 되지 않는 것을 확인했다.  
+
+{% raw %}
+```liquid
+<!-- before -->
+{% if site.google_analytics %}
+
+<!-- after -->
+{% if site.google_analytics and site.url == "https://djccnt15.github.io/" %}
+```
+{% endraw %}
 
 ---
 ## Reference

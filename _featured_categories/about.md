@@ -14,7 +14,7 @@ hide_description: true
 
 Personal Contact: **[djccnt15@gmail.com](mailto:djccnt15@gmail.com)**  
 Business Contact: **[doorheon.jeong@wizcore.co.kr](mailto:doorheon.jeong@wizcore.co.kr)**  
-Github: **[github.com/djccnt15](https://github.com/djccnt15)**  
+GitHub: **[github.com/djccnt15](https://github.com/djccnt15)**  
 LinkedIn: **[doorheon-b3aa56212](https://www.linkedin.com/in/doorheon-b3aa56212/)**
 {:.note title='contacts'}
 

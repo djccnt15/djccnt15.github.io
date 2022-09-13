@@ -16,7 +16,7 @@ related_posts:
 
 ## 1. 포스트 작성은 markdown으로
 
-엄밀히 말하면 Github Pages를 통해 배포되기 때문에, `GitHub Flavored Markdown(GFM)`이라는 별도의 markdown을 사용한다. `GFM`에 대한 자세한 설명은 [여기](https://github.github.com/gfm/)로  
+엄밀히 말하면 GitHub Pages를 통해 배포되기 때문에, `GitHub Flavored Markdown(GFM)`이라는 별도의 markdown을 사용한다. `GFM`에 대한 자세한 설명은 [여기](https://github.github.com/gfm/)로  
 
 - [이 블로그에서 사용된 마크다운 활용법들 보러가기](/programming/blog_markdown/)
 
@@ -57,7 +57,7 @@ related_posts:
 
 ### 3-2. _drafts 폴더에 작성하기
 
-`/_drafts` 폴더는 Github Pages가 외부로 배포하지 않도록 설정되어 있다. local에서 내용을 확인하고 싶다면 Jekyll에 `--drafts`를 붙여서 구동해야 한다.  
+`/_drafts` 폴더는 GitHub Pages가 외부로 배포하지 않도록 설정되어 있다. local에서 내용을 확인하고 싶다면 Jekyll에 `--drafts`를 붙여서 구동해야 한다.  
 
 ```powershell
 > bundle exec jekyll serve --drafts
@@ -65,7 +65,7 @@ related_posts:
 
 ## 4. local에서 빌드 결과 확인
 
-github pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 은근히 걸리기 때문에, local에서 확인하고 검토한 다음에 최종본을 업로드하는게 편하다.  
+GitHub pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 은근히 걸리기 때문에, local에서 확인하고 검토한 다음에 최종본을 업로드하는게 편하다.  
 
 local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명령어는 다음과 같다.  
 
@@ -80,7 +80,7 @@ local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명
 ```
 
 미래 날짜로 작성한 포스트를 local에서 확인하려면 아래와 같이 `--future`를 붙여야 한다.  
-직접 확인해보지는 않았지만 Github Pages에서는 미래 날짜로 업로드해도 정상적으로 출력된다고 한다.  
+직접 확인해보지는 않았지만 GitHub Pages에서는 미래 날짜로 업로드해도 정상적으로 출력된다고 한다.  
 
 ```powershell
 > bundle exec jekyll serve --future
