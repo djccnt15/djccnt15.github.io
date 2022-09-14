@@ -56,6 +56,8 @@ menu:
     url:               /categories
   - title:             Tags
     url:               /tags
+  - title:             Archive
+    url:               /archive
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -72,7 +74,7 @@ copyright:             © 2021. All rights reserved.
 permalink:             /:categories/:title/  # /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              10
+paginate:              999
 paginate_path:         /:num/
 
 
@@ -170,7 +172,7 @@ kramdown:
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:      UA-198835434-1
+google_analytics:      G-FQG7LWZEVF
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.

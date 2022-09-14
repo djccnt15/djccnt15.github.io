@@ -1,7 +1,7 @@
 ---
-layout: list
+layout: grid
 title: Posts
 description: >
-    Every post by upload order
+    My posts
 grouped: true
 ---

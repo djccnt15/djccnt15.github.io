@@ -26,7 +26,6 @@ AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티
 
 - 각종 AI 관련 프로젝트 기획 및 모델 개발
 - 데이터 분석 및 시각화
-- 사무자동화 관련 프로그램
 
 ---
 
@@ -42,34 +41,28 @@ AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티
 
 ## Interests and Skills
 
-- Programming Language
-    - [![python_logo](/assets/img/posts/logo_Python.svg){: width="3%" height="3%"} Python](https://www.python.org/)
-- Data Science
-    - [![statsmodels_logo](/assets/img/posts/logo_statsmodels.svg){: width="3%" height="3%"} statsmodels](https://www.statsmodels.org/)
-    - [![pandas_logo](/assets/img/posts/logo_pandas.svg){: width="3%" height="3%"} pandas](https://pandas.pydata.org/)
-    - [![numpy_logo](/assets/img/posts/logo_numpy.svg){: width="3%" height="3%"} NumPy](https://numpy.org/)
-- AI, Machine Learning, Deep Learning
-    - [![tensorflow_logo](/assets/img/posts/logo_Tensorflow.svg){: width="3%" height="3%"} TensorFlow](https://www.tensorflow.org/), [![keras_logo](/assets/img/posts/logo_Keras.svg){: width="3%" height="3%"} Keras](https://keras.io/)
-    - [![sklearn_logo](/assets/img/posts/logo_scikit-learn.png){: width="5%" height="5%"} scikit-learn](https://scikit-learn.org/)
+- Programming Language  
+![python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+- Data Analysis  
+![numpy](https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+
+- AI, Machine Learning, Deep Learning  
+![sklearn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![tensorflow](https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![keras](https://img.shields.io/badge/keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
 
 ---
 
-## Resume
-
-### Projects
+## Projects
 
 - 2021
     - ANN 기반 STL(Steel Plate) 리코일 공정 양/불 예측 모델 개발
-    - ANN 기반 MCCB(배선용 차단기) 양/불 예측 모델 개발
-    - ANN 기반 CAST(석고붕대) 제품 LOT 수율 예측 모델 개발
-    - CNN 기반 골판지 인쇄상태 양/불 판정 모델 개발
-    - [Google MediaPipe](https://google.github.io/mediapipe/) 기반 모션인식 학습용 데이터셋 구축 모듈 개발
 - 2020
-    - 군집분석을 활용한 스마트공장 성숙도 수준 기반 도입기업 특성 분석
-- 2019 ~ 2020
-    - 농작물 분류 AI 학습용 데이터셋 구축
+    - K-means 기반 스마트공장 도입기업 특성 분석
 
-### Articles
+## Articles
 
 - 2021년
     - 석사학위논문. [스마트공장 성숙도 수준 기반 도입기업 특성 분석](http://www.riss.kr/link?id=T15766958)
@@ -80,16 +73,16 @@ AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티
 
 <!-- ### Competition -->
 
-### Career
+## Career
 
 - 2021 ~ [WIZCORE 주식회사](http://wizcore.co.kr/)  
 - 2019 ~ 2021 충북대학교 지능정보시스템 연구실
 
-### Education
+## Education
 
 - 2021 충북대학교 경영정보학 석사 졸업  
 
-### Certificate
+## Certificate
 
 - 정보처리기사
 - ADsP  
