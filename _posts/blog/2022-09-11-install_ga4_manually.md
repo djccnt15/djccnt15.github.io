@@ -30,7 +30,7 @@ Google Analytics 페이지를 잘 뒤져보면 아래와 같이 수동으로 태
 
 {% raw %}
 ```html
-{% if site.google_analytics and site.url == "https://djccnt15.github.io/" %}
+{% if site.url == "https://djccnt15.github.io/" %}
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-**********"></script>
   <script>

@@ -122,7 +122,7 @@ print(exog.info())
 ```
 
 <details>
-<summary>cmd</summary>
+<summary>print</summary>
 <div markdown="1">
 
 ```
@@ -154,7 +154,7 @@ print(endog.info())
 ```
 
 <details>
-<summary>cmd</summary>
+<summary>print</summary>
 <div markdown="1">
 
 ```
@@ -178,7 +178,7 @@ print(test.info())
 ```
 
 <details>
-<summary>cmd</summary>
+<summary>print</summary>
 <div markdown="1">
 
 ```
@@ -214,7 +214,7 @@ print(len(pd.unique(exog['주구매상품'])), len(pd.unique(test['주구매상�
 ```
 
 <details>
-<summary>cmd</summary>
+<summary>print</summary>
 <div markdown="1">
 
 ```
@@ -239,7 +239,7 @@ print(len(pd.unique(exog['주구매지점'])), len(pd.unique(test['주구매지�
 ```
 
 <details>
-<summary>cmd</summary>
+<summary>print</summary>
 <div markdown="1">
 
 ```
@@ -288,7 +288,7 @@ print(df.info())
 ```
 
 <details>
-<summary>cmd</summary>
+<summary>print</summary>
 <div markdown="1">
 
 ```
@@ -334,7 +334,7 @@ df['환불금액'].fillna(value=0, inplace=True)
 
 **정규화**
 
-정규화는 이상치의 영향을 적게 받는 `Robust Scaling`을 적용해주는게 무난하다. 자세한 설명은 [이 글](/dataanalysis/scalers/)을 참고하자.  
+정규화는 이상치의 영향을 적게 받는 `Robust Scaling`을 적용해주는게 무난하다. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
 
 ```python
 import numpy as np
@@ -358,7 +358,7 @@ print(df.info())
 ```
 
 <details>
-<summary>cmd</summary>
+<summary>print</summary>
 <div markdown="1">
 
 ```
@@ -503,7 +503,7 @@ scaler = RobustScaler()
 for col in num_cols:
     df[col] = scaler.fit_transform(np.array(df[col]).reshape(-1, 1))
 
-# aplly one-hot encoding
+# apply one-hot encoding
 encoded = pd.get_dummies(df[['주구매상품', '주구매지점']])
 df = pd.concat([df, encoded], axis=1)
 df.drop(columns=['주구매상품', '주구매지점'], inplace=True)
@@ -522,7 +522,7 @@ print(endog.info())
 # load model for classification, not really did any hyperparameter tuning
 model = LogisticRegression()
 
-# train model
+# model fitting
 model.fit(exog, endog)
 
 # inference with trained model
@@ -534,6 +534,7 @@ result = pd.DataFrame({'custid':cust_id, 'gender':predict_man})
 
 print(result.head())
 
+# save result file
 result.to_csv('result.csv', index=False)
 ```
 
