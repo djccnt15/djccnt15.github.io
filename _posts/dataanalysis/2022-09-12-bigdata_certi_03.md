@@ -227,7 +227,7 @@ endog = df.loc[:, 'Reached.on.Time_Y.N']
 
 from sklearn.model_selection import train_test_split
 
-endog_train, endog_test, exog_train, exog_test = train_test_split(endog, exog, test_size=0.2)
+endog_train, endog_test, exog_train, exog_test = train_test_split(endog, exog, test_size=0.2, random_state=0)
 ```
 
 **필요 없는 칼럼 제거**
@@ -255,13 +255,13 @@ predict = model.predict_proba(exog_test)
 print(predict)
 ```
 ```
-[[3.37679121e-02 9.66232088e-01]
- [5.87371615e-03 9.94126284e-01]
- [5.70570284e-01 4.29429716e-01]
+[[0.59330347 0.40669653]
+ [0.53256958 0.46743042]
+ [0.30872702 0.69127298]
  ...
- [5.55102020e-01 4.44897980e-01]
- [6.45161227e-01 3.54838773e-01]
- [9.70752556e-04 9.99029247e-01]]
+ [0.62302075 0.37697925]
+ [0.25311818 0.74688182]
+ [0.49740337 0.50259663]]
 ```
 
 **결과 파일 생성**
@@ -274,11 +274,11 @@ print(result.head())
 ```
 ```
         ID  probability
-491    492     0.966232
-4        5     0.994126
-5273  5274     0.429430
-2025  2026     0.990707
-9100  9101     0.480256
+7262  7263     0.406697
+4795  4796     0.467430
+1121  1122     0.691273
+1328  1329     0.998922
+8098  8099     0.680266
 ```
 
 **제출용 파일 저장**
@@ -327,7 +327,7 @@ print(df.info())
 exog = df.drop(columns=['Reached.on.Time_Y.N'])
 endog = df.loc[:, 'Reached.on.Time_Y.N']
 
-endog_train, endog_test, exog_train, exog_test = train_test_split(endog, exog, test_size=0.2)
+endog_train, endog_test, exog_train, exog_test = train_test_split(endog, exog, test_size=0.2, random_state=0)
 
 # drop meaningless columns
 cust_id = exog_test['ID']

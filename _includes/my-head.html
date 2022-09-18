@@ -12,14 +12,14 @@ Fill in `href`. You may have to adjust `rel`.
 <noscript><link href="<path/to/content.css>" rel="stylesheet"></noscript>
 {% endcomment %}
 
-{% if site.url == "https://djccnt15.github.io/" %}
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQG7LWZEVF"></script>
-  <script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQG7LWZEVF"></script>
+<script>
+  if (window.location.hostname == "https://djccnt15.github.io/") {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-FQG7LWZEVF');
-  </script>
-{% endif %}
+  }
+</script>
