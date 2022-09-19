@@ -227,15 +227,15 @@ endog = df.loc[:, 'Reached.on.Time_Y.N']
 
 from sklearn.model_selection import train_test_split
 
-endog_train, endog_test, exog_train, exog_test = train_test_split(endog, exog, test_size=0.2, random_state=0)
+exog_train, exog_test, endog_train, endog_test = train_test_split(exog, endog, test_size=0.2, random_state=0)
 ```
 
 **필요 없는 칼럼 제거**
 
 ```python
 cust_id = exog_test['ID']
-exog_train.drop(columns='ID', inplace=True)
-exog_test.drop(columns='ID', inplace=True)
+endog_train.drop(columns='ID', inplace=True)
+endog_test.drop(columns='ID', inplace=True)
 ```
 
 **모델 생성 및 학습**
@@ -255,30 +255,30 @@ predict = model.predict_proba(exog_test)
 print(predict)
 ```
 ```
-[[0.59330347 0.40669653]
- [0.53256958 0.46743042]
- [0.30872702 0.69127298]
+[[0.63081206 0.36918794]
+ [0.61810725 0.38189275]
+ [0.32283906 0.67716094]
  ...
- [0.62302075 0.37697925]
- [0.25311818 0.74688182]
- [0.49740337 0.50259663]]
+ [0.50090767 0.49909233]
+ [0.35946357 0.64053643]
+ [0.57658523 0.42341477]]
 ```
 
 **결과 파일 생성**
 
 ```python
 Reached_on_Time = predict[:, 1]
-result = pd.DataFrame({'ID':cust_id, 'probability':Reached_on_Time})
+result = pd.DataFrame({'ID': cust_id, 'probability': Reached_on_Time})
 
 print(result.head())
 ```
 ```
         ID  probability
-7262  7263     0.406697
-4795  4796     0.467430
-1121  1122     0.691273
-1328  1329     0.998922
-8098  8099     0.680266
+7262  7263     0.369188
+4795  4796     0.381893
+1121  1122     0.677161
+1328  1329     0.999587
+8098  8099     0.517905
 ```
 
 **제출용 파일 저장**
@@ -327,12 +327,12 @@ print(df.info())
 exog = df.drop(columns=['Reached.on.Time_Y.N'])
 endog = df.loc[:, 'Reached.on.Time_Y.N']
 
-endog_train, endog_test, exog_train, exog_test = train_test_split(endog, exog, test_size=0.2, random_state=0)
+exog_train, exog_test, endog_train, endog_test = train_test_split(exog, endog, test_size=0.2, random_state=0)
 
 # drop meaningless columns
 cust_id = exog_test['ID']
-exog_train.drop(columns='ID', inplace=True)
-exog_test.drop(columns='ID', inplace=True)
+endog_train.drop(columns='ID', inplace=True)
+endog_test.drop(columns='ID', inplace=True)
 
 # model tuning and training
 # load model for classification, not really did any hyperparameter tuning
@@ -348,7 +348,7 @@ print(predict)
 
 # make DataFrame to make csv
 Reached_on_Time = predict[:, 1]
-result = pd.DataFrame({'ID':cust_id, 'probability':Reached_on_Time})
+result = pd.DataFrame({'ID': cust_id, 'probability': Reached_on_Time})
 
 print(result.head())
 

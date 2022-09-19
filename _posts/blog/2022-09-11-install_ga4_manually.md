@@ -28,21 +28,19 @@ Google Analytics 페이지를 잘 뒤져보면 아래와 같이 수동으로 태
 
 페이지의 `<head>` 바로 아래에 입력하라고 하는데, Hydejack 테마의 경우 `/_includes/my-head.html`에서 일괄적으로 적용할 수 있다. [GitHub Pages를 인식](/blog/github_pages_ga/)하는 코드를 더해서 아래와 같은 내용을 추가했다.  
 
-{% raw %}
 ```html
-{% if site.url == "https://djccnt15.github.io/" %}
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQG7LWZEVF"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-**********"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  if (window.location.hostname == "djccnt15.github.io") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-FQG7LWZEVF');
+    gtag('config', 'G-**********');
+  }
 </script>
-{% endif %}
 ```
-{% endraw %}
 
 ---
 ## Reference

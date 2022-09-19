@@ -424,7 +424,7 @@ predict = model.predict_proba(test)
 
 ```python
 predict_man = predict[:, 1]
-result = pd.DataFrame({'custid':cust_id, 'gender':predict_man})
+result = pd.DataFrame({'custid': cust_id, 'gender': predict_man})
 
 print(result.head())
 ```
@@ -530,7 +530,7 @@ predict = model.predict_proba(test)
 predict_man = predict[:, 1]  # select the probability which the inferenced value is 1
 
 # make DataFrame to make csv
-result = pd.DataFrame({'custid':cust_id, 'gender':predict_man})
+result = pd.DataFrame({'custid': cust_id, 'gender': predict_man})
 
 print(result.head())
 
