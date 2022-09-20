@@ -76,9 +76,9 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 
 ## 4. {% raw %} {% %} {% endraw %} 인식 금지
 
-```{% raw %} {% %} {% endraw %}```을 인식하지 않도록 작성하고 싶을 때는 앞 뒤로 `{{ "{% raw "}}%}  {{ "{% endraw "}}%}`을 넣어주면 된다.
+`liquid` 언어의 ```{% raw %} {% %} {% endraw %}```을 인식하지 않도록 작성하고 싶을 때는 앞 뒤로 `{{ "{% raw "}}%}  {{ "{% endraw "}}%}`을 넣어주면 된다.
 
-```
+```liquid
 {{ "{% raw "}}%}  {{ "{% endraw "}}%}
 ```
 
@@ -102,9 +102,7 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 <summary>summary</summary>
 <div markdown="1">
 
-|table|
-|-|
-|contents|
+> **Your** Contents
 
 </div>
 </details>
@@ -114,9 +112,7 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 <summary>summary</summary>
 <div markdown="1">
 
-|table|
-|-|
-|contents|
+> **Your** Contents
 
 </div>
 </details>

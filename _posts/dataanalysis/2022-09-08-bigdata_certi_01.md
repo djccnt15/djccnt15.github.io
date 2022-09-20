@@ -420,6 +420,8 @@ model.fit(exog, endog)
 predict = model.predict_proba(test)
 ```
 
+**학습된 모델을 활용한 확률 예측**
+
 문제에서 결과값으로 **남자일 확률**, 즉 **예측값이 1일 확률**을 요구하는데, scikit-learn의 인퍼런스를 통해 확률을 도출하면, 0일 확률과 1일 확률이 순서대로 도출되기 때문에 그에 맞춰서 결과값을 정리해준다.  
 
 ```python

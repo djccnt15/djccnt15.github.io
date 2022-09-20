@@ -10,19 +10,20 @@ image:
     path: /assets/img/posts/bigdata_certi.png
 related_posts:
     - _posts/dataanalysis/2022-09-09-bigdata_certi_02.md
+    - _posts/dataanalysis/2022-09-17-bigdata_certi_04.md
 ---
 * toc
 {:toc}
 
 ## 개요
 
-빅데이터분석기사 실기 준비를 위한 2회차 시험 작업형 기출 문제 답 정리. 1회차는 COVID-19로 취소되어 2회차부터 존재. 응시자들의 기억에 의존한 복원이기 때문에 틀린 복원 있을 수 있음
+빅데이터분석기사 실기 준비를 위한 2회차 시험 작업형 기출 문제 답 정리. 1회차는 COVID-19로 취소되어 2회차부터 존재. 응시자들의 기억에 의존한 복원이기 때문에 틀린 복원 있을 수 있음  
 
 ## 작업형 1유형
 
 ### 문제 1
 
-주어진 Dataset에서 'CRIM' 값이 가장 큰 10개의 지역을 구하고 10개의 지역의 'CRIM' 값을 그 중 가장 작은 값으로 대체한 후, 'AGE' 컬럼 값이 80 이상인 Row의 'CRIM' 평균값을 구하라
+주어진 Dataset에서 'CRIM' 값이 가장 큰 10개의 지역을 구하고 10개의 지역의 'CRIM' 값을 그 중 가장 작은 값으로 대체한 후, 'AGE' 컬럼 값이 80 이상인 Row의 'CRIM' 평균값을 구하라  
 
 - [데이터 출처](https://www.kaggle.com/code/prasadperera/the-boston-housing-dataset/data)
 
@@ -44,7 +45,7 @@ print(result)
 
 ### 문제 2
 
-주어진 Dataset에서 첫 번째 행 부터 순서대로 80% 까지의 데이터를 추출 후 'total_bedrooms' 컬럼의 중앙값으로 해당 컬럼의 결측치를 대체한 후, 'total_bedrooms' 컬럼의 대치 전후의 표준편차 차이를 구하라
+주어진 Dataset에서 첫 번째 행 부터 순서대로 80% 까지의 데이터를 추출 후 'total_bedrooms' 컬럼의 중앙값으로 해당 컬럼의 결측치를 대체한 후, 'total_bedrooms' 컬럼의 대치 전후의 표준편차 차이를 구하라  
 
 - [데이터 출처](https://www.kaggle.com/datasets/camnugent/california-housing-prices)
 
@@ -69,7 +70,7 @@ print(result)
 ### 문제 3
 
 주어진 Dataset의 특정 컬럼의 평균으로부터 1.5 * 표준편차를 벗어나는 영역을 이상치라고 판단하고, 이상치들의 합을 구하라  
-(Data가 복원되지 않아 2번 문제와 동일한 데이터 사용)
+(Data가 복원되지 않아 2번 문제와 동일한 데이터 사용)  
 
 ```python
 import pandas as pd
@@ -89,7 +90,7 @@ print(result)
 
 ## 작업형 2유형
 
-E-Commerce_Shipping 데이터를 사용해서 고객이 주문한 물품이 제 시간 도착여부(Reached.on.Time_Y.N) 예측
+E-Commerce_Shipping 데이터를 사용해서 고객이 주문한 물품이 제 시간 도착여부(Reached.on.Time_Y.N) 예측  
 
 ### 풀이
 
@@ -219,7 +220,7 @@ None
 
 **train test set 분리**
 
-시험환경과 유사하게 만들어주기 위해 train set과 test set을 분리해준다.  
+데이터 구조를 시험환경처럼 만들기 위해 train set과 test set을 분리해준다.  
 
 ```python
 exog = df.drop(columns=['Reached.on.Time_Y.N'])
@@ -240,6 +241,8 @@ endog_test.drop(columns='ID', inplace=True)
 
 **모델 생성 및 학습**
 
+간단하게 로지스틱 회귀를 불러와서 모델 학습을 진행해준다. 하이퍼파라미터 튜닝이나 모델 앙상블을 특별히 적용하지는 않았다.  
+
 ```python
 from sklearn.linear_model import LogisticRegression
 
@@ -247,7 +250,9 @@ model = LogisticRegression()
 model.fit(X=exog_train, y=endog_train)
 ```
 
-**모델을 활용한 확률 예측**
+**학습된 모델을 활용한 확률 예측**
+
+scikit-learn의 인퍼런스를 통해 확률을 도출하면, 0일 확률과 1일 확률이 순서대로 도출되기 때문에 그에 맞춰서 결과값을 정리해준다.  
 
 ```python
 predict = model.predict_proba(exog_test)
@@ -264,7 +269,7 @@ print(predict)
  [0.57658523 0.42341477]]
 ```
 
-**결과 파일 생성**
+**결과 데이터 생성**
 
 ```python
 Reached_on_Time = predict[:, 1]
@@ -346,8 +351,8 @@ predict = model.predict_proba(exog_test)
 
 print(predict)
 
-# make DataFrame to make csv
-Reached_on_Time = predict[:, 1]
+# make result DataFrame for making answer file
+Reached_on_Time = predict[:, 1]  # select the probability which the inferenced value is 1
 result = pd.DataFrame({'ID': cust_id, 'probability': Reached_on_Time})
 
 print(result.head())

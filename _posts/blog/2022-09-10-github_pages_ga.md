@@ -9,7 +9,7 @@ tags: [jekyll]
 image:
     path: /assets/img/posts/github_pages_metadata.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    - _posts/blog/2022-09-11-install_ga4_manually.md
 ---
 * toc
 {:toc}
