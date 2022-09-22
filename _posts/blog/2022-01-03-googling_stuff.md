@@ -25,6 +25,6 @@ related_posts:
 비전공에 학원도 다녀본 적 없고 데이터 분석 분야에 도전하겠다고 시작한 프로그래밍인데, 재미를 붙여버렸는지 자꾸 코딩에 투자하는 시간이 늘어나는 나로서는 모든걸 구글링으로 공부할 수 밖에 없었고, 구글링이 프로그래머를 만들어준다는 말에 공감이 가지 않을 수 없다.  
 
 ![googling_does_make_you_a_programmer](/assets/img/blog/googling_does_make_you_a_programmer.png){: width="300px"}
-![googling_does_make_you_a_programmer_space](/assets/img/blog/googling_does_make_you_a_programmer_space.png){: width="300px"}
+![googling_does_make_you_a_programmer_l](/assets/img/blog/googling_does_make_you_a_programmer_l.png){: width="300px"}
 
 > 느린 것을 두려워하지 말고, 다만 멈추는 것을 경계하라. - 중국 속담

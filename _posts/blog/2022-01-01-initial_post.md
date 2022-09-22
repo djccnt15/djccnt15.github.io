@@ -7,7 +7,7 @@ description: >
 categories: [Blog]
 tags: [blog]
 image:
-    path: /assets/img/blog/googling_does_make_you_a_programmer_space.png
+    path: /assets/img/blog/googling_does_make_you_a_programmer_l.png
 related_posts:
     - _posts/blog/2022-01-03-googling_stuff.md
 ---
