@@ -98,21 +98,15 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 마크다운 자체에는 펼치기/접기 기능이 없어서, HTML의 `<details>` 태그를 사용해야 한다. `<summary>` 태그는 내용의 요약을 표시할 수 있고, 접혀진 부분 안에서 다시 마크다운 문법을 사용하려면 `<div markdown="1">` 태그로 구역을 만들어줘야 한다. 참고로 태그와 마크다운 문법 사이에 빈 줄이 있어야 정상적으로 마크다운 문법을 인식한다.  
 
 ```html
-<details>
-<summary>summary</summary>
-<div markdown="1">
+<details><summary>summary</summary><div markdown="1">
 
 > **Your** Contents
 
-</div>
-</details>
+</div></details>
 ```
 
-<details>
-<summary>summary</summary>
-<div markdown="1">
+<details><summary>summary</summary><div markdown="1">
 
 > **Your** Contents
 
 </div>
-</details>

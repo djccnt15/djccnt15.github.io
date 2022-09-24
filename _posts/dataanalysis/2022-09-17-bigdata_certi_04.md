@@ -91,9 +91,7 @@ df = pd.read_csv('data/TravelInsurancePrediction.csv', index_col=0)
 print(df.info())
 ```
 
-<details>
-<summary>print</summary>
-<div markdown="1">
+<details><summary>print</summary><div markdown="1">
 
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -115,8 +113,7 @@ memory usage: 155.2+ KB
 None
 ```
 
-</div>
-</details><br>
+</div></details><br>
 
 One-hot encoding을 위해 명목형 변수와 숫자형 변수를 분리해준다.  
 
@@ -155,9 +152,7 @@ df.drop(columns=obj_cols, inplace=True)
 print(df.info())
 ```
 
-<details>
-<summary>print</summary>
-<div markdown="1">
+<details><summary>print</summary><div markdown="1">
 
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -183,8 +178,7 @@ memory usage: 108.7 KB
 None
 ```
 
-</div>
-</details><br>
+</div></details><br>
 
 **train-test split**
 
