@@ -3,35 +3,35 @@ published: true
 layout: post
 title: '[선형대수] 07. 내적과 norm'
 description: >
-    내적, norm, 코사인 유사도
+  내적, norm, 코사인 유사도
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-    path: /assets/img/posts/linear_algebra_07.png
+  path: /assets/img/posts/linear_algebra_07.png
 related_posts:
-    - _posts/mathematics/2022-05-29-linear_algebra_06.md
-    - _posts/mathematics/2022-06-06-linear_algebra_08.md
+  - _posts/mathematics/2022-05-29-linear_algebra_06.md
+  - _posts/mathematics/2022-06-06-linear_algebra_08.md
 ---
 * toc
 {:toc}
 
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
-    <ol class="description">
-        <li><a href="/mathematics/linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/mathematics/linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/mathematics/linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
-        <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
-        <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
-        <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/mathematics/linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/mathematics/linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/mathematics/linear_algebra_13/">LU 분해</a></li>
-    </ol>
+  <ol class="description">
+    <li><a href="/mathematics/linear_algebra_01/">선형대수의 기초</a></li>
+    <li><a href="/mathematics/linear_algebra_02/">다양한 행렬</a></li>
+    <li><a href="/mathematics/linear_algebra_03/">선형 시스템</a></li>
+    <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
+    <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
+    <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
+    <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
+    <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
+    <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
+    <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
+    <li><a href="/mathematics/linear_algebra_11/">직교 행렬</a></li>
+    <li><a href="/mathematics/linear_algebra_12/">행렬의 대각화</a></li>
+    <li><a href="/mathematics/linear_algebra_13/">LU 분해</a></li>
+  </ol>
 </div>
 
 ## 1. 내적

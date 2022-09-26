@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[AI] 파라미터와 하이퍼파라미터'
 description: >
-    Parameter와 Hyperparameter
+  Parameter와 Hyperparameter
 categories: [AI]
 tags: [AI]
 image:
-    path: /assets/img/posts/parameter_hyperparameter.png
+  path: /assets/img/posts/parameter_hyperparameter.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+  - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

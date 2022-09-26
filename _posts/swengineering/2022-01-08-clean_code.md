@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[coding] 깨끗한 코드'
 description: >
-    깨끗한 코드를 위한 팁
+  깨끗한 코드를 위한 팁
 categories: [SWEngineering]
 tags: [coding]
 image:
-    path: /assets/img/posts/clean_code.png
+  path: /assets/img/posts/clean_code.png
 related_posts:
-    - _posts/swengineering/2022-01-08-clean_code.md
+  - _posts/swengineering/2022-01-08-clean_code.md
 ---
 * toc
 {:toc}

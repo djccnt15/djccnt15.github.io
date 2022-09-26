@@ -2,7 +2,7 @@
 layout: about
 title: About
 description: >
-    Portfolio and Resume
+  Portfolio and Resume
 hide_description: true
 ---
 ![googling_does_make_you_a_programmer](/assets/img/blog/googling_does_make_you_a_programmer.png)
@@ -58,18 +58,18 @@ AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티
 ## Projects
 
 - 2021
-    - ANN 기반 STL(Steel Plate) 리코일 공정 양/불 예측 모델 개발
+  - ANN 기반 STL(Steel Plate) 리코일 공정 양/불 예측 모델 개발
 - 2020
-    - K-means 기반 스마트공장 도입기업 특성 분석
+  - K-means 기반 스마트공장 도입기업 특성 분석
 
 ## Articles
 
 - 2021년
-    - 석사학위논문. [스마트공장 성숙도 수준 기반 도입기업 특성 분석](http://www.riss.kr/link?id=T15766958)
+  - 석사학위논문. [스마트공장 성숙도 수준 기반 도입기업 특성 분석](http://www.riss.kr/link?id=T15766958)
 - 2020년
-    - KCI. [6-도메인 스마트팩토리 성숙도 평가 모델 기반 도입기업 군집분석](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002627006)
+  - KCI. [6-도메인 스마트팩토리 성숙도 평가 모델 기반 도입기업 군집분석](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002627006)
 
-<!-- ### Petents -->
+<!-- ### Patents -->
 
 <!-- ### Competition -->
 

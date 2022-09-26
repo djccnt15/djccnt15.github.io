@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[빅분기] 실기 대비 04'
 description: >
-    빅데이터분석기사 3회차 시험 기출 문제 풀이
+  빅데이터분석기사 3회차 시험 기출 문제 풀이
 categories: [DataAnalysis]
 tags: [data analysis, 빅데이터분석기사]
 image:
-    path: /assets/img/posts/bigdata_certi.png
+  path: /assets/img/posts/bigdata_certi.png
 related_posts:
-    - _posts/dataanalysis/2022-09-12-bigdata_certi_03.md
+  - _posts/dataanalysis/2022-09-12-bigdata_certi_03.md
 ---
 * toc
 {:toc}

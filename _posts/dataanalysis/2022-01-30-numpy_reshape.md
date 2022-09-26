@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[NumPy] numpy array의 변형'
 description: >
-    `numpy.array`를 쉽게 변형해보자. reshape, transpose, T의 활용
+  `numpy.array`를 쉽게 변형해보자. reshape, transpose, T의 활용
 categories: [DataAnalysis]
 tags: [numpy]
 image:
-    path: /assets/img/posts/np_reshape.png
+  path: /assets/img/posts/np_reshape.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+  - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -19,7 +19,7 @@ related_posts:
 ```python
 import numpy as np
 
-array = np.arange(24)
+array = np.arrange(24)
 
 print(array)
 ```

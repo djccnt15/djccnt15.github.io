@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[회귀분석] 선형회귀 구현'
 description: >
-    선형회귀 수식 구현하기. 모 수업에서 쪽지시험으로 진행했던 문제
+  선형회귀 수식 구현하기. 모 수업에서 쪽지시험으로 진행했던 문제
 categories: [Mathematics]
 tags: [regression]
 image:
-    path: /assets/img/posts/linear_regression_scratch.png
+  path: /assets/img/posts/linear_regression_scratch.png
 related_posts:
-    - _posts/datascience/2022-01-23-regression_statsmodels.md
-    - _posts/datascience/2022-01-24-regression_assumption.md
+  - _posts/datascience/2022-01-23-regression_statsmodels.md
+  - _posts/datascience/2022-01-24-regression_assumption.md
 ---
 * toc
 {:toc}

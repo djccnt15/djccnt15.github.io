@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Hydejack] 글자 정렬'
 description: >
-    how to align text
+  how to align text
 categories: [Blog]
 tags: [Hydejack]
 image:
-    path: /assets/img/posts/text_align.png
+  path: /assets/img/posts/text_align.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+  - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

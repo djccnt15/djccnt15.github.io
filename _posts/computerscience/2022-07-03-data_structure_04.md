@@ -3,27 +3,27 @@ published: true
 layout: post
 title: '[자료구조] 04. 큐, 덱'
 description: >
-    python으로 큐(Queue), 덱(Deque) 구현하기
+  python으로 큐(Queue), 덱(Deque) 구현하기
 categories: [ComputerScience]
 tags: [data structure]
 image:
-    path: /assets/img/posts/data_structure_04.png
+  path: /assets/img/posts/data_structure_04.png
 related_posts:
-    - _posts/computerscience/2022-07-02-data_structure_03.md
-    - _posts/computerscience/2022-07-08-data_structure_05.md
+  - _posts/computerscience/2022-07-02-data_structure_03.md
+  - _posts/computerscience/2022-07-08-data_structure_05.md
 ---
 * toc
 {:toc}
 
 <h4>Data Structure Series</h4>
 <div class="taxonomy__index">
-    <ol class="description">
-        <li><a href="/computerscience/data_structure_01/">자료구조의 기초</a></li>
-        <li><a href="/computerscience/data_structure_02/">배열</a></li>
-        <li><a href="/computerscience/data_structure_03/">스택</a></li>
-        <li><a href="/computerscience/data_structure_04/">큐, 덱</a></li>
-        <li><a href="/computerscience/data_structure_05/">연결 리스트</a></li>
-    </ol>
+  <ol class="description">
+    <li><a href="/computerscience/data_structure_01/">자료구조의 기초</a></li>
+    <li><a href="/computerscience/data_structure_02/">배열</a></li>
+    <li><a href="/computerscience/data_structure_03/">스택</a></li>
+    <li><a href="/computerscience/data_structure_04/">큐, 덱</a></li>
+    <li><a href="/computerscience/data_structure_05/">연결 리스트</a></li>
+  </ol>
 </div>
 
 ## 큐의 개념

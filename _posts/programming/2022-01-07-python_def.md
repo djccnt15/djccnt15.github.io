@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Python] function'
 description: >
-    python의 함수에 대한 노트
+  python의 함수에 대한 노트
 categories: [Programming]
 tags: [python]
 image:
-    path: /assets/img/posts/def_func.png
+  path: /assets/img/posts/def_func.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+  - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

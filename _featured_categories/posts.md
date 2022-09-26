@@ -2,6 +2,6 @@
 layout: grid
 title: Posts
 description: >
-    My posts
+  My posts
 grouped: true
 ---

@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[회귀분석] 회귀분석의 전제조건'
 description: >
-    선형성, 독립성, 등분산성, 정규성
+  선형성, 독립성, 등분산성, 정규성
 categories: [DataAnalysis]
 tags: [regression, incomplete]
 image:
-    path: /assets/img/posts/multiple_regression.png
+  path: /assets/img/posts/multiple_regression.png
 related_posts:
-    - _posts/mathematics/2022-01-19-regression_linear_scratch.md
-    - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
+  - _posts/mathematics/2022-01-19-regression_linear_scratch.md
+  - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
 ---
 * toc
 {:toc}
@@ -440,9 +440,9 @@ print(vif)
 등분산검정(Equal-variance test)은 두 정규분포로부터 생성된 두 개의 데이터 집합으로부터 두 정규분포의 분산 모수가 같은지 확인하기 위한 검정이다. `scipy` 패키지를 통해서 검정할 수 있다.
 
 - scipy
-    - scipy.stats.bartlett: 바틀렛 검정
-    - scipy.stats.fligner: 플리그너 검정
-    - scipy.stats.levene: 레빈 검정
+  - scipy.stats.bartlett: 바틀렛 검정
+  - scipy.stats.fligner: 플리그너 검정
+  - scipy.stats.levene: 레빈 검정
 
 ## 4. 정규성
 
@@ -452,16 +452,16 @@ print(vif)
 마지막 정규성은 확률분포가 가우시안 정규분포를 따르는지의 여부를 의미한다. 모델 요약의 Omnibus, Prob(Omnibus), Durbin-Watson, Jarque-Bera (JB), Prob(JB) 등이 정규성을 확인하는 지표이며, `scipy`, `statsmodels` 패키지를 통해서 별도로 확인할 수 있다.
 
 - scipy
-    - scipy.stats.ks_2samp: 콜모고로프-스미르노프 검정(Kolmogorov-Smirnov test)
-    - scipy.stats.shapiro: 샤피로-윌크 검정(Shapiro–Wilk test)
-    - scipy.stats.anderson: 앤더스-달링 검정(Anderson–Darling test)
-    - scipy.stats.mstats.normaltest: 다고스티노 K-제곱 검정(D’Agostino’s K-squared test)
+  - scipy.stats.ks_2samp: 콜모고로프-스미르노프 검정(Kolmogorov-Smirnov test)
+  - scipy.stats.shapiro: 샤피로-윌크 검정(Shapiro–Wilk test)
+  - scipy.stats.anderson: 앤더스-달링 검정(Anderson–Darling test)
+  - scipy.stats.mstats.normaltest: 다고스티노 K-제곱 검정(D’Agostino’s K-squared test)
 
 - StatsModels
-    - statsmodels.stats.diagnostic.kstest_normal: 콜모고로프-스미르노프 검정(Kolmogorov-Smirnov test)
-    - statsmodels.stats.stattools.omni_normtest: 옴니버스 검정(Omnibus Normality test)
-    - statsmodels.stats.stattools.jarque_bera: 자크-베라 검정(Jarque–Bera test)
-    - statsmodels.stats.diagnostic.lillifors: 릴리포스 검정(Lilliefors test)
+  - statsmodels.stats.diagnostic.kstest_normal: 콜모고로프-스미르노프 검정(Kolmogorov-Smirnov test)
+  - statsmodels.stats.stattools.omni_normtest: 옴니버스 검정(Omnibus Normality test)
+  - statsmodels.stats.stattools.jarque_bera: 자크-베라 검정(Jarque–Bera test)
+  - statsmodels.stats.diagnostic.lillifors: 릴리포스 검정(Lilliefors test)
 
 ---
 ## Reference

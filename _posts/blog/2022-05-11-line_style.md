@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Hydejack] time series style layout'
 description: >
-    list layout을 시계열 디자인으로 수정하기
+  list layout을 시계열 디자인으로 수정하기
 categories: [Blog]
 tags: [Hydejack]
 image:
-    path: /assets/img/posts/list_layout.png
+  path: /assets/img/posts/list_layout.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+  - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

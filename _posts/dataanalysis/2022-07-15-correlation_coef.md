@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[상관분석] 상관 계수'
 description: >
-    python으로 상관 계수 구현하기
+  python으로 상관 계수 구현하기
 categories: [DataAnalysis]
 tags: [data analysis, correlation]
 image:
-    path: /assets/img/posts/plot_corr.png
+  path: /assets/img/posts/plot_corr.png
 related_posts:
-    - _posts/mathematics/2022-01-19-regression_linear_scratch.md
+  - _posts/mathematics/2022-01-19-regression_linear_scratch.md
 ---
 * toc
 {:toc}

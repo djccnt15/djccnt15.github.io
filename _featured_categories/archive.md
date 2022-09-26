@@ -2,6 +2,6 @@
 layout: list
 title: Archive
 description: >
-    Every post by upload order
+  Every post by upload order
 grouped: true
 ---

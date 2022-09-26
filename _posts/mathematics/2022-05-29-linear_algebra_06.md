@@ -3,35 +3,35 @@ published: true
 layout: post
 title: '[선형대수] 06. 기저와 차원'
 description: >
-    벡터 공간, 선형 변환, 선형 독립, 기저, 차원, 행/열/영 공간, 랭크와 널리티
+  벡터 공간, 선형 변환, 선형 독립, 기저, 차원, 행/열/영 공간, 랭크와 널리티
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-    path: /assets/img/posts/linear_algebra_06.png
+  path: /assets/img/posts/linear_algebra_06.png
 related_posts:
-    - _posts/mathematics/2022-05-28-linear_algebra_05.md
-    - _posts/mathematics/2022-06-05-linear_algebra_07.md
+  - _posts/mathematics/2022-05-28-linear_algebra_05.md
+  - _posts/mathematics/2022-06-05-linear_algebra_07.md
 ---
 * toc
 {:toc}
 
 <h4>Linear Algebra Series</h4>
 <div class="taxonomy__index">
-    <ol class="description">
-        <li><a href="/mathematics/linear_algebra_01/">선형대수의 기초</a></li>
-        <li><a href="/mathematics/linear_algebra_02/">다양한 행렬</a></li>
-        <li><a href="/mathematics/linear_algebra_03/">선형 시스템</a></li>
-        <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
-        <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
-        <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
-        <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
-        <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
-        <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
-        <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
-        <li><a href="/mathematics/linear_algebra_11/">직교 행렬</a></li>
-        <li><a href="/mathematics/linear_algebra_12/">행렬의 대각화</a></li>
-        <li><a href="/mathematics/linear_algebra_13/">LU 분해</a></li>
-    </ol>
+  <ol class="description">
+    <li><a href="/mathematics/linear_algebra_01/">선형대수의 기초</a></li>
+    <li><a href="/mathematics/linear_algebra_02/">다양한 행렬</a></li>
+    <li><a href="/mathematics/linear_algebra_03/">선형 시스템</a></li>
+    <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
+    <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
+    <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
+    <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
+    <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
+    <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
+    <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
+    <li><a href="/mathematics/linear_algebra_11/">직교 행렬</a></li>
+    <li><a href="/mathematics/linear_algebra_12/">행렬의 대각화</a></li>
+    <li><a href="/mathematics/linear_algebra_13/">LU 분해</a></li>
+  </ol>
 </div>
 
 ## 1. 벡터 공간
@@ -85,8 +85,6 @@ $$\begin{align*}
 \end{align*}$$
 
 위 표기에서 $$\mathrm{sgn}$$은 부호 함수를 뜻하며, $$\Vert \mathbf{u} \Vert$$는 [노름(norm)](/mathematics/linear_algebra_07/#2-노름norm)을 뜻한다.  
-
-
 
 💡참고로 **^** 기호를 수학에서 **Hat(모자)** 기호라고 부르는데, 상황에 따라 단위 벡터, 추정량 등 의미가 달라진다. 자세한 내용은 [위키피디아](https://en.wikipedia.org/wiki/Hat_operator)를 참고하자.  
 {:.note}

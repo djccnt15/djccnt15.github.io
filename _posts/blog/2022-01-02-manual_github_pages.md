@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Jekyll] Github Pages 사용법'
 description: >
-    Jekyll 기반 Github Pages의 각종 사용법
+  Jekyll 기반 Github Pages의 각종 사용법
 categories: [Blog]
 tags: [jekyll, ⭐starred]
 image:
-    path: /assets/img/posts/github_pages.png
+  path: /assets/img/posts/github_pages.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+  - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -79,8 +79,7 @@ local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명
 > bundle exec jekyll serve --livereload
 ```
 
-미래 날짜로 작성한 포스트를 local에서 확인하려면 아래와 같이 `--future`를 붙여야 한다.  
-직접 확인해보지는 않았지만 GitHub Pages에서는 미래 날짜로 업로드해도 정상적으로 출력된다고 한다.  
+미래 날짜로 작성한 포스트를 local에서 확인하려면 아래와 같이 `--future`를 붙여야 한다. 직접 확인해보지는 않았지만 GitHub Pages에서는 미래 날짜로 업로드해도 정상적으로 출력된다고 한다.  
 
 ```powershell
 > bundle exec jekyll serve --future
@@ -91,13 +90,13 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 기본 포트가 `4000`으로 잡혀 있기 때문에 웹페이지를 동시에 여럿 빌드하려면 두 번째부터는 포트를 별도로 설정해줘야 한다. 포트를 설정하는 방법은 아래와 같다.  
 
 ```powershell
-> bundle exec jekyll serve --port [port_number]
+> bundle exec jekyll serve --port [port_num]
 ```
 
-그림 사이즈를 모바일에서 미리 확인하는 등 다른 디바이스의 브라우저로 테스트 컴퓨터의 호스팅에 접속하고 싶을 경우가 있는데, 그럴 때는 아래와 같이 서버의 주소를 지정해서 구동하면 된다.  
+그림 사이즈를 모바일에서 미리 확인하는 등 다른 디바이스의 브라우저로 테스트 컴퓨터의 호스팅에 접속하고 싶을 경우가 있는데, 그럴 때는 아래와 같이 서버의 IP 주소를 지정해서 구동하면 된다.  
 
 ```powershell
-> bundle exec jekyll serve -H 192.168.0.5
+> bundle exec jekyll serve --host 192.168.0.5
 ```
 
 서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig/ifconfig` 명령어로 확인할 수 있다. 위의 경우에는 `IPv4`주소인 `192.168.0.5`으로 호스팅 했기 때문에, `http:192.168.0.5:4000`으로 접속해야 내용을 확인할 수 있다.  
@@ -113,32 +112,26 @@ local 호스팅은 `http:127.0.0.1:4000` 또는 `http:localhost:4000`에서 확�
 
 ### 4-1. ⚡ 작업할 때
 
-개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`와 `--drafts` 두 옵션을 주로 사용한다.  
+개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`, `--drafts`, `--unpublished` 옵션들을 주로 사용한다.  
 
-- 업로드 결과와 동일하게 출력할 때
+- 업로드 결과와 동일하게 빌드할 때
 
 ```powershell
-# local에서만 확인할 때
+# localhost only
 > bundle exec jekyll serve --livereload --future
 
-# 호스팅을 해서 다른 디바이스에서도 확인하고 싶을 때
-> bundle exec jekyll serve --livereload --future -H [IP_address]
+# hosting with specific IP
+> bundle exec jekyll serve --livereload --future --host [IP_address]
 ```
 
-- `_drafts`에 있는 초안까지 확인할 때
+- 모든 글을 빌드할 때
 
 ```powershell
-# local에서만 확인할 때
-> bundle exec jekyll serve --livereload --future --drafts
-
-# 호스팅을 해서 다른 디바이스에서도 확인하고 싶을 때
-> bundle exec jekyll serve --livereload --future --drafts -H [IP_address]
-
-# unpublished된 비밀글 까지 같이 확인할 때
+# localhost only
 > bundle exec jekyll serve --livereload --future --drafts --unpublished
 
-# 일부 문제를 감수하고 페이지 재생성 시간을 줄이고 싶을 때
-> bundle exec jekyll serve --livereload --future --drafts --unpublished --incremental
+# hosting with specific IP
+> bundle exec jekyll serve --livereload --future --drafts --unpublished --host [IP_address]
 ```
 
 ---

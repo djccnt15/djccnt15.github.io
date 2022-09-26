@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Hydejack] 이전 글, 다음 글'
 description: >
-    이전 글, 다음 글 버튼 만들기
+  이전 글, 다음 글 버튼 만들기
 categories: [Blog]
 tags: [Hydejack]
 image:
-    path: /assets/img/posts/page_button.png
+  path: /assets/img/posts/page_button.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+  - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -21,16 +21,16 @@ related_posts:
 {% raw %}
 ```html
 <div class="page-control">
-    <div>
-        {% if page.previous.url %}
-        &laquo; <a id="prev" class="flip-title" href="{{ page.previous.url }}">{{ page.previous.title }}</a>
-        {% endif %}
-    </div>
-    <div>
-        {% if page.next.url %}
-        <a id="next" class="flip-title" href="{{ page.next.url }}">{{ page.next.title }}</a> &raquo;
-        {% endif %}
-    </div>
+  <div>
+    {% if page.previous.url %}
+    &laquo; <a id="prev" class="flip-title" href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+    {% endif %}
+  </div>
+  <div>
+    {% if page.next.url %}
+    <a id="next" class="flip-title" href="{{ page.next.url }}">{{ page.next.title }}</a> &raquo;
+    {% endif %}
+  </div>
 </div>
 ```
 {% endraw %}

@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Python] 정적 언어처럼 사용하기'
 description: >
-    python에서 변수 타입을 고정하고 엄격하게 사용하는 방법
+  python에서 변수 타입을 고정하고 엄격하게 사용하는 방법
 categories: [Programming]
 tags: [python]
 image:
-    path: /assets/img/posts/python_type_cheking_pylance.png
+  path: /assets/img/posts/python_type_cheking_pylance.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+  - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -28,7 +28,7 @@ related_posts:
 
 `python`에서도 [`Mypy`](https://github.com/python/mypy)와 [`Variable Annotations`](https://peps.python.org/pep-0008/#variable-annotations)을 사용하면 정적 타입 언어처럼 미리 타입 에러를 체크해볼 수 있다.  
 
-Mypy는 아래와 같이 pip를 통해서 설치할 수 있다.  
+`Mypy`는 아래와 같이 pip를 통해서 설치할 수 있다.  
 
 ```
 pip install mypy
@@ -40,7 +40,7 @@ pip install mypy
 a: int = 'a'  # annotate a as int but declare it as str
 ```
 
-mypy를 통해서 파일을 시행하면,  
+`mypy`를 통해서 파일을 시행하면,  
 
 ```
 > mypy test.py
