@@ -121,7 +121,7 @@ test = pd.read_csv('data/X_test.csv', encoding='euc-kr')
 print(exog.info())
 ```
 
-<details><summary>print</summary><div markdown="1">
+<details><summary>terminal</summary><div markdown="1">
 
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -150,7 +150,7 @@ None
 print(endog.info())
 ```
 
-<details><summary>print</summary><div markdown="1">
+<details><summary>terminal</summary><div markdown="1">
 
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -171,7 +171,7 @@ None
 print(test.info())
 ```
 
-<details><summary>print</summary><div markdown="1">
+<details><summary>terminal</summary><div markdown="1">
 
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -204,7 +204,7 @@ print(pd.unique(test['주구매상품']))
 print(len(pd.unique(exog['주구매상품'])), len(pd.unique(test['주구매상품'])))
 ```
 
-<details><summary>print</summary><div markdown="1">
+<details><summary>terminal</summary><div markdown="1">
 
 ```
 ['기타' '스포츠' '남성 캐주얼' '보석' '디자이너' '시티웨어' '명품' '농산물' '화장품' '골프' '구두' '가공식품'
@@ -226,7 +226,7 @@ print(pd.unique(test['주구매지점']))
 print(len(pd.unique(exog['주구매지점'])), len(pd.unique(test['주구매지점'])))
 ```
 
-<details><summary>print</summary><div markdown="1">
+<details><summary>terminal</summary><div markdown="1">
 
 ```
 ['강남점' '잠실점' '관악점' '광주점' '본  점' '일산점' '대전점' '부산본점' '분당점' '영등포점' '미아점'
@@ -272,7 +272,7 @@ df = pd.concat([exog, test])
 print(df.info())
 ```
 
-<details><summary>print</summary><div markdown="1">
+<details><summary>terminal</summary><div markdown="1">
 
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -339,7 +339,7 @@ df.drop(columns=['주구매상품', '주구매지점'], inplace=True)
 print(df.info())
 ```
 
-<details><summary>print</summary><div markdown="1">
+<details><summary>terminal</summary><div markdown="1">
 
 ```
 Output exceeds the size limit. Open the full output data in a text editor

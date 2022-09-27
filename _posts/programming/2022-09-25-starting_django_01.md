@@ -1,15 +1,15 @@
 ---
 published: true
 layout: post
-title: '[Django] Django로 웹 개발 입문하기 01'
+title: '[Back-end] Django 입문 01'
 description: >
-  웹 개발 입문을 위한 점프 투 장고 무작정 따라하기
+  웹 개발 입문을 위한 '점프 투 장고' 무작정 따라하기
 categories: [Programming]
-tags: [Back-end, Django로]
+tags: [Back-end, Django]
 image:
   path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+  - _posts/programming/2022-09-27-starting_django_02.md
 ---
 * toc
 {:toc}
@@ -94,13 +94,90 @@ Quit the server with CTRL-BREAK.
 
 ![django_localhost](/assets/img/posts/django_localhost.png)
 
-## 4. 감상..?
+## 4. Secret Key 숨기기
+
+구성한 프로젝트를 GitHub에 그대로 push 하면 `Django Secret Key exposed on GitHub`이라는 제목으로 경고가 날아온다.  
+
+![django_secretkey_email](/assets/img/posts/django_secretkey_email.png)
+
+`Django` 프로젝트의 `Secret Key`가 노출되었다는 것인데, `Secret Key`는 [디지털 서명](https://docs.djangoproject.com/en/1.11/topics/signing/)을 위해 사용되고, 사용 대상은 아래와 같다.  
+
+- `django.contrib.sessions.backends.cache`이외의 session backend를 사용하거나 기본 `get_session_auth_hash()`를 사용하는 모든 [session](https://docs.djangoproject.com/en/1.11/topics/http/sessions/)
+- `CookieStorage`나 `FallbackStorage`를 사용하는 모든 [메세지](https://docs.djangoproject.com/en/1.11/ref/contrib/messages/)
+- 모든 [`PasswordResetView`](https://docs.djangoproject.com/en/1.11/topics/auth/default/#django.contrib.auth.views.PasswordResetView) 토큰
+- 다른 키가 제공되지 않는 모든 [디지털 서명](https://docs.djangoproject.com/en/1.11/topics/signing/)
+
+`Django`의 `Secret Key`에 대한 상세한 설명은 [여기](https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-SECRET_KEY)에서 확인할 수 있는데, `Secret Key`를 노출시키면 `Django`가 제공하는 보안 관련 기능을 무력화하니 주의하라고 한다.  
+
+![django_secretkey_warning](/assets/img/posts/django_secretkey_warning.png)
+
+이번 경우에는 이미 노출되었으니 다음과 같은 두 단계로 해결해야 한다.  
+
+0. `Secret Key` 변경
+0. `Secret Key` 분리
+
+### 4-1. Secret Key 변경
+
+`Secret Key`를 코드에서 단순히 지우는 것으로는 충분하지 않고 변경을 해야 하는데, 코드를 변경하더라도 `git` 히스토리에 남아 있기 때문이다.  
+
+`Secret Key`는 50자의 랜덤한 문자로 생성되는데 직접 생성 코드를 짜서 만들어도 되고, [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) 같은 사이트에서 생성해도 된다.  
+
+### 4-2. Secret Key 분리
+
+`Secret Key`는 `config/setting.py`에 아래와 같이 저장된다.  
+
+```python
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-a)a75!_s7sm8rgd!gw7##m0b3nqzxybw($o+_+2oj^oo34)210'
+```
+
+우선 이 부분을 아래와 같이 변경하자. `json`파일로 분리한 `Secret Key`를 읽어오는 코드다.  
+
+```python
+import os
+import json
+from django.core.exceptions import ImproperlyConfigured
+
+# SECURITY WARNING: keep the secret key used in production secret!
+secret_file = os.path.join(BASE_DIR, 'secrets.json')  # set location of secrets.json
+with open(secret_file) as f:  # get data from secrets list
+    secrets = json.loads(f.read())
+
+def get_secret(var, secrets=secrets):
+    """get secret variable or ImproperlyConfigured error"""
+    try:
+        return secrets[var]
+    except KeyError:
+        error_msg = f'set {var} environment variable'
+        raise ImproperlyConfigured(error_msg)
+
+SECRET_KEY = get_secret(var="SECRET_KEY")
+```
+
+출처: [Django - settings.py 의 SECRET_KEY 변경 및 분리하기](https://wayhome25.github.io/django/2017/07/11/django-settings-secret-key/)
+{:.figcaption}
+
+다음으로는 위 코드를 통해 `Secret Key`를 읽어올 `json` 파일을 root 디렉토리에 아래와 같이 만들어주자.  
+
+```json
+{
+    "SECRET_KEY": "{your_secret_key}"
+}
+```
+
+❗ 이렇게 만든 **`json` 파일은 `.gitignore` 파일에 반드시 추가**해서 공개된 저장소에 올라가지 않도록 설정하고, 별도로 보관해야 한다.  
+{:.note title='warning'}
+
+## 5. 감상..?
 
 공식문서를 조금 들여다보고 튜토리얼을 조금 진행했을 뿐인데 확실히 `Django`는 웹 서비스 개발을 종합적으로 지원하는 프레임워크라는 점을 느낄 수 있었다.  
+
 나처럼 특정 기능을 위한 소규모 API를 구현할 일이 더 많은 사람은 API 구현 툴에 가까운 `FastAPI`를 사용하는게 더 나은 것 같다.  
 
 ---
 ## Reference
 - [전체 실습 코드](https://github.com/djccnt15/clone-jump_to_django)
 - [Writing your first Django app, part 1](https://docs.djangoproject.com/en/4.1/intro/tutorial01/)
-- [1-04 장고 프로젝트 생성하기](https://wikidocs.net/72377)
+- [Writing your first Django app, part 3](https://docs.djangoproject.com/en/4.1/intro/tutorial03/)
+- [점프 투 장고: 1-04 장고 프로젝트 생성하기](https://wikidocs.net/72377)
+- [Django - settings.py 의 SECRET_KEY 변경 및 분리하기](https://wayhome25.github.io/django/2017/07/11/django-settings-secret-key/)

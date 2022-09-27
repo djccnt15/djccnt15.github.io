@@ -91,7 +91,7 @@ df = pd.read_csv('data/TravelInsurancePrediction.csv', index_col=0)
 print(df.info())
 ```
 
-<details><summary>print</summary><div markdown="1">
+<details><summary>terminal</summary><div markdown="1">
 
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -152,7 +152,7 @@ df.drop(columns=obj_cols, inplace=True)
 print(df.info())
 ```
 
-<details><summary>print</summary><div markdown="1">
+<details><summary>terminal</summary><div markdown="1">
 
 ```
 <class 'pandas.core.frame.DataFrame'>

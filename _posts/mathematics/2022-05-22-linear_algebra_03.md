@@ -157,7 +157,7 @@ def gauss_eli(a, b):
     return y
 ```
 
-출처: [https://dkswnkk.tistory.com/67](https://dkswnkk.tistory.com/67)
+출처: [[수치해석] [c++,python] 가우스 소거법(Gaussian Elimination) 구현하기](https://dkswnkk.tistory.com/67)
 {:.figcaption}
 
 ### 가우스-조르단 소거법

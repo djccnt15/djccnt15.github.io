@@ -70,7 +70,7 @@ $$\mathbf{v} = \begin{pmatrix}
 
 ![Vector_Addition](/assets/img/posts/Vector_Addition.png){: width="25%"}
 {:.text-center}
-출처: [https://commons.wikimedia.org/wiki/File:Vector_Addition.png](https://commons.wikimedia.org/wiki/File:Vector_Addition.png)
+출처: [wikimedia - Vector_Addition.png](https://commons.wikimedia.org/wiki/File:Vector_Addition.png)
 {:.figcaption}
 
 벡터의 덧셈과 뺄셈은 동일 위치의 각 원소를 더하고 빼는 것으로, 교환 법칙이 성립하며 두 벡터의 크기가 동일할 때(벡터를 구성하는 스칼라의 개수가 동일할 때)만 연산이 가능하다. `python`으로 구현하면 아래와 같다.  

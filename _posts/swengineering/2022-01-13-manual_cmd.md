@@ -36,17 +36,25 @@ terminal은 windows cmd의 `esc`에 대응하는 기능의 단축키가 없으�
 
 ## 2. 작업용 명령어들
 
-### 2-1. where/which
+### 2-1. where/which/find
 
-파일 검색 명령어로 둘 다 추가 옵션은 없다.  
+파일/어플리케이션의 위치를 확인하기 위한 검색 명령어는 다음과 같다.  
 
 ```powershell
 # windows
-> where python
+> where <app_name>
 
-# linux
-$ which python
+# linux - search application with first match in PATH option
+$ which <app_name>
+
+# linux - search application with all matches in PATH option
+$ which -a <app_name>
+
+# linux - search file
+$ find <file_name>
 ```
+
+이 때 `which`는 `PATH`에서 해당 이름을 가진 첫번째 어플리케이션만을 검색하기 때문에, 모두 검색하고 싶다면 `-a` 옵션을 사용해야한다.  
 
 ### 2-2. cd
 

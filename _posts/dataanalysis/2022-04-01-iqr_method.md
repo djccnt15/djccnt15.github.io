@@ -50,7 +50,7 @@ scikit-learn 패키지의 경우 **outlier detection**와 **novelty detection**�
 
 ![IQR](/assets/img/posts/iqr.jpg)  
 {:.text-center}
-출처: [https://www.statisticshowto.com/probability-and-statistics/interquartile-range/](https://www.statisticshowto.com/probability-and-statistics/interquartile-range/)
+출처: [Interquartile Range (IQR): What it is and How to Find it](https://www.statisticshowto.com/probability-and-statistics/interquartile-range/)
 {:.figcaption}
 
 $$IQR$$이란 **InterQuartile Range(사분위수 범위)**의 약자로, 데이터를 순서대로 나열했을 때 25% 지점(1분위수)에 있는 데이터와 75% 지점(3분위수)에 있는 데이터의 차이를 말하며, 위 그림에서 볼 수 있듯이, $$IQR$$ 방식에서 정상 데이터로 분류될 범위를 계산하는 방식은 아래와 같다.
@@ -67,7 +67,7 @@ max & = Q3 + 1.5 * IQR \\
 
 ![Normal Distribution](/assets/img/posts/Normal-Distribution-curve.jpg)  
 {:.text-center}
-출처: [https://studiousguy.com/real-life-examples-normal-distribution/](https://studiousguy.com/real-life-examples-normal-distribution/)
+출처: [9 Real Life Examples Of Normal Distribution](https://studiousguy.com/real-life-examples-normal-distribution/)
 {:.figcaption}
 
 통계학 기본을 공부 했다면 위 그림과 같은 표준정규분포 그래프를 본 적이 있을 텐데, 약 $$\pm 2 \sigma$$에서 95%, 약 $$\pm 3 \sigma$$에서 99% 수준으로 표준정규분포에 들어가게 되고, 분야에 따라 다르지만 일반적으로 $$\pm 3 \sigma$$를 의미 있는 데이터로 본다. ([표준정규분포표 보러가기](https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative(less_than_Z)))
