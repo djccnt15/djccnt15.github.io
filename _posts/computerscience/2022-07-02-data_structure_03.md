@@ -43,7 +43,7 @@ related_posts:
 
 ## 스택의 구현
 
-스택을 `python`으로 구현하면 아래와 같다.  
+스택을 Python으로 구현하면 아래와 같다.  
 
 ```python
 class MyStack:
@@ -85,7 +85,7 @@ class MyStack:
         self._ptr = 0
 ```
 
-`python` 내장 모듈 `queue`는 `LifoQueue`라는 이름으로 스택을 지원하고 있다.  
+Python 내장 모듈 `queue`는 `LifoQueue`라는 이름으로 스택을 지원하고 있다.  
 
 ```python
 from queue import LifoQueue
@@ -93,4 +93,4 @@ from queue import LifoQueue
 stack = LifoQueue()
 ```
 
-참고로 `python` [튜토리얼](https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks)에서는 `list`를 스택으로 사용하는 법을 알려준다.  
+참고로 Python [튜토리얼](https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks)에서는 `list`를 스택으로 사용하는 법을 알려준다.  

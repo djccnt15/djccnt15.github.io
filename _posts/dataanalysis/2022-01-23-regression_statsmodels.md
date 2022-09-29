@@ -15,7 +15,7 @@ related_posts:
 * toc
 {:toc}
 
-`statsmodels`패키지는 매우 강력한 회귀분석 기능을 제공하는 python 패키지로, 특히 요약 결과 기능을 제공한다는 점에서 매우 유용하다. `statsmodels`패키지로 회귀분석을 하는 방법은 두 가지가 있는데, 각각 소개해보기로 한다.  
+statsmodels패키지는 매우 강력한 회귀분석 기능을 제공하는 python 패키지로, 특히 요약 결과 기능을 제공한다는 점에서 매우 유용하다. statsmodels패키지로 회귀분석을 하는 방법은 두 가지가 있는데, 각각 소개해보기로 한다.  
 
 패키지 자체를 소개하는게 목적이기 때문에 data scaling, correlation, VIF, stepwise selection 등은 생략한다.  
 
@@ -53,7 +53,7 @@ print(df)
 💡 `statsmodels.api`을 통해서 회귀분석을 시행할 경우 **별도로 독립변수에 상수항을 추가**해줘야 한다.  
 {:.note}
 
-상수항을 추가하기 위해서는 `statsmodels`이 제공하는 `add_constant()`를 사용해주면 간단하다.  
+상수항을 추가하기 위해서는 statsmodels가 제공하는 `add_constant()`를 사용해주면 간단하다.  
 
 ```python
 import statsmodels.api as sm

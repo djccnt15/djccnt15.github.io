@@ -36,7 +36,7 @@ related_posts:
 
 ## 연결 리스트의 구현
 
-`python`으로 연결 리스트를 구현하면 아래와 같다.  
+Python으로 연결 리스트를 구현하면 아래와 같다.  
 
 ```python
 class MyNode:

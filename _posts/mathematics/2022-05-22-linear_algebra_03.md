@@ -73,7 +73,7 @@ $$\begin{bmatrix}
 \beta_{m1} & \beta_{m2} & \cdots & \beta_{mn} \\
 \end{bmatrix}$$
 
-선형 시스템의 계수들을 받아 첨가 행렬을 만드는 것과 첨가 행렬을 계수 행렬로 분리하는 것을 `python`으로 구현하면 다음과 같다.  
+선형 시스템의 계수들을 받아 첨가 행렬을 만드는 것과 첨가 행렬을 계수 행렬로 분리하는 것을 Python으로 구현하면 다음과 같다.  
 
 ```python
 # creating vector augmented matrix
@@ -94,7 +94,7 @@ def mat_coef(a):
 
 선형대수학에서, **피벗(pivot)** 또는 **피벗 성분(pivot entry, pivot element)**은 가우스 소거법과 같이 특정 계산을 수행하기 위한 임의의 알고리즘에 의해 먼저 선택된 행렬의 성분(항, 원소)을 말하며, 이러한 **피벗 성분을 찾는 것을 피벗팅(pivoting)**이라고 한다.  
 
-피벗팅을 `python`으로 구현하면 아래와 같다. 피벗은 0이 아니어야 하며 일반적으로 1이어야 하는데, 간단한 구현을 위해 최대값을 찾는 것으로 구현했다.  
+피벗팅을 Python으로 구현하면 아래와 같다. 피벗은 0이 아니어야 하며 일반적으로 1이어야 하는데, 간단한 구현을 위해 최대값을 찾는 것으로 구현했다.  
 
 ```python
 # pivoting augmented matrix
@@ -130,7 +130,7 @@ $$\begin{bmatrix}
 
 ### 가우스 소거법
 
-첨가 행렬을 행사다리꼴 행렬로 변환한 후(전방 소거법, forward elimination) 역대입(후방 대입법, backward substitution)을 통해 해를 구하는 방법을 **가우스 소거법(Gauss elimination)**이라고 부르는데, `python`으로 구현하면 아래와 같다.  
+첨가 행렬을 행사다리꼴 행렬로 변환한 후(전방 소거법, forward elimination) 역대입(후방 대입법, backward substitution)을 통해 해를 구하는 방법을 **가우스 소거법(Gauss elimination)**이라고 부르는데, Python으로 구현하면 아래와 같다.  
 
 ```python
 # Gauss elimination
@@ -164,7 +164,7 @@ def gauss_eli(a, b):
 
 주어진 선형 시스템을 [기본 행 연산](/mathematics/linear_algebra_01/#기본-행-연산)을 통해 기약 행사다리꼴 행렬의 형태로 만들어 방정식의 해를 구하는 방법을 **가우스-조르단 소거법(Gauss Jordan elimination)**이라고 한다.  
 
-[Wolfram](https://mathworld.wolfram.com/Gauss-JordanElimination.html)에 따르면 가우스-조르단 소거법은 [역행렬](/mathematics/linear_algebra_05/)을 구하기 위한 방법이지만 응용해서 선형 시스템을 해를 구할 때도 사용할 수 있다. 아무튼 `python`으로 구현하면 아래와 같다.  
+[Wolfram](https://mathworld.wolfram.com/Gauss-JordanElimination.html)에 따르면 가우스-조르단 소거법은 [역행렬](/mathematics/linear_algebra_05/)을 구하기 위한 방법이지만 응용해서 선형 시스템을 해를 구할 때도 사용할 수 있다. 아무튼 Python으로 구현하면 아래와 같다.  
 
 ```python
 # Gauss-Jordan elimination
@@ -197,7 +197,7 @@ def solve(a, b):
 
 ### numpy 활용
 
-`numpy`를 사용해서 선형 시스템의 해를 구하는 방법은 아래와 같다.  
+NumPy를 사용해서 선형 시스템의 해를 구하는 방법은 아래와 같다.  
 
 ```python
 import numpy as np

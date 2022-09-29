@@ -26,7 +26,7 @@ scipy
 xgboost
 ```
 
-`pip install` 명령어를 사용해서 각각의 패키지들을 설치해주자. `python` 환경을 분리해야할 경우 [가상환경](/programming/python_venv/)을 만들어서 작업하면 된다.  
+`pip install` 명령어를 사용해서 각각의 패키지들을 설치해주자. Python 환경을 분리해야할 경우 [가상환경](/programming/python_venv/)을 만들어서 작업하면 된다.  
 
 ## 작업형 제1유형 : 데이터 처리 영역
 

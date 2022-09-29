@@ -26,7 +26,7 @@ related_posts:
 
 ### Mypy와 Variable Annotations 사용
 
-`python`에서도 [`Mypy`](https://github.com/python/mypy)와 [`Variable Annotations`](https://peps.python.org/pep-0008/#variable-annotations)을 사용하면 정적 타입 언어처럼 미리 타입 에러를 체크해볼 수 있다.  
+Python에서도 [`Mypy`](https://github.com/python/mypy)와 [`Variable Annotations`](https://peps.python.org/pep-0008/#variable-annotations)을 사용하면 정적 타입 언어처럼 미리 타입 에러를 체크해볼 수 있다.  
 
 `Mypy`는 아래와 같이 pip를 통해서 설치할 수 있다.  
 
@@ -50,7 +50,7 @@ test.py:1: error: Incompatible types in assignment (expression has type "str", v
 Found 1 error in 1 file (checked 1 source file)
 ```
 
-이렇게 타입 에러를 검사해준다. 참고로 `python`의 `Annotations`은 comment와 마찬가지로 강제성이 전혀 없기 때문에 실행 시에 `Annotations`을 작성해주는 것 자체로는 런타임 시에 에러가 나지는 않는다.  
+이렇게 타입 에러를 검사해준다. 참고로 Python의 `Annotations`은 comment와 마찬가지로 강제성이 전혀 없기 때문에 실행 시에 `Annotations`을 작성해주는 것 자체로는 런타임 시에 에러가 나지는 않는다.  
 
 ![python_type_cheking_mypy](/assets/img/posts/python_type_cheking_mypy.png)
 
@@ -59,7 +59,7 @@ Found 1 error in 1 file (checked 1 source file)
 
 ### IDE 기능 사용
 
-VSCode에서 `python` 스크립트를 코딩할 때 사용하는 extension 중 [`Pylance`](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)가 있다. `Pylance`의 `Type Checking Mode`옵션을 켜주면 아래 그림과 같이 데이터의 자료형을 검사해준다.  
+VSCode에서 Python 스크립트를 코딩할 때 사용하는 extension 중 [`Pylance`](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)가 있다. `Pylance`의 `Type Checking Mode`옵션을 켜주면 아래 그림과 같이 데이터의 자료형을 검사해준다.  
 
 ![python_type_cheking_pylance](/assets/img/posts/python_type_cheking_pylance.png)
 

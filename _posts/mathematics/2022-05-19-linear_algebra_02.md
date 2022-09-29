@@ -52,7 +52,7 @@ a_{12} & a_{22} & a_{32} \\
 
 $$(AB)^{T} = B^{T}A^{T}$$
 
-`python`으로 구현하면 아래와 같다.  
+Python으로 구현하면 아래와 같다.  
 
 ```python
 # transposed matrix
@@ -62,7 +62,7 @@ def mat_trans(a):
     return At
 ```
 
-`numpy`를 사용하면 아래와 같다.  
+NumPy를 사용하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -91,7 +91,7 @@ $$\therefore A = A^{T}$$
 
 선형대수에서는 $$AA^{T}$$나 $$A^{T}A$$와 같은 형태를 종종 볼 수 있는데, 둘 모두 **대칭 행렬**이 된다.  
 
-`python`으로 대칭 행렬 여부를 확인하려면 아래와 같이 앞서 만든 전치 행렬을 반환하는 함수를 활용하면 된다.  
+Python으로 대칭 행렬 여부를 확인하려면 아래와 같이 앞서 만든 전치 행렬을 반환하는 함수를 활용하면 된다.  
 
 ```python
 # symmetric matrix check
@@ -149,7 +149,7 @@ a_{21} \times d_{22} & a_{22} \times d_{22} & a_{23} \times d_{22} \\
 a_{31} \times d_{33} & a_{32} \times d_{33} & a_{33} \times d_{33} \\
 \end{bmatrix}$$
 
-어떤 행렬의 대각 행렬을 구한다는 것은 대각 원소를 제외한 나머지 원소를 0으로 바꾸는 것을 의미하는데, 대각 원소 구하는 것과 대각 행렬 구하는 것을 `python`으로 구현하면 아래와 같다.  
+어떤 행렬의 대각 행렬을 구한다는 것은 대각 원소를 제외한 나머지 원소를 0으로 바꾸는 것을 의미하는데, 대각 원소 구하는 것과 대각 행렬 구하는 것을 Python으로 구현하면 아래와 같다.  
 
 ```python
 # elements of diagonal matrix
@@ -165,7 +165,7 @@ def mat_diag(a):
     return D
 ```
 
-`numpy`를 활용하면 아래와 같이 `np.diag`함수 하나로 대각 원소와 대각 행렬을 모두 구할 수 있다.  
+NumPy를 활용하면 아래와 같이 `np.diag`함수 하나로 대각 원소와 대각 행렬을 모두 구할 수 있다.  
 
 ```python
 import numpy as np
@@ -193,7 +193,7 @@ a_{21} & a_{22} & 0 & 0 \\
 0 & 0 & a_{43} & a_{44} \\
 \end{bmatrix}$$
 
-어떤 행렬을 받아서 이중 대각 행렬을 반환하는 함수를 `python`으로 구현하면 아래와 같다.  
+어떤 행렬을 받아서 이중 대각 행렬을 반환하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # upper bidiagonal matrix
@@ -209,7 +209,7 @@ def mat_bidiag_l(a):
     return res
 ```
 
-`numpy`로 구현하면 아래와 같다.  
+NumPy로 구현하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -243,7 +243,7 @@ $$I = \begin{bmatrix}
 
 $$AI = IA = A$$
 
-단위 행렬을 생성하는 함수를 `python`으로 구현하면 아래와 같다.  
+단위 행렬을 생성하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # identity matrix
@@ -253,7 +253,7 @@ def mat_identity(n):
     return I
 ```
 
-`numpy`를 활용하면 아래와 같다.  
+NumPy를 활용하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -270,7 +270,7 @@ $$0 = \begin{bmatrix}
 0 & 0 \\
 \end{bmatrix}$$
 
-`python`으로 구현하면 아래와 같다.  
+Python으로 구현하면 아래와 같다.  
 
 ```python
 # zero matrix
@@ -286,7 +286,7 @@ def v_zeros(n):
     return Z
 ```
 
-`numpy`를 활용하면 아래와 같다.  
+NumPy를 활용하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -309,7 +309,7 @@ l_{21} & l_{22} & 0 \\
 l_{31} & l_{32} & l_{33} \\
 \end{bmatrix}$$
 
-입력된 행렬을 삼각 행렬로 만들어주는 것을 `python`으로 구현하면 아래와 같다.  
+입력된 행렬을 삼각 행렬로 만들어주는 것을 Python으로 구현하면 아래와 같다.  
 
 ```python
 # upper triangular matrix
@@ -325,7 +325,7 @@ def mat_tri_l(a):
     return res
 ```
 
-`numpy`를 활용하면 아래와 같다.  
+NumPy를 활용하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -353,7 +353,7 @@ t_{n-1} & t_{n-2} & \cdots & t_{1} & t_{0} \\
 
 $$T_{i,j} = T_{i+1,j+1} = t_{i-j}$$
 
-두 개의 벡터를 받아 하나의 토플리츠 행렬을 반환하는 함수를 `python`으로 구현하면 아래와 같다.  
+두 개의 벡터를 받아 하나의 토플리츠 행렬을 반환하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # toeplitz matrix
@@ -363,7 +363,7 @@ def mat_toeplitz(a, b):
     return T
 ```
 
-`scipy`를 활용하면 아래와 같다. `numpy`에는 토플리츠 행렬을 만드는 기능이 없다.  
+SciPy를 활용하면 아래와 같다. NumPy에는 토플리츠 행렬을 만드는 기능이 없다.  
 
 ```python
 from scipy.linalg import toeplitz
@@ -386,7 +386,7 @@ v_{n}
 \end{bmatrix}
 \to H = I - 2\frac{\mathbf{vv}^{T}}{\mathbf{v}^{T}\mathbf{v}}$$
 
-$${\mathbf{vv}^{T}}$$은 [벡터의 외적](/mathematics/linear_algebra_09/#1-외적), $${\mathbf{v}^{T}\mathbf{v}}$$은 [벡터의 내적](/mathematics/linear_algebra_07/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 `python`으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
+$${\mathbf{vv}^{T}}$$은 [벡터의 외적](/mathematics/linear_algebra_09/#1-외적), $${\mathbf{v}^{T}\mathbf{v}}$$은 [벡터의 내적](/mathematics/linear_algebra_07/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 Python으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 ```python
 # outer product, tensor product of vector
@@ -402,7 +402,7 @@ def v_inner(a, b):
     return res
 ```
 
-앞서 구현한 함수들을 기반으로 입력된 벡터를 받아 하우스홀더 행렬을 반환하는 함수를 `python`으로 구현하면 아래와 같다.  
+앞서 구현한 함수들을 기반으로 입력된 벡터를 받아 하우스홀더 행렬을 반환하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # householder matrix
@@ -416,7 +416,7 @@ def householder(v):
     return H
 ```
 
-하우스홀더 행렬을 `numpy`를 활용하여 구하면 아래와 같다.  
+하우스홀더 행렬을 NumPy를 활용하여 구하면 아래와 같다.  
 
 ```python
 import numpy as np

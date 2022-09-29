@@ -42,7 +42,7 @@ related_posts:
 
 $$\mathbf{v}_{n} = \frac{\mathbf{u}_{n}}{\Vert \mathbf{u}_{n} \Vert}$$
 
-벡터의 정규화를 `python`으로 구현하면 아래와 같다.  
+벡터의 정규화를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # normalize vector
@@ -52,7 +52,7 @@ def normalize(a):
     return n
 ```
 
-`numpy`를 사용하면 아래와 같다.  
+NumPy를 사용하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -92,7 +92,7 @@ proj_{\mathbf{v}} \mathbf{u} & = \Vert \mathbf{u} \Vert \vert \cos \theta \vert 
 
 $$\mathbf{u} = proj_{\mathbf{v}} \mathbf{u} + (\mathbf{u} - proj_{\mathbf{v}} \mathbf{u})$$
 
-정사영 $$proj_{\mathbf{b}} \mathbf{a}$$를 `python`으로 구현하면 아래와 같다.  
+정사영 $$proj_{\mathbf{b}} \mathbf{a}$$를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # projection
@@ -103,7 +103,7 @@ def proj(a, b):
     return res
 ```
 
-`numpy`를 사용해서 구현하면 아래와 같다.  
+NumPy를 사용해서 구현하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -180,7 +180,7 @@ $$\begin{align*}
 출처: [위키피디아 그람-슈미트 과정](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C-%EC%8A%88%EB%AF%B8%ED%8A%B8_%EA%B3%BC%EC%A0%95)([영문](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process))
 {:.figcaption}
 
-앞서 구현한 함수들을 바탕으로 `python`으로 구현하면 아래와 같다.  
+앞서 구현한 함수들을 바탕으로 Python으로 구현하면 아래와 같다.  
 
 ```python
 # Gram-Schmidt Process
@@ -241,7 +241,7 @@ $$\begin{align*} \\
 
 ### 그람-슈미트 과정을 이용한 QR분해
 
-그람-슈미트 과정을 이용한 QR분해를 `python`으로 구현하면 아래와 같다.  
+그람-슈미트 과정을 이용한 QR분해를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # QR decomposition, QR factorization with Gram-Schmidt Process
@@ -258,7 +258,7 @@ def qr_gramschmidt(a):
     return q, r
 ```
 
-`numpy`, `scipy`로 구한 값과는 부호가 조금 다르게 나오는데, 바뀐 부호가 $$Q$$와 $$R$$에 공통적으로 적용되어 $$A = QR$$이라는 최종 검산 결과를 만족하면 상관 없다고 한다. 참고로 [WolframAlpha](https://www.wolframalpha.com/input?i=QR+decomposition+%7B%7B10%2C+-10%2C+4%2C+10%7D%2C+%7B20%2C+4%2C+-20%2C+8%7D%2C+%7B30%2C+40%2C+2%2C+6%7D%2C+%7B10%2C+-10%2C+0%2C+3%7D%7D)로 검산을 해보면 내가 구현한 함수와 동일한 부호로 값이 도출된다.  
+NumPy, SciPy로 구한 값과는 부호가 조금 다르게 나오는데, 바뀐 부호가 $$Q$$와 $$R$$에 공통적으로 적용되어 $$A = QR$$이라는 최종 검산 결과를 만족하면 상관 없다고 한다. 참고로 [WolframAlpha](https://www.wolframalpha.com/input?i=QR+decomposition+%7B%7B10%2C+-10%2C+4%2C+10%7D%2C+%7B20%2C+4%2C+-20%2C+8%7D%2C+%7B30%2C+40%2C+2%2C+6%7D%2C+%7B10%2C+-10%2C+0%2C+3%7D%7D)로 검산을 해보면 내가 구현한 함수와 동일한 부호로 값이 도출된다.  
 
 ### 하우스홀더 행렬을 이용한 QR분해
 
@@ -348,7 +348,7 @@ Q & = H_{1}H_{2}H_{3} \cdots H_{n}\\
 R & = H_{n} \cdots H_{3}H_{2}H_{1}A
 \end{align*}$$
 
-`python`으로 구현하면 아래와 같다.  
+Python으로 구현하면 아래와 같다.  
 
 ```python
 # QR decomposition, QR factorization with householder matrix
@@ -444,11 +444,11 @@ for h_tmp in h_list_tmp:
     h_list.append(tmp)
 ```
 
-`numpy`, `scipy`로 구한 값 및 위의 [그람-슈미트 과정](#그람-슈미트-과정을-이용한-qr분해)을 이용해서 도출한 값과는 부호가 조금 다르게 나오는데, 마찬가지로 바뀐 부호가 $$Q$$와 $$R$$에 공통적으로 적용되어 $$A = QR$$이라는 최종 검산 결과를 만족하면 상관 없다고 한다.  
+NumPy, SciPy로 구한 값 및 위의 [그람-슈미트 과정](#그람-슈미트-과정을-이용한-qr분해)을 이용해서 도출한 값과는 부호가 조금 다르게 나오는데, 마찬가지로 바뀐 부호가 $$Q$$와 $$R$$에 공통적으로 적용되어 $$A = QR$$이라는 최종 검산 결과를 만족하면 상관 없다고 한다.  
 
 ### numpy, scipy 활용
 
-`numpy`를 활용한 QR분해는 아래와 같다.  
+NumPy를 활용한 QR분해는 아래와 같다.  
 
 ```python
 import numpy as np
@@ -458,7 +458,7 @@ s = np.array([[10, -10, 4, 10], [20, 4, -20, 8], [30, 40, 2, 6], [10, -10, 0, 3]
 q, r = np.linalg.qr(s)
 ```
 
-`scipy`를 활용한 QR분해는 아래와 같다.  
+SciPy를 활용한 QR분해는 아래와 같다.  
 
 ```python
 from scipy import linalg

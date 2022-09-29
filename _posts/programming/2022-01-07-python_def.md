@@ -16,7 +16,7 @@ related_posts:
 
 ## Ellipsis
 
-Ellipsis는 말줄임표를 말하는데, `python`에서 Ellipsis라고 할 경우 `...`을 말한다. 함수나 제어문에서 `pass`를 대신하여 사용할 수 있다.  
+Ellipsis는 말줄임표를 말하는데, Python에서 Ellipsis라고 할 경우 `...`을 말한다. 함수나 제어문에서 `pass`를 대신하여 사용할 수 있다.  
 
 ```python
 for i in range(10):
@@ -67,7 +67,7 @@ print(add(1))
 
 ## Function Annotation
 
-`python`의 함수를 작성할 때, 다음과 같이 각 `parameter`와 `return`의 형태에 대한 주석을 달아서 작성할 수 있다. `#`을 이용해서 표기한 주석과 마찬가지로 어떠한 강제성도 없다. `__annotations__` 속성을 사용하면 내용을 확인할 수 있다.  
+Python의 함수를 작성할 때, 다음과 같이 각 `parameter`와 `return`의 형태에 대한 주석을 달아서 작성할 수 있다. `#`을 이용해서 표기한 주석과 마찬가지로 어떠한 강제성도 없다. `__annotations__` 속성을 사용하면 내용을 확인할 수 있다.  
 
 ```python
 def add(a: 'expression', b: int) -> int:

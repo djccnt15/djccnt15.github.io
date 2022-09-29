@@ -46,7 +46,7 @@ AA^{T} & = A^{T}A = I \\
 \therefore A^{T} & = A^{-1}
 \end{align*}$$
 
-행렬의 직교 여부 확인을 `python`으로 구현하면 아래와 같다. 부동소수점으로 인한 문제를 피하기 위한 추가 연산이 필요하다.  
+행렬의 직교 여부 확인을 Python으로 구현하면 아래와 같다. 부동소수점으로 인한 문제를 피하기 위한 추가 연산이 필요하다.  
 
 ```python
 # orthogonal matrix check

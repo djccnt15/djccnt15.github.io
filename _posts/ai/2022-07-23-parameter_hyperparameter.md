@@ -20,7 +20,7 @@ related_posts:
 
 ## 개발 분야에서
 
-아래와 같은 `python` 함수를 예시로 들어보자.  
+아래와 같은 Python 함수를 예시로 들어보자.  
 
 ```python
 def add(a, b):

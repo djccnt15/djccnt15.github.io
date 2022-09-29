@@ -55,7 +55,7 @@ v_{n} \\
 
 $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \mathbf{u}^{T} \mathbf{v} = \sum_{i=1}^{n}u_{i}v_{i} = \vert \mathbf{u} \vert \vert \mathbf{v} \vert \cos \theta$$
 
-벡터의 내적을 `python`으로 구현하면 아래와 같다. [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
+벡터의 내적을 Python으로 구현하면 아래와 같다. [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
 ```python
 # inner product of vector
@@ -65,7 +65,7 @@ def v_inner(a, b):
     return res
 ```
 
-`numpy`를 사용하면 아래와 같다.  
+NumPy를 사용하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -98,7 +98,7 @@ $$\Vert \mathbf{v} \Vert_{p} = \left( \sum_{i=1}^{n} \vert v_{i} \vert^{p} \righ
 
 $$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert_{2} = \sqrt{\sum_{i=1}^{n}{v_{i}}^{2}}$$
 
-유클리드 노름(Euclidean norm)은 머신러닝/통계학에서는 $$l_{2}$$ 정규화(L2 Regularization)에 사용되며, 유클리드 노름(Euclidean norm)을 구하는 함수를 `python`으로 구현하면 아래와 같다.  
+유클리드 노름(Euclidean norm)은 머신러닝/통계학에서는 $$l_{2}$$ 정규화(L2 Regularization)에 사용되며, 유클리드 노름(Euclidean norm)을 구하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # euclidean norm of vector
@@ -108,7 +108,7 @@ def norm(a):
     return res
 ```
 
-`numpy`를 사용하면 아래와 같다.  
+NumPy를 사용하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -128,7 +128,7 @@ $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \Vert \
 
 $$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert_{1} = \sum_{i=1}^{n} \vert v_{i} \vert$$
 
-맨해튼 노름(Manhattan norm)은 머신러닝/통계학에서는 $$l_{1}$$ 정규화(L1 Regularization)에 사용되며, 맨해튼 노름(Manhattan norm)을 구하는 함수를 `python`으로 구현하면 아래와 같다.  
+맨해튼 노름(Manhattan norm)은 머신러닝/통계학에서는 $$l_{1}$$ 정규화(L1 Regularization)에 사용되며, 맨해튼 노름(Manhattan norm)을 구하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # manhattan norm of vector
@@ -138,7 +138,7 @@ def norm_man(a):
     return res
 ```
 
-`numpy`를 사용하면 아래와 같다.  
+NumPy를 사용하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -166,7 +166,7 @@ $$\mathrm{cosine \ similarity} = S_{c}(\mathbf{u}, \mathbf{v}) = \cos \theta = \
 - $$S_{c}(\mathbf{u}, \mathbf{v}) = 0$$ 일 때, 두 벡터의 각은 90°
 - $$S_{c}(\mathbf{u}, \mathbf{v}) = -1$$ 일 때, 두 벡터의 각은 180°
 
-코사인 유사도를 구하는 함수를 `python`으로 구현하면 아래와 같다.  
+코사인 유사도를 구하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # cosine similarity
@@ -176,7 +176,7 @@ def cos_similarity(a, b):
     return res
 ```
 
-`scipy`를 활용해서 구하면 아래와 같다.  
+SciPy를 활용해서 구하면 아래와 같다.  
 
 ```python
 from scipy import spatial

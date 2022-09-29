@@ -16,8 +16,8 @@ GitHub Pages를 이용한 블로그 구축 및 공부노트
 
 `--host`, `--port` 옵션을 사용하지 않을 경우 기본 IP 및 포트는 아래와 같이 할당된다.  
 
-- [http:127.0.0.1:4000](http:127.0.0.1:4000)
-- [http:localhost:4000](http:localhost:4000)
+- [http://127.0.0.1:4000](http://127.0.0.1:4000)
+- [http://localhost:4000](http://localhost:4000)
 
 서버 구동의 세부 옵션 및 설명은 아래와 같다.  
 

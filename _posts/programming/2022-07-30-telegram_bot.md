@@ -75,7 +75,7 @@ https://api.telegram.org/bot{YOUR_HTTP_ACCESS_TOKEN}/getUpdates
 https://api.telegram.org/bot{YOUR_HTTP_ACCESS_TOKEN}/sendMessage?chat_id={YOUR_ID}&text={YOUR_MESSAGE}
 ```
 
-`python`에서 메세지를 보내는 방법은 아래와 같다.  
+Python에서 메세지를 보내는 방법은 아래와 같다.  
 
 ```python
 import requests

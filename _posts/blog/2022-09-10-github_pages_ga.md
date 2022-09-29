@@ -14,8 +14,6 @@ related_posts:
 * toc
 {:toc}
 
-## 개요
-
 나는 GitHub Pages 블로그를 Jekyll을 기반으로 구축했기 때문에 local에서 구동해 화면을 확인하는데, 이렇게 local에서 구동하고 localhost에 접속한 기록도 Google Analytics에 집계가 되서 통계가 이상해진다. GitHub Pages에서 구동되었을 때만 Google Analytics에 집계가 되도록 수정해보았다.  
 
 ## 수정하기

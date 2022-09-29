@@ -16,7 +16,7 @@ related_posts:
 
 ## 1. App 생성
 
-App(앱)은 Application software/Application program의 줄임말로, 운영체제가 아닌 모든 응용 프로그램을 말한다. `Django` 프로젝트에 기능을 추가하기 위해서는 앱을 생성해야 한다.  
+App(앱)은 **Application software/program**의 줄임말로, 운영체제가 아닌 모든 응용 프로그램을 말한다. Django 프로젝트에 기능을 추가하기 위해서는 앱을 생성해야 한다.  
 
 ```powershell
 > django-admin startapp [app_name]
@@ -24,7 +24,7 @@ App(앱)은 Application software/Application program의 줄임말로, 운영체�
 
 terminal에 반응은 없지만, 프로젝트 디렉토리에 `app_name` 디렉토리가 생성된 것을 확인할 수 있다.  
 
-`Django` 공식문서에서는 [Project와 App의 차이](https://docs.djangoproject.com/en/4.1/intro/tutorial01/#creating-the-polls-app)를 다음과 같이 설명하고 있다.  
+Django 공식문서에서는 [Project와 App의 차이](https://docs.djangoproject.com/en/4.1/intro/tutorial01/#creating-the-polls-app)를 다음과 같이 설명하고 있다.  
 
 - An app is a web application.
 - A project is a collection of configuration and apps for a particular website.
@@ -32,7 +32,7 @@ terminal에 반응은 없지만, 프로젝트 디렉토리에 `app_name` 디렉�
 
 ## 2. URL 부여
 
-생성한 기능을 사용하려면 URL을 부여해야 한다. `Django` 프로젝트에서는 `config/urls.py` 파일을 통해 URL을 관리하고, `urls.py` 파일은 페이지 요청이 발생하면 가장 먼저 호출되어 URL과 `views.py` 파일에 정의되는 뷰 함수 간의 매핑을 정의한다.  
+생성한 기능을 사용하려면 URL을 부여해야 한다. Django 프로젝트에서는 `config/urls.py` 파일을 통해 URL을 관리하고, `urls.py` 파일은 페이지 요청이 발생하면 가장 먼저 호출되어 URL과 `views.py` 파일에 정의되는 뷰 함수 간의 매핑을 정의한다.  
 
 나는 `board_qna`라는 이름으로 앱을 생성했기 때문에 `config/urls.py` 파일을 아래와 같이 수정하였다.  
 
@@ -42,7 +42,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('board_qna/', include('board_qna.urls')),  # include() is a function for controlling url in each app
+    path('board_qna/', include('board_qna.urls')),  # include() is a function for including url file in each app
 ]
 ```
 
@@ -62,7 +62,7 @@ urlpatterns = [
 
 ## 3. view 설정
 
-`Django` 공식문서에서는 `view`를 *특정한 기능을 제공하고 특정한 템플릿을 가진 Django 애플리케이션의 웹 페이지의 "type"*이라고 정의하고 있다.  
+Django 공식문서에서는 view를 *특정한 기능을 제공하고 특정한 템플릿을 가진 Django 애플리케이션의 웹 페이지의 "type"*이라고 정의하고 있다.  
 
 ```python
 from django.http import HttpResponse
@@ -71,15 +71,15 @@ def index(request):
     return HttpResponse("Hello World! Welcome to Q&A board.")
 ```
 
-위와 같은 기초적인 `view`를 생성하였는데, `board_qna`에 접속할 경우 `Hello World! Welcome to Q&A board.`라고 화면에 띄우라는 뜻이다.  
+위와 같은 기초적인 view를 생성하였는데, `board_qna`에 접속할 경우 *Hello World! Welcome to Q&A board.*라고 화면에 띄우라는 뜻이다.  
 
 ## 4. Database 설정
 
-`Django`는 **ORM(Object Relational Mapping)**을 사용해서 데이터베이스를 처리한다. ORM을 사용하면 객체 간의 관계를 바탕으로 SQL을 자동으로 생성하기 때문에 DBMS에 대한 종속성이 줄어들고, 재사용 및 유지보수의 편리성이 증가하여 개발자가 객체 모델로 프로그래밍하고 비즈니스 로직에만 더 집중할 수 있다는 장점이 있다.  
+Django는 **ORM(Object Relational Mapping)**을 사용해서 데이터베이스를 처리한다. ORM을 사용하면 객체 간의 관계를 바탕으로 SQL을 자동으로 생성하기 때문에 DBMS에 대한 종속성이 줄어들고, 재사용 및 유지보수의 편리성이 증가하여 개발자가 객체 모델로 프로그래밍하고 비즈니스 로직에만 더 집중할 수 있다는 장점이 있다.  
 
 ### 4-1. 앱 migrate
 
-`Django`의 서버를 호스팅하면 아래와 같이 18개의 적용되지 않은 migration이 있다고 뜬다.  
+Django의 서버를 호스팅하면 아래와 같이 18개의 적용되지 않은 migration이 있다고 뜬다.  
 
 ```powershell
 > manage.py runserver
@@ -138,7 +138,7 @@ DATABASES = {
 
 SQLite는 개발용이나 소규모 프로젝트에서 사용되는 가벼운 파일 기반의 데이터베이스로, 개발 시에는 SQLite를 사용하여 빠르게 개발하고 실제 운영에 들어가면 좀 더 규모있는 Database를 사용하는 것이 일반적이라고 한다.  
 
-`Django`가 지원하는 여러가지 DB의 백엔드 엔진은 아래와 같다.  
+Django가 지원하는 여러가지 DB의 백엔드 엔진은 아래와 같다.  
 
 - PostgreSQL
   - `django.db.backends.postgresql`
@@ -149,7 +149,7 @@ SQLite는 개발용이나 소규모 프로젝트에서 사용되는 가벼운 �
 - SQLite
   - `django.db.backends.sqlite3`
 
-💡 `Django`의 Database에 대한 자세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/ref/databases/)에서 확인할 수 있다.  
+💡 Django의 Database에 대한 자세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/ref/databases/)에서 확인할 수 있다.  
 {:.note}
 
 ### 4-3. Model 생성
@@ -198,16 +198,16 @@ class Answer(models.Model):
 - [DateTimeField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#datetimefield)
   - 날짜와 시간을 모두 지정하는 필드이다. 만약 날짜만 필요하다면 [DateField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#datefield)를 사용하면 된다
 
-💡 그 외 `Django`의 API가 제공하는 전체 모델 필드에 대한 설명은 [여기](https://docs.djangoproject.com/en/4.1/ref/models/fields/)에서 확인할 수 있다.  
+💡 그 외 Django의 API가 제공하는 전체 모델 필드에 대한 설명은 [여기](https://docs.djangoproject.com/en/4.1/ref/models/fields/)에서 확인할 수 있다.  
 {:.note}
 
-참고로 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/db/models/#automatic-primary-key-fields)를 보면, `Django`는 각각의 모델에 아래와 같이 id 필드를 자동으로 추가하고 Primary Key 속성을 부여해주기 때문에 `id` 속성은 생성하지 않았다.  
+참고로 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/db/models/#automatic-primary-key-fields)를 보면, Django는 각각의 모델에 아래와 같이 id 필드를 자동으로 추가하고 Primary Key 속성을 부여해주기 때문에 `id` 속성은 생성하지 않았다.  
 
 ```python
 id = models.BigAutoField(primary_key=True)
 ```
 
-💡 `Django`에서 모든 모델은 반드시 Primary Key가 있어야 하는데, 만약 Primary Key 속성을 직접 지정하고 싶다면 해당 필드에 `primary_key=True` 옵션을 주면 되고, 이 경우에는 id 필드가 자동으로 생성되지 않는다.  
+💡 Django에서 모든 모델은 반드시 Primary Key가 있어야 하는데, 만약 Primary Key 필드를 직접 지정하고 싶다면 해당 필드에 `primary_key=True` 옵션을 주면 되고, 이 경우에는 id 필드가 자동으로 생성되지 않는다.  
 {:.note}
 
 ### 4-4. 모델 활성화
@@ -271,6 +271,38 @@ COMMIT;
 
 SQL Query를 보면 모델에 `id`를 생성하지 않았음에도 불구하고 각 클래스에 `id`가 생성되었으며, `id`를 기준으로 테이블이 `join` 되어 있는 것을 확인할 수 있다.  
 
+참고로 나는 최초에 `author` 속성을 사용했다가 `user`로 수정했다. 이 때도 `makemigrations`과 `migrate`를 다시 진행해주면 되고, `sqlmigrate` 명령어를 통해서 확인해보면 아래와 같이 SQL Query가 추가/변경 된 것을 확인할 수 있다.  
+
+```powershell
+> manage.py sqlmigrate board_qna 0002
+```
+
+<details><summary>terminal</summary><div markdown="1">
+
+```
+BEGIN;
+--
+-- Rename field author on answer to user
+--
+CREATE TABLE "new__board_qna_answer" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "content" text NOT NULL, "date_create" datetime NOT NULL, "question_id" bigint NOT NULL REFERENCES "board_qna_question" ("id") DEFERRABLE INITIALLY DEFERRED);
+INSERT INTO "new__board_qna_answer" ("id", "content", "date_create", "question_id", "user_id") SELECT "id", "content", "date_create", "question_id", "author_id" FROM "board_qna_answer";
+DROP TABLE "board_qna_answer";
+ALTER TABLE "new__board_qna_answer" RENAME TO "board_qna_answer";
+CREATE INDEX "board_qna_answer_user_id_c374bc49" ON "board_qna_answer" ("user_id");
+CREATE INDEX "board_qna_answer_question_id_0336aa3c" ON "board_qna_answer" ("question_id");
+--
+-- Rename field author on question to user
+--
+CREATE TABLE "new__board_qna_question" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "subject" varchar(200) NOT NULL, "content" text NOT NULL, "date_create" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED);
+INSERT INTO "new__board_qna_question" ("id", "subject", "content", "date_create", "user_id") SELECT "id", "subject", "content", "date_create", "author_id" FROM "board_qna_question";
+DROP TABLE "board_qna_question";
+ALTER TABLE "new__board_qna_question" RENAME TO "board_qna_question";
+CREATE INDEX "board_qna_question_user_id_942b6691" ON "board_qna_question" ("user_id");
+COMMIT;
+```
+
+</div></details>
+
 ### 4-5. 테이블 생성
 
 마지막으로 `migrate` 명령어를 사용하여 실제로 테이블을 생성하면 된다.  
@@ -285,14 +317,14 @@ Running migrations:
   Applying board_qna.0001_initial... OK
 ```
 
-아래 그림과 같이 실제 ERD가 설계대로 생성된 것을 확인할 수 있다.  
+`db.sqlite3`를 데이터베이스 관리 도구로 열어 보면 아래 그림과 같이 실제 ERD가 설계대로 생성된 것을 확인할 수 있다.  
 
 ![django_erd_board_qna_actual](/assets/img/posts/django_erd_board_qna_actual.png)
 {:.text-center}
 
 ### 4-6. Python shell로 API 접근하기
 
-모델이 생성된 이후에는 아래와 같이 `shell` 명령어를 사용해서 `Django`의 API를 직접 다뤄볼 수 있다.  
+모델이 생성된 이후에는 아래와 같이 `shell` 명령어를 사용해서 Django의 API를 직접 다뤄볼 수 있다.  
 
 ```powershell
 > manage.py shell
@@ -304,7 +336,7 @@ Running migrations:
 
 ### 5-1. 관리자 계정 생성
 
-`Django`에서 관리자 계정을 생성하는 명령어는 아래와 같다.  
+Django에서 관리자 계정을 생성하는 명령어는 아래와 같다.  
 
 ```powershell
 > manage.py createsuperuser
@@ -342,7 +374,7 @@ Superuser created successfully.
 ![django_admin_page_01](/assets/img/posts/django_admin_page_01.png)
 {:.text-center}
 
-### 5-2. 모델 관리
+### 5-2. 모델 관리 권한 부여
 
 아래와 같이 `board_qna/admin.py`에 모델을 추가하여 관리자가 모델을 직접 관리할 수 있도록 할 수 있다.  
 

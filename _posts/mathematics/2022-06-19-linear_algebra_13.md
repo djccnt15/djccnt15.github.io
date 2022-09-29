@@ -115,7 +115,7 @@ L & = E_{1}^{-1}E_{2}^{-1} \cdots E_{n-1}^{-1}E_{n}^{-1} \\
 - 행렬 $$A$$의 주 대각 원소를 1로 바꾸기 위해 곱하는 수의 역수는 행렬 $$L$$의 주 대각 원소가 됨
 - 행렬 $$A$$의 주 대각 원소 아래에 위치한 원소를 0으로 만들기 위해 필요한 배수의 음수는 행렬 $$L$$의 동일한 위치의 원소가 됨
 
-위 분해 방법을 `python`으로 구현하면 아래와 같다.  
+위 분해 방법을 Python으로 구현하면 아래와 같다.  
 
 ```python
 # LU decomposition
@@ -146,7 +146,7 @@ def lu_decomp(a):
 출처: [알고리즘 구현으로 배우는 선형대수 with 파이썬](https://github.com/bjpublic/linearalgebra)
 {:.figcaption}
 
-`scipy`로 LU 분해를 수행하는 방법은 아래와 같다. `numpy`에는 LU 분해를 위한 함수가 없다.  
+SciPy로 LU 분해를 수행하는 방법은 아래와 같다. NumPy에는 LU 분해를 위한 함수가 없다.  
 
 ```python
 from scipy import linalg

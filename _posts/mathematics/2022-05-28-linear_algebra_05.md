@@ -94,7 +94,7 @@ $$A^{-1} = B = \frac{1}{12} \left[\begin{array}{ccc}
 -3 & 6 & 6 \\
 \end{array} \right]$$
 
-`python`으로 구현하면 아래와 같다. [선형 시스템](/mathematics/linear_algebra_03/#2-선형-시스템)에서 구현했던 함수들을 응용하여 만들었다.  
+Python으로 구현하면 아래와 같다. [선형 시스템](/mathematics/linear_algebra_03/#2-선형-시스템)에서 구현했던 함수들을 응용하여 만들었다.  
 
 ```python
 # creating matrix augmented matrix
@@ -140,7 +140,7 @@ def mat_inv(a):
     return res
 ```
 
-`numpy`를 사용하면 아래와 같다.  
+NumPy를 사용하면 아래와 같다.  
 
 ```python
 import numpy as np

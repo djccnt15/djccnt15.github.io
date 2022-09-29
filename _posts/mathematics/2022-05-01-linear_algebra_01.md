@@ -73,7 +73,7 @@ $$\mathbf{v} = \begin{pmatrix}
 출처: [wikimedia - Vector_Addition.png](https://commons.wikimedia.org/wiki/File:Vector_Addition.png)
 {:.figcaption}
 
-벡터의 덧셈과 뺄셈은 동일 위치의 각 원소를 더하고 빼는 것으로, 교환 법칙이 성립하며 두 벡터의 크기가 동일할 때(벡터를 구성하는 스칼라의 개수가 동일할 때)만 연산이 가능하다. `python`으로 구현하면 아래와 같다.  
+벡터의 덧셈과 뺄셈은 동일 위치의 각 원소를 더하고 빼는 것으로, 교환 법칙이 성립하며 두 벡터의 크기가 동일할 때(벡터를 구성하는 스칼라의 개수가 동일할 때)만 연산이 가능하다. Python으로 구현하면 아래와 같다.  
 
 ```python
 # addition of vector
@@ -91,7 +91,7 @@ def v_sub(a, b):
 
 ### 스칼라 곱
 
-벡터의 **스칼라 곱(scalar multiplication)**은 곱해진 스칼라의 부호로 벡터의 방향을 결정하고, 절대값의 만큼 벡터의 길이를 곱해주는 것이다. `python`으로 구현하면 아래와 같다.  
+벡터의 **스칼라 곱(scalar multiplication)**은 곱해진 스칼라의 부호로 벡터의 방향을 결정하고, 절대값의 만큼 벡터의 길이를 곱해주는 것이다. Python으로 구현하면 아래와 같다.  
 
 ```python
 # scalar multiplication of vector
@@ -107,7 +107,7 @@ def v_smul(s, a):
 
 $$\mathbf{u} ⊙ \mathbf{v}$$
 
-`python`으로 구현하면 아래와 같다.  
+Python으로 구현하면 아래와 같다.  
 
 ```python
 from functools import reduce
@@ -127,7 +127,7 @@ def v_hdiv(a, b):
 
 ### numpy 사용
 
-`numpy`를 사용하면 아래와 같이 간단하게 사용할 수 있다.  
+NumPy를 사용하면 아래와 같이 간단하게 사용할 수 있다.  
 
 ```python
 import numpy as np
@@ -187,7 +187,7 @@ x_2
 
 ### 덧셈과 뺄셈
 
-행렬의 덧셈과 뺄셈은 벡터의 연산과 마찬가지로, 동일 위치의 각 원소를 더하고 빼면 된다. `python`으로 구현하면 아래와 같다.  
+행렬의 덧셈과 뺄셈은 벡터의 연산과 마찬가지로, 동일 위치의 각 원소를 더하고 빼면 된다. Python으로 구현하면 아래와 같다.  
 
 ```python
 # addition of matrix
@@ -205,7 +205,7 @@ def mat_sub(a, b):
 
 ### 스칼라 곱
 
-행렬의 **스칼라 곱(scalar multiplication)**은 벡터의 스칼라 곱과 마찬가지로 각 원소에 스칼라를 곱하는 것으로, 행렬을 구성하는 벡터의 길이를 스칼라 곱으로 늘리는 것을 의미한다. `python`으로 구현하면 아래와 같다.  
+행렬의 **스칼라 곱(scalar multiplication)**은 벡터의 스칼라 곱과 마찬가지로 각 원소에 스칼라를 곱하는 것으로, 행렬을 구성하는 벡터의 길이를 스칼라 곱으로 늘리는 것을 의미한다. Python으로 구현하면 아래와 같다.  
 
 ```python
 # scalar multiplication of matrix
@@ -221,7 +221,7 @@ def mat_smul(s, a):
 
 $$A ⊙ B$$
 
-`python`으로 구현하면 아래와 같다.  
+Python으로 구현하면 아래와 같다.  
 
 ```python
 from functools import reduce
@@ -241,7 +241,7 @@ def mat_hdiv(a, b):
 
 ### 행렬 곱
 
-**행렬 곱(matrix multiplication)**의 결과 행렬은 앞 행렬의 행 벡터와 뒤 행렬의 열 벡터의 곱셈합(SUMPRODUCT of excel)을 원소로 갖기 때문에 교환 법칙이 성립하지 않는다. `python`으로 구현하면 아래와 같다.  
+**행렬 곱(matrix multiplication)**의 결과 행렬은 앞 행렬의 행 벡터와 뒤 행렬의 열 벡터의 곱셈합(SUMPRODUCT of excel)을 원소로 갖기 때문에 교환 법칙이 성립하지 않는다. Python으로 구현하면 아래와 같다.  
 
 ```python
 from functools import reduce
@@ -270,7 +270,7 @@ a_{31} & a_{32} & a_{33} \\
 
 $$tr(A) = a_{11} + a_{22} + a_{33}$$
 
-`python`으로 구현하면 아래와 같다.  
+Python으로 구현하면 아래와 같다.  
 
 ```python
 # trace of matrix
@@ -282,7 +282,7 @@ def mat_tr(a):
 
 ### numpy 사용
 
-`numpy`를 사용하면 아래와 같이 간단하게 사용할 수 있다.  
+NumPy를 사용하면 아래와 같이 간단하게 사용할 수 있다.  
 
 ```python
 import numpy as np

@@ -150,7 +150,7 @@ $$\therefore A_{0}(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k}) = (Q_{0}Q_{1} \cdots Q_{k-1}Q
 
 - 5) QR분해를 마무리하면 $$A_{k}$$는 삼각 행렬의 형태로 수렴하게 되는데, 삼각 행렬의 고유값은 해당 행렬의 대각 원소이므로, 구해진 삼각 행렬 $$A_{k}$$의 대각 원소가 $$A$$의 **고유값(eigenvalue)**이며, $$(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k})$$는 **고유벡터(eigenvector)**가 된다.  
 
-고유값과 고유벡터 계산을 `python`으로 구현하면 아래와 같다. $$A_{k}$$가 삼각 행렬의 형태로 수렴했는지 확인하는 것을 매 계산 마다 반복하는 것 보다는 그냥 무조건 100회 반복 시키는게 연산이 빠를 것 같아서 조금 단순하게 구현했다.  
+고유값과 고유벡터 계산을 Python으로 구현하면 아래와 같다. $$A_{k}$$가 삼각 행렬의 형태로 수렴했는지 확인하는 것을 매 계산 마다 반복하는 것 보다는 그냥 무조건 100회 반복 시키는게 연산이 빠를 것 같아서 조금 단순하게 구현했다.  
 
 ```python
 # eigenvalue and eigenvector by qr decomposition
@@ -168,7 +168,7 @@ def eig_qr(a):
     return e, v
 ```
 
-`numpy`를 사용해 **고유값(eigenvalue)**과 **고유벡터(eigenvector)**를 구하는 방법은 아래와 같다.  
+NumPy를 사용해 **고유값(eigenvalue)**과 **고유벡터(eigenvector)**를 구하는 방법은 아래와 같다.  
 
 ```python
 import numpy as np

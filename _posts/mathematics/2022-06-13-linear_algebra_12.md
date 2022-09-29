@@ -75,7 +75,7 @@ A & = PDP^{T} = P \Lambda P^{-1}
 
 위 식에서 $$\lambda_{1}, \lambda_{2}, \lambda_{3}$$는 행렬 $$A$$의 고유값이고, $$\mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{u}_{3}$$는 각 고유값에 해당하는 고유 벡터다.  
 
-고유벡터 구하는 함수를 `python`으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](/mathematics/linear_algebra_10/#qr분해를-통한-고유값과-고유벡터-계산)에서 이미 구현한 바 있다.  
+고유벡터 구하는 함수를 Python으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](/mathematics/linear_algebra_10/#qr분해를-통한-고유값과-고유벡터-계산)에서 이미 구현한 바 있다.  
 
 ```python
 # eigenvalue and eigenvector by qr decomposition
@@ -93,7 +93,7 @@ def eig_qr(a):
     return e, v
 ```
 
-`numpy`를 사용한 고유값 분해는 아래와 같다. 앞서 [고유값과 고유벡터 계산](/mathematics/linear_algebra_10/#2-고유값과-고유벡터-계산)에서 이미 확인한 바 있다.  
+NumPy를 사용한 고유값 분해는 아래와 같다. 앞서 [고유값과 고유벡터 계산](/mathematics/linear_algebra_10/#2-고유값과-고유벡터-계산)에서 이미 확인한 바 있다.  
 
 ```python
 import numpy as np
@@ -137,7 +137,7 @@ A^{T}A & = (U \Sigma V^{T})^{T}(U \Sigma V^{T}) \\
 
 위 식에서 행렬 $$U, V$$에 속한 벡터들을 **특이 벡터(singula vector)**, 행렬 $$\Sigma$$의 0이 아닌 대각 원소값들을 **특이값(singular value)**이라고 하며, **특이값(singular value)**은 행렬의 고유값에 루트를 씌운 값과 같다.  
 
-특이값 분해를 `python`으로 구현하면 아래와 같다.  
+특이값 분해를 Python으로 구현하면 아래와 같다.  
 
 ```python
 # singular value decomposition
@@ -159,7 +159,7 @@ def svd(a):
     return u, s, vt
 ```
 
-`numpy`를 활용한 특이값 분해는 아래와 같다.  
+NumPy를 활용한 특이값 분해는 아래와 같다.  
 
 ```python
 import numpy as np

@@ -23,9 +23,9 @@ related_posts:
 
 ## 2. Jpype 설치
 
-- [여기](https://www.lfd.uci.edu/~gohlke/pythonlibs/#_jpype)에서 `python` 버전과 윈도우 비트에 맞춰 `Jpype1` 파일을 다운로드
-  - 나의 경우 `python 3.9`에 윈도우 `64bit`이기 때문에 `JPype1-1.4.0-cp39-cp39-win_amd64.whl`파일을 다운 받음
-  - `python`버전 확인하는 커맨드는 아래와 같음
+- [여기](https://www.lfd.uci.edu/~gohlke/pythonlibs/#_jpype)에서 Python 버전과 윈도우 비트에 맞춰 `Jpype1` 파일을 다운로드
+  - 나의 경우 `python 3.9`에 윈도우 `64bit`이기 때문에 `JPype1-1.4.0-cp39-cp39-win_amd64.whl` 파일을 다운 받음
+  - Python 버전 확인하는 커맨드는 아래와 같음
 
 ```powershell
 > python -V
@@ -33,7 +33,7 @@ related_posts:
 > python --version
 ```
 
-- 명령 프롬프트(cmd)에서 `Jpype1`파일 위치로 이동 후 `Jpype1` 설치
+- 명령 프롬프트(cmd)에서 `Jpype1` 파일 위치로 이동 후 `Jpype1` 설치
 
 ```powershell
 > pip install --upgrade pip

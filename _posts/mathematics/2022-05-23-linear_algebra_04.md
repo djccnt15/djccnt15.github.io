@@ -48,7 +48,7 @@ a_{21} & a_{22} \\
 \end{vmatrix}
 = a_{11}a_{22} - a_{12}a_{21}$$
 
-`python`으로 구현하면 아래와 같다.  
+Python으로 구현하면 아래와 같다.  
 
 ```python
 # determinant of 2 by 2 matrix
@@ -66,7 +66,7 @@ c & d \\
 \end{Vmatrix}
 = |ad-cd|$$
 
-`numpy`를 사용해서 행렬식을 구하는 방법은 아래와 같다.
+NumPy를 사용해서 행렬식을 구하는 방법은 아래와 같다.
 
 ```python
 import numpy as np

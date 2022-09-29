@@ -35,7 +35,7 @@ $$Cov(X,Y) = \mathrm{E}\{(X - \mathrm{E}[X])\,(Y - \mathrm{E}[Y])\}$$
 
 $$Cov(X,Y) = \frac{\sum_{i}^{n}(X_{i} - \overline{X})(Y_{i} - \overline{Y})}{n - 1}$$
 
-표본 공분산을 `python`으로 구현하면 아래와 같다.  
+표본 공분산을 Python으로 구현하면 아래와 같다.  
 
 ```python
 # expected value of x
@@ -62,7 +62,7 @@ $$\Sigma = \begin{bmatrix}
 \mathrm{cov}_{y, x} & \mathrm{cov}_{y, y} \\
 \end{bmatrix}$$
 
-`numpy`가 제공하는 공분산 행렬을 계산하는 함수를 사용하면 두 변수 간의 공분산을 구할 수 있다.  
+NumPy가 제공하는 공분산 행렬을 계산하는 함수를 사용하면 두 변수 간의 공분산을 구할 수 있다.  
 
 ```python
 import numpy as np
@@ -90,7 +90,7 @@ r_{xy} & = \frac{\mathrm{Cov}[X, Y]}{\sqrt{\mathrm{Var}[X] \cdot \mathrm{Var}[Y]
 & = \frac{\sum_{i=1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sqrt{\sum_{i=1}^{n}(x_{i} - \overline{x})^{2}}\sqrt{\sum_{i=1}^{n}(y_{i} - \overline{y})^{2}}}
 \end{align*}$$
 
-`python`으로 구현하면 아래와 같다.  
+Python으로 구현하면 아래와 같다.  
 
 ```python
 # correlation pearson
@@ -100,7 +100,7 @@ def pearson(a, b):
     return res
 ```
 
-`numpy`가 제공하는 상관 계수 행렬을 계산하는 함수를 사용하면 두 변수 간의 피어슨 상관 계수을 구할 수 있다.  
+NumPy가 제공하는 상관 계수 행렬을 계산하는 함수를 사용하면 두 변수 간의 피어슨 상관 계수을 구할 수 있다.  
 
 ```python
 import numpy as np
@@ -116,7 +116,7 @@ print(res)
 -0.9883637911002775
 ```
 
-`scipy`를 통해서도 피어슨 상관 계수를 구할 수 있다.  
+SciPy를 통해서도 피어슨 상관 계수를 구할 수 있다.  
 
 ```python
 from scipy import stats
@@ -175,7 +175,7 @@ plt.show()
 
 두 변수 간의 **스피어만 상관 계수(Spearman's rank correlation coefficient)**는 두 변수의 순위 값 사이의 피어슨 상관 계수와 같다. 따라서 피어슨 상관 계수가 두 변수 사이의 선형 관계를 평가하는 반면 스피어만의 상관 계수는 단조적 관계(선형인지 여부는 아님)를 평가한다.  
 
-`numpy`에서는 관련 API를 제공하지 않고, `scipy`를 사용해 구할 수 있다.  
+NumPy에서는 관련 API를 제공하지 않고, SciPy를 사용해 구할 수 있다.  
 
 ```python
 from scipy import stats
@@ -195,7 +195,7 @@ SpearmanrResult(correlation=0.8207826816681233, pvalue=0.08858700531354381)
 
 **켄달 상관 계수(Kendall rank correlation coefficient, Kendall tau)**는 스피어만 상관 계수와 마찬가지로 두 변수들 간의 순위를 비교하여 연관성을 계산한다.  
 
-스피어만 상관 계수와 마찬가지로 `numpy`에서는 관련 API를 제공하지 않고, `scipy`를 사용해 구할 수 있다.  
+스피어만 상관 계수와 마찬가지로 NumPy에서는 관련 API를 제공하지 않고, SciPy를 사용해 구할 수 있다.  
 
 ```python
 from scipy import stats

@@ -16,7 +16,7 @@ related_posts:
 
 ## SymPy 입문
 
-`SymPy`는 기호 수학(symbolic mathematics)을 위한 `python` 라이브러리로, 컴퓨터 코드에 기호를 선언해서 사람이 직접 계산하는 것과 같은 **[기호 계산(symbolic computation)](https://en.wikipedia.org/wiki/Computer_algebra)**을 가능하게 해준다.  
+`SymPy`는 기호 수학(symbolic mathematics)을 위한 Python 라이브러리로, 컴퓨터 코드에 기호를 선언해서 사람이 직접 계산하는 것과 같은 **[기호 계산(symbolic computation)](https://en.wikipedia.org/wiki/Computer_algebra)**을 가능하게 해준다.  
 
 기호 수학을 사용하는 계산의 대표적인 장점은 부동소수점 문제의 방지인데, 제곱근(square root) 계산이 포함된 아래 예시를 비교해보자.  
 

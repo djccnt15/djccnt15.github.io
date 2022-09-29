@@ -40,7 +40,7 @@ related_posts:
 
 $$\mathbf{u} \otimes \mathbf{v} = \mathbf{u} \mathbf{v}^{T}$$
 
-`python`으로 구현하면 아래와 같다. [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
+Python으로 구현하면 아래와 같다. [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
 ```python
 # outer product, tensor product of vector
@@ -50,7 +50,7 @@ def v_outer(a, b):
     return res
 ```
 
-`numpy`를 사용하면 아래와 같다.  
+NumPy를 사용하면 아래와 같다.  
 
 ```python
 import numpy as np
@@ -112,7 +112,7 @@ v_{1} & v_{2} \\
 
 $$\Vert \mathbf{u} \times \mathbf{v} \Vert = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \vert \sin \theta \vert$$
 
-`numpy`를 사용해 크로스곱의 결과를 구하면 아래와 같다.  
+NumPy를 사용해 크로스곱의 결과를 구하면 아래와 같다.  
 
 ```python
 import numpy as np

@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: '[Python] No module named pip'
+title: "[Python] No module named 'pip'"
 description: >
   How to reinstall pip
 categories: [Programming]
