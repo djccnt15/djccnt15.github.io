@@ -45,10 +45,12 @@ $$\mathbf{v}_{n} = \frac{\mathbf{u}_{n}}{\Vert \mathbf{u}_{n} \Vert}$$
 벡터의 정규화를 Python으로 구현하면 아래와 같다.  
 
 ```python
-# normalize vector
-def normalize(a):
-    n = [v / norm(a) for v in a]
+def normalize(a: list) -> list:
+    """
+    normalize vector
+    """
 
+    n = [v / norm(a) for v in a]
     return n
 ```
 
@@ -92,14 +94,16 @@ proj_{\mathbf{v}} \mathbf{u} & = \Vert \mathbf{u} \Vert \vert \cos \theta \vert 
 
 $$\mathbf{u} = proj_{\mathbf{v}} \mathbf{u} + (\mathbf{u} - proj_{\mathbf{v}} \mathbf{u})$$
 
-정사영 $$proj_{\mathbf{b}} \mathbf{a}$$를 Python으로 구현하면 아래와 같다.  
+정사영 $$proj_{\mathbf{v}} \mathbf{u}$$를 Python으로 구현하면 아래와 같다.  
 
 ```python
-# projection
-def proj(a, b):
-    tmp = v_inner(a, b) / v_inner(b, b)
-    res = v_smul(tmp, b)
+def proj(u: list, v: list) -> list:
+    """
+    project 'u' vector to 'v' vector
+    """
 
+    tmp = v_inner(u, v) / v_inner(v, v)
+    res = v_smul(tmp, v)
     return res
 ```
 
@@ -183,18 +187,19 @@ $$\begin{align*}
 앞서 구현한 함수들을 바탕으로 Python으로 구현하면 아래와 같다.  
 
 ```python
-# Gram-Schmidt Process
-def gram_schmidt(s):
-    res = []
+def gram_schmidt(s: list) -> list:
+    """
+    perform Gram-Schmidt Process to matrix
+    input argument must be 2d matrix
+    """
 
+    res = []
     for i, _ in enumerate(s):
         if i == 0:
             res.append(s[i])
-
         else:
             tmp = v_sub(s[i], v_add(*[proj(s[i], res[j]) for j in range(i)]))
             res.append(tmp)
-
     return res
 ```
 
@@ -244,8 +249,12 @@ $$\begin{align*} \\
 그람-슈미트 과정을 이용한 QR분해를 Python으로 구현하면 아래와 같다.  
 
 ```python
-# QR decomposition, QR factorization with Gram-Schmidt Process
-def qr_gramschmidt(a):
+def qr_gramschmidt(a: list) -> tuple:
+    """
+    QR decomposition/factorization with Gram-Schmidt Process
+    input argument must be 2d matrix
+    """
+
     mat = mat_trans(a)
     n = len(mat)
     gs = gram_schmidt(mat)
@@ -351,16 +360,23 @@ R & = H_{n} \cdots H_{3}H_{2}H_{1}A
 Python으로 구현하면 아래와 같다.  
 
 ```python
-# QR decomposition, QR factorization with householder matrix
-# sign of vector
-def v_sign(a):
+# QR decomposition/factorization with householder matrix
+def v_sign(a: list) -> int:
+    """
+    get sign of vector
+    returns sign of first element of vector
+    """
+
     res = 1
     if a[0] < 0: res = -1
-
     return res
 
-# get element of househelder matrixes except last one
-def ele_h(a):
+def ele_h(a: list) -> list:
+    """
+    get element of householder matrix except last one
+    input argument must be 2d matrix
+    """
+
     at = mat_trans(a)
     nm = norm(at[0])
     e = [1 if j == 0 else 0 for j in range(len(at[0]))]
@@ -368,13 +384,17 @@ def ele_h(a):
     tmp = v_smul(sign * nm, e)
     v = v_add(at[0], tmp)
     h = householder(v)
-
     return h
 
-# QR decomposition
-def qr_householder(a):
+def qr_householder(a: list) -> tuple:
+    """
+    QR decomposition/factorization with householder matrix
+    input argument must be 2d matrix
+    """
+
     n = len(mat_trans(a))
     h_list_tmp = []
+    tmp_res = []  # this line is only for evading unbound error, not essential
 
     # get househelder matrixes
     for i in range(n):
@@ -446,7 +466,7 @@ for h_tmp in h_list_tmp:
 
 NumPy, SciPy로 구한 값 및 위의 [그람-슈미트 과정](#그람-슈미트-과정을-이용한-qr분해)을 이용해서 도출한 값과는 부호가 조금 다르게 나오는데, 마찬가지로 바뀐 부호가 $$Q$$와 $$R$$에 공통적으로 적용되어 $$A = QR$$이라는 최종 검산 결과를 만족하면 상관 없다고 한다.  
 
-### numpy, scipy 활용
+### Numpy, SciPy 활용
 
 NumPy를 활용한 QR분해는 아래와 같다.  
 

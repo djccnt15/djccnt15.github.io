@@ -1,11 +1,11 @@
 ---
 published: true
 layout: post
-title: '[Back-end] Django 입문 01'
+title: '[Django] Django 입문 01'
 description: >
-  웹 개발 입문을 위한 '점프 투 장고' 무작정 따라하기
+  Django 프로젝트 시작하기
 categories: [Programming]
-tags: [Back-end, Django]
+tags: [Django]
 image:
   path: /assets/img/posts/django_starting.png
 related_posts:
@@ -13,6 +13,8 @@ related_posts:
 ---
 * toc
 {:toc}
+
+Django는 Python을 기반으로 하는 오픈 소스 풀 스택 웹 프레임워크로, 웹 개발을 아주 빠르고 쉽게 진행할 수 있도록 해주는 프레임워크다. 웹 개발 입문을 위해 [Django 튜토리얼](https://docs.djangoproject.com/en/4.1/intro/tutorial01/)과 '[점프 투 장고](https://wikidocs.net/book/4223)'를 따라해보면서 Django를 공부해보려고 한다.  
 
 ## 1. Django 설치
 
@@ -49,19 +51,19 @@ Django 공식 홈페이지에서는 아래와 같은 명령어로 프로젝트�
 프로젝트를 시작하면 `config` 디렉토리 아래와 같은 파일들이 생성된다.  
 
 - `manage.py`
-  - 개발자가 Django 프로젝트와 상호작용할 수 있도록 해주는 파일이다. 상세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/ref/django-admin/)에서 확인할 수 있다.
+  - 개발자가 Django 프로젝트와 상호작용할 수 있도록 해주는 파일([공식 문서](https://docs.djangoproject.com/en/4.1/ref/django-admin/))
 - `config` directory
-  - 해당 디렉토리는 프로젝트를 위한 실제 Python 패키지로, 해당 디렉토리의 이름을 사용해서 import를 진행한다.
+  - 해당 디렉토리는 프로젝트를 위한 실제 Python 패키지로, 해당 디렉토리의 이름을 사용해서 import를 진행함
 - `config/__init__.py`
-  - 이 디렉토리를 Python 패키지임을 알려주는 역할을 하는 파일이다. 해당 파일에 대한 자세한 설명은 [여기](https://wikidocs.net/1418#9595init9595py)에서 배울 수 있다.
+  - 이 디렉토리를 Python 패키지임을 알려주는 역할을 하는 파일([Python 공식 문서](https://docs.python.org/3/tutorial/modules.html#packages))
 - `config/settings.py`
-  - Django 프로젝트에 대한 본격적인 configuration 파일로 프로젝트의 각종 설정을 세팅할 수 있다.
+  - Django 프로젝트에 대한 본격적인 configuration 파일로 프로젝트의 각종 설정을 세팅할 수 있는 파일([공식 문서](https://docs.djangoproject.com/en/4.1/ref/settings/))
 - `config/urls.py`
-  - 각종 URL을 설정할 수 있는 파일로, Django 프로젝트의 table of contents에 대한 파일이라고 보면 된다. 자세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/topics/http/urls/)에서 확인할 수 있다.
+  - 각종 URL을 설정할 수 있는 파일로, Django 프로젝트의 table of contents에 대한 파일([공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/urls/))
 - `config/asgi.py`
-  - ASGI 호환성을 위한 entry-point 파일이다. 자세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/howto/deployment/asgi/)에서 확인할 수 있다.
+  - ASGI 호환성을 위한 entry-point 파일([공식 문서](https://docs.djangoproject.com/en/4.1/howto/deployment/asgi/))
 - `config/wsgi.py`
-  - WSGI 호환성을 위한 entry-point 파일이다. 자세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/)에서 확인할 수 있다.
+  - WSGI 호환성을 위한 entry-point 파일([공식 문서](https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/))
 
 추가로, 대부분의 Python 프로젝트와 마찬가지로 프로젝트가 저장된 root 디렉토리의 이름은 아무 영향이 없어서 마음대로 바꿔도 된다고 한다. 다만 가상환경을 사용하는 경우 가상환경 구성에 문제가 생기니 root 디렉토리 이름을 바꾸면 안 된다.  
 
@@ -107,7 +109,7 @@ Django 프로젝트의 Secret Key가 노출되었다는 것인데, Secret Key는
 - 모든 [`PasswordResetView`](https://docs.djangoproject.com/en/1.11/topics/auth/default/#django.contrib.auth.views.PasswordResetView) 토큰
 - 다른 키가 제공되지 않는 모든 [디지털 서명](https://docs.djangoproject.com/en/1.11/topics/signing/)
 
-Django의 Secret Key에 대한 상세한 설명은 [여기](https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-SECRET_KEY)에서 확인할 수 있는데, Secret Key를 노출시키면 Django가 제공하는 보안 관련 기능을 무력화하니 주의하라고 한다.  
+Django의 Secret Key에 대한 상세한 설명은 [공식 문서](https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-SECRET_KEY)에서 확인할 수 있는데, Secret Key를 노출시키면 Django가 제공하는 보안 관련 기능을 무력화하니 주의하라고 한다.  
 
 ![django_secretkey_warning](/assets/img/posts/django_secretkey_warning.png)
 
@@ -144,7 +146,7 @@ with open(secret_file) as f:  # get data from secrets list
     secrets = json.loads(f.read())
 
 def get_secret(var, secrets=secrets):
-    """get secret variable or ImproperlyConfigured error"""
+    """get secret variable or raise ImproperlyConfigured error"""
     try:
         return secrets[var]
     except KeyError:
@@ -154,14 +156,11 @@ def get_secret(var, secrets=secrets):
 SECRET_KEY = get_secret(var="SECRET_KEY")
 ```
 
-출처: [Django - settings.py 의 SECRET_KEY 변경 및 분리하기](https://wayhome25.github.io/django/2017/07/11/django-settings-secret-key/)
-{:.figcaption}
-
 다음으로는 위 코드를 통해 Secret Key를 읽어올 `json` 파일을 root 디렉토리에 아래와 같이 만들어주자.  
 
 ```json
 {
-    "SECRET_KEY": "{your_secret_key}"
+    "SECRET_KEY": "your_secret_key"
 }
 ```
 

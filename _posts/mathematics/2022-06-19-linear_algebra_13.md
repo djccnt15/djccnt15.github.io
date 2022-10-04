@@ -118,8 +118,12 @@ L & = E_{1}^{-1}E_{2}^{-1} \cdots E_{n-1}^{-1}E_{n}^{-1} \\
 위 분해 방법을 Python으로 구현하면 아래와 같다.  
 
 ```python
-# LU decomposition
-def lu_decomp(a):
+def lu_decomp(a: list) -> tuple:
+    """
+    LU decomposition
+    input argument must be 2d matrix
+    """
+
     a = mat_pivot(a)
     n = len(a)
     m = len(a[0])

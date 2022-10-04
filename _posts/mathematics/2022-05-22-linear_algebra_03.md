@@ -76,17 +76,21 @@ $$\begin{bmatrix}
 선형 시스템의 계수들을 받아 첨가 행렬을 만드는 것과 첨가 행렬을 계수 행렬로 분리하는 것을 Python으로 구현하면 다음과 같다.  
 
 ```python
-# creating vector augmented matrix
-def mat_aug_v(a, b):
-    res = [v + [u] for v, u in zip(a, b)]
+def mat_aug_v(a: list, b: list) -> list:
+    """
+    transform matrix into vector augmented matrix
+    """
 
+    res = [v + [u] for v, u in zip(a, b)]
     return res
 
-# separating coefficient matrix
-def mat_coef(a):
+def mat_coef(a: list) -> tuple:
+    """
+    separates coefficient matrix from augmented matrix
+    """
+
     x = [r[:-1] for r in a]
     y = [v for r in a for v in r[-1:]]
-
     return x, y
 ```
 
@@ -94,13 +98,18 @@ def mat_coef(a):
 
 선형대수학에서, **피벗(pivot)** 또는 **피벗 성분(pivot entry, pivot element)**은 가우스 소거법과 같이 특정 계산을 수행하기 위한 임의의 알고리즘에 의해 먼저 선택된 행렬의 성분(항, 원소)을 말하며, 이러한 **피벗 성분을 찾는 것을 피벗팅(pivoting)**이라고 한다.  
 
-피벗팅을 Python으로 구현하면 아래와 같다. 피벗은 0이 아니어야 하며 일반적으로 1이어야 하는데, 간단한 구현을 위해 최대값을 찾는 것으로 구현했다.  
+피벗팅을 Python으로 구현하면 아래와 같다. 피벗은 0이 아니어야 하며 계산의 편의성을 위해 일반적으로 1인 행을 선택 하는데, 간단한 구현을 위해 각 행의 첫 번째 수에 따라 내림차순 정렬하는 것으로 구현했다.  
 
 ```python
-# pivoting augmented matrix
-def mat_pivot(mat):
-    mat = sorted(mat, key=lambda x: abs(x[0]), reverse=True)
+def mat_pivot(mat: list) -> list:
+    """
+    returns pivoted matrix
+    input argument must be 2d matrix
+    this is not actual "mathematical" pivoting as this function not selecting rows which first element is 1
+    this function just sorts rows as order by descending with first elements of each row
+    """
 
+    mat = sorted(mat, key=lambda x: abs(x[0]), reverse=True)
     return mat
 ```
 
@@ -133,8 +142,12 @@ $$\begin{bmatrix}
 첨가 행렬을 행사다리꼴 행렬로 변환한 후(전방 소거법, forward elimination) 역대입(후방 대입법, backward substitution)을 통해 해를 구하는 방법을 **가우스 소거법(Gauss elimination)**이라고 부르는데, Python으로 구현하면 아래와 같다.  
 
 ```python
-# Gauss elimination
-def gauss_eli(a, b):
+def gauss_eli(a: list, b: list) -> list:
+    """
+    solving equation with Gauss elimination
+    input argument must be 2d matrix
+    """
+
     mat = mat_aug_v(a, b)
     mat = mat_pivot(mat)
     n = len(mat)
@@ -167,8 +180,13 @@ def gauss_eli(a, b):
 [Wolfram](https://mathworld.wolfram.com/Gauss-JordanElimination.html)에 따르면 가우스-조르단 소거법은 [역행렬](/mathematics/linear_algebra_05/)을 구하기 위한 방법이지만 응용해서 선형 시스템을 해를 구할 때도 사용할 수 있다. 아무튼 Python으로 구현하면 아래와 같다.  
 
 ```python
-# Gauss-Jordan elimination
-def gauss_jordan_eli(mat):
+def gauss_jordan_eli(mat: list) -> list:
+    """
+    Gauss-Jordan elimination
+    transform matrix into Gauss-Jordan eliminated form
+    input argument must be 2d matrix
+    """
+
     n = len(mat)
 
     for i in range(n):
@@ -185,17 +203,20 @@ def gauss_jordan_eli(mat):
 
     return mat
 
-# solve equation with Gauss-Jordan elimination
-def solve(a, b):
+def solve_gauss(a: list, b: list) -> list:
+    """
+    solving equation with Gauss-Jordan elimination
+    input argument must be 2d matrix
+    """
+
     mat = mat_aug_v(a, b)
     mat = mat_pivot(mat)
     mat = gauss_jordan_eli(mat)
     x, y = mat_coef(mat)
-
     return y
 ```
 
-### numpy 활용
+### Numpy 활용
 
 NumPy를 사용해서 선형 시스템의 해를 구하는 방법은 아래와 같다.  
 

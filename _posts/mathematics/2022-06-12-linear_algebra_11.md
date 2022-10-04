@@ -49,8 +49,12 @@ AA^{T} & = A^{T}A = I \\
 행렬의 직교 여부 확인을 Python으로 구현하면 아래와 같다. 부동소수점으로 인한 문제를 피하기 위한 추가 연산이 필요하다.  
 
 ```python
-# orthogonal matrix check
-def orthogonal_check(a):
+def orthogonal_check(a: list) -> bool:
+    """
+    checks whether orthogonal matrix or not
+    input argument must be 2d matrix
+    """
+
     At = mat_trans(a)
     tmp = mat_mul(a, At)
     tmp = mat_smul(1 / tmp[0][0], tmp)  # line for evading floating point error

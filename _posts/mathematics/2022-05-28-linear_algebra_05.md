@@ -97,21 +97,32 @@ $$A^{-1} = B = \frac{1}{12} \left[\begin{array}{ccc}
 Python으로 구현하면 아래와 같다. [선형 시스템](/mathematics/linear_algebra_03/#2-선형-시스템)에서 구현했던 함수들을 응용하여 만들었다.  
 
 ```python
-# creating matrix augmented matrix
-def mat_aug_mat(a, b):
-    res = [v + u for v, u in zip(a, b)]
+def mat_aug_mat(a: list, b: list) -> list:
+    """
+    transform matrix into matrix augmented matrix
+    input argument must be 2d matrix
+    """
 
+    res = [v + u for v, u in zip(a, b)]
     return res
 
-# separating coefficient matrix
-def mat_coef_inv(a, b):
+def mat_coef_inv(a: list, b: int) -> tuple:
+    """
+    separates coefficient matrix
+    input argument must be 2d matrix
+    """
+
     x = [r[:b] for r in a]
     y = [r[b:] for r in a]
-
     return x, y
 
-# Gauss-Jordan elimination
-def gauss_jordan_eli(mat):
+def gauss_jordan_eli(mat: list) -> list:
+    """
+    Gauss-Jordan elimination
+    transform matrix into Gauss-Jordan eliminated form
+    input argument must be 2d matrix
+    """
+
     n = len(mat)
 
     for i in range(n):
@@ -128,8 +139,12 @@ def gauss_jordan_eli(mat):
 
     return mat
 
-# inverse matrix
-def mat_inv(a):
+def mat_inv(a: list) -> list:
+    """
+    returns inverted matrix
+    input argument must be 2d matrix
+    """
+
     n = len(a)
     i = mat_identity(n)
     mat = mat_aug_mat(a, i)

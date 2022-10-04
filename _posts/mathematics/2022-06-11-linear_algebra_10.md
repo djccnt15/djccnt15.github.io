@@ -153,8 +153,12 @@ $$\therefore A_{0}(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k}) = (Q_{0}Q_{1} \cdots Q_{k-1}Q
 고유값과 고유벡터 계산을 Python으로 구현하면 아래와 같다. $$A_{k}$$가 삼각 행렬의 형태로 수렴했는지 확인하는 것을 매 계산 마다 반복하는 것 보다는 그냥 무조건 100회 반복 시키는게 연산이 빠를 것 같아서 조금 단순하게 구현했다.  
 
 ```python
-# eigenvalue and eigenvector by qr decomposition
-def eig_qr(a):
+def eig_qr(a: list) -> tuple:
+    """
+    returns eigenvalue and eigenvector by qr decomposition
+    input argument must be 2d matrix
+    """
+
     n = len(a)
     v = mat_identity(n)
 

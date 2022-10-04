@@ -51,10 +51,13 @@ a_{21} & a_{22} \\
 Python으로 구현하면 아래와 같다.  
 
 ```python
-# determinant of 2 by 2 matrix
-def determinant(a):
-    det = (a[0][0] * a[1][1]) - (a[0][1] * a[1][0])
+def determinant(a: list) -> float:
+    """
+    returns determinant of 2 by 2 matrix
+    input argument must be 2d matrix
+    """
 
+    det = (a[0][0] * a[1][1]) - (a[0][1] * a[1][0])
     return det
 ```
 

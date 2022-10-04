@@ -78,19 +78,18 @@ A & = PDP^{T} = P \Lambda P^{-1}
 고유벡터 구하는 함수를 Python으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](/mathematics/linear_algebra_10/#qr분해를-통한-고유값과-고유벡터-계산)에서 이미 구현한 바 있다.  
 
 ```python
-# eigenvalue and eigenvector by qr decomposition
-def eig_qr(a):
-    n = len(a)
-    v = mat_identity(n)
+def orthogonal_check(a: list) -> bool:
+    """
+    checks whether orthogonal matrix or not
+    input argument must be 2d matrix
+    """
 
-    for i in range(100):
-        q, r = qr_gramschmidt(a)
-        a = mat_mul(r, q)
-        v = mat_mul(v, q)
+    At = mat_trans(a)
+    tmp = mat_mul(a, At)
+    tmp = mat_smul(1 / tmp[0][0], tmp)  # line for evading floating point error
+    I = mat_identity(len(a))
 
-    e = diag_ele(a)
-
-    return e, v
+    return tmp == I
 ```
 
 NumPy를 사용한 고유값 분해는 아래와 같다. 앞서 [고유값과 고유벡터 계산](/mathematics/linear_algebra_10/#2-고유값과-고유벡터-계산)에서 이미 확인한 바 있다.  
@@ -140,8 +139,12 @@ A^{T}A & = (U \Sigma V^{T})^{T}(U \Sigma V^{T}) \\
 특이값 분해를 Python으로 구현하면 아래와 같다.  
 
 ```python
-# singular value decomposition
-def svd(a):
+def svd(a: list) -> tuple:
+    """
+    singular value decomposition
+    input argument must be 2d matrix
+    """
+
     at = mat_trans(a)
     ata = mat_mul(at, a)
     e, v = eig_qr(ata)

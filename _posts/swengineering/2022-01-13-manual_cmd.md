@@ -175,6 +175,21 @@ $ cp <source> <destination>
 $ cp -r <source> <destination>
 ```
 
+### 2-9. tree
+
+현재 경로의 폴더 구조를 tree 형식으로 보여준다. cmd, PowerShell 외의 terminal들에서 사용하려면 별도로 설치해야 한다.  
+
+```powershell
+# basic command
+> tree
+
+# show files
+> tree /f
+
+# save as file
+> tree > <file_name>
+```
+
 ## 3. 네트워크 관련 명령어들
 
 ### 3-1. ipconfig/ifconfig
