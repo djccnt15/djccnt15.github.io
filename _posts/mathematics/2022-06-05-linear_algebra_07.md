@@ -15,24 +15,7 @@ related_posts:
 * toc
 {:toc}
 
-<h4>Linear Algebra Series</h4>
-<div class="taxonomy__index">
-  <ol class="description">
-    <li><a href="/mathematics/linear_algebra_01/">선형대수의 기초</a></li>
-    <li><a href="/mathematics/linear_algebra_02/">다양한 행렬</a></li>
-    <li><a href="/mathematics/linear_algebra_03/">선형 시스템</a></li>
-    <li><a href="/mathematics/linear_algebra_04/">행렬식</a></li>
-    <li><a href="/mathematics/linear_algebra_05/">역행렬</a></li>
-    <li><a href="/mathematics/linear_algebra_06/">기저와 차원</a></li>
-    <li><a href="/mathematics/linear_algebra_07/">내적과 norm</a></li>
-    <li><a href="/mathematics/linear_algebra_08/">직교공간과 QR 분해</a></li>
-    <li><a href="/mathematics/linear_algebra_09/">다양한 곱 연산</a></li>
-    <li><a href="/mathematics/linear_algebra_10/">고유값과 고유벡터</a></li>
-    <li><a href="/mathematics/linear_algebra_11/">직교 행렬</a></li>
-    <li><a href="/mathematics/linear_algebra_12/">행렬의 대각화</a></li>
-    <li><a href="/mathematics/linear_algebra_13/">LU 분해</a></li>
-  </ol>
-</div>
+{% include series_linalg.html %}
 
 ## 1. 내적
 

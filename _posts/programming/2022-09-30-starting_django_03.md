@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: '[Django] Django 입문 03'
+title: '[Django] 03. 템플릿과 css'
 description: >
   기초 화면 구성, css와 Bootstrap을 활용한 스타일 적용
 categories: [Programming]
@@ -14,6 +14,10 @@ related_posts:
 ---
 * toc
 {:toc}
+
+{% include series_django.html %}
+
+## 0. 개요
 
 바로 로그인/로그아웃, 회원가입 등 주요 기능으로 넘어가고 싶지만, 화면이 없어 만들어도 확인을 할 수가 없으니 일단 화면부터 만들기로 한다.  
 
@@ -56,7 +60,11 @@ from .models import Question
 # Create your views here.
 
 
-def index(request):  # index view for question_list
+def index(request):
+    """
+    index view for question_list
+    """
+
     question_list = Question.objects.order_by('-date_create')  # order by date_create desc
     context = {'question_list': question_list}
     return render(request, 'board_qna/question_list.html', context)
@@ -98,9 +106,14 @@ Django에서는 [Django 템플릿 언어](https://docs.djangoproject.com/en/4.1/
 
 ```python
 from django.shortcuts import render, get_object_or_404
+from .models import Question
 
 
-def detail(request, question_id):  # view for each question
+def detail(request, question_id):
+    """
+    view for details of each question
+    """
+
     question = get_object_or_404(Question, pk=question_id)  # returns 404 instead of 500 when requested not existing question_id
     context = {'question': question}
     return render(request, 'board_qna/question_detail.html', context)

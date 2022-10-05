@@ -25,7 +25,7 @@ related_posts:
 
 [설명 페이지](https://github.com/jekyll/github-metadata)를 좀 더 읽어보면, `Gemfile`과 `_config.yml`에 `"jekyll-github-metadata"`이 추가되어 있어야 정상적으로 작동한다고 하는데, 현재 테마에서 일단 해당 추가 사항이 없어도 `site.title`, `site.description` 등이 제대로 작동하기도 하고, 지금 목적은 실제로 레포지토리 메타데이터를 사용하는게 아니라 블로그를 빌드하는 환경을 구분하는 것 뿐이니 일단은 해당 사항은 추가 없이 기초적인 수정만 진행해서 적용해보기로 한다.  
 
-Hydejack 테마의 경우 `_includes\body\analytics.html` 파일에 Google Analytics 관련 내용이 있다. 아래와 같이 관련 내용을 수정해준다.  
+Hydejack 테마의 경우 `_includes/body/analytics.html` 파일에 Google Analytics 관련 내용이 있다. 아래와 같이 관련 내용을 수정해준다.  
 
 {% raw %}
 ```liquid

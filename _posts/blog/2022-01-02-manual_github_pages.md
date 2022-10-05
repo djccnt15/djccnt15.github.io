@@ -134,6 +134,18 @@ local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http:/
 > bundle exec jekyll serve --livereload --future --drafts --unpublished --host [IP_address]
 ```
 
+## 5. include 태그
+
+아래와 같이 {% raw %}`{% include [resource] %}`{% endraw %}를 사용해서 다른 파일의 내용을 포함시킬 수 있다.  
+
+{% raw %}
+```liquid
+{% include [resource] %}
+```
+{% endraw %}
+
+기본적으로는 `_includes` 디렉토리에서 파일을 가져오지만, {% raw %}`{% include_relative [resource] %}`{% endraw %} 태그를 이용해서 상대참조도 가능하다.  
+
 ---
 ## Reference
 - [Jekyll](https://jekyllrb.com/)

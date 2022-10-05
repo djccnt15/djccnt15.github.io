@@ -16,7 +16,7 @@ related_posts:
 
 ## 1. scss 수정
 
-Minimal Mistakes 테마를 참고하여 텍스트 정렬 기능을 만들었다. 우선 `/_sass/my-style.scss` 파일에 아래 코드를 추가하자.  
+Minimal Mistakes 테마를 참고하여 텍스트 정렬 기능을 만들었다. 우선 `_sass/my-style.scss` 파일에 아래 코드를 추가하자.  
 
 ```scss
 // text align
@@ -77,7 +77,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 {:.text-nowrap}
-
 
 ---
 ## Reference

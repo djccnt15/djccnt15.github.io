@@ -18,7 +18,7 @@ Minimal Mistakes 테마를 참고해서 만들었다.
 
 ## 1. Category 레이아웃 만들기
 
-`/_layout/categories.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
+`_layout/categories.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
 
 {% raw %}
 ```html
@@ -69,7 +69,7 @@ layout: about
 
 ## 2. Tag 레이아웃 만들기
 
-`/_layout/tags.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
+`_layout/tags.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
 
 {% raw %}
 ```html
@@ -120,7 +120,7 @@ layout: about
 
 ## 3. 보조 레이아웃 만들기
 
-`/_includes/archive-single.html`을 아래 내용으로 만들어주자.  
+`_includes/archive-single.html`을 아래 내용으로 만들어주자.  
 
 {% raw %}
 ```html
@@ -156,7 +156,7 @@ layout: about
 
 ## 3. 스타일 수정하기
 
-`/_sass/my-style.scss`에 아래와 같이 추가하자.  
+`_sass/my-style.scss`에 아래와 같이 추가하자.  
 
 ```scss
 // taxonomy__index columns

@@ -26,7 +26,7 @@ Google Analytics 페이지를 잘 뒤져보면 아래와 같이 수동으로 태
 
 ![ga_install_manually](/assets/img/posts/ga_install_manually.png)
 
-Google Analytics를 적용할 페이지의 `<head>`에 입력하라고 설명되어 있는데, Hydejack 테마의 경우 `/_includes/my-head.html`에서 일괄적으로 적용할 수 있다. 위 페이지에서 코드를 복사하여 아래와 같이 수정하자.  
+Google Analytics를 적용할 페이지의 `<head>`에 입력하라고 설명되어 있는데, Hydejack 테마의 경우 `_includes/my-head.html`에서 일괄적으로 적용할 수 있다. 위 페이지에서 코드를 복사하여 아래와 같이 수정하자.  
 
 ```html
 <!-- Google tag (gtag.js) -->

@@ -16,7 +16,7 @@ related_posts:
 
 ## 1. 버튼 만들기
 
-`/_includes/page-button.html`를 아래와 같은 내용을 만들어 주자.  
+`_includes/page-button.html`를 아래와 같은 내용을 만들어 주자.  
 
 {% raw %}
 ```html
@@ -37,7 +37,7 @@ related_posts:
 
 ## 2. 페이지에 버튼 넣기
 
-`/_layouts/post.html`의 적당한 위치에 아래 내용 추가  
+`_layouts/post.html`의 적당한 위치에 아래 내용 추가  
 
 {% raw %}
 ```liquid
@@ -47,7 +47,7 @@ related_posts:
 
 ## 3. 버튼 스타일 부여
 
-`/_sass/my-inline.scss`에 아래 내용 추가  
+`_sass/my-inline.scss`에 아래 내용 추가  
 
 ```scss
 // previous, next btn

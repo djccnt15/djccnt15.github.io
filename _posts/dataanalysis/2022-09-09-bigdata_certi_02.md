@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[빅분기] 실기 대비 02'
 description: >
-  빅데이터분석기사 실기 단답형 문제 기출 정리
+  빅데이터분석기사 실기 기출 단답형 문제 정리
 categories: [DataAnalysis]
 tags: [data analysis, 빅데이터분석기사]
 image:
@@ -14,6 +14,8 @@ related_posts:
 ---
 * toc
 {:toc}
+
+{% include series_bigdatacerti.html %}
 
 ## 개요
 

@@ -1,9 +1,9 @@
 ---
 published: true
 layout: post
-title: '[Django] Django 입문 02'
+title: '[Django] 02. App과 ORM'
 description: >
-  App 추가, 데이터 모델 생성 및 활성화, 관리자 계정 생성
+  App 생성, 데이터 모델 생성 및 활성화, 관리자 계정 생성
 categories: [Programming]
 tags: [Django]
 image:
@@ -14,6 +14,8 @@ related_posts:
 ---
 * toc
 {:toc}
+
+{% include series_django.html %}
 
 ## 1. 기능 추가
 
@@ -213,6 +215,10 @@ from django.contrib.auth.models import User
 
 
 class Question(models.Model):
+    """
+    model for question
+    """
+
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     subject = models.CharField(max_length=200)
     content = models.TextField()
@@ -223,6 +229,10 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
+    """
+    model for answer
+    """
+
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     content = models.TextField()

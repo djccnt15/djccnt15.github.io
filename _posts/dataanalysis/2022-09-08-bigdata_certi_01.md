@@ -14,6 +14,8 @@ related_posts:
 * toc
 {:toc}
 
+{% include series_bigdatacerti.html %}
+
 ## 개요
 
 한국데이터산업진흥원에서 공개한 빅데이터분석기사 실기 예제가 있어 풀이해둔다. `파이썬패키지.txt` 파일을 보면 이런저런 패키지들이 잔뜩 들어있는데, 핵심적인 패키지들은 아래와 같다.  

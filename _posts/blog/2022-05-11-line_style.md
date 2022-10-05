@@ -18,7 +18,7 @@ related_posts:
 
 ## 1. scss로 라인 스타일 만들기
 
-hydejack 테마는 style에 적용되는 scss 코드를 추가할 때 `/_sass/my-style.scss` 파일을 수정하면 된다.  
+hydejack 테마는 style에 적용되는 scss 코드를 추가할 때 `_sass/my-style.scss` 파일을 수정하면 된다.  
 아래 코드와 같이 추가하자.
 
 ```scss
@@ -106,7 +106,7 @@ hydejack 테마는 style에 적용되는 scss 코드를 추가할 때 `/_sass/my
 
 ## 2. layout 수정
 
-`/_layouts/list.html`을 아래와 같이 수정하자.  
+`_layouts/list.html`을 아래와 같이 수정하자.  
 
 {% raw %}
 ```html
@@ -161,7 +161,7 @@ layout: page
 
 ## 4. description style 설정
 
-`/_sass/my-style.scss`에 아래 내용 추가
+`_sass/my-style.scss`에 아래 내용 추가
 
 ```scss
 // post description style

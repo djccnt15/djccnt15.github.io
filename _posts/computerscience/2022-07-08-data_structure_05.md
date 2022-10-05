@@ -14,16 +14,7 @@ related_posts:
 * toc
 {:toc}
 
-<h4>Data Structure Series</h4>
-<div class="taxonomy__index">
-  <ol class="description">
-    <li><a href="/computerscience/data_structure_01/">자료구조의 기초</a></li>
-    <li><a href="/computerscience/data_structure_02/">배열</a></li>
-    <li><a href="/computerscience/data_structure_03/">스택</a></li>
-    <li><a href="/computerscience/data_structure_04/">큐, 덱</a></li>
-    <li><a href="/computerscience/data_structure_05/">연결 리스트</a></li>
-  </ol>
-</div>
+{% include series_datastructure.html %}
 
 ## 연결 리스트의 개념
 

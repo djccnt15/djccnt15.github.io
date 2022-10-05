@@ -1,9 +1,9 @@
 ---
 published: true
 layout: post
-title: '[Django] Django 입문 01'
+title: '[Django] 01. 프로젝트 시작'
 description: >
-  Django 프로젝트 시작하기
+  Django 설치, 프로젝트 시작, 개발서버 구동, Secret Key 숨기기
 categories: [Programming]
 tags: [Django]
 image:
@@ -13,6 +13,10 @@ related_posts:
 ---
 * toc
 {:toc}
+
+{% include series_django.html %}
+
+## 0. 개요
 
 Django는 Python을 기반으로 하는 오픈 소스 풀 스택 웹 프레임워크로, 웹 개발을 아주 빠르고 쉽게 진행할 수 있도록 해주는 프레임워크다. 웹 개발 입문을 위해 [Django 튜토리얼](https://docs.djangoproject.com/en/4.1/intro/tutorial01/)과 '[점프 투 장고](https://wikidocs.net/book/4223)'를 따라해보면서 Django를 공부해보려고 한다.  
 
