@@ -124,7 +124,6 @@ print(exog.info())
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 3500 entries, 0 to 3499
@@ -145,7 +144,6 @@ dtypes: float64(3), int64(5), object(2)
 memory usage: 273.6+ KB
 None
 ```
-
 </div></details><br>
 
 ```python
@@ -153,7 +151,6 @@ print(endog.info())
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 3500 entries, 0 to 3499
@@ -166,7 +163,6 @@ dtypes: int64(2)
 memory usage: 54.8 KB
 None
 ```
-
 </div></details><br>
 
 ```python
@@ -174,7 +170,6 @@ print(test.info())
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 2482 entries, 0 to 2481
@@ -195,7 +190,6 @@ dtypes: float64(3), int64(5), object(2)
 memory usage: 194.0+ KB
 None
 ```
-
 </div></details><br>
 
 EDA를 통해 `주구매상품`, `주구매지점` 두 칼럼이 `object` type인 것을 확인할 수 있다. 해당 칼럼들이 어떤 내용들로 이루어져 있는지 확인할 필요가 있다.  
@@ -207,7 +201,6 @@ print(len(pd.unique(exog['주구매상품'])), len(pd.unique(test['주구매상�
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 ['기타' '스포츠' '남성 캐주얼' '보석' '디자이너' '시티웨어' '명품' '농산물' '화장품' '골프' '구두' '가공식품'
  '수산품' '아동' '차/커피' '캐주얼' '섬유잡화' '육류' '축산가공' '젓갈/반찬' '액세서리' '피혁잡화' '일용잡화'
@@ -219,7 +212,6 @@ print(len(pd.unique(exog['주구매상품'])), len(pd.unique(test['주구매상�
  '생활잡화' '주방가전' '란제리/내의' '남성 트랜디' '보석' '주류' '침구/수예' '악기']
 42 41
 ```
-
 </div></details><br>
 
 ```python
@@ -229,7 +221,6 @@ print(len(pd.unique(exog['주구매지점'])), len(pd.unique(test['주구매지�
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 ['강남점' '잠실점' '관악점' '광주점' '본  점' '일산점' '대전점' '부산본점' '분당점' '영등포점' '미아점'
  '청량리점' '안양점' '부평점' '동래점' '포항점' '노원점' '창원점' '센텀시티점' '인천점' '대구점' '전주점'
@@ -239,7 +230,6 @@ print(len(pd.unique(exog['주구매지점'])), len(pd.unique(test['주구매지�
  '센텀시티점']
 24 24
 ```
-
 </div></details><br>
 
 **명목 변수와 수치형 변수 분리**
@@ -275,7 +265,6 @@ print(df.info())
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 Int64Index: 5982 entries, 0 to 2481
@@ -296,7 +285,6 @@ dtypes: float64(3), int64(5), object(2)
 memory usage: 514.1+ KB
 None
 ```
-
 </div></details><br>
 
 **필요 없는 칼럼 제거**
@@ -342,7 +330,6 @@ print(df.info())
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 Output exceeds the size limit. Open the full output data in a text editor
 <class 'pandas.core.frame.DataFrame'>
@@ -376,7 +363,6 @@ dtypes: float64(7), uint8(66)
 memory usage: 759.4 KB
 None
 ```
-
 </div></details><br>
 
 **테이블 분리**

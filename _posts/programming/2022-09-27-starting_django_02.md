@@ -314,7 +314,6 @@ SQL Query를 보면 모델에 `id`를 생성하지 않았음에도 불구하고 
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 BEGIN;
 --
@@ -336,7 +335,6 @@ ALTER TABLE "new__board_qna_question" RENAME TO "board_qna_question";
 CREATE INDEX "board_qna_question_user_id_942b6691" ON "board_qna_question" ("user_id");
 COMMIT;
 ```
-
 </div></details>
 
 ### 2-5. migrate
@@ -459,7 +457,7 @@ admin.site.register(Answer, AnswerAdmin)
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/clone-jump_to_django)
+- [전체 실습 코드](https://github.com/djccnt15/starting_django)
 - [Writing your first Django app, part 2](https://docs.djangoproject.com/en/4.1/intro/tutorial02/)
 - [점프 투 장고: 2-01 URL과 뷰](https://wikidocs.net/70649)
 - [점프 투 장고: 2-02 모델](https://wikidocs.net/70650)

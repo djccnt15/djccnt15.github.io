@@ -94,7 +94,6 @@ print(df.info())
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 Int64Index: 1987 entries, 0 to 1986
@@ -114,7 +113,6 @@ dtypes: int64(5), object(4)
 memory usage: 155.2+ KB
 None
 ```
-
 </div></details><br>
 
 One-hot encoding을 위해 명목형 변수와 숫자형 변수를 분리해준다.  
@@ -155,7 +153,6 @@ print(df.info())
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 Int64Index: 1987 entries, 0 to 1986
@@ -179,7 +176,6 @@ dtypes: float64(5), uint8(8)
 memory usage: 108.7 KB
 None
 ```
-
 </div></details><br>
 
 **train-test split**

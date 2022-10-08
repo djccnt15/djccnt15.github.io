@@ -39,4 +39,5 @@ related_posts:
 
 ---
 ## Reference
+- [Language specific editor settings](https://code.visualstudio.com/docs/getstarted/settings#_language-specific-editor-settings)
 - [Trim Trailing Whitespace Breaks Markdown #1679](https://github.com/microsoft/vscode/issues/1679)

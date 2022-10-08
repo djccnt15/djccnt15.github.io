@@ -240,7 +240,6 @@ class AnswerForm(forms.ModelForm):
 ```python
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from django.http import HttpResponseNotAllowed
 from .forms import AnswerForm
 
 # Create your views here.
@@ -262,7 +261,7 @@ def answer_create(request, question_id):
             answer.save()
             return redirect('board_qna:detail', question_id=question.id)
     else:
-        return HttpResponseNotAllowed('Only POST is possible.')
+        form = AnswerForm()
     context = {'question': question, 'form': form}
     return render(request, 'board_qna/question_detail.html', context)
 ```
@@ -294,9 +293,10 @@ urlpatterns = [
     <div class="card-body">
       <div class="card-text" style="white-space: pre-line;">{{ question.content }}</div>
       <div class="d-flex justify-content-end">
-        <div class="badge bg-light text-dark p-2">
-          {{ question.date_create }}
-        </div>
+          <div class="badge bg-light text-dark p-2 text-start">
+            <div class="mb-2">작성자: {{ question.user.username }}</div>
+            <div>작성일: {{ question.date_create }}</div>
+          </div>
       </div>
     </div>
   </div>
@@ -307,8 +307,9 @@ urlpatterns = [
     <div class="card-body">
       <div class="card-text" style="white-space: pre-line;">{{ answer.content }}</div>
       <div class="d-flex justify-content-end">
-        <div class="badge bg-light text-dark p-2">
-          {{ answer.date_create }}
+        <div class="badge bg-light text-dark p-2 text-start">
+          <div class="mb-2">작성자: {{ answer.user.username }}</div>
+          <div>작성일: {{ answer.date_create }}</div>
         </div>
       </div>
     </div>
@@ -320,7 +321,12 @@ urlpatterns = [
     {% include "form_errors.html" %}
     <div class="mb-3">
       <label for="content" class="form-label">답변 내용</label>
-      <textarea name="content" id="content" class="form-control" rows="10"></textarea>
+      <textarea
+        {% if not user.is_authenticated %}disabled{% endif %}
+        name="content"
+        id="content"
+        class="form-control"
+        rows="10"></textarea>
     </div>
     <input type="submit" value="답변 등록" class="btn btn-primary">
   </form>
@@ -375,7 +381,7 @@ MIDDLEWARE = [
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/clone-jump_to_django)
+- [전체 실습 코드](https://github.com/djccnt15/starting_django)
 - [점프 투 장고: 2-06 데이터 저장](https://wikidocs.net/73236)
 - [점프 투 장고: 2-10 폼](https://wikidocs.net/70855)
 - [점프 투 장고: 3-01 내비게이션바](https://wikidocs.net/71108)

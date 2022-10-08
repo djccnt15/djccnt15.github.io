@@ -113,7 +113,6 @@ print(df.info())
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 10999 entries, 0 to 10998
@@ -136,7 +135,6 @@ dtypes: int64(8), object(4)
 memory usage: 1.0+ MB
 None
 ```
-
 </div></details><br>
 
 One-hot encoding을 위해 명목형 변수와 숫자형 변수를 분리해준다.  
@@ -178,7 +176,6 @@ print(df.info())
 ```
 
 <details><summary>terminal</summary><div markdown="1">
-
 ```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 10999 entries, 0 to 10998
@@ -210,7 +207,6 @@ dtypes: float64(7), int64(1), uint8(13)
 memory usage: 827.2 KB
 None
 ```
-
 </div></details><br>
 
 
