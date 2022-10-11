@@ -67,7 +67,7 @@ def index(request):
 
     question_list = Question.objects.order_by('-date_create')  # order by date_create desc
     context = {'question_list': question_list}
-    return render(request, 'board_qna/question_list.html', context)
+    return render(request=request, template_name='board_qna/question_list.html', context=context)
 ```
 
 `date_create`에 `-`를 붙였기 때문에 내림차순으로 정렬된다. `render()`는 템플릿과 데이터를 조합하여 [`HttpResponse` 객체](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)로 반환하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)에서 볼 수 있다.  
@@ -209,9 +209,9 @@ STATICFILES_DIRS = [
 ```
 {% endraw %}
 
-#### 💡 템플릿 포함
+#### 템플릿 포함
 
-{% raw %}`{% include [resource] %}`{% endraw %} 태그는 다른 템플릿을 포함시킨다는 뜻으로, 아래 코드는 해당 위치에 `navbar.html`을 포함시켜서 같이 렌더링 한다는 뜻이다.  
+{% raw %}`{% include [source] %}`{% endraw %} 태그는 다른 템플릿을 포함시킨다는 뜻으로, 아래 코드는 해당 위치에 `navbar.html`을 포함시켜서 같이 렌더링 한다는 뜻이다.  
 
 {% raw %}
 ```html
@@ -219,7 +219,7 @@ STATICFILES_DIRS = [
 ```
 {% endraw %}
 
-#### 💡 스타일 적용
+#### 스타일 적용
 
 템플릿에 스타일을 적용하려면 아래와 같이 {% raw %}`{% load static %}`{% endraw %} 태그와 `<link>` 태그를 사용해서 연결해주면 된다.  
 
@@ -264,7 +264,7 @@ STATICFILES_DIRS = [
 ```
 {% endraw %}
 
-내비게이션 바는 모든 화면 상단에서 공통적으로 보여줘야 하므로 아래와 같이 `base.html` 파일에서 `<body>`의 가장 위에 {% raw %}`{% include [resource] %}`{% endraw %} 태그를 이용하여 공용 템플릿에 포함시켜준다.  
+내비게이션 바는 모든 화면 상단에서 공통적으로 보여줘야 하므로 아래와 같이 `base.html` 파일에서 `<body>`의 가장 위에 {% raw %}`{% include [source] %}`{% endraw %} 태그를 이용하여 공용 템플릿에 포함시켜준다.  
 
 ---
 ## Reference

@@ -71,6 +71,8 @@ def index(request):
 
 위와 같은 기초적인 view를 생성하였는데, `board_qna`에 접속할 경우 *Hello World! Welcome to Q&A board.*라고 화면에 띄우는 기능을 한다.  
 
+Django는 HTTP 요청을 받을 경우 [HttpRequest](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpRequest) 객체로 변환해주는데, 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/request-response/)를 참고하자.  
+
 ### 1-3. URL 매핑
 
 생성한 기능을 사용하려면 사용자가 해당 기능을 요청할 수 있는 URL을 매핑해야 한다. Django 프로젝트에서는 `config/urls.py` 파일을 통해 URL을 관리한다. `urls.py` 파일은 페이지 요청이 발생하면 가장 먼저 호출되어 URL과 `views.py` 파일에 정의되는 뷰 함수 간의 매핑을 정의한다.  

@@ -25,7 +25,7 @@ related_posts:
 ```html
 {% extends 'base.html' %}
 {% block content %}
-<div class="container my-3">
+<div class="container my-3 text-nowrap">
   <table class="table">
     <thead>
     <tr class="table-dark text-center" >
@@ -37,23 +37,23 @@ related_posts:
     </thead>
     <tbody>
     {% if question_list %}
-    {% for question in question_list %}
-    <tr>
-      <td width="10%">{{ question.id }}</td>
-      <td width="10%">{{ question.user }}</td>
-      <td width="40%">
-        <a href="{% url 'board_qna:detail' question.id %}">{{ question.subject }}</a>
-        {% if question.answer_set.count > 0 %}
-        <span class="text-danger small mx-2">{{ question.answer_set.count }}</span>
-        {% endif %}
-      </td>
-      <td width="40%">{{ question.date_create }}</td>
-    </tr>
-    {% endfor %}
+      {% for question in question_list %}
+        <tr>
+          <td class="text-center">{{ question.id }}</td>
+          <td class="text-center">{{ question.user }}</td>
+          <td width="70%">
+            <a href="{% url 'board_qna:detail' question.id %}">{{ question.subject }}</a>
+            {% if question.answer_set.count > 0 %}
+              <span class="text-danger small mx-2">{{ question.answer_set.count }}</span>
+            {% endif %}
+          </td>
+          <td class="text-center" width="5%">{{ question.date_create|date:'Y-m-d H:i:s' }}</td>
+        </tr>
+      {% endfor %}
     {% else %}
-    <tr>
-      <td colspan="3">질문이 없습니다.</td>
-    </tr>
+      <tr>
+        <td colspan="3">질문이 없습니다.</td>
+      </tr>
     {% endif %}
     </tbody>
   </table>
@@ -64,6 +64,8 @@ related_posts:
 {% endraw %}
 
 공통 부분은 {% raw %}`{% extends 'base.html' %}`{% endraw %} 태그를 통해 앞서 만든 `base.html`을 상속 받아와서 처리하고, {% raw %}`{% block content %}`{% endraw %} 태그와 {% raw %}`{% endblock %}`{% endraw %} 태그 사이에 본 페이지에 들어갈 내용을 넣어준다.  
+
+{% raw %}`{{ question.date_create|date:'Y-m-d H:i:s' }}`{% endraw %}에서 `|date:'Y-m-d H:i:s'`부분은 [템플릿 필터](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#filter)로 날짜 데이터의 형식을 바꿔주기 위해 사용했다. `date` 필터에 대한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#std-templatefilter-date)를 참고하자.  
 
 아래와 같은 화면으로 생성된다.  
 
@@ -189,9 +191,20 @@ urlpatterns = [
 ```
 {% endraw %}
 
-#### 💡 템플릿 상속/확장
+💡 {% raw %}`{% csrf_token %}`{% endraw %}은 보안 관련 항목으로 form으로 전송한 데이터가 실제 웹 페이지에서 작성한 데이터인지를 판단하는 역할을 한다. `<form>` 태그를 사용할 때는 반드시 같이 사용해줘야 한다.  
+{:.note}
 
-{% raw %}`{% extends [resource] %}`{% endraw %}는 템플릿의 [상속](https://docs.djangoproject.com/en/4.1/ref/templates/language/#template-inheritance)으로 지정된 부분을 확장하여 해당 파일에 넣으라는 뜻이다. 자세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#extends)를 참고하자.  
+Django에서 프로젝트를 시작하면 아래와 같이 `MIDDLEWARE`의 기본 요소로 추가되어 있다.  
+
+```python
+MIDDLEWARE = [
+    'django.middleware.csrf.CsrfViewMiddleware',
+]
+```
+
+#### 템플릿 상속/확장
+
+{% raw %}`{% extends [source] %}`{% endraw %}는 템플릿의 [상속](https://docs.djangoproject.com/en/4.1/ref/templates/language/#template-inheritance)으로 지정된 부분을 확장하여 해당 파일에 넣으라는 뜻이다. 자세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#extends)를 참고하자.  
 
 {% raw %}
 ```liquid
@@ -205,9 +218,38 @@ urlpatterns = [
 
 ![django_bootstrap_02](/assets/img/posts/django_bootstrap_02.png)
 
-## 2. 답변 등록 화면
+#### 템플릿 포함
 
-### 2-1. form 생성
+form의 에러를 확인하는 `form_errors.html` 파일은 아래와 같다.  
+
+{% raw %}
+```html
+<!-- alert field/non-field error -->
+{% if form.errors %}
+<div class="alert alert-danger">
+  {% for field in form %}
+    <!-- field error -->
+    {% if field.errors %}
+      <div>
+        <strong>{{ field.label }}</strong>
+        {{ field.errors }}
+      </div>
+    {% endif %}
+  {% endfor %}
+  <!-- non-field error -->
+  {% for error in form.non_field_errors %}
+    <div>
+      <strong>{{ error }}</strong>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+```
+{% endraw %}
+
+## 3. 답변 등록 화면
+
+### 3-1. form 생성
 
 `board_qna` 디렉토리에 `forms.py` 파일을 아래와 같은 내용으로 생성해준다.  
 
@@ -233,7 +275,7 @@ class AnswerForm(forms.ModelForm):
         }
 ```
 
-### 2-2. view 생성
+### 3-2. view 생성
 
 답변을 등록하는 `answer_create` view를 만들기 위해 `board_qna/views.py` 폴더에 아래 내용과 같이 추가해준다.  
 
@@ -268,7 +310,7 @@ def answer_create(request, question_id):
 
 `request.POST.get('content')`는 POST로 전송된 form의 데이터 항목 중 content 값을 읽는다는 뜻이며, `redirect()` 함수를 사용했기 때문에 답변을 생성한 후 질문 상세 화면으로 다시 돌아간다.  
 
-### 2-3. URL 매핑
+### 3-3. URL 매핑
 
 답변 등록 시 데이터를 전송하기 위해 `board_qna/urls.py` 파일의 `urlpatterns`에 아래 내용과 같이 추가해주자.  
 
@@ -278,7 +320,7 @@ urlpatterns = [
 ]
 ```
 
-### 2-4. 템플릿 생성
+### 3-4. 템플릿 생성
 
 `templates/board_qna` 폴더의 `question_detail.html`을 아래 코드와 같이 생성하여 답변을 조회하는 동시에 새로운 답변을 입력할 수 있는 답변 조회 및 입력 템플릿을 만들어주자.  
 
@@ -293,27 +335,27 @@ urlpatterns = [
     <div class="card-body">
       <div class="card-text" style="white-space: pre-line;">{{ question.content }}</div>
       <div class="d-flex justify-content-end">
-          <div class="badge bg-light text-dark p-2 text-start">
-            <div class="mb-2">작성자: {{ question.user.username }}</div>
-            <div>작성일: {{ question.date_create }}</div>
-          </div>
+        <div class="badge bg-light text-dark p-2 text-start">
+          <div class="mb-2">작성자: {{ question.user.username }}</div>
+          <div>작성일: {{ question.date_create|date:'Y-m-d H:i:s' }}</div>
+        </div>
       </div>
     </div>
   </div>
   <!-- answer -->
   <h5 class="border-bottom my-3 py-2">{{question.answer_set.count}}개의 답변이 있습니다.</h5>
   {% for answer in question.answer_set.all %}
-  <div class="card my-3">
-    <div class="card-body">
-      <div class="card-text" style="white-space: pre-line;">{{ answer.content }}</div>
-      <div class="d-flex justify-content-end">
-        <div class="badge bg-light text-dark p-2 text-start">
-          <div class="mb-2">작성자: {{ answer.user.username }}</div>
-          <div>작성일: {{ answer.date_create }}</div>
+    <div class="card my-3">
+      <div class="card-body">
+        <div class="card-text" style="white-space: pre-line;">{{ answer.content }}</div>
+        <div class="d-flex justify-content-end">
+          <div class="badge bg-light text-dark p-2 text-start">
+            <div class="mb-2">작성자: {{ answer.user.username }}</div>
+            <div>작성일: {{ answer.date_create|date:'Y-m-d H:i:s' }}</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   {% endfor %}
   <!-- answer create -->
   <form action="{% url 'board_qna:answer_create' question.id %}" method="post" class="my-3">
@@ -321,12 +363,7 @@ urlpatterns = [
     {% include "form_errors.html" %}
     <div class="mb-3">
       <label for="content" class="form-label">답변 내용</label>
-      <textarea
-        {% if not user.is_authenticated %}disabled{% endif %}
-        name="content"
-        id="content"
-        class="form-control"
-        rows="10"></textarea>
+      <textarea name="content" id="content" class="form-control" rows="10"></textarea>
     </div>
     <input type="submit" value="답변 등록" class="btn btn-primary">
   </form>
@@ -334,46 +371,6 @@ urlpatterns = [
 {% endblock %}
 ```
 {% endraw %}
-
-### 2-5. 템플릿 상속
-
-form의 에러를 확인하는 `form_errors.html` 파일은 아래와 같다.  
-
-{% raw %}
-```html
-<!-- alert field/non-field error -->
-{% if form.errors %}
-<div class="alert alert-danger">
-  {% for field in form %}
-  <!-- field error -->
-    {% if field.errors %}
-      <div>
-        <strong>{{ field.label }}</strong>
-        {{ field.errors }}
-      </div>
-    {% endif %}
-  {% endfor %}
-  <!-- non-field error -->
-  {% for error in form.non_field_errors %}
-    <div>
-      <strong>{{ error }}</strong>
-    </div>
-  {% endfor %}
-</div>
-{% endif %}
-```
-{% endraw %}
-
-💡 {% raw %}`{% csrf_token %}`{% endraw %}은 보안 관련 항목으로 form으로 전송한 데이터가 실제 웹 페이지에서 작성한 데이터인지를 판단하는 역할을 한다. `<form>` 태그를 사용할 때는 반드시 같이 사용해줘야 한다.  
-{:.note}
-
-Django에서 프로젝트를 시작하면 아래와 같이 `MIDDLEWARE`의 기본 요소로 추가되어 있다.  
-
-```python
-MIDDLEWARE = [
-    'django.middleware.csrf.CsrfViewMiddleware',
-]
-```
 
 아래와 같은 화면으로 생성된다.  
 
@@ -386,3 +383,5 @@ MIDDLEWARE = [
 - [점프 투 장고: 2-10 폼](https://wikidocs.net/70855)
 - [점프 투 장고: 3-01 내비게이션바](https://wikidocs.net/71108)
 - [점프 투 장고: 3-04 답변 개수 표시](https://wikidocs.net/71241)
+- [점프 투 장고: 3-07 모델 변경](https://wikidocs.net/71306)
+- [점프 투 장고: 3-08 글쓴이 표시](https://wikidocs.net/71307)

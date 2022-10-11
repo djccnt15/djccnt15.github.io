@@ -19,7 +19,7 @@ related_posts:
 
 ## 1. scss로 버튼 스타일 만들기
 
-hydejack 테마는 inline에 적용되는 scss 코드를 추가할 때 `/_sass/my-inline.scss` 파일을 수정하면 된다.  
+hydejack 테마는 inline에 적용되는 scss 코드를 추가할 때 `/_sass/my-style.scss` 파일을 수정하면 된다.  
 아래 코드와 같이 추가하자.
 
 ```scss

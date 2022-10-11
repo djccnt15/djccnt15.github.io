@@ -47,7 +47,7 @@ related_posts:
 
 ## 3. 버튼 스타일 부여
 
-`_sass/my-inline.scss`에 아래 내용 추가  
+`_sass/my-style.scss`에 아래 내용 추가  
 
 ```scss
 // previous, next btn

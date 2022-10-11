@@ -1,6 +1,7 @@
 ---
 layout: yearly
-title: Yearly archive
+title: Yearly Archive
 description: >
   Posts by Year
+permalink: archive-yearly
 ---

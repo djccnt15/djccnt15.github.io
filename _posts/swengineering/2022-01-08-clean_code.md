@@ -61,4 +61,4 @@ test = test_func(**kwargs)
 ---
 ## Reference
 - [노마드코더](https://www.youtube.com/channel/UCUpJs89fSBXNolQGOYKn0YQ): [깨끗한 코드를 위한 5가지 팁](https://youtu.be/Jz8Sx1XYb04)  
-<iframe width="640" height="480" src="https://www.youtube.com/embed/Jz8Sx1XYb04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/Jz8Sx1XYb04" title="깨끗한 코드를 위한 5가지 팁" frameborder="0" allowfullscreen></iframe>

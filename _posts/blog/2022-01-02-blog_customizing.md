@@ -294,7 +294,7 @@ layout: archive
 ```
 {% endraw %}
 
-`/_pages/monthly-archive.md` 생성 후 아래 내용 입력
+`/_pages/archive-monthly.md` 생성 후 아래 내용 입력
 
 ```
 ---

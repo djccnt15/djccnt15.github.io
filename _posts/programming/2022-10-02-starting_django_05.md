@@ -15,6 +15,10 @@ related_posts:
 * toc
 {:toc}
 
+{% include series_django.html %}
+
+## 0. 목표
+
 [인덱스](https://en.wikipedia.org/wiki/Home_page) 페이지가 아래 사진처럼 아무 내용도 없고 404 에러만 보여줘서 개발 중인 페이지를 보고 싶을 경우 매번 주소를 입력해서 접속해야하는게 불편하다.  
 
 ![django_homepage_01](/assets/img/posts/django_homepage_01.png)

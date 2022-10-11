@@ -4,6 +4,7 @@ title: About
 description: >
   Portfolio and Resume
 hide_description: true
+permalink: about
 ---
 ![googling_does_make_you_a_programmer](/assets/img/blog/googling_does_make_you_a_programmer.png)
 

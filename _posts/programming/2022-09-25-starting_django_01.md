@@ -164,7 +164,7 @@ SECRET_KEY = get_secret(var="SECRET_KEY")
 
 ```json
 {
-    "SECRET_KEY": "your_secret_key"
+    "SECRET_KEY": "YOUR_SECRET_KEY"
 }
 ```
 
