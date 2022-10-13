@@ -142,6 +142,7 @@ SECRET_KEY = 'django-insecure-a)a75!_s7sm8rgd!gw7##m0b3nqzxybw($o+_+2oj^oo34)210
 ```python
 import os
 import json
+
 from django.core.exceptions import ImproperlyConfigured
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -160,7 +161,7 @@ def get_secret(var, secrets=secrets):
 SECRET_KEY = get_secret(var="SECRET_KEY")
 ```
 
-다음으로는 위 코드를 통해 Secret Key를 읽어올 `json` 파일을 root 디렉토리에 아래와 같이 만들어주자.  
+다음으로는 위 코드를 통해 Secret Key를 읽어올 `secrets.json` 파일을 root 디렉토리에 아래와 같이 만들어주자.  
 
 ```json
 {

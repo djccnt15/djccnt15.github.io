@@ -18,7 +18,7 @@ related_posts:
 
 ## 1. 로그인/로그아웃
 
-Django에서는 기본 제공 앱인 `django.contrib.auth`을 통해 로그인/로그아웃 기능을 쉽게 개발할 수 있다. 아래와 같이 프로젝트 생성 시에 기본적으로 적용되어 있다.  
+Django에서는 기본 제공 모듈인 `django.contrib.auth`을 통해 로그인/로그아웃 기능을 쉽게 개발할 수 있다. 아래와 같이 프로젝트 생성 시에 기본적으로 적용되어 있다.  
 
 ```python
 INSTALLED_APPS = [
@@ -75,7 +75,7 @@ urlpatterns = [
 ]
 ```
 
-기본 제공되는 앱을 통해 기능을 만들기 때문에 아래와 같이 `urls.py`에서 바로 처리해도 되지만, 관리의 편의성을 위해 위와 같이 분리하였다.  
+기본 제공되는 모듈을 통해 기능을 만들기 때문에 아래와 같이 `urls.py`에서 바로 처리해도 되지만, 프로젝트의 일관성을 위해 위와 같이 분리하였다.  
 
 ```python
 from django.contrib.auth import views as auth_views
@@ -109,7 +109,7 @@ urlpatterns = [  # include() is a function for including url file in each app
 ```
 {% endraw %}
 
-사용자가 로그인 되어 있는지 아닌지에 따라 다른 기능을 제공하기 위해 `user.is_authenticated` 속성을 활용했다. `django.contrib.auth` 앱이 제공하는 user의 데이터 모델에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model)를 보자.  
+사용자가 로그인 되어 있는지 아닌지에 따라 다른 기능을 제공하기 위해 `user.is_authenticated` 속성을 활용했다. `django.contrib.auth` 앱이 제공하는 `User`의 데이터 모델에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model)를 보자.  
 
 사용자의 ID와 비밀번호를 받아 로그인으로 보내주는 템플릿 파일 `common/login.html`을 아래와 같이 생성한다.  
 
@@ -153,7 +153,7 @@ urlpatterns = [  # include() is a function for including url file in each app
 
 ### 1-5. 리다이렉트 지정
 
-로그인이 성공하면 `django.contrib.auth` 패키지는 디폴트로 `/accounts/profile/`이라는 URL로, 로그아웃의 경우 관리 페이지의 로그아웃 URL로 이동시킨다. 이 부분을 홈페이지로 되돌아가는 것으로 변경하려면 `config/settings.py`에 아래 내용을 추가하면 된다.  
+`django.contrib.auth` 패키지는 디폴트로 로그인이 성공하면 `/accounts/profile/`이라는 URL로, 로그아웃의 경우 관리 페이지의 로그아웃 URL로 이동시킨다. 이 부분을 홈페이지로 되돌아가는 것으로 변경하려면 `config/settings.py`에 아래 내용을 추가하면 된다.  
 
 ```python
 # redirection after login/logout
@@ -192,16 +192,18 @@ def question_create(request):
     ...
 ```
 
-`login_required` 데코레이터가 부여해주는 `login_required()` 함수는 기본적으로 로그인이 필요한 기능을 사용자가 사용하려고 하면 `settings.py`의 `LOGIN_URL` 옵션으로 돌려보낸다. [공식 문서](https://docs.djangoproject.com/en/4.1/ref/settings/#login-url)를 보면 `LOGIN_URL`은 기본값이 '/accounts/login/'으로 되어 있기 때문에 현재 개발 내용과 일치하지 않는데, 이를 바꿔주는 방법은 아래 두 가지가 있다.  
+`login_required` 데코레이터가 부여해주는 `login_required()` 함수는 기본적으로 로그인이 필요한 기능을 사용자가 사용하려고 하면 `settings.py`의 `LOGIN_URL` 옵션에 지정된 주소로 리다이렉트한다.  
 
-첫 번째는 아래와 같이 `settings.py`에서 `LOGIN_URL` 옵션을 추가/수정해주는 방법이 있다.  
+[공식 문서](https://docs.djangoproject.com/en/4.1/ref/settings/#login-url)를 보면 `LOGIN_URL`은 기본값이 `/accounts/login/`으로 되어 있어 현재 개발 내용과 일치하지 않는데, 이를 바꿔주는 방법은 아래 두 가지가 있다.  
+
+첫 번째로 아래와 같이 `settings.py`에서 `LOGIN_URL` 옵션을 추가/수정해주는 방법이 있다.  
 
 ```python
 # redirection for login_required()
 LOGIN_URL = '/common/login/'
 ```
 
-두 번째는 아래와 같이 `login_required` 데코레이터에 `login_url` 옵션을 주는 방법이 있다.  
+두 번째로 아래와 같이 `login_required` 데코레이터에 `login_url` 옵션을 주는 방법이 있다. 이 옵션은 `settings.py`의 `LOGIN_URL` 변수를 오버라이드한다.  
 
 ```python
 @login_required(login_url='common:login')
@@ -232,8 +234,8 @@ from django.contrib.auth.models import User
 
 class UserForm(UserCreationForm):
     """
-    form for create user
-    inherit UserCreationForm for add custom fields
+    form for creating user
+    inherit UserCreationForm to add custom fields
     """
 
     email = forms.EmailField(label="이메일")
@@ -408,7 +410,7 @@ class CheckPasswordForm(forms.Form):
 
 `clean()` 함수는 요약하자면 입력된 데이터가 form에서 요구하는 데이터와 일치하는 양식인지를 확인하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/forms/validation/)를 보자.  
 
-`check_password()` 함수는 입력된 비밀번호와 데이터베이스에서 가져온 사용자의 비밀번호가 일치하는지를 확인하는 함수로, 잘세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/passwords/#django.contrib.auth.hashers.check_password)를 보자.  
+`check_password()` 함수는 입력된 비밀번호와 데이터베이스에서 가져온 사용자의 비밀번호가 일치하는지를 확인하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/passwords/#django.contrib.auth.hashers.check_password)를 보자.  
 
 ### 4-2. view 생성
 
