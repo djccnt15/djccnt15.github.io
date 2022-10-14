@@ -14,13 +14,11 @@ related_posts:
 * toc
 {:toc}
 
-블로그 테마를 바꾸면서 기존에 링크 방식으로 사용하던 scroll to home/top/bottom 버튼의 기능이 망가졌다.  
-동료 개발자의 도움을 조금 받아 자바 스크립트를 사용해서 수정했다.
+블로그 테마를 바꾸면서 기존에 링크 방식으로 사용하던 [scroll to home/top/bottom 버튼](/blog/blog_customizing/#2-단축-버튼-만들기)의 기능이 망가지는 바람에 JavaScript를 사용해서 새롭게 만들어보았다.  
 
 ## 1. scss로 버튼 스타일 만들기
 
-hydejack 테마는 inline에 적용되는 scss 코드를 추가할 때 `/_sass/my-style.scss` 파일을 수정하면 된다.  
-아래 코드와 같이 추가하자.
+Hydejack 테마에 scss 코드를 추가할 때는 `_sass/my-style.scss` 파일을 수정하면 된다. 아래 코드와 같이 추가하자.  
 
 ```scss
 // scroll btn
@@ -41,7 +39,7 @@ hydejack 테마는 inline에 적용되는 scss 코드를 추가할 때 `/_sass/m
   cursor: pointer;
 }
 
-.btn_to_home {
+.btn_home {
   position: fixed;
   bottom: 0.5em;
   right: 5.3em;
@@ -50,33 +48,39 @@ hydejack 테마는 inline에 적용되는 scss 코드를 추가할 때 `/_sass/m
 }
 ```
 
-## 2. body에 버튼을 달고 기능 부여하기
+## 2. body에 버튼을 달기
 
-body 위치에 들어가는 html 코드는 `/_includes/my-body.html`을 수정해서 추가하면 된다.  
-아래 코드와 같이 추가하자.
+body 위치에 들어갈 HTML 코드는 `_includes/my-body.html`을 수정해서 추가하면 된다.  
 
 ```html
-<aside class="scroll_top">
-  <div>
-    <i onclick="window.scrollTo({top:0,left:0, behavior:'smooth'})">
-      <img src="/assets/img/blog/arrow_up.png" alt="top">
-    </i>
-  </div>
-</aside>
+<div>
+  <img src="/assets/img/blog/arrow_up.png" class="scroll_top" alt="top" id="scroll_top">
+  <img src="/assets/img/blog/arrow_down.png" class="scroll_bot" alt="bottom" id="scroll_bot">
+  <a href="{{ '/' | relative_url }}">
+    <img src="/assets/img/blog/home.png" class="btn_home" alt="home">
+  </a>
+</div>
+<script src="/assets/js/my-body.js"></script>
+```
 
-<aside class="scroll_bot">
-  <div>
-    <i onclick="window.scrollTo({top:document.body.scrollHeight,left:0, behavior:'smooth'})">
-      <img src="/assets/img/blog/arrow_down.png" alt="bottom">
-    </i>
-  </div>
-</aside>
+## 3. 버튼에 기능 넣기
 
-<aside class="btn_to_home">
-  <div>
-    <a class="no-hover" href="{{ '/' | relative_url }}">
-      <img src="/assets/img/blog/home.png" alt="home">
-    </a>
-  </div>
-</aside>
+버튼에 기능을 넣기 위해 `assets/js/my-body.js` 파일을 아래와 같이 생성해준다.  
+
+```javascript
+let scroll_top = document.getElementById("scroll_top");
+scroll_top.addEventListener(
+  type='click',
+  listener=function() {
+    window.scrollTo({top:0, left:0, behavior:'smooth'})
+  }
+);
+
+let scroll_bot = document.getElementById("scroll_bot");
+scroll_bot.addEventListener(
+  type='click',
+  listener=function() {
+    window.scrollTo({top:document.body.scrollHeight, left:0, behavior:'smooth'})
+  }
+);
 ```

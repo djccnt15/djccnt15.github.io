@@ -26,7 +26,7 @@ Google Analytics 페이지를 잘 뒤져보면 아래와 같이 수동으로 태
 
 ![ga_install_manually](/assets/img/posts/ga_install_manually.png)
 
-Google Analytics를 적용할 페이지의 `<head>`에 입력하라고 설명되어 있는데, Hydejack 테마의 경우 `_includes/my-head.html`에서 일괄적으로 적용할 수 있다. 위 페이지에서 코드를 복사하여 아래와 같이 수정하자.  
+Google Analytics를 적용할 페이지의 `<head>`에 입력하라고 설명되어 있는데, Hydejack 테마의 경우 `_includes/my-head.html`에서 일괄적으로 적용할 수 있다. 위 페이지에서 코드를 복사하여 입력하면 된다.  
 
 ```html
 <!-- Google tag (gtag.js) -->
@@ -42,23 +42,29 @@ Google Analytics를 적용할 페이지의 `<head>`에 입력하라고 설명되
 
 ## 개선점
 
-위 코드를 그대로 사용하면 [GitHub Pages 인식](/blog/github_pages_ga/)을 못해서 작성중인 내용 확인을 위해 로컬 서버에서 배포하고 접속한 기록까지 전부 카운트 된다. 그래서 아래와 같이 `JavaScript` 조건문을 사용해 GitHub pages를 통해서 배포 되었을 때만 코드가 적용되도록 개선하였다.  
+위 코드를 그대로 사용하면 [GitHub Pages 인식](/blog/github_pages_ga/)을 못해서 작성중인 내용 확인을 위해 로컬 서버에서 배포하고 접속한 기록까지 전부 카운트 된다는 점과, HTML과 JavaScript가 섞여 있다는 문제점이 있다.  
+
+그래서 아래와 같이 정보와 제어의 분리를 위해 `assets/js/my-head.js` 파일을 생성하여 분리하고,  
 
 ```html
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-**********"></script>
-<script>
-  if (window.location.hostname == "{YOUR_HOSTNAME}") {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-**********');
-  }
-</script>
+<script src="/assets/js/my-head.js"></script>
 ```
 
-참고로 `window.location.hostname`과 같이 `JavaScript` 명령어를 웹상에 배포된 페이지에서 확인하려면 아래와 같이 개발자 도구(DevTools)의 콘솔(Console) 항목에서 입력해보면 된다.  
+JavaScript 조건문을 사용해 GitHub pages를 통해서 배포 되었을 때만 코드가 적용되도록 수정하였다.  
+
+```javascript
+if (window.location.hostname == "{YOUR_HOSTNAME}") {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-**********');
+}
+```
+
+참고로 `window.location.hostname`과 같이 JavaScript 명령어를 웹상에 배포된 페이지에서 확인하려면 아래와 같이 개발자 도구(DevTools)의 콘솔(Console) 항목에서 입력해보면 된다.  
 
 ![ga_hostname](/assets/img/posts/ga_hostname.png)
 
