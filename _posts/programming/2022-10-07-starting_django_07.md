@@ -67,7 +67,7 @@ def index(request):
     """
 
     page = request.GET.get(key='page', default='1')  # get value of 'page' from HTTP Request
-    question_list = Question.objects.order_by('-date_create')  # order by date_create desc
+    question_list = Question.objects.order_by('-id')  # order by id desc
     paginator = Paginator(object_list=question_list, per_page=10)  # number of object per page
     page_obj = paginator.get_page(number=page)  # page to return
     total_pages = paginator.num_pages  # get number of total pages
@@ -185,8 +185,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```python
 >>> from board_qna.models import Question
 >>> from django.utils import timezone
->>> for i in range(300):
-...     q = Question(subject='테스트 데이터입니다:[%03d]' % i, content='내용무', date_create=timezone.now())
+>>> from django.contrib.auth import authenticate
+>>> user = authenticate(username='admin', password='admin')
+>>> for i in range(100):
+...     q = Question(subject=f'test data - [{i}]', content='test content', date_create=timezone.now(), user=user)
 ...     q.save()
 ```
 
@@ -196,6 +198,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/clone-jump_to_django)
+- [전체 실습 코드](https://github.com/djccnt15/starting_django)
 - [점프 투 장고: 3-03 템플릿 필터](https://wikidocs.net/71313)
 - [점프 투 장고: 3-02 페이징](https://wikidocs.net/71240)

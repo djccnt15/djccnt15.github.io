@@ -47,14 +47,14 @@ TEMPLATES = [
 
 위와 같이 설정하면 root 디렉토리의 `templates` 폴더에서 모든 템플릿을 통합하여 편리하게 관리할 수 있다.  
 
-## 2. 질문 목록 화면
+## 2. 질문 목록/세부 내용 화면
 
 ### 2-1. view 생성
 
-질문 목록을 보여주는 `index` view를 만들기 위해 `board_qnd/views.py` 파일을 아래와 같이 수정해준다.  
+`board_qnd/views.py` 파일을 아래와 같이 수정해 질문 목록을 보여주는 `index` view와 질문의 세부 내용을 보여주는 `detail` view를 만들어 준다.  
 
 ```python
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Question
 
 # Create your views here.
@@ -65,14 +65,42 @@ def index(request):
     index view for question_list
     """
 
-    question_list = Question.objects.order_by('-date_create')  # order by date_create desc
+    question_list = Question.objects.order_by('-id')  # order by id desc
     context = {'question_list': question_list}
     return render(request=request, template_name='board_qna/question_list.html', context=context)
+
+
+def detail(request, question_id):
+    """
+    view for details of each question
+    """
+
+    question = get_object_or_404(Question, pk=question_id)  # returns 404 instead of 500 when requested not existing question_id
+    context = {'question': question}
+    return render(request, 'board_qna/question_detail.html', context)
 ```
 
-`date_create`에 `-`를 붙였기 때문에 내림차순으로 정렬된다. `render()`는 템플릿과 데이터를 조합하여 [`HttpResponse` 객체](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)로 반환하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)에서 볼 수 있다.  
+`id`에 `-`를 붙였기 때문에 내림차순으로 정렬된다. `render()`는 템플릿과 데이터를 조합하여 [`HttpResponse` 객체](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)로 반환하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)에서 볼 수 있다.  
 
-### 2-2. 템플릿 생성
+### 2-2. URL 매핑
+
+위에서 만든 view들의 링크를 매핑해주기 위해 `board_qna/urls.py` 파일을 아래와 같이 수정해준다.  
+
+```python
+from django.urls import path
+from . import views
+
+app_name = 'board_qna'
+
+urlpatterns = [
+    path('', views.index, name='index'),  # name parameter is to set name of url variable for template
+    path('<int:question_id>/', views.detail, name='detail'),  # url for listing board_qna
+]
+```
+
+`<int:question_id>`에서 볼 수 있듯이 변수를 활용한 URL을 매핑해주려면 angle brackets으로 감싸주면 되고, 해당 변수를 특정 타입으로 변환하도록 지정할 수 있다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/urls/#example) 참고  
+
+### 2-3. 템플릿 생성
 
 앞에서 `index` view에서 지정한 `question_list.html` 템플릿을 `templates/board_qna` 폴더에 아래와 같이 생성해준다.  
 
@@ -92,50 +120,7 @@ def index(request):
 ```
 {% endraw %}
 
-아래 화면과 같은 결과로 생성된다.  
-
-![django_template_01](/assets/img/posts/django_template_01.png)
-
-Django에서는 [Django 템플릿 언어](https://docs.djangoproject.com/en/4.1/ref/templates/language/)를 사용해서 템플릿을 작성한다. Jekyll에서 사용하는 [liquid](https://shopify.github.io/liquid/)와 별 차이는 없는 것 같다.  
-
-## 3. 질문 세부 내용 화면
-
-### 3-1. view 생성
-
-질문의 세부 내용을 보여주는 `detail` view를 만들기 위해 `board_qnd/views.py` 파일에 아래 내용을 추가해준다.  
-
-```python
-from django.shortcuts import render, get_object_or_404
-from .models import Question
-
-
-def detail(request, question_id):
-    """
-    view for details of each question
-    """
-
-    question = get_object_or_404(Question, pk=question_id)  # returns 404 instead of 500 when requested not existing question_id
-    context = {'question': question}
-    return render(request, 'board_qna/question_detail.html', context)
-```
-
-### 3-2. URL 매핑
-
-위에서 만들어준 `index` view에 링크들을 매핑해주기 위해 `board_qna/urls.py` 파일을 아래와 같이 수정해준다.  
-
-```python
-from django.urls import path
-from . import views
-
-app_name = 'board_qna'
-
-urlpatterns = [
-    path('', views.index, name='index'),  # name parameter is to set name of url variable for template
-    path('<int:question_id>/', views.detail, name='detail'),  # url for board_qna
-]
-```
-
-### 3-3. 템플릿 생성
+{% raw %}`{% url [URL_name] %}`{% endraw %} 태그는 [URL 매핑](#3-2-url-매핑)을 사용할 수 있도록 해준다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/intro/tutorial03/#removing-hardcoded-urls-in-templates) 참고  
 
 `templates/board_qna` 폴더에 `question_detail.html` 파일을 아래와 같이 생성해준다.  
 
@@ -148,13 +133,17 @@ urlpatterns = [
 ```
 {% endraw %}
 
-아래 화면과 같은 결과로 생성된다.  
+admin 권한으로 샘플 데이터를 몇 개 생성한 후 확인해보면 결과물을 아래 화면과 같이 확인할 수 있다.  
+
+![django_template_01](/assets/img/posts/django_template_01.png)
 
 ![django_template_02](/assets/img/posts/django_template_02.png)
 
-## 4. 스타일 적용
+Django에서는 [Django 템플릿 언어](https://docs.djangoproject.com/en/4.1/ref/templates/language/)를 사용해서 템플릿을 작성한다. Jekyll에서 사용하는 [liquid](https://shopify.github.io/liquid/)와 별 차이는 없는 것 같다.  
 
-### 4-1. static 기초 설정
+## 3. 스타일 적용
+
+### 3-1. static 기초 설정
 
 [static](https://en.wikipedia.org/wiki/Static_web_page)은 웹 페이지에 정적 디자인을 부여해준다. Django 프로젝트에 사용할 디자인을 통합하여 관리하기 위해 `config/settings.py`에서 `Static` 항목을 아래와 같이 수정해준다.  
 
@@ -170,41 +159,41 @@ STATICFILES_DIRS = [
 
 위와 같이 설정하면 root 디렉토리의 `static` 폴더에서 모든 스타일을 통합하여 편리하게 관리할 수 있다.  
 
-### 4-2. 스타일시트 작성
+### 3-2. 스타일시트 작성
 
 원래라면 `static/style.css` 파일을 생성해 css로 스타일을 만들어줘야 하나 빠르게 구현해보기 위해 Bootstrap을 사용하기로 한다. 본 프로젝트에서는 v5.2를 사용했다.  
 
 [Bootstrap](https://getbootstrap.com/) 홈페이지에서 [Compiled CSS and JS](https://getbootstrap.com/docs/5.2/getting-started/download/#compiled-css-and-js)를 다운받고, `css/bootstrap.min.css` 파일을 `static` 디렉토리에 저장하자.  
 
-### 4-3. 기본 템플릿 생성 및 포함
+### 3-3. 기본 템플릿 생성 및 포함
 
-`template` 디렉토리에 `<html>`, `<head>`, `<body>` 태그를 포함하여 표준 HTML 문서의 구조를 가지고, 템플릿 상속을 통해 다른 템플릿의 기초가 되는 `base.html`을 먼저 생성한다.  
+`templates` 디렉토리에 `<html>`, `<head>`, `<body>` 태그를 포함하여 표준 HTML 문서의 구조를 가지고, 템플릿 상속을 통해 다른 템플릿의 기초가 되는 `base.html`을 먼저 생성한다.  
 
 {% raw %}
 ```html
 {% load static %}
 <!doctype html>
 <html lang="ko">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-  <!-- board_qna CSS -->
-  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-  <title>Hello, World!</title>
-</head>
-<body>
-<!-- nav bar -->
-{% include "navbar.html" %}
-<!-- content start -->
-{% block content %}
-{% endblock %}
-<!-- content end -->
-<!-- Bootstrap JS -->
-<script src="{% static 'bootstrap.min.js' %}"></script>
-</body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <!-- board_qna CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Hello, World!</title>
+  </head>
+  <body>
+  <!-- nav bar -->
+  {% include "navbar.html" %}
+  <!-- content start -->
+  {% block content %}
+  {% endblock %}
+  <!-- content end -->
+  <!-- Bootstrap JS -->
+  <script src="{% static 'bootstrap.min.js' %}"></script>
+  </body>
 </html>
 ```
 {% endraw %}
@@ -230,9 +219,9 @@ STATICFILES_DIRS = [
 ```
 {% endraw %}
 
-### 4-4. 내비게이션 바 추가
+### 3-4. 내비게이션 바 추가
 
-`template` 디렉토리에 아래와 같이 `navbar.html` 템플릿을 생성해준다.  
+`templates` 디렉토리에 아래와 같이 `navbar.html` 템플릿을 생성해준다.  
 
 {% raw %}
 ```html

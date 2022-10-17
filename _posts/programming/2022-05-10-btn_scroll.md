@@ -56,9 +56,7 @@ body 위치에 들어갈 HTML 코드는 `_includes/my-body.html`을 수정해서
 <div>
   <img src="/assets/img/blog/arrow_up.png" class="scroll_top" alt="top" id="scroll_top">
   <img src="/assets/img/blog/arrow_down.png" class="scroll_bot" alt="bottom" id="scroll_bot">
-  <a href="{{ '/' | relative_url }}">
-    <img src="/assets/img/blog/home.png" class="btn_home" alt="home">
-  </a>
+  <a href="/"><img src="/assets/img/blog/home.png" class="btn_home" alt="home"></a>
 </div>
 <script src="/assets/js/my-body.js"></script>
 ```

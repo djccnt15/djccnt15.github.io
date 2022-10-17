@@ -17,7 +17,7 @@ related_posts:
 
 ## 개요 및 기본 구조
 
-`list comprehension`은 리스트를 만드는 간결한 방법을 제공한다. 특히 반복문 작업에 최적화 되어 있어 속도가 매우 빠르다. `list comprehension`의 속도에 대한 내용은 [정욱재님의 블로그](https://jeongukjae.github.io/posts/inspecting-list-comprehension/)를 참고하자.  
+`list comprehension`은 리스트를 만드는 간결한 방법을 제공한다. 특히 반복문 작업에 최적화 되어 있어 속도가 매우 빠르다. `list comprehension`의 속도에 대한 내용은 [정욱재님의 블로그](https://blog.ukjae.io/posts/inspecting-list-comprehension/)를 참고하자.  
 
 `list comprehension`의 기본 구조는 아래와 같고, 추가 연산을 부여해줄 수도 있다.  
 

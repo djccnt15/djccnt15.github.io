@@ -45,6 +45,9 @@ GitHub Pages를 이용한 블로그 구축 및 공부노트
 
 # rebuild changed pages only
 > bundle exec jekyll serve --incremental
+
+# shows building profile
+> bundle exec jekyll serve --profile
 ```
 
 ## Powered by

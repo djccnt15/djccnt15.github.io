@@ -97,6 +97,12 @@ local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http:/
 > bundle exec jekyll serve --incremental
 ```
 
+`--profile` 옵션을 사용하면 빌드 과정에서 각 페이지의 조회 횟수, 용량, 소요 시간이 얼마나 되는지를 보여준다. 서버 최적화가 필요할 때 사용하는 옵션이다.  
+
+```
+> bundle exec jekyll serve --profile
+```
+
 ### 2-1. ⚡ 작업할 때
 
 개인적으로 나는 작업할 때 Jekyll을 아래와 같이 `--future`, `--drafts`, `--unpublished` 옵션들을 주로 사용한다.  

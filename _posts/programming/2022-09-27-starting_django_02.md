@@ -85,7 +85,7 @@ from django.urls import path, include
 
 urlpatterns = [  # include() is a function for including url file in each app
     path('admin/', admin.site.urls),
-    path(route='board_qna/', view=include('board_qna.urls')),  # get URLs from 'board_qna/urls.py'
+    path(route='board_qna/', view=include('board_qna.urls')),  # mapping URL and view
 ]
 ```
 
@@ -378,13 +378,13 @@ Django에서 관리자 계정을 생성하는 명령어는 아래와 같다.
 > manage.py createsuperuser
 ```
 ```
-사용자 이름 (leave blank to use 'wizcore'): admin
-이메일 주소: djccnt15@gmail.com
+Username (leave blank to use 'wizcore'): admin
+Email address: djccnt15@gmail.com
 Password:
 Password (again):
-비밀번호가 사용자 이름와 너무 유사합니다.
-비밀번호가 너무 짧습니다. 최소 8 문자를 포함해야 합니다.
-비밀번호가 너무 일상적인 단어입니다.
+The password is too similar to the username.
+This password is too short. It must contain at least 8 characters.
+This password is too common.
 Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
 ```

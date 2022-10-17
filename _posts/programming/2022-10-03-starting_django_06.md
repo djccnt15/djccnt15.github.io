@@ -10,6 +10,7 @@ image:
   path: /assets/img/posts/django_starting.png
 related_posts:
   - _posts/programming/2022-10-02-starting_django_05.md
+  - _posts/programming/2022-10-07-starting_django_07.md
 ---
 * toc
 {:toc}
@@ -118,7 +119,7 @@ urlpatterns = [  # include() is a function for including url file in each app
 {% extends "base.html" %}
 {% block content %}
 <div class="container my-3">
-  <form method="post" action="{% url 'common:login' %}">
+  <form method="POST" action="{% url 'common:login' %}">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}">  <!-- redirection URL after login -->
     {% include "form_errors.html" %}
@@ -187,6 +188,8 @@ LOGOUT_REDIRECT_URL = '/'
 아래와 같이 `login_required` 데코레이터를 이용하면 특정 view를 로그인 회원만 사용 가능하도록 제한하고, 비로그인 상태의 사용자가 해당 기능을 사용하려고 하면 로그인 페이지로 보낼 수 있다. 해당 데코레이터에 대한 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/default/#the-login-required-decorator)를 참고하자.  
 
 ```python
+from django.contrib.auth.decorators import login_required
+
 @login_required()
 def question_create(request):
     ...
@@ -298,7 +301,7 @@ urlpatterns = [
 {% extends "base.html" %}
 {% block content %}
 <div class="container my-3">
-  <form method="post" action="{% url 'common:signup' %}">
+  <form method="POST" action="{% url 'common:signup' %}">
     {% csrf_token %}
     {% include "form_errors.html" %}
     <div class="mb-3">
@@ -453,7 +456,7 @@ urlpatterns = [
 
 ### 4-4. 템플릿 생성
 
-아래와 같은 내용으로 `template/user_drop.html` 파일을 생성하여 회원탈퇴 페이지를 위한 템플릿을 만들어준다.  
+아래와 같은 내용으로 `templates/common` 디렉토리에 `user_drop.html` 파일을 생성하여 회원탈퇴 페이지를 위한 템플릿을 만들어준다.  
 
 {% raw %}
 ```html
@@ -488,7 +491,7 @@ urlpatterns = [
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/clone-jump_to_django)
+- [전체 실습 코드](https://github.com/djccnt15/starting_django)
 - [점프 투 장고: 3-05 로그인과 로그아웃](https://wikidocs.net/71259)
 - [점프 투 장고: 3-06 회원가입](https://wikidocs.net/71303)
 - [점프 투 장고: 3-07 모델 변경](https://wikidocs.net/71306)

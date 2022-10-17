@@ -18,7 +18,7 @@ related_posts:
 
 ## 0. 개요
 
-Django는 Python을 기반으로 하는 오픈 소스 풀 스택 웹 프레임워크로, 웹 개발을 아주 빠르고 쉽게 진행할 수 있도록 해주는 프레임워크다. 웹 개발 입문을 위해 [Django 튜토리얼](https://docs.djangoproject.com/en/4.1/intro/tutorial01/)과 '[점프 투 장고](https://wikidocs.net/book/4223)'를 따라해보면서 Django를 공부해보려고 한다.  
+*The web framework for perfectionists with deadlines*라는 슬로건으로 제공되는 Django는 Python을 기반으로 하는 오픈 소스 풀 스택 웹 프레임워크로, 웹 개발을 아주 빠르고 쉽게 진행할 수 있도록 해주는 프레임워크다. 웹 개발 입문을 위해 [Django 튜토리얼](https://docs.djangoproject.com/en/4.1/intro/tutorial01/)과 [점프 투 장고](https://wikidocs.net/book/4223)를 따라해보면서 Django를 공부해보려고 한다.  
 
 ## 1. Django 설치
 
@@ -39,6 +39,8 @@ Django도 기본적으로 Python 라이브러리이기 때문에 `pip`를 통해
 {:.scroll-table}
 
 ## 2. Project 시작
+
+### 2-1. Project 생성
 
 Django 공식 홈페이지에서는 아래와 같은 명령어로 프로젝트를 시작하면 된다고 한다.  
 
@@ -70,6 +72,19 @@ Django 공식 홈페이지에서는 아래와 같은 명령어로 프로젝트�
   - WSGI 호환성을 위한 entry-point 파일([공식 문서](https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/))
 
 추가로, 대부분의 Python 프로젝트와 마찬가지로 프로젝트가 저장된 root 디렉토리의 이름은 아무 영향이 없어서 마음대로 바꿔도 된다고 한다. 다만 가상환경을 사용하는 경우 가상환경 구성에 문제가 생기니 root 디렉토리 이름을 바꾸면 안 된다.  
+
+### 2-2. 언어 및 시간대 설정
+
+`config/setting.py` 파일을 아래와 같이 수정해 프로젝트의 기본 언어와 시간대를 수정할 수 있다.  
+
+```python
+# Internationalization
+# https://docs.djangoproject.com/en/4.1/topics/i18n/
+
+LANGUAGE_CODE = 'ko'
+
+TIME_ZONE = 'Asia/Seoul'
+```
 
 ## 3. 개발 서버 구동
 

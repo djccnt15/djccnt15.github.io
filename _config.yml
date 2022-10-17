@@ -317,6 +317,8 @@ exclude:
   - vendor
   - Gemfile
   - Gemfile.lock
+  - .git
+  - .gitignore
 include:
   - .well-known
   - LICENSE.md

@@ -94,11 +94,11 @@ urlpatterns = [  # include() is a function for including url file in each app
 ```html
 {% extends 'base.html' %}
 {% block content %}
-<ul>
-  {% for url in url_list%}
-  <li><a href="{{ url.pattern }}">{{ url.namespace }}</a><br></li>
-  {% endfor %}
-</ul>
+  <ul>
+    {% for url in url_list%}
+      <li><a href="{{ url.pattern }}">{{ url.namespace }}</a></li>
+    {% endfor %}
+  </ul>
 {% endblock %}
 ```
 {% endraw %}
@@ -109,4 +109,4 @@ urlpatterns = [  # include() is a function for including url file in each app
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/clone-jump_to_django)
+- [전체 실습 코드](https://github.com/djccnt15/starting_django)
