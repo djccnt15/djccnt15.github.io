@@ -80,7 +80,9 @@ def detail(request, question_id):
     return render(request, 'board_qna/question_detail.html', context)
 ```
 
-`id`에 `-`를 붙였기 때문에 내림차순으로 정렬된다. `render()`는 템플릿과 데이터를 조합하여 [`HttpResponse` 객체](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)로 반환하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)에서 볼 수 있다.  
+`order_by()`는 QuerySet API로, QuerySet은 데이터베이스에서 가져온 객체들의 모음을 말한다. QuerySet API에 대한 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/querysets/)를 참고하자.  
+
+`render()`는 템플릿과 데이터를 조합하여 [`HttpResponse` 객체](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)로 반환하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)를 참고하자.
 
 ### 2-2. URL 매핑
 
@@ -98,7 +100,7 @@ urlpatterns = [
 ]
 ```
 
-`<int:question_id>`에서 볼 수 있듯이 변수를 활용한 URL을 매핑해주려면 angle brackets으로 감싸주면 되고, 해당 변수를 특정 타입으로 변환하도록 지정할 수 있다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/urls/#example) 참고  
+`<int:question_id>`에서 볼 수 있듯이 변수를 활용한 URL을 매핑해주려면 angle brackets으로 감싸주면 되고, 해당 변수를 특정 타입으로 변환하도록 지정할 수 있다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/urls/#example)를 참고하자.  
 
 ### 2-3. 템플릿 생성
 
@@ -120,7 +122,7 @@ urlpatterns = [
 ```
 {% endraw %}
 
-{% raw %}`{% url [URL_name] %}`{% endraw %} 태그는 [URL 매핑](#3-2-url-매핑)을 사용할 수 있도록 해준다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/intro/tutorial03/#removing-hardcoded-urls-in-templates) 참고  
+{% raw %}`{% url [URL_name] %}`{% endraw %} 태그는 [URL 매핑](#3-2-url-매핑)을 사용할 수 있도록 해준다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/intro/tutorial03/#removing-hardcoded-urls-in-templates)를 참고하자.  
 
 `templates/board_qna` 폴더에 `question_detail.html` 파일을 아래와 같이 생성해준다.  
 
@@ -136,8 +138,10 @@ urlpatterns = [
 admin 권한으로 샘플 데이터를 몇 개 생성한 후 확인해보면 결과물을 아래 화면과 같이 확인할 수 있다.  
 
 ![django_template_01](/assets/img/posts/django_template_01.png)
+{:.border-image}
 
 ![django_template_02](/assets/img/posts/django_template_02.png)
+{:.border-image}
 
 Django에서는 [Django 템플릿 언어](https://docs.djangoproject.com/en/4.1/ref/templates/language/)를 사용해서 템플릿을 작성한다. Jekyll에서 사용하는 [liquid](https://shopify.github.io/liquid/)와 별 차이는 없는 것 같다.  
 

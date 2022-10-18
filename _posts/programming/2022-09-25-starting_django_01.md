@@ -114,12 +114,14 @@ Quit the server with CTRL-BREAK.
 위와 같이 개발 서버가 작동하면 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)로 접속할 수 있고, `ctrl-c`로 서버를 중지할 수 있다. 개발 서버에 접속하면 아래와 같이 정상 작동 중인 것을 확인할 수 있다.  
 
 ![django_localhost](/assets/img/posts/django_localhost.png)
+{:.border-image}
 
 ## 4. Secret Key 숨기기
 
 구성한 프로젝트를 GitHub에 그대로 push 하면 *Django Secret Key exposed on GitHub*이라는 제목으로 경고가 날아온다.  
 
 ![django_secretkey_email](/assets/img/posts/django_secretkey_email.png)
+{:.border-image}
 
 Django 프로젝트의 Secret Key가 노출되었다는 것인데, Secret Key는 [디지털 서명](https://docs.djangoproject.com/en/1.11/topics/signing/)을 위해 사용되고, 사용 대상은 아래와 같다.  
 
@@ -128,7 +130,7 @@ Django 프로젝트의 Secret Key가 노출되었다는 것인데, Secret Key는
 - 모든 [`PasswordResetView`](https://docs.djangoproject.com/en/1.11/topics/auth/default/#django.contrib.auth.views.PasswordResetView) 토큰
 - 다른 키가 제공되지 않는 모든 [디지털 서명](https://docs.djangoproject.com/en/1.11/topics/signing/)
 
-Django의 Secret Key에 대한 상세한 설명은 [공식 문서](https://docs.djangoproject.com/en/1.11/ref/settings/#std:setting-SECRET_KEY)에서 확인할 수 있는데, Secret Key를 노출시키면 Django가 제공하는 보안 관련 기능을 무력화하니 주의하라고 한다.  
+Django의 Secret Key에 대한 상세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/settings/#std:setting-SECRET_KEY)에서 확인할 수 있는데, Secret Key를 노출시키면 Django가 제공하는 보안 관련 기능을 무력화하니 주의하라고 한다.  
 
 ![django_secretkey_warning](/assets/img/posts/django_secretkey_warning.png)
 

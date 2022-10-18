@@ -151,6 +151,7 @@ urlpatterns = [  # include() is a function for including url file in each app
 아래와 같은 화면으로 생성된다.  
 
 ![django_login](/assets/img/posts/django_login.png)
+{:.border-image}
 
 ### 1-5. 리다이렉트 지정
 
@@ -364,6 +365,7 @@ urlpatterns = [
 아래와 같은 화면으로 생성된다.  
 
 ![django_signup](/assets/img/posts/django_signup.png)
+{:.border-image}
 
 ## 4. 회원 탈퇴
 
@@ -440,7 +442,7 @@ def user_drop(request):
             return redirect('/common/login/')
     else:
         password_form = CheckPasswordForm(request.user)
-    context = {'password_form':password_form}
+    context = {'password_form': password_form}
     return render(request, 'common/user_drop.html', context)
 ```
 
@@ -488,6 +490,7 @@ urlpatterns = [
 아래와 같은 화면으로 생성된다.  
 
 ![django_user_drop](/assets/img/posts/django_user_drop.png)
+{:.border-image}
 
 ---
 ## Reference

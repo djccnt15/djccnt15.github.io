@@ -22,6 +22,7 @@ related_posts:
 [인덱스](https://en.wikipedia.org/wiki/Home_page) 페이지가 아래 사진처럼 아무 내용도 없고 404 에러만 보여줘서 개발 중인 페이지를 보고 싶을 경우 매번 주소를 입력해서 접속해야하는게 불편하다.  
 
 ![django_homepage_01](/assets/img/posts/django_homepage_01.png)
+{:.border-image}
 
 어차피 나중에 제대로 된 홈페이지를 만들때 써먹어야하니 이참에 복습 겸 임시로 쓸 인덱스 페이지를 만들어보기로 한다.  
 
@@ -106,6 +107,7 @@ urlpatterns = [  # include() is a function for including url file in each app
 아래와 같이 각 앱의 목록과 해당 앱의 메인 주소 링크를 보여준다.  
 
 ![django_homepage_02](/assets/img/posts/django_homepage_02.png)
+{:.border-image}
 
 ---
 ## Reference

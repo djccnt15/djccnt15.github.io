@@ -160,6 +160,7 @@ MIDDLEWARE = [
 아래와 같은 화면으로 생성된다.  
 
 ![django_bootstrap_02](/assets/img/posts/django_bootstrap_02.png)
+{:.border-image}
 
 #### 템플릿 포함
 
@@ -243,6 +244,7 @@ form의 에러를 확인하는 `form_errors.html` 파일은 아래와 같다.
 아래와 같은 화면으로 생성된다.  
 
 ![django_bootstrap_01](/assets/img/posts/django_bootstrap_01.png)
+{:.border-image}
 
 ## 3. 답변 등록 화면
 
@@ -377,6 +379,7 @@ urlpatterns = [
 아래와 같은 화면으로 생성된다.  
 
 ![django_bootstrap_03](/assets/img/posts/django_bootstrap_03.png)
+{:.border-image}
 
 ---
 ## Reference

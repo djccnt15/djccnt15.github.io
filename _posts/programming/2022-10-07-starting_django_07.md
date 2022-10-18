@@ -1,15 +1,16 @@
 ---
 published: true
 layout: post
-title: '[Django] 07. 페이징'
+title: '[Django] 07. 페이지네이션'
 description: >
-  페이징과 템플릿 필터
+  페이지네이션과 템플릿 필터
 categories: [Programming]
 tags: [Django]
 image:
   path: /assets/img/posts/django_starting.png
 related_posts:
   - _posts/programming/2022-10-03-starting_django_06.md
+  - _posts/programming/2022-10-15-starting_django_08.md
 ---
 * toc
 {:toc}
@@ -45,7 +46,7 @@ def sub(value, arg):
 ```
 {% endraw %}
 
-## 2. 페이징
+## 2. 페이지네이션
 
 ### 2-1. view 수정
 
@@ -82,13 +83,24 @@ def index(request):
 
 ### 2-2. 템플릿 수정
 
-페이징을 적용할 `template/board_qna/question_list.html` 파일의 적당한 위치에 아래 내용을 추가해 적용하면 된다.  
+페이지네이션을 적용할 `template/board_qna/question_list.html` 파일의 적당한 위치에 아래 내용들을 추가해 적용하면 된다.  
 
 {% raw %}
 ```html
 {% load board_qna_filter %}
 ```
 {% endraw %}
+
+우선 앞서 설명한 바와 같이 {% raw %}`{% load [source] %}`{% endraw %} 태그를 통해 템플릿 필터를 호출해준다. 참고로 {% raw %}`{% load [source] %}`{% endraw %} 태그와 {% raw %}`{% extends [source] %}`{% endraw %} 태그가 같이 쓰일 경우, 아래와 같이 {% raw %}`{% extends [source] %}`{% endraw %} 태그가 먼저 나와야 한다.  
+
+{% raw %}
+```liquid
+{% extends [source] %}
+{% load [source] %}
+```
+{% endraw %}
+
+다음으로는 사용자 화면에서 실제로 페이지네이션을 보여줄 위치에 아래와 같이 페이지네이션 코드를 넣어주면 된다.  
 
 {% raw %}
 ```html
@@ -161,15 +173,6 @@ def index(request):
 ```
 {% endraw %}
 
-참고로 {% raw %}`{% load [source] %}`{% endraw %} 태그와 {% raw %}`{% extends [source] %}`{% endraw %} 태그가 같이 쓰일 경우, 아래와 같이 {% raw %}`{% extends [source] %}`{% endraw %} 태그가 먼저 나와야 한다.  
-
-{% raw %}
-```liquid
-{% extends [source] %}
-{% load [source] %}
-```
-{% endraw %}
-
 ### 2-3. 테스트 데이터 생성
 
 Django shell을 사용해서 테스트 데이터를 생성하자.  
@@ -192,9 +195,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 ...     q.save()
 ```
 
-페이징이 적용된 결과는 아래와 같다.  
+페이지네이션이 적용된 결과는 아래와 같다.  
 
 ![django_paging](/assets/img/posts/django_paging.png)
+{:.border-image}
 
 ---
 ## Reference

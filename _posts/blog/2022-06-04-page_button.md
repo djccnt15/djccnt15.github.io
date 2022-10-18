@@ -23,12 +23,12 @@ related_posts:
 <div class="page-control">
   <div>
     {% if page.previous.url %}
-    &laquo; <a id="prev" class="flip-title" href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+      &laquo; <a id="prev" class="flip-title" href="{{ page.previous.url }}">{{ page.previous.title }}</a>
     {% endif %}
   </div>
   <div>
     {% if page.next.url %}
-    <a id="next" class="flip-title" href="{{ page.next.url }}">{{ page.next.title }}</a> &raquo;
+      <a id="next" class="flip-title" href="{{ page.next.url }}">{{ page.next.title }}</a> &raquo;
     {% endif %}
   </div>
 </div>

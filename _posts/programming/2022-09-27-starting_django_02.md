@@ -404,12 +404,12 @@ Superuser created successfully.
 접속하면 아래와 같이 관리자 로그인 화면이 뜬다.  
 
 ![django_admin_login](/assets/img/posts/django_admin_login.png)
-{:.text-center}
+{:.border-image}
 
 앞에서 설정한 이름과 비밀번호를 통해 접속하면 아래와 같이 관리자 화면이 나타난다.  
 
 ![django_admin_page_01](/assets/img/posts/django_admin_page_01.png)
-{:.text-center}
+{:.border-image}
 
 ### 3-2. 모델 관리 권한 부여
 
@@ -428,10 +428,10 @@ admin.site.register(Answer)
 로컬호스트 서버에서 아래와 같이 관리자가 글을 직접 관리할 수 있는 것을 확인할 수 있다.  
 
 ![django_admin_page_02](/assets/img/posts/django_admin_page_02.png)
-{:.text-center}
+{:.border-image}
 
 ![django_admin_page_03](/assets/img/posts/django_admin_page_03.png)
-{:.text-center}
+{:.border-image}
 
 만약 관리자에게 검색 기능을 주고 싶다면 아래와 같이 작성하면 된다.  
 
