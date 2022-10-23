@@ -167,7 +167,7 @@ STATICFILES_DIRS = [
 
 원래라면 `static/style.css` 파일을 생성해 css로 스타일을 만들어줘야 하나 빠르게 구현해보기 위해 Bootstrap을 사용하기로 한다. 본 프로젝트에서는 v5.2를 사용했다.  
 
-[Bootstrap](https://getbootstrap.com/) 홈페이지에서 [Compiled CSS and JS](https://getbootstrap.com/docs/5.2/getting-started/download/#compiled-css-and-js)를 다운받고, `css/bootstrap.min.css` 파일을 `static` 디렉토리에 저장하자.  
+[Bootstrap](https://getbootstrap.com/) 홈페이지에서 [Compiled CSS and JS](https://getbootstrap.com/docs/5.2/getting-started/download/#compiled-css-and-js)를 다운받아 `bootstrap.min.css` 파일과 `bootstrap.min.js` 파일을 `static` 디렉토리에 저장하자.  
 
 ### 3-3. 기본 템플릿 생성 및 포함
 

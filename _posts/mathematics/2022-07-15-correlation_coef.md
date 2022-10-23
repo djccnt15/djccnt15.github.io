@@ -4,7 +4,7 @@ layout: post
 title: '[상관분석] 상관 계수'
 description: >
   python으로 상관 계수 구현하기
-categories: [DataAnalysis]
+categories: [Mathematics]
 tags: [data analysis, correlation]
 image:
   path: /assets/img/posts/plot_corr.png
@@ -38,20 +38,24 @@ $$Cov(X,Y) = \frac{\sum_{i}^{n}(X_{i} - \overline{X})(Y_{i} - \overline{Y})}{n -
 표본 공분산을 Python으로 구현하면 아래와 같다.  
 
 ```python
-# expected value of x
-def bar(x):
-    res = sum(x) / len(x)
+def bar(x: list) -> float:
+    """
+    returns expectation of discrete probability distribution
+    """
 
+    res = sum(x) / len(x)
     return res
 
-# covariance
-def cov(a, b):
+
+def cov(a: list, b: list) -> float:
+    """
+    returns covariance of two random variables
+    """
+
     n = len(a)
     a_bar = bar(a)
     b_bar = bar(b)
-
     res = sum((a[i] - a_bar) * (b[i] - b_bar) for i in range(n)) / (n - 1)
-
     return res
 ```
 
@@ -93,10 +97,12 @@ r_{xy} & = \frac{\mathrm{Cov}[X, Y]}{\sqrt{\mathrm{Var}[X] \cdot \mathrm{Var}[Y]
 Python으로 구현하면 아래와 같다.  
 
 ```python
-# correlation pearson
-def pearson(a, b):
-    res = cov(a, b) / ((cov(a, a) * cov(b, b)) ** 0.5)
+def pearson(a: list, b: list) -> float:
+    """
+    returns Pearson correlation coefficient(Pearson r) of two random variables
+    """
 
+    res = cov(a, b) / ((cov(a, a) * cov(b, b)) ** 0.5)
     return res
 ```
 

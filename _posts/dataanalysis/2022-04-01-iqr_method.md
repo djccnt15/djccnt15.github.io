@@ -31,7 +31,6 @@ scikit-learn 패키지의 경우 **outlier detection**와 **novelty detection**�
 |outlier detection|novelty detection|
 |-|-|
 |The training data contains outliers which are defined as observations that are far from the others. Outlier detection estimators thus try to fit the regions where the training data is the most concentrated, ignoring the deviant observations.|The training data is not polluted by outliers and we are interested in detecting whether a new observation is an outlier. In this context an outlier is also called a novelty.|
-{:.scroll-table}
 
 ## 1. 이상치 탐지 방법
 
