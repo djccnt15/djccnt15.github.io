@@ -10,6 +10,7 @@ image:
   path: /assets/img/posts/django_starting.png
 related_posts:
   - _posts/programming/2022-10-07-starting_django_07.md
+  - _posts/programming/2022-10-16-starting_django_09.md
 ---
 * toc
 {:toc}

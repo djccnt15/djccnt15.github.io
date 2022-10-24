@@ -59,9 +59,19 @@ Found 1 error in 1 file (checked 1 source file)
 
 ### IDE 기능 사용
 
-VSCode에서 Python 스크립트를 코딩할 때 사용하는 extension 중 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)가 있다. Pylanc`의 `Type Checking Mode`옵션을 켜주면 아래 그림과 같이 데이터의 자료형을 검사해준다.  
+VSCode에서 Python 스크립트를 코딩할 때 사용하는 extension 중 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)가 있다. Pylance의 `Type Checking Mode`옵션을 켜주면 아래 그림과 같이 데이터의 자료형을 검사해준다.  
 
-![python_type_cheking_pylance](/assets/img/posts/python_type_cheking_pylance.png)
+![python_type_checking_pylance](/assets/img/posts/python_type_checking_pylance.png)
+
+### Annotation 무시하기
+
+이런저런 이유로 Annotation을 무시하고 싶을 수도 있는데, 이 때는 아래와 같이 `# type: ignore` 주석을 해당 라인 뒤에 붙여주면 된다.  
+
+```python
+a: int = "a"  # type: ignore
+```
+
+![python_type_checking_ignore](/assets/img/posts/python_type_checking_ignore.png)
 
 ---
 ## Reference

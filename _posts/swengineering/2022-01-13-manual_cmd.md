@@ -34,6 +34,18 @@ $ clear --help
 
 terminal은 windows cmd의 `esc`에 대응하는 기능의 단축키가 없으며, `ctrl + u`는 엄밀히 말하면 커서의 왼쪽을 지우는 하는 단축키고, 커서 오른쪽을 지우는 단축키는 `ctrl + k`이다.  
 
+### 1-3. type/cat
+
+파일의 내용을 보여준다.  
+
+```powershell
+# windows
+> type <file_name>
+
+# linux
+$ cat <file_name>
+```
+
 ## 2. 작업용 명령어들
 
 ### 2-1. where/which/find
