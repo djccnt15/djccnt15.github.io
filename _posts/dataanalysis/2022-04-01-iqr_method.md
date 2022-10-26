@@ -162,7 +162,7 @@ def drop_outlier(df, col, reset_idx=False, weight=1.5):
     return df
 ```
 
-대충 봐도 알겠지만, `pandas`의 `DataFrame`구조의 데이터셋에서 이상치를 찾아내고 제거하는 방식의 함수로 구현했다. 필요한 내용에 따라 수정해서 쓰면 된다.  
+대충 봐도 알겠지만, pandas의 `DataFrame`구조의 데이터셋에서 이상치를 찾아내고 제거하는 방식의 함수로 구현했다. 필요한 내용에 따라 수정해서 쓰면 된다.  
 
 ---
 ## Reference

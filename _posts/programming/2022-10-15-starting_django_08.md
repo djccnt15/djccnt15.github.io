@@ -51,7 +51,7 @@ class Answer(models.Model):
     """
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='question_answers')
     content = models.TextField()
     date_create = models.DateTimeField()
     date_modify = models.DateTimeField(null=True, blank=True)
@@ -60,29 +60,15 @@ class Answer(models.Model):
         return self.content
 ```
 
-💡 데이터 모델의 필드 옵션에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-options)에서 볼 수 있는데, `null` 옵션은 데이터베이스에 관련된 옵션이고, `blank`는 데이터 검사에 관련된 옵션이다.  
+💡 데이터 모델의 필드 옵션에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-options)에서 볼 수 있는데, `null` 옵션은 데이터베이스에 관련된 옵션이고, `blank`는 데이터 검사에 관련된 옵션이다. 또한 데이터 모델에서 `related_name` 파라미터를 통해 관계 모델을 호출할 이름을 설정해줄 수 있다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.ForeignKey.related_name) 참고  
 {:.note}
 
 모델을 변경한 후에는 데이터베이스에 적용하기 위한 마이그레이션을 진행해야한다.  
 
 ```powershell
 > manage.py makemigrations
-```
-```
-Migrations for 'board_qna':
-  board_qna\migrations\0004_answer_date_modify_question_date_modify.py
-    - Add field date_modify to answer
-    - Add field date_modify to question
-```
 
-```powershell
 > manage.py migrate
-```
-```
-Operations to perform:
-  Apply all migrations: admin, auth, board_qna, contenttypes, sessions
-Running migrations:
-  Applying board_qna.0004_answer_date_modify_question_date_modify... OK
 ```
 
 ### 1-2. view 생성
@@ -236,15 +222,15 @@ urlpatterns = [
 
 ### 2-3. 확인용 팝업 생성
 
-`static` 디렉토리에 `delete_elements.js` 파일을 만들어서 HTML 페이지에서 `delete` 클래스를 갖는 요소가 클릭 될 경우 삭제 여부 확인 팝업을 띄우는 JavaScript를 만들어준다.  
+`static` 디렉토리에 `delete.js` 파일을 만들어서 HTML 페이지에서 `delete` 클래스를 갖는 요소가 클릭 될 경우 삭제 여부 확인 팝업을 띄우는 JavaScript를 만들어준다.  
 
 ```javascript
 const delete_elements = document.getElementsByClassName("delete");
 Array.from(delete_elements).forEach(function (element) {
   element.addEventListener(type='click', listener=function () {
-    if (confirm(message="정말로 삭제 하시겠습니까?")) {
+    if (confirm(message="정말로 삭제하시겠습니까?")) {
       location.href = this.dataset.uri;
-    }
+    };
   });
 });
 ```
@@ -255,11 +241,11 @@ Array.from(delete_elements).forEach(function (element) {
 <a href="javascript:void(0)" class="delete">삭제</a>
 ```
 
-모질라의 공식 웹사이트인 [MDN](https://developer.mozilla.org/)에서는 이런 가짜 `<a>` 태그보다는, 대신 `<button>` 태그를 사용할 것을 [권장](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#onclick_events)하고 있다.  
+모질라의 공식 웹사이트인 [MDN](https://developer.mozilla.org/)에서는 이런 가짜 `<a>` 태그보다는 `<button>` 태그를 사용할 것을 [권장](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#onclick_events)하고 있다.  
 
 ## 3. 템플릿 수정
 
-`template/board_qna/question_detail.html` 템플릿을 아래와 같이 수정하여 질문과 답변의 수정 및 삭제 버튼을 만들어주고, 수정될 경우 최종 수정 날짜를 표시하도록 만들어준다.  
+`template/board_qna/question_detail.html` 템플릿을 아래와 같이 수정하여 질문과 답변의 수정 및 삭제 버튼을 만들어주고, 수정될 경우 최종 수정 날짜를 표시하도록 만들어준다. 또한 앞서 데이터 모델을 수정하면서 `related_name` 파라미터를 설정해주었기 때문에 `question.answer_set` 대신에 `question.question_answers`를 사용해서 관계 모델을 호출해준다.  
 
 {% raw %}
 ```html
@@ -302,8 +288,8 @@ Array.from(delete_elements).forEach(function (element) {
       </div>
     </div>
     <!-- answer -->
-    <h5 class="border-bottom my-3 py-2">{{question.answer_set.count}}개의 답변이 있습니다.</h5>
-    {% for answer in question.answer_set.all %}
+    <h5 class="border-bottom my-3 py-2">{{ question.question_answers.count }}개의 답변이 있습니다.</h5>
+    {% for answer in question.question_answers.all %}
       <div class="card my-3">
         <div class="card-body">
           <div class="card-text" style="white-space: pre-line;">{{ answer.content }}</div>
@@ -348,7 +334,7 @@ Array.from(delete_elements).forEach(function (element) {
 {% endblock %}
 {% block script %}
   {% load static %}
-  <script type="text/javascript" src="{% static 'delete_elements.js' %}"></script>
+  <script type="text/javascript" src="{% static 'delete.js' %}"></script>
 {% endblock %}
 ```
 {% endraw %}

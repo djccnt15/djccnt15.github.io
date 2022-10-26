@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: '[Pandas] pandas 옵션 설정'
+title: '[pandas] pandas 옵션 설정'
 description: >
   pandas.set_option 사용법
 categories: [DataAnalysis]

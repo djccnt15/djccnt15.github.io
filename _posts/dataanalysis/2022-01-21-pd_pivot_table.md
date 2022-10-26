@@ -1,11 +1,11 @@
 ---
 published: true
 layout: post
-title: '[PivotTable] pandas 피봇 테이블 분석'
+title: '[pandas] Pivot Table 분석'
 description: >
-  pandas pivot_table, groupby
+  pandas의 pivot_table, groupby API로 피봇 테이블 분석하기
 categories: [DataAnalysis]
-tags: [data analysis, pandas]
+tags: [Pivot Table, pandas]
 image:
   path: /assets/img/posts/pd_pivot_table.png
 related_posts:
@@ -19,9 +19,10 @@ related_posts:
 샘플데이터는 `pydataset` 패키지가 제공하는 `Housing`을 사용한다.  
 
 ```python
+import pandas as pd
 import pydataset as pds
 
-df = pds.data('Housing')
+df = pd.DataFrame(pds.data('Housing'))
 
 print(df)
 ```
@@ -44,9 +45,9 @@ print(df)
 
 ## 1. pandas.pivot_table
 
-엑셀에는 데이터 재구조화 및 요약 기능을 제공하는 `pivot table`이라는 아주 강력한 데이터 분석 툴이 있다. 거의 똑같은 기능을 `pandas`에서도 `pivot_table`이라는 함수를 통해 제공하는데 심지어 공식문서에서 대놓고 `An Excel style pivot table.`을 리턴한다고 명시하고 있다.  
+엑셀에는 데이터 재구조화 및 요약 기능을 제공하는 `pivot table`이라는 아주 강력한 데이터 분석 툴이 있다. 거의 똑같은 기능을 pandas에서도 `pivot_table`이라는 함수를 통해 제공하는데 심지어 공식문서에서 대놓고 `An Excel style pivot table.`을 리턴한다고 명시하고 있다.  
 
-`pivot_table`은 요약할 데이터를 인자로 받는 함수다. `pandas.pivot_table`의 주요 인자들은 아래와 같다.  
+pandas의 `pivot_table`은 요약할 데이터를 인자로 받는 함수로 주요 파라미터들은 아래와 같다.  
 
 - data: 분석할 데이터  
 - values: 요약될 값  
@@ -162,10 +163,10 @@ yes   no          6540  3968.000000  2175      15
 
 ## 2. pandas.DataFrame.groupby
 
-`groupby`는 `pivot_table`과 비슷한 기능을 하는 DataFrame의 메서드로 그룹화에 강점이 있다. `pandas.DataFrame.groupby`의 주요 인자는 아래와 같다.  
+`groupby`는 `pivot_table`과 비슷한 기능을 하는 `DataFrame`의 메서드로 SQL의 [GROUP BY](/computerscience/sql_06/#3-group-by) 명령어와 유사하게 작동한다. `pandas.DataFrame.groupby`의 주요 파라미터는 아래와 같다.  
 
 - by: 요약될 칼럼  
-- axis: 0 or ‘index’, 1 or ‘columns’  
+- axis: 0 or 'index', 1 or 'columns'  
 
 `recroom`과 `bedrooms` 값의 요약을 아래와 같이 구할 수 있다.  
 
@@ -190,6 +191,8 @@ yes      2            16
          5             2
 dtype: int64
 ```
+
+[공식 문서](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html)를 참고하면, `groupby` 메서드는 특이하게 `DataFrame` 객체가 아닌 `DataFrameGroupBy` 객체를 반환한다. 따라서 출력할 값을 `size`/`mean`/`count` 등의 메서드로 다시 호출해줘야 한다.  
 
 ---
 ## Reference

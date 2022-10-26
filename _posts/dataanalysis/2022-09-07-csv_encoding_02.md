@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: '[Pandas] UnicodeDecodeError 해결'
+title: '[pandas] UnicodeDecodeError 해결'
 description: >
   read_csv encoding으로 UnicodeDecodeError 해결하기
 categories: [DataAnalysis]
@@ -16,7 +16,7 @@ related_posts:
 
 ## UnicodeDecodeError
 
-`pandas`로 `csv`파일을 읽으려다보면 아래와 같이 인코딩으로 인한 문제가 발생하는 경우가 있다.  
+pandas로 csv 파일을 읽으려다보면 아래와 같이 인코딩으로 인한 문제가 발생하는 경우가 있다.  
 
 ```
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc3 in position 8: invalid continuation byte

@@ -193,7 +193,7 @@ form의 에러를 확인하는 `form_errors.html` 파일은 아래와 같다.
 
 ## 2. 질문 목록 화면 수정
 
-`question_list.html` 파일을 아래와 같이 수정하여 질문 목록 화면을 만들어준다.  
+`question_list.html` 파일을 아래와 같이 수정하여 질문 목록 화면을 만들어준다. 중간에 `question.answer_set`은 데이터 모델에서 작성하지 않았는데, 데이터 모델에서 관계된 모델이 있을 경우 모델에 사용자가 직접 지정하지 않더라도 Django가 연결된 객체에 자동으로 `{model}_set`라는 이름을 부여해준다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/db/queries/#related-objects) 참고  
 
 {% raw %}
 ```html
@@ -347,7 +347,7 @@ urlpatterns = [
       </div>
     </div>
     <!-- answer -->
-    <h5 class="border-bottom my-3 py-2">{{question.answer_set.count}}개의 답변이 있습니다.</h5>
+    <h5 class="border-bottom my-3 py-2">{{ question.answer_set.count }}개의 답변이 있습니다.</h5>
     {% for answer in question.answer_set.all %}
       <div class="card my-3">
         <div class="card-body">

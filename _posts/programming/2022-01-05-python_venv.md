@@ -49,11 +49,10 @@ Python은 라이브러리 버전 관리가 중요하기 때문에 프로젝트 �
 # basic command
 > [your_python_location] -m venv [venv_name]
 
-# my python3.9
+# my case
 > C:\python\Python39\python.exe -m venv [venv_name]
-
-# my python3.10
 > C:\python\Python310\python.exe -m venv [venv_name]
+> C:\python\Python311\python.exe -m venv [venv_name]
 ```
 
 나의 경우에는 `C:\python\` 경로에 Python을 설치하기 때문에 해당 위치를 지정해준다.  

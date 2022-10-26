@@ -81,7 +81,7 @@ print(add.__annotations__)
 
 ## Documentation Strings
 
-함수에 대한 설명(Docstring)을 코드 내부에 작성하고 싶을 때는 아래와 같이 작성하면 된다. `__doc__` 속성을 사용해서 내용을 확인할 수 있다.
+함수에 대한 설명(Docstring)을 코드 내부에 작성하고 싶을 때는 아래와 같이 작성하면 된다. `__doc__` 속성을 사용해서 내용을 확인할 수 있다.  
 
 ```python
 def add(a, b):
@@ -96,7 +96,7 @@ this is test function
 
 ## *args, **kwargs
 
-`asterisk`를 사용해서 하나의 인자가 여러개의 입력값을 받거나 여러개의 인자가 하나의 집합객체를 각각 입력받는 함수를 만들 수 있다. 각각 `packing`, `unpacking`이라고 한다. 같은 개념인데, `asterisk`가 `parameter`에 붙는지 아니면 `input`에 붙는지만 달라진다고 보면 된다.  
+`asterisk`를 사용해서 하나의 파라미터가 여러 개의 입력값을 받거나 여러 개의 파라미터가 하나의 집합객체를 각각 입력받는 함수를 만들 수 있다. 각각 `packing`, `unpacking`이라고 한다. 같은 개념인데, `asterisk`가 `parameter`에 붙는지 아니면 `input`에 붙는지만 달라진다고 보면 된다.  
 
 ```python
 a = [1, 2]

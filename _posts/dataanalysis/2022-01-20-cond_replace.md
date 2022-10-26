@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: '[Pandas] DataFrame의 조건부 변환'
+title: '[pandas] DataFrame의 조건부 변환'
 description: >
   조건에 따라 데이터를 특정하게 수정하는 방법들
 categories: [DataAnalysis]
@@ -108,7 +108,7 @@ print(df)
 
 내가 가장 선호하는 방식으로, 앞선 두 방법들은 하나의 조건에 따른 `True/False` 결과만을 연산하기 때문에 조건의 목록을 늘리고 싶을 경우 연산을 여러차례 진행해야 하며 연산 순서를 신경 써야 하는 반면 `numpy.select`는 조건의 리스트를 무한정 늘릴 수 있고, 연산 순서는 고려하지 않아도 된다.  
 
-함수의 주요 인자는 아래와 같다.  
+함수의 주요 파라미터는 아래와 같다.  
 
 - condlist: choicelist가 적용될 조건으로, **여러 조건을 동시에 만족하면 가장 처음 조건이 적용된다.**  
 - choicelist: condlist에 따라 반환된 요소에 적용될 계산으로, **반드시 condlist와 길이가 동일해야 한다.**  

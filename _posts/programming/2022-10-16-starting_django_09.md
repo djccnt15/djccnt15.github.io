@@ -49,7 +49,7 @@ def index(request):
     """
 
     page = request.GET.get(key='page', default='1')  # get value of 'page' from HTTP Request
-    question_list = Question.objects.order_by('-id').exclude()  # order by id desc
+    question_list = Question.objects.order_by('-id')  # order by id desc
     paginator = Paginator(object_list=question_list, per_page=10)  # number of object per page
     page_obj = paginator.get_page(number=page)  # page to return
     total_pages = paginator.num_pages  # get number of total pages

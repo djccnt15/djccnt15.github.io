@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: '[Pandas] csv 인코딩'
+title: '[pandas] csv 인코딩'
 description: >
   pandas로 csv 인코딩 바꾸기
 categories: [DataAnalysis]
@@ -16,9 +16,7 @@ related_posts:
 
 ## csv encoding
 
-인터넷에서 가져온 csv파일의 경우 위와 같이 인코딩 문제로 다 깨져서 나오는 경우가 많다. 이럴 때는 메모장으로 열어서 인코딩을 `ANSI`나 `UTF-8(BOM)`으로 변경하여 저장하면 되기는 하는데, `pandas`를 사용해서 바꿔주는 방법은 아래와 같다.  
-
-`encoding` 인자를 `'utf-8-sig'`로 지정해주면 된다.  
+인터넷에서 가져온 csv 파일의 경우 위와 같이 인코딩 문제로 다 깨져서 나오는 경우가 많다. 이럴 때는 메모장으로 열어서 인코딩을 `ANSI`나 `UTF-8(BOM)`으로 변경하여 저장하면 되기는 하는데, pandas를 사용해서 바꿔주려면 아래와 같이 `encoding` 파라미터를 `'utf-8-sig'`로 지정해주면 된다.  
 
 ```python
 import pandas as pd
