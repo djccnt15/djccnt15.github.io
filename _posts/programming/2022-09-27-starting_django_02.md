@@ -184,7 +184,7 @@ DATABASES = {
 }
 ```
 
-Django가 지원하는 여러가지 DB의 백엔드 엔진은 아래와 같다.  
+Django가 지원하는 여러 가지 DB의 백엔드 엔진은 아래와 같다.  
 
 - PostgreSQL
   - `django.db.backends.postgresql`

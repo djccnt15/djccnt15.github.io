@@ -7,7 +7,7 @@ description: >
 categories: [Programming]
 tags: [python]
 image:
-  path: /assets/img/posts/python_type_cheking_pylance.png
+  path: /assets/img/posts/python_type_checking_pylance.png
 related_posts:
   - _posts/category/0000-01-01-format_post.md
 ---
@@ -52,7 +52,7 @@ Found 1 error in 1 file (checked 1 source file)
 
 이렇게 타입 에러를 검사해준다. 참고로 Python의 Annotations은 comment와 마찬가지로 강제성이 전혀 없기 때문에 실행 시에 Annotations을 작성해주는 것 자체로는 런타임 시에 에러가 나지는 않는다.  
 
-![python_type_cheking_mypy](/assets/img/posts/python_type_cheking_mypy.png)
+![python_type_checking_mypy](/assets/img/posts/python_type_checking_mypy.png)
 
 💡 참고로 [Variable Annotations](https://peps.python.org/pep-0008/#variable-annotations)는 Python 3.6 부터 도입된 일종의 주석 기능으로, [PEP 526](https://peps.python.org/pep-0526/)에서 세부 내용을 확인할 수 있다.  
 {:.note}
