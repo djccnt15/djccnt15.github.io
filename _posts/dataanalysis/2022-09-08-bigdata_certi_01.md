@@ -3,9 +3,9 @@ published: true
 layout: post
 title: '[빅분기] 실기 대비 01'
 description: >
-  빅데이터분석기사 실기 예제 문제 풀이
+  빅데이터 분석기사 실기 예제 문제 풀이
 categories: [DataAnalysis]
-tags: [data analysis, 빅데이터분석기사]
+tags: [data analysis, Bigdata Certificate]
 image:
   path: /assets/img/posts/bigdata_certi.png
 related_posts:
@@ -18,7 +18,7 @@ related_posts:
 
 ## 개요
 
-한국데이터산업진흥원에서 공개한 빅데이터분석기사 실기 예제가 있어 풀이해둔다. `파이썬패키지.txt` 파일을 보면 이런저런 패키지들이 잔뜩 들어있는데, 핵심적인 패키지들은 아래와 같다.  
+한국데이터산업진흥원에서 공개한 빅데이터 분석기사 실기 예제가 있어 풀이해둔다. `파이썬패키지.txt` 파일을 보면 이런저런 패키지들이 잔뜩 들어있는데, 핵심적인 패키지들은 아래와 같다.  
 
 ```
 numpy
@@ -28,7 +28,7 @@ scipy
 xgboost
 ```
 
-`pip install` 명령어를 사용해서 각각의 패키지들을 설치해주자. Python 환경을 분리해야할 경우 [가상환경](/programming/python_venv/)을 만들어서 작업하면 된다.  
+`pip install` 명령어를 사용해서 각각의 패키지들을 설치해주자. Python 환경을 분리해야할 경우 [가상환경](/python/python_venv/)을 만들어서 작업하면 된다.  
 
 ## 작업형 제1유형 : 데이터 처리 영역
 

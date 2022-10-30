@@ -47,7 +47,7 @@ print(df)
 
 엑셀에는 데이터 재구조화 및 요약 기능을 제공하는 `pivot table`이라는 아주 강력한 데이터 분석 툴이 있다. 거의 똑같은 기능을 pandas에서도 `pivot_table`이라는 함수를 통해 제공하는데 심지어 공식문서에서 대놓고 `An Excel style pivot table.`을 리턴한다고 명시하고 있다.  
 
-pandas의 `pivot_table`은 요약할 데이터를 인자로 받는 함수로 주요 파라미터들은 아래와 같다.  
+pandas의 `pivot_table`은 요약할 데이터를 인수로 받는 함수로 주요 파라미터들은 아래와 같다.  
 
 - data: 분석할 데이터  
 - values: 요약될 값  

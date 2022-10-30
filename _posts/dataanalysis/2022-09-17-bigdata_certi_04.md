@@ -3,9 +3,9 @@ published: true
 layout: post
 title: '[빅분기] 실기 대비 04'
 description: >
-  빅데이터분석기사 실기 기출 작업형 문제 3회차 풀이
+  빅데이터 분석기사 실기 기출 작업형 문제 3회차 풀이
 categories: [DataAnalysis]
-tags: [data analysis, 빅데이터분석기사]
+tags: [data analysis, Bigdata Certificate]
 image:
   path: /assets/img/posts/bigdata_certi.png
 related_posts:
@@ -18,7 +18,7 @@ related_posts:
 
 ## 개요
 
-빅데이터분석기사 실기 준비를 위한 3회차 시험 작업형 기출 문제 답 정리. 응시자들의 기억에 의존한 복원이기 때문에 틀린 복원 있을 수 있음  
+빅데이터 분석기사 실기 준비를 위한 3회차 시험 작업형 기출 문제 답 정리. 응시자들의 기억에 의존한 복원이기 때문에 틀린 복원 있을 수 있음  
 
 ## 작업형 1유형
 

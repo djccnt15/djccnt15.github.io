@@ -4,7 +4,7 @@ layout: post
 title: '[topic] title of the post'
 description: >
   description of the post
-categories: [category]
+categories: [Category]
 tags: [tag]
 image:
   path: /assets/img/posts/github_pages.png
