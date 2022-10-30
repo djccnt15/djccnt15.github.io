@@ -116,10 +116,30 @@
   white-space: nowrap;
 }
 
+// break point
+
+$small: 600px;
+$medium: 768px;
+$medium-wide: 900px;
+$large: 1024px;
+$x-large: 1280px;
+$xx-large: 1440px;
+
 // taxonomy__index columns
 
 .taxonomy__index {
   column-count: 2;
+  justify-content: space-evenly;
+
+  @media (min-width: $small) {
+    column-count: 2;
+  }
+  @media (min-width: $medium) {
+    column-count: 3;
+  }
+  @media (min-width: $x-large) {
+    column-count: 4;
+  }
 }
 
 .archive__item {
