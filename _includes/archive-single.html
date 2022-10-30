@@ -1,27 +1,11 @@
-{% assign format = include.format | default:site.data.date_formats.related_post | default:"%Y-%m-%d" %}
-
-{% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
-{% else %}
-  {% assign teaser = site.teaser %}
-{% endif %}
-
-{% if post.id %}
-  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
-{% else %}
-  {% assign title = post.title %}
-{% endif %}
-
-<div class="{{ include.type | default: 'list' }}__item">
+<div>
   <article class="archive__item">
     <b>
-      <time class="faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:format }}</time>
-      {% if post.link %}
-        <a href="{{ post.link }}">{{ post.title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><span class="sr-only">Permalink</span></a>
-      {% else %}
-        <a href="{{ post.url | relative_url }}" rel="permalink" class="flip-title">{{ post.title }}</a>
-      {% endif %}
+      <time class="faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+      <a href="{{ post.url | relative_url }}" rel="permalink" class="flip-title">{{ post.title }}</a>
     </b>
-    {% if post.description %}<p class="description">{{ post.description | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% if post.description %}
+      <p class="description">{{ post.description | markdownify | strip_html | truncate: 160 }}</p>
+    {% endif %}
   </article>
 </div>
