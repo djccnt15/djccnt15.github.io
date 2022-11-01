@@ -194,7 +194,7 @@ def answer_delete(request, answer_id):
 
 각 모듈을 정리한 후에 기존의 `views.py`를 삭제해준다.  
 
-### 3. URL 매핑
+## 3. URL 매핑
 
 `board_qna/urls.py`를 아래와 같이 수정하여 변경된 모듈로 view를 매핑해준다.  
 
