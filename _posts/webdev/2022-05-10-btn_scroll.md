@@ -58,7 +58,7 @@ body 위치에 들어갈 HTML 코드는 `_includes/my-body.html`을 수정해서
   <img src="/assets/img/blog/arrow_down.png" class="scroll_bot" alt="bottom" id="scroll_bot">
   <a href="/"><img src="/assets/img/blog/home.png" class="btn_home" alt="home"></a>
 </div>
-<script src="/assets/js/my-body.js"></script>
+<script type="text/javascript" src="/assets/js/my-body.js"></script>
 ```
 
 ## 3. 버튼에 기능 넣기

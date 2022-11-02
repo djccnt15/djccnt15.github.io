@@ -49,7 +49,7 @@ Google Analytics를 적용할 페이지의 `<head>`에 입력하라고 설명되
 ```html
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-**********"></script>
-<script src="/assets/js/my-head.js"></script>
+<script type="text/javascript" src="/assets/js/my-head.js"></script>
 ```
 
 JavaScript 조건문을 사용해 GitHub pages를 통해서 배포 되었을 때만 코드가 적용되도록 수정하였다.  
