@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: '[Python] 정적 언어처럼 사용하기'
+title: '[Python] 정적 타입 언어처럼 사용하기'
 description: >
   python에서 변수 타입을 고정하고 엄격하게 사용하는 방법
 categories: [Python]
@@ -16,7 +16,7 @@ related_posts:
 
 ## 정적 타입 언어와 동적 타입 언어
 
-프로그래밍 언어는 변수의 타입이 정해지는 시점에 따라 [**정적 타입**언어와 **동적 타입** 언어](https://en.wikipedia.org/wiki/Type_system#Type_checking)로 나누어진다.  
+프로그래밍 언어는 변수의 타입이 정해지는 시점에 따라 [정적 타입 언어와 동적 타입 언어](https://en.wikipedia.org/wiki/Type_system#Type_checking)로 나누어진다.  
 
 **정적 타입(Statically Typed)** 언어는 컴파일 시점에 변수의 타입이 결정되는 언어로, 이를 위해 코드에 미리 데이터의 자료형을 지정해줘야 한다. 타입 에러로 인한 문제를 컴파일 타임에 해결할 수 있기 때문에 안정성이 높고, 컴파일 시에 미리 타입을 결정하기 때문에 실행속도가 빠르지만, 프로그래밍의 유연성이 낮다. C, C++, Java 등이 대표적인 정적 타입 언어들이다.  
 
@@ -50,7 +50,7 @@ test.py:1: error: Incompatible types in assignment (expression has type "str", v
 Found 1 error in 1 file (checked 1 source file)
 ```
 
-이렇게 타입 에러를 검사해준다. 참고로 Python의 Annotations은 comment와 마찬가지로 강제성이 전혀 없기 때문에 실행 시에 Annotations을 작성해주는 것 자체로는 런타임 시에 에러가 나지는 않는다.  
+이렇게 타입 에러를 검사해준다. 참고로 Python의 Annotations은 Comment와 마찬가지로 강제성이 전혀 없기 때문에 실행 시에 Annotations을 작성해주는 것 자체로는 런타임 시에 에러가 나지는 않는다.  
 
 ![python_type_checking_mypy](/assets/img/posts/python_type_checking_mypy.png)
 

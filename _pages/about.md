@@ -16,7 +16,7 @@ permalink: about
 Personal Contact: **[djccnt15@gmail.com](mailto:djccnt15@gmail.com)**  
 Business Contact: **[doorheon.jeong@wizcore.co.kr](mailto:doorheon.jeong@wizcore.co.kr)**  
 GitHub: **[github.com/djccnt15](https://github.com/djccnt15)**  
-LinkedIn: **[doorheon-b3aa56212](https://www.linkedin.com/in/doorheon-b3aa56212/)**
+LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 {:.note title='contacts'}
 
 AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티스트 지망생, 아마추어 AI 연구자입니다.  
@@ -28,17 +28,16 @@ AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티
 - 각종 AI 관련 프로젝트 기획 및 모델 개발
 - 데이터 분석 및 시각화
 
----
 
 ## Motto
 
+> Standing on the shoulders of giants. - 유럽 속담  
 > 느린 것을 두려워하지 말고, 다만 멈추는 것을 경계하라.(不怕慢 只怕站) - 중국 속담  
-> Standing on the shoulders of giants. - 유럽속담  
->  
+> 형성된 것은 모두 소멸하기 마련이다. 끊임없이 정진하여 성취하라 - 석가모니  
+> 중요한 것은 꺾이지 않는 마음 - 데프트  
 > 엔지니어는 구현을 못하면 모르는 것이다. - [Carl's Tech Blog](https://wotres.tistory.com/)  
 > Googling stuff online does make you a Programmer.  
 
----
 
 ## Interests and Skills
 
@@ -54,7 +53,6 @@ AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티
 ![tensorflow](https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![keras](https://img.shields.io/badge/keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
 
----
 
 ## Projects
 
@@ -76,7 +74,7 @@ AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티
 
 ## Career
 
-- 2021 ~ [WIZCORE 주식회사](http://wizcore.co.kr/)  
+- 2021 ~ now [WIZCORE 주식회사](http://wizcore.co.kr/)  
 - 2019 ~ 2021 충북대학교 지능정보시스템 연구실
 
 ## Education
