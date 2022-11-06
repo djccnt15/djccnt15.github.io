@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[Django] 11. 내부 링크'
 description: >
-  `<a>` 태그를 이용해서 내부 링크 만들기
+  HTML을 이용해서 내부 링크 만들기
 categories: [WebDev]
 tags: [Django]
 image:
