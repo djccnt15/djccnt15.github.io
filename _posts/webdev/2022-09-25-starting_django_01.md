@@ -154,7 +154,7 @@ Secret Key는 `config/setting.py`에 아래와 같이 저장된다.
 SECRET_KEY = 'django-insecure-a)a75!_s7sm8rgd!gw7##m0b3nqzxybw($o+_+2oj^oo34)210'
 ```
 
-우선 이 부분을 아래와 같이 변경하자. `json`파일로 분리한 Secret Key를 읽어오는 코드다.  
+우선 이 부분을 아래와 같이 변경하자. json 파일로 분리한 Secret Key를 읽어오는 코드다.  
 
 ```python
 import os
@@ -186,7 +186,7 @@ SECRET_KEY = get_secret(var="SECRET_KEY")
 }
 ```
 
-❗ 이렇게 만든 **`json` 파일은 `.gitignore` 파일에 반드시 추가**해서 공개된 저장소에 올라가지 않도록 설정하고, 별도로 보관해야 한다.  
+❗ 이렇게 만든 **json 파일은 `.gitignore` 파일에 반드시 추가**해서 공개된 저장소에 올라가지 않도록 설정하고, 별도로 보관해야 한다.  
 {:.note title='warning'}
 
 ## 5. 감상..?
