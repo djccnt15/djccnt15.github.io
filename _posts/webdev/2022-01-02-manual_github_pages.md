@@ -33,21 +33,22 @@ ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x64-mingw-ucrt]
 
 ### 1-2. Jekyll 설치
 
-Ruby의 패키지 관리 프레임워크인 gem을 통해 아래와 같이 Jekyll을 설치할 수 있다.  
+Ruby의 패키지 관리 프레임워크인 gem을 통해 아래와 같이 Jekyll과 Bundler를 설치할 수 있다.  
 
 ```powershell
 > gem install jekyll bundler
 ```
-```
-Successfully installed jekyll-4.2.2
-Parsing documentation for jekyll-4.2.2
-Done installing documentation for jekyll after 1 seconds
-Fetching bundler-2.3.23.gem
-Successfully installed bundler-2.3.23
-Parsing documentation for bundler-2.3.23
-Installing ri documentation for bundler-2.3.23
-Done installing documentation for bundler after 0 seconds
-2 gems installed
+
+### 1-3. bundle 설치
+
+위에서 설치한 [Bundler](https://bundler.io/)는 gem을 통해 관리하는 Ruby의 라이브러리들을 실질적으로 관리해주는 프로그램으로, 프로그램에서 사용할 라이브러리들의 목록을 `Gemfile`로 저장해두면 이를 바탕으로 `Gemfile.lock` 파일을 생성해준다. 기존 테마를 사용한다면 `Gemfile`이 이미 존재할 것이다.  
+
+아래와 같은 명령어로 bundle을 설치하고 업데이트하면 된다.  
+
+```powershell
+> bundle install
+
+> bundle update
 ```
 
 ## 2. local 호스팅
@@ -74,7 +75,7 @@ local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명
 
 local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http://localhost:4000](http://localhost:4000)에서 확인할 수 있다.  
 
-기본 포트가 `4000`으로 잡혀 있기 때문에 웹페이지를 동시에 여럿 빌드하려면 두 번째부터는 포트를 별도로 설정해줘야 한다. 포트를 설정하는 방법은 아래와 같다.  
+기본 포트가 `4000`으로 잡혀있기 때문에 웹페이지를 동시에 여러 프로젝트를 구동하려면 두 번째부터는 포트를 별도로 설정해줘야 한다. 포트를 설정하는 방법은 아래와 같다.  
 
 ```powershell
 > bundle exec jekyll serve --port [port_num]
@@ -86,18 +87,18 @@ local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http:/
 > bundle exec jekyll serve --host 192.168.0.5
 ```
 
-서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig/ifconfig` 명령어로 확인할 수 있다. 위의 경우에는 `IPv4`주소인 `192.168.0.5`으로 호스팅 했기 때문에, [http://192.168.0.5:4000](http://192.168.0.5:4000)으로 접속해야 내용을 확인할 수 있다.  
+서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig`/`ifconfig` 명령어로 확인할 수 있다. 위의 경우에는 `IPv4`주소인 `192.168.0.5`으로 호스팅 했기 때문에, [http://192.168.0.5:4000](http://192.168.0.5:4000)으로 접속해야 내용을 확인할 수 있다.  
 
 ❗ `https://192.168.0.5:4000`가 아니고 `http://192.168.0.5:4000`이다.  
 {:.note title='attention'}
 
-`--incremental` 옵션을 사용하면 마지막으로 빌드한 시점 이후에 갱신된 문서와 페이지만 재생성하여 빌드 시간을 줄여준다. 다만 [Jekyll 공식 문서](https://jekyllrb-ko.github.io/docs/configuration/incremental-regeneration/)를 참고하면 이 기능은 문서나 페이지 혹은 그 의존관계가 변경되었을 때만 파일을 다시 생성하는데, 특정 의존 관계만 감지할 수 있다는 점이 문제가 될 수 있다고 한다.  
+`--incremental` 옵션을 사용하면 새롭게 갱신된 문서와 페이지만 재생성하여 빌드 시간을 줄여준다. 다만 [Jekyll 공식 문서](https://jekyllrb-ko.github.io/docs/configuration/incremental-regeneration/)를 참고하면 이 기능은 문서나 페이지 혹은 그 의존관계가 변경되었을 때만 파일을 다시 생성하는데, 특정 의존 관계만 감지할 수 있다는 점이 문제가 될 수 있다고 한다.  
 
 ```powershell
 > bundle exec jekyll serve --incremental
 ```
 
-`--profile` 옵션을 사용하면 빌드 과정에서 각 페이지의 조회 횟수, 용량, 소요 시간이 얼마나 되는지를 보여준다. 서버 최적화가 필요할 때 사용하는 옵션이다.  
+`--profile` 옵션을 사용하면 사이트 생성 과정에서 각 페이지의 조회 횟수, 용량, 소요 시간이 얼마나 되는지를 보여준다. 서버 최적화가 필요할 때 사용하는 옵션이다.  
 
 ```
 > bundle exec jekyll serve --profile

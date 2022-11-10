@@ -50,12 +50,12 @@ Python은 라이브러리 버전 관리가 중요하기 때문에 프로젝트 �
 > [your_python_location] -m venv [venv_name]
 
 # my case
-> C:\python\Python39\python.exe -m venv [venv_name]
-> C:\python\Python310\python.exe -m venv [venv_name]
-> C:\python\Python311\python.exe -m venv [venv_name]
+> C:\programming\Python\Python310\python.exe -m venv [venv_name]
+> C:\programming\Python\Python311\python.exe -m venv [venv_name]
 ```
 
-나의 경우에는 `C:\python\` 경로에 Python을 설치하기 때문에 해당 위치를 지정해준다.  
+💡 참고로 이렇게 여러 버전의 Python을 설치하게 되면 시스템 환경 변수를 기준으로 가장 위에 있는 Python을 기본 사용하게 된다.  
+{:.note}
 
 ### 3. package 목록 관리
 

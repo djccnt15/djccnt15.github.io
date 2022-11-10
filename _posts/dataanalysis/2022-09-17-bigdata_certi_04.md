@@ -10,6 +10,7 @@ image:
   path: /assets/img/posts/bigdata_certi.png
 related_posts:
   - _posts/dataanalysis/2022-09-12-bigdata_certi_03.md
+  - _posts/dataanalysis/2022-11-10-bigdata_certi_05.md
 ---
 * toc
 {:toc}
