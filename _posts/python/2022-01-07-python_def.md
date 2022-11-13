@@ -5,7 +5,7 @@ title: '[Python] function'
 description: >
   python의 함수에 대한 노트
 categories: [Python]
-tags: [python]
+tags: [function]
 image:
   path: /assets/img/posts/def_func.png
 related_posts:

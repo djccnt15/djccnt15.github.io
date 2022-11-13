@@ -1,11 +1,11 @@
 ---
 published: true
 layout: post
-title: '[Python] pip 업그레이드'
+title: '[pip] pip 업그레이드'
 description: >
   Python pip 업그레이드 하기
 categories: [Python]
-tags: [Python]
+tags: [pip]
 image:
   path: /assets/img/posts/pip_version_warning.png
 related_posts:

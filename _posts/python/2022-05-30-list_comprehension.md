@@ -17,9 +17,9 @@ related_posts:
 
 ## 개요 및 기본 구조
 
-`list comprehension`은 리스트를 만드는 간결한 방법을 제공한다. 특히 반복문 작업에 최적화 되어 있어 속도가 매우 빠르다. `list comprehension`의 속도에 대한 내용은 [정욱재님의 블로그](https://blog.ukjae.io/posts/inspecting-list-comprehension/)를 참고하자.  
+list comprehension은 리스트를 만드는 간결한 방법을 제공한다. 특히 반복문 작업에 최적화 되어 있어 속도가 매우 빠르다. list comprehension의 속도에 대한 내용은 [정욱재님의 블로그](https://blog.ukjae.io/posts/inspecting-list-comprehension/)를 참고하자.  
 
-`list comprehension`의 기본 구조는 아래와 같고, 추가 연산을 부여해줄 수도 있다.  
+list comprehension의 기본 구조는 아래와 같고, 추가 연산을 부여해줄 수도 있다.  
 
 ```python
 a = [i for i in range(10)]
@@ -33,11 +33,11 @@ print(b)
 [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 ```
 
-[선형대수](/tags#linear%20algebra)를 공부하면서 `list comprehension`을 많이 사용했는데, 자세한 내용은 [여기](/mathematics/linear_algebra_02/), [여기](/mathematics/linear_algebra_03/), [여기](/mathematics/linear_algebra_08/)를 참고하자.  
+[선형대수](/tags#linear%20algebra)를 공부하면서 list comprehension을 많이 사용했는데, 자세한 내용은 [여기](/mathematics/linear_algebra_02/), [여기](/mathematics/linear_algebra_03/), [여기](/mathematics/linear_algebra_08/)를 참고하자.  
 
 ## for + if
 
-`list comprehension`에 `if` 조건문을 부여하는 방법은 아래와 같다.  
+list comprehension에 `if` 조건문을 부여하는 방법은 아래와 같다.  
 
 ```python
 a = [i for i in range(10) if i % 2 == 0]
@@ -50,7 +50,7 @@ print(a)
 
 ## if + else + for
 
-`list comprehension`에 `if else` 조건문을 부여하는 방법은 아래와 같다.  
+list comprehension에 `if else` 조건문을 부여하는 방법은 아래와 같다.  
 
 ```python
 a = [i if i % 2 == 0 else 1 for i in range(10) ]
@@ -63,7 +63,7 @@ print(a)
 
 ## if + elif + else + for
 
-`list comprehension`에서는 `elif`를 사용할 수 없고, 아래와 같이 `else`와 `if`를 조합해서 사용해야 한다.  
+list comprehension에서는 `elif`를 사용할 수 없고, 아래와 같이 `else`와 `if`를 조합해서 사용해야 한다.  
 
 ```python
 a = [1, 2, 3, 4, 5]
@@ -77,7 +77,7 @@ print(l)
 
 ## for + for
 
-`list comprehension`안에 이중 `for`문을 넣는 방법은 아래와 같다. 하위의 `for`문이 뒤로 가는 것을 확인할 수 있다.  
+list comprehension안에 이중 `for`문을 넣는 방법은 아래와 같다. 하위의 `for`문이 뒤로 가는 것을 확인할 수 있다.  
 
 ```python
 a = [i * j for i in [4, 5, 6] for j in [1, 2, 3]]
@@ -90,7 +90,7 @@ print(a)
 
 ## Nested List Comprehensions
 
-`list comprehension`안에 `list comprehension`을 넣는 방법은 아래와 같다. 상위의 `list comprehension`이 뒤로 가는 것을 확인할 수 있다. 다차원 배열을 만들 때 많이 사용된다.  
+list comprehension안에 list comprehension을 넣는 방법은 아래와 같다. 상위의 list comprehension이 뒤로 가는 것을 확인할 수 있다. 다차원 배열을 만들 때 많이 사용된다.  
 
 ```python
 a = [[i * j for i in [4, 5, 6]] for j in [1, 2, 3]]

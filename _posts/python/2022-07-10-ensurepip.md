@@ -1,11 +1,11 @@
 ---
 published: true
 layout: post
-title: "[Python] No module named 'pip'"
+title: "[pip] No module named 'pip'"
 description: >
   How to reinstall pip
 categories: [Python]
-tags: [python]
+tags: [pip]
 image:
   path: /assets/img/posts/python_ensurepip.png
 related_posts:

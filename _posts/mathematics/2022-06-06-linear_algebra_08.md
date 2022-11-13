@@ -425,7 +425,7 @@ def qr_householder(a: list) -> tuple:
     return q, r
 ```
 
-중간에 `list comprehension`을 3중첩해서 작성한 부분을 풀어쓰면 아래와 같다.  
+중간에 [list comprehension](/python/list_comprehension/)을 3중첩해서 작성한 부분을 풀어쓰면 아래와 같다.  
 
 ```python
 h_list = []
