@@ -27,7 +27,7 @@ App(앱)은 **Application software/program**의 줄임말로, 운영체제가 �
 > django-admin startapp [app_name]
 ```
 
-Django 공식문서에서는 [Project와 App의 차이](https://docs.djangoproject.com/en/4.1/intro/tutorial01/#creating-the-polls-app)를 다음과 같이 설명하고 있다.  
+Django 공식 문서에서는 [Project와 App의 차이](https://docs.djangoproject.com/en/4.1/intro/tutorial01/#creating-the-polls-app)를 다음과 같이 설명하고 있다.  
 
 - An app is a web application.
 - A project is a collection of configuration and apps for a particular website.
@@ -59,7 +59,7 @@ class BoardQnaConfig(AppConfig):
 
 ### 1-2. view 생성
 
-[Django 공식문서](https://docs.djangoproject.com/en/4.1/intro/tutorial03/#overview)에서는 view를 *특정한 기능을 제공하고 특정한 템플릿을 가진 Django 애플리케이션의 웹 페이지의 "type"*이라고 정의하고 있다.  
+Django [공식 문서](https://docs.djangoproject.com/en/4.1/intro/tutorial03/#overview)에서는 view를 *특정한 기능을 제공하고 특정한 템플릿을 가진 Django 애플리케이션의 웹 페이지의 "type"*이라고 정의하고 있다.  
 
 ```python
 from django.http import HttpResponse

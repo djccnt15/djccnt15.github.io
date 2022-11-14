@@ -36,15 +36,13 @@ python 내장 모듈 `datetime`을 사용하면 날짜 변경으로 인한 계�
 from datetime import datetime
 
 time_start = datetime.now().replace(microsecond=0)
-print(time_start)
 
 # your code hear
 
 time_end = datetime.now().replace(microsecond=0)
-print(time_end)
 
 runtime = time_end - time_start
-print(runtime)
+print(f"run time: {runtime:.3f}")
 ```
 
 ---

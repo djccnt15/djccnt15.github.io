@@ -44,7 +44,7 @@ $$y = \beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \cdots + \beta_{n}x_{n}$$
 
 `hyperparameter`의 예시는 KNN 알고리즘의 K, k-means 알고리즘의 K, SVM 알고리즘의 C, ANN 알고리즘의 batch/epoch/learning rate 등등이 있다. 머신러닝 모델을 개발할 때 이런 값들을 함수의 `parameter`로 입력하다보니 혼용이 생기는 것 같다.  
 
-아래 `scikit-learn`의 선형회귀 class에 대한 공식문서를 보면 머신러닝 관점에서는 분명히 `hyperparameter`인 머신러닝 알고리즘의 세팅값이 `parameter`라고 적혀있는 것을 볼 수 있다.  
+아래 `scikit-learn`의 선형회귀 class에 대한 공식 문서를 보면 머신러닝 관점에서는 분명히 `hyperparameter`인 머신러닝 알고리즘의 세팅값이 `parameter`라고 적혀있는 것을 볼 수 있다.  
 
 ![sklearn_example](/assets/img/posts/sklearn_example.png)
 {:.text-center}

@@ -23,7 +23,7 @@ related_posts:
 
 `exog : endog`의 조합은 간결하고, 명확하며, 절대 다른 변수와 헷갈릴 수 없는데다, 널리 사용되는 통계 및 데이터 분석 패키지 statsmodels에서 사용하는 변수명이기 때문에 상당히 좋은 변수명이라고 생각된다.  
 
-statsmodels의 공식문서에서는 `exog`와 `endog`의 유래를 아래와 같이 밝히고 있다.  
+statsmodels의 [공식 문서](https://www.statsmodels.org/stable/endog_exog.html)에서는 `exog`와 `endog`의 유래를 아래와 같이 밝히고 있다.  
 
 - exogenous: caused by factors outside the system
 - endogenous: caused by factors within the system

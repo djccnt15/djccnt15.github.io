@@ -321,6 +321,6 @@ class LinearRegression(sklearn.base.MultiOutputMixin, sklearn.base.RegressorMixi
 ```
 </div></details><br>
 
-해당 함수의 [공식문서](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)와 비교해보면 동일한 설명을 출력해주는 것을 알 수 있다.  
+해당 함수의 [공식 문서](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)와 비교해보면 동일한 설명을 출력해주는 것을 알 수 있다.  
 
 [응시환경 체험](https://dataq.goorm.io/exam/116674/%EC%B2%B4%ED%97%98%ED%95%98%EA%B8%B0/quiz/3)에서도 동일하게 출력되는 것을 확인할 수 있다.  
