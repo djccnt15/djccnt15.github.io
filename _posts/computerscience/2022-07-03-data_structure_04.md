@@ -39,14 +39,14 @@ Python으로 큐를 구현할 때, `list.pop(0)`을 사용하면 FIFO 방식의 
 
 ```python
 class MyQeueu:
-    'all elements must be same type'
+    """all elements must be same type"""
 
-    def __init__(self, capacity:int=256) -> None:
-        self.queue = [None] * capacity
-        self._capacity = capacity
-        self._front = 0
-        self._rear = 0
-        self._no = 0
+    def __init__(self, capacity: int = 256) -> None:
+        self.queue: list = [None] * capacity
+        self._capacity: int = capacity
+        self._front: int = 0
+        self._rear: int = 0
+        self._no: int = 0
 
     def __contains__(self, val) -> bool:  # make obj possible to use 'in' operator
         return bool(self.index(val))
@@ -80,7 +80,7 @@ class MyQeueu:
         self._front += 1
         self._no -= 1
         if self._front == self._capacity:
-            self._front = 0
+            self._front: int = 0
         return val
 
     def peak(self):
@@ -88,16 +88,16 @@ class MyQeueu:
             raise Exception('queue is empty')
         return self.queue[self._front]
 
-    def index(self, val) -> list:
-        res = []
+    def index(self, val) -> list | None:
+        res: list = []
         for i in range(self._no):
-            idx = (i + self._front) % self._capacity
+            idx: int = (i + self._front) % self._capacity
             if self.queue[idx] == val:
                 res.append(idx)
         return res if len(res) > 0 else None
 
     def count(self, val) -> int:
-        res = self.index(val)
+        res: list | None = self.index(val)
         return 0 if res == None else len(res)
 
     def clear(self) -> None:

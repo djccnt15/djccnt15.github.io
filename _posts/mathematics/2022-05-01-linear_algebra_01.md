@@ -59,20 +59,25 @@ $$\mathbf{v} = \begin{pmatrix}
 벡터의 덧셈과 뺄셈은 동일 위치의 각 원소를 더하고 빼는 것으로, 교환 법칙이 성립하며 두 벡터의 크기가 동일할 때(벡터를 구성하는 스칼라의 개수가 동일할 때)만 연산이 가능하다. Python으로 구현하면 아래와 같다.  
 
 ```python
-def v_add(*a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+
+
+def v_add(*a: vector) -> vector:
     """
     returns addition of 2 vectors
     """
 
-    res = [sum(v) for v in zip(*a)]
+    res: vector = [sum(v) for v in zip(*a)]
     return res
 
-def v_sub(a: list, b: list) -> list:
+
+def v_sub(a: vector, b: vector) -> vector:
     """
     returns subtraction of 2 vectors
     """
 
-    res = [v - u for v, u in zip(a, b)]
+    res: vector = [v - u for v, u in zip(a, b)]
     return res
 ```
 
@@ -81,12 +86,16 @@ def v_sub(a: list, b: list) -> list:
 벡터의 **스칼라 곱(scalar multiplication)**은 곱해진 스칼라의 부호로 벡터의 방향을 결정하고, 절대값의 만큼 벡터의 길이를 곱해주는 것이다. Python으로 구현하면 아래와 같다.  
 
 ```python
-def v_smul(s: float, a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+
+
+def v_smul(s: scalar, a: vector) -> vector:
     """
-    returns scalar multiplication of 2 vectors
+    returns scalar multiplication of vector
     """
 
-    res = [s * v for v in a]
+    res: vector = [s * v for v in a]
     return res
 ```
 
@@ -101,22 +110,25 @@ Python으로 구현하면 아래와 같다.
 ```python
 from functools import reduce
 
-def v_hmul(*a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+
+
+def v_hmul(*a: vector) -> vector:
     """
     returns hadamard product of vectors
-    input argument must be 2d matrix
     """
 
-    res = [reduce(lambda n, m: n * m, v) for v in zip(*a)]
+    res: vector = [reduce(lambda n, m: n * m, v) for v in zip(*a)]
     return res
 
-def v_hdiv(a: list, b: list) -> list:
+
+def v_hdiv(a: vector, b: vector) -> vector:
     """
     returns hadamard division of 2 vectors
-    input argument must be 2d matrix
     """
 
-    res = [v / u for v, u in zip(a, b)]
+    res: vector = [v / u for v, u in zip(a, b)]
     return res
 ```
 
@@ -185,22 +197,26 @@ x_2
 행렬의 덧셈과 뺄셈은 벡터의 연산과 마찬가지로, 동일 위치의 각 원소를 더하고 빼면 된다. Python으로 구현하면 아래와 같다.  
 
 ```python
-def mat_add(*a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_add(*a: matrix) -> matrix:
     """
     returns addition of matrices
-    input argument must be 2d matrix
     """
 
-    res = [[sum(v) for v in zip(*i)] for i in zip(*a)]
+    res: matrix = [[sum(v) for v in zip(*i)] for i in zip(*a)]
     return res
 
-def mat_sub(a: list, b: list) -> list:
+
+def mat_sub(a: matrix, b: matrix) -> matrix:
     """
     returns subtraction of matrix
-    input argument must be 2d matrix
     """
 
-    res = [[v - u for v, u in zip(*i)] for i in zip(a, b)]
+    res: matrix = [[v - u for v, u in zip(*i)] for i in zip(a, b)]
     return res
 ```
 
@@ -209,13 +225,17 @@ def mat_sub(a: list, b: list) -> list:
 행렬의 **스칼라 곱(scalar multiplication)**은 벡터의 스칼라 곱과 마찬가지로 각 원소에 스칼라를 곱하는 것으로, 행렬을 구성하는 벡터의 길이를 스칼라 곱으로 늘리는 것을 의미한다. Python으로 구현하면 아래와 같다.  
 
 ```python
-def mat_smul(s: float, a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_smul(s: scalar, a: matrix) -> matrix:
     """
     returns scalar multiplication of matrix
-    input argument must be 2d matrix
     """
 
-    res = [[s * v for v in r] for r in a]
+    res: matrix = [[s * v for v in r] for r in a]
     return res
 ```
 
@@ -230,22 +250,26 @@ Python으로 구현하면 아래와 같다.
 ```python
 from functools import reduce
 
-def mat_hmul(*a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_hmul(*a: matrix) -> matrix:
     """
     returns hadamard product of matrix
-    input argument must be 2d matrix
     """
 
-    res = [[reduce(lambda n, m: n * m, v) for v in zip(*i)] for i in zip(*a)]
+    res: matrix = [[reduce(lambda n, m: n * m, v) for v in zip(*i)] for i in zip(*a)]
     return res
 
-def mat_hdiv(a: list, b: list) -> list:
+
+def mat_hdiv(a: matrix, b: matrix) -> matrix:
     """
     returns hadamard division of matrix
-    input argument must be 2d matrix
     """
 
-    res = [[v / u for v, u in zip(*i)] for i in zip(a, b)]
+    res: matrix = [[v / u for v, u in zip(*i)] for i in zip(a, b)]
     return res
 ```
 
@@ -256,22 +280,26 @@ def mat_hdiv(a: list, b: list) -> list:
 ```python
 from functools import reduce
 
-def mat_mul(a: list, b: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_mul(a: matrix, b: matrix) -> matrix:
     """
     returns multiplication of 2 matrices
-    input argument must be 2d matrix
     """
 
-    res = [[sum(v * u for v, u in zip(r, c)) for c in zip(*b)] for r in a]
+    res: matrix = [[sum(v * u for v, u in zip(r, c)) for c in zip(*b)] for r in a]
     return res
 
-def mat_mul_all(*a: list) -> list:
+
+def mat_mul_all(*a: matrix) -> matrix:
     """
     returns multiplication of 2 matrices
-    input argument must be 2d matrix
     """
 
-    res = reduce(mat_mul, [*a])
+    res: matrix = reduce(mat_mul, [*a])
     return res
 ```
 
@@ -290,13 +318,17 @@ $$tr(A) = a_{11} + a_{22} + a_{33}$$
 Python으로 구현하면 아래와 같다.  
 
 ```python
-def mat_tr(a: list) -> float:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_tr(a: matrix) -> scalar:
     """
     returns trace of matrix
-    input argument must be 2d matrix
     """
 
-    res = sum(v[i] for i, v in enumerate([*a]))
+    res: scalar = sum(v[i] for i, v in enumerate([*a]))
     return res
 ```
 

@@ -41,12 +41,16 @@ $$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = \mathbf
 벡터의 내적을 Python으로 구현하면 아래와 같다. [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
 ```python
-def v_inner(a: list, b: list) -> float:
+scalar = int | float
+vector = list[scalar]
+
+
+def v_inner(a: vector, b: vector) -> scalar:
     """
     returns inner product of 2 vectors
     """
 
-    res = sum(v * u for v, u in zip(a, b))
+    res: scalar = sum(v * u for v, u in zip(a, b))
     return res
 ```
 
@@ -86,12 +90,16 @@ $$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert_{2} = \s
 유클리드 노름(Euclidean norm)은 머신러닝/통계학에서는 $$l_{2}$$ 정규화(L2 Regularization)에 사용되며, 유클리드 노름(Euclidean norm)을 구하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def norm(a: list) -> float:
+scalar = int | float
+vector = list[scalar]
+
+
+def norm(a: vector) -> scalar:
     """
     returns euclidean norm of vector
     """
 
-    res = sum(i ** 2 for i in a) ** 0.5
+    res: scalar = sum(i ** 2 for i in a) ** 0.5
     return res
 ```
 
@@ -118,7 +126,11 @@ $$\mathbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \mathbf{v} \Vert_{1} = \s
 맨해튼 노름(Manhattan norm)은 머신러닝/통계학에서는 $$l_{1}$$ 정규화(L1 Regularization)에 사용되며, 맨해튼 노름(Manhattan norm)을 구하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def norm_manhattan(a: list) -> float:
+scalar = int | float
+vector = list[scalar]
+
+
+def norm_manhattan(a: vector) -> scalar:
     """
     returns manhattan norm of vector
     """
@@ -158,12 +170,16 @@ $$\mathrm{cosine \ similarity} = S_{c}(\mathbf{u}, \mathbf{v}) = \cos \theta = \
 코사인 유사도를 구하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def cos_similarity(a: list, b: list) -> float:
+scalar = int | float
+vector = list[scalar]
+
+
+def cos_similarity(a: vector, b: vector) -> scalar:
     """
     returns cosine similarity of 2 vectors
     """
 
-    res = v_inner(a, b) / (norm(a) * norm(b))
+    res: scalar = v_inner(a, b) / (norm(a) * norm(b))
     return res
 ```
 

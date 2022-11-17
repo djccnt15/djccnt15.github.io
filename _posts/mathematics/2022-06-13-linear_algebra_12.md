@@ -61,16 +61,20 @@ A & = PDP^{T} = P \Lambda P^{-1}
 고유벡터 구하는 함수를 Python으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](/mathematics/linear_algebra_10/#qr분해를-통한-고유값과-고유벡터-계산)에서 이미 구현한 바 있다.  
 
 ```python
-def orthogonal_check(a: list) -> bool:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def orthogonal_check(a: matrix) -> bool:
     """
     checks whether orthogonal matrix or not
-    input argument must be 2d matrix
     """
 
-    At = mat_trans(a)
-    tmp = mat_mul(a, At)
-    tmp = mat_smul(1 / tmp[0][0], tmp)  # line for evading floating point error
-    I = mat_identity(len(a))
+    At: matrix = mat_trans(a)
+    tmp: matrix = mat_mul(a, At)
+    tmp: matrix = mat_smul(1 / tmp[0][0], tmp)  # line for evading floating point error
+    I: matrix = mat_identity(len(a))
 
     return tmp == I
 ```
@@ -122,25 +126,29 @@ A^{T}A & = (U \Sigma V^{T})^{T}(U \Sigma V^{T}) \\
 특이값 분해를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def svd(a: list) -> tuple:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def svd(a: matrix) -> tuple:
     """
     singular value decomposition
-    input argument must be 2d matrix
     """
 
-    at = mat_trans(a)
-    ata = mat_mul(at, a)
+    at: matrix = mat_trans(a)
+    ata: matrix = mat_mul(at, a)
     e, v = eig_qr(ata)
 
-    s = [i ** 0.5 for i in e]
+    s: vector = [i ** 0.5 for i in e]
 
-    vt = mat_trans(v)
+    vt: matrix = mat_trans(v)
 
-    av = mat_mul(a, v)
-    avt = mat_trans(av)
-    ut = [normalize(v) for v in avt]
+    av: matrix = mat_mul(a, v)
+    avt: matrix = mat_trans(av)
+    ut: matrix = [normalize(v) for v in avt]
 
-    u = mat_trans(ut)
+    u: matrix = mat_trans(ut)
 
     return u, s, vt
 ```

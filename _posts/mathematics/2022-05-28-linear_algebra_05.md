@@ -80,33 +80,37 @@ $$A^{-1} = B = \frac{1}{12} \left[\begin{array}{ccc}
 Python으로 구현하면 아래와 같다. [선형 시스템](/mathematics/linear_algebra_03/#2-선형-시스템)에서 구현했던 함수들을 응용하여 만들었다.  
 
 ```python
-def mat_aug_mat(a: list, b: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_aug_mat(a: matrix, b: matrix) -> matrix:
     """
     transform matrix into matrix augmented matrix
-    input argument must be 2d matrix
     """
 
-    res = [v + u for v, u in zip(a, b)]
+    res: matrix = [v + u for v, u in zip(a, b)]
     return res
 
-def mat_coef_inv(a: list, b: int) -> tuple:
+
+def mat_coef_inv(a: matrix, b: int) -> tuple:
     """
     separates coefficient matrix
-    input argument must be 2d matrix
     """
 
-    x = [r[:b] for r in a]
-    y = [r[b:] for r in a]
+    x: matrix = [r[:b] for r in a]
+    y: matrix = [r[b:] for r in a]
     return x, y
 
-def gauss_jordan_eli(mat: list) -> list:
+
+def gauss_jordan_eli(mat: matrix) -> matrix:
     """
     Gauss-Jordan elimination
     transform matrix into Gauss-Jordan eliminated form
-    input argument must be 2d matrix
     """
 
-    n = len(mat)
+    n: int = len(mat)
 
     for i in range(n):
         mat[i] = [ele / mat[i][i] for ele in mat[i]]
@@ -122,17 +126,17 @@ def gauss_jordan_eli(mat: list) -> list:
 
     return mat
 
-def mat_inv(a: list) -> list:
+
+def mat_inv(a: matrix) -> matrix:
     """
     returns inverted matrix
-    input argument must be 2d matrix
     """
 
-    n = len(a)
-    i = mat_identity(n)
-    mat = mat_aug_mat(a, i)
-    mat = mat_pivot(mat)
-    mat = gauss_jordan_eli(mat)
+    n: int = len(a)
+    i: matrix = mat_identity(n)
+    mat: matrix = mat_aug_mat(a, i)
+    mat: matrix = mat_pivot(mat)
+    mat: matrix = gauss_jordan_eli(mat)
     x, res = mat_coef_inv(mat, n)
 
     return res

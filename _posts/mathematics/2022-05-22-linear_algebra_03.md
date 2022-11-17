@@ -59,21 +59,27 @@ $$\begin{bmatrix}
 선형 시스템의 계수들을 받아 첨가 행렬을 만드는 것과 첨가 행렬을 계수 행렬로 분리하는 것을 Python으로 구현하면 다음과 같다.  
 
 ```python
-def mat_aug_v(a: list, b: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_aug_v(a: matrix, b: vector) -> matrix:
     """
     transform matrix into vector augmented matrix
     """
 
-    res = [v + [u] for v, u in zip(a, b)]
+    res: matrix = [v + [u] for v, u in zip(a, b)]
     return res
 
-def mat_coef(a: list) -> tuple:
+
+def mat_coef(a: matrix) -> tuple:
     """
     separates coefficient matrix from augmented matrix
     """
 
-    x = [r[:-1] for r in a]
-    y = [v for r in a for v in r[-1:]]
+    x: matrix = [r[:-1] for r in a]
+    y: vector = [v for r in a for v in r[-1:]]
     return x, y
 ```
 
@@ -84,16 +90,20 @@ def mat_coef(a: list) -> tuple:
 피벗팅을 Python으로 구현하면 아래와 같다. 피벗은 0이 아니어야 하며 계산의 편의성을 위해 일반적으로 1인 행을 선택 하는데, 간단한 구현을 위해 각 행의 첫 번째 수에 따라 내림차순 정렬하는 것으로 구현했다.  
 
 ```python
-def mat_pivot(mat: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_pivot(mat: matrix) -> matrix:
     """
     returns pivoted matrix
-    input argument must be 2d matrix
     this is not actual "mathematical" pivoting as this function not selecting rows which first element is 1
     this function just sorts rows as order by descending with first elements of each row
     """
 
-    mat = sorted(mat, key=lambda x: abs(x[0]), reverse=True)
-    return mat
+    res: matrix = sorted(mat, key=lambda x: abs(x[0]), reverse=True)
+    return res
 ```
 
 ### 행사다리꼴 행렬, 기약 행사다리꼴 행렬
@@ -125,15 +135,19 @@ $$\begin{bmatrix}
 첨가 행렬을 행사다리꼴 행렬로 변환한 후(전방 소거법, forward elimination) 역대입(후방 대입법, backward substitution)을 통해 해를 구하는 방법을 **가우스 소거법(Gauss elimination)**이라고 부르는데, Python으로 구현하면 아래와 같다.  
 
 ```python
-def gauss_eli(a: list, b: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def gauss_eli(a: matrix, b: vector) -> vector:
     """
     solving equation with Gauss elimination
-    input argument must be 2d matrix
     """
 
-    mat = mat_aug_v(a, b)
-    mat = mat_pivot(mat)
-    n = len(mat)
+    mat: matrix = mat_aug_v(a, b)
+    mat: matrix = mat_pivot(mat)
+    n: int = len(mat)
 
     # gauss elimination
     for i in range(n):
@@ -163,14 +177,18 @@ def gauss_eli(a: list, b: list) -> list:
 [Wolfram](https://mathworld.wolfram.com/Gauss-JordanElimination.html)에 따르면 가우스-조르단 소거법은 [역행렬](/mathematics/linear_algebra_05/)을 구하기 위한 방법이지만 응용해서 선형 시스템을 해를 구할 때도 사용할 수 있다. 아무튼 Python으로 구현하면 아래와 같다.  
 
 ```python
-def gauss_jordan_eli(mat: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def gauss_jordan_eli(mat: matrix) -> matrix:
     """
     Gauss-Jordan elimination
     transform matrix into Gauss-Jordan eliminated form
-    input argument must be 2d matrix
     """
 
-    n = len(mat)
+    n: int = len(mat)
 
     for i in range(n):
         mat[i] = [ele / mat[i][i] for ele in mat[i]]
@@ -186,15 +204,15 @@ def gauss_jordan_eli(mat: list) -> list:
 
     return mat
 
-def solve_gauss(a: list, b: list) -> list:
+
+def solve_gauss(a: matrix, b: vector) -> vector:
     """
     solving equation with Gauss-Jordan elimination
-    input argument must be 2d matrix
     """
 
-    mat = mat_aug_v(a, b)
-    mat = mat_pivot(mat)
-    mat = gauss_jordan_eli(mat)
+    mat: matrix = mat_aug_v(a, b)
+    mat: matrix = mat_pivot(mat)
+    mat: matrix = gauss_jordan_eli(mat)
     x, y = mat_coef(mat)
     return y
 ```

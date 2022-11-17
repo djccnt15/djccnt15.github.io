@@ -27,18 +27,22 @@ related_posts:
 다양한 자료구조가 있지만, 그 중에서도 다음의 자료구조들이 가장 기본적이라고 한다.
 
 - [배열(Array)](/computerscience/data_structure_02/)
-  - 가장 기본적인 자료형으로, 자료를 원소로 취급해 나열한 자료구조를 말한다.
-  - 생성 시 원소들에게 부여되는 index를 통해 원소들에게 접근 가능하다.
+  - 가장 기본적인 자료형으로, 자료를 원소로 취급해 나열한 자료구조
+  - 생성 시 원소들에게 부여되는 index를 통해 원소들에게 접근 가능
 - [스택(Stack)](/computerscience/data_structure_03/)
-  - 순서가 보존되는 선형 데이터 구조 유형으로, LIFO(Last In First Out) 메커니즘에 따라 데이터를 처리한다.
+  - 순서가 보존되는 선형 데이터 구조 유형
+  - LIFO(Last In First Out) 메커니즘에 따라 데이터를 처리
 - [큐(Queue)](/computerscience/data_structure_04/)
-  - 순서가 보존되는 선형 데이터 구조 유형으로, FIFO(First In First Out) 메커니즘에 따라 데이터를 처리한다.
+  - 순서가 보존되는 선형 데이터 구조 유형
+  - FIFO(First In First Out) 메커니즘에 따라 데이터를 처리
 - [연결 리스트(Linked List)](/computerscience/data_structure_05/)
-  - 노드(node, 데이터 묶음)를 저장할 때 그 다음 순서의 자료가 있는 위치를 데이터에 포함시키는 방식으로 자료를 저장하는 자료 구조를 말한다.
+  - 노드(node, 데이터 묶음)를 저장할 때 그 다음 순서의 자료가 있는 위치를 데이터에 포함시키는 방식으로 자료를 저장하는 자료구조
 - 그래프(Graph)
-  - 정점(vertex) 사이에 변(edge)이 있는 자료구조로, 일방통행을 나타내는 Directed graph와 양방향 통행을 나타내는 Undirected graph가 있다.
+  - 정점(vertex) 사이에 변(edge)이 있는 자료구조
+  - 일방통행을 나타내는 Directed graph와 양방향 통행을 나타내는 Undirected graph가 있음
 - 트리(Tree)
-  - 그래프가 계층적 구조를 가진 형태의 자료구조로, 부모 노드와 자식 노드의 연결 구조로 구현된다.
+  - 그래프가 계층적 구조를 가진 형태의 자료구조
+  - 부모 노드와 자식 노드의 연결 구조로 구현
 
 ---
 ## Reference

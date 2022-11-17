@@ -26,12 +26,17 @@ $$\mathbf{u} \otimes \mathbf{v} = \mathbf{u} \mathbf{v}^{T}$$
 Python으로 구현하면 아래와 같다. [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
 ```python
-def v_outer(a: list, b: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def v_outer(a: vector, b: vector) -> matrix:
     """
-    returns outer product, tensor product of 2 vectors
+    returns outer/tensor product of 2 vectors
     """
 
-    res = [[v * u for u in b] for v in a]
+    res: matrix = [[v * u for u in b] for v in a]
     return res
 ```
 

@@ -38,13 +38,17 @@ $$(AB)^{T} = B^{T}A^{T}$$
 Python으로 구현하면 아래와 같다.  
 
 ```python
-def mat_trans(a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_trans(a: matrix) -> matrix:
     """
     returns transposed matrix
-    input argument must be 2d matrix
     """
 
-    At = [list(r) for r in zip(*a)]
+    At: matrix = [list(r) for r in zip(*a)]
     return At
 ```
 
@@ -80,13 +84,17 @@ $$\therefore A = A^{T}$$
 Python으로 대칭 행렬 여부를 확인하려면 아래와 같이 앞서 만든 전치 행렬을 반환하는 함수를 활용하면 된다.  
 
 ```python
-def symmetric_check(a: list) -> bool:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def symmetric_check(a: matrix) -> bool:
     """
     checks whether symmetric matrix or not
-    input argument must be 2d matrix
     """
 
-    At = mat_trans(a)
+    At: matrix = mat_trans(a)
     return a == At
 ```
 
@@ -141,21 +149,26 @@ a_{31} \times d_{33} & a_{32} \times d_{33} & a_{33} \times d_{33} \\
 어떤 행렬의 대각 행렬을 구한다는 것은 대각 원소를 제외한 나머지 원소를 0으로 바꾸는 것을 의미하는데, 대각 원소 구하는 것과 대각 행렬 구하는 것을 Python으로 구현하면 아래와 같다.  
 
 ```python
-def diag_ele(a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def diag_ele(a: matrix) -> vector:
     """
-    returns elements of diagonal matrix
-    input argument must be 2d matrix
+    returns diagonal elements of matrix
     """
 
-    d = [v[i] for i, v in enumerate([*a])]
+    d: vector = [v[i] for i, v in enumerate([*a])]
     return d
 
-def mat_diag(a: list) -> list:
+
+def mat_diag(a: matrix) -> matrix:
     """
-    returns diagonal matrix from diagonal elements
+    returns diagonal matrix from matrix
     """
 
-    D = [[v if i == j else 0 for j, v in enumerate(r)] for i, r in enumerate(a)]
+    D: matrix = [[v if i == j else 0 for j, v in enumerate(r)] for i, r in enumerate(a)]
     return D
 ```
 
@@ -190,22 +203,26 @@ a_{21} & a_{22} & 0 & 0 \\
 어떤 행렬을 받아서 이중 대각 행렬을 반환하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def mat_bidiag_u(a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_bidiag_u(a: matrix) -> matrix:
     """
     transform matrix into upper bidiagonal matrix
-    input argument must be 2d matrix
     """
 
-    res = [[0 if i > j or j - i > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
+    res: matrix = [[0 if i > j or j - i > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
     return res
 
-def mat_bidiag_l(a: list) -> list:
+
+def mat_bidiag_l(a: matrix) -> matrix:
     """
     transform matrix into lower bidiagonal matrix
-    input argument must be 2d matrix
     """
 
-    res = [[0 if i < j or i - j > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
+    res: matrix = [[0 if i < j or i - j > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
     return res
 ```
 
@@ -246,12 +263,17 @@ $$AI = IA = A$$
 단위 행렬을 생성하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def mat_identity(n: int) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_identity(n: int) -> matrix:
     """
     returns n by n sized identity matrix
     """
 
-    I = [[1 if i == j else 0 for j in range(n)] for i in range(n)]
+    I: matrix = [[1 if i == j else 0 for j in range(n)] for i in range(n)]
     return I
 ```
 
@@ -275,20 +297,26 @@ $$0 = \begin{bmatrix}
 Python으로 구현하면 아래와 같다.  
 
 ```python
-def mat_zeros(r: int, c: int) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_zeros(r: int, c: int) -> matrix:
     """
     returns r by c sized zero matrix
     """
 
-    Z = [[0 for _ in range(c)] for _ in range(r)]
+    Z: matrix = [[0 for _ in range(c)] for _ in range(r)]
     return Z
 
-def v_zeros(n: int) -> list:
+
+def v_zeros(n: int) -> vector:
     """
     returns n sized zero vector
     """
 
-    Z = [0 for _ in range(n)]
+    Z: vector = [0 for _ in range(n)]
     return Z
 ```
 
@@ -318,22 +346,26 @@ l_{31} & l_{32} & l_{33} \\
 입력된 행렬을 삼각 행렬로 만들어주는 것을 Python으로 구현하면 아래와 같다.  
 
 ```python
-def mat_tri_u(a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_tri_u(a: matrix) -> matrix:
     """
     transform matrix into upper triangular matrix
-    input argument must be 2d matrix
     """
 
-    res = [[0 if i > j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
+    res: matrix = [[0 if i > j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
     return res
 
-def mat_tri_l(a: list) -> list:
+
+def mat_tri_l(a: matrix) -> matrix:
     """
     transform matrix into lower triangular matrix
-    input argument must be 2d matrix
     """
 
-    res = [[0 if i < j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
+    res: matrix = [[0 if i < j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
     return res
 ```
 
@@ -368,12 +400,17 @@ $$T_{i,j} = T_{i+1,j+1} = t_{i-j}$$
 두 개의 벡터를 받아 하나의 토플리츠 행렬을 반환하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def mat_toeplitz(a: list, b: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def mat_toeplitz(a: vector, b: vector) -> matrix:
     """
     unite 2 lists into toeplitz matrix
     """
 
-    T = [[a[i - j] if i >= j else b[j - i] for j, _ in enumerate(b)] for i, _ in enumerate(a)]
+    T: matrix = [[a[i - j] if i >= j else b[j - i] for j, _ in enumerate(b)] for i, _ in enumerate(a)]
     return T
 ```
 
@@ -403,35 +440,45 @@ v_{n}
 $${\mathbf{vv}^{T}}$$은 [벡터의 외적](/mathematics/linear_algebra_09/#1-외적), $${\mathbf{v}^{T}\mathbf{v}}$$은 [벡터의 내적](/mathematics/linear_algebra_07/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 Python으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 ```python
-def v_outer(a: list, b: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def v_outer(a: vector, b: vector) -> matrix:
     """
-    returns outer product, tensor product of 2 vectors
+    returns outer/tensor product of 2 vectors
     """
 
-    res = [[v * u for u in b] for v in a]
+    res: matrix = [[v * u for u in b] for v in a]
     return res
 
-def v_inner(a: list, b: list) -> float:
+
+def v_inner(a: vector, b: vector) -> scalar:
     """
     returns inner product of 2 vectors
     """
 
-    res = sum(v * u for v, u in zip(a, b))
+    res: scalar = sum(v * u for v, u in zip(a, b))
     return res
 ```
 
 앞서 구현한 함수들을 기반으로 입력된 벡터를 받아 하우스홀더 행렬을 반환하는 함수를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def householder(v: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def householder(v: vector) -> matrix:
     """
     transform vector into householder matrix
     """
 
-    n = len(v)
-    V = mat_smul(1 / v_inner(v, v), v_outer(v, v))
-    V = mat_smul(2, V)
-    H = mat_sub(mat_identity(n), V)
+    V: matrix = mat_smul(1 / v_inner(v, v), v_outer(v, v))
+    V: matrix = mat_smul(2, V)
+    H: matrix = mat_sub(mat_identity(len(v)), V)
     return H
 ```
 

@@ -28,12 +28,16 @@ $$\mathbf{v}_{n} = \frac{\mathbf{u}_{n}}{\Vert \mathbf{u}_{n} \Vert}$$
 벡터의 정규화를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def normalize(a: list) -> list:
+scalar = int | float
+vector = list[scalar]
+
+
+def normalize(a: vector) -> vector:
     """
     normalize vector
     """
 
-    n = [v / norm(a) for v in a]
+    n: vector = [v / norm(a) for v in a]
     return n
 ```
 
@@ -80,13 +84,17 @@ $$\mathbf{u} = proj_{\mathbf{v}} \mathbf{u} + (\mathbf{u} - proj_{\mathbf{v}} \m
 정사영 $$proj_{\mathbf{v}} \mathbf{u}$$를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def proj(u: list, v: list) -> list:
+scalar = int | float
+vector = list[scalar]
+
+
+def proj(u: vector, v: vector) -> vector:
     """
     project 'u' vector to 'v' vector
     """
 
-    tmp = v_inner(u, v) / v_inner(v, v)
-    res = v_smul(tmp, v)
+    tmp: scalar = v_inner(u, v) / v_inner(v, v)
+    res: vector = v_smul(tmp, v)
     return res
 ```
 
@@ -170,10 +178,14 @@ $$\begin{align*}
 앞서 구현한 함수들을 바탕으로 Python으로 구현하면 아래와 같다.  
 
 ```python
-def gram_schmidt(s: list) -> list:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def gram_schmidt(s: matrix) -> matrix:
     """
     perform Gram-Schmidt Process to matrix
-    input argument must be 2d matrix
     """
 
     res = []
@@ -232,20 +244,24 @@ $$\begin{align*} \\
 그람-슈미트 과정을 이용한 QR분해를 Python으로 구현하면 아래와 같다.  
 
 ```python
-def qr_gramschmidt(a: list) -> tuple:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def qr_gramschmidt(a: matrix) -> tuple:
     """
     QR decomposition/factorization with Gram-Schmidt Process
-    input argument must be 2d matrix
     """
 
-    mat = mat_trans(a)
-    n = len(mat)
-    gs = gram_schmidt(mat)
+    mat: matrix = mat_trans(a)
+    n: int = len(mat)
+    gs: matrix = gram_schmidt(mat)
 
-    q_tmp = [normalize(i) for i in gs]
-    q = mat_trans(q_tmp)
+    q_tmp: matrix = [normalize(i) for i in gs]
+    q: matrix = mat_trans(q_tmp)
 
-    r = [[0 if i > j else v_inner(mat[j], q_tmp[i]) for j in range(n)] for i in range(n)]
+    r: matrix = [[0 if i > j else v_inner(mat[j], q_tmp[i]) for j in range(n)] for i in range(n)]
 
     return q, r
 ```
@@ -343,84 +359,91 @@ R & = H_{n} \cdots H_{3}H_{2}H_{1}A
 Python으로 구현하면 아래와 같다.  
 
 ```python
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
 # QR decomposition/factorization with householder matrix
-def v_sign(a: list) -> int:
+def v_sign(a: vector) -> int:
     """
     get sign of vector
     returns sign of first element of vector
     """
 
-    res = 1
-    if a[0] < 0: res = -1
+    res: int = 1
+    if a[0] < 0: res: int = -1
     return res
 
-def ele_h(a: list) -> list:
+
+def ele_h(a: matrix) -> matrix:
     """
     get element of householder matrix except last one
     input argument must be 2d matrix
     """
 
-    at = mat_trans(a)
-    nm = norm(at[0])
-    e = [1 if j == 0 else 0 for j in range(len(at[0]))]
-    sign = v_sign(at[0])
-    tmp = v_smul(sign * nm, e)
-    v = v_add(at[0], tmp)
-    h = householder(v)
+    at: matrix = mat_trans(a)
+    nm: scalar = norm(at[0])
+    e: vector = [1 if j == 0 else 0 for j in range(len(at[0]))]
+    sign: int = v_sign(at[0])
+    tmp: vector = v_smul(sign * nm, e)
+    v: vector = v_add(at[0], tmp)
+    h: matrix = householder(v)
     return h
 
-def qr_householder(a: list) -> tuple:
+
+def qr_householder(a: matrix) -> tuple:
     """
     QR decomposition/factorization with householder matrix
     input argument must be 2d matrix
     """
 
-    n = len(mat_trans(a))
+    n: int = len(mat_trans(a))
     h_list_tmp = []
     tmp_res = []  # this line is only for evading unbound error, not essential
 
     # get househelder matrixes
     for i in range(n):
         if i == 0:
-            res = ele_h(a)
+            res: matrix = ele_h(a)
             h_list_tmp.append(res)
-            tmp_res = mat_mul(res, a)
+            tmp_res: matrix = mat_mul(res, a)
 
         elif i < n - 1:
             an = [[tmp_res[j][k] for k in range(1, len(tmp_res[0]))] for j in range(1, len(tmp_res))]
-            res = ele_h(an)
+            res: matrix = ele_h(an)
             h_list_tmp.append(res)
-            tmp_res = mat_mul(res, an)
+            tmp_res: matrix = mat_mul(res, an)
 
         else:
             an = [tmp_res[j][k] for k in range(1, len(tmp_res[0])) for j in range(1, len(tmp_res))]
-            nm = norm(an)
-            e = [1 if j == 0 else 0 for j in range(len(an))]
-            sign = v_sign(an)
+            nm: scalar = norm(an)
+            e: vector = [1 if j == 0 else 0 for j in range(len(an))]
+            sign: int = v_sign(an)
             tmp = v_smul(sign * nm, e)
-            v = v_add(an, tmp)
-            h = householder(v)
+            v: vector = v_add(an, tmp)
+            h: matrix = householder(v)
             h_list_tmp.append(h)
 
     # convert househelder matrixes to H_{i} form
-    m = len(a)
-    I = mat_identity(m)
+    m: int = len(a)
+    I: matrix = mat_identity(m)
     h_list = [h_tmp if len(h_tmp) == m \
         else [[I[i][j] if i < m - len(h_tmp) or j < m - len(h_tmp) \
             else h_tmp[i - (m - len(h_tmp))][j - (m - len(h_tmp))] \
                 for i in range(m)] for j in range(m)] for h_tmp in h_list_tmp]
 
     # calculate Q
-    q = mat_identity(len(h_list[0]))
+    q: matrix = mat_identity(len(h_list[0]))
     for i in h_list:
-        q = mat_mul(q, i)
+        q: matrix = mat_mul(q, i)
 
     # calculate R
     tmp = list(reversed(h_list))
-    tmp_i = mat_identity(len(h_list[0]))
+    tmp_i: matrix = mat_identity(len(h_list[0]))
     for i in tmp:
-        tmp_i = mat_mul(tmp_i, i)
-    r = mat_mul(tmp_i, a)
+        tmp_i: matrix = mat_mul(tmp_i, i)
+    r: matrix = mat_mul(tmp_i, a)
 
     return q, r
 ```

@@ -23,14 +23,15 @@ related_posts:
 
 - **bottom**: 자료가 쌓이기 시작하는 가장 아래쪽
 - **top**: 연산이 일어나는 가장 윗부분
-- **capacity**: 스택의 최대 크기, 크기를 벗어난 자료가 스택에 저장되어 문제가 발생하는 것을 **stack overflow**라고 함
-- **stack pointer**: 스택에 저장되어 있는 자료의 개수를 나타내는 정수값으로, 스택에서 각종 연산의 기준점이 됨
+- **capacity**: 스택의 최대 크기
+  - 최대 크기보다 더 많은 데이터를 스택에 저장하려고 해서 문제가 발생하는 것을 **Stack Buffer Overflow**라고 한다
+- **stack pointer**: 스택에 저장되어 있는 자료의 개수를 나타내는 정수값으로, 스택에서 각종 연산의 기준점이 된다
 
 스택이 기본적으로 갖는 연산들은 아래와 같다.  
 
-- `push`: 입력연산, 스택에 데이터를 추가한다.
-- `pop`: 출력연산, 스택에서 데이터를 꺼낸다.
-- `peek`: 조회연산, 스택의 `top`에 있는 데이터를 확인한다.
+- `push`: 입력연산, 스택에 데이터를 추가
+- `pop`: 출력연산, 스택에서 데이터를 출력
+- `peek`: 조회연산, 스택의 `top`에 있는 데이터를 확인
 
 ## 스택의 구현
 
@@ -38,12 +39,12 @@ related_posts:
 
 ```python
 class MyStack:
-    'all elements must be same type'
+    """all elements must be same type"""
 
-    def __init__(self, capacity:int=256) -> None:
-        self.stack = [None] * capacity
-        self._capacity = capacity
-        self._ptr = 0
+    def __init__(self, capacity: int = 256) -> None:
+        self.stack: list = [None] * capacity
+        self._capacity: int = capacity
+        self._ptr: int = 0
 
     def __len__(self) -> int:  # make obj countable by len()
         return self._ptr
@@ -73,7 +74,7 @@ class MyStack:
         return self.stack[self._ptr - 1]
 
     def clear(self) -> None:
-        self._ptr = 0
+        self._ptr: int = 0
 ```
 
 Python 내장 모듈 `queue`는 `LifoQueue`라는 이름으로 스택을 지원하고 있다.  

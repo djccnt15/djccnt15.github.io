@@ -32,16 +32,20 @@ AA^{T} & = A^{T}A = I \\
 행렬의 직교 여부 확인을 Python으로 구현하면 아래와 같다. 부동소수점으로 인한 문제를 피하기 위한 추가 연산이 필요하다.  
 
 ```python
-def orthogonal_check(a: list) -> bool:
+scalar = int | float
+vector = list[scalar]
+matrix = list[vector]
+
+
+def orthogonal_check(a: matrix) -> bool:
     """
     checks whether orthogonal matrix or not
-    input argument must be 2d matrix
     """
 
-    At = mat_trans(a)
-    tmp = mat_mul(a, At)
-    tmp = mat_smul(1 / tmp[0][0], tmp)  # line for evading floating point error
-    I = mat_identity(len(a))
+    At: matrix = mat_trans(a)
+    tmp: matrix = mat_mul(a, At)
+    tmp: matrix = mat_smul(1 / tmp[0][0], tmp)  # line for evading floating point error
+    I: matrix = mat_identity(len(a))
 
     return tmp == I
 ```
