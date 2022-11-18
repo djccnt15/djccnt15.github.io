@@ -42,7 +42,7 @@ Google Analytics를 적용할 페이지의 `<head>`에 입력하라고 설명되
 
 ## 개선점
 
-위 코드를 그대로 사용하면 GitHub Pages 인식](/webdev/github_pages_ga/)을 못해서 작성중인 내용 확인을 위해 로컬 서버에서 배포하고 접속한 기록까지 전부 카운트 된다는 점과, HTML과 JavaScript가 섞여 있다는 문제점이 있다.  
+위 코드를 그대로 사용하면 [GitHub Pages 인식](/webdev/github_pages_ga/)을 못해서 작성중인 내용 확인을 위해 로컬 서버에서 배포하고 접속한 기록까지 전부 카운트 된다는 점과, HTML과 JavaScript가 섞여 있다는 문제점이 있다.  
 
 그래서 아래와 같이 정보와 제어의 분리를 위해 `assets/js/my-head.js` 파일을 생성하여 분리하고,  
 

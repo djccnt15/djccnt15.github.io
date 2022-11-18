@@ -166,14 +166,15 @@ class BotTelegram:
 위와 같이 선언한 bot 객체를 사용해서 메세지를 보내는 코드의 예시는 아래와 같다.  
 
 ```python
-from datetime import datetime
+if __name__ == "__main__":
+    from datetime import datetime
 
-bot = BotTelegram('bot.json')       # create instance from BotTelegram class
-print(bot.contact_test())           # testing contact with bot API
+    bot = BotTelegram('bot.json')       # create instance from BotTelegram class
+    print(bot.contact_test())           # testing contact with bot API
 
-now = datetime.now().replace(microsecond=0)
-msg = "test message"
-bot.send_msg(msg=f'{now}: {msg}')   # send message to your telegram chat bot
+    now = datetime.now().replace(microsecond=0)
+    msg = "test message"
+    bot.send_msg(msg=f'{now}: {msg}')   # send message to your telegram chat bot
 ```
 
 ---

@@ -15,7 +15,7 @@ related_posts:
 * toc
 {:toc}
 
-statsmodels패키지는 매우 강력한 회귀분석 기능을 제공하는 python 패키지로, 특히 요약 결과 기능을 제공한다는 점에서 매우 유용하다. statsmodels패키지로 회귀분석을 하는 방법은 두 가지가 있는데, 각각 소개해보기로 한다.  
+statsmodels 라이브러리는 매우 강력한 회귀분석 기능을 제공하는 Python 패키지로, 특히 요약 결과 기능을 제공한다는 점에서 매우 유용하다. statsmodels 라이브러리로 회귀분석을 하는 방법은 두 가지가 있는데, 각각 소개해보기로 한다.  
 
 패키지 자체를 소개하는게 목적이기 때문에 data scaling, correlation, VIF, stepwise selection 등은 생략한다.  
 

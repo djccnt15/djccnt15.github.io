@@ -16,7 +16,7 @@ related_posts:
 
 ## 1. 설치
 
-GitHub Pages는 정적 웹 사이트를 생성할 수 있는 프레임워크라면 아무거나 다 활용 가능하지만, Jekyll의 추천이 많고 테마가 많아 Jekyll을 이용해서 쉽고 빠르게 만들어보기로 했다.  
+GitHub Pages는 정적 웹 사이트를 생성할 수 있는 웹 프레임워크라면 아무거나 다 활용 가능하지만, Jekyll의 추천이 많고 테마가 많아 Jekyll을 이용해서 쉽고 빠르게 만들어보기로 했다.  
 
 ### 1-1. Ruby 설치
 
@@ -33,7 +33,7 @@ ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x64-mingw-ucrt]
 
 ### 1-2. Jekyll 설치
 
-Ruby의 패키지 관리 프레임워크인 gem을 통해 아래와 같이 Jekyll과 Bundler를 설치할 수 있다.  
+Ruby의 패키지 관리 프로그램인 gem을 통해 아래와 같이 Jekyll과 Bundler를 설치할 수 있다.  
 
 ```powershell
 > gem install jekyll bundler
