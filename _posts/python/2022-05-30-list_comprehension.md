@@ -101,6 +101,38 @@ print(a)
 [[4, 5, 6], [8, 10, 12], [12, 15, 18]]
 ```
 
+## 다른 자료형의 Comprehension
+
+`list` 뿐만 아니라 다른 자료형에도 사용 가능하다.  
+
+```python
+tuple(i for i in [1, 2, 3])
+
+print(a)
+```
+```
+(1, 2, 3)
+```
+
+```python
+a = {i * i for i in [1, 1, 2, 3, 3, 4]}
+
+print(a)
+```
+```
+{16, 1, 4, 9}
+```
+
+```python
+tmp = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
+res = {k: v*2 for (k, v) in tmp.items()}
+
+print(res)
+```
+```
+{'a': 2, 'b': 4, 'c': 6, 'd': 8, 'e': 10}
+```
+
 ---
 ## Reference
 - [Python Documentation: List Comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)([한글](https://docs.python.org/ko/3/tutorial/datastructures.html#list-comprehensions))
