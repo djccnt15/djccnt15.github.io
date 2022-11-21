@@ -3,20 +3,20 @@ published: true
 layout: post
 title: '[Python] JSON 파일 다루기'
 description: >
-  python으로 JSON 읽고 쓰기
+  Python으로 JSON 읽고 쓰기
 categories: [Python]
-tags: [python]
+tags: [python, json]
 image:
   path: /assets/img/posts/json.png
 related_posts:
-  - _posts/category/0000-00-00-python_addict.md
+  - _posts/python/2022-11-20-python_addict.md
 ---
 * toc
 {:toc}
 
 JSON은 **{Key: Value}** 쌍으로 이루어져있어 데이터의 저장 및 전달에 유용한 데이터 타입이라 이래저래 많이 쓰인다.  
 
-Python에서는 [Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) 자료형이 동일한 구조를 갖고 있으며, 기본 모듈로 제공되는 `json` 모듈과 `dict` 자료형을 이용해서 JSON 파일을 읽고 수정할 수 있다.  
+Python에서는 [Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) 자료형이 동일한 구조를 갖고 있으며, 기본 모듈로 제공되는 json 모듈과 `dict` 자료형을 이용해서 JSON 파일을 읽고 수정할 수 있다.  
 
 ## JSON 읽기
 
