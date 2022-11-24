@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Career] 회사에서 나서서 맡아야 하는 업무'
 description: >
-  회사에서 나서서 맡아야 하는 업무와 반드시 피해야 하는 업무
+    회사에서 나서서 맡아야 하는 업무와 반드시 피해야 하는 업무
 categories: [Blog]
 tags: [career, 📌pinned]
 image:
-  path: /assets/img/posts/tasks_you_should_take.png
+    path: /assets/img/posts/tasks_you_should_take.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

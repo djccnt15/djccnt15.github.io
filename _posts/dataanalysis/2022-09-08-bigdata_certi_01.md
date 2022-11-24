@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[빅분기] 실기 대비 01'
 description: >
-  빅데이터 분석기사 실기 예제 문제 풀이
+    빅데이터 분석기사 실기 예제 문제 풀이
 categories: [DataAnalysis]
 tags: [data analysis, Bigdata Certificate]
 image:
-  path: /assets/img/posts/bigdata_certi.png
+    path: /assets/img/posts/bigdata_certi.png
 related_posts:
-  - _posts/dataanalysis/2022-09-09-bigdata_certi_02.md
+    - _posts/dataanalysis/2022-09-09-bigdata_certi_02.md
 ---
 * toc
 {:toc}
@@ -40,7 +40,7 @@ import pandas as pd
 df = pd.read_csv('mtcars.csv')
 ```
 
-해법은 여러 가지가 있는데, 수식을 다 외우고 있는게 아니라면 그냥 `scikit-learn`의 `Scaler`를 사용하는게 나을 것 같다.  
+해법은 여러 가지가 있는데, 수식을 다 외우고 있는게 아니라면 그냥 scikit-learn의 `Scaler`를 사용하는게 나을 것 같다.  
 
 ### 풀이 1. scikit-learn 사용
 
@@ -306,7 +306,7 @@ df['환불금액'].fillna(value=0, inplace=True)
 
 **정규화**
 
-정규화는 이상치의 영향을 적게 받는 `Robust Scaling`을 적용해주는게 무난하다. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
+정규화는 이상치의 영향을 적게 받는 Robust Scaling을 적용해주는게 무난하다. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
 
 ```python
 import numpy as np
@@ -389,7 +389,16 @@ predict = model.predict_proba(test)
 
 **학습된 모델을 활용한 확률 예측**
 
-문제에서 결과값으로 **남자일 확률**, 즉 **예측값이 1일 확률**을 요구하는데, scikit-learn의 인퍼런스를 통해 확률을 도출하면, 0일 확률과 1일 확률이 순서대로 도출되기 때문에 그에 맞춰서 결과값을 정리해준다.  
+문제에서 결과값으로 **남자일 확률**, 즉 **예측값이 1일 확률**을 요구하는데, scikit-learn의 인퍼런스를 통해 확률을 도출했을 때 반환되는 배열의 순서를 확인하고 그에 맞춰서 결과값을 정리해준다.  
+
+반환되는 배열의 순서는 model 클래스의 `.classes_`에 저장된다.  
+
+```python
+print(model.classes_)
+```
+```
+[0, 1]
+```
 
 ```python
 predict_man = predict[:, 1]
@@ -496,6 +505,8 @@ model.fit(exog, endog)
 
 # inference with trained model
 predict = model.predict_proba(test)
+print(model.classes_)  # check order of probability
+
 predict_man = predict[:, 1]  # select the probability which the inferenced value is 1
 
 # make DataFrame to make csv

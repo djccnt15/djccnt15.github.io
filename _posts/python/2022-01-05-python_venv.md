@@ -3,18 +3,20 @@ published: true
 layout: post
 title: '[Python] 가상환경'
 description: >
-  windows와 linux에서 python 가상환경 만들고 사용하기
+    windows와 linux에서 python 가상환경 만들고 사용하기
 categories: [Python]
 tags: [venv, ⭐starred]
 image:
-  path: /assets/img/posts/python_venv.png
+    path: /assets/img/posts/python_venv.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
 
-Python은 라이브러리 버전 관리가 중요하기 때문에 프로젝트 별로 별도의 가상환경을 구축해서 사용하는 것이 좋다. `venv`, `pipenv`, `pyenv`, `conda` 등 여러 가지 라이브러리를 통해서 가상환경을 구축할 수 있는데, 나는 `Python3.5` 버전 이후부터 기본 모듈로 제공되는 `venv`를 사용한다.  
+## Python 가상환경
+
+Python은 라이브러리 버전 관리가 중요하기 때문에 프로젝트 별로 별도의 가상환경을 구축해서 사용하는 것이 좋다. venv, pipenv, pyenv, conda 등 여러 가지 라이브러리를 통해서 가상환경을 구축할 수 있는데, 나는 Python3.3 버전 이후부터 기본 모듈로 제공되는 **venv**를 사용한다.  
 
 ## windows에서
 

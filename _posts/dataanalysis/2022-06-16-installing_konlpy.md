@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[TextMining] KoNLPy 설치법(윈도우)'
 description: >
-  python 텍스트마이닝 라이브러리 KoNLPy 윈도우 설치법
+    python 텍스트마이닝 라이브러리 KoNLPy 윈도우 설치법
 categories: [DataAnalysis]
 tags: [text mining, konlpy]
 image:
-  path: /assets/img/posts/installing_konlpy.png
+    path: /assets/img/posts/installing_konlpy.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -18,14 +18,14 @@ related_posts:
 
 - [여기](https://www.oracle.com/java/technologies/downloads/)에서 OS와 비트 수가 일치하고, 버전이 1.7 이상인 자바(`JDK`) 다운로드 후 설치
 - `JDK` 환경 변수 설정
-  - 제어판 → 시스템 및 보안 → 시스템 → 고급 시스템 설정 → 고급 → 환경 변수
-  - 새로 만들기 클릭 후 변수 이름에 `JAVA_HOME`, 변수 값에 `JDK` 설치 경로 입력 후 확인을 눌러 추가
+    - 제어판 → 시스템 및 보안 → 시스템 → 고급 시스템 설정 → 고급 → 환경 변수
+    - 새로 만들기 클릭 후 변수 이름에 `JAVA_HOME`, 변수 값에 `JDK` 설치 경로 입력 후 확인을 눌러 추가
 
 ## 2. Jpype 설치
 
 - [여기](https://www.lfd.uci.edu/~gohlke/pythonlibs/#_jpype)에서 Python 버전과 윈도우 비트에 맞춰 `Jpype1` 파일을 다운로드
-  - 나의 경우 `python 3.9`에 윈도우 `64bit`이기 때문에 `JPype1-1.4.0-cp39-cp39-win_amd64.whl` 파일을 다운 받음
-  - Python 버전 확인하는 커맨드는 아래와 같음
+    - 나의 경우 `python 3.9`에 윈도우 `64bit`이기 때문에 `JPype1-1.4.0-cp39-cp39-win_amd64.whl` 파일을 다운 받음
+    - Python 버전 확인하는 커맨드는 아래와 같음
 
 ```powershell
 > python -V

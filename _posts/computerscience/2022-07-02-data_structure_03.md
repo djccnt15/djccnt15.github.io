@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[자료구조] 03. 스택'
 description: >
-  python으로 스택(Stack) 구현하기
+    python으로 스택(Stack) 구현하기
 categories: [ComputerScience]
 tags: [data structure]
 image:
-  path: /assets/img/posts/data_structure_03.png
+    path: /assets/img/posts/data_structure_03.png
 related_posts:
-  - _posts/computerscience/2022-06-26-data_structure_02.md
-  - _posts/computerscience/2022-07-03-data_structure_04.md
+    - _posts/computerscience/2022-06-26-data_structure_02.md
+    - _posts/computerscience/2022-07-03-data_structure_04.md
 ---
 * toc
 {:toc}
@@ -24,7 +24,7 @@ related_posts:
 - **bottom**: 자료가 쌓이기 시작하는 가장 아래쪽
 - **top**: 연산이 일어나는 가장 윗부분
 - **capacity**: 스택의 최대 크기
-  - 최대 크기보다 더 많은 데이터를 스택에 저장하려고 해서 문제가 발생하는 것을 **Stack Buffer Overflow**라고 한다
+    - 최대 크기보다 더 많은 데이터를 스택에 저장하려고 해서 문제가 발생하는 것을 **Stack Buffer Overflow**라고 한다
 - **stack pointer**: 스택에 저장되어 있는 자료의 개수를 나타내는 정수값으로, 스택에서 각종 연산의 기준점이 된다
 
 스택이 기본적으로 갖는 연산들은 아래와 같다.  

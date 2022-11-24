@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[Django] 08. 수정 및 삭제'
 description: >
-  질문/답변 수정 및 삭제
+    질문/답변 수정 및 삭제
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-10-07-starting_django_07.md
-  - _posts/webdev/2022-10-16-starting_django_09.md
+    - _posts/webdev/2022-10-07-starting_django_07.md
+    - _posts/webdev/2022-10-16-starting_django_09.md
 ---
 * toc
 {:toc}

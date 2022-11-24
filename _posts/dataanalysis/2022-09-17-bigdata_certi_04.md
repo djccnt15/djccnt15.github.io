@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[빅분기] 실기 대비 04'
 description: >
-  빅데이터 분석기사 실기 기출 작업형 문제 3회차 풀이
+    빅데이터 분석기사 실기 기출 작업형 문제 3회차 풀이
 categories: [DataAnalysis]
 tags: [data analysis, Bigdata Certificate]
 image:
-  path: /assets/img/posts/bigdata_certi.png
+    path: /assets/img/posts/bigdata_certi.png
 related_posts:
-  - _posts/dataanalysis/2022-09-12-bigdata_certi_03.md
-  - _posts/dataanalysis/2022-11-10-bigdata_certi_05.md
+    - _posts/dataanalysis/2022-09-12-bigdata_certi_03.md
+    - _posts/dataanalysis/2022-11-10-bigdata_certi_05.md
 ---
 * toc
 {:toc}
@@ -132,7 +132,7 @@ print(num_cols)
 
 **정규화**
 
-이상치의 영향을 적게 받는 `Robust Scaling`으로 정규화 진행. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
+이상치의 영향을 적게 받는 Robust Scaling으로 정규화 진행. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
 
 ```python
 import numpy as np
@@ -205,14 +205,16 @@ clf.fit(X=exog_train, y=endog_train)
 
 **학습된 모델을 활용한 확률 예측**
 
-scikit-learn의 인퍼런스를 통해 확률을 도출하면, 0일 확률과 1일 확률이 순서대로 도출되기 때문에 그에 맞춰서 결과값을 정리  
+scikit-learn의 인퍼런스를 통해 확률을 도출하고, `.classes_`를 통해 반환되는 배열의 순서를 확인하여 그에 맞춰서 결과값을 정리  
 
 ```python
 predict = clf.predict_proba(exog_test)
 
+print(clf.classes_)
 print(predict)
 ```
 ```
+[0. 1.]
 [[0.08122608 0.91877392]
  [0.60132194 0.39867806]
  [0.81471099 0.18528901]
@@ -296,6 +298,7 @@ clf.fit(X=exog_train, y=endog_train)
 # inference with trained model
 predict = clf.predict_proba(exog_test)
 
+print(clf.classes_)
 print(predict)
 
 # make result DataFrame for making answer file
@@ -310,4 +313,4 @@ result.to_csv('result.csv', index=False)
 
 ---
 ## Reference
-- [빅데이터분석기사 2회 실기 만점 : 문제 복원 및 파이썬 코드 리뷰](https://eatchu.tistory.com/19)
+- [빅데이터분석기사 실기 3회 문제 복원 및 후기](https://ha2juo.tistory.com/10)

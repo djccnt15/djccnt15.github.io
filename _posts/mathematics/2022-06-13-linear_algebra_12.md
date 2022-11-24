@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[선형대수] 12. 행렬의 대각화'
 description: >
-  대각화, 고유값 분해, 특이값 분해
+    대각화, 고유값 분해, 특이값 분해
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-  path: /assets/img/posts/linear_algebra_12.png
+    path: /assets/img/posts/linear_algebra_12.png
 related_posts:
-  - _posts/mathematics/2022-06-12-linear_algebra_11.md
-  - _posts/mathematics/2022-06-19-linear_algebra_13.md
+    - _posts/mathematics/2022-06-12-linear_algebra_11.md
+    - _posts/mathematics/2022-06-19-linear_algebra_13.md
 ---
 * toc
 {:toc}

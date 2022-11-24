@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[cmd/terminal] 사용법'
 description: >
-  windows cmd/linux terminal의 유용한 명령어 모음  
+    windows cmd/linux terminal의 유용한 명령어 모음  
 categories: [SWEngineering]
 tags: [cmd/terminal, ⭐starred]
 image:
-  path: /assets/img/posts/cmd.png
+    path: /assets/img/posts/cmd.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -110,12 +110,12 @@ $ cd -
 
 - /p 출력이 너무 많아 화면이 꽉 차면 멈추면서 보여줌
 - /o: 정렬 옵션 추가
-  - N  이름순(알파벳순)
-  - S  크기순(가장 작은 항목부터)
-  - E  확장명순(알파벳순)
-  - D  날짜/시간순(가장 오래된 항복부터)
-  - G  그룹 디렉터리 먼저
-  - -- 순서를 반대로 하는 접두사
+    - N  이름순(알파벳순)
+    - S  크기순(가장 작은 항목부터)
+    - E  확장명순(알파벳순)
+    - D  날짜/시간순(가장 오래된 항복부터)
+    - G  그룹 디렉터리 먼저
+    - -- 순서를 반대로 하는 접두사
 
 ```powershell
 # linux

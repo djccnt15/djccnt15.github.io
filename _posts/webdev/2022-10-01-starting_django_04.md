@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[Django] 04. MTV 패턴과 Form'
 description: >
-  form 활용 및 화면 개선
+    form 활용 및 화면 개선
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-09-30-starting_django_03.md
-  - _posts/webdev/2022-10-02-starting_django_05.md
+    - _posts/webdev/2022-09-30-starting_django_03.md
+    - _posts/webdev/2022-10-02-starting_django_05.md
 ---
 * toc
 {:toc}

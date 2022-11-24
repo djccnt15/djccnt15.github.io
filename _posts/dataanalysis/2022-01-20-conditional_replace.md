@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[pandas] DataFrame의 조건부 변환'
 description: >
-  조건에 따라 데이터를 특정하게 수정하는 방법들
+    조건에 따라 데이터를 특정하게 수정하는 방법들
 categories: [DataAnalysis]
 tags: [preprocessing, pandas]
 image:
-  path: /assets/img/posts/np_select.png
+    path: /assets/img/posts/np_select.png
 related_posts:
-  - _posts/dataanalysis/2022-01-08-df_header.md
+    - _posts/dataanalysis/2022-01-08-df_header.md
 ---
 * toc
 {:toc}

@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[선형대수] 01. 선형대수의 기초'
 description: >
-  스칼라, 벡터, 행렬, 텐서의 기본 개념
+    스칼라, 벡터, 행렬, 텐서의 기본 개념
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-  path: /assets/img/posts/linear_algebra_01.png
+    path: /assets/img/posts/linear_algebra_01.png
 related_posts:
-  - _posts/mathematics/2022-05-19-linear_algebra_02.md
+    - _posts/mathematics/2022-05-19-linear_algebra_02.md
 ---
 * toc
 {:toc}

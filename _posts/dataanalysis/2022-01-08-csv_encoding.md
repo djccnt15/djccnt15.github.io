@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[pandas] csv 인코딩'
 description: >
-  pandas로 csv 인코딩 바꾸기
+    pandas로 csv 인코딩 바꾸기
 categories: [DataAnalysis]
 tags: [pandas]
 image:
-  path: /assets/img/posts/scrap_result_2021.png
+    path: /assets/img/posts/scrap_result_2021.png
 related_posts:
-  - _posts/dataanalysis/2022-09-07-csv_encoding_02.md
+    - _posts/dataanalysis/2022-09-07-csv_encoding_02.md
 ---
 * toc
 {:toc}

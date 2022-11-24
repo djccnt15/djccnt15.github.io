@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[VS Code] 특정 형식에만 옵션 적용하기'
 description: >
-  markdown 형식에만 Trim Trailing Whitespace 옵션 끄기
+    markdown 형식에만 Trim Trailing Whitespace 옵션 끄기
 categories: [SWEngineering]
 tags: [VS Code]
 image:
-  path: /assets/img/posts/vscode_markdown_whitespace.png
+    path: /assets/img/posts/vscode_markdown_whitespace.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -22,9 +22,9 @@ related_posts:
 
 의외로 해결책은 간단했는데, 세부 설정에 들어가서 아래와 같이 설정해주면 된다.  
 
-0. VS Code `Settings` 열기
-0. 우상단의 `Open Setting(JSON)` 열기
-0. 아래와 같이 수정하기
+1. VS Code `Settings` 열기
+1. 우상단의 `Open Setting(JSON)` 열기
+1. 아래와 같이 수정하기
 
 ```json
 {

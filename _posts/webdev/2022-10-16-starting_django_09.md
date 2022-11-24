@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[Django] 09. view 정리'
 description: >
-  views.py 정리
+    views.py 정리
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-10-15-starting_django_08.md
-  - _posts/webdev/2022-10-22-starting_django_10.md
+    - _posts/webdev/2022-10-15-starting_django_08.md
+    - _posts/webdev/2022-10-22-starting_django_10.md
 ---
 * toc
 {:toc}

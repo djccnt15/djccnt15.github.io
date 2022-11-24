@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Markdown] 마크다운 활용팁'
 description: >
-  posting에 유용한 팁들
+    posting에 유용한 팁들
 categories: [SWEngineering]
 tags: [markdown, ⭐starred]
 image:
-  path: /assets/img/posts/markdown.png
+    path: /assets/img/posts/markdown.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

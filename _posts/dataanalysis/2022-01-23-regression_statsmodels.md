@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[회귀분석] python 회귀분석'
 description: >
-  statsmodels을 이용해서 회귀분석을 해보자
+    statsmodels을 이용해서 회귀분석을 해보자
 categories: [DataAnalysis]
 tags: [regression, statsmodels, incomplete]
 image:
-  path: /assets/img/posts/multiple_regression.png
+    path: /assets/img/posts/multiple_regression.png
 related_posts:
-  - _posts/mathematics/2022-01-19-regression_linear_scratch.md
-  - _posts/dataanalysis/2022-01-24-regression_assumption.md
+    - _posts/mathematics/2022-01-19-regression_linear_scratch.md
+    - _posts/dataanalysis/2022-01-24-regression_assumption.md
 ---
 * toc
 {:toc}
@@ -218,14 +218,14 @@ res = smf.ols(formula='Lottery ~ np.log(Literacy)', data=df).fit()
 - Prob (F-statistic): Prob(F-통계량), 회귀식이 유의미한지 확인. 0.05 이하일 경우 유의한 것으로 판단
 - Log-Likelihood: 로그우도, 생성된 모델이 주어진 데이터를 생성할 가능성의 수치적 기표. 모델을 생성하는 과정에서 각 변수에 대한 계수값을 비교할 때 사용
 - AIC, BIC: Log-Likelihood를 독립변수의 수로 보정한 값, 값이 작을 수록 좋음
-  - AIC: 표본의 개수와 모델의 복잡성을 기반으로 모델을 평가하며, 수치가 낮을 수록 좋음
-  - BIC: AIC와 유사하나 패널티를 부여하여 AIC보다 모델 평가 성능이 더 좋으며, 수치가 낮을 수록 좋음
+    - AIC: 표본의 개수와 모델의 복잡성을 기반으로 모델을 평가하며, 수치가 낮을 수록 좋음
+    - BIC: AIC와 유사하나 패널티를 부여하여 AIC보다 모델 평가 성능이 더 좋으며, 수치가 낮을 수록 좋음
 
 - **coef: 변수의 coefficient(계수)**, 각 독립변수가 종속변수의 변화에 미치는 영향의 정도
 - std err: 계수의 표준오차(표본 통계량의 표준 편차), 값이 작을 수록 좋음
 - t: 독립변수와 종속변수간에 선형관계(관련성)가 존재하는 정도, 값이 클수록 상관도가 큼
-  - t 값이 크다 = 표준 편차가 작다 = 독립-종속 변수간 상관도 높음
-  - t 값이 작다 = 표준 편차가 크다 = 독립-종속 변수간 상관도 낮음
+    - t 값이 크다 = 표준 편차가 작다 = 독립-종속 변수간 상관도 높음
+    - t 값이 작다 = 표준 편차가 크다 = 독립-종속 변수간 상관도 낮음
 - P>\|t\|: p-value(유의확률), 귀무가설이 맞다고 가정할 때 얻은 결과보다 극단적인 결과가 실제로 관측될 확률, 일반적으로 유의수준 5%보다 p값이 작으면(`p < 0.05`), "통계적으로 유의미하다"고 판단
 - \[0.025 0.975\]: 95% 회귀계수의 신뢰구간에서의 추정치 분포로, 표본에서 도출된 coefficient의 해당 신뢰구간에서의 값(?)
 

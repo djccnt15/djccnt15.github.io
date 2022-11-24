@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Django] 10. 추천 기능'
 description: >
-  추천 기능 만들기
+    추천 기능 만들기
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-10-16-starting_django_09.md
+    - _posts/webdev/2022-10-16-starting_django_09.md
 ---
 * toc
 {:toc}

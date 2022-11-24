@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[pandas] Pivot Table 분석'
 description: >
-  pandas의 pivot_table, groupby API로 피봇 테이블 분석하기
+    pandas의 pivot_table, groupby API로 피봇 테이블 분석하기
 categories: [DataAnalysis]
-tags: [Pivot Table, pandas]
+tags: [pivot table, pandas]
 image:
-  path: /assets/img/posts/pd_pivot_table.png
+    path: /assets/img/posts/pd_pivot_table.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

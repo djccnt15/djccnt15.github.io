@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Jekyll] 이전 글, 다음 글'
 description: >
-  이전 글, 다음 글 버튼 만들기
+    이전 글, 다음 글 버튼 만들기
 categories: [WebDev]
 tags: [jekyll]
 image:
-  path: /assets/img/posts/page_button.png
+    path: /assets/img/posts/page_button.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

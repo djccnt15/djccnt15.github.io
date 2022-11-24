@@ -2,6 +2,6 @@
 layout: categories
 title: Categories
 description: >
-  Posts by Category
+    Posts by Category
 permalink: categories
 ---

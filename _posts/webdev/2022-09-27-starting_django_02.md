@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[Django] 02. App과 ORM'
 description: >
-  App 생성, 데이터 모델 생성 및 활성화, 관리자 계정 생성
+    App 생성, 데이터 모델 생성 및 활성화, 관리자 계정 생성
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-09-25-starting_django_01.md
-  - _posts/webdev/2022-09-30-starting_django_03.md
+    - _posts/webdev/2022-09-25-starting_django_01.md
+    - _posts/webdev/2022-09-30-starting_django_03.md
 ---
 * toc
 {:toc}
@@ -31,7 +31,7 @@ Django 공식 문서에서는 [Project와 App의 차이](https://docs.djangoproj
 
 - An app is a web application.
 - A project is a collection of configuration and apps for a particular website.
-  - A project can contain multiple apps. An app can be in multiple projects.
+    - A project can contain multiple apps. An app can be in multiple projects.
 
 ```powershell
 > django-admin startapp board_qna
@@ -99,13 +99,13 @@ def _path(route, view, kwargs=None, name=None, Pattern=None):
 `path()`의 소스 코드를 보면 parameter는 위와 같은데, [공식 문서](https://docs.djangoproject.com/en/4.1/ref/urls/#django.urls.path)를 보면 각각의 의미는 다음과 같다.  
 
 - `route`
-  - URL 패턴을 가진 문자열로 프로젝트에서 사용할 URL 지정
+    - URL 패턴을 가진 문자열로 프로젝트에서 사용할 URL 지정
 - `view`
-  - 호출할 view 함수 지정
+    - 호출할 view 함수 지정
 - `kwargs`
-  - 입력된 인수를 호출할 view에 `Dict` 자료형으로 전달
+    - 입력된 인수를 호출할 view에 `Dict` 자료형으로 전달
 - `name`
-  - URL에 이름을 부여해 템플릿 등 Django 프로젝트에서 이름을 통한 호출(call by name)이 가능
+    - URL에 이름을 부여해 템플릿 등 Django 프로젝트에서 이름을 통한 호출(call by name)이 가능
 
 `board_qna` 앱과 관련된 주소들을 설정하는 `board_qna/urls.py` 파일은 아래와 같은 내용으로 생성해준다.  
 
@@ -187,13 +187,13 @@ DATABASES = {
 Django가 지원하는 여러 가지 DB의 백엔드 엔진은 아래와 같다.  
 
 - PostgreSQL
-  - `django.db.backends.postgresql`
+    - `django.db.backends.postgresql`
 - MySQL/MariaDB
-  - `django.db.backends.mysql`
+    - `django.db.backends.mysql`
 - Oracle
-  - `django.db.backends.oracle`
+    - `django.db.backends.oracle`
 - SQLite[^1]
-  - `django.db.backends.sqlite3`
+    - `django.db.backends.sqlite3`
 
 [^1]: SQLite는 개발용이나 소규모 프로젝트에서 사용되는 가벼운 파일 기반의 데이터베이스로, 개발 시에는 SQLite를 사용하여 빠르게 개발하고 실제 운영에 들어가면 좀 더 규모있는 Database를 사용하는 것이 일반적이라고 한다.  
 
@@ -247,13 +247,13 @@ class Answer(models.Model):
 데이터 모델의 구현을 위해 사용된 필드들은 아래와 같다. Django의 API가 제공하는 전체 모델 필드에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/)에서 확인할 수 있다.  
 
 - [ForeignKey](https://docs.djangoproject.com/en/4.1/ref/models/fields/#foreignkey)
-  - 이름 그대로 many-to-one 관계에서의 FK를 지칭
+    - 이름 그대로 many-to-one 관계에서의 FK를 지칭
 - [CharField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#charfield)
-  - 적당한 길이의 문자열 데이터를 입력하는 필드로 `max_length` parameter 지정 가능
+    - 적당한 길이의 문자열 데이터를 입력하는 필드로 `max_length` parameter 지정 가능
 - [TextField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#textfield)
-  - 길이 제한이 없는 대형 문자열 데이터가 입력 가능한 필드
+    - 길이 제한이 없는 대형 문자열 데이터가 입력 가능한 필드
 - [DateTimeField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#datetimefield)
-  - 날짜와 시간을 모두 지정하는 필드. 만약 날짜만 필요하다면 [DateField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#datefield)를 사용
+    - 날짜와 시간을 모두 지정하는 필드. 만약 날짜만 필요하다면 [DateField](https://docs.djangoproject.com/en/4.1/ref/models/fields/#datefield)를 사용
 
 참고로 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/db/models/#automatic-primary-key-fields)를 보면, Django는 각각의 모델에 아래와 같이 id 필드를 자동으로 추가하고 Primary Key 속성을 부여해주기 때문에 `id` 속성은 생성하지 않았다.  
 

@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[MM] 커스터마이징'
 description: >
-  Minimal Mistakes 테마 커스터마이징
+    Minimal Mistakes 테마 커스터마이징
 categories: [WebDev]
 tags: [Minimal Mistakes]
 image:
-  path: /assets/img/posts/minimal_mistakes.png
+    path: /assets/img/posts/minimal_mistakes.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

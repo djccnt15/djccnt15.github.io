@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[선형대수] 09. 다양한 곱 연산'
 description: >
-  외적, 벡터 곱, 삼중 곱
+    외적, 벡터 곱, 삼중 곱
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-  path: /assets/img/posts/linear_algebra_09.png
+    path: /assets/img/posts/linear_algebra_09.png
 related_posts:
-  - _posts/mathematics/2022-06-06-linear_algebra_08.md
-  - _posts/mathematics/2022-06-11-linear_algebra_10.md
+    - _posts/mathematics/2022-06-06-linear_algebra_08.md
+    - _posts/mathematics/2022-06-11-linear_algebra_10.md
 ---
 * toc
 {:toc}

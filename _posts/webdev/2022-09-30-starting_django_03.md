@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[Django] 03. 템플릿과 css'
 description: >
-  기초 화면 구성, css와 Bootstrap을 활용한 스타일 적용
+    기초 화면 구성, css와 Bootstrap을 활용한 스타일 적용
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-09-27-starting_django_02.md
-  - _posts/webdev/2022-10-01-starting_django_04.md
+    - _posts/webdev/2022-09-27-starting_django_02.md
+    - _posts/webdev/2022-10-01-starting_django_04.md
 ---
 * toc
 {:toc}

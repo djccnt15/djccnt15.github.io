@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[Python] list comprehension'
 description: >
-  List Comprehensions of Python
+    List Comprehensions of Python
 categories: [Python]
 tags: [python]
 image:
-  path: /assets/img/posts/python_list_comprehension.png
+    path: /assets/img/posts/python_list_comprehension.png
 related_posts:
-  - _posts/mathematics/2022-05-19-linear_algebra_02.md
-  - _posts/mathematics/2022-05-22-linear_algebra_03.md
+    - _posts/mathematics/2022-05-19-linear_algebra_02.md
+    - _posts/mathematics/2022-05-22-linear_algebra_03.md
 ---
 * toc
 {:toc}

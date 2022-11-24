@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Python] calculate runtime'
 description: >
-  python 코드의 런타임을 확인하는 방법
+    python 코드의 런타임을 확인하는 방법
 categories: [Python]
 tags: [datetime]
 image:
-  path: /assets/img/posts/python_datetime.png
+    path: /assets/img/posts/python_datetime.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

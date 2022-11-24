@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[Django] 07. 페이지네이션'
 description: >
-  페이지네이션과 템플릿 필터
+    페이지네이션과 템플릿 필터
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-10-03-starting_django_06.md
-  - _posts/webdev/2022-10-15-starting_django_08.md
+    - _posts/webdev/2022-10-03-starting_django_06.md
+    - _posts/webdev/2022-10-15-starting_django_08.md
 ---
 * toc
 {:toc}

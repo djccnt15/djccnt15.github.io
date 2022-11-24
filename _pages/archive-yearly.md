@@ -2,6 +2,6 @@
 layout: yearly
 title: Yearly Archive
 description: >
-  Posts by Year
+    Posts by Year
 permalink: archive-yearly
 ---

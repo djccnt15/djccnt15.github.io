@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Jekyll] Github Pages 사용법'
 description: >
-  Jekyll 기반 Github Pages의 각종 사용법
+    Jekyll 기반 Github Pages의 각종 사용법
 categories: [WebDev]
 tags: [jekyll, ⭐starred]
 image:
-  path: /assets/img/posts/github_pages.png
+    path: /assets/img/posts/github_pages.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

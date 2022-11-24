@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Python] 정적 타입 언어처럼 사용하기'
 description: >
-  python에서 변수 타입을 고정하고 엄격하게 사용하는 방법
+    python에서 변수 타입을 고정하고 엄격하게 사용하는 방법
 categories: [Python]
 tags: [python]
 image:
-  path: /assets/img/posts/python_type_checking_pylance.png
+    path: /assets/img/posts/python_type_checking_pylance.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

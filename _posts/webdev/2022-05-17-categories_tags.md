@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Jekyll] 카테고리/태그 페이지'
 description: >
-  posts by Category, posts by Tag
+    posts by Category, posts by Tag
 categories: [WebDev]
 tags: [jekyll]
 image:
-  path: /assets/img/posts/by_category.png
+    path: /assets/img/posts/by_category.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

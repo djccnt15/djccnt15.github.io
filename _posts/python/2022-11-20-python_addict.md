@@ -1,15 +1,15 @@
 ---
 published: true
 layout: post
-title: '[Python] dictionary 자료형을 쉽게 사용하기'
+title: '[Python] Dictionary 쉽게 사용하기'
 description: >
-  addict 라이브러리를 사용해서 Python dictionary 자료형을 쉽게 사용하는 방법
+    addict 라이브러리로 Dictionary 다루기
 categories: [Python]
 tags: [python, json]
 image:
-  path: /assets/img/posts/json.png
+    path: /assets/img/posts/json.png
 related_posts:
-  - _posts/python/2022-11-19-python_json.md
+    - _posts/python/2022-11-19-python_json.md
 ---
 * toc
 {:toc}

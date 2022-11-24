@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[선형대수] 06. 기저와 차원'
 description: >
-  벡터 공간, 선형 변환, 선형 독립, 기저, 차원, 행/열/영 공간, 랭크와 널리티
+    벡터 공간, 선형 변환, 선형 독립, 기저, 차원, 행/열/영 공간, 랭크와 널리티
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-  path: /assets/img/posts/linear_algebra_06.png
+    path: /assets/img/posts/linear_algebra_06.png
 related_posts:
-  - _posts/mathematics/2022-05-28-linear_algebra_05.md
-  - _posts/mathematics/2022-06-05-linear_algebra_07.md
+    - _posts/mathematics/2022-05-28-linear_algebra_05.md
+    - _posts/mathematics/2022-06-05-linear_algebra_07.md
 ---
 * toc
 {:toc}

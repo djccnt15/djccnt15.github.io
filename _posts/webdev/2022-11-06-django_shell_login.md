@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Django] shell에서 로그인하기'
 description: >
-  Django Shell 로그인
+    Django Shell 로그인
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Python] JSON 파일 다루기'
 description: >
-  Python으로 JSON 읽고 쓰기
+    Python으로 JSON 읽고 쓰기
 categories: [Python]
 tags: [python, json]
 image:
-  path: /assets/img/posts/json.png
+    path: /assets/img/posts/json.png
 related_posts:
-  - _posts/python/2022-11-20-python_addict.md
+    - _posts/python/2022-11-20-python_addict.md
 ---
 * toc
 {:toc}

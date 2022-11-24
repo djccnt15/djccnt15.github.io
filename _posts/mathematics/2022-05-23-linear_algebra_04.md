@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[선형대수] 04. 행렬식'
 description: >
-  행렬식, 행렬식 계산, 행렬식의 성질
+    행렬식, 행렬식 계산, 행렬식의 성질
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-  path: /assets/img/posts/linear_algebra_04.png
+    path: /assets/img/posts/linear_algebra_04.png
 related_posts:
-  - _posts/mathematics/2022-05-22-linear_algebra_03.md
-  - _posts/mathematics/2022-05-28-linear_algebra_05.md
+    - _posts/mathematics/2022-05-22-linear_algebra_03.md
+    - _posts/mathematics/2022-05-28-linear_algebra_05.md
 ---
 * toc
 {:toc}

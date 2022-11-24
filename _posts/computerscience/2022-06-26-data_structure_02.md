@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[자료구조] 02. 배열'
 description: >
-  python으로 배열(Array) 구현하기
+    python으로 배열(Array) 구현하기
 categories: [ComputerScience]
 tags: [data structure]
 image:
     path: /assets/img/posts/data_structure_02.png
 related_posts:
-  - _posts/computerscience/2022-06-25-data_structure_01.md
-  - _posts/computerscience/2022-07-02-data_structure_03.md
+    - _posts/computerscience/2022-06-25-data_structure_01.md
+    - _posts/computerscience/2022-07-02-data_structure_03.md
 ---
 * toc
 {:toc}
@@ -22,10 +22,10 @@ related_posts:
 **배열(array)**은 동일한 형태의 원소들이 연속적으로 배치되어 있으며, index를 이용해서 각 원소들에 임의 접근이 가능한 형태의 자료구조를 말한다.  
 
 - 장점
-  - 배열을 통해 처리할 데이터의 크기가 일정하고, 그 크기를 미리 알 수 있다면 미리 할당된 영역에서 index를 통해 데이터를 처리하기 때문에 처리 속도가 빠르다
+    - 배열을 통해 처리할 데이터의 크기가 일정하고, 그 크기를 미리 알 수 있다면 미리 할당된 영역에서 index를 통해 데이터를 처리하기 때문에 처리 속도가 빠르다
 - 단점
-  - 연속된 메모리 주소에 할당된 데이터가 저장되고 처리되기 때문에 크기가 변하는 연산이 불가능하다
-  - 사용하지 않는 공간이 생겨도 메모리는 예약된 상태로 남아있기 때문에 해당 공간이 낭비된 상태로 남아있게 된다
+    - 연속된 메모리 주소에 할당된 데이터가 저장되고 처리되기 때문에 크기가 변하는 연산이 불가능하다
+    - 사용하지 않는 공간이 생겨도 메모리는 예약된 상태로 남아있기 때문에 해당 공간이 낭비된 상태로 남아있게 된다
 
 ## 배열의 구현
 

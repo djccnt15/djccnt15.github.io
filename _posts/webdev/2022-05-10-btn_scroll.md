@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Front-end] 스크롤 버튼'
 description: >
-  scroll to top/bottom 버튼 만들기
+    scroll to top/bottom 버튼 만들기
 categories: [WebDev]
 tags: [front-end]
 image:
-  path: /assets/img/posts/btn.png
+    path: /assets/img/posts/btn.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

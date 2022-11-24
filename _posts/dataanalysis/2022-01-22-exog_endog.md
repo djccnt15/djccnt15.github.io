@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[데이터분석] exog, endog'
 description: >
-  독립변수와 종속변수의 변수명
+    독립변수와 종속변수의 변수명
 categories: [DataAnalysis]
 tags: [data analysis]
 image:
-  path: /assets/img/posts/exog_endog.png
+    path: /assets/img/posts/exog_endog.png
 related_posts:
-  - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
-  - _posts/dataanalysis/2022-01-24-regression_assumption.md
+    - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
+    - _posts/dataanalysis/2022-01-24-regression_assumption.md
 ---
 * toc
 {:toc}

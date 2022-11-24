@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[선형대수] 11. 직교 행렬'
 description: >
-  직교와 직교 행렬
+    직교와 직교 행렬
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-  path: /assets/img/posts/linear_algebra_11.png
+    path: /assets/img/posts/linear_algebra_11.png
 related_posts:
-  - _posts/mathematics/2022-06-11-linear_algebra_10.md
-  - _posts/mathematics/2022-06-13-linear_algebra_12.md
+    - _posts/mathematics/2022-06-11-linear_algebra_10.md
+    - _posts/mathematics/2022-06-13-linear_algebra_12.md
 ---
 * toc
 {:toc}

@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[Django] 06. 로그인/로그아웃, 회원가입'
 description: >
-  로그인/로그아웃, 회원가입 기능 만들기
+    로그인/로그아웃, 회원가입 기능 만들기
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-10-02-starting_django_05.md
-  - _posts/webdev/2022-10-07-starting_django_07.md
+    - _posts/webdev/2022-10-02-starting_django_05.md
+    - _posts/webdev/2022-10-07-starting_django_07.md
 ---
 * toc
 {:toc}

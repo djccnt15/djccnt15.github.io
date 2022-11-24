@@ -3,22 +3,22 @@ published: true
 layout: post
 title: '[회귀분석] 선형회귀 구현'
 description: >
-  선형회귀 수식 구현하기. 모 수업에서 쪽지시험으로 진행했던 문제
+    선형회귀 수식 구현하기. 모 수업에서 쪽지시험으로 진행했던 문제
 categories: [Mathematics]
 tags: [regression]
 image:
-  path: /assets/img/posts/linear_regression_scratch.png
+    path: /assets/img/posts/linear_regression_scratch.png
 related_posts:
-  - _posts/datascience/2022-01-23-regression_statsmodels.md
-  - _posts/datascience/2022-01-24-regression_assumption.md
+    - _posts/datascience/2022-01-23-regression_statsmodels.md
+    - _posts/datascience/2022-01-24-regression_assumption.md
 ---
 * toc
 {:toc}
 
 ## 문제
 
-0. read the `data.txt` and define first column as $$t$$, second column as $$v$$, third column as $$e$$.
-0. use following formulas below to create `python def LineFit(x, y)` which defines $$y = b + Wx$$.<br><br>
+1. read the `data.txt` and define first column as $$t$$, second column as $$v$$, third column as $$e$$.
+1. use following formulas below to create `python def LineFit(x, y)` which defines $$y = b + Wx$$.<br><br>
 $$\begin{align*}
 \overline{x} & = \frac{1}{n} \sum_{i=1}^{n}x_{i} \\
 \\
@@ -29,8 +29,8 @@ W & = \frac{\sum_{i=1}^{n}(x_{i} - \overline{x})y_{i}}{\sum_{i=1}^{n}(x_{i} - \o
 b & = \overline{y} - W\overline{x} \\
 \\
 \end{align*}$$
-0. in case of $$v = v_{0} + gt$$, find values of $$v_{0}$$, $$g$$.
-0. plotting linear regression of $$t$$ and $$v$$.
+1. in case of $$v = v_{0} + gt$$, find values of $$v_{0}$$, $$g$$.
+1. plotting linear regression of $$t$$ and $$v$$.
 
 `data.txt`는 아래와 같다.  
 
@@ -141,7 +141,7 @@ axes.set_title(
 
 axes.axhline(
     color='black',
-    linewidth=0.5,
+    linewidth=1.5,
     zorder=-1
 )
 

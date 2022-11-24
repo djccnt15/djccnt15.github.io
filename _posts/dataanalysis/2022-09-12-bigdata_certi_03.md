@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[빅분기] 실기 대비 03'
 description: >
-  빅데이터 분석기사 실기 기출 작업형 문제 2회차 풀이
+    빅데이터 분석기사 실기 기출 작업형 문제 2회차 풀이
 categories: [DataAnalysis]
 tags: [data analysis, Bigdata Certificate]
 image:
-  path: /assets/img/posts/bigdata_certi.png
+    path: /assets/img/posts/bigdata_certi.png
 related_posts:
-  - _posts/dataanalysis/2022-09-09-bigdata_certi_02.md
-  - _posts/dataanalysis/2022-09-17-bigdata_certi_04.md
+    - _posts/dataanalysis/2022-09-09-bigdata_certi_02.md
+    - _posts/dataanalysis/2022-09-17-bigdata_certi_04.md
 ---
 * toc
 {:toc}
@@ -61,7 +61,7 @@ data = data.iloc[: round(len(df) * 0.8)]
 std_before = data.std()
 data.fillna(value=data.median(), inplace=True)
 std_after = data.std()
-result = abs(std_after - std_before)
+result = abs(abs(std_after) - abs(std_before))
 
 print(result)
 ```
@@ -71,8 +71,7 @@ print(result)
 
 ### 문제 3
 
-주어진 Dataset의 특정 컬럼의 평균으로부터 1.5 * 표준편차를 벗어나는 영역을 이상치라고 판단하고, 이상치들의 합을 구하라  
-(Data가 복원되지 않아 2번 문제와 동일한 데이터 사용)  
+주어진 Dataset의 특정 컬럼의 평균으로부터 1.5 * 표준편차를 벗어나는 영역을 이상치라고 판단하고, 이상치들의 합을 구하라 (Data가 복원되지 않아 2번 문제와 동일한 데이터 사용)  
 
 ```python
 import pandas as pd
@@ -141,20 +140,19 @@ One-hot encoding을 위해 명목형 변수와 숫자형 변수를 분리해준�
 
 ```python
 obj_cols = df.select_dtypes(include='object').columns
-num_cols = [i for i in df.columns if i not in obj_cols]
-num_cols.remove('ID')
+num_cols = [i for i in df.columns if i not in obj_cols and i not in ['ID', 'Reached.on.Time_Y.N']]
 
 print(obj_cols)
 print(num_cols)
 ```
 ```
 Index(['Warehouse_block', 'Mode_of_Shipment', 'Product_importance', 'Gender'], dtype='object')
-['Customer_care_calls', 'Customer_rating', 'Cost_of_the_Product', 'Prior_purchases', 'Discount_offered', 'Weight_in_gms', 'Reached.on.Time_Y.N']
+['Customer_care_calls', 'Customer_rating', 'Cost_of_the_Product', 'Prior_purchases', 'Discount_offered', 'Weight_in_gms']
 ```
 
 **정규화**
 
-이상치의 영향을 적게 받는 `Robust Scaling`으로 정규화를 해주자. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
+이상치의 영향을 적게 받는 Robust Scaling으로 정규화를 해주자. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
 
 ```python
 import numpy as np
@@ -244,14 +242,16 @@ model.fit(X=exog_train, y=endog_train)
 
 **학습된 모델을 활용한 확률 예측**
 
-scikit-learn의 인퍼런스를 통해 확률을 도출하면, 0일 확률과 1일 확률이 순서대로 도출되기 때문에 그에 맞춰서 결과값을 정리해준다.  
+scikit-learn의 인퍼런스를 통해 확률을 도출하고, `.classes_`를 통해 반환되는 배열의 순서를 확인하여 그에 맞춰서 결과값을 정리해준다.  
 
 ```python
 predict = model.predict_proba(exog_test)
 
+print(model.classes_)
 print(predict)
 ```
 ```
+[0 1]
 [[0.63081206 0.36918794]
  [0.61810725 0.38189275]
  [0.32283906 0.67716094]
@@ -301,8 +301,7 @@ print(df.info())
 
 # separate columns by data type
 obj_cols = df.select_dtypes(include='object').columns
-num_cols = [i for i in df.columns if i not in obj_cols]
-num_cols.remove('ID')
+num_cols = [i for i in df.columns if i not in obj_cols and i not in ['ID', 'Reached.on.Time_Y.N']]
 
 print(obj_cols)
 print(num_cols)
@@ -341,6 +340,7 @@ model.fit(X=exog_train, y=endog_train)
 # inference with trained model
 predict = model.predict_proba(exog_test)
 
+print(model.classes_)
 print(predict)
 
 # make result DataFrame for making answer file

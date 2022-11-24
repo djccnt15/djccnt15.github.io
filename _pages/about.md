@@ -2,7 +2,7 @@
 layout: about
 title: About
 description: >
-  Portfolio and Resume
+    Portfolio and Resume
 hide_description: true
 permalink: about
 ---
@@ -19,13 +19,13 @@ GitHub: **[github.com/djccnt15](https://github.com/djccnt15)**
 LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 {:.note title='contacts'}
 
-AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티스트 지망생, 아마추어 AI 연구자입니다.  
+기억보단 기록을 좋아하는 데이터 사이언티스트 겸 백엔드 엔지니어입니다.  
 
-컴퓨터공학이나 통계학 전공은 아니지만, 산업용 AI 개발에 흥미가 있어 관련 분야를 꾸준히 공부하며 실무 경험을 쌓기 위해 노력중입니다.  
+컴퓨터공학이나 통계학 전공은 아니지만, 산업용 AI와 웹 기반 서비스 개발에 흥미가 있어 관련 분야를 꾸준히 공부하며 실무 경험을 쌓기 위해 노력중입니다.  
 
 취미로 이런저런 토이 프로젝트도 진행 중입니다.  
 
-- 각종 AI 관련 프로젝트 기획 및 모델 개발
+- 데이터 분석 서비스 및 AI 모델 개발
 - 데이터 분석 및 시각화
 
 
@@ -57,16 +57,16 @@ AI 솔루션 기획자 겸 Machine Learning 엔지니어, 데이터 사이언티
 ## Projects
 
 - 2021
-  - ANN 기반 STL(Steel Plate) 리코일 공정 양/불 예측 모델 개발
+    - ANN 기반 STL(Steel Plate) 리코일 공정 양/불 예측 모델 개발
 - 2020
-  - K-means 기반 스마트공장 도입기업 특성 분석
+    - K-means 기반 스마트공장 도입기업 특성 분석
 
 ## Articles
 
 - 2021년
-  - 석사학위논문. [스마트공장 성숙도 수준 기반 도입기업 특성 분석](http://www.riss.kr/link?id=T15766958)
+    - 석사학위논문. [스마트공장 성숙도 수준 기반 도입기업 특성 분석](http://www.riss.kr/link?id=T15766958)
 - 2020년
-  - KCI. [6-도메인 스마트팩토리 성숙도 평가 모델 기반 도입기업 군집분석](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002627006)
+    - KCI. [6-도메인 스마트팩토리 성숙도 평가 모델 기반 도입기업 군집분석](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002627006)
 
 <!-- ### Patents -->
 

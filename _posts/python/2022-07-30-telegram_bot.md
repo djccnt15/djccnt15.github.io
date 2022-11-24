@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Bot] Telegram Bot 만들기'
 description: >
-  Telegram Bot API로 Python 자동 알림 만들기
+    Telegram Bot API로 Python 자동 알림 만들기
 categories: [Python]
 tags: [bot]
 image:
-  path: /assets/img/posts/telegram_bot_setting.png
+    path: /assets/img/posts/telegram_bot_setting.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

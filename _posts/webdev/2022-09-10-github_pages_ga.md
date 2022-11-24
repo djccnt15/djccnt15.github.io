@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Jekyll] Jekyll에서 구동 환경 인식하기'
 description: >
-  Jekyll에서 GitHub Pages 인식하기
+    Jekyll에서 GitHub Pages 인식하기
 categories: [WebDev]
 tags: [jekyll]
 image:
-  path: /assets/img/posts/github_pages_metadata.png
+    path: /assets/img/posts/github_pages_metadata.png
 related_posts:
-  - _posts/blog/2022-09-11-install_ga4_manually.md
+    - _posts/blog/2022-09-11-install_ga4_manually.md
 ---
 * toc
 {:toc}

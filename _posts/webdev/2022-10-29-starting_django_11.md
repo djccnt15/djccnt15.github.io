@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[Django] 11. 내부 링크'
 description: >
-  HTML을 이용해서 내부 링크 만들기
+    HTML을 이용해서 내부 링크 만들기
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-10-22-starting_django_10.md
+    - _posts/webdev/2022-10-22-starting_django_10.md
 ---
 * toc
 {:toc}

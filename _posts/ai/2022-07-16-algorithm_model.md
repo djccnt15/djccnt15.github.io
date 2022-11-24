@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[AI] 알고리즘과 모델'
 description: >
-  AI 알고리즘과 AI 모델의 차이
+    AI 알고리즘과 AI 모델의 차이
 categories: [AI]
 tags: [AI]
 image:
-  path: /assets/img/posts/algorithm_model.png
+    path: /assets/img/posts/algorithm_model.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

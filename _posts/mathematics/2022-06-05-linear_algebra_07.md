@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[선형대수] 07. 내적과 norm'
 description: >
-  내적, norm, 코사인 유사도
+    내적, norm, 코사인 유사도
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-  path: /assets/img/posts/linear_algebra_07.png
+    path: /assets/img/posts/linear_algebra_07.png
 related_posts:
-  - _posts/mathematics/2022-05-29-linear_algebra_06.md
-  - _posts/mathematics/2022-06-06-linear_algebra_08.md
+    - _posts/mathematics/2022-05-29-linear_algebra_06.md
+    - _posts/mathematics/2022-06-06-linear_algebra_08.md
 ---
 * toc
 {:toc}

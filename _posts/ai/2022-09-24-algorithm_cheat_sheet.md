@@ -3,13 +3,13 @@ published: true
 layout: post
 title: '[ML] 알고리즘 선택 Tip'
 description: >
-  알고리즘의 선택을 위한 cheat sheet
+    알고리즘의 선택을 위한 cheat sheet
 categories: [AI]
 tags: [AI]
 image:
-  path: /assets/img/posts/ml_map.png
+    path: /assets/img/posts/ml_map.png
 related_posts:
-  - _posts/category/0000-01-01-format_post.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}

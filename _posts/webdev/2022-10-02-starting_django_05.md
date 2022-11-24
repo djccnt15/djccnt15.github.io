@@ -3,14 +3,14 @@ published: true
 layout: post
 title: '[Django] 05. 인덱스 페이지'
 description: >
-  인덱스 페이지 만들기
+    인덱스 페이지 만들기
 categories: [WebDev]
 tags: [Django]
 image:
-  path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/django_starting.png
 related_posts:
-  - _posts/webdev/2022-10-01-starting_django_04.md
-  - _posts/webdev/2022-10-03-starting_django_06.md
+    - _posts/webdev/2022-10-01-starting_django_04.md
+    - _posts/webdev/2022-10-03-starting_django_06.md
 ---
 * toc
 {:toc}
