@@ -7,7 +7,7 @@ description: >
 categories: [Python]
 tags: [bot]
 image:
-    path: /assets/img/posts/telegram_bot_setting.png
+    path: /assets/img/posts/telegram_bot_test_02.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---
@@ -146,14 +146,15 @@ class BotTelegram:
     e.g. {"token": "YOUR_HTTP_ACCESS_TOKEN"}
     """
 
-    def __init__(self, fn: str):
-        self.fn: str = fn
-        with open(self.fn) as token:
-            self.token: str = json.load(fp=token)["token"]
+    def __init__(self, fn: str) -> None:
+        # get url of chat bot
+        with open(fn) as f:
+            token: str = json.load(fp=f)["token"]
+        self.url: str = f'https://api.telegram.org/bot{token}/'
 
-        self.url: str = f'https://api.telegram.org/bot{self.token}/'
-        self.data: dict = {"chat_id": requests.post(url=f'{self.url}getUpdates').json()\
-            ["result"][0]["message"]["from"]["id"]}
+        # get chat id of the user
+        chat_id: str = requests.post(url=f'{self.url}getUpdates').json()["result"][0]["message"]["from"]["id"]
+        self.data: dict = {"chat_id": chat_id}
 
     def contact_test(self) -> dict:
         return requests.post(url=f'{self.url}getMe').json()
@@ -169,13 +170,26 @@ class BotTelegram:
 if __name__ == "__main__":
     from datetime import datetime
 
-    bot = BotTelegram('bot.json')       # create instance from BotTelegram class
-    print(bot.contact_test())           # testing contact with bot API
+    try:
+        bot = BotTelegram('bot.json')       # create instance from BotTelegram class
+        print(bot.contact_test())           # testing contact with bot API
+    except:
+        print('Alarm Bot Error')
 
-    now = datetime.now().replace(microsecond=0)
-    msg = "test message"
-    bot.send_msg(msg=f'{now}: {msg}')   # send message to your telegram chat bot
+    print('run your code')
+
+    try:
+        now = datetime.now().replace(microsecond=0)
+        msg = "test message"
+        bot.send_msg(msg=f'{now}: {msg}')   # send message to your telegram chat bot
+    except:
+        print('Alarm Bot Error')
+
+    print('run your code')
 ```
+
+참고로 텔레그램 봇은 일정 시간 이상 메세지가 전달되지 않으면 일종의 휴면 상태에 들어가서 사용하려면 사용자가 메세지를 다시 보내줘야 한다.  
+이 경우 `id`를 읽을 수 없게 되어 에러가 발생하는데, 텔레그램 봇의 에러 발생과 상관없이 다른 작업이 수행되도록 하고 싶다면 위와 같이 봇 관련 코드를 `try, except`문 안에 넣어두면 된다.  
 
 ---
 ## Reference

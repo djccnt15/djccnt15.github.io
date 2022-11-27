@@ -1,15 +1,16 @@
 ---
 published: true
 layout: post
-title: '[빅분기] 실기 시험 cheat sheet'
+title: '[빅분기] 실기 대비 05'
 description: >
-    빅데이터분석기사 실기 시험장에서 볼 수 있는 cheat sheet
+    빅데이터 분석기사 실기 시험장에서 볼 수 있는 cheat sheet
 categories: [DataAnalysis]
 tags: [data analysis, Bigdata Certificate]
 image:
     path: /assets/img/posts/bigdata_certi.png
 related_posts:
     - _posts/dataanalysis/2022-09-17-bigdata_certi_04.md
+    - _posts/dataanalysis/2022-11-26-bigdata_certi_06.md
 ---
 * toc
 {:toc}

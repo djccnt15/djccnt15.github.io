@@ -23,7 +23,7 @@ related_posts:
 
 ## 작업형 1유형
 
-### 문제 1
+### 문제 1-1
 
 주어진 Dataset에서 'CRIM' 값이 가장 큰 10개의 지역을 구하고 10개의 지역의 'CRIM' 값을 그 중 가장 작은 값으로 대체한 후, 'AGE' 컬럼 값이 80 이상인 Row의 'CRIM' 평균값을 구하라  
 
@@ -45,7 +45,7 @@ print(result)
 5.759386625
 ```
 
-### 문제 2
+### 문제 1-2
 
 주어진 Dataset에서 첫 번째 행 부터 순서대로 80% 까지의 데이터를 추출 후 'total_bedrooms' 컬럼의 중앙값으로 해당 컬럼의 결측치를 대체한 후, 'total_bedrooms' 컬럼의 대치 전후의 표준편차 차이를 구하라  
 
@@ -69,7 +69,7 @@ print(result)
 1.9751472916456692
 ```
 
-### 문제 3
+### 문제 1-3
 
 주어진 Dataset의 특정 컬럼의 평균으로부터 1.5 * 표준편차를 벗어나는 영역을 이상치라고 판단하고, 이상치들의 합을 구하라 (Data가 복원되지 않아 2번 문제와 동일한 데이터 사용)  
 
@@ -103,7 +103,7 @@ import pandas as pd
 df = pd.read_csv('data/E-Commerce_Shipping.csv')
 ```
 
-**EDA 진행**
+**EDA**
 
 데이터에 대한 기본 정보를 확인해본다.  
 
@@ -296,7 +296,7 @@ from sklearn.linear_model import LogisticRegression
 # data load
 df = pd.read_csv('data/E-Commerce_Shipping.csv')
 
-# EDA stage
+# EDA
 print(df.info())
 
 # separate columns by data type

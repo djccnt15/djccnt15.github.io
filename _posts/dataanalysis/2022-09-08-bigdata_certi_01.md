@@ -112,10 +112,10 @@ endog = pd.read_csv('data/y_train.csv', encoding='euc-kr')
 test = pd.read_csv('data/X_test.csv', encoding='euc-kr')
 ```
 
-[인코딩 문제](/dataanalysis/csv_encoding_02/)가 있어서 `encoding='euc-kr'` `parameter`를 입력했는데, 한국데이터산업진흥원에서 제공하는 체험 환경에서는 없어도 작동한다. 아마 시험 환경에서도 입력하지 않아도 될 듯하다.  
+[인코딩 문제](/dataanalysis/csv_encoding_02/)가 있어서 `encoding='euc-kr'` 옵션을 추가했는데, 한국데이터산업진흥원에서 제공하는 체험 환경에서는 없어도 작동한다. 아마 시험 환경에서도 입력하지 않아도 될 듯하다.  
 {:.note}
 
-**EDA 진행**
+**EDA**
 
 데이터에 대한 기본 정보를 확인해본다.  
 
@@ -435,7 +435,7 @@ exog = pd.read_csv('data/X_train.csv', encoding='euc-kr')
 endog = pd.read_csv('data/y_train.csv', encoding='euc-kr')
 test = pd.read_csv('data/X_test.csv', encoding='euc-kr')
 
-# EDA stage
+# EDA
 print(exog.info())
 print(endog.info())
 print(test.info())

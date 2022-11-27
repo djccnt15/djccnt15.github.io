@@ -23,9 +23,9 @@ related_posts:
 
 ## 작업형 1유형
 
-### 문제 1
+### 문제 1-1
 
-데이터 중 컬럼들의 결측값을 전부 제거 후 데이터를 처음부터 순서대로 70%를 추출하여 특정변수 1분위수를 산출
+데이터 중 컬럼들의 결측값을 전부 제거 후 데이터를 처음부터 순서대로 70%를 추출하여 특정변수 1분위수를 산출  
 
 - [데이터 출처](https://www.kaggle.com/datasets/camnugent/california-housing-prices)
 
@@ -44,13 +44,13 @@ print(result)
 19.0
 ```
 
-### 문제 2
+### 문제 1-2
 
-데이터가 복원되지 않는데, 문제는 다음과 같다. 연도별(1990 ~ 2007:18개년도, 행) 대략 200개 정도의 국가(컬럼)의 데이터 중 2000년도 전체 국가 유병률의 평균보다 큰 국가 수를 산출
+데이터가 복원되지 않는데, 문제는 다음과 같다. 연도별(1990 ~ 2007:18개년도, 행) 대략 200개 정도의 국가(컬럼)의 데이터 중 2000년도 전체 국가 유병률의 평균보다 큰 국가 수를 산출  
 
-### 문제 3
+### 문제 1-3
 
-컬럼별로 빈값 또는 결측값들의 비율을 확인하여 가장 결측율이 높은 변수명을 출력
+컬럼별로 빈값 또는 결측값들의 비율을 확인하여 가장 결측율이 높은 변수명을 출력  
 
 - [데이터 출처](https://www.kaggle.com/c/titanic)
 
@@ -58,11 +58,8 @@ print(result)
 import pandas as pd
 
 df = pd.read_csv('data/titanic.csv')
-nan = {}
-for i in df.columns:
-    num = df[i].isna().sum()
-    ratio = num / len(df) * 100
-    nan[i] = ratio
+
+nan = {col: df[col].isna().sum() / df.shape[0] * 100 for col in df.columns}
 
 print(max(nan, key=nan.get))
 ```
@@ -70,11 +67,11 @@ print(max(nan, key=nan.get))
 Cabin
 ```
 
-현재 코드로는 `Cabin`이 답으로 나오는데, 실제 시험 환경에서는 `Age`가 정답이었다고 한다. 아마 시험 환경에서는 데이터의 변형이 있었던 것 같다.
+현재 데이터로는 `Cabin`이 답으로 나오는데, 실제 시험 환경에서는 `Age`가 정답이었다고 한다. 아마 시험 환경에서는 데이터의 변형이 있었던 것 같다.  
 
 ## 작업형 2유형
 
-여행객의 정보들을 기반으로 여행보험 상품 가입 여부 예측
+여행객의 정보들을 기반으로 여행보험 상품 가입 여부 예측  
 
 - [데이터 출처](https://www.kaggle.com/datasets/tejashvi14/travel-insurance-prediction-data)
 
@@ -88,7 +85,7 @@ import pandas as pd
 df = pd.read_csv('data/TravelInsurancePrediction.csv', index_col=0)
 ```
 
-**EDA 진행**
+**EDA**
 
 ```python
 print(df.info())
@@ -181,7 +178,7 @@ None
 
 **train-test split**
 
-시험환경과 유사하게 학습용 데이터와 예측용 데이터를 분리하기 위한 train-test split 진행
+시험환경과 유사하게 학습용 데이터와 예측용 데이터를 분리하기 위한 train-test split 진행  
 
 ```python
 exog = df.drop(columns='TravelInsurance')
@@ -259,7 +256,7 @@ from sklearn.linear_model import LogisticRegression
 # data load
 df = pd.read_csv('data/TravelInsurancePrediction.csv', index_col=0)
 
-# EDA stage
+# EDA
 print(df.info())
 
 # separate columns by data type
