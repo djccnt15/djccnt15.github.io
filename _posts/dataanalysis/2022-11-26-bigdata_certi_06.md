@@ -9,7 +9,6 @@ tags: [data analysis, Bigdata Certificate]
 image:
     path: /assets/img/posts/bigdata_certi.png
 related_posts:
-    - _posts/dataanalysis/2022-09-12-bigdata_certi_03.md
     - _posts/dataanalysis/2022-11-10-bigdata_certi_05.md
 ---
 * toc
@@ -208,13 +207,89 @@ test 데이터 셋의 `id` 항목은 결과 제출 시에 재활용해야하니 
 id = test.iloc[:, 0]
 ```
 
-**One-Hot Encoding**
+**Label Encoding**
 
-명목 변수들에 대한 One-Hot Encoding을 진행해준다.  
+범주가 두 개만 있거나 서열형 변수로 취급할만한 항목들은 Label Encoding으로 변환해주는게 좋다.  
 
 ```python
-df = pd.get_dummies(df)
+[print(f'{col}={df[col].unique()}') for col in cols_obj]
 ```
+```
+Gender=['Male' 'Female']
+Ever_Married=['No' 'Yes']
+Graduated=['No' 'Yes']
+Profession=['Healthcare' 'Engineer' 'Lawyer' 'Artist' 'Doctor' 'Homemaker' 'Entertainment' 'Marketing' 'Executive']
+Spending_Score=['Low' 'High' 'Average']
+Var_1=['Cat_4' 'Cat_6' 'Cat_7' 'Cat_3' 'Cat_1' 'Cat_2' 'Cat_5']
+```
+
+반복문으로 처리하기 위해 범주가 두 개인 칼럼들의 목록을 만들고, 서열형으로 취급할 변수의 순서를 만들어준다.  
+
+```python
+cols_binary = ['Gender', 'Ever_Married', 'Graduated']
+cols_spend = ['Low', 'Average', 'High']
+cods_var = ['Cat_1', 'Cat_2', 'Cat_3', 'Cat_4', 'Cat_5', 'Cat_6', 'Cat_7']
+```
+
+Label Encoding을 진행해준다. 만약 데이터셋을 합쳐두지 않았다면 'Spending_Score', 'Var_1' 칼럼에 적용한 것처럼 Label Encoding을 적용할 각 칼럼 전용의 encoder를 선언해서 fit 정보를 저장해줘야 재활용할 수 있다.  
+
+```python
+from sklearn.preprocessing import LabelEncoder
+
+encoder = LabelEncoder()
+for col in cols_binary:
+    df[col] = encoder.fit_transform(df[col])
+
+encoder_spend = LabelEncoder()
+encoder_spend.fit(cols_spend)
+df['Spending_Score'] = encoder_spend.transform(df['Spending_Score'])
+
+encoder_var = LabelEncoder()
+encoder_var.fit(cods_var)
+df['Var_1'] = encoder_var.transform(df['Var_1'])
+```
+
+**One-Hot Encoding**
+
+남은 범주형 변수 칼럼에 대한 One-Hot Encoding을 진행한다. 어차피 One-Hot Encoding을 적용해야하니 `columns` 파라미터를 사용하지 않아도 되지만 연습 겸 적용해본다. `columns` 파라미터에 인자를 넘겨주면 해당 칼럼들에 대해서만 One-Hot Encoding을 진행한다.  
+
+```python
+df = pd.get_dummies(data=df, columns=['Profession'])
+
+print(df.info())
+```
+
+<details><summary>terminal</summary><div markdown="1">
+```
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 8819 entries, 0 to 2153
+Data columns (total 19 columns):
+ #   Column                    Non-Null Count  Dtype  
+---  ------                    --------------  -----  
+ 0   ID                        8819 non-null   int64  
+ 1   Gender                    8819 non-null   int32  
+ 2   Ever_Married              8819 non-null   int32  
+ 3   Age                       8819 non-null   int64  
+ 4   Graduated                 8819 non-null   int32  
+ 5   Work_Experience           8819 non-null   float64
+ 6   Spending_Score            8819 non-null   int32  
+ 7   Family_Size               8819 non-null   float64
+ 8   Var_1                     8819 non-null   int32  
+ 9   Segmentation              6665 non-null   float64
+ 10  Profession_Artist         8819 non-null   uint8  
+ 11  Profession_Doctor         8819 non-null   uint8  
+ 12  Profession_Engineer       8819 non-null   uint8  
+ 13  Profession_Entertainment  8819 non-null   uint8  
+ 14  Profession_Executive      8819 non-null   uint8  
+ 15  Profession_Healthcare     8819 non-null   uint8  
+ 16  Profession_Homemaker      8819 non-null   uint8  
+ 17  Profession_Lawyer         8819 non-null   uint8  
+ 18  Profession_Marketing      8819 non-null   uint8  
+dtypes: float64(3), int32(5), int64(2), uint8(9)
+memory usage: 663.1 KB
+None
+```
+</div></details><br>
 
 **테이블 분리**
 
@@ -238,15 +313,42 @@ endog = np.array(train['Segmentation']).reshape(-1, 1)
 exog = train.drop(columns=['Segmentation', 'ID'])
 ```
 
-**모델 생성 및 학습**
+**모델 생성/학습/평가**
 
-다중 분류를 예측하는 문제이므로, KNN 알고리즘을 사용하기로 한다. 종속변수는 사실 그대로 넣어도 되는데, scikit-learn에서 
+다중 분류를 예측하는 문제이므로, KNN 알고리즘을 사용하기로 한다. 종속변수는 사실 그대로 넣어도 자동으로 적용 되는데, scikit-learn에서 `(1, -1)` 형태로 바꿔달라는 경고가 떠서 `flatten` 함수를 통해 1차원으로 변환시켜줬다.  
+
+그리고 모델의 교차 검증(cross validation)을 위해 `cross_val_score` API를 사용했는데, [공식 문서](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html)를 보면 `cv` 옵션이 정수일 경우 자동으로 `StratifiedKFold`를 적용해준다고 한다.  
+
+KNN 알고리즘은 예측할 데이터의 위치 주변의 다른 데이터들을 통해 어느 집단에 속할지를 예측하는 알고리즘인데, `n_neighbors`는 가장 가까운 몇 개의 데이터를 볼 지 결정하는 옵션이다. 하이퍼파라미터 튜닝을 위해 `n_neighbors`의 값을 적절히 변화를 주면서 확인해본다.  
 
 ```python
+from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier as KNN
 
-model = KNN(n_neighbors=4)
-model.fit(X=exog, y=np.array(endog).ravel())
+endog = endog.flatten()
+
+score = [{'i': i, 'score_mean': cross_val_score(KNN(n_neighbors=i), X=exog, y=endog, cv=5).mean()} for i in range(10, 500, 10)]
+score = pd.DataFrame(score).sort_values(by='score_mean', ascending=False)
+
+print(score.head())
+```
+```
+    i  score_mean
+2  30    0.480870
+1  20    0.476669
+3  40    0.474119
+5  60    0.471118
+4  50    0.470818
+```
+
+💡 `cross_val_score` API는 `scoring` 파라미터를 입력하지 않으면 분류 문제일 경우 기본값으로 accuracy를 사용한다고 한다.  
+{:.note}
+
+결과치가 큰 차이가 있지는 않지만, 어쨌든 가장 평균 점수가 높게 나온 `n_neighbors` 값으로 모델을 학습시켜준다.  
+
+```python
+model = KNN(n_neighbors=score.iloc[0, 0])
+model.fit(X=exog, y=endog)
 
 print(model.classes_)
 ```
@@ -264,7 +366,7 @@ predict = model.predict(test)
 print(predict)
 ```
 ```
-[2. 3. 3. ... 2. 3. 4.]
+[1. 3. 3. ... 2. 3. 3.]
 ```
 
 참고로 각 분류에 속할 확률을 예측하고 싶다면 아래와 같이 `predict_proba` 메서드를 적용하면 된다.  
@@ -275,13 +377,13 @@ predict_proba = model.predict_proba(test)
 print(predict_proba)
 ```
 ```
-[[0.   0.75 0.25 0.  ]
- [0.   0.25 0.5  0.25]
- [0.   0.25 0.75 0.  ]
+[[0.36666667 0.3        0.13333333 0.2       ]
+ [0.23333333 0.3        0.4        0.06666667]
+ [0.1        0.36666667 0.53333333 0.        ]
  ...
- [0.25 0.5  0.   0.25]
- [0.   0.25 0.75 0.  ]
- [0.   0.25 0.25 0.5 ]]
+ [0.26666667 0.43333333 0.06666667 0.23333333]
+ [0.16666667 0.33333333 0.43333333 0.06666667]
+ [0.26666667 0.2        0.3        0.23333333]]
 ```
 
 저장해둔 `id`와 출력된 `predict`의 개수가 처음 데이터를 가져온 test set 데이터의 개수와 동일한 것을 확인해준다.  
@@ -305,11 +407,11 @@ print(result.head())
 ```
 ```
        ID  Segmentation
-0  458989             2
+0  458989             1
 1  458994             3
 2  459000             3
-3  459003             3
-4  459005             3
+3  459003             2
+4  459005             2
 ```
 
 **제출용 파일 저장**
@@ -325,6 +427,8 @@ result.to_csv('result.csv', index=False)
 ```python
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier as KNN
 
 # data load
@@ -348,6 +452,25 @@ print(cols_num)
 # save id of test set data
 id = test.iloc[:, 0]
 
+# label encoding
+[print(f'{col}={df[col].unique()}') for col in cols_obj]
+
+cols_binary = ['Gender', 'Ever_Married', 'Graduated']
+cols_spend = ['Low', 'Average', 'High']
+cods_var = ['Cat_1', 'Cat_2', 'Cat_3', 'Cat_4', 'Cat_5', 'Cat_6', 'Cat_7']
+
+encoder = LabelEncoder()
+for col in cols_binary:
+    df[col] = encoder.fit_transform(df[col])
+
+encoder_spend = LabelEncoder()
+encoder_spend.fit(cols_spend)
+df['Spending_Score'] = encoder_spend.transform(df['Spending_Score'])
+
+encoder_var = LabelEncoder()
+encoder_var.fit(cods_var)
+df['Var_1'] = encoder_var.transform(df['Var_1'])
+
 # one-hot encoding
 df = pd.get_dummies(df)
 
@@ -361,10 +484,16 @@ test.drop(columns=['Segmentation', 'ID'], inplace=True)
 endog = np.array(train['Segmentation']).reshape(-1, 1)
 exog = train.drop(columns=['Segmentation', 'ID'])
 
+# calculate cross validation score for hyperparameter tuning
+endog = endog.flatten()
+
+score = [{'i': i, 'score_mean': cross_val_score(KNN(n_neighbors=i), X=exog, y=endog, cv=5).mean()} for i in range(10, 500, 10)]
+score = pd.DataFrame(score).sort_values(by='score_mean', ascending=False)
+print(score.head())
 
 # load model and fit model
-model = KNN(n_neighbors=4)
-model.fit(X=exog, y=np.array(endog).ravel())
+model = KNN(n_neighbors=score.iloc[0, 0])
+model.fit(X=exog, y=endog)
 
 print(model.classes_)
 
@@ -385,6 +514,7 @@ result.to_csv('result.csv', index=False)
 
 ---
 ## Reference
+- [주피터 노트북](https://github.com/djccnt15/bigdata_certi/blob/main/example_04.ipynb)
 - [4th-type1-python](https://www.kaggle.com/code/agileteam/4th-type1-python/notebook)
 - [4th-t2-python](https://www.kaggle.com/code/agileteam/4th-t2-python/notebook)
 - [Big Data Analytics Certification KR 2022](https://www.kaggle.com/competitions/big-data-analytics-certification-kr-2022/data)

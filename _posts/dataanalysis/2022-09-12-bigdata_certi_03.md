@@ -61,7 +61,7 @@ data = data.iloc[: round(len(df) * 0.8)]
 std_before = data.std()
 data.fillna(value=data.median(), inplace=True)
 std_after = data.std()
-result = abs(abs(std_after) - abs(std_before))
+result = abs(std_before - std_after)
 
 print(result)
 ```
@@ -355,5 +355,6 @@ result.to_csv('result.csv', index=False)
 
 ---
 ## Reference
+- [주피터 노트북](https://github.com/djccnt15/bigdata_certi/blob/main/example_02.ipynb)
 - [빅데이터분석기사 2회 실기 만점 : 문제 복원 및 파이썬 코드 리뷰](https://eatchu.tistory.com/19)
 - [빅데이터분석기사 실기 2회 문제 복원 및 후기](https://ha2juo.tistory.com/5)

@@ -310,4 +310,5 @@ result.to_csv('result.csv', index=False)
 
 ---
 ## Reference
+- [주피터 노트북](https://github.com/djccnt15/bigdata_certi/blob/main/example_03.ipynb)
 - [빅데이터분석기사 실기 3회 문제 복원 및 후기](https://ha2juo.tistory.com/10)

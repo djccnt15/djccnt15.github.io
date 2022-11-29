@@ -61,7 +61,7 @@ print(dir(pd.DataFrame))
 
 ## help
 
-클래스나 함수에 대한 설명은 아래와 같이 `help()` 함수를 사용해서 출력할 수 있다.  
+클래스나 함수에 대한 설명은 아래와 같이 `help` API를 사용해서 출력할 수 있다.  
 
 ```python
 from sklearn import linear_model
@@ -336,3 +336,7 @@ class LinearRegression(sklearn.base.MultiOutputMixin, sklearn.base.RegressorMixi
 해당 함수의 [공식 문서](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)와 비교해보면 동일한 설명을 출력해주는 것을 알 수 있다.  
 
 [응시환경 체험](https://dataq.goorm.io/exam/116674/%EC%B2%B4%ED%97%98%ED%95%98%EA%B8%B0/quiz/3)에서도 동일하게 출력되는 것을 확인할 수 있다.  
+
+---
+## Reference
+- [주피터 노트북](https://github.com/djccnt15/bigdata_certi/blob/main/cheatsheet.ipynb)

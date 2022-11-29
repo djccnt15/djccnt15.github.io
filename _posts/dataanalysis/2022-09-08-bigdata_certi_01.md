@@ -520,4 +520,5 @@ result.to_csv('result.csv', index=False)
 
 ---
 ## Reference
+- [주피터 노트북](https://github.com/djccnt15/bigdata_certi/blob/main/example_01.ipynb)
 - [제2회 빅데이터분석기사 실기 안내(수정: 체험링크 추가)](https://www.dataq.or.kr/www/board/view.do?bbsKey=eyJiYnNhdHRyU2VxIjoxLCJiYnNTZXEiOjUwOTM0M30=&boardKind=notice)
