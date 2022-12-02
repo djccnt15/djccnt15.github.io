@@ -227,8 +227,8 @@ Var_1=['Cat_4' 'Cat_6' 'Cat_7' 'Cat_3' 'Cat_1' 'Cat_2' 'Cat_5']
 
 ```python
 cols_binary = ['Gender', 'Ever_Married', 'Graduated']
-cols_spend = ['Low', 'Average', 'High']
-cods_var = ['Cat_1', 'Cat_2', 'Cat_3', 'Cat_4', 'Cat_5', 'Cat_6', 'Cat_7']
+col_spend = ['Low', 'Average', 'High']
+col_var = ['Cat_1', 'Cat_2', 'Cat_3', 'Cat_4', 'Cat_5', 'Cat_6', 'Cat_7']
 ```
 
 Label Encoding을 진행해준다. 만약 데이터셋을 합쳐두지 않았다면 'Spending_Score', 'Var_1' 칼럼에 적용한 것처럼 Label Encoding을 적용할 각 칼럼 전용의 encoder를 선언해서 fit 정보를 저장해줘야 재활용할 수 있다.  
@@ -241,17 +241,17 @@ for col in cols_binary:
     df[col] = encoder.fit_transform(df[col])
 
 encoder_spend = LabelEncoder()
-encoder_spend.fit(cols_spend)
+encoder_spend.fit(col_spend)
 df['Spending_Score'] = encoder_spend.transform(df['Spending_Score'])
 
 encoder_var = LabelEncoder()
-encoder_var.fit(cods_var)
+encoder_var.fit(col_var)
 df['Var_1'] = encoder_var.transform(df['Var_1'])
 ```
 
 **One-Hot Encoding**
 
-남은 범주형 변수 칼럼에 대한 One-Hot Encoding을 진행한다. 어차피 One-Hot Encoding을 적용해야하니 `columns` 파라미터를 사용하지 않아도 되지만 연습 겸 적용해본다. `columns` 파라미터에 인자를 넘겨주면 해당 칼럼들에 대해서만 One-Hot Encoding을 진행한다.  
+남은 범주형 변수 칼럼에 대한 One-Hot Encoding을 진행한다. 위에서 label encoding을 진행하여 현재 상태에서는 모든 object 타입 칼럼을 대상으로 one-hot encoding을 해주면 되기 때문에 `columns` 파라미터를 사용하지 않아도 되지만 연습 겸 적용해본다. `columns` 파라미터에 인자를 입력해주면 해당 칼럼들에 대해서만 One-Hot Encoding을 진행한다.  
 
 ```python
 df = pd.get_dummies(data=df, columns=['Profession'])
@@ -456,19 +456,19 @@ id = test.iloc[:, 0]
 [print(f'{col}={df[col].unique()}') for col in cols_obj]
 
 cols_binary = ['Gender', 'Ever_Married', 'Graduated']
-cols_spend = ['Low', 'Average', 'High']
-cods_var = ['Cat_1', 'Cat_2', 'Cat_3', 'Cat_4', 'Cat_5', 'Cat_6', 'Cat_7']
+col_spend = ['Low', 'Average', 'High']
+col_var = ['Cat_1', 'Cat_2', 'Cat_3', 'Cat_4', 'Cat_5', 'Cat_6', 'Cat_7']
 
 encoder = LabelEncoder()
 for col in cols_binary:
     df[col] = encoder.fit_transform(df[col])
 
 encoder_spend = LabelEncoder()
-encoder_spend.fit(cols_spend)
+encoder_spend.fit(col_spend)
 df['Spending_Score'] = encoder_spend.transform(df['Spending_Score'])
 
 encoder_var = LabelEncoder()
-encoder_var.fit(cods_var)
+encoder_var.fit(col_var)
 df['Var_1'] = encoder_var.transform(df['Var_1'])
 
 # one-hot encoding

@@ -25,9 +25,8 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 
 취미로 이런저런 토이 프로젝트도 진행 중입니다.  
 
-- 데이터 분석 서비스 및 AI 모델 개발
 - 데이터 분석 및 시각화
-
+- AI 모델 및 서비스 개발
 
 ## Motto
 
@@ -37,7 +36,6 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 > 중요한 것은 꺾이지 않는 마음 - 데프트  
 > 엔지니어는 구현을 못하면 모르는 것이다. - [Carl's Tech Blog](https://wotres.tistory.com/)  
 > Googling stuff online does make you a Programmer.  
-
 
 ## Interests and Skills
 
@@ -52,7 +50,6 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 ![sklearn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![tensorflow](https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![keras](https://img.shields.io/badge/keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
-
 
 ## Projects
 
@@ -79,9 +76,10 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 
 ## Education
 
-- 2021 충북대학교 경영정보학 석사 졸업  
+- 2021 충북대학교 경영정보학 석사 졸업
 
 ## Certificate
 
 - 정보처리기사
-- ADsP  
+- ADsP
+- SQLD

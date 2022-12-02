@@ -150,18 +150,18 @@ class BotTelegram:
         # get url of chat bot
         with open(fn) as f:
             token: str = json.load(fp=f)["token"]
-        self.url: str = f'https://api.telegram.org/bot{token}/'
+        self.url: str = f"https://api.telegram.org/bot{token}/"
 
         # get chat id of the user
         chat_id: str = requests.post(url=f'{self.url}getUpdates').json()["result"][0]["message"]["from"]["id"]
         self.data: dict = {"chat_id": chat_id}
 
     def contact_test(self) -> dict:
-        return requests.post(url=f'{self.url}getMe').json()
+        return requests.post(url=f"{self.url}getMe").json()
 
     def send_msg(self, msg) -> dict:
         self.data["text"] = msg
-        return requests.post(url=f'{self.url}sendMessage', data=self.data).json()
+        return requests.post(url=f"{self.url}sendMessage", data=self.data).json()
 ```
 
 위와 같이 선언한 bot 객체를 사용해서 메세지를 보내는 코드의 예시는 아래와 같다.  
@@ -170,22 +170,16 @@ class BotTelegram:
 if __name__ == "__main__":
     from datetime import datetime
 
+    print("run your code")
+
     try:
-        bot = BotTelegram('bot.json')       # create instance from BotTelegram class
+        bot = BotTelegram("bot.json")       # create instance from BotTelegram class
         print(bot.contact_test())           # testing contact with bot API
-    except:
-        print('Alarm Bot Error')
-
-    print('run your code')
-
-    try:
         now = datetime.now().replace(microsecond=0)
         msg = "test message"
-        bot.send_msg(msg=f'{now}: {msg}')   # send message to your telegram chat bot
-    except:
-        print('Alarm Bot Error')
-
-    print('run your code')
+        bot.send_msg(msg=f"{now} : {msg}")  # send message to your telegram chat bot
+    except Exception as e:
+        print(f"AlarmBot Error: {e}")
 ```
 
 참고로 텔레그램 봇은 일정 시간 이상 메세지가 전달되지 않으면 일종의 휴면 상태에 들어가서 사용하려면 사용자가 메세지를 다시 보내줘야 한다.  
