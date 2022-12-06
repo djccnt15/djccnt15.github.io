@@ -1,15 +1,16 @@
 ---
 published: true
 layout: post
-title: '[Git] 06. 제외하기'
+title: '[Git] 06. 파일/폴더 제외 방법'
 description: >
-    Git의 관리 대상에서 파일 제외하기
+    Git의 관리 대상에서 파일/폴더 제외하기
 categories: [SWEngineering]
 tags: [git]
 image:
     path: /assets/img/posts/git.png
 related_posts:
     - _posts/swengineering/2022-11-08-manual_git_05.md
+    - _posts/swengineering/2022-12-06-git_multi_profile.md
 ---
 * toc
 {:toc}
@@ -18,7 +19,7 @@ related_posts:
 
 {% include series_git.html %}
 
-## gitignore 파일 생성
+## .gitignore 파일 생성
 
 Git이 특정 파일이나 폴더를 관리하지 않도록 설정하려면 `.gitignore` 파일을 만들어서 목록을 추가해두면 된다.  
 
