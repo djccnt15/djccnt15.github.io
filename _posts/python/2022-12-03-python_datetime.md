@@ -80,6 +80,33 @@ print(type(res))
 <class 'datetime.datetime'>
 ```
 
+## KST 표시
+
+클라우드 서버를 사용하면 서버 시스템의 위치로 인해 시간이 다르게 나올 수 있는데, 서버 시스템의 시간과 상관없이 한국 시간을 표시하고 싶다면 아래와 같이 `timezone`, `timedelta` 모듈과 조합하여 사용하면 된다.  
+
+```python
+from datetime import datetime, timezone, timedelta
+
+kst = datetime.now(timezone(timedelta(hours=9)))
+
+print(f'{kst=}')
+print(kst.strftime('%Y-%m-%d %H:%M:%S'))
+```
+```
+kst=datetime.datetime(2022, 12, 4, 23, 46, 57, 684064, tzinfo=datetime.timezone(datetime.timedelta(seconds=32400)))
+2022-12-04 23:46:57
+```
+```python
+utc = datetime.utcnow()
+
+print(f'{utc=}')
+print(utc.strftime('%Y-%m-%d %H:%M:%S'))
+```
+```
+utc=datetime.datetime(2022, 12, 4, 14, 48, 41, 650933)
+2022-12-04 14:48:41
+```
+
 ---
 ## Reference
 - [datetime — Basic date and time types](https://docs.python.org/3/library/datetime.html)

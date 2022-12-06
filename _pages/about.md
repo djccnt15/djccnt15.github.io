@@ -19,7 +19,7 @@ GitHub: **[github.com/djccnt15](https://github.com/djccnt15)**
 LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 {:.note title='contacts'}
 
-기억보단 기록을 좋아하는 데이터 사이언티스트 겸 백엔드 엔지니어입니다.  
+**기억하기보다는 기록하기**를 좋아하는 데이터 사이언티스트 겸 백엔드 엔지니어입니다.  
 
 컴퓨터공학이나 통계학 전공은 아니지만, 산업용 AI와 웹 기반 서비스 개발에 흥미가 있어 관련 분야를 꾸준히 공부하며 실무 경험을 쌓기 위해 노력중입니다.  
 
@@ -65,9 +65,9 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 - 2020년
     - KCI. [6-도메인 스마트팩토리 성숙도 평가 모델 기반 도입기업 군집분석](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002627006)
 
-<!-- ### Patents -->
+<!-- ## Patents -->
 
-<!-- ### Competition -->
+<!-- ## Competition -->
 
 ## Career
 
