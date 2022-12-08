@@ -10,6 +10,7 @@ image:
     path: /assets/img/posts/git.png
 related_posts:
     - _posts/swengineering/2022-12-04-gitignore.md
+    - _posts/swengineering/2022-12-08-git_cowork.md
 ---
 * toc
 {:toc}
