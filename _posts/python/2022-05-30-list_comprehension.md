@@ -7,7 +7,7 @@ description: >
 categories: [Python]
 tags: [python]
 image:
-    path: /assets/img/posts/python_list_comprehension.png
+    path: /assets/img/posts/thumbnail_python.png
 related_posts:
     - _posts/mathematics/2022-05-19-linear_algebra_02.md
     - _posts/mathematics/2022-05-22-linear_algebra_03.md

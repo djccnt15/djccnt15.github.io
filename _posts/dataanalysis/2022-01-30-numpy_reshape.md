@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [numpy]
 image:
-    path: /assets/img/posts/np_reshape.png
+    path: /assets/img/posts/thumbnail_numpy.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

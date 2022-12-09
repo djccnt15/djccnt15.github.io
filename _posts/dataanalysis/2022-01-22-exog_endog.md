@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [data analysis]
 image:
-    path: /assets/img/posts/exog_endog.png
+    path: /assets/img/posts/thumbnail_statsmodels.png
 related_posts:
     - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
     - _posts/dataanalysis/2022-01-24-regression_assumption.md

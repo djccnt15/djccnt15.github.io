@@ -7,7 +7,7 @@ description: >
 categories: [Python]
 tags: [pip]
 image:
-    path: /assets/img/posts/pip_version_warning.png
+    path: /assets/img/posts/thumbnail_python.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

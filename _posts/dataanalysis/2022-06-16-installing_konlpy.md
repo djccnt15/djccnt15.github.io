@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [text mining, konlpy]
 image:
-    path: /assets/img/posts/installing_konlpy.png
+    path: /assets/img/posts/thumbnail_konlpy.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

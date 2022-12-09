@@ -7,7 +7,7 @@ description: >
 categories: [SWEngineering]
 tags: [git]
 image:
-    path: /assets/img/posts/git.png
+    path: /assets/img/posts/thumbnail_git.png
 related_posts:
     - _posts/swengineering/2022-12-06-git_multi_profile.md
 ---

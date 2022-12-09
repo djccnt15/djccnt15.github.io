@@ -7,12 +7,14 @@ description: >
 categories: [Python]
 tags: [python, json]
 image:
-    path: /assets/img/posts/json.png
+    path: /assets/img/posts/thumbnail_json.png
 related_posts:
     - _posts/python/2022-11-20-python_addict.md
 ---
 * toc
 {:toc}
+
+## JSON과 Dictionary 자료형
 
 JSON은 **{Key: Value}** 쌍으로 이루어져있어 데이터의 저장 및 전달에 유용한 데이터 타입이라 이래저래 많이 쓰인다.  
 

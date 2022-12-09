@@ -7,7 +7,7 @@ description: >
 categories: [WebDev]
 tags: [Hydejack]
 image:
-    path: /assets/img/posts/list_layout.png
+    path: /assets/img/posts/thumbnail_jekyll.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

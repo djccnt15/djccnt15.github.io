@@ -7,7 +7,7 @@ description: >
 categories: [SWEngineering]
 tags: [VS Code]
 image:
-    path: /assets/img/posts/vscode_markdown_whitespace.png
+    path: /assets/img/posts/thumbnail_vscode.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

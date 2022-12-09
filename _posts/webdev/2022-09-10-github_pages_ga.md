@@ -7,7 +7,7 @@ description: >
 categories: [WebDev]
 tags: [jekyll]
 image:
-    path: /assets/img/posts/github_pages_metadata.png
+    path: /assets/img/posts/thumbnail_jekyll.png
 related_posts:
     - _posts/blog/2022-09-11-install_ga4_manually.md
 ---

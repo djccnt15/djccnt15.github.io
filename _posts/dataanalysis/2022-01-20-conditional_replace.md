@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [preprocessing, pandas]
 image:
-    path: /assets/img/posts/np_select.png
+    path: /assets/img/posts/thumbnail_pandas.png
 related_posts:
     - _posts/dataanalysis/2022-01-08-df_header.md
 ---

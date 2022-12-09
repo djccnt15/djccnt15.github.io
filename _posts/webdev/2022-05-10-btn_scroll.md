@@ -7,7 +7,7 @@ description: >
 categories: [WebDev]
 tags: [front-end]
 image:
-    path: /assets/img/posts/btn.png
+    path: /assets/img/posts/thumbnail_js.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

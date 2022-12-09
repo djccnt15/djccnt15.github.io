@@ -7,7 +7,7 @@ description: >
 categories: [Python]
 tags: [python, json]
 image:
-    path: /assets/img/posts/json.png
+    path: /assets/img/posts/thumbnail_python.png
 related_posts:
     - _posts/python/2022-11-19-python_json.md
 ---

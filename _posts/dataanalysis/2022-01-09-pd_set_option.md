@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [pandas]
 image:
-    path: /assets/img/posts/pd_set_option.png
+    path: /assets/img/posts/thumbnail_pandas.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

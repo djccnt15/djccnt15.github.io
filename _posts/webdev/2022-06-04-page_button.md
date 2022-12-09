@@ -7,7 +7,7 @@ description: >
 categories: [WebDev]
 tags: [jekyll]
 image:
-    path: /assets/img/posts/page_button.png
+    path: /assets/img/posts/thumbnail_jekyll.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

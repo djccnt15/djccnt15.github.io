@@ -7,7 +7,7 @@ description: >
 categories: [SWEngineering]
 tags: [markdown, ⭐starred]
 image:
-    path: /assets/img/posts/markdown.png
+    path: /assets/img/posts/thumbnail_markdown.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

@@ -7,7 +7,7 @@ description: >
 categories: [Python]
 tags: [pip]
 image:
-    path: /assets/img/posts/python_ensurepip.png
+    path: /assets/img/posts/thumbnail_python.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---
@@ -16,7 +16,7 @@ related_posts:
 
 ## ensurepip
 
-`pip`설치 상태에 오류가 생기면 아래와 같이 `pip`가 없는 에러가 발생한다. 주로 `pip`를 업데이트 하는 과정에서 오류가 생겼을 때 발생한다.  
+pip 설치 상태에 오류가 생기면 아래와 같이 pip이 없는 에러가 발생한다. 주로 pip을 업데이트 하는 과정에서 오류가 생겼을 때 발생한다.  
 
 ```
 ModuleNotFoundError: No module named 'pip'

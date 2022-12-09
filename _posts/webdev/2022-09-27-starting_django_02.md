@@ -7,7 +7,7 @@ description: >
 categories: [WebDev]
 tags: [Django]
 image:
-    path: /assets/img/posts/django_starting.png
+    path: /assets/img/posts/thumbnail_django.png
 related_posts:
     - _posts/webdev/2022-09-25-starting_django_01.md
     - _posts/webdev/2022-09-30-starting_django_03.md

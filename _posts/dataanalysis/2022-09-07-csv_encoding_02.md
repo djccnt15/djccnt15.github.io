@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [pandas]
 image:
-    path: /assets/img/posts/pandas_UnicodeDecodeError.png
+    path: /assets/img/posts/thumbnail_pandas.png
 related_posts:
     - _posts/dataanalysis/2022-01-08-csv_encoding.md
 ---

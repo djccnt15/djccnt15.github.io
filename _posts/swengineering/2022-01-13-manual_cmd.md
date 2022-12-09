@@ -7,7 +7,7 @@ description: >
 categories: [SWEngineering]
 tags: [cmd/terminal, ⭐starred]
 image:
-    path: /assets/img/posts/cmd.png
+    path: /assets/img/posts/thumbnail_terminal.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

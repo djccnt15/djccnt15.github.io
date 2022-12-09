@@ -7,7 +7,7 @@ description: >
 categories: [Python]
 tags: [bot]
 image:
-    path: /assets/img/posts/telegram_bot_test_02.png
+    path: /assets/img/posts/thumbnail_telegram.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

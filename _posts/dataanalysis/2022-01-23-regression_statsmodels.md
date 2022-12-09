@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [regression, statsmodels, incomplete]
 image:
-    path: /assets/img/posts/multiple_regression.png
+    path: /assets/img/posts/thumbnail_statsmodels.png
 related_posts:
     - _posts/mathematics/2022-01-19-regression_linear_scratch.md
     - _posts/dataanalysis/2022-01-24-regression_assumption.md

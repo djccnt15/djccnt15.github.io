@@ -13,10 +13,9 @@ permalink: about
 
 ## About Me
 
-Personal Contact: **[djccnt15@gmail.com](mailto:djccnt15@gmail.com)**  
-Business Contact: **[doorheon.jeong@wizcore.co.kr](mailto:doorheon.jeong@wizcore.co.kr)**  
+E-mail: **[djccnt15@gmail.com](mailto:djccnt15@gmail.com)**  
 GitHub: **[github.com/djccnt15](https://github.com/djccnt15)**  
-LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
+LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**  
 {:.note title='contacts'}
 
 **기억하기보다는 기록하기**를 좋아하는 데이터 사이언티스트 겸 백엔드 엔지니어입니다.  
@@ -51,13 +50,6 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 ![tensorflow](https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![keras](https://img.shields.io/badge/keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
 
-## Projects
-
-- 2021
-    - ANN 기반 STL(Steel Plate) 리코일 공정 양/불 예측 모델 개발
-- 2020
-    - K-means 기반 스마트공장 도입기업 특성 분석
-
 ## Articles
 
 - 2021년
@@ -71,7 +63,7 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 
 ## Career
 
-- 2021 ~ now [WIZCORE 주식회사](http://wizcore.co.kr/)  
+- 2021 ~ now [WIZCORE 주식회사](http://wizcore.co.kr/)
 - 2019 ~ 2021 충북대학교 지능정보시스템 연구실
 
 ## Education

@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [pivot table, pandas]
 image:
-    path: /assets/img/posts/pd_pivot_table.png
+    path: /assets/img/posts/thumbnail_pandas.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---
@@ -16,7 +16,7 @@ related_posts:
 
 ## 0. 데이터 준비
 
-샘플데이터는 `pydataset` 패키지가 제공하는 `Housing`을 사용한다.  
+샘플데이터는 pydataset 패키지가 제공하는 `Housing`을 사용한다.  
 
 ```python
 import pandas as pd

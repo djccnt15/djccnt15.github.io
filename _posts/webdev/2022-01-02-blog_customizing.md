@@ -7,7 +7,7 @@ description: >
 categories: [WebDev]
 tags: [Minimal Mistakes]
 image:
-    path: /assets/img/posts/minimal_mistakes.png
+    path: /assets/img/posts/thumbnail_minimalmistakes.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---
