@@ -7,7 +7,7 @@ description: >
 categories: [Blog]
 tags: [blog]
 image:
-    path: /assets/img/posts/googling_stuff_online_does_not_make_you_a_doctor.jpg
+    path: /assets/img/blog/googling_does_make_you_a_programmer_l.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

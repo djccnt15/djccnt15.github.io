@@ -7,7 +7,7 @@ description: >
 categories: [Blog]
 tags: [career, 📌pinned]
 image:
-    path: /assets/img/posts/tasks_you_should_take.png
+    path: /assets/img/posts/thumbnail_tasks_you_should_take.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

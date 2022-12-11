@@ -7,7 +7,7 @@ description: >
 categories: [SWEngineering]
 tags: [coding]
 image:
-    path: /assets/img/posts/clean_code.png
+    path: /assets/img/posts/thumbnail_clean_code.png
 related_posts:
     - _posts/swengineering/2022-01-08-clean_code.md
 ---

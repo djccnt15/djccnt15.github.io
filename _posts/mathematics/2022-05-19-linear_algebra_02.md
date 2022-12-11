@@ -7,7 +7,7 @@ description: >
 categories: [Mathematics]
 tags: [linear algebra]
 image:
-    path: /assets/img/posts/linear_algebra_02.png
+    path: /assets/img/posts/thumbnail_linear_algebra_02.png
 related_posts:
     - _posts/mathematics/2022-05-01-linear_algebra_01.md
     - _posts/mathematics/2022-05-22-linear_algebra_03.md

@@ -7,7 +7,7 @@ description: >
 categories: [AI]
 tags: [AI]
 image:
-    path: /assets/img/posts/algorithm_model.png
+    path: /assets/img/posts/thumbnail_algorithm_model.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

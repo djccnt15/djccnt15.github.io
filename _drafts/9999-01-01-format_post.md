@@ -1,13 +1,13 @@
 ---
 published: true
 layout: post
-title: '[Python] 사용자 입력 받기'
+title: '[topic] title of the post'
 description: >
     description of the post
-categories: [Python]
-tags: [python]
+categories: [Category]
+tags: [tag]
 image:
-    path: /assets/img/posts/thumbnail_python.png
+    path: /assets/img/posts/thumbnail_vscode.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

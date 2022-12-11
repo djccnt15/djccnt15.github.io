@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [preprocessing, noise detection]
 image:
-    path: /assets/img/posts/iqr.jpg
+    path: /assets/img/posts/thumbnail_noise_detection_iqr.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

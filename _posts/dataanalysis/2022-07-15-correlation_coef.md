@@ -4,12 +4,12 @@ layout: post
 title: '[상관분석] 상관 계수'
 description: >
     python으로 상관 계수 구현하기
-categories: [Mathematics]
-tags: [data analysis, correlation]
+categories: [DataAnalysis]
+tags: [correlation]
 image:
-    path: /assets/img/posts/plot_corr.png
+    path: /assets/img/posts/thumbnail_correlation_coefficient.png
 related_posts:
-    - _posts/mathematics/2022-01-19-regression_linear_scratch.md
+    - _posts/category/0000-01-01-format_post.md
 ---
 * toc
 {:toc}
@@ -20,7 +20,7 @@ related_posts:
 
 상관 계수는 **-1에서 1 사이의 값**을 지니며, 부호는 상관 관계의 방향, 수치는 상관의 정도를 나타낸다. 데이터 분석에 있어서 요구되는 상관 계수의 수치는 분석 대상에 따라 달라지는데, 대체로 사회과학에서는 수치가 조금 낮아도 강력한 상관관계로 해석하며 오히려 너무 높은 상관 관계는 데이터 조작을 의심하게 되지만, 반대로 공학계통에서는 높은 상관관계를 요구한다.  
 
-💡 상관 계수는 데이터가 추세선을 중심으로 분포한 정도만 알려줄 뿐 추세선의 기울기는 알려주지 않는다. 추세선의 기울기를 분석하는 방법은 [회귀분석](/Mathematics/linear_regression/)이다.  
+💡 상관 계수는 데이터가 추세선을 중심으로 분포한 정도만 알려줄 뿐 추세선의 기울기는 알려주지 않는다. 추세선의 기울기를 분석하는 방법은 [회귀분석](/dataanalysis/regression_statsmodels/)이다.  
 {:.note}
 
 ## 수치형 변수의 상관 계수

@@ -7,7 +7,7 @@ description: >
 categories: [AI]
 tags: [AI]
 image:
-    path: /assets/img/posts/parameter_hyperparameter.png
+    path: /assets/img/posts/thumbnail_parameter_hyperparameter.png
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---

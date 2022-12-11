@@ -7,7 +7,7 @@ description: >
 categories: [Mathematics]
 tags: [regression]
 image:
-    path: /assets/img/posts/linear_regression_scratch.png
+    path: /assets/img/posts/thumbnail_simple_linear_regression.png
 related_posts:
     - _posts/datascience/2022-01-23-regression_statsmodels.md
     - _posts/datascience/2022-01-24-regression_assumption.md
@@ -149,5 +149,5 @@ axes.legend()
 plt.show()
 ```
 
-![linear_regression_scratch_plot](/assets/img/posts/linear_regression_scratch.png)
+![simple_linear_regression](/assets/img/posts/simple_linear_regression.png)
 {:.text-center}

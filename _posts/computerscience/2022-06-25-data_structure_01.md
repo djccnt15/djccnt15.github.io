@@ -7,7 +7,7 @@ description: >
 categories: [ComputerScience]
 tags: [data structure]
 image:
-    path: /assets/img/posts/data_structure_01.png
+    path: /assets/img/posts/thumbnail_data_structure_01.png
 related_posts:
     - _posts/computerscience/2022-06-26-data_structure_02.md
 ---

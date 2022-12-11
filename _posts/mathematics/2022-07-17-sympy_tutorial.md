@@ -197,8 +197,8 @@ SymPy 객체를 화면에 출력하는 방법은 여러 가지가 있지만, 아
 ```python
 import sympy as sp
 
-tmp = sp.Integral(sp.sqrt(1/x), x)
-print(tmp)
+expr = sp.Integral(sp.sqrt(1/x), x)
+print(expr)
 ```
 ```
 Integral(sqrt(1/x), x)
@@ -209,8 +209,8 @@ Integral(sqrt(1/x), x)
 ```python
 import sympy as sp
 
-tmp = sp.Integral(sp.sqrt(1/x), x)
-print(sp.pretty(tmp))
+expr = sp.Integral(sp.sqrt(1/x), x)
+print(sp.pretty(expr))
 ```
 ```
 ⌠
@@ -226,8 +226,8 @@ print(sp.pretty(tmp))
 ```python
 import sympy as sp
 
-tmp = sp.Integral(sp.sqrt(1/x), x)
-print(sp.latex(tmp))
+expr = sp.Integral(sp.sqrt(1/x), x)
+print(sp.latex(expr))
 ```
 ```
 \int \sqrt{\frac{1}{x}}\, dx

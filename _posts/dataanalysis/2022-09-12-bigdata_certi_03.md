@@ -7,7 +7,7 @@ description: >
 categories: [DataAnalysis]
 tags: [data analysis, Bigdata Certificate]
 image:
-    path: /assets/img/posts/bigdata_certi.png
+    path: /assets/img/posts/thumbnail_bigdata_certi.png
 related_posts:
     - _posts/dataanalysis/2022-09-09-bigdata_certi_02.md
     - _posts/dataanalysis/2022-09-17-bigdata_certi_04.md
