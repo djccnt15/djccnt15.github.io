@@ -12,10 +12,9 @@ related_posts:
     - _posts/computerscience/2022-06-25-data_structure_01.md
     - _posts/computerscience/2022-07-02-data_structure_03.md
 ---
+{% include series_datastructure.html %}
 * toc
 {:toc}
-
-{% include series_datastructure.html %}
 
 ## 배열의 개념
 

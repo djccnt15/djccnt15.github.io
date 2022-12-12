@@ -12,10 +12,9 @@ related_posts:
     - _posts/mathematics/2022-06-05-linear_algebra_07.md
     - _posts/mathematics/2022-06-09-linear_algebra_09.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 1. 직교 공간
 
@@ -313,7 +312,7 @@ h_{41} & h_{42} & h_{43} & h_{44} \\
 
 - 3) $$H_{1}$$와 $$A_{1}$$를 곱한 행렬에서 1행 1열을 제외한 나머지 행렬로 $$A_{2}$$를 만들고, 1 ~ 2번 과정을 되풀이 한다.  
 
-$$H_{1}A_{1} = \left[\begin{array}{c|ccc}
+$$H_{1}A_{1} = \left \begin{array}{c|ccc}
 a_{11} & a_{12} & a_{13} & a_{14} \\
 \hline
 a_{21} & a_{22} & a_{23} & a_{24} \\

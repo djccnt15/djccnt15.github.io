@@ -12,10 +12,9 @@ related_posts:
     - _posts/dataanalysis/2022-09-08-bigdata_certi_01.md
     - _posts/dataanalysis/2022-09-12-bigdata_certi_03.md
 ---
+{% include series_bigdatacerti.html %}
 * toc
 {:toc}
-
-{% include series_bigdatacerti.html %}
 
 ## 개요
 

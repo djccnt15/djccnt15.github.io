@@ -11,10 +11,9 @@ image:
 related_posts:
     - _posts/webdev/2022-10-22-starting_django_10.md
 ---
+{% include series_django.html %}
 * toc
 {:toc}
-
-{% include series_django.html %}
 
 ## 1. 템플릿 수정
 

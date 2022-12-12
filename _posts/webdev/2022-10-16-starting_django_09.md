@@ -12,10 +12,9 @@ related_posts:
     - _posts/webdev/2022-10-15-starting_django_08.md
     - _posts/webdev/2022-10-22-starting_django_10.md
 ---
+{% include series_django.html %}
 * toc
 {:toc}
-
-{% include series_django.html %}
 
 ## 1. view 모듈 분리
 

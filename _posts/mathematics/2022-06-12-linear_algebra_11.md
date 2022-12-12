@@ -12,10 +12,9 @@ related_posts:
     - _posts/mathematics/2022-06-11-linear_algebra_10.md
     - _posts/mathematics/2022-06-13-linear_algebra_12.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 1. 직교 행렬
 

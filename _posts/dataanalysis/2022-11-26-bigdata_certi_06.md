@@ -11,10 +11,9 @@ image:
 related_posts:
     - _posts/dataanalysis/2022-11-10-bigdata_certi_05.md
 ---
+{% include series_bigdatacerti.html %}
 * toc
 {:toc}
-
-{% include series_bigdatacerti.html %}
 
 ## 개요
 

@@ -12,10 +12,9 @@ related_posts:
     - _posts/mathematics/2022-05-23-linear_algebra_04.md
     - _posts/mathematics/2022-05-29-linear_algebra_06.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 1. 역행렬
 
@@ -55,7 +54,7 @@ $$A^{-1} = \frac{\mathrm{adj} A}{\det A}$$
 
 - 행렬 $$A$$의 오른쪽에 같은 크기를 갖는 단위 행렬 $$I$$를 첨가해 아래와 같이 첨가 행렬 $$[A \vert I]$$를 만든다.  
 
-$$[A|I] = \left[\begin{array}{ccc|ccc}
+$$[A|I] = \left[ \begin{array}{ccc|ccc}
 2 & 2 & 0 & 1 & 0 & 0 \\
 -2 & 1 & 1 & 0 & 1 & 0 \\
 3 & 0 & 1 & 0 & 0 & 1 \\
@@ -63,7 +62,7 @@ $$[A|I] = \left[\begin{array}{ccc|ccc}
 
 - 이 행렬을 [기본 행 연산](/mathematics/linear_algebra_01/#기본-행-연산)을 통해 아래와 같이 $$[I \vert B]$$를 만든다.  
 
-$$[I|B] = \left[\begin{array}{ccc|ccc}
+$$[I|B] = \left[ \begin{array}{ccc|ccc}
 1 & 0 & 0 & 1/12 & -1/6 & 1/6 \\
 0 & 1 & 0 & 5/12 & 1/6 & -1/6 \\
 0 & 0 & 1 & -1/4 & 1/2 & 1/2 \\
@@ -71,7 +70,7 @@ $$[I|B] = \left[\begin{array}{ccc|ccc}
 
 - 만약 이 과정에 성공하여 위와 같은 형태의 첨가 행렬이 나왔을 때, $$A^{-1}=B$$이고, 나오지 않는다면 행렬 $$A$$의 역행렬은 존재하지 않는다.
 
-$$A^{-1} = B = \frac{1}{12} \left[\begin{array}{ccc}
+$$A^{-1} = B = \frac{1}{12} \left[ \begin{array}{ccc}
 1 & -2 & 2 \\
 5 & 2 & -2 \\
 -3 & 6 & 6 \\

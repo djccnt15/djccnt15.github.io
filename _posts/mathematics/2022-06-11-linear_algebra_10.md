@@ -12,10 +12,9 @@ related_posts:
     - _posts/mathematics/2022-06-09-linear_algebra_09.md
     - _posts/mathematics/2022-06-12-linear_algebra_11.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 1. 고유값과 고유벡터
 

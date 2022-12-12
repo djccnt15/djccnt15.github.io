@@ -12,10 +12,9 @@ related_posts:
     - _posts/webdev/2022-10-02-starting_django_05.md
     - _posts/webdev/2022-10-07-starting_django_07.md
 ---
+{% include series_django.html %}
 * toc
 {:toc}
-
-{% include series_django.html %}
 
 ## 1. 로그인/로그아웃
 

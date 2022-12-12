@@ -12,10 +12,9 @@ related_posts:
     - _posts/mathematics/2022-05-22-linear_algebra_03.md
     - _posts/mathematics/2022-05-28-linear_algebra_05.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 1. 행렬식
 

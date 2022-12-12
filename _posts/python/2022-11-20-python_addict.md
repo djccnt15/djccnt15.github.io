@@ -5,7 +5,7 @@ title: '[Python] Dictionary 쉽게 사용하기'
 description: >
     addict 라이브러리로 Dictionary 다루기
 categories: [Python]
-tags: [python, json]
+tags: [json]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:

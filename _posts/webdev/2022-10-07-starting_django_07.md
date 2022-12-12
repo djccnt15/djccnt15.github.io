@@ -12,10 +12,9 @@ related_posts:
     - _posts/webdev/2022-10-03-starting_django_06.md
     - _posts/webdev/2022-10-15-starting_django_08.md
 ---
+{% include series_django.html %}
 * toc
 {:toc}
-
-{% include series_django.html %}
 
 ## 1. 커스텀 템플릿 필터
 

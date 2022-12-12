@@ -12,10 +12,9 @@ related_posts:
     - _posts/webdev/2022-09-30-starting_django_03.md
     - _posts/webdev/2022-10-02-starting_django_05.md
 ---
+{% include series_django.html %}
 * toc
 {:toc}
-
-{% include series_django.html %}
 
 ## 1. 질문 등록 기능
 

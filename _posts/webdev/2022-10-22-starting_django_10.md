@@ -11,10 +11,9 @@ image:
 related_posts:
     - _posts/webdev/2022-10-16-starting_django_09.md
 ---
+{% include series_django.html %}
 * toc
 {:toc}
-
-{% include series_django.html %}
 
 ## 1. 데이터 모델 수정
 

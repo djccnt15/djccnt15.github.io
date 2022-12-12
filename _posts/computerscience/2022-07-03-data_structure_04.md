@@ -12,10 +12,9 @@ related_posts:
     - _posts/computerscience/2022-07-02-data_structure_03.md
     - _posts/computerscience/2022-07-08-data_structure_05.md
 ---
+{% include series_datastructure.html %}
 * toc
 {:toc}
-
-{% include series_datastructure.html %}
 
 ## 큐의 개념
 

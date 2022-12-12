@@ -11,10 +11,9 @@ image:
 related_posts:
     - _posts/mathematics/2022-05-19-linear_algebra_02.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 0. 선형이란
 

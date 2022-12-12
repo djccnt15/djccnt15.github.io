@@ -12,10 +12,9 @@ related_posts:
     - _posts/mathematics/2022-05-19-linear_algebra_02.md
     - _posts/mathematics/2022-05-23-linear_algebra_04.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 1. 선형 방정식
 
@@ -40,7 +39,7 @@ $$\begin{align*}
 
 위와 같은 선형 시스템에서 상수 부분만 모아서 행렬 형태로 나타낸 것을 **첨가 행렬(확대행렬, augmented matrix)**라 부르고, 위의 선형 시스템을 첨가 행렬의 형태로 나타내면 다음과 같다.  
 
-$$\left[\begin{array}{cccc|c}
+$$\left[ \begin{array}{cccc|c}
 \beta_{11} & \beta_{12} & \cdots & \beta_{1n} & y_{1} \\
 \beta_{21} & \beta_{22} & \cdots & \beta_{2n} & y_{2} \\
 \vdots & \vdots & \ddots & \vdots & \vdots \\

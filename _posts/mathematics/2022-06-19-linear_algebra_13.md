@@ -11,10 +11,9 @@ image:
 related_posts:
     - _posts/mathematics/2022-06-13-linear_algebra_12.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 1. 기본 행렬
 

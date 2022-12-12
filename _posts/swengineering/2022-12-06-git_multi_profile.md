@@ -12,12 +12,11 @@ related_posts:
     - _posts/swengineering/2022-12-04-gitignore.md
     - _posts/swengineering/2022-12-08-git_cowork.md
 ---
+{% include series_git.html %}
 * toc
 {:toc}
 
 > The information manager from Hell. - Linus Benedict Torvalds
-
-{% include series_git.html %}
 
 ## 개요
 

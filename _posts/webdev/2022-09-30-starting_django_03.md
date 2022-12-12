@@ -12,10 +12,9 @@ related_posts:
     - _posts/webdev/2022-09-27-starting_django_02.md
     - _posts/webdev/2022-10-01-starting_django_04.md
 ---
+{% include series_django.html %}
 * toc
 {:toc}
-
-{% include series_django.html %}
 
 ## 0. 개요
 

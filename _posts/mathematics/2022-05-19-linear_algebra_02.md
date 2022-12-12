@@ -12,10 +12,9 @@ related_posts:
     - _posts/mathematics/2022-05-01-linear_algebra_01.md
     - _posts/mathematics/2022-05-22-linear_algebra_03.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 1. 전치 행렬
 

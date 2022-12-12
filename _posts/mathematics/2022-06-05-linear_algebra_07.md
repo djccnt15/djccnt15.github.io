@@ -12,10 +12,9 @@ related_posts:
     - _posts/mathematics/2022-05-29-linear_algebra_06.md
     - _posts/mathematics/2022-06-06-linear_algebra_08.md
 ---
+{% include series_linalg.html %}
 * toc
 {:toc}
-
-{% include series_linalg.html %}
 
 ## 1. 내적
 

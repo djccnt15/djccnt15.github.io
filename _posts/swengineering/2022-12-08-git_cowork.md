@@ -11,12 +11,11 @@ image:
 related_posts:
     - _posts/swengineering/2022-12-06-git_multi_profile.md
 ---
+{% include series_git.html %}
 * toc
 {:toc}
 
 > The information manager from Hell. - Linus Benedict Torvalds
-
-{% include series_git.html %}
 
 ## GitFlow
 

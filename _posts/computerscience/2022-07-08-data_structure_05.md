@@ -11,10 +11,9 @@ image:
 related_posts:
     - _posts/computerscience/2022-07-03-data_structure_04.md
 ---
+{% include series_datastructure.html %}
 * toc
 {:toc}
-
-{% include series_datastructure.html %}
 
 ## 연결 리스트의 개념
 

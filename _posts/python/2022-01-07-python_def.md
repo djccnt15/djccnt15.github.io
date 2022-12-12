@@ -3,9 +3,9 @@ published: true
 layout: post
 title: '[Python] function'
 description: >
-    python의 함수에 대한 노트
+    Python의 함수에 대한 노트
 categories: [Python]
-tags: [function]
+tags: [python]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:
