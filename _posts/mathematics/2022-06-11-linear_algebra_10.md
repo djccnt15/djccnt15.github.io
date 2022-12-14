@@ -20,9 +20,9 @@ related_posts:
 
 행렬의 특성값과 특성 벡터를 **고유값(eigenvalue)**과 **고유벡터(eigenvector)**라고 말한다. **고유벡터(eigenvector)**는 벡터를 선형 변환했을 때 방향은 변하지 않고 크기만 변하는 벡터를 의미하고, 선형 변환 이후 변한 크기를 **고유값(eigenvalue)**이라고 말하며 아래와 같이 표기한다.  
 
-- 행렬 $$A$$의 고유값을 상수 $$\lambda$$, 0이 아닌 $$\mathbf{x}$$를 고유값에 따른 고유벡터라 할 때,  
+- 행렬 $$A$$의 고유값을 상수 $$\lambda$$, 0이 아닌 $$\textbf{x}$$를 고유값에 따른 고유벡터라 할 때,  
 
-$$A \mathbf{x} = \lambda \mathbf{x}$$
+$$A \textbf{x} = \lambda \textbf{x}$$
 
 ### 우세한 고유값, 우세한 고유벡터
 
@@ -35,14 +35,14 @@ $$A \mathbf{x} = \lambda \mathbf{x}$$
 아래와 같은 정리에 의해, 고유값 $$\lambda$$가 존재하기 위한 필요충분조건은 $$A - \lambda I$$의 행렬식이 0인 것이다.  
 
 $$\begin{align*}
-& A \mathbf{x} = \lambda \mathbf{x} \\
-& \Leftrightarrow A \mathbf{x} - \lambda \mathbf{x} = 0 \\
-& \Leftrightarrow (A - \lambda I) \mathbf{x} = 0
+& A \textbf{x} = \lambda \textbf{x} \\
+& \Leftrightarrow A \textbf{x} - \lambda \textbf{x} = 0 \\
+& \Leftrightarrow (A - \lambda I) \textbf{x} = 0
 \end{align*}$$
 
-$$\det (A - \lambda I) = 0$$
+$$\det(A - \lambda I) = 0$$
 
-위 식을 **특성 방정식(characteristic equation)**이라고 하는데, 특성 방정식을 만족하는 모든 $$\lambda$$를 찾는 것이 **고유값(eigenvalue)**을 구하는 것이며, $$\lambda$$에 구해진 **고유값(eigenvalue)**들 대입하여 구한 $$\mathbf{x}$$를 정규화한 것이 **고유벡터(eigenvector)**이다. 이를 바탕으로 행렬 $$A$$의 고유값과 고유벡터를 구해보면 다음과 같다.  
+위 식을 **특성 방정식(characteristic equation)**이라고 하는데, 특성 방정식을 만족하는 모든 $$\lambda$$를 찾는 것이 **고유값(eigenvalue)**을 구하는 것이며, $$\lambda$$에 구해진 **고유값(eigenvalue)**들 대입하여 구한 $$\textbf{x}$$를 정규화한 것이 **고유벡터(eigenvector)**이다. 이를 바탕으로 행렬 $$A$$의 고유값과 고유벡터를 구해보면 다음과 같다.  
 
 $$A = \begin{bmatrix}
 a_{11} & a_{12} \\
@@ -50,7 +50,7 @@ a_{21} & a_{22} \\
 \end{bmatrix}$$
 
 $$\begin{align*}
-\det (A - \lambda I) & = \begin{vmatrix}
+\det(A - \lambda I) & = \begin{vmatrix}
 a_{11} - \lambda & a_{12} \\
 a_{21} & a_{22} - \lambda \\
 \end{vmatrix} = 0 \\
@@ -66,10 +66,10 @@ $$\begin{align*}
 & = \frac{(a_{11} + a_{22}) \pm \sqrt{(a_{11} - a_{22})^2 + 4a_{12}a_{21}}}{2}
 \end{align*}$$
 
-이렇게 구해진 고유값 $$\lambda$$를 식 $$(A - \lambda I) \mathbf{x} = 0$$에 대입하여 정리하면 아래와 같은 꼴의 $$\mathbf{x}$$를 구할 수 있고, $$\mathbf{x}$$를 정규화하여 고유벡터를 구할 수 있다.  
+이렇게 구해진 고유값 $$\lambda$$를 식 $$(A - \lambda I) \textbf{x} = 0$$에 대입하여 정리하면 아래와 같은 꼴의 $$\textbf{x}$$를 구할 수 있고, $$\textbf{x}$$를 정규화하여 고유벡터를 구할 수 있다.  
 
 $$\begin{align*}
-\mathbf{x} = & \begin{bmatrix}
+\textbf{x} = & \begin{bmatrix}
 x_{1} \\
 x_{2} \\
 \end{bmatrix}
@@ -82,7 +82,7 @@ nx_{1} \\
 n \\
 \end{bmatrix}x_{1} \\
 \\
-& \therefore \mathbf{x} = \begin{bmatrix}
+& \therefore \textbf{x} = \begin{bmatrix}
 1 \\
 n \\
 \end{bmatrix}

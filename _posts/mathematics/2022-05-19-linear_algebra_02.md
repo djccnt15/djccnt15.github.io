@@ -43,9 +43,7 @@ matrix = list[vector]
 
 
 def mat_trans(a: matrix) -> matrix:
-    """
-    returns transposed matrix
-    """
+    """returns transposed matrix"""
 
     At: matrix = [list(r) for r in zip(*a)]
     return At
@@ -89,9 +87,7 @@ matrix = list[vector]
 
 
 def symmetric_check(a: matrix) -> bool:
-    """
-    checks whether symmetric matrix or not
-    """
+    """checks whether symmetric matrix or not"""
 
     At: matrix = mat_trans(a)
     return a == At
@@ -154,18 +150,14 @@ matrix = list[vector]
 
 
 def diag_ele(a: matrix) -> vector:
-    """
-    returns diagonal elements of matrix
-    """
+    """returns diagonal elements of matrix"""
 
     d: vector = [v[i] for i, v in enumerate([*a])]
     return d
 
 
 def mat_diag(a: matrix) -> matrix:
-    """
-    returns diagonal matrix from matrix
-    """
+    """returns diagonal matrix from matrix"""
 
     D: matrix = [[v if i == j else 0 for j, v in enumerate(r)] for i, r in enumerate(a)]
     return D
@@ -208,18 +200,14 @@ matrix = list[vector]
 
 
 def mat_bidiag_u(a: matrix) -> matrix:
-    """
-    transform matrix into upper bidiagonal matrix
-    """
+    """transform matrix into upper bidiagonal matrix"""
 
     res: matrix = [[0 if i > j or j - i > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
     return res
 
 
 def mat_bidiag_l(a: matrix) -> matrix:
-    """
-    transform matrix into lower bidiagonal matrix
-    """
+    """transform matrix into lower bidiagonal matrix"""
 
     res: matrix = [[0 if i < j or i - j > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
     return res
@@ -268,9 +256,7 @@ matrix = list[vector]
 
 
 def mat_identity(n: int) -> matrix:
-    """
-    returns n by n sized identity matrix
-    """
+    """returns n by n sized identity matrix"""
 
     I: matrix = [[1 if i == j else 0 for j in range(n)] for i in range(n)]
     return I
@@ -302,18 +288,14 @@ matrix = list[vector]
 
 
 def mat_zeros(r: int, c: int) -> matrix:
-    """
-    returns r by c sized zero matrix
-    """
+    """returns r by c sized zero matrix"""
 
     Z: matrix = [[0 for _ in range(c)] for _ in range(r)]
     return Z
 
 
 def v_zeros(n: int) -> vector:
-    """
-    returns n sized zero vector
-    """
+    """returns n sized zero vector"""
 
     Z: vector = [0 for _ in range(n)]
     return Z
@@ -351,18 +333,14 @@ matrix = list[vector]
 
 
 def mat_tri_u(a: matrix) -> matrix:
-    """
-    transform matrix into upper triangular matrix
-    """
+    """transform matrix into upper triangular matrix"""
 
     res: matrix = [[0 if i > j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
     return res
 
 
 def mat_tri_l(a: matrix) -> matrix:
-    """
-    transform matrix into lower triangular matrix
-    """
+    """transform matrix into lower triangular matrix"""
 
     res: matrix = [[0 if i < j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
     return res
@@ -405,9 +383,7 @@ matrix = list[vector]
 
 
 def mat_toeplitz(a: vector, b: vector) -> matrix:
-    """
-    unite 2 lists into toeplitz matrix
-    """
+    """unite 2 lists into toeplitz matrix"""
 
     T: matrix = [[a[i - j] if i >= j else b[j - i] for j, _ in enumerate(b)] for i, _ in enumerate(a)]
     return T
@@ -428,15 +404,15 @@ mat_toeplitz = toeplitz(g, h)
 
 **하우스홀더 행렬(householder matrix)**은 모든 열이 [정규 직교(orthonormal)](/mathematics/linear_algebra_08/#1-직교-공간)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $$H$$를 말한다.  
 
-$$\mathbf{v} = \begin{bmatrix}
+$$\textbf{v} = \begin{bmatrix}
 v_{1} \\
 v_{2} \\
 \vdots \\
 v_{n}
 \end{bmatrix}
-\to H = I - 2\frac{\mathbf{vv}^{T}}{\mathbf{v}^{T}\mathbf{v}}$$
+\to H = I - 2\frac{\textbf{vv}^{T}}{\textbf{v}^{T}\textbf{v}}$$
 
-$${\mathbf{vv}^{T}}$$은 [벡터의 외적](/mathematics/linear_algebra_09/#1-외적), $${\mathbf{v}^{T}\mathbf{v}}$$은 [벡터의 내적](/mathematics/linear_algebra_07/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 Python으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
+$${\textbf{vv}^{T}}$$은 [벡터의 외적](/mathematics/linear_algebra_09/#1-외적), $${\textbf{v}^{T}\textbf{v}}$$은 [벡터의 내적](/mathematics/linear_algebra_07/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 Python으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 ```python
 scalar = int | float
@@ -445,18 +421,14 @@ matrix = list[vector]
 
 
 def v_outer(a: vector, b: vector) -> matrix:
-    """
-    returns outer/tensor product of 2 vectors
-    """
+    """returns outer/tensor product of 2 vectors"""
 
     res: matrix = [[v * u for u in b] for v in a]
     return res
 
 
 def v_inner(a: vector, b: vector) -> scalar:
-    """
-    returns inner product of 2 vectors
-    """
+    """returns inner product of 2 vectors"""
 
     res: scalar = sum(v * u for v, u in zip(a, b))
     return res
@@ -471,9 +443,7 @@ matrix = list[vector]
 
 
 def householder(v: vector) -> matrix:
-    """
-    transform vector into householder matrix
-    """
+    """transform vector into householder matrix"""
 
     V: matrix = mat_smul(1 / v_inner(v, v), v_outer(v, v))
     V: matrix = mat_smul(2, V)

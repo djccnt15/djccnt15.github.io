@@ -70,7 +70,7 @@ print(result)
 
 ### 문제 1-3
 
-주어진 Dataset의 특정 컬럼의 평균으로부터 1.5 * 표준편차를 벗어나는 영역을 이상치라고 판단하고, 이상치들의 합을 구하라 (Data가 복원되지 않아 2번 문제와 동일한 데이터 사용)  
+주어진 Dataset의 특정 컬럼의 평균으로부터 1.5 * 표준편차를 벗어나는 영역을 이상점라고 판단하고, 이상점들의 합을 구하라 (Data가 복원되지 않아 2번 문제와 동일한 데이터 사용)  
 
 ```python
 import pandas as pd
@@ -151,7 +151,7 @@ Index(['Warehouse_block', 'Mode_of_Shipment', 'Product_importance', 'Gender'], d
 
 **정규화**
 
-이상치의 영향을 적게 받는 Robust Scaling으로 정규화를 해주자. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
+이상점의 영향을 적게 받는 Robust Scaling으로 정규화를 해주자. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
 
 ```python
 import numpy as np

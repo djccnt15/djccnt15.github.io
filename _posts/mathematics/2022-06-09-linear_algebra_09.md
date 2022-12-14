@@ -20,7 +20,7 @@ related_posts:
 
 벡터의 **외적(outer product)** 또는 **텐서 곱(tensor product)**은 다음과 같은 연산을 의미한다.  
 
-$$\mathbf{u} \otimes \mathbf{v} = \mathbf{u} \mathbf{v}^{T}$$
+$$\textbf{u} \otimes \textbf{v} = \textbf{u} \textbf{v}^{T}$$
 
 Python으로 구현하면 아래와 같다. [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
@@ -31,9 +31,7 @@ matrix = list[vector]
 
 
 def v_outer(a: vector, b: vector) -> matrix:
-    """
-    returns outer/tensor product of 2 vectors
-    """
+    """returns outer/tensor product of 2 vectors"""
 
     res: matrix = [[v * u for u in b] for v in a]
     return res
@@ -52,31 +50,31 @@ res = np.outer(a, b)
 
 참고로 두 벡터의 내적은 두 벡터의 외적의 대각합과 같다.  
 
-$$\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u} \cdot \mathbf{v} = tr(\mathbf{u} \otimes \mathbf{v})$$
+$$\langle \textbf{u}, \textbf{v} \rangle = \textbf{u} \cdot \textbf{v} = tr(\textbf{u} \otimes \textbf{v})$$
 
 ## 2. 벡터 곱
 
 **벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 다음과 같이 [기저 벡터](/mathematics/linear_algebra_06/#기저-벡터)를 사용해 구할 수 있다.  
 
-$$\mathbf{i} = \begin{bmatrix}
+$$\textbf{i} = \begin{bmatrix}
 1 \\
 0 \\
 0 \\
 \end{bmatrix}, \quad
-\mathbf{j} = \begin{bmatrix}
+\textbf{j} = \begin{bmatrix}
 0 \\
 1 \\
 0 \\
 \end{bmatrix}, \quad
-\mathbf{k} = \begin{bmatrix}
+\textbf{k} = \begin{bmatrix}
 0 \\
 0 \\
 1 \\
 \end{bmatrix}$$
 
 $$\begin{align*}
-\mathbf{u} \times \mathbf{v} & = \begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\textbf{u} \times \textbf{v} & = \begin{vmatrix}
+\textbf{i} & \textbf{j} & \textbf{k} \\
 u_{1} & u_{2} & u_{3} \\
 v_{1} & v_{2} & v_{3} \\
 \end{vmatrix} \\
@@ -84,22 +82,22 @@ v_{1} & v_{2} & v_{3} \\
 & = \begin{vmatrix}
 u_{2} & u_{3} \\
 v_{2} & v_{3} \\
-\end{vmatrix}\mathbf{i}
+\end{vmatrix}\textbf{i}
 - \begin{vmatrix}
 u_{1} & u_{3} \\
 v_{1} & v_{3} \\
-\end{vmatrix}\mathbf{j}
+\end{vmatrix}\textbf{j}
 + \begin{vmatrix}
 u_{1} & u_{2} \\
 v_{1} & v_{2} \\
-\end{vmatrix}\mathbf{k} \\
+\end{vmatrix}\textbf{k} \\
 \\
-& = (u_{2}v_{3} - u_{3}v_{2})\mathbf{i} - (u_{1}v_{3} - u_{3}v_{1})\mathbf{j} + (u_{1}v_{2} - u_{2}v_{1})\mathbf{k}
+& = (u_{2}v_{3} - u_{3}v_{2})\textbf{i} - (u_{1}v_{3} - u_{3}v_{1})\textbf{j} + (u_{1}v_{2} - u_{2}v_{1})\textbf{k}
 \end{align*}$$
 
-벡터 곱 $$\mathbf{u} \times \mathbf{v}$$의 방향은 벡터 $$\mathbf{u}$$와 $$\mathbf{v}$$에 수직이고, 크기는 $$\mathbf{u}$$와 $$\mathbf{v}$$ 두 벡터가 이루는 정사각형의 넓이, 즉 벡터 $$\mathbf{u}$$와 벡터 $$\mathbf{v}$$의 벡터 곱의 [노름(norm)](/mathematics/linear_algebra_07/#2-노름norm)과 같다. 이를 수식으로 나타내면 다음과 같다.  
+벡터 곱 $$\textbf{u} \times \textbf{v}$$의 방향은 벡터 $$\textbf{u}$$와 $$\textbf{v}$$에 수직이고, 크기는 $$\textbf{u}$$와 $$\textbf{v}$$ 두 벡터가 이루는 정사각형의 넓이, 즉 벡터 $$\textbf{u}$$와 벡터 $$\textbf{v}$$의 벡터 곱의 [노름(norm)](/mathematics/linear_algebra_07/#2-노름norm)과 같다. 이를 수식으로 나타내면 다음과 같다.  
 
-$$\Vert \mathbf{u} \times \mathbf{v} \Vert = \Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert \vert \sin \theta \vert$$
+$$\Vert \textbf{u} \times \textbf{v} \Vert = \Vert \textbf{u} \Vert \Vert \textbf{v} \Vert \vert \sin \theta \vert$$
 
 NumPy를 사용해 크로스곱의 결과를 구하면 아래와 같다.  
 
@@ -120,7 +118,7 @@ res = np.cross(a, b)
 
 스칼라 삼중 곱은 아래와 같이 [행렬식](/mathematics/linear_algebra_04/)을 통해 계산한다.  
 
-$$\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})
+$$\textbf{u} \cdot (\textbf{v} \times \textbf{w})
 = \begin{vmatrix}
 u_{1} & u_{2} & u_{3} \\
 v_{1} & v_{2} & v_{3} \\
@@ -131,7 +129,7 @@ w_{1} & w_{2} & w_{3} \\
 
 벡터 삼중 곱은 아래와 같이 벡터 곱을 세번 하는 것을 의미한다.  
 
-$$\mathbf{u} \times (\mathbf{v} \times \mathbf{w})$$
+$$\textbf{u} \times (\textbf{v} \times \textbf{w})$$
 
 ---
 ## Reference

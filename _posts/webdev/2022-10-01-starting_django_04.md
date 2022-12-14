@@ -31,14 +31,10 @@ from .models import Question
 
 
 class QuestionForm(forms.ModelForm):
-    """
-    form for create question
-    """
+    """form for create question"""
 
     class Meta:
-        """
-        class for set metadata to question model
-        """
+        """class for set metadata to question model"""
 
         model = Question  # model to use
         fields = ['subject', 'content']  # field for QuestionForm from Question model
@@ -65,9 +61,7 @@ from .forms import QuestionForm
 
 
 def question_create(request):
-    """
-    view for create question
-    """
+    """view for create question"""
 
     if request.method == 'POST':
         form = QuestionForm(request.POST)
@@ -257,14 +251,10 @@ from .models import Answer
 
 
 class AnswerForm(forms.ModelForm):
-    """
-    form for create answer
-    """
+    """form for create answer"""
 
     class Meta:
-        """
-        class for set metadata to answer model
-        """
+        """class for set metadata to answer model"""
 
         model = Answer
         fields = ['content']
@@ -286,9 +276,7 @@ from .forms import AnswerForm
 
 
 def answer_create(request, question_id):
-    """
-    view for create answer
-    """
+    """view for create answer"""
 
     question = get_object_or_404(Question, pk=question_id)
     if request.method == "POST":

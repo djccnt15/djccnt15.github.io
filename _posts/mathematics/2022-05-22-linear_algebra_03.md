@@ -64,18 +64,14 @@ matrix = list[vector]
 
 
 def mat_aug_v(a: matrix, b: vector) -> matrix:
-    """
-    transform matrix into vector augmented matrix
-    """
+    """transform matrix into vector augmented matrix"""
 
     res: matrix = [v + [u] for v, u in zip(a, b)]
     return res
 
 
 def mat_coef(a: matrix) -> tuple:
-    """
-    separates coefficient matrix from augmented matrix
-    """
+    """separates coefficient matrix from augmented matrix"""
 
     x: matrix = [r[:-1] for r in a]
     y: vector = [v for r in a for v in r[-1:]]
@@ -140,9 +136,7 @@ matrix = list[vector]
 
 
 def gauss_eli(a: matrix, b: vector) -> vector:
-    """
-    solving equation with Gauss elimination
-    """
+    """solving equation with Gauss elimination"""
 
     mat: matrix = mat_aug_v(a, b)
     mat: matrix = mat_pivot(mat)
@@ -182,10 +176,7 @@ matrix = list[vector]
 
 
 def gauss_jordan_eli(mat: matrix) -> matrix:
-    """
-    Gauss-Jordan elimination
-    transform matrix into Gauss-Jordan eliminated form
-    """
+    """Gauss-Jordan elimination, transform matrix into Gauss-Jordan eliminated form"""
 
     n: int = len(mat)
 
@@ -205,9 +196,7 @@ def gauss_jordan_eli(mat: matrix) -> matrix:
 
 
 def solve_gauss(a: matrix, b: vector) -> vector:
-    """
-    solving equation with Gauss-Jordan elimination
-    """
+    """solving equation with Gauss-Jordan elimination"""
 
     mat: matrix = mat_aug_v(a, b)
     mat: matrix = mat_pivot(mat)

@@ -154,16 +154,16 @@ LU 분해를 사용하면 선형 시스템을 쉽게 풀어낼 수 있다. 그 �
 
 - 1) 행렬 $$A$$를 LU 분해하여 행렬 $$L$$과 $$U$$로 분해한다.
 
-$$A \mathbf{x} = B \Leftrightarrow LU \mathbf{x} = B$$
+$$A \textbf{x} = B \Leftrightarrow LU \textbf{x} = B$$
 
-- 2) $$U \mathbf{x}$$를 $$\mathbf{y}$$로 정의하고 기존 방정식을 $$L \mathbf{y} = B$$로 고쳐 쓴 후 $$\mathbf{y}$$에 대한 방정식의 해를 구한다.
+- 2) $$U \textbf{x}$$를 $$\textbf{y}$$로 정의하고 기존 방정식을 $$L \textbf{y} = B$$로 고쳐 쓴 후 $$\textbf{y}$$에 대한 방정식의 해를 구한다.
 
-$$U \mathbf{x} = \mathbf{y} \Leftrightarrow L \mathbf{y} = B$$
+$$U \textbf{x} = \textbf{y} \Leftrightarrow L \textbf{y} = B$$
 
-- 3) $$ \mathbf{y}$$의 값을 이용해서 방정식 $$U \mathbf{x} = \mathbf{y}$$의 해를 구한다. 전체 과정을 정리하면 아래와 같다.
+- 3) $$ \textbf{y}$$의 값을 이용해서 방정식 $$U \textbf{x} = \textbf{y}$$의 해를 구한다. 전체 과정을 정리하면 아래와 같다.
 
 $$\begin{align*}
-A \mathbf{x} & = B \\
+A \textbf{x} & = B \\
 \\
 \Leftrightarrow & \begin{bmatrix}
 a_{11} & a_{12} & a_{13} \\

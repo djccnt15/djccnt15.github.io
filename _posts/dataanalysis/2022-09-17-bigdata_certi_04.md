@@ -128,7 +128,7 @@ print(num_cols)
 
 **정규화**
 
-이상치의 영향을 적게 받는 Robust Scaling으로 정규화 진행. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
+이상점의 영향을 적게 받는 Robust Scaling으로 정규화 진행. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
 
 ```python
 import numpy as np

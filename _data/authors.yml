@@ -8,9 +8,9 @@ Jay.D:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Hello, I'm Jay.D, a Data Scientist and a Back-end Engineer.
+    Hello, I'm Jay.D, a Data Scientist and a MLOps Engineer.
 
-    기억보단 기록을 좋아하는 데이터 사이언티스트 겸 백엔드 엔지니어입니다.
+    기억보단 기록을 좋아하는 데이터 사이언티스트 겸 MLOps 엔지니어입니다.
 
     내용 중 잘못된 부분 발견 시 알려주시면 감사하겠습니다.
 

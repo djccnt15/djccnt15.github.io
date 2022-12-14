@@ -30,9 +30,9 @@ $$W = span(S)$$
 
 ## 2. 선형 변환
 
-**선형 변환(linear transformation)**은 두 벡터 공간 사이의 함수를 말하며, 예를 들어 행렬과 벡터의 곱 $$Ax$$는 벡터 $$\mathrm{x}$$에 선형 변환 $$A$$를 취한 것을 의미한다. 따라서 **행렬**은 선형 변환의 의미를 포함하고 있다고 할 수 있다. 선형 변환은 달리 **선형 사상(linear map)**이라고도 부른다.  
+**선형 변환(linear transformation)**은 두 벡터 공간 사이의 함수를 말하며, 예를 들어 행렬과 벡터의 곱 $$Ax$$는 벡터 $$\text{x}$$에 선형 변환 $$A$$를 취한 것을 의미한다. 따라서 **행렬**은 선형 변환의 의미를 포함하고 있다고 할 수 있다. 선형 변환은 달리 **선형 사상(linear map)**이라고도 부른다.  
 
-$$A\mathrm{x} = \begin{bmatrix}
+$$A\text{x} = \begin{bmatrix}
 2 & 3 \\
 4 & 2 \\
 5 & 1 \\
@@ -48,9 +48,9 @@ $$A\mathrm{x} = \begin{bmatrix}
 
 ## 3. 선형 결합과 선형 독립
 
-아래와 같이 벡터 $$\mathrm{w}$$를 벡터 $$\mathrm{u}_{n}$$과 스칼라 $$a_{n}$$의 조합으로 나타낼 수 있을 때 벡터 $$\mathrm{w}$$를 벡터 $$\mathrm{u}_{n}$$의 **선형 결합(linear combination)**으로 나타낼 수 있다고 말한다.  
+아래와 같이 벡터 $$\text{w}$$를 벡터 $$\text{u}_{n}$$과 스칼라 $$a_{n}$$의 조합으로 나타낼 수 있을 때 벡터 $$\text{w}$$를 벡터 $$\text{u}_{n}$$의 **선형 결합(linear combination)**으로 나타낼 수 있다고 말한다.  
 
-$$\mathrm{w} = a_{1}\mathrm{u}_{1} + a_{2}\mathrm{u}_{2} + \cdots + a_{n}\mathrm{u}_{n}$$
+$$\text{w} = a_{1}\text{u}_{1} + a_{2}\text{u}_{2} + \cdots + a_{n}\text{u}_{n}$$
 
 $$A = \{a_{1}, a_{2}, \cdots a_{n}\}$$이 벡터공간 $$S$$내의 벡터들의 집합이고, $$A$$에 속하는 벡터를 $$A$$에 속하는 다른 벡터들의 선형 결합(linear combination)으로 표현할 수 없을 때 $$A$$를 **선형 독립(linear independent)**이라고 하며, 반대로 특정 벡터를 다른 벡터의 선형 결합으로 표현할 수 있다면 **선형 종속(linear dependent)**이라고 한다.  
 
@@ -58,31 +58,31 @@ $$A = \{a_{1}, a_{2}, \cdots a_{n}\}$$이 벡터공간 $$S$$내의 벡터들의 
 
 ### 단위 벡터
 
-길이가 1인 벡터를 **단위 벡터(unit vector)**라고 하며 방향에 관한 정보만을 담고 있기 때문에 **방향 벡터(direction vector)**라고 부르기도 한다. 단위 벡터(unit vector)는 $$\widehat{\mathbf{u}}$$와 같이 $$hat$$기호를 사용해 나타내며, 특정 벡터 $$\mathbf{u}$$를 단위 벡터 $$\widehat{\mathbf{u}}$$로 **정규화(normalization)**하는 방법은 아래와 같다.  
+길이가 1인 벡터를 **단위 벡터(unit vector)**라고 하며 방향에 관한 정보만을 담고 있기 때문에 **방향 벡터(direction vector)**라고 부르기도 한다. 단위 벡터(unit vector)는 $$\widehat{\textbf{u}}$$와 같이 $$hat$$기호를 사용해 나타내며, 특정 벡터 $$\textbf{u}$$를 단위 벡터 $$\widehat{\textbf{u}}$$로 **정규화(normalization)**하는 방법은 아래와 같다.  
 
 $$\begin{align*}
-\widehat{\mathbf{u}} = \mathrm{sgn} (\mathbf{u}) = \frac{\mathbf{u}}{\Vert \mathbf{u} \Vert} \\
+\widehat{\textbf{u}} = \text{sgn} (\textbf{u}) = \frac{\textbf{u}}{\Vert \textbf{u} \Vert} \\
 \\
-\because \mathbf{u} = \widehat{\mathbf{u}} \times \Vert \mathbf{u} \Vert
+\because \textbf{u} = \widehat{\textbf{u}} \times \Vert \textbf{u} \Vert
 \end{align*}$$
 
-위 표기에서 $$\mathrm{sgn}$$은 부호 함수를 뜻하며, $$\Vert \mathbf{u} \Vert$$는 [노름(norm)](/mathematics/linear_algebra_07/#2-노름norm)을 뜻한다.  
+위 표기에서 $$\text{sgn}$$은 부호 함수를 뜻하며, $$\Vert \textbf{u} \Vert$$는 [노름(norm)](/mathematics/linear_algebra_07/#2-노름norm)을 뜻한다.  
 
 💡참고로 **^** 기호를 수학에서 **Hat(모자)** 기호라고 부르는데, 상황에 따라 단위 벡터, 추정량 등 의미가 달라진다. 자세한 내용은 [위키피디아](https://en.wikipedia.org/wiki/Hat_operator)를 참고하자.  
 {:.note}
 
 ### 기저 벡터
 
-앞서 **벡터 공간(vector space)**의 정의에서 벡터 집합이 존재할 때 해당 벡터들로 구성할 수 있는 공간을 의미한다고 했을 때, **기저 벡터(basis vector)**는 벡터 공간을 생성하는 **선형 독립인 벡터들**을 말한다. 쉽게 말해서 아래와 같이 특정 벡터를 단위 벡터의 선형 결합으로 표현하였을 때, 각 축의 단위 벡터인 $$\mathrm{i}, \ \mathrm{j}, \ \mathrm{k}$$를 **기저 벡터(basis vector)**라고 한다.  
+앞서 **벡터 공간(vector space)**의 정의에서 벡터 집합이 존재할 때 해당 벡터들로 구성할 수 있는 공간을 의미한다고 했을 때, **기저 벡터(basis vector)**는 벡터 공간을 생성하는 **선형 독립인 벡터들**을 말한다. 쉽게 말해서 아래와 같이 특정 벡터를 단위 벡터의 선형 결합으로 표현하였을 때, 각 축의 단위 벡터인 $$\text{i, j, k}$$를 **기저 벡터(basis vector)**라고 한다.  
 
 $$\begin{align*}
-\mathbf{a} & = (2, 1, 3) \\
+\textbf{a} & = (2, 1, 3) \\
 \\
 & = (2, 0, 0) + (0, 1, 0) + (0, 0, 3) \\
 \\
 & = 2(1, 0, 0) + 1(0, 1, 0) + 3(0, 0, 1) \\
 \\
-& = 2\mathrm{i} + \mathrm{j} + 3\mathrm{k} \\
+& = 2\text{i} + \text{j} + 3\text{k} \\
 \end{align*}$$
 
 ## 5. 차원
@@ -132,7 +132,7 @@ a_{2n} \\
 a_{mn} \\
 \end{bmatrix}$$
 
-또한 $$A\mathrm{x} = 0$$을 만족하는 해(solution) 공간을 **영 공간(null space)**이라고 한다. 다른 말로 하자면, 행렬 $$A$$의 **영 공간(null space)**이란 행렬 $$A$$가 주어질 때 $$A\mathrm{x} = 0$$을 만족하는 모든 벡터 $$\mathrm{x}$$의 집합이라고 할 수 있다.  
+또한 $$A\text{x} = 0$$을 만족하는 해(solution) 공간을 **영 공간(null space)**이라고 한다. 다른 말로 하자면, 행렬 $$A$$의 **영 공간(null space)**이란 행렬 $$A$$가 주어질 때 $$A\text{x} = 0$$을 만족하는 모든 벡터 $$\text{x}$$의 집합이라고 할 수 있다.  
 
 ## 7. 랭크와 널리티
 

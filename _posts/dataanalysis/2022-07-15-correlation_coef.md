@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[상관분석] 상관 계수'
 description: >
-    python으로 상관 계수 구현하기
+    Python으로 상관 계수 구현하기
 categories: [DataAnalysis]
 tags: [correlation]
 image:
@@ -29,41 +29,35 @@ related_posts:
 
 **공분산(covariance)**은 두 개의 확률 변수의 선형관계를 나타내는 값으로, 기본 정의는 아래와 같다.  
 
-$$Cov(X,Y) = \mathrm{E}\{(X - \mathrm{E}[X])\,(Y - \mathrm{E}[Y])\}$$
+$$Cov(X,Y) = \text{E}\{(X - \text{E}[X])\,(Y - \text{E}[Y])\}$$
 
 피어슨 상관 계수는 **표본 공분산(sample covariance)**을 기반으로 구할 수 있는데, 표본 공분산의 수식은 아래와 같다.  
 
 $$Cov(X,Y) = \frac{\sum_{i}^{n}(X_{i} - \overline{X})(Y_{i} - \overline{Y})}{n - 1}$$
 
-표본 공분산을 Python으로 구현하면 아래와 같다.  
+표본공분산 구하는 공식을 Python으로 구현하면 아래와 같다.  
 
 ```python
 def bar(x: list) -> float:
-    """
-    returns expectation of discrete probability distribution
-    """
+    """returns expectation/sample mean"""
 
     res = sum(x) / len(x)
     return res
 
 
 def cov(a: list, b: list) -> float:
-    """
-    returns covariance of two random variables
-    """
+    """returns covariance of two random variables"""
 
     n = len(a)
-    a_bar = bar(a)
-    b_bar = bar(b)
-    res = sum((a[i] - a_bar) * (b[i] - b_bar) for i in range(n)) / (n - 1)
+    res = sum((a[i] - bar(a)) * (b[i] - bar(b)) for i in range(n)) / (n - 1)
     return res
 ```
 
 **공분산 행렬(covariance matrix)**은 위의 공분산을 각 변수들마다 계산하는 것으로, 공분산 행렬 $$\Sigma$$는 아래와 같다.  
 
 $$\Sigma = \begin{bmatrix}
-\mathrm{cov}_{x, x} & \mathrm{cov}_{x, y} \\
-\mathrm{cov}_{y, x} & \mathrm{cov}_{y, y} \\
+\text{cov}_{x, x} & \text{cov}_{x, y} \\
+\text{cov}_{y, x} & \text{cov}_{y, y} \\
 \end{bmatrix}$$
 
 NumPy가 제공하는 공분산 행렬을 계산하는 함수를 사용하면 두 변수 간의 공분산을 구할 수 있다.  
@@ -87,7 +81,7 @@ print(res)
 **피어슨 상관 계수(Pearson correlation coefficient, Pearson's r)**는 데이터 분석에서 가장 널리 쓰이는 상관 계수로, 측정하려는 두 변수의 상관 관계가 서로 **선형**일 때(1차 함수로 표현 가능)할 때 유용하다. 피어슨 상관 계수는 두 변수의 표본 공분산을 각각 표준 편차의 곱으로 나눈 값으로, 수식을 정리하면 아래와 같다.  
 
 $$\begin{align*}
-r_{xy} & = \frac{\mathrm{Cov}[X, Y]}{\sqrt{\mathrm{Var}[X] \cdot \mathrm{Var}[Y]}} \\
+r_{xy} & = \frac{\text{Cov}[X, Y]}{\sqrt{\text{Var}[X] \cdot \text{Var}[Y]}} \\
 \\
 & = \frac{\frac{\sum_{i=1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{n - 1}}{\sqrt{\frac{\sum_{i=1}^{n}(x_{i} - \overline{x})^{2}}{n - 1}} \sqrt{\frac{\sum_{i}^{n}(y_{i} - \overline{y})^{2}}{n - 1}}} \\
 \\
@@ -98,9 +92,7 @@ Python으로 구현하면 아래와 같다.
 
 ```python
 def pearson(a: list, b: list) -> float:
-    """
-    returns Pearson correlation coefficient(Pearson r) of two random variables
-    """
+    """returns Pearson correlation coefficient(Pearson r) of two random variables"""
 
     res = cov(a, b) / ((cov(a, a) * cov(b, b)) ** 0.5)
     return res
@@ -138,7 +130,7 @@ print(pearsonr)
 -0.9883637911002775
 ```
 
-💡 피어슨 상관 계수 $$r$$의 제곱과 다중 선형 회귀 모델의 결정 계수(Coefficient of determination) $$r^{2}$$은 같지 않다. 자세한 내용은 [여기](https://rython.tistory.com/17)를 참고하자.  
+💡 피어슨 상관 계수 $$r$$의 제곱과 다중 선형 회귀 모델의 결정 계수(Coefficient of determination) $$R^{2}$$은 같지 않다. 자세한 내용은 [여기](https://rython.tistory.com/17)를 참고하자.  
 {:.note}
 
 ### 상관 계수에 따른 데이터 분포

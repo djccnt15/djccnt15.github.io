@@ -31,10 +31,10 @@ $$(AB)^{-1} = B^{-1}A^{-1}$$
 2 * 2 행렬의 역행렬을 구하는 방법은 아래와 같다.  
 
 $$\begin{align*}
-A^{-1} & = \frac{1}{\det A} \begin{bmatrix}
+A^{-1} & = \frac{1}{\det(A)} \begin{bmatrix}
 a_{22} & -a_{12} \\
 -a_{21} & a_{11} \\
-\end{bmatrix}, \quad (\det A \neq 0) \\
+\end{bmatrix}, \quad (\det(A) \neq 0) \\
 \\
 & = \frac{1}{a_{11}a_{22} - a_{12}a_{21}} \begin{bmatrix}
 a_{22} & -a_{12} \\
@@ -46,7 +46,7 @@ a_{22} & -a_{12} \\
 
 n * n 행렬의 역행렬을 구하는 방법은 행렬식에서 다룬 [수반 행렬](/mathematics/linear_algebra_04/#수반-행렬)을 사용해야 한다. 구하는 방법은 아래와 같다.  
 
-$$A^{-1} = \frac{\mathrm{adj} A}{\det A}$$
+$$A^{-1} = \frac{\text{adj}(A)}{\det(A)}$$
 
 ## 2. 역행렬 계산
 
@@ -85,18 +85,14 @@ matrix = list[vector]
 
 
 def mat_aug_mat(a: matrix, b: matrix) -> matrix:
-    """
-    transform matrix into matrix augmented matrix
-    """
+    """transform matrix into matrix augmented matrix"""
 
     res: matrix = [v + u for v, u in zip(a, b)]
     return res
 
 
 def mat_coef_inv(a: matrix, b: int) -> tuple:
-    """
-    separates coefficient matrix
-    """
+    """separates coefficient matrix"""
 
     x: matrix = [r[:b] for r in a]
     y: matrix = [r[b:] for r in a]
@@ -104,10 +100,7 @@ def mat_coef_inv(a: matrix, b: int) -> tuple:
 
 
 def gauss_jordan_eli(mat: matrix) -> matrix:
-    """
-    Gauss-Jordan elimination
-    transform matrix into Gauss-Jordan eliminated form
-    """
+    """Gauss-Jordan elimination, transform matrix into Gauss-Jordan eliminated form"""
 
     n: int = len(mat)
 
@@ -127,9 +120,7 @@ def gauss_jordan_eli(mat: matrix) -> matrix:
 
 
 def mat_inv(a: matrix) -> matrix:
-    """
-    returns inverted matrix
-    """
+    """returns inverted matrix"""
 
     n: int = len(a)
     i: matrix = mat_identity(n)
@@ -169,7 +160,7 @@ $$(A^{-1})^{T} = (A^{T})^{-1}$$
 
 - 역행렬과 행렬식
 
-$$\det A^{-1} = \frac{1}{\det A}$$
+$$\det(A)^{-1} = \frac{1}{\det(A)}$$
 
 ---
 ## Reference

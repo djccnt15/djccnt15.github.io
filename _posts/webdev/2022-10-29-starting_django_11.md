@@ -43,9 +43,7 @@ from board_qna.forms import AnswerForm
 
 @login_required()
 def answer_create(request, question_id):
-    """
-    view for create answer
-    """
+    """view for create answer"""
 
     question = get_object_or_404(Question, pk=question_id)
     if request.method == "POST":

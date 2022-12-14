@@ -62,9 +62,7 @@ from .models import Question
 
 
 def index(request):
-    """
-    index view for question_list
-    """
+    """index view for question_list"""
 
     page = request.GET.get(key='page', default='1')  # get value of 'page' from HTTP Request
     question_list = Question.objects.order_by('-id')  # order by id desc

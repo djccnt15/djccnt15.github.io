@@ -68,18 +68,14 @@ e = data[:, 2]
 
 ```python
 def bar(x: list) -> float:
-    """
-    returns expectation of discrete probability distribution
-    """
+    """returns expectation/sample mean"""
 
     res = sum(x) / len(x)
     return res
 
 
 def lineFit(x: list, y: list) -> tuple:
-    """
-    returns linear regression coefficient(weight) and intercept of two random variables
-    """
+    """returns linear regression coefficient(weight) and intercept of two random variables"""
 
     x_bar = bar(x)
     y_bar = bar(y)

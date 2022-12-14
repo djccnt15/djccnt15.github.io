@@ -43,19 +43,19 @@ $$\begin{align*}
 \sigma_{21} & \sigma_{22} & \sigma_{23} \\
 \sigma_{31} & \sigma_{32} & \sigma_{33} \\
 \end{bmatrix} &
-= [\mathbf{u}_{1} \quad \mathbf{u}_{2} \quad \mathbf{u}_{3}]\begin{bmatrix}
+= [\textbf{u}_{1} \quad \textbf{u}_{2} \quad \textbf{u}_{3}]\begin{bmatrix}
 \lambda_{1} & 0 & 0 \\
 0 & \lambda_{2} & 0 \\
 0 & 0 & \lambda_{3} \\
 \end{bmatrix}\begin{bmatrix}
-\mathbf{u}_{1}^{T} \\
-\mathbf{u}_{2}^{T} \\
-\mathbf{u}_{3}^{T}\end{bmatrix} \\
+\textbf{u}_{1}^{T} \\
+\textbf{u}_{2}^{T} \\
+\textbf{u}_{3}^{T}\end{bmatrix} \\
 \\
 A & = PDP^{T} = P \Lambda P^{-1}
 \end{align*}$$
 
-위 식에서 $$\lambda_{1}, \lambda_{2}, \lambda_{3}$$는 행렬 $$A$$의 고유값이고, $$\mathbf{u}_{1}, \mathbf{u}_{2}, \mathbf{u}_{3}$$는 각 고유값에 해당하는 고유 벡터다.  
+위 식에서 $$\lambda_{1}, \lambda_{2}, \lambda_{3}$$는 행렬 $$A$$의 고유값이고, $$\textbf{u}_{1}, \textbf{u}_{2}, \textbf{u}_{3}$$는 각 고유값에 해당하는 고유 벡터다.  
 
 고유벡터 구하는 함수를 Python으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](/mathematics/linear_algebra_10/#qr분해를-통한-고유값과-고유벡터-계산)에서 이미 구현한 바 있다.  
 

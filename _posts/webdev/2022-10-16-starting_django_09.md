@@ -44,9 +44,7 @@ from board_qna.models import Question
 
 
 def index(request):
-    """
-    index view for question_list
-    """
+    """index view for question_list"""
 
     page = request.GET.get(key='page', default='1')  # get value of 'page' from HTTP Request
     question_list = Question.objects.order_by('-id')  # order by id desc
@@ -58,9 +56,7 @@ def index(request):
 
 
 def detail(request, question_id):
-    """
-    view for details of each question
-    """
+    """view for details of each question"""
 
     question = get_object_or_404(Question, pk=question_id)  # returns 404 instead of 500 when requested not existing question_id
     context = {'question': question}
@@ -81,9 +77,7 @@ from board_qna.forms import QuestionForm
 
 @login_required()
 def question_create(request):
-    """
-    view for create question
-    """
+    """view for create question"""
 
     if request.method == 'POST':
         form = QuestionForm(request.POST)
@@ -142,9 +136,7 @@ from board_qna.forms import AnswerForm
 
 @login_required()
 def answer_create(request, question_id):
-    """
-    view for create answer
-    """
+    """view for create answer"""
 
     question = get_object_or_404(Question, pk=question_id)
     if request.method == "POST":

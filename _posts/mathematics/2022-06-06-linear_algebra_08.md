@@ -22,7 +22,7 @@ related_posts:
 
 **직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1([단위 벡터](/Mathematics/linear_algebra_06/#단위-벡터))이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
 
-$$\mathbf{v}_{n} = \frac{\mathbf{u}_{n}}{\Vert \mathbf{u}_{n} \Vert}$$
+$$\textbf{v}_{n} = \frac{\textbf{u}_{n}}{\Vert \textbf{u}_{n} \Vert}$$
 
 벡터의 정규화를 Python으로 구현하면 아래와 같다.  
 
@@ -32,9 +32,7 @@ vector = list[scalar]
 
 
 def normalize(a: vector) -> vector:
-    """
-    normalize vector
-    """
+    """normalize vector"""
 
     n: vector = [v / norm(a) for v in a]
     return n
@@ -52,35 +50,35 @@ normalized_v = v / np.linalg.norm(v)
 
 ### 정규 직교 벡터를 활용한 좌표 표현
 
-벡터 공간 $$\mathbf{v}$$의 **정규 직교 기저(orthonormal basis)**를 $$S = \{ \mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n} \}$$이라 할 때, 벡터 공간 $$\mathbf{v}$$에 포함되는 임의의 벡터 $$\mathbf{a}$$는 아래와 같이 좌표축 $$\mathbf{v}_{n}$$과 벡터 $$\mathbf{a}$$의 $$n$$번째 축의 좌표 $$\langle \mathbf{a}, \mathbf{v}_{n} \rangle$$으로 표현할 수 있다.  
+벡터 공간 $$\textbf{v}$$의 **정규 직교 기저(orthonormal basis)**를 $$S = \{ \textbf{v}_{1}, \textbf{v}_{2}, \cdots, \textbf{v}_{n} \}$$이라 할 때, 벡터 공간 $$\textbf{v}$$에 포함되는 임의의 벡터 $$\textbf{a}$$는 아래와 같이 좌표축 $$\textbf{v}_{n}$$과 벡터 $$\textbf{a}$$의 $$n$$번째 축의 좌표 $$\langle \textbf{a}, \textbf{v}_{n} \rangle$$으로 표현할 수 있다.  
 
-$$\mathbf{a} = \langle \mathbf{a}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + \cdots + \langle \mathbf{a}, \mathbf{v}_{n} \rangle \mathbf{v}_{n}$$
+$$\textbf{a} = \langle \textbf{a}, \textbf{v}_{1} \rangle \textbf{v}_{1} + \langle \textbf{a}, \textbf{v}_{2} \rangle \textbf{v}_{2} + \cdots + \langle \textbf{a}, \textbf{v}_{n} \rangle \textbf{v}_{n}$$
 
 ### 직교 벡터를 활용한 좌표 표현
 
-벡터 공간 내 $$U = \{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$가 **직교 기저(orthogonal basis)**라면 임의의 벡터 $$\mathbf{a}$$는 다음과 같이 표현할 수 있다.  
+벡터 공간 내 $$U = \{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$$가 **직교 기저(orthogonal basis)**라면 임의의 벡터 $$\textbf{a}$$는 다음과 같이 표현할 수 있다.  
 
-$$\mathbf{a} = \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} + \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}\mathbf{u}_{2} + \cdots + \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}}\mathbf{u}_{n}$$
+$$\textbf{a} = \frac{\langle \textbf{a}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}\textbf{u}_{1} + \frac{\langle \textbf{a}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}\textbf{u}_{2} + \cdots + \frac{\langle \textbf{a}, \textbf{u}_{n} \rangle}{\Vert \textbf{u}_{n} \Vert^{2}}\textbf{u}_{n}$$
 
-따라서 $$U = \{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$가 **직교 기저(orthogonal basis)**일 때, $$\mathbf{a}$$의 좌표를 다음과 같이 나타낼 수 있다.  
+따라서 $$U = \{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$$가 **직교 기저(orthogonal basis)**일 때, $$\textbf{a}$$의 좌표를 다음과 같이 나타낼 수 있다.  
 
-$$\mathbf{a} = \left\{ \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}, \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}} \right\}$$
+$$\textbf{a} = \left\{ \frac{\langle \textbf{a}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}, \frac{\langle \textbf{a}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \textbf{a}, \textbf{u}_{n} \rangle}{\Vert \textbf{u}_{n} \Vert^{2}} \right\}$$
 
 ## 2. 정사영
 
-**정사영(projection)**이란 한 벡터 공간에 속한 벡터를 부분 공간으로 수직으로 투영하는 것을 말하며, 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시키는 것을 아래와 같이 표기한다.  
+**정사영(projection)**이란 한 벡터 공간에 속한 벡터를 부분 공간으로 수직으로 투영하는 것을 말하며, 벡터 $$\textbf{u}$$를 벡터 $$\textbf{v}$$에 정사영시키는 것을 아래와 같이 표기한다.  
 
 $$\begin{align*}
-proj_{\mathbf{v}} \mathbf{u} & = \Vert \mathbf{u} \Vert \vert \cos \theta \vert \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} = \Vert \mathbf{u} \Vert \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{u} \Vert \Vert \mathbf{v} \Vert} \frac{\mathbf{v}}{\Vert \mathbf{v} \Vert} \\
+proj_{\textbf{v}} \textbf{u} & = \Vert \textbf{u} \Vert \vert \cos \theta \vert \frac{\textbf{v}}{\Vert \textbf{v} \Vert} = \Vert \textbf{u} \Vert \frac{\textbf{u} \cdot \textbf{v}}{\Vert \textbf{u} \Vert \Vert \textbf{v} \Vert} \frac{\textbf{v}}{\Vert \textbf{v} \Vert} \\
 \\
-& = \frac{\mathbf{u} \cdot \mathbf{v}}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\Vert \mathbf{v} \Vert^{2}}\mathbf{v} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}\mathbf{v} \\
+& = \frac{\textbf{u} \cdot \textbf{v}}{\Vert \textbf{v} \Vert^{2}}\textbf{v} = \frac{\langle \textbf{u}, \textbf{v} \rangle}{\Vert \textbf{v} \Vert^{2}}\textbf{v} = \frac{\langle \textbf{u}, \textbf{v} \rangle}{\langle \textbf{v}, \textbf{v} \rangle}\textbf{v} \\
 \end{align*}$$
 
-정사영 $$proj_{\mathbf{v}} \mathbf{u}$$는 $$\mathbf{u}$$가 갖고 있는 $$\mathbf{v}$$의 성분을 의미한다. 따라서 벡터 $$\mathbf{u}$$는 벡터 $$\mathbf{v}$$를 기준으로 아래와 같이 분해할 수 있다.  
+정사영 $$proj_{\textbf{v}} \textbf{u}$$는 $$\textbf{u}$$가 갖고 있는 $$\textbf{v}$$의 성분을 의미한다. 따라서 벡터 $$\textbf{u}$$는 벡터 $$\textbf{v}$$를 기준으로 아래와 같이 분해할 수 있다.  
 
-$$\mathbf{u} = proj_{\mathbf{v}} \mathbf{u} + (\mathbf{u} - proj_{\mathbf{v}} \mathbf{u})$$
+$$\textbf{u} = proj_{\textbf{v}} \textbf{u} + (\textbf{u} - proj_{\textbf{v}} \textbf{u})$$
 
-정사영 $$proj_{\mathbf{v}} \mathbf{u}$$를 Python으로 구현하면 아래와 같다.  
+정사영 $$proj_{\textbf{v}} \textbf{u}$$를 Python으로 구현하면 아래와 같다.  
 
 ```python
 scalar = int | float
@@ -88,9 +86,7 @@ vector = list[scalar]
 
 
 def proj(u: vector, v: vector) -> vector:
-    """
-    project 'u' vector to 'v' vector
-    """
+    """project 'u' vector to 'v' vector"""
 
     tmp: scalar = v_inner(u, v) / v_inner(v, v)
     res: vector = v_smul(tmp, v)
@@ -108,62 +104,62 @@ b = np.array([2, 4, 8])
 res = (np.inner(a, b) / np.inner(b, b)) * b
 ```
 
-벡터 $$\mathbf{u}$$를 벡터$$\mathbf{v}$$에 정사영한 길이 $$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert$$는 다음과 같다.  
+벡터 $$\textbf{u}$$를 벡터$$\textbf{v}$$에 정사영한 길이 $$\Vert proj_{\textbf{v}} \textbf{u} \Vert$$는 다음과 같다.  
 
-$$\Vert proj_{\mathbf{v}} \mathbf{u} \Vert = \Vert \mathbf{u} \Vert \vert \cos \theta \vert$$
+$$\Vert proj_{\textbf{v}} \textbf{u} \Vert = \Vert \textbf{u} \Vert \vert \cos \theta \vert$$
 
-정사영을 이용해 내적을 정리하면, 벡터 $$\mathbf{v}$$와 벡터 $$\mathbf{u}$$의 내적이란 벡터 $$\mathbf{u}$$를 벡터 $$\mathbf{v}$$에 정사영시킨 벡터의 길이, 즉 $$\Vert \mathbf{u} \Vert \vert \cos \theta \vert$$와 기존 벡터 $$\mathbf{v}$$의 길이인 $$\Vert \mathbf{v} \Vert$$의 곱과 같다.  
+정사영을 이용해 내적을 정리하면, 벡터 $$\textbf{v}$$와 벡터 $$\textbf{u}$$의 내적이란 벡터 $$\textbf{u}$$를 벡터 $$\textbf{v}$$에 정사영시킨 벡터의 길이, 즉 $$\Vert \textbf{u} \Vert \vert \cos \theta \vert$$와 기존 벡터 $$\textbf{v}$$의 길이인 $$\Vert \textbf{v} \Vert$$의 곱과 같다.  
 
 $$\begin{align*}
-\langle \mathbf{v}, \mathbf{u} \rangle & = \Vert \mathbf{v} \Vert \Vert \mathbf{u} \Vert \cos \theta \\
+\langle \textbf{v}, \textbf{u} \rangle & = \Vert \textbf{v} \Vert \Vert \textbf{u} \Vert \cos \theta \\
 \\
-& = \Vert \mathbf{v} \Vert \times \Vert \mathbf{u} \Vert \cos \theta \\
+& = \Vert \textbf{v} \Vert \times \Vert \textbf{u} \Vert \cos \theta \\
 \\
-& = length \ of \ vector \ \mathbf{v} \times length \ of \ vector \ proj_{\mathbf{v}}\mathbf{u} \\
+& = length \ of \ vector \ \textbf{v} \times length \ of \ vector \ proj_{\textbf{v}}\textbf{u} \\
 \end{align*}$$
 
 ### 정사영 정리
 
 **부분 공간에 대한 정사영 정리(projection theorem for subspaces)**의 내용은 아래와 같다.  
 
-- 벡터 공간 $$S$$의 부분 공간 $$W$$가 존재할 때 벡터 공간 $$S$$에 속하는 임의의 벡터 $$\mathbf{a}$$는 다음과 같이 표현 가능하다.  
+- 벡터 공간 $$S$$의 부분 공간 $$W$$가 존재할 때 벡터 공간 $$S$$에 속하는 임의의 벡터 $$\textbf{a}$$는 다음과 같이 표현 가능하다.  
 
-$$\mathbf{a} = \mathbf{w}_{1} + \mathbf{w}_{2}$$
+$$\textbf{a} = \textbf{w}_{1} + \textbf{w}_{2}$$
 
-- 이 때, $$\mathbf{w}_{1}$$은 부분 공간 $$W$$에 속하는 벡터이며 $$\mathbf{w}_{2}$$는 부분 공간의 직교 공간인 $$W^{\bot}$$에 속하는 벡터다.  
+- 이 때, $$\textbf{w}_{1}$$은 부분 공간 $$W$$에 속하는 벡터이며 $$\textbf{w}_{2}$$는 부분 공간의 직교 공간인 $$W^{\bot}$$에 속하는 벡터다.  
 
 ### 직교 정사영
 
-벡터 공간 $$S$$의 부분 공간 $$W$$에서 부분 공간 $$W$$의  **직교 기저(orthogonal basis)**가 $$U = \{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영 시킨 벡터는 다음과 같다. [직교 벡터를 활용한 좌표 표현](/mathematics/linear_algebra_08/#직교-벡터를-활용한-좌표-표현)을 참고하자.  
+벡터 공간 $$S$$의 부분 공간 $$W$$에서 부분 공간 $$W$$의  **직교 기저(orthogonal basis)**가 $$U = \{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$$일 때, $$\textbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\textbf{a}$$를 $$W$$로 정사영 시킨 벡터는 다음과 같다. [직교 벡터를 활용한 좌표 표현](/mathematics/linear_algebra_08/#직교-벡터를-활용한-좌표-표현)을 참고하자.  
 
-$$proj_{\mathbf{w}} \mathbf{a} = \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} + \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}\mathbf{u}_{2} + \cdots + \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}}\mathbf{u}_{n}$$
+$$proj_{\textbf{w}} \textbf{a} = \frac{\langle \textbf{a}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}\textbf{u}_{1} + \frac{\langle \textbf{a}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}\textbf{u}_{2} + \cdots + \frac{\langle \textbf{a}, \textbf{u}_{n} \rangle}{\Vert \textbf{u}_{n} \Vert^{2}}\textbf{u}_{n}$$
 
-따라서 $$proj_{\mathbf{w}} \mathbf{a}$$의 좌표는 다음과 같다.  
+따라서 $$proj_{\textbf{w}} \textbf{a}$$의 좌표는 다음과 같다.  
 
-$$proj_{\mathbf{w}} \mathbf{a} = \left\{ \frac{\langle \mathbf{a}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}, \frac{\langle \mathbf{a}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \mathbf{a}, \mathbf{u}_{n} \rangle}{\Vert \mathbf{u}_{n} \Vert^{2}} \right\}$$
+$$proj_{\textbf{w}} \textbf{a} = \left\{ \frac{\langle \textbf{a}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}, \frac{\langle \textbf{a}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \textbf{a}, \textbf{u}_{n} \rangle}{\Vert \textbf{u}_{n} \Vert^{2}} \right\}$$
 
-벡터 공간 $$S$$의 부분 공간 $$W$$에서, 부분 공간 $$W$$의 **정규 직교 기저(orthonormal basis)**가 $$\{ \mathbf{v}_{1}, \mathbf{v}_{2}, \cdots, \mathbf{v}_{n} \}$$일 때, $$\mathbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\mathbf{a}$$를 $$W$$로 정사영시킨 벡터는 다음과 같다. [정규 직교 벡터를 활용한 좌표 표현](/mathematics/linear_algebra_08/#정규-직교-벡터를-활용한-좌표-표현)을 참고하자.  
+벡터 공간 $$S$$의 부분 공간 $$W$$에서, 부분 공간 $$W$$의 **정규 직교 기저(orthonormal basis)**가 $$\{ \textbf{v}_{1}, \textbf{v}_{2}, \cdots, \textbf{v}_{n} \}$$일 때, $$\textbf{a}$$가 전체 벡터 공간 $$S$$의 임의의 벡터이면 $$\textbf{a}$$를 $$W$$로 정사영시킨 벡터는 다음과 같다. [정규 직교 벡터를 활용한 좌표 표현](/mathematics/linear_algebra_08/#정규-직교-벡터를-활용한-좌표-표현)을 참고하자.  
 
-$$proj_{\mathbf{w}} \mathbf{a} = \langle \mathbf{a}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} + \cdots + \langle \mathbf{a}, \mathbf{v}_{n} \rangle \mathbf{v}_{n}$$
+$$proj_{\textbf{w}} \textbf{a} = \langle \textbf{a}, \textbf{v}_{1} \rangle \textbf{v}_{1} + \langle \textbf{a}, \textbf{v}_{2} \rangle \textbf{v}_{2} + \cdots + \langle \textbf{a}, \textbf{v}_{n} \rangle \textbf{v}_{n}$$
 
 ## 3. 그람-슈미트 과정
 
-**그람-슈미트 과정(Gram-Schmidt Process)**은 [기저(basis) 벡터](/mathematics/linear_algebra_06/#기저-벡터) $$\{ \mathbf{s}_{1}, \mathbf{s}_{2}, \cdots, \mathbf{s}_{n} \}$$를 [직교 기저(orthogonal basis) 벡터](/mathematics/linear_algebra_08/#직교-정규-직교-벡터-정규-직교-공간-정규화) $$\{ \mathbf{u}_{1}, \mathbf{u}_{2}, \cdots, \mathbf{u}_{n} \}$$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
+**그람-슈미트 과정(Gram-Schmidt Process)**은 [기저(basis) 벡터](/mathematics/linear_algebra_06/#기저-벡터) $$\{ \textbf{s}_{1}, \textbf{s}_{2}, \cdots, \textbf{s}_{n} \}$$를 [직교 기저(orthogonal basis) 벡터](/mathematics/linear_algebra_08/#직교-정규-직교-벡터-정규-직교-공간-정규화) $$\{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
 
-- 1) 기존 기저 벡터 $$\mathbf{s}_{1}$$을 통해 새로운 직교 기저 벡터 $$\mathbf{u}_{1}$$을 정의한다.
+- 1) 기존 기저 벡터 $$\textbf{s}_{1}$$을 통해 새로운 직교 기저 벡터 $$\textbf{u}_{1}$$을 정의한다.
 
-$$\mathbf{u}_{1} = \mathbf{s}_{1}$$
+$$\textbf{u}_{1} = \textbf{s}_{1}$$
 
-- 2) 첫 번째 단계에서 만든 직교 기저 벡터 $$\mathbf{u}_{1}$$를 통해 두 번째 직교 기저 벡터 $$\mathbf{u}_{2}$$를 생성한다.
+- 2) 첫 번째 단계에서 만든 직교 기저 벡터 $$\textbf{u}_{1}$$를 통해 두 번째 직교 기저 벡터 $$\textbf{u}_{2}$$를 생성한다.
 
-$$\mathbf{u}_{2} = \mathbf{s}_{2} - \frac{\langle \mathbf{s}_{2}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} = \mathbf{s}_{2} - proj_{\mathbf{u}_{1}} \mathbf{s}_{2}$$
+$$\textbf{u}_{2} = \textbf{s}_{2} - \frac{\langle \textbf{s}_{2}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}\textbf{u}_{1} = \textbf{s}_{2} - proj_{\textbf{u}_{1}} \textbf{s}_{2}$$
 
 - n) 같은 방식으로 n 번째 직교 기저 벡터까지 구한다.
 
 $$\begin{align*}
-\mathbf{u}_{n} & = \mathbf{s}_{n} - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{1} \rangle}{\Vert \mathbf{u}_{1} \Vert^{2}}\mathbf{u}_{1} - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{2} \rangle}{\Vert \mathbf{u}_{2} \Vert^{2}}\mathbf{u}_{2} - \cdots - \frac{\langle \mathbf{s}_{n}, \mathbf{u}_{n-1} \rangle}{\Vert \mathbf{u}_{n-1} \Vert^{2}}\mathbf{u}_{n-1} \\
+\textbf{u}_{n} & = \textbf{s}_{n} - \frac{\langle \textbf{s}_{n}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}\textbf{u}_{1} - \frac{\langle \textbf{s}_{n}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}\textbf{u}_{2} - \cdots - \frac{\langle \textbf{s}_{n}, \textbf{u}_{n-1} \rangle}{\Vert \textbf{u}_{n-1} \Vert^{2}}\textbf{u}_{n-1} \\
 \\
-& = \mathbf{s}_{n} - \sum_{i=1}^{n-1}proj_{\mathbf{u}_{i}} \mathbf{s}_{n}
+& = \textbf{s}_{n} - \sum_{i=1}^{n-1}proj_{\textbf{u}_{i}} \textbf{s}_{n}
 \end{align*}$$
 
 이 과정을 그림으로 표현하면 아래와 같다.  
@@ -183,9 +179,7 @@ matrix = list[vector]
 
 
 def gram_schmidt(s: matrix) -> matrix:
-    """
-    perform Gram-Schmidt Process to matrix
-    """
+    """perform Gram-Schmidt Process to matrix"""
 
     res = []
     for i, _ in enumerate(s):
@@ -201,7 +195,7 @@ def gram_schmidt(s: matrix) -> matrix:
 
 ### QR분해의 기초
 
-행렬 $$A$$의 **열 벡터** $$\mathbf{a}_i$$끼리 모두 선형 독립일 때, 행렬 $$A$$는 아래와 같이 정규 직교 벡터(orthonormal vector) $$n \times p$$ 행렬 $$Q$$와 가역 상 삼각행렬(invertible upper triangular matrix) $$R$$로 분해할 수 있다.  
+행렬 $$A$$의 **열 벡터** $$\textbf{a}_i$$끼리 모두 선형 독립일 때, 행렬 $$A$$는 아래와 같이 정규 직교 벡터(orthonormal vector) $$n \times p$$ 행렬 $$Q$$와 가역 상 삼각행렬(invertible upper triangular matrix) $$R$$로 분해할 수 있다.  
 
 $$A = QR$$
 
@@ -209,32 +203,32 @@ $$A = QR$$
 [정규 직교 벡터를 활용한 좌표 표현](/mathematics/linear_algebra_08/#정규-직교-벡터를-활용한-좌표-표현)을 참고하면, 행렬 $$A$$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
 
 $$\begin{align*}
-\mathbf{a}_{1} = \langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} & + \cdots + \langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
-\mathbf{a}_{2} = \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} & + \cdots + \langle \mathbf{a}_{2}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
+\textbf{a}_{1} = \langle \textbf{a}_{1}, \textbf{v}_{1} \rangle \textbf{v}_{1} + \langle \textbf{a}_{1}, \textbf{v}_{2} \rangle \textbf{v}_{2} & + \cdots + \langle \textbf{a}_{1}, \textbf{v}_{n} \rangle \textbf{v}_{n} \\
+\textbf{a}_{2} = \langle \textbf{a}_{2}, \textbf{v}_{1} \rangle \textbf{v}_{1} + \langle \textbf{a}_{2}, \textbf{v}_{2} \rangle \textbf{v}_{2} & + \cdots + \langle \textbf{a}_{2}, \textbf{v}_{n} \rangle \textbf{v}_{n} \\
 & \vdots \\
-\mathbf{a}_{n} = \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \mathbf{v}_{1} + \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \mathbf{v}_{2} & + \cdots + \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \mathbf{v}_{n} \\
+\textbf{a}_{n} = \langle \textbf{a}_{n}, \textbf{v}_{1} \rangle \textbf{v}_{1} + \langle \textbf{a}_{n}, \textbf{v}_{2} \rangle \textbf{v}_{2} & + \cdots + \langle \textbf{a}_{n}, \textbf{v}_{n} \rangle \textbf{v}_{n} \\
 \end{align*}$$
 
 따라서 행렬 $$A$$는 다음과 같이 정리할 수 있다.  
 
-$$[\mathbf{a}_{1} \quad \mathbf{a}_{2} \quad \cdots \quad \mathbf{a}_{n}] = [\mathbf{v}_{1} \quad \mathbf{v}_{2} \quad \cdots \quad \mathbf{v}_{n}]\begin{bmatrix}
-\langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \\
-\langle \mathbf{a}_{1}, \mathbf{v}_{2} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \\
+$$[\textbf{a}_{1} \quad \textbf{a}_{2} \quad \cdots \quad \textbf{a}_{n}] = [\textbf{v}_{1} \quad \textbf{v}_{2} \quad \cdots \quad \textbf{v}_{n}]\begin{bmatrix}
+\langle \textbf{a}_{1}, \textbf{v}_{1} \rangle & \langle \textbf{a}_{2}, \textbf{v}_{1} \rangle & \cdots & \langle \textbf{a}_{n}, \textbf{v}_{1} \rangle \\
+\langle \textbf{a}_{1}, \textbf{v}_{2} \rangle & \langle \textbf{a}_{2}, \textbf{v}_{2} \rangle & \cdots & \langle \textbf{a}_{n}, \textbf{v}_{2} \rangle \\
 \vdots & \vdots & \ddots & \vdots \\
-\langle \mathbf{a}_{1}, \mathbf{v}_{n} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{n} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \\
+\langle \textbf{a}_{1}, \textbf{v}_{n} \rangle & \langle \textbf{a}_{2}, \textbf{v}_{n} \rangle & \cdots & \langle \textbf{a}_{n}, \textbf{v}_{n} \rangle \\
 \end{bmatrix}$$
 
-그람-슈미트 과정에 의해 정규 직교 벡터 $$\mathbf{v}_{j}$$는 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$과 직교하기 때문에, 정규 직교 벡터 $$\mathbf{v}_{j}$$와 각 벡터 $$\mathbf{a}_{1}, \mathbf{a}_{2}, \cdots, \mathbf{a}_{j-1}$$의 내적값은 0이다. 이를 바탕으로 $$A = QR$$을 다시 정리하여 $$Q$$와 $$R$$을 분해하면 다음과 같다.  
+그람-슈미트 과정에 의해 정규 직교 벡터 $$\textbf{v}_{j}$$는 벡터 $$\textbf{a}_{1}, \textbf{a}_{2}, \cdots, \textbf{a}_{j-1}$$과 직교하기 때문에, 정규 직교 벡터 $$\textbf{v}_{j}$$와 각 벡터 $$\textbf{a}_{1}, \textbf{a}_{2}, \cdots, \textbf{a}_{j-1}$$의 내적값은 0이다. 이를 바탕으로 $$A = QR$$을 다시 정리하여 $$Q$$와 $$R$$을 분해하면 다음과 같다.  
 
-$$\begin{align*} \\
+$$\begin{align*}
 & A = QR \\
 \\
-& Q = [\mathbf{v}_{1} \quad \mathbf{v}_{2} \quad \cdots \quad \mathbf{v}_{n}] \\
+& Q = [\textbf{v}_{1} \quad \textbf{v}_{2} \quad \cdots \quad \textbf{v}_{n}] \\
 \\
-& R = \begin{bmatrix}\langle \mathbf{a}_{1}, \mathbf{v}_{1} \rangle & \langle \mathbf{a}_{2}, \mathbf{v}_{1} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{1} \rangle \\
-0 & \langle \mathbf{a}_{2}, \mathbf{v}_{2} \rangle & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{2} \rangle \\
+& R = \begin{bmatrix}\langle \textbf{a}_{1}, \textbf{v}_{1} \rangle & \langle \textbf{a}_{2}, \textbf{v}_{1} \rangle & \cdots & \langle \textbf{a}_{n}, \textbf{v}_{1} \rangle \\
+0 & \langle \textbf{a}_{2}, \textbf{v}_{2} \rangle & \cdots & \langle \textbf{a}_{n}, \textbf{v}_{2} \rangle \\
 \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & \cdots & \langle \mathbf{a}_{n}, \mathbf{v}_{n} \rangle \\
+0 & 0 & \cdots & \langle \textbf{a}_{n}, \textbf{v}_{n} \rangle \\
 \end{bmatrix}
 \end{align*}$$
 
@@ -249,9 +243,7 @@ matrix = list[vector]
 
 
 def qr_gramschmidt(a: matrix) -> tuple:
-    """
-    QR decomposition/factorization with Gram-Schmidt Process
-    """
+    """QR decomposition/factorization with Gram-Schmidt Process"""
 
     mat: matrix = mat_trans(a)
     n: int = len(mat)
@@ -271,7 +263,7 @@ NumPy, SciPy로 구한 값과는 부호가 조금 다르게 나오는데, 바뀐
 
 [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다. 하우스홀더 행렬을 사용한 QR분해 방법은 다음과 같다.  
 
-- 1) 주어진 행렬 $$A$$를 통해 $$\mathbf{v}_{1}$$를 구한다. 아래 식에서 $$sign$$은 벡터의 첫 스칼라의 부호로, 0 이상이면 $$+$$, 0 미만이면 $$-$$가 된다. $$\mathbf{e}_{1}$$은 [기저 벡터](/mathematics/linear_algebra_06/#기저-벡터)를 말한다.  
+- 1) 주어진 행렬 $$A$$를 통해 $$\textbf{v}_{1}$$를 구한다. 아래 식에서 $$sign$$은 벡터의 첫 스칼라의 부호로, 0 이상이면 $$+$$, 0 미만이면 $$-$$가 된다. $$\textbf{e}_{1}$$은 [기저 벡터](/mathematics/linear_algebra_06/#기저-벡터)를 말한다.  
 
 $$A_{1} = A = \begin{bmatrix}
 a_{11} & a_{12} & a_{13} & a_{14} \\
@@ -279,17 +271,17 @@ a_{21} & a_{22} & a_{23} & a_{24} \\
 a_{31} & a_{32} & a_{33} & a_{34} \\
 a_{41} & a_{42} & a_{43} & a_{44} \\
 \end{bmatrix}
-= [\mathbf{a}_{1} \quad \mathbf{a}_{2} \quad \cdots \quad \mathbf{a}_{n}]$$
+= [\textbf{a}_{1} \quad \textbf{a}_{2} \quad \cdots \quad \textbf{a}_{n}]$$
 
 $$\begin{align*}
-\mathbf{v}_{1} = \mathbf{a}_{1} + sign(a_{1}) \Vert \mathbf{a}_{1} \Vert \mathbf{e}_{1} \\
+\textbf{v}_{1} = \textbf{a}_{1} + sign(a_{1}) \Vert \textbf{a}_{1} \Vert \textbf{e}_{1} \\
 \\
-\mathbf{a}_{1} = \begin{bmatrix}
+\textbf{a}_{1} = \begin{bmatrix}
 a_{11} \\
 a_{21} \\
 a_{31} \\
 a_{41}\end{bmatrix}, \quad
-\mathbf{e}_{1} = \begin{bmatrix}
+\textbf{e}_{1} = \begin{bmatrix}
 1 \\
 0 \\
 0 \\
@@ -297,10 +289,10 @@ a_{41}\end{bmatrix}, \quad
 \end{bmatrix}
 \end{align*}$$
 
-- 2) 위에서 구한 $$\mathbf{v}_{1}$$를 통해서 [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬)을 구한다.  
+- 2) 위에서 구한 $$\textbf{v}_{1}$$를 통해서 [하우스홀더 행렬](/mathematics/linear_algebra_02/#8-하우스홀더-행렬)을 구한다.  
 
 $$\begin{align*}
-H_{1} & = I - 2\frac{\mathbf{v}_{1}^{}\mathbf{v}_{1}^{T}}{\mathbf{v}_{1}^{T}\mathbf{v}_{1}^{}} \\
+H_{1} & = I - 2\frac{\textbf{v}_{1}^{}\textbf{v}_{1}^{T}}{\textbf{v}_{1}^{T}\textbf{v}_{1}^{}} \\
 \\
 & = \begin{bmatrix}
 h_{11} & h_{12} & h_{13} & h_{14} \\
@@ -312,7 +304,7 @@ h_{41} & h_{42} & h_{43} & h_{44} \\
 
 - 3) $$H_{1}$$와 $$A_{1}$$를 곱한 행렬에서 1행 1열을 제외한 나머지 행렬로 $$A_{2}$$를 만들고, 1 ~ 2번 과정을 되풀이 한다.  
 
-$$H_{1}A_{1} = \left \begin{array}{c|ccc}
+$$H_{1}A_{1} = \left[ \begin{array}{c|ccc}
 a_{11} & a_{12} & a_{13} & a_{14} \\
 \hline
 a_{21} & a_{22} & a_{23} & a_{24} \\
@@ -365,10 +357,7 @@ matrix = list[vector]
 
 # QR decomposition/factorization with householder matrix
 def v_sign(a: vector) -> int:
-    """
-    get sign of vector
-    returns sign of first element of vector
-    """
+    """get sign of vector == returns sign of first element of vector"""
 
     res: int = 1
     if a[0] < 0: res: int = -1
@@ -376,10 +365,7 @@ def v_sign(a: vector) -> int:
 
 
 def ele_h(a: matrix) -> matrix:
-    """
-    get element of householder matrix except last one
-    input argument must be 2d matrix
-    """
+    """get element of householder matrix except last one"""
 
     at: matrix = mat_trans(a)
     nm: scalar = norm(at[0])
@@ -392,10 +378,7 @@ def ele_h(a: matrix) -> matrix:
 
 
 def qr_householder(a: matrix) -> tuple:
-    """
-    QR decomposition/factorization with householder matrix
-    input argument must be 2d matrix
-    """
+    """QR decomposition/factorization with householder matrix"""
 
     n: int = len(mat_trans(a))
     h_list_tmp = []

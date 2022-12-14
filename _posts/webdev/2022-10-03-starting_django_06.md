@@ -263,9 +263,7 @@ from common.forms import UserForm
 
 
 def user_signup(request):
-    """
-    function for sign up user
-    """
+    """function for sign up user"""
 
     if request.method == "POST":
         form = UserForm(request.POST)
@@ -378,16 +376,12 @@ from django.contrib.auth.hashers import check_password
 
 
 class CheckPasswordForm(forms.Form):
-    """
-    form for validation by checking password
-    """
+    """form for validation by checking password"""
 
     password = forms.CharField(label='비밀번호', widget=forms.PasswordInput())
 
     def __init__(self, user, *args, **kwargs):
-        """
-        inherit __init__ from base form and add self.user
-        """
+        """inherit __init__ from base form and add self.user"""
 
         super().__init__(*args, **kwargs)
         self.user = user
@@ -429,9 +423,7 @@ from .forms import CheckPasswordForm
 
 
 def user_drop(request):
-    """
-    function for drop user
-    """
+    """function for drop user"""
 
     if request.method == 'POST':
         password_form = CheckPasswordForm(request.user, request.POST)

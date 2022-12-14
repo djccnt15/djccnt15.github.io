@@ -33,7 +33,7 @@ $$s = 3$$
 
 **스칼라의 집합**으로 **크기(magnitude)와 방향(directin)**을 모두 나타내는 개념으로, 아래와 같이 영문 소문자 볼드체로 표기한다.  
 
-$$\mathbf{v} = \begin{pmatrix}
+$$\textbf{v} = \begin{pmatrix}
 1 \\
 2 \\
 3\end{pmatrix}
@@ -48,7 +48,7 @@ $$\mathbf{v} = \begin{pmatrix}
 
 ### 덧셈과 뺄셈
 
-두 벡터의 합 $$\mathbf{u} + \mathbf{v}$$는 $$\mathbf{u}$$의 종점에 $$\mathbf{v}$$의 시점을 일치시켰을 때, $$\mathbf{u}$$의 시점을 시점으로, $$\mathbf{v}$$의 종점을 종점으로 하는 벡터를 뜻하고, 두 백터의 차 $$\mathbf{u} - \mathbf{v}$$는 $$\mathbf{u}$$의 시점에 $$\mathbf{v}$$의 시점을 일치시켰을 때, $$\mathbf{v}$$의 종점을 시점으로, $$\mathbf{u}$$의 종점을 종점으로 하는 벡터를 뜻한다.  
+두 벡터의 합 $$\textbf{u} + \textbf{v}$$는 $$\textbf{u}$$의 종점에 $$\textbf{v}$$의 시점을 일치시켰을 때, $$\textbf{u}$$의 시점을 시점으로, $$\textbf{v}$$의 종점을 종점으로 하는 벡터를 뜻하고, 두 백터의 차 $$\textbf{u} - \textbf{v}$$는 $$\textbf{u}$$의 시점에 $$\textbf{v}$$의 시점을 일치시켰을 때, $$\textbf{v}$$의 종점을 시점으로, $$\textbf{u}$$의 종점을 종점으로 하는 벡터를 뜻한다.  
 
 ![Vector_Addition](/assets/img/posts/Vector_Addition.png){: width="25%"}
 {:.text-center}
@@ -63,18 +63,14 @@ vector = list[scalar]
 
 
 def v_add(*a: vector) -> vector:
-    """
-    returns addition of 2 vectors
-    """
+    """returns addition of 2 vectors"""
 
     res: vector = [sum(v) for v in zip(*a)]
     return res
 
 
 def v_sub(a: vector, b: vector) -> vector:
-    """
-    returns subtraction of 2 vectors
-    """
+    """returns subtraction of 2 vectors"""
 
     res: vector = [v - u for v, u in zip(a, b)]
     return res
@@ -90,9 +86,7 @@ vector = list[scalar]
 
 
 def v_smul(s: scalar, a: vector) -> vector:
-    """
-    returns scalar multiplication of vector
-    """
+    """returns scalar multiplication of vector"""
 
     res: vector = [s * v for v in a]
     return res
@@ -102,7 +96,7 @@ def v_smul(s: scalar, a: vector) -> vector:
 
 두 벡터의 각 성분을 곱하는 연산은 **원소 곱** 또는 **아다마르 곱(hadamard product)**이라고 부르고 아래와 같이 표기한다.  
 
-$$\mathbf{u} \odot \mathbf{v}$$
+$$\textbf{u} \odot \textbf{v}$$
 
 Python으로 구현하면 아래와 같다.  
 
@@ -114,18 +108,14 @@ vector = list[scalar]
 
 
 def v_hmul(*a: vector) -> vector:
-    """
-    returns hadamard product of vectors
-    """
+    """returns hadamard product of vectors"""
 
     res: vector = [reduce(lambda n, m: n * m, v) for v in zip(*a)]
     return res
 
 
 def v_hdiv(a: vector, b: vector) -> vector:
-    """
-    returns hadamard division of 2 vectors
-    """
+    """returns hadamard division of 2 vectors"""
 
     res: vector = [v / u for v, u in zip(a, b)]
     return res
@@ -202,18 +192,14 @@ matrix = list[vector]
 
 
 def mat_add(*a: matrix) -> matrix:
-    """
-    returns addition of matrices
-    """
+    """returns addition of matrices"""
 
     res: matrix = [[sum(v) for v in zip(*i)] for i in zip(*a)]
     return res
 
 
 def mat_sub(a: matrix, b: matrix) -> matrix:
-    """
-    returns subtraction of matrix
-    """
+    """returns subtraction of matrix"""
 
     res: matrix = [[v - u for v, u in zip(*i)] for i in zip(a, b)]
     return res
@@ -230,9 +216,7 @@ matrix = list[vector]
 
 
 def mat_smul(s: scalar, a: matrix) -> matrix:
-    """
-    returns scalar multiplication of matrix
-    """
+    """returns scalar multiplication of matrix"""
 
     res: matrix = [[s * v for v in r] for r in a]
     return res
@@ -255,18 +239,14 @@ matrix = list[vector]
 
 
 def mat_hmul(*a: matrix) -> matrix:
-    """
-    returns hadamard product of matrix
-    """
+    """returns hadamard product of matrix"""
 
     res: matrix = [[reduce(lambda n, m: n * m, v) for v in zip(*i)] for i in zip(*a)]
     return res
 
 
 def mat_hdiv(a: matrix, b: matrix) -> matrix:
-    """
-    returns hadamard division of matrix
-    """
+    """returns hadamard division of matrix"""
 
     res: matrix = [[v / u for v, u in zip(*i)] for i in zip(a, b)]
     return res
@@ -285,18 +265,14 @@ matrix = list[vector]
 
 
 def mat_mul(a: matrix, b: matrix) -> matrix:
-    """
-    returns multiplication of 2 matrices
-    """
+    """returns multiplication of 2 matrices"""
 
     res: matrix = [[sum(v * u for v, u in zip(r, c)) for c in zip(*b)] for r in a]
     return res
 
 
 def mat_mul_all(*a: matrix) -> matrix:
-    """
-    returns multiplication of 2 matrices
-    """
+    """returns multiplication of 2 matrices"""
 
     res: matrix = reduce(mat_mul, [*a])
     return res
@@ -323,9 +299,7 @@ matrix = list[vector]
 
 
 def mat_tr(a: matrix) -> scalar:
-    """
-    returns trace of matrix
-    """
+    """returns trace of matrix"""
 
     res: scalar = sum(v[i] for i, v in enumerate([*a]))
     return res

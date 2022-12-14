@@ -305,7 +305,7 @@ df['환불금액'].fillna(value=0, inplace=True)
 
 **정규화**
 
-정규화는 이상치의 영향을 적게 받는 Robust Scaling을 적용해주는게 무난하다. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
+정규화는 이상점의 영향을 적게 받는 Robust Scaling을 적용해주는게 무난하다. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
 
 ```python
 import numpy as np

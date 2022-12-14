@@ -30,9 +30,7 @@ from django.contrib.auth.models import User
 
 
 class Question(models.Model):
-    """
-    model for question
-    """
+    """model for question"""
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     subject = models.CharField(max_length=200)
@@ -45,9 +43,7 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
-    """
-    model for answer
-    """
+    """model for answer"""
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='question_answers')
