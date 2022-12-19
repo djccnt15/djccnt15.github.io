@@ -107,7 +107,7 @@ df = pd.read_csv('data/E-Commerce_Shipping.csv')
 데이터에 대한 기본 정보를 확인해본다.  
 
 ```python
-print(df.info())
+df.info()
 ```
 
 <details><summary>terminal</summary><div markdown="1">
@@ -131,7 +131,6 @@ Data columns (total 12 columns):
  11  Reached.on.Time_Y.N  10999 non-null  int64 
 dtypes: int64(8), object(4)
 memory usage: 1.0+ MB
-None
 ```
 </div></details><br>
 
@@ -169,7 +168,7 @@ encoded = pd.get_dummies(df[obj_cols])
 df = pd.concat([df, encoded], axis=1)
 df.drop(columns=obj_cols, inplace=True)
 
-print(df.info())
+df.info()
 ```
 
 <details><summary>terminal</summary><div markdown="1">
@@ -202,7 +201,6 @@ Data columns (total 21 columns):
  20  Gender_M                   10999 non-null  uint8  
 dtypes: float64(7), int64(1), uint8(13)
 memory usage: 827.2 KB
-None
 ```
 </div></details><br>
 
@@ -296,7 +294,7 @@ from sklearn.linear_model import LogisticRegression
 df = pd.read_csv('data/E-Commerce_Shipping.csv')
 
 # EDA
-print(df.info())
+df.info()
 
 # separate columns by data type
 obj_cols = df.select_dtypes(include='object').columns
@@ -316,7 +314,7 @@ encoded = pd.get_dummies(df[obj_cols])
 df = pd.concat([df, encoded], axis=1)
 df.drop(columns=obj_cols, inplace=True)
 
-print(df.info())
+df.info()
 
 # train/test split
 exog = df.drop(columns=['Reached.on.Time_Y.N'])

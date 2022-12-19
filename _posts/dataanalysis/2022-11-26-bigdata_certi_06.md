@@ -255,7 +255,7 @@ df['Var_1'] = encoder_var.transform(df['Var_1'])
 ```python
 df = pd.get_dummies(data=df, columns=['Profession'])
 
-print(df.info())
+df.info()
 ```
 
 <details><summary>terminal</summary><div markdown="1">
@@ -286,7 +286,6 @@ Data columns (total 19 columns):
  18  Profession_Marketing      8819 non-null   uint8  
 dtypes: float64(3), int32(5), int64(2), uint8(9)
 memory usage: 663.1 KB
-None
 ```
 </div></details><br>
 

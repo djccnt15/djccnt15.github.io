@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[Python] calculate runtime'
 description: >
-    python 코드의 런타임을 확인하는 방법
+    Python 코드의 런타임을 계산하는 방법
 categories: [Python]
 tags: [datetime]
 image:
@@ -16,7 +16,7 @@ related_posts:
 
 ## 1. time 사용
 
-python 내장 모듈 `time`을 활용해서 코드의 전체 또는 일부의 런타임을 잴 수 있다.  
+Python 내장 모듈 `time`을 활용해서 코드의 전체 또는 일부의 런타임을 잴 수 있다.  
 
 ```python
 import time
@@ -30,7 +30,7 @@ print(f"run time: {runtime:.3f}")
 
 ## 2. 💡 datetime 사용
 
-python 내장 모듈 `datetime`을 사용하면 날짜 변경으로 인한 계산 오류 등을 예방할 수 있다. 나는 로그를 남기는 코드에서는 `import`를 하나 줄일 수 있다는 점 때문에 이 방식을 더 선호한다.  
+Python 내장 모듈 `datetime`을 사용하면 날짜 변경으로 인한 계산 오류 등을 예방할 수 있다. 나는 로그를 남기는 코드에서는 import를 하나 줄일 수 있다는 점 때문에 이 방식을 더 선호한다.  
 
 ```python
 from datetime import datetime

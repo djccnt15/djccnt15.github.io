@@ -87,7 +87,7 @@ df = pd.read_csv('data/TravelInsurancePrediction.csv', index_col=0)
 **EDA**
 
 ```python
-print(df.info())
+df.info()
 ```
 
 <details><summary>terminal</summary><div markdown="1">
@@ -108,7 +108,6 @@ Data columns (total 9 columns):
  8   TravelInsurance      1987 non-null   int64 
 dtypes: int64(5), object(4)
 memory usage: 155.2+ KB
-None
 ```
 </div></details><br>
 
@@ -146,7 +145,7 @@ encoded = pd.get_dummies(df[obj_cols])
 df = pd.concat([df, encoded], axis='columns')
 df.drop(columns=obj_cols, inplace=True)
 
-print(df.info())
+df.info()
 ```
 
 <details><summary>terminal</summary><div markdown="1">
@@ -171,7 +170,6 @@ Data columns (total 13 columns):
  12  EverTravelledAbroad_Yes                       1987 non-null   uint8  
 dtypes: float64(5), uint8(8)
 memory usage: 108.7 KB
-None
 ```
 </div></details><br>
 
@@ -256,7 +254,7 @@ from sklearn.linear_model import LogisticRegression
 df = pd.read_csv('data/TravelInsurancePrediction.csv', index_col=0)
 
 # EDA
-print(df.info())
+df.info()
 
 # separate columns by data type
 obj_cols = list(df.select_dtypes('object').columns)
@@ -276,7 +274,7 @@ encoded = pd.get_dummies(df[obj_cols])
 df = pd.concat([df, encoded], axis='columns')
 df.drop(columns=obj_cols, inplace=True)
 
-print(df.info())
+df.info()
 
 # train/test split
 exog = df.drop(columns='TravelInsurance')

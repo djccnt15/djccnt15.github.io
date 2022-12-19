@@ -38,10 +38,10 @@ $$Cov(X,Y) = \frac{\sum_{i}^{n}(X_{i} - \overline{X})(Y_{i} - \overline{Y})}{n -
 표본공분산 구하는 공식을 Python으로 구현하면 아래와 같다.  
 
 ```python
-def bar(x: list) -> float:
+def bar(data: list) -> float:
     """returns expectation/sample mean"""
 
-    res = sum(x) / len(x)
+    res = sum(data) / len(data)
     return res
 
 

@@ -67,10 +67,10 @@ e = data[:, 2]
 ### 2번 문제 풀이
 
 ```python
-def bar(x: list) -> float:
+def bar(data: list) -> float:
     """returns expectation/sample mean"""
 
-    res = sum(x) / len(x)
+    res = sum(data) / len(data)
     return res
 
 

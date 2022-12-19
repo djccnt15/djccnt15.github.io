@@ -260,7 +260,7 @@ print(num_cols)
 ```python
 df = pd.concat([exog, test])
 
-print(df.info())
+df.info()
 ```
 
 <details><summary>terminal</summary><div markdown="1">
@@ -282,7 +282,6 @@ Data columns (total 10 columns):
  9   구매주기     5982 non-null   int64  
 dtypes: float64(3), int64(5), object(2)
 memory usage: 514.1+ KB
-None
 ```
 </div></details><br>
 
@@ -325,7 +324,7 @@ encoded = pd.get_dummies(df[['주구매상품', '주구매지점']])
 df = pd.concat([df, encoded], axis=1)
 df.drop(columns=['주구매상품', '주구매지점'], inplace=True)
 
-print(df.info())
+df.info()
 ```
 
 <details><summary>terminal</summary><div markdown="1">
@@ -360,7 +359,6 @@ Data columns (total 73 columns):
  72  주구매지점_포항점     5982 non-null   uint8  
 dtypes: float64(7), uint8(66)
 memory usage: 759.4 KB
-None
 ```
 </div></details><br>
 
@@ -463,7 +461,7 @@ print(num_cols)
 # concatenation for little trick
 df = pd.concat([exog, test])
 
-print(df.info())
+df.info()
 
 # drop meaningless columns
 df.drop(columns=['cust_id'], inplace=True)
@@ -472,7 +470,7 @@ endog.drop(columns=['cust_id'], inplace=True)
 # deal with missing value 
 df['환불금액'].fillna(value=0, inplace=True)
 
-print(df.info())
+df.info()
 
 # apply data scaling
 # robust scaling is the best, just in case the data has outlier
@@ -485,7 +483,7 @@ encoded = pd.get_dummies(df[['주구매상품', '주구매지점']])
 df = pd.concat([df, encoded], axis=1)
 df.drop(columns=['주구매상품', '주구매지점'], inplace=True)
 
-print(df.info())
+df.info()
 
 # split table as original form
 exog = df.iloc[:3500, :]

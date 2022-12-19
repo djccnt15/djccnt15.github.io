@@ -29,7 +29,7 @@ df = pds.data('iris')
 df.reset_index(drop=True, inplace=True)
 df.columns = [i.replace('.', '_') for i in df.columns]
 
-print(df.info())
+df.info()
 ```
 ```
 <class 'pandas.core.frame.DataFrame'>
@@ -44,7 +44,6 @@ Data columns (total 5 columns):
  4   Species       150 non-null    object
 dtypes: float64(4), object(1)
 memory usage: 6.0+ KB
-None
 ```
 
 ## 1. 선형성
