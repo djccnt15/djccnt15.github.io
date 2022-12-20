@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: '[Python] function'
+title: '[Python] Function'
 description: >
     Python의 함수에 대한 노트
 categories: [Python]
@@ -59,7 +59,7 @@ print(add(1))
 1
 ```
 
-💡 함수에 입력값이 없어도 되는 parameter를 만들고 싶을 때는 default값을 `False`로 지정하면 된다.  
+💡 함수에 입력값이 없어도 되는 parameter를 만들고 싶을 때는 default 값을 상황에 따라 `False`또는 `None`으로 지정하면 된다.  
 {:.note}
 
 ❗ default값이 설정된 parameter는 default값이 설정되지 않는 parameter보다 반드시 뒤에 나와야 한다.  
@@ -104,11 +104,11 @@ b = [3, 4]
 c = [a, b, b, b]
 
 # addition of vector
-def v_add(*a): # packing
+def v_add(*a):  # packing
     res = [sum(v) for v in zip(*a)]
     return res
 
-res = v_add(*c) # unpacking
+res = v_add(*c)  # unpacking
 
 print(res)
 ```
@@ -117,13 +117,53 @@ print(res)
 ```
 
 ```python
-def test(**kwargs): # packing
+def test(**kwargs):  # packing
     return kwargs
 
 print(test(name='John Doe', age=30))
 ```
 ```
 {'name': 'John Doe', 'age': 30}
+```
+
+## 함수의 호출
+
+아래와 같이 하나의 함수에 여러 이름을 부여해 줄 수 있다.  
+
+```python
+def func(a):
+    return a + 1
+
+
+expr1 = expr2 = func
+
+a = 3
+print(expr1(a))
+print(expr2(a))
+```
+```
+4
+4
+```
+
+아래와 같이 함수를 자료구조에 담아서 호출할 수도 있다.  
+
+```python
+def func1(a):
+    return a + 1
+
+
+def func2(a):
+    return a + 2
+
+
+a = 3
+list_func = [func1, func2]
+[print(f(a)) for f in list_func]
+```
+```
+4
+5
 ```
 
 ---
