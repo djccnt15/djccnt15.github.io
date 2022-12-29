@@ -77,8 +77,7 @@ def bar(data: list) -> float:
 def lineFit(x: list, y: list) -> tuple:
     """returns linear regression coefficient(weight) and intercept of two random variables"""
 
-    x_bar = bar(x)
-    y_bar = bar(y)
+    x_bar, y_bar = bar(x), bar(y)
     tmp_0 = [(i - x_bar) * j for i, j in zip(x, y)]
     tmp_1 = [(i - x_bar) * i for i in x]
     w = sum(tmp_0) / sum(tmp_1)

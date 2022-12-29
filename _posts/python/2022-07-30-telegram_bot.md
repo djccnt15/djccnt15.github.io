@@ -153,7 +153,7 @@ class BotTelegram:
         self.url: str = f"https://api.telegram.org/bot{token}/"
 
         # get chat id of the user
-        chat_id: str = requests.post(url=f'{self.url}getUpdates').json()["result"][0]["message"]["from"]["id"]
+        chat_id: str = requests.post(url=f'{self.url}getUpdates').json()["result"][0]["message"]["chat"]["id"]
         self.data: dict = {"chat_id": chat_id}
 
     def contact_test(self) -> dict:
@@ -187,5 +187,6 @@ if __name__ == "__main__":
 
 ---
 ## Reference
+- [계속 업데이트 중인 전체 코드 git repository](https://github.com/djccnt15/messenger_bot)
 - [Telegram Bot API](https://core.telegram.org/bots/api)
 - [Telegram bot을 활용한 코드 실행이 끝나면 핸드폰으로 메시지 보내기](https://blog.knowblesse.com/43?category=733209)

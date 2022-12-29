@@ -27,13 +27,13 @@ related_posts:
 
 ### 공분산
 
-**공분산(covariance)**은 두 개의 확률 변수의 선형관계를 나타내는 값으로, 기본 정의는 아래와 같다.  
+두 확률 변수의 선형관계를 나타내는 **공분산(covariance)**은 아래와 같이 정의된다.  
 
 $$Cov(X,Y) = \text{E}\{(X - \text{E}[X])\,(Y - \text{E}[Y])\}$$
 
 피어슨 상관 계수는 **표본 공분산(sample covariance)**을 기반으로 구할 수 있는데, 표본 공분산의 수식은 아래와 같다.  
 
-$$Cov(X,Y) = \frac{\sum_{i}^{n}(X_{i} - \overline{X})(Y_{i} - \overline{Y})}{n - 1}$$
+$$Cov(X,Y) = \frac{\sum_{i=1}^{n}(X_{i} - \overline{X})(Y_{i} - \overline{Y})}{n - 1}$$
 
 표본공분산 구하는 공식을 Python으로 구현하면 아래와 같다.  
 
@@ -45,11 +45,11 @@ def bar(data: list) -> float:
     return res
 
 
-def cov(a: list, b: list) -> float:
+def cov(data_a: list, data_b: list, dof: int = 1) -> float:
     """returns covariance of two random variables"""
 
-    n = len(a)
-    res = sum((a[i] - bar(a)) * (b[i] - bar(b)) for i in range(n)) / (n - 1)
+    b_a, b_b = bar(data_a), bar(data_b)
+    res = sum((a - b_a) * (b - b_b) for a, b in zip(data_a, data_b)) / (len(data_a) - dof)
     return res
 ```
 
@@ -68,66 +68,36 @@ import numpy as np
 a = np.array([2.23, 4.78, 7.21, 9.37, 11.64, 14.23, 16.55, 18.70, 21.05, 23.21])
 b = np.array([139, 123, 115, 96, 62, 54, 10, -3, -13, -55])
 
-res = np.cov(a, b)[0][1]
-
-print(res)
-```
-```
--459.3040000000001
+covariance = np.cov(a, b)[0][1]
 ```
 
 ### 피어슨 상관 계수
 
-**피어슨 상관 계수(Pearson correlation coefficient, Pearson's r)**는 데이터 분석에서 가장 널리 쓰이는 상관 계수로, 측정하려는 두 변수의 상관 관계가 서로 **선형**일 때(1차 함수로 표현 가능)할 때 유용하다. 피어슨 상관 계수는 두 변수의 표본 공분산을 각각 표준 편차의 곱으로 나눈 값으로, 수식을 정리하면 아래와 같다.  
+**피어슨 상관 계수(Pearson correlation coefficient, Pearson's r)**는 데이터 분석에서 가장 널리 쓰이는 상관 계수로, 측정하려는 두 변수의 상관 관계가 서로 **선형**일 때(1차 함수로 표현 가능)할 때 유용하다. 피어슨 상관 계수는 두 변수의 표본 공분산을 각각 표준 편차의 곱으로 나눈 값으로, 아래 공식을 통해 구할 수 있다.  
 
-$$\begin{align*}
-r_{xy} & = \frac{\text{Cov}[X, Y]}{\sqrt{\text{Var}[X] \cdot \text{Var}[Y]}} \\
-\\
-& = \frac{\frac{\sum_{i=1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{n - 1}}{\sqrt{\frac{\sum_{i=1}^{n}(x_{i} - \overline{x})^{2}}{n - 1}} \sqrt{\frac{\sum_{i}^{n}(y_{i} - \overline{y})^{2}}{n - 1}}} \\
-\\
-& = \frac{\sum_{i=1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sqrt{\sum_{i=1}^{n}(x_{i} - \overline{x})^{2}}\sqrt{\sum_{i=1}^{n}(y_{i} - \overline{y})^{2}}}
-\end{align*}$$
+$$r_{xy} = \frac{\text{Cov}[X, Y]}{\sqrt{\text{Var}[X] \cdot \text{Var}[Y]}}$$
 
 Python으로 구현하면 아래와 같다.  
 
 ```python
-def pearson(a: list, b: list) -> float:
-    """returns Pearson correlation coefficient(Pearson r) of two random variables"""
+def corrcoef(a: list, b: list) -> float:
+    """returns Pearson's r of two data"""
 
     res = cov(a, b) / ((cov(a, a) * cov(b, b)) ** 0.5)
     return res
 ```
 
-NumPy가 제공하는 상관 계수 행렬을 계산하는 함수를 사용하면 두 변수 간의 피어슨 상관 계수을 구할 수 있다.  
+아래와 같이 NumPy와 SciPy를 통해서 상관계수를 쉽게 구할 수 있다.  
 
 ```python
 import numpy as np
+from scipy import stats
 
 a = np.array([2.23, 4.78, 7.21, 9.37, 11.64, 14.23, 16.55, 18.70, 21.05, 23.21])
 b = np.array([139, 123, 115, 96, 62, 54, 10, -3, -13, -55])
 
-res = np.corrcoef(a, b)[0][1]
-
-print(res)
-```
-```
--0.9883637911002775
-```
-
-SciPy를 통해서도 피어슨 상관 계수를 구할 수 있다.  
-
-```python
-from scipy import stats
-
-a = [2.23, 4.78, 7.21, 9.37, 11.64, 14.23, 16.55, 18.70, 21.05, 23.21]
-b = [139, 123, 115, 96, 62, 54, 10, -3, -13, -55]
-
-pearsonr = stats.pearsonr(a, b)[0]
-
-print(pearsonr)
-```
-```
--0.9883637911002775
+corrcoef = np.corrcoef(a, b)
+pearsonr = stats.pearsonr(a, b)
 ```
 
 💡 피어슨 상관 계수 $$r$$의 제곱과 다중 선형 회귀 모델의 결정 계수(Coefficient of determination) $$R^{2}$$은 같지 않다. 자세한 내용은 [여기](https://rython.tistory.com/17)를 참고하자.  

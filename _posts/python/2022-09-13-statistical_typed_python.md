@@ -80,7 +80,7 @@ bfg: Final = 9000
 
 [Mypy](https://github.com/python/mypy)와 [Variable Annotations](https://peps.python.org/pep-0008/#variable-annotations)을 사용하면 정적 타입 언어처럼 미리 타입 에러를 체크해볼 수 있다.  
 
-Mypy는 아래와 같이 pip를 통해서 설치할 수 있다.  
+Mypy는 아래와 같이 pip을 통해서 설치할 수 있다.  
 
 ```
 pip install mypy

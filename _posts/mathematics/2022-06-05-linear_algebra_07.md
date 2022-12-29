@@ -82,7 +82,7 @@ $$\Vert \textbf{v} \Vert_{p} = \left( \sum_{i=1}^{n} \vert v_{i} \vert^{p} \righ
 
 노름(norm)의 정의에서 $$p = 2$$이면 $$l_{2}$$ **노름(norm)**, 또는 **유클리드 노름(Euclidean norm)**이라고 부른다. 유클리드 노름(Euclidean norm)은 거리 개념에서 일반적으로 많이 사용하는 점과 점 사이의 직선거리를 말하며 구하는 방법은 아래와 같다.  
 
-$$\textbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \textbf{v} \Vert_{2} = \sqrt{\sum_{i=1}^{n}{v_{i}}^{2}}$$
+$$\textbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \ \to \ \Vert \textbf{v} \Vert_{2} = \sqrt{\sum_{i=1}^{n}{v_{i}}^{2}}$$
 
 유클리드 노름(Euclidean norm)은 머신러닝/통계학에서는 $$l_{2}$$ 정규화(L2 Regularization)에 사용되며, 유클리드 노름(Euclidean norm)을 구하는 함수를 Python으로 구현하면 아래와 같다.  
 
@@ -116,7 +116,7 @@ $$\langle \textbf{u}, \textbf{v} \rangle = \textbf{u} \cdot \textbf{v} = \Vert \
 
 노름(norm)의 정의에서 $$p = 1$$이면 $$l_{1}$$ **노름(norm)**, 또는 **맨해튼 노름(Manhattan norm)**이라고 부른다. **택시 노름(Taxicab norm)**이라고 부르기도 한다. 맨해튼 노름(Manhattan norm)을 구하는 방법은 아래와 같다.  
 
-$$\textbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \textbf{v} \Vert_{1} = \sum_{i=1}^{n} \vert v_{i} \vert$$
+$$\textbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \ \to \ \Vert \textbf{v} \Vert_{1} = \sum_{i=1}^{n} \vert v_{i} \vert$$
 
 맨해튼 노름(Manhattan norm)은 머신러닝/통계학에서는 $$l_{1}$$ 정규화(L1 Regularization)에 사용되며, 맨해튼 노름(Manhattan norm)을 구하는 함수를 Python으로 구현하면 아래와 같다.  
 
@@ -146,7 +146,7 @@ res = np.linalg.norm(x=a, ord=1)
 
 $$p$$차 노름(norm)의 정의에서 p가 무한대로 가면, 그 값이 해당 벡터의 원소 중 가장 큰 값에 수렴하며 이를 최대값 노름(Maximum norm), 또는 상한 노름이라고 부른다.  
 
-$$\textbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \to \Vert \textbf{v} \Vert_{\infty} = max(v_{1}, v_{2}, \cdots, v_{n})$$
+$$\textbf{v} = (v_{1}, v_{2}, \cdots, v_{n}) \ \to \ \Vert \textbf{v} \Vert_{\infty} = max(v_{1}, v_{2}, \cdots, v_{n})$$
 
 ## 3. 코사인 유사도
 

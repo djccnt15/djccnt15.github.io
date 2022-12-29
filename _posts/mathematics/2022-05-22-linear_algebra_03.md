@@ -32,7 +32,7 @@ $$\begin{align*}
 \beta_{11}x_{1} + \beta_{12}x_{2} + \cdots & + \beta_{1n}x_{n} = y_{1} \\
 \beta_{21}x_{1} + \beta_{22}x_{2} + \cdots & + \beta_{2n}x_{n} = y_{2} \\
 & \vdots \\
-\beta_{m1}x_{1} + \beta_{m2}x_{2} + \cdots & + \beta_{mn}x_{n} = y_{m} \\
+\beta_{m1}x_{1} + \beta_{m2}x_{2} + \cdots & + \beta_{mn}x_{n} = y_{m}
 \end{align*}$$
 
 ### 첨가 행렬, 계수 행렬
@@ -226,7 +226,7 @@ $$\begin{align*}
 \beta_{11}x_{1} + \beta_{12}x_{2} + \cdots & + \beta_{1n}x_{n} = 0 \\
 \beta_{21}x_{1} + \beta_{22}x_{2} + \cdots & + \beta_{2n}x_{n} = 0 \\
 & \vdots \\
-\beta_{m1}x_{1} + \beta_{m2}x_{2} + \cdots & + \beta_{mn}x_{n} = 0 \\
+\beta_{m1}x_{1} + \beta_{m2}x_{2} + \cdots & + \beta_{mn}x_{n} = 0
 \end{align*}$$
 
 ---

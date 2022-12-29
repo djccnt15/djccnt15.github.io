@@ -61,7 +61,7 @@ Django 공식 홈페이지에서는 아래와 같은 명령어로 프로젝트�
 - `config` directory
     - 해당 디렉토리는 프로젝트를 위한 실제 Python 패키지로, 해당 디렉토리의 이름을 사용해서 import를 진행함
 - `config/__init__.py`
-    - 이 디렉토리를 Python 패키지임을 알려주는 역할을 하는 파일([Python 공식 문서](https://docs.python.org/3/tutorial/modules.html#packages))
+    - 해당 디렉토리가 Python 패키지임을 알려주는 역할을 하는 파일([Python 공식 문서](https://docs.python.org/3/tutorial/modules.html#packages))
 - `config/settings.py`
     - Django 프로젝트에 대한 본격적인 configuration 파일로 프로젝트의 각종 설정을 세팅할 수 있는 파일([공식 문서](https://docs.djangoproject.com/en/4.1/ref/settings/))
 - `config/urls.py`
@@ -141,7 +141,7 @@ Django의 Secret Key에 대한 상세한 설명은 [공식 문서](https://docs.
 
 ### 4-1. Secret Key 변경
 
-Secret Key를 코드에서 단순히 지우는 것으로는 충분하지 않고 변경을 해야 하는데, 코드를 변경하더라도 git 히스토리에 남아 있기 때문이다.  
+Secret Key를 코드에서 단순히 지우는 것으로는 충분하지 않고 변경을 해야 하는데, 코드에서 Secret Key를 지우더라도 git 히스토리에 남아 있기 때문이다.  
 
 Secret Key는 50자의 랜덤한 문자로 생성되는데 직접 생성 코드를 짜서 만들어도 되고, [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) 같은 사이트에서 생성해도 된다.  
 

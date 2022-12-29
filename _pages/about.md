@@ -42,8 +42,9 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 ![python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 - Data Analysis  
-![numpy](https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white)
 ![pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![numpy](https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![scipy](https://img.shields.io/badge/scipy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)
 
 - AI, Machine Learning, Deep Learning  
 ![sklearn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
@@ -72,6 +73,5 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 
 ## Certificate
 
-- 정보처리기사
-- ADsP
-- SQLD
+- 빅데이터분석기사, ADsP
+- 정보처리기사, SQLD

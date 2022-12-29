@@ -58,13 +58,13 @@ $$A = \{a_{1}, a_{2}, \cdots a_{n}\}$$이 벡터공간 $$S$$내의 벡터들의 
 
 ### 단위 벡터
 
-길이가 1인 벡터를 **단위 벡터(unit vector)**라고 하며 방향에 관한 정보만을 담고 있기 때문에 **방향 벡터(direction vector)**라고 부르기도 한다. 단위 벡터(unit vector)는 $$\widehat{\textbf{u}}$$와 같이 $$hat$$기호를 사용해 나타내며, 특정 벡터 $$\textbf{u}$$를 단위 벡터 $$\widehat{\textbf{u}}$$로 **정규화(normalization)**하는 방법은 아래와 같다.  
+길이가 1인 벡터를 **단위 벡터(unit vector)**라고 하며 방향에 관한 정보만을 담고 있기 때문에 **방향 벡터(direction vector)**라고 부르기도 한다. 단위 벡터(unit vector)는 $$\widehat{\textbf{u}}$$와 같이 $$hat$$ 기호를 사용해 나타내며, 특정 벡터 $$\textbf{u}$$를 단위 벡터 $$\widehat{\textbf{u}}$$로 **정규화(normalization)**하는 방법은 아래와 같다.  
 
-$$\begin{align*}
+$$\begin{gathered}
 \widehat{\textbf{u}} = \text{sgn} (\textbf{u}) = \frac{\textbf{u}}{\Vert \textbf{u} \Vert} \\
 \\
 \because \textbf{u} = \widehat{\textbf{u}} \times \Vert \textbf{u} \Vert
-\end{align*}$$
+\end{gathered}$$
 
 위 표기에서 $$\text{sgn}$$은 부호 함수를 뜻하며, $$\Vert \textbf{u} \Vert$$는 [노름(norm)](/mathematics/linear_algebra_07/#2-노름norm)을 뜻한다.  
 

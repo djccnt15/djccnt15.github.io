@@ -51,8 +51,8 @@ memory usage: 6.0+ KB
 `iris`데이터의 분포는 다음과 같다.
 
 ```python
-import seaborn as sns
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 sns.pairplot(
     data=df,
@@ -200,29 +200,26 @@ Petal_Width       0.817941    -0.366126      0.962865     1.000000
 시각화해서 보기 좋게 표현하면 아래와 같다.  
 
 ```python
-colormap = plt.cm.PuBu
+sns.set(font_scale=1)
 
 fig, ax = plt.subplots()
-
-sns.set(font_scale=1)
 ax = sns.heatmap(
-    data=corr_result,
-    cmap=colormap,
+    data=corr,
+    cmap=plt.cm.coolwarm,
     annot=True,
-    fmt='.2f',
+    fmt='.4f',
 )
-
-fig = ax.figure
 
 plt.show()
 ```
 
 ![iris_corr](/assets/img/posts/iris_corr.png)
+{:.text-center}
 
 Petal_Length와 Petal_Width의 상관성이 0.96으로 매우 높게 나오는데, 독립변수 간의 상관성이 있을 경우 다중공선성(Multicollinearity)이 있다고 표현되며, 분산팽창요인(VIF, Variance Inflation Factors)을 통해 다중공선성을 계산할 수 있다.  
 VIF를 계산하는 공식은 아래와 같고, $${R^{2}_{i}}$$은 $$i$$번째 독립변수에 대해 다른 독립변수들로 회귀 분석을 시행한 선형 모델의 $$R^{2}$$라는 뜻이다.  
 
-$$VIF_{i} = \tfrac{1}{1-{R^{2}_{i}}}$$
+$$VIF_{i} = \frac{1}{1-{R^{2}_{i}}}$$
 
 💡 **VIF가 10이 넘으면 다중공선성이 있으며 5가 넘으면 주의할 필요가 있다**고 보는데, 독립변수 a와 b가 서로 상관 관계가 있다고 했을 때 두 변수 모두 VIF가 높고, 어느 하나만 VIF가 높은 경우는 없다. 서로 연관 있는 변수끼리 VIF가 높다.
 {:.note}
