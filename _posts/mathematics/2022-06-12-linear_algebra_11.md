@@ -61,10 +61,12 @@ $$B = P^{-1}AP$$
 
 - 서로 닮은 행렬의 행렬식은 동일하다.
 
+$$\det(A) = \det(B)$$
+
+<details><summary>증명</summary><div markdown="1">
+
 $$\begin{align*}
-\det(A) & = \det(B) \\
-\\
-\because \det(B) & = \det(P^{-1}) \det(A) \det(P) \\
+\det(B) & = \det(P^{-1}) \det(A) \det(P) \\
 \\
 & = \frac{1}{\det(P)} \det(A) \det(P) \\
 \\
@@ -72,6 +74,8 @@ $$\begin{align*}
 \\
 & =  \det(A)
 \end{align*}$$
+
+</div></details><br>
 
 - 행렬 $$A$$가 가역 행렬이라는 말은 $$P^{-1}AP$$가 가역 행렬이라는 말과 같다.
 - 행렬 $$A$$와 $$P^{-1}AP$$의 [랭크(rank)와 널리티(nullity)](/mathematics/linear_algebra_06/#7-랭크와-널리티)는 동일하다.

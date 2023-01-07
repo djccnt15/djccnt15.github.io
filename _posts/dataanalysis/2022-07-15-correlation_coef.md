@@ -27,37 +27,15 @@ related_posts:
 
 ### 공분산
 
-두 확률 변수의 선형관계를 나타내는 **공분산(covariance)**은 아래와 같이 정의된다.  
+두 확률변수의 선형관계를 나타내는 **공분산(covariance)**은 아래와 같이 정의된다.  
 
-$$Cov(X,Y) = \text{E}\{(X - \text{E}[X])\,(Y - \text{E}[Y])\}$$
-
-피어슨 상관 계수는 **표본 공분산(sample covariance)**을 기반으로 구할 수 있는데, 표본 공분산의 수식은 아래와 같다.  
-
-$$Cov(X,Y) = \frac{\sum_{i=1}^{n}(X_{i} - \overline{X})(Y_{i} - \overline{Y})}{n - 1}$$
-
-표본공분산 구하는 공식을 Python으로 구현하면 아래와 같다.  
-
-```python
-def bar(data: list) -> float:
-    """returns expectation/sample mean"""
-
-    res = sum(data) / len(data)
-    return res
-
-
-def cov(data_a: list, data_b: list, dof: int = 1) -> float:
-    """returns covariance of two random variables"""
-
-    b_a, b_b = bar(data_a), bar(data_b)
-    res = sum((a - b_a) * (b - b_b) for a, b in zip(data_a, data_b)) / (len(data_a) - dof)
-    return res
-```
+$$Cov(X, Y) = E((X - \mu_{X})(Y - \mu_{Y}))$$
 
 **공분산 행렬(covariance matrix)**은 위의 공분산을 각 변수들마다 계산하는 것으로, 공분산 행렬 $$\Sigma$$는 아래와 같다.  
 
 $$\Sigma = \begin{bmatrix}
-\text{cov}_{x, x} & \text{cov}_{x, y} \\
-\text{cov}_{y, x} & \text{cov}_{y, y} \\
+Cov(X, X) & Cov(X, Y) \\
+Cov(Y, X) & Cov(Y, Y) \\
 \end{bmatrix}$$
 
 NumPy가 제공하는 공분산 행렬을 계산하는 함수를 사용하면 두 변수 간의 공분산을 구할 수 있다.  
@@ -65,27 +43,17 @@ NumPy가 제공하는 공분산 행렬을 계산하는 함수를 사용하면 �
 ```python
 import numpy as np
 
-a = np.array([2.23, 4.78, 7.21, 9.37, 11.64, 14.23, 16.55, 18.70, 21.05, 23.21])
-b = np.array([139, 123, 115, 96, 62, 54, 10, -3, -13, -55])
+a = [2.23, 4.78, 7.21, 9.37, 11.64, 14.23, 16.55, 18.70, 21.05, 23.21]
+b = [139, 123, 115, 96, 62, 54, 10, -3, -13, -55]
 
 covariance = np.cov(a, b)[0][1]
 ```
 
 ### 피어슨 상관 계수
 
-**피어슨 상관 계수(Pearson correlation coefficient, Pearson's r)**는 데이터 분석에서 가장 널리 쓰이는 상관 계수로, 측정하려는 두 변수의 상관 관계가 서로 **선형**일 때(1차 함수로 표현 가능)할 때 유용하다. 피어슨 상관 계수는 두 변수의 표본 공분산을 각각 표준 편차의 곱으로 나눈 값으로, 아래 공식을 통해 구할 수 있다.  
+**피어슨 상관 계수(Pearson correlation coefficient, Pearson's r)**는 데이터 분석에서 가장 널리 쓰이는 상관 계수로, 측정하려는 두 변수의 상관 관계가 서로 **선형**일 때(1차 함수로 표현 가능)할 때 사용할 수 있다. 피어슨 상관 계수는 두 변수의 공분산을 각각의 표준편차의 곱으로 나눈 값으로, 아래 공식을 통해 구할 수 있다.  
 
-$$r_{xy} = \frac{\text{Cov}[X, Y]}{\sqrt{\text{Var}[X] \cdot \text{Var}[Y]}}$$
-
-Python으로 구현하면 아래와 같다.  
-
-```python
-def corrcoef(a: list, b: list) -> float:
-    """returns Pearson's r of two data"""
-
-    res = cov(a, b) / ((cov(a, a) * cov(b, b)) ** 0.5)
-    return res
-```
+$$r_{x, y} = Cor(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}$$
 
 아래와 같이 NumPy와 SciPy를 통해서 상관계수를 쉽게 구할 수 있다.  
 
@@ -93,8 +61,8 @@ def corrcoef(a: list, b: list) -> float:
 import numpy as np
 from scipy import stats
 
-a = np.array([2.23, 4.78, 7.21, 9.37, 11.64, 14.23, 16.55, 18.70, 21.05, 23.21])
-b = np.array([139, 123, 115, 96, 62, 54, 10, -3, -13, -55])
+a = [2.23, 4.78, 7.21, 9.37, 11.64, 14.23, 16.55, 18.70, 21.05, 23.21]
+b = [139, 123, 115, 96, 62, 54, 10, -3, -13, -55]
 
 corrcoef = np.corrcoef(a, b)
 pearsonr = stats.pearsonr(a, b)
@@ -148,15 +116,10 @@ NumPy에서는 관련 API를 제공하지 않고, SciPy를 사용해 구할 수 
 ```python
 from scipy import stats
 
-a = [1,2,3,4,5]
-b = [5,6,7,8,7]
+a = [1, 2, 3, 4, 5]
+b = [5, 6, 7, 8, 7]
 
 spearmanr = stats.spearmanr(a, b)
-
-print(spearmanr)
-```
-```
-SpearmanrResult(correlation=0.8207826816681233, pvalue=0.08858700531354381)
 ```
 
 ### 켄달 상관 계수
@@ -168,15 +131,10 @@ SpearmanrResult(correlation=0.8207826816681233, pvalue=0.08858700531354381)
 ```python
 from scipy import stats
 
-a = [1,2,3,4,5]
-b = [5,6,7,8,7]
+a = [1, 2, 3, 4, 5]
+b = [5, 6, 7, 8, 7]
 
 tau = stats.kendalltau(a, b)
-
-print(tau)
-```
-```
-KendalltauResult(correlation=0.7378647873726218, pvalue=0.07697417298126674)
 ```
 
 ---
