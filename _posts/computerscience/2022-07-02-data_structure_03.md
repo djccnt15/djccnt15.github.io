@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[자료구조] 03. 스택'
 description: >
-    python으로 스택(Stack) 구현하기
+    Python으로 스택(Stack) 구현하기
 categories: [ComputerScience]
 tags: [data structure]
 image:
