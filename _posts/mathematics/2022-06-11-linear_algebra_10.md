@@ -110,6 +110,10 @@ A_{k+1} & = R_{k}Q_{k}
 
 - 4) 정규 직교 행렬인 $$Q_{k}$$는 $$Q_{k}^{-1} = Q_{k}^{T}$$를 만족하므로, 아래와 같이 정리할 수 있다.  
 
+$$A_{0}(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k}) = (Q_{0}Q_{1} \cdots Q_{k-1}Q_{k})A_{k+1}$$
+
+<details><summary>간편식의 유도</summary><div markdown="1">
+
 $$\begin{align*}
 A_{k+1} & = R_{k}Q_{k} \\
 \\
@@ -128,7 +132,7 @@ A_{k+1} & = R_{k}Q_{k} \\
 & = (Q_{0}Q_{1} \cdots Q_{k-1}Q_{k})^{T}A_{0}(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k})
 \end{align*}$$
 
-$$\therefore A_{0}(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k}) = (Q_{0}Q_{1} \cdots Q_{k-1}Q_{k})A_{k+1}$$
+</div></details><br>
 
 - 5) QR분해를 마무리하면 $$A_{k}$$는 삼각 행렬의 형태로 수렴하게 되는데, 삼각 행렬의 고유값은 해당 행렬의 대각 원소이므로, 구해진 삼각 행렬 $$A_{k}$$의 대각 원소가 $$A$$의 **고유값(eigenvalue)**이며, $$(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k})$$는 **고유벡터(eigenvector)**가 된다.  
 

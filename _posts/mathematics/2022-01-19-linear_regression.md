@@ -67,14 +67,17 @@ e = data[:, 2]
 ### 2번 문제 풀이
 
 ```python
-def bar(data: list) -> float:
+numeric = list[int | float]
+
+
+def bar(data: numeric) -> float:
     """returns expectation/sample mean"""
 
     res = sum(data) / len(data)
     return res
 
 
-def lineFit(x: list, y: list) -> tuple:
+def lineFit(x: numeric, y: numeric) -> tuple:
     """returns linear regression coefficient(weight) and intercept of two random variables"""
 
     x_bar, y_bar = bar(x), bar(y)

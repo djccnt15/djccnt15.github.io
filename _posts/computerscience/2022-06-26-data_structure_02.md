@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[자료구조] 02. 배열'
 description: >
-    python으로 배열(Array) 구현하기
+    Python으로 배열(Array) 구현하기
 categories: [ComputerScience]
 tags: [data structure]
 image:
