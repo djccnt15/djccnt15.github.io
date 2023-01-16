@@ -12,6 +12,9 @@ GitHub Pages를 이용한 블로그 구축 및 공부노트
 
 # hosting with specific IP
 > bundle exec jekyll serve --livereload --future --drafts --unpublished --host [IP_address]
+
+# hosting with specific port
+> bundle exec jekyll serve --livereload --future --drafts --unpublished --port [port_num]
 ```
 
 `--host`, `--port` 옵션을 사용하지 않을 경우 기본 IP 및 포트는 아래와 같이 할당된다.  

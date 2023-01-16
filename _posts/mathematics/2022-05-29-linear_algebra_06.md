@@ -52,7 +52,7 @@ $$A\text{x} = \begin{bmatrix}
 
 $$\text{w} = a_{1}\text{u}_{1} + a_{2}\text{u}_{2} + \cdots + a_{n}\text{u}_{n}$$
 
-$$A = \{a_{1}, a_{2}, \cdots a_{n}\}$$이 벡터공간 $$S$$내의 벡터들의 집합이고, $$A$$에 속하는 벡터를 $$A$$에 속하는 다른 벡터들의 선형 결합(linear combination)으로 표현할 수 없을 때 $$A$$를 **선형 독립(linear independent)**이라고 하며, 반대로 특정 벡터를 다른 벡터의 선형 결합으로 표현할 수 있다면 **선형 종속(linear dependent)**이라고 한다.  
+$$A = \{a_{1}, a_{2}, \cdots, a_{n}\}$$이 벡터공간 $$S$$내의 벡터들의 집합이고, $$A$$에 속하는 벡터를 $$A$$에 속하는 다른 벡터들의 선형 결합(linear combination)으로 표현할 수 없을 때 $$A$$를 **선형 독립(linear independent)**이라고 하며, 반대로 특정 벡터를 다른 벡터의 선형 결합으로 표현할 수 있다면 **선형 종속(linear dependent)**이라고 한다.  
 
 ## 4. 기저
 

@@ -157,9 +157,9 @@ $$\textbf{u}_{2} = \textbf{s}_{2} - \frac{\langle \textbf{s}_{2}, \textbf{u}_{1}
 - n) 같은 방식으로 n 번째 직교 기저 벡터까지 구한다.
 
 $$\begin{align*}
-\textbf{u}_{n} & = \textbf{s}_{n} - \frac{\langle \textbf{s}_{n}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}\textbf{u}_{1} - \frac{\langle \textbf{s}_{n}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}\textbf{u}_{2} - \cdots - \frac{\langle \textbf{s}_{n}, \textbf{u}_{n-1} \rangle}{\Vert \textbf{u}_{n-1} \Vert^{2}}\textbf{u}_{n-1} \\
+\textbf{u}_{n} & = \textbf{s}_{n} - \frac{\langle \textbf{s}_{n}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}\textbf{u}_{1} - \frac{\langle \textbf{s}_{n}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}\textbf{u}_{2} - \cdots - \frac{\langle \textbf{s}_{n}, \textbf{u}_{n-1} \rangle}{\Vert \textbf{u}_{n-1} \Vert^{2}}\textbf{u}_{n - 1} \\
 \\
-& = \textbf{s}_{n} - \sum_{i=1}^{n-1}proj_{\textbf{u}_{i}} \textbf{s}_{n}
+& = \textbf{s}_{n} - \sum_{i=1}^{n - 1}proj_{\textbf{u}_{i}} \textbf{s}_{n}
 \end{align*}$$
 
 이 과정을 그림으로 표현하면 아래와 같다.  

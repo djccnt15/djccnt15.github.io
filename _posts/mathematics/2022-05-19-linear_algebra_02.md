@@ -49,6 +49,8 @@ def mat_trans(a: matrix) -> matrix:
     return At
 ```
 
+사실 `list(zip(*a))` 만으로도 전치 행렬의 결과를 만들 수 있지만, 이러면 각 행이 `list`가 아닌 `tuple`이 된다.  
+
 NumPy를 사용하면 아래와 같다.  
 
 ```python
@@ -362,17 +364,17 @@ mat_tri_l = np.trul(a)
 **토플리츠 행렬(toeplitz matrix)**은 아래와 같이 1행의 원소가 2행으로 가면서 한 열씩 오른쪽으로 이동하는 행렬을 말하며, $$T$$로 표시한다. **시계열 데이터를 행렬 형태로 변환할 때 사용**한다.  
 
 $$T = \begin{bmatrix}
-t_{0} & t_{-1} & t_{-2} & \cdots & t_{-(n-1)} \\
+t_{0} & t_{-1} & t_{-2} & \cdots & t_{-(n - 1)} \\
 t_{1} & t_{0} & t_{-1} & \ddots & \vdots \\
 t_{2} & t_{1} & \ddots & \ddots & \vdots \\
 \vdots & \ddots & \ddots & t_{-1} & t_{-2} \\
 \vdots & \ddots & t_{1} & t_{0} & t_{-1} \\
-t_{n-1} & t_{n-2} & \cdots & t_{1} & t_{0} \\
+t_{n - 1} & t_{n - 2} & \cdots & t_{1} & t_{0} \\
 \end{bmatrix}$$
 
 토플리츠 행렬 $$T$$의 $$i$$행 $$j$$열 원소는 다음과 같이 표현할 수 있다.  
 
-$$T_{i,j} = T_{i+1,j+1} = t_{i-j}$$
+$$T_{i, j} = T_{i + 1, j + 1} = t_{i - j}$$
 
 두 개의 벡터를 받아 하나의 토플리츠 행렬을 반환하는 함수를 Python으로 구현하면 아래와 같다.  
 

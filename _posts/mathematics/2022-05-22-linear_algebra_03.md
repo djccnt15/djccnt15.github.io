@@ -106,9 +106,9 @@ def mat_pivot(mat: matrix) -> matrix:
 아래와 같이 각 행의 0이 아닌 가장 첫 원소 아래에 위치하는 원소는 모두 0인 행렬을 **행사다리꼴 행렬(row echelon form matrix, REF)**이라 한다.  
 
 $$\begin{bmatrix}
-a_{11} & a_{12}& a_{13} & a_{14} & \cdots & a_{1n} \\
+a_{11} & a_{12} & a_{13} & a_{14} & \cdots & a_{1n} \\
 0 & a_{22} & a_{23} & a_{24} & \cdots & a_{2n} \\
-0 & 0 & 0 &a_{34} & \cdots & a_{3n} \\
+0 & 0 & 0 & a_{34} & \cdots & a_{3n} \\
 0 & 0 & 0 & 0 & \cdots & 0 \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
 0 & 0 & 0 & 0 & \cdots & 0 \\
@@ -144,14 +144,14 @@ def gauss_eli(a: matrix, b: vector) -> vector:
 
     # gauss elimination
     for i in range(n):
-        for j in range(i+1, n):
+        for j in range(i + 1, n):
             tmp = mat[j][i] / mat[i][i]
-            for k in range(n+1):
+            for k in range(n + 1):
                 mat[j][k] -= tmp * mat[i][k]
 
     # solve equation
-    for i in range(n-1, -1, -1):
-        for k in range(i+1, n):
+    for i in range(n - 1, -1, -1):
+        for k in range(i + 1, n):
             mat[i][n] = mat[i][n] - mat[i][k] * mat[k][n]
         mat[i][n] /= mat[i][i]
 

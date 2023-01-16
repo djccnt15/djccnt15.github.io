@@ -83,11 +83,11 @@ $$E_{n}E_{n-1} \cdots E_{2}E_{1}A = U$$
 - 3) 위 식을 아래와 같이 정리하여 $$L, U$$ 형태로 변환한다.
 
 $$\begin{align*}
-U & = E_{n}E_{n-1} \cdots E_{2}E_{1}A \\
+U & = E_{n}E_{n - 1} \cdots E_{2}E_{1}A \\
 \\
 L & = E_{1}^{-1}E_{2}^{-1} \cdots E_{n-1}^{-1}E_{n}^{-1} \\
 \\
-& \because A = E_{1}^{-1}E_{2}^{-1} \cdots E_{n-1}^{-1}E_{n}^{-1}U
+& \because A = E_{1}^{-1}E_{2}^{-1} \cdots E_{n - 1}^{-1}E_{n}^{-1}U
 \end{align*}$$
 
 ### 쉬운 LU 분해 방법

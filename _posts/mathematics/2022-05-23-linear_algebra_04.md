@@ -51,7 +51,7 @@ $$\Vert A \Vert = \begin{Vmatrix}
 a & b \\
 c & d \\
 \end{Vmatrix}
-= |ad-cd|$$
+= |ad - cd|$$
 
 NumPy를 사용해서 행렬식을 구하는 방법은 아래와 같다.
 
@@ -68,18 +68,18 @@ det_A = np.linalg.det(a)
 $$3 \times 3$$이상의 행렬일 경우, 행렬식의 계산이 조금 복잡해지는데, **소행렬식(minor of entry $$a_{ij}, M_{ij}$$)**과 여인수**(cofactor of entry $$a_{ij}$$)**의 개념을 알아야 한다.  
 
 - 소행렬식 $$M_{ij}$$ : 행렬의 $$i$$행과 $$j$$열을 제외하고 구성된 부분 행렬의 행렬식을 의미
-- 여인수 $$C_{ij}$$ : $$C_{ij} = (-1)^{i+j}M_{ij}$$
+- 여인수 $$C_{ij}$$ : $$C_{ij} = (-1)^{i + j}M_{ij}$$
 
 아래와 같이 행렬의 행렬식을 정의하여 계산하는 방법을 **여인수 전개(cofactor expansion)**라고 한다. 라플라스가 고안하였기 때문에 **라플라스 전개(Laplace Expansion)**라고도 한다.  
 
-$$\det(A) = \sum_{i=1}^n a_{ij}C_{ij} = \sum_{i=1}^n(-1)^{i+j}a_{ij}M_{ij}$$
+$$\det(A) = \sum_{i=1}^n a_{ij}C_{ij} = \sum_{i=1}^n(-1)^{i + j}a_{ij}M_{ij}$$
 
 $$n \times n$$행렬의 여인수 전개는 아래와 같이 재귀적이기 때문에, 구현을 위해선 **재귀함수**를 사용해야 한다.  
 
 $$\begin{align*}
 \det(A) & = \sum_{i=1}^n(-1)^{i+j}a_{ij}M_{ij} \\
-& = \sum_{i=1}^n(-1)^{i+j}a_{ij} \det(B) \\
-& = \sum_{i=1}^n(-1)^{i+j}a_{ij} (\sum_{i=1}^n(-1)^{i+j}b_{ij}M_{ij}) \\
+& = \sum_{i=1}^n(-1)^{i + j}a_{ij} \det(B) \\
+& = \sum_{i=1}^n(-1)^{i + j}a_{ij} (\sum_{i=1}^n(-1)^{i + j}b_{ij}M_{ij}) \\
 \end{align*}$$
 
 여인수 전개를 통한 행렬식의 계산은 재귀함수의 특성상 **시간 복잡도**에 문제가 발생하기 때문에 실제 계산에 사용하지는 않는 것을 권장한다고 한다.  
@@ -88,7 +88,7 @@ $$\begin{align*}
 
 행렬 $$A$$가 있을 때, 행렬 $$A$$의 여인수 행렬 $$C_{ij}$$의 전치 행렬을 행렬 $$A$$의 **수반 행렬(adjoint of A)**이라고 부르고 아래와 같이 표기한다.  
 
-$$\text{adj}(A) = C_{ij} = (-1)^{i+j}M_{ij}$$
+$$\text{adj}(A) = C_{ij} = (-1)^{i + j}M_{ij}$$
 
 ## 3. 행렬식의 성질
 

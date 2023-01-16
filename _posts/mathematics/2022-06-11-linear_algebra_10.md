@@ -127,9 +127,9 @@ A_{k+1} & = R_{k}Q_{k} \\
 \\
 & = \cdots \\
 \\
-& = (Q_{k}^{T}Q_{k-1}^{T} \cdots Q_{1}^{T}Q_{0}^{T})A_{0}(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k}) \\
+& = (Q_{k}^{T}Q_{k-1}^{T} \cdots Q_{1}^{T}Q_{0}^{T})A_{0}(Q_{0}Q_{1} \cdots Q_{k - 1}Q_{k}) \\
 \\
-& = (Q_{0}Q_{1} \cdots Q_{k-1}Q_{k})^{T}A_{0}(Q_{0}Q_{1} \cdots Q_{k-1}Q_{k})
+& = (Q_{0}Q_{1} \cdots Q_{k-1}Q_{k})^{T}A_{0}(Q_{0}Q_{1} \cdots Q_{k - 1}Q_{k})
 \end{align*}$$
 
 </div></details><br>
