@@ -125,7 +125,7 @@ print(a)
 
 ```python
 tmp = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
-res = {k: v*2 for (k, v) in tmp.items()}
+res = {k: v * 2 for (k, v) in tmp.items()}
 
 print(res)
 ```
