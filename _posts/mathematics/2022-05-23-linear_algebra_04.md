@@ -41,8 +41,7 @@ matrix = list[vector]
 def determinant(a: matrix) -> scalar:
     """returns determinant of 2 by 2 matrix"""
 
-    det: scalar = (a[0][0] * a[1][1]) - (a[0][1] * a[1][0])
-    return det
+    return (a[0][0] * a[1][1]) - (a[0][1] * a[1][0])
 ```
 
 아래와 같이 행렬식의 절대값 기호가 두 겹인 경우 행렬식의 절대값을 구하라는 뜻이다.  

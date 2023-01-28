@@ -45,8 +45,7 @@ matrix = list[vector]
 def mat_trans(a: matrix) -> matrix:
     """returns transposed matrix"""
 
-    At: matrix = [list(r) for r in zip(*a)]
-    return At
+    return [list(r) for r in zip(*a)]
 ```
 
 사실 `list(zip(*a))` 만으로도 전치 행렬의 결과를 만들 수 있지만, 이러면 각 행이 `list`가 아닌 `tuple`이 된다.  
@@ -91,8 +90,7 @@ matrix = list[vector]
 def symmetric_check(a: matrix) -> bool:
     """checks whether symmetric matrix or not"""
 
-    At: matrix = mat_trans(a)
-    return a == At
+    return a == mat_trans(a)
 ```
 
 ### 반대칭 행렬
@@ -154,15 +152,13 @@ matrix = list[vector]
 def diag_ele(a: matrix) -> vector:
     """returns diagonal elements of matrix"""
 
-    d: vector = [v[i] for i, v in enumerate([*a])]
-    return d
+    return [v[i] for i, v in enumerate([*a])]
 
 
 def mat_diag(a: matrix) -> matrix:
     """returns diagonal matrix from matrix"""
 
-    D: matrix = [[v if i == j else 0 for j, v in enumerate(r)] for i, r in enumerate(a)]
-    return D
+    return [[v if i == j else 0 for j, v in enumerate(r)] for i, r in enumerate(a)]
 ```
 
 NumPy를 활용하면 아래와 같이 `np.diag`함수 하나로 대각 원소와 대각 행렬을 모두 구할 수 있다.  
@@ -204,15 +200,13 @@ matrix = list[vector]
 def mat_bidiag_u(a: matrix) -> matrix:
     """transform matrix into upper bidiagonal matrix"""
 
-    res: matrix = [[0 if i > j or j - i > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
-    return res
+    return [[0 if i > j or j - i > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
 
 
 def mat_bidiag_l(a: matrix) -> matrix:
     """transform matrix into lower bidiagonal matrix"""
 
-    res: matrix = [[0 if i < j or i - j > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
-    return res
+    return [[0 if i < j or i - j > 1 else v for j, v in enumerate(r)] for i, r in enumerate(a)]
 ```
 
 NumPy로 구현하면 아래와 같다.  
@@ -260,8 +254,7 @@ matrix = list[vector]
 def mat_identity(n: int) -> matrix:
     """returns n by n sized identity matrix"""
 
-    I: matrix = [[1 if i == j else 0 for j in range(n)] for i in range(n)]
-    return I
+    return [[1 if i == j else 0 for j in range(n)] for i in range(n)]
 ```
 
 NumPy를 활용하면 아래와 같다.  
@@ -292,15 +285,13 @@ matrix = list[vector]
 def mat_zeros(r: int, c: int) -> matrix:
     """returns r by c sized zero matrix"""
 
-    Z: matrix = [[0 for _ in range(c)] for _ in range(r)]
-    return Z
+    return [v_zeros(c) for _ in range(r)]
 
 
 def v_zeros(n: int) -> vector:
     """returns n sized zero vector"""
 
-    Z: vector = [0 for _ in range(n)]
-    return Z
+    return [0 for _ in range(n)]
 ```
 
 NumPy를 활용하면 아래와 같다.  
@@ -337,15 +328,13 @@ matrix = list[vector]
 def mat_tri_u(a: matrix) -> matrix:
     """transform matrix into upper triangular matrix"""
 
-    res: matrix = [[0 if i > j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
-    return res
+    return [[0 if i > j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
 
 
 def mat_tri_l(a: matrix) -> matrix:
     """transform matrix into lower triangular matrix"""
 
-    res: matrix = [[0 if i < j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
-    return res
+    return [[0 if i < j else v for j, v in enumerate(r)] for i, r in enumerate(a)]
 ```
 
 NumPy를 활용하면 아래와 같다.  
@@ -387,8 +376,7 @@ matrix = list[vector]
 def mat_toeplitz(a: vector, b: vector) -> matrix:
     """unite 2 lists into toeplitz matrix"""
 
-    T: matrix = [[a[i - j] if i >= j else b[j - i] for j, _ in enumerate(b)] for i, _ in enumerate(a)]
-    return T
+    return [[a[i - j] if i >= j else b[j - i] for j, _ in enumerate(b)] for i, _ in enumerate(a)]
 ```
 
 SciPy를 활용하면 아래와 같다. NumPy에는 토플리츠 행렬을 만드는 기능이 없다.  
@@ -425,15 +413,13 @@ matrix = list[vector]
 def v_outer(a: vector, b: vector) -> matrix:
     """returns outer/tensor product of 2 vectors"""
 
-    res: matrix = [[v * u for u in b] for v in a]
-    return res
+    return [[v * u for u in b] for v in a]
 
 
 def v_inner(a: vector, b: vector) -> scalar:
     """returns inner product of 2 vectors"""
 
-    res: scalar = sum(v * u for v, u in zip(a, b))
-    return res
+    return sum(v * u for v, u in zip(a, b))
 ```
 
 앞서 구현한 함수들을 기반으로 입력된 벡터를 받아 하우스홀더 행렬을 반환하는 함수를 Python으로 구현하면 아래와 같다.  
@@ -447,10 +433,7 @@ matrix = list[vector]
 def householder(v: vector) -> matrix:
     """transform vector into householder matrix"""
 
-    V: matrix = mat_smul(1 / v_inner(v, v), v_outer(v, v))
-    V: matrix = mat_smul(2, V)
-    H: matrix = mat_sub(mat_identity(len(v)), V)
-    return H
+    return mat_sub(mat_identity(len(v)), mat_smul(2, mat_smul(1 / v_inner(v, v), v_outer(v, v))))
 ```
 
 하우스홀더 행렬을 NumPy를 활용하여 구하면 아래와 같다.  

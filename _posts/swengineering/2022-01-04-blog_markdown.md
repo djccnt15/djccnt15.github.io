@@ -32,8 +32,8 @@ related_posts:
 
 ### 이미지 삽입
 
-이미지를 삽입하려면 이미지를 어딘가에 업로드 하고 링크를 걸면 된다.  
-난 보통 `/assets/img/posts`에 업로드 한다.  
+이미지를 삽입하려면 이미지를 어딘가에 업로드 하고 링크를 걸면 된다. 난 보통 `/assets/img/posts`에 업로드 한다.  
+
 ![yagongman_Dijkstra](/assets/img/posts/yagongman_Dijkstra.png)
 
 마크다운 코드는 아래와 같다.  

@@ -106,9 +106,7 @@ matrix = list[vector]
 
 
 def lu_decomp(a: matrix) -> tuple:
-    """
-    LU decomposition
-    """
+    """LU decomposition"""
 
     a = mat_pivot(a)
     n: int = len(a)

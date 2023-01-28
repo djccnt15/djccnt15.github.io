@@ -65,15 +65,13 @@ vector = list[scalar]
 def v_add(*a: vector) -> vector:
     """returns addition of 2 vectors"""
 
-    res: vector = [sum(v) for v in zip(*a)]
-    return res
+    return [sum(v) for v in zip(*a)]
 
 
 def v_sub(a: vector, b: vector) -> vector:
     """returns subtraction of 2 vectors"""
 
-    res: vector = [v - u for v, u in zip(a, b)]
-    return res
+    return [v - u for v, u in zip(a, b)]
 ```
 
 ### 스칼라 곱
@@ -88,8 +86,7 @@ vector = list[scalar]
 def v_smul(s: scalar, a: vector) -> vector:
     """returns scalar multiplication of vector"""
 
-    res: vector = [s * v for v in a]
-    return res
+    return [s * v for v in a]
 ```
 
 ### 원소 곱
@@ -110,18 +107,16 @@ vector = list[scalar]
 def v_hmul(*a: vector) -> vector:
     """returns hadamard product of vectors"""
 
-    res: vector = [reduce(lambda n, m: n * m, v) for v in zip(*a)]
-    return res
+    return [reduce(lambda n, m: n * m, v) for v in zip(*a)]
 
 
 def v_hdiv(a: vector, b: vector) -> vector:
     """returns hadamard division of 2 vectors"""
 
-    res: vector = [v / u for v, u in zip(a, b)]
-    return res
+    return [v / u for v, u in zip(a, b)]
 ```
 
-### Numpy 사용
+### NumPy 사용
 
 NumPy를 사용하면 아래와 같이 간단하게 사용할 수 있다.  
 
@@ -194,15 +189,13 @@ matrix = list[vector]
 def mat_add(*a: matrix) -> matrix:
     """returns addition of matrices"""
 
-    res: matrix = [[sum(v) for v in zip(*i)] for i in zip(*a)]
-    return res
+    return [[sum(v) for v in zip(*i)] for i in zip(*a)]
 
 
 def mat_sub(a: matrix, b: matrix) -> matrix:
     """returns subtraction of matrix"""
 
-    res: matrix = [[v - u for v, u in zip(*i)] for i in zip(a, b)]
-    return res
+    return [[v - u for v, u in zip(*i)] for i in zip(a, b)]
 ```
 
 ### 스칼라 곱
@@ -218,8 +211,7 @@ matrix = list[vector]
 def mat_smul(s: scalar, a: matrix) -> matrix:
     """returns scalar multiplication of matrix"""
 
-    res: matrix = [[s * v for v in r] for r in a]
-    return res
+    return [[s * v for v in r] for r in a]
 ```
 
 ### 원소 곱
@@ -241,15 +233,13 @@ matrix = list[vector]
 def mat_hmul(*a: matrix) -> matrix:
     """returns hadamard product of matrix"""
 
-    res: matrix = [[reduce(lambda n, m: n * m, v) for v in zip(*i)] for i in zip(*a)]
-    return res
+    return [[reduce(lambda n, m: n * m, v) for v in zip(*i)] for i in zip(*a)]
 
 
 def mat_hdiv(a: matrix, b: matrix) -> matrix:
     """returns hadamard division of matrix"""
 
-    res: matrix = [[v / u for v, u in zip(*i)] for i in zip(a, b)]
-    return res
+    return [[v / u for v, u in zip(*i)] for i in zip(a, b)]
 ```
 
 ### 행렬 곱
@@ -267,15 +257,13 @@ matrix = list[vector]
 def mat_mul(a: matrix, b: matrix) -> matrix:
     """returns multiplication of 2 matrices"""
 
-    res: matrix = [[sum(v * u for v, u in zip(r, c)) for c in zip(*b)] for r in a]
-    return res
+    return [[sum(v * u for v, u in zip(r, c)) for c in zip(*b)] for r in a]
 
 
 def mat_mul_all(*a: matrix) -> matrix:
     """returns multiplication of 2 matrices"""
 
-    res: matrix = reduce(mat_mul, [*a])
-    return res
+    return reduce(mat_mul, [*a])
 ```
 
 ### 대각합
@@ -301,11 +289,10 @@ matrix = list[vector]
 def mat_tr(a: matrix) -> scalar:
     """returns trace of matrix"""
 
-    res: scalar = sum(v[i] for i, v in enumerate([*a]))
-    return res
+    return sum(v[i] for i, v in enumerate([*a]))
 ```
 
-### Numpy 사용
+### NumPy 사용
 
 NumPy를 사용하면 아래와 같이 간단하게 사용할 수 있다.  
 

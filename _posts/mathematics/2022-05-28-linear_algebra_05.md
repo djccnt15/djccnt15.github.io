@@ -87,8 +87,7 @@ matrix = list[vector]
 def mat_aug_mat(a: matrix, b: matrix) -> matrix:
     """transform matrix into matrix augmented matrix"""
 
-    res: matrix = [v + u for v, u in zip(a, b)]
-    return res
+    return [v + u for v, u in zip(a, b)]
 
 
 def mat_coef_inv(a: matrix, b: int) -> tuple:
@@ -123,11 +122,7 @@ def mat_inv(a: matrix) -> matrix:
     """returns inverted matrix"""
 
     n: int = len(a)
-    i: matrix = mat_identity(n)
-    mat: matrix = mat_aug_mat(a, i)
-    mat: matrix = mat_pivot(mat)
-    mat: matrix = gauss_jordan_eli(mat)
-    x, res = mat_coef_inv(mat, n)
+    _, res = mat_coef_inv(gauss_jordan_eli(mat_pivot(mat_aug_mat(a, mat_identity(n)))), n)
 
     return res
 ```

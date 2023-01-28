@@ -73,17 +73,14 @@ numeric = list[int | float]
 def bar(data: numeric) -> float:
     """returns expectation/sample mean"""
 
-    res = sum(data) / len(data)
-    return res
+    return sum(data) / len(data)
 
 
 def lineFit(x: numeric, y: numeric) -> tuple:
     """returns linear regression coefficient(weight) and intercept of two random variables"""
 
     x_bar, y_bar = bar(x), bar(y)
-    tmp_0 = [(i - x_bar) * j for i, j in zip(x, y)]
-    tmp_1 = [(i - x_bar) * i for i in x]
-    w = sum(tmp_0) / sum(tmp_1)
+    w = sum((x - x_bar) * y for x, y in zip(x, y)) / sum((x - x_bar) * x for x in x)
     i = y_bar - (w * x_bar)
     return i, w
 ```

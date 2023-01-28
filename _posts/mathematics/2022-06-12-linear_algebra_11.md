@@ -37,12 +37,9 @@ matrix = list[vector]
 
 
 def orthogonal_check(a: matrix) -> bool:
-    """
-    checks whether orthogonal matrix or not
-    """
+    """checks whether orthogonal matrix or not"""
 
-    At: matrix = mat_trans(a)
-    tmp: matrix = mat_mul(a, At)
+    tmp: matrix = mat_mul(a, mat_trans(a))
     tmp: matrix = mat_smul(1 / tmp[0][0], tmp)  # line for evading floating point error
     I: matrix = mat_identity(len(a))
 

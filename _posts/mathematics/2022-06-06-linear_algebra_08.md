@@ -34,8 +34,7 @@ vector = list[scalar]
 def normalize(a: vector) -> vector:
     """normalize vector"""
 
-    n: vector = [v / norm(a) for v in a]
-    return n
+    return [v / norm(a) for v in a]
 ```
 
 NumPy를 사용하면 아래와 같다.  
@@ -88,9 +87,7 @@ vector = list[scalar]
 def proj(u: vector, v: vector) -> vector:
     """project 'u' vector to 'v' vector"""
 
-    tmp: scalar = v_inner(u, v) / v_inner(v, v)
-    res: vector = v_smul(tmp, v)
-    return res
+    return v_smul(v_inner(u, v) / v_inner(v, v), v)
 ```
 
 NumPy를 사용해서 구현하면 아래와 같다.  
@@ -186,8 +183,7 @@ def gram_schmidt(s: matrix) -> matrix:
         if i == 0:
             res.append(s[i])
         else:
-            tmp = v_sub(s[i], v_add(*[proj(s[i], res[j]) for j in range(i)]))
-            res.append(tmp)
+            res.append(v_sub(s[i], v_add(*[proj(s[i], res[j]) for j in range(i)])))
     return res
 ```
 
@@ -251,13 +247,12 @@ def qr_gramschmidt(a: matrix) -> tuple:
 
     q_tmp: matrix = [normalize(i) for i in gs]
     q: matrix = mat_trans(q_tmp)
-
     r: matrix = [[0 if i > j else v_inner(mat[j], q_tmp[i]) for j in range(n)] for i in range(n)]
 
     return q, r
 ```
 
-NumPy, SciPy로 구한 값과는 부호가 조금 다르게 나오는데, 바뀐 부호가 $$Q$$와 $$R$$에 공통적으로 적용되어 $$A = QR$$이라는 최종 검산 결과를 만족하면 상관 없다고 한다. 참고로 [WolframAlpha](https://www.wolframalpha.com/input?i=QR+decomposition+%7B%7B10%2C+-10%2C+4%2C+10%7D%2C+%7B20%2C+4%2C+-20%2C+8%7D%2C+%7B30%2C+40%2C+2%2C+6%7D%2C+%7B10%2C+-10%2C+0%2C+3%7D%7D)로 검산을 해보면 내가 구현한 함수와 동일한 부호로 값이 도출된다.  
+NumPy, SciPy로 구한 값과는 부호가 조금 다르게 나오는데, 바뀐 부호가 $$Q$$와 $$R$$에 공통적으로 적용되기 때문에 $$A = QR$$이라는 최종 검산 결과를 만족하면 상관 없다고 한다. 참고로 [WolframAlpha](https://www.wolframalpha.com/input?i=QR+decomposition+%7B%7B10%2C+-10%2C+4%2C+10%7D%2C+%7B20%2C+4%2C+-20%2C+8%7D%2C+%7B30%2C+40%2C+2%2C+6%7D%2C+%7B10%2C+-10%2C+0%2C+3%7D%7D)로 검산을 해보면 내가 구현한 함수와 동일한 부호로 값이 도출된다.  
 
 ### 하우스홀더 행렬을 이용한 QR분해
 
@@ -357,24 +352,16 @@ matrix = list[vector]
 
 # QR decomposition/factorization with householder matrix
 def v_sign(a: vector) -> int:
-    """get sign of vector == returns sign of first element of vector"""
+    """get sign of vector(returns sign of first element of vector)"""
 
-    res: int = 1
-    if a[0] < 0: res: int = -1
-    return res
+    return -1 if a[0] < 0 else 1
 
 
 def ele_h(a: matrix) -> matrix:
     """get element of householder matrix except last one"""
 
     at: matrix = mat_trans(a)
-    nm: scalar = norm(at[0])
-    e: vector = [1 if j == 0 else 0 for j in range(len(at[0]))]
-    sign: int = v_sign(at[0])
-    tmp: vector = v_smul(sign * nm, e)
-    v: vector = v_add(at[0], tmp)
-    h: matrix = householder(v)
-    return h
+    return householder(v_add(at[0], v_smul(v_sign(at[0]) * norm(at[0]), [1 if j == 0 else 0 for j in range(len(at[0]))])))
 
 
 def qr_householder(a: matrix) -> tuple:

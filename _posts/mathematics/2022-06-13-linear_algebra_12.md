@@ -66,12 +66,9 @@ matrix = list[vector]
 
 
 def orthogonal_check(a: matrix) -> bool:
-    """
-    checks whether orthogonal matrix or not
-    """
+    """checks whether orthogonal matrix or not"""
 
-    At: matrix = mat_trans(a)
-    tmp: matrix = mat_mul(a, At)
+    tmp: matrix = mat_mul(a, mat_trans(a))
     tmp: matrix = mat_smul(1 / tmp[0][0], tmp)  # line for evading floating point error
     I: matrix = mat_identity(len(a))
 
@@ -131,22 +128,15 @@ matrix = list[vector]
 
 
 def svd(a: matrix) -> tuple:
-    """
-    singular value decomposition
-    """
+    """singular value decomposition"""
 
-    at: matrix = mat_trans(a)
-    ata: matrix = mat_mul(at, a)
-    e, v = eig_qr(ata)
+    e, v = eig_qr(mat_mul(mat_trans(a), a))
 
     s: vector = [i ** 0.5 for i in e]
 
     vt: matrix = mat_trans(v)
 
-    av: matrix = mat_mul(a, v)
-    avt: matrix = mat_trans(av)
-    ut: matrix = [normalize(v) for v in avt]
-
+    ut: matrix = [normalize(v) for v in mat_trans(mat_mul(a, v))]
     u: matrix = mat_trans(ut)
 
     return u, s, vt

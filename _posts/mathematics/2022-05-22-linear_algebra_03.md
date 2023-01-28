@@ -66,8 +66,7 @@ matrix = list[vector]
 def mat_aug_v(a: matrix, b: vector) -> matrix:
     """transform matrix into vector augmented matrix"""
 
-    res: matrix = [v + [u] for v, u in zip(a, b)]
-    return res
+    return [v + [u] for v, u in zip(a, b)]
 
 
 def mat_coef(a: matrix) -> tuple:
@@ -97,8 +96,7 @@ def mat_pivot(mat: matrix) -> matrix:
     this function just sorts rows as order by descending with first elements of each row
     """
 
-    res: matrix = sorted(mat, key=lambda x: abs(x[0]), reverse=True)
-    return res
+    return sorted(mat, key=lambda x: abs(x[0]), reverse=True)
 ```
 
 ### 행사다리꼴 행렬, 기약 행사다리꼴 행렬
@@ -138,8 +136,7 @@ matrix = list[vector]
 def gauss_eli(a: matrix, b: vector) -> vector:
     """solving equation with Gauss elimination"""
 
-    mat: matrix = mat_aug_v(a, b)
-    mat: matrix = mat_pivot(mat)
+    mat: matrix = mat_pivot(mat_aug_v(a, b))
     n: int = len(mat)
 
     # gauss elimination
@@ -155,7 +152,7 @@ def gauss_eli(a: matrix, b: vector) -> vector:
             mat[i][n] = mat[i][n] - mat[i][k] * mat[k][n]
         mat[i][n] /= mat[i][i]
 
-    x, y = mat_coef(mat)
+    _, y = mat_coef(mat)
 
     return y
 ```
@@ -198,14 +195,11 @@ def gauss_jordan_eli(mat: matrix) -> matrix:
 def solve_gauss(a: matrix, b: vector) -> vector:
     """solving equation with Gauss-Jordan elimination"""
 
-    mat: matrix = mat_aug_v(a, b)
-    mat: matrix = mat_pivot(mat)
-    mat: matrix = gauss_jordan_eli(mat)
-    x, y = mat_coef(mat)
+    _, y = mat_coef(gauss_jordan_eli(mat_pivot(mat_aug_v(a, b))))
     return y
 ```
 
-### Numpy 활용
+### NumPy 활용
 
 NumPy를 사용해서 선형 시스템의 해를 구하는 방법은 아래와 같다.  
 

@@ -94,8 +94,7 @@ vector = list[scalar]
 def norm(a: vector) -> scalar:
     """returns euclidean norm of vector"""
 
-    res: scalar = sum(i ** 2 for i in a) ** 0.5
-    return res
+    return sum(i ** 2 for i in a) ** 0.5
 ```
 
 NumPy를 사용하면 아래와 같다.  
@@ -128,8 +127,7 @@ vector = list[scalar]
 def norm_manhattan(a: vector) -> scalar:
     """returns manhattan norm of vector"""
 
-    res = sum(abs(i) for i in a)
-    return res
+    return sum(abs(i) for i in a)
 ```
 
 NumPy를 사용하면 아래와 같다.  
@@ -170,8 +168,7 @@ vector = list[scalar]
 def cos_similarity(a: vector, b: vector) -> scalar:
     """returns cosine similarity of 2 vectors"""
 
-    res: scalar = v_inner(a, b) / (norm(a) * norm(b))
-    return res
+    return v_inner(a, b) / (norm(a) * norm(b))
 ```
 
 SciPy를 활용해서 구하면 아래와 같다.  
