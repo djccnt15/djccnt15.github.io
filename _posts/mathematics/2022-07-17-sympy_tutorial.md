@@ -237,7 +237,7 @@ print(sp.latex(expr))
 
 $$\int \sqrt{\frac{1}{x}}\, dx$$
 
-💡 LaTeX 코드를 수식으로 변환한 결과는 [CODECOGS](https://latex.codecogs.com/)에서 간편하게 볼 수 있다.  
+💡 LaTeX 코드를 수식으로 변환한 결과는 [CODECOGS](https://editor.codecogs.com/)에서 간편하게 볼 수 있다.  
 {:.note}
 
 ---

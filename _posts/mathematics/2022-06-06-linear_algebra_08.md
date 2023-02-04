@@ -49,7 +49,7 @@ normalized_v = v / np.linalg.norm(v)
 
 ### 정규 직교 벡터를 활용한 좌표 표현
 
-벡터 공간 $$\textbf{v}$$의 **정규 직교 기저(orthonormal basis)**를 $$S = \{ \textbf{v}_{1}, \textbf{v}_{2}, \cdots, \textbf{v}_{n} \}$$이라 할 때, 벡터 공간 $$\textbf{v}$$에 포함되는 임의의 벡터 $$\textbf{a}$$는 아래와 같이 좌표축 $$\textbf{v}_{n}$$과 벡터 $$\textbf{a}$$의 $$n$$번째 축의 좌표 $$\langle \textbf{a}, \textbf{v}_{n} \rangle$$으로 표현할 수 있다.  
+벡터 공간 $$\textbf{v}$$의 **정규 직교 기저(orthonormal basis)**를 $$S = \{ \textbf{v}_{1}, \textbf{v}_{2}, \cdots, \textbf{v}_{n} \}$$이라 할 때, 벡터 공간 $$\textbf{v}$$에 포함되는 임의의 벡터 $$\textbf{a}$$는 아래와 같이 좌표축 $$\textbf{v}_{n}$$과 벡터 $$\textbf{a}$$의 $$n$$ 번째 축의 좌표 $$\langle \textbf{a}, \textbf{v}_{n} \rangle$$으로 표현할 수 있다.  
 
 $$\textbf{a} = \langle \textbf{a}, \textbf{v}_{1} \rangle \textbf{v}_{1} + \langle \textbf{a}, \textbf{v}_{2} \rangle \textbf{v}_{2} + \cdots + \langle \textbf{a}, \textbf{v}_{n} \rangle \textbf{v}_{n}$$
 
