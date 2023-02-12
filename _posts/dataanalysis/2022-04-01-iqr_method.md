@@ -39,7 +39,7 @@ scikit-learn 패키지의 경우 **outlier detection**와 **novelty detection**�
 아무튼 데이터 분리 단계를 넘어간 후에 모델링 하는 과정에서의 전처리 단계에서 데이터의 noise를 처리하는 방법은 일반적으로 다음의 네 가지 방식을 사용한다.  
 
 - $$\pm1.5*IQR$$ 이상/이하 제거
-- 표준정규분포로 변환 후 $$\pm 3 \sigma$$ 이상/이하 제거
+- 표준 정규 분포로 변환 후 $$\pm 3 \sigma$$ 이상/이하 제거
 - 도메인 지식을 이용한 제거 및 대체
 - Binning 처리
 
@@ -69,7 +69,7 @@ max & = Q3 + 1.5 * IQR \\
 출처: [9 Real Life Examples Of Normal Distribution](https://studiousguy.com/real-life-examples-normal-distribution/)
 {:.figcaption}
 
-통계학 기본을 공부 했다면 위 그림과 같은 표준정규분포 그래프를 본 적이 있을 텐데, 약 $$\pm 2 \sigma$$에서 95%, 약 $$\pm 3 \sigma$$에서 99% 수준으로 표준정규분포에 들어가게 되고, 분야에 따라 다르지만 일반적으로 $$\pm 3 \sigma$$를 의미 있는 데이터로 본다. ([표준정규분포표 보러가기](https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative(less_than_Z)))
+통계학 기본을 공부 했다면 위 그림과 같은 표준 정규 분포 그래프를 본 적이 있을 텐데, 약 $$\pm 2 \sigma$$에서 95%, 약 $$\pm 3 \sigma$$에서 99% 수준으로 표준 정규 분포에 들어가게 되고, 분야에 따라 다르지만 일반적으로 $$\pm 3 \sigma$$를 의미 있는 데이터로 본다. ([표준 정규 분포표 보러가기](https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative(less_than_Z)))
 
 그리고 $$Q1$$과 $$Q3$$는 각각 $$\pm 0.675 \sigma$$에 위치하는데, 이 사실을 기반으로 계수에 따른 $$IQR$$의 범위를 구해보면,  
 
@@ -124,7 +124,7 @@ $$\begin{align*}
 
 좀 더 정확한 계산값을 사용하고 싶을 때는 $$1.7$$을 계수로 사용하면 정상 데이터의 범위가 $$\pm 2.97 \sigma$$이 되어 $$\pm 3 \sigma$$에 좀 더 가까운 결과가 나오게 된다.  
 
-💡 실제 데이터의 분포에 상관없이 표준정규분포를 가정하고 IQR 방식을 사용할 수 있는 이유는 [중심극한정리](https://ko.wikipedia.org/wiki/%EC%A4%91%EC%8B%AC_%EA%B7%B9%ED%95%9C_%EC%A0%95%EB%A6%AC)가 이론적 배경이라고 한다. [중심극한정리](https://ko.wikipedia.org/wiki/%EC%A4%91%EC%8B%AC_%EA%B7%B9%ED%95%9C_%EC%A0%95%EB%A6%AC)는 모집단이 어떤 분포를 가지고 있던지 간에 (모집단 분포가 어떤 모양이던 상관없이) 일단 표본의 크기가 충분히 크다면 표본평균들의 분포가 모집단의 모수를 기반으로한 정규분포를 이룬다는 정리이다.  
+💡 실제 데이터의 분포에 상관없이 표준 정규 분포를 가정하고 IQR 방식을 사용할 수 있는 이유는 [중심극한정리](https://ko.wikipedia.org/wiki/%EC%A4%91%EC%8B%AC_%EA%B7%B9%ED%95%9C_%EC%A0%95%EB%A6%AC)가 이론적 배경이라고 한다. [중심극한정리](https://ko.wikipedia.org/wiki/%EC%A4%91%EC%8B%AC_%EA%B7%B9%ED%95%9C_%EC%A0%95%EB%A6%AC)는 모집단이 어떤 분포를 가지고 있던지 간에 (모집단 분포가 어떤 모양이던 상관없이) 일단 표본의 크기가 충분히 크다면 표본평균들의 분포가 모집단의 모수를 기반으로한 정규 분포를 이룬다는 정리이다.  
 {:.note}
 
 ❗ 문제는 정확히 어떤 논리적 전개를 통해서 중심극한정리가 IQR 방식 이상점 제거의 이론적 근거가 되는지는 명확한 설명을 아직 못 찾았다. 관련 교재 등에 IQR 방식으로 이상점을 찾는다고 해서 정리는 해보았는데, 근거가 있는 내용인지 조금 의심스럽다.  

@@ -233,9 +233,9 @@ res = smf.ols(formula='Lottery ~ np.log(Literacy)', data=df).fit()
 - Omnibus: 디아고스티노 검정(귀무가설 검정), 비대칭도와 첨도를 결합한 정규성 테스트, 값이 클수록 정규 분포를 따른다는 의미
 - Prob(Omnibus): 디아고스티노 검정이 유의한지 판단, 0.05 이하일 경우 유의하다고 판단
 - Skew: 왜도, 평균 주위의 잔차들의 대칭하는지를 보는 것이며, 0에 가까울수록 대칭
-- Kurtosis: 첨도, 잔차들의 분포 모양이며, 3에 가까울 수록 정규분포이다. (음수이면 평평한 형태, 양수는 뾰족한 형태)
+- Kurtosis: 첨도, 잔차들의 분포 모양이며, 3에 가까울 수록 정규 분포이다. (음수이면 평평한 형태, 양수는 뾰족한 형태)
 - Durbin-Watson: 더빈왓슨 정규성 검정이며, 잔차의 독립성 여부를 판단 (1.5 ~ 2.5 사이일때 잔차는 독립적이라고 판단하며 0이나 4에 가까울 수록 잔차들은 자기상관을 가지고 있다고 판단)
-- Jarque-Bera (JB): 자크베라 정규성 검정, 값이 클 수록 정규분포의 데이터를 사용했다는 것
+- Jarque-Bera (JB): 자크베라 정규성 검정, 값이 클 수록 정규 분포의 데이터를 사용했다는 것
 - Cond. No.: 다중공선성 검정, 독립변수간 상관관계가 있는지 보는 것이며, 10이상이면 다중공선성이 있다고 판단
 
 - [2] The condition number is large, 1.51e+04. This might indicate that there are strong multicollinearity or other numerical problems. : 다중공선성이 있음을 경고함
