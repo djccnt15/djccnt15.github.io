@@ -98,16 +98,23 @@ $$\textbf{u} \odot \textbf{v}$$
 Python으로 구현하면 아래와 같다.  
 
 ```python
-from functools import reduce
-
 scalar = int | float
 vector = list[scalar]
+
+
+def production(data: vector) -> float:
+    """product all elements in data with for loop"""
+
+    res = 1
+    for i in data:
+        res *= i
+    return res
 
 
 def v_hmul(*a: vector) -> vector:
     """returns hadamard product of vectors"""
 
-    return [reduce(lambda n, m: n * m, v) for v in zip(*a)]
+    return [production(v) for v in zip(*a)]  # type: ignore
 
 
 def v_hdiv(a: vector, b: vector) -> vector:
@@ -223,17 +230,24 @@ $$A \odot B$$
 Python으로 구현하면 아래와 같다.  
 
 ```python
-from functools import reduce
-
 scalar = int | float
 vector = list[scalar]
 matrix = list[vector]
 
 
+def production(data: vector) -> float:
+    """product all elements in data with for loop"""
+
+    res = 1
+    for i in data:
+        res *= i
+    return res
+
+
 def mat_hmul(*a: matrix) -> matrix:
     """returns hadamard product of matrix"""
 
-    return [[reduce(lambda n, m: n * m, v) for v in zip(*i)] for i in zip(*a)]
+    return [[production(v) for v in zip(*i)] for i in zip(*a)]  # type: ignore
 
 
 def mat_hdiv(a: matrix, b: matrix) -> matrix:
