@@ -20,7 +20,7 @@ related_posts:
 
 ### 1-1. form 생성
 
-💡 [form](https://docs.djangoproject.com/en/4.1/topics/forms/)은 말 그대로 일종의 양식으로, 사용자가 입력한 데이터를 서버로 전달할 때 사용자가 데이터를 입력할 양식을 정하는 기능을 한다. Django의 form의 사용에 대한 자세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/ref/forms/api/)를 참고하자.  
+💡[form](https://docs.djangoproject.com/en/4.1/topics/forms/)은 말 그대로 일종의 양식으로, 사용자가 입력한 데이터를 서버로 전달할 때 사용자가 데이터를 입력할 양식을 정하는 기능을 한다. Django의 form의 사용에 대한 자세한 설명은 [여기](https://docs.djangoproject.com/en/4.1/ref/forms/api/)를 참고하자.  
 {:.note}
 
 `board_qna/forms.py` 파일에 아래와 같은 내용을 추가해준다.  
@@ -127,7 +127,7 @@ urlpatterns = [
 ```
 {% endraw %}
 
-💡 {% raw %}`{% csrf_token %}`{% endraw %}은 보안 관련 항목으로 form으로 전송한 데이터가 실제 웹 페이지에서 작성한 데이터인지를 판단하는 역할을 한다. `<form>` 태그를 사용할 때는 반드시 같이 사용해줘야 한다.  
+💡{% raw %}`{% csrf_token %}`{% endraw %}은 보안 관련 항목으로 form으로 전송한 데이터가 실제 웹 페이지에서 작성한 데이터인지를 판단하는 역할을 한다. `<form>` 태그를 사용할 때는 반드시 같이 사용해줘야 한다.  
 {:.note}
 
 Django에서 프로젝트를 시작하면 아래와 같이 `MIDDLEWARE`의 기본 요소로 추가되어 있다.  

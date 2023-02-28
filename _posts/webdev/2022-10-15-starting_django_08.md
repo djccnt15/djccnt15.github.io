@@ -55,7 +55,7 @@ class Answer(models.Model):
         return self.content
 ```
 
-💡 데이터 모델의 필드 옵션에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-options)에서 볼 수 있는데, `null` 옵션은 데이터베이스에 관련된 옵션이고, `blank`는 데이터 검사에 관련된 옵션이다. 또한 데이터 모델에서 `related_name` 파라미터를 통해 관계 모델을 호출할 이름을 설정해줄 수 있다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.ForeignKey.related_name) 참고  
+💡데이터 모델의 필드 옵션에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-options)에서 볼 수 있는데, `null` 옵션은 데이터베이스에 관련된 옵션이고, `blank`는 데이터 검사에 관련된 옵션이다. 또한 데이터 모델에서 `related_name` 파라미터를 통해 관계 모델을 호출할 이름을 설정해줄 수 있다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.ForeignKey.related_name) 참고  
 {:.note}
 
 모델을 변경한 후에는 데이터베이스에 적용하기 위한 마이그레이션을 진행해야한다.  

@@ -186,7 +186,7 @@ SECRET_KEY = get_secret(var="SECRET_KEY")
 }
 ```
 
-❗ 이렇게 만든 **JSON 파일은 `.gitignore` 파일에 반드시 추가**해서 공개된 저장소에 올라가지 않도록 설정하고, 별도로 보관해야 한다.  
+\이렇게 만든 **JSON 파일은 `.gitignore` 파일에 반드시 추가**해서 공개된 저장소에 올라가지 않도록 설정하고, 별도로 보관해야 한다.  
 {:.note title='warning'}
 
 ## 5. 감상..?

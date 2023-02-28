@@ -14,7 +14,7 @@ related_posts:
 * toc
 {:toc}
 
-❗ 아래 내용은 블로그에 처음에 적용했던 [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) 테마를 커스터마이징 했던 내용들이다. **현재 테마와는 관련 없다.**  
+아래 내용은 블로그에 처음에 적용했던 [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) 테마를 커스터마이징 했던 내용들이다. **현재 테마와는 관련 없다.**  
 {:.note title='attention'}
 
 ## 1. 각종 블로그 스타일 수정

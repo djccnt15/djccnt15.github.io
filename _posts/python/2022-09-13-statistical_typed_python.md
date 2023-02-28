@@ -106,7 +106,7 @@ Found 1 error in 1 file (checked 1 source file)
 
 ![python_type_checking_mypy](/assets/img/posts/python_type_checking_mypy.png)
 
-💡 참고로 [Variable Annotations](https://peps.python.org/pep-0008/#variable-annotations)는 Python 3.6 부터 도입된 일종의 주석 기능으로, [PEP 526](https://peps.python.org/pep-0526/)에서 세부 내용을 확인할 수 있다.  
+💡참고로 [Variable Annotations](https://peps.python.org/pep-0008/#variable-annotations)는 Python 3.6 부터 도입된 일종의 주석 기능으로, [PEP 526](https://peps.python.org/pep-0526/)에서 세부 내용을 확인할 수 있다.  
 {:.note}
 
 #### IDE 기능 사용

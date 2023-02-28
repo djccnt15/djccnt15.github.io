@@ -196,7 +196,7 @@ Django가 지원하는 여러 가지 DB의 백엔드 엔진은 아래와 같다.
 
 [^1]: SQLite는 개발용이나 소규모 프로젝트에서 사용되는 가벼운 파일 기반의 데이터베이스로, 개발 시에는 SQLite를 사용하여 빠르게 개발하고 실제 운영에 들어가면 좀 더 규모있는 Database를 사용하는 것이 일반적이라고 한다.  
 
-💡 Django의 Database에 대한 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/databases/)에서 확인할 수 있다.  
+💡Django의 Database에 대한 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/databases/)에서 확인할 수 있다.  
 {:.note}
 
 ### 2-3. Model 생성
@@ -256,7 +256,7 @@ class Answer(models.Model):
 id = models.BigAutoField(primary_key=True)
 ```
 
-💡 Django에서 모든 모델은 반드시 Primary Key가 있어야 하는데, 만약 Primary Key 필드를 직접 지정하고 싶다면 해당 필드에 `primary_key=True` 옵션을 주면 되고, 이 경우에는 id 필드가 자동으로 생성되지 않는다.  
+💡Django에서 모든 모델은 반드시 Primary Key가 있어야 하는데, 만약 Primary Key 필드를 직접 지정하고 싶다면 해당 필드에 `primary_key=True` 옵션을 주면 되고, 이 경우에는 id 필드가 자동으로 생성되지 않는다.  
 {:.note}
 
 ### 2-4. migrations 생성
@@ -449,7 +449,7 @@ admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
 ```
 
-💡 관리자와 관련된 기능에 대한 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/contrib/admin/)를 참고  
+💡관리자와 관련된 기능에 대한 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/contrib/admin/)를 참고  
 {:.note}
 
 ---

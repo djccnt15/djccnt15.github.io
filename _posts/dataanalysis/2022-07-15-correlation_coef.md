@@ -20,7 +20,7 @@ related_posts:
 
 상관 계수는 **-1에서 1 사이의 값**을 지니며, 부호는 상관 관계의 방향, 수치는 상관의 정도를 나타낸다. 데이터 분석에 있어서 요구되는 상관 계수의 수치는 분석 대상에 따라 달라지는데, 대체로 사회과학에서는 수치가 조금 낮아도 강력한 상관관계로 해석하며 오히려 너무 높은 상관 관계는 데이터 조작을 의심하게 되지만, 반대로 공학계통에서는 높은 상관관계를 요구한다.  
 
-💡 상관 계수는 데이터가 추세선을 중심으로 분포한 정도만 알려줄 뿐 추세선의 기울기는 알려주지 않는다. 추세선의 기울기를 분석하는 방법은 [회귀분석](/dataanalysis/regression_statsmodels/)이다.  
+💡상관 계수는 데이터가 추세선을 중심으로 분포한 정도만 알려줄 뿐 추세선의 기울기는 알려주지 않는다. 추세선의 기울기를 분석하는 방법은 [회귀분석](/dataanalysis/regression_statsmodels/)이다.  
 {:.note}
 
 ## 수치형 변수의 상관 계수
@@ -68,7 +68,7 @@ corrcoef = np.corrcoef(a, b)
 pearsonr = stats.pearsonr(a, b)
 ```
 
-💡 피어슨 상관 계수 $$r$$의 제곱과 다중 선형 회귀 모델의 결정 계수(Coefficient of determination) $$R^{2}$$은 같지 않다. 자세한 내용은 [여기](https://rython.tistory.com/17)를 참고하자.  
+💡피어슨 상관 계수 $$r$$의 제곱과 다중 선형 회귀 모델의 결정 계수(Coefficient of determination) $$R^{2}$$은 같지 않다. 자세한 내용은 [여기](https://rython.tistory.com/17)를 참고하자.  
 {:.note}
 
 ### 상관 계수에 따른 데이터 분포
@@ -102,7 +102,7 @@ plt.show()
 ![plot_corr.png](/assets/img/posts/plot_corr.png)
 {:.text-center}
 
-❗ 참고로 특정 분포의 데이터들은 명백하게 상관관계가 있음에도 불구하고 피어슨 상관관계가 0으로 계산되는데, 이 때는 구간을 나누어서 확인해야 한다. 자세한 내용은 [여기](https://datascienceschool.net/02%20mathematics/07.05%20%EA%B3%B5%EB%B6%84%EC%82%B0%EA%B3%BC%20%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98.html#id8)를 참고하자.
+❗참고로 특정 분포의 데이터들은 명백하게 상관관계가 있음에도 불구하고 피어슨 상관관계가 0으로 계산되는데, 이 때는 구간을 나누어서 확인해야 한다. 자세한 내용은 [여기](https://datascienceschool.net/02%20mathematics/07.05%20%EA%B3%B5%EB%B6%84%EC%82%B0%EA%B3%BC%20%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98.html#id8)를 참고하자.
 {:.note title='attention'}
 
 ## 순서형 변수의 상관 계수

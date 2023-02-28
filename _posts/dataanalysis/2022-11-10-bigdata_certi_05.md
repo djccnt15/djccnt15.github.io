@@ -47,7 +47,7 @@ print(linear_model.__all__)
 ['ARDRegression', 'BayesianRidge', 'ElasticNet', 'ElasticNetCV', 'Hinge', 'Huber', 'HuberRegressor', 'Lars', 'LarsCV', 'Lasso', 'LassoCV', 'LassoLars', 'LassoLarsCV', 'LassoLarsIC', 'LinearRegression', 'Log', 'LogisticRegression', 'LogisticRegressionCV', 'ModifiedHuber', 'MultiTaskElasticNet', 'MultiTaskElasticNetCV', 'MultiTaskLasso', 'MultiTaskLassoCV', 'OrthogonalMatchingPursuit', 'OrthogonalMatchingPursuitCV', 'PassiveAggressiveClassifier', 'PassiveAggressiveRegressor', 'Perceptron', 'QuantileRegressor', 'Ridge', 'RidgeCV', 'RidgeClassifier', 'RidgeClassifierCV', 'SGDClassifier', 'SGDRegressor', 'SGDOneClassSVM', 'SquaredLoss', 'TheilSenRegressor', 'enet_path', 'lars_path', 'lars_path_gram', 'lasso_path', 'orthogonal_mp', 'orthogonal_mp_gram', 'ridge_regression', 'RANSACRegressor', 'PoissonRegressor', 'GammaRegressor', 'TweedieRegressor']
 ```
 
-❗ pandas는 `__all__` 명령어를 지원하지 않아 아래와 같이 `dir` 함수를 써야 한다.  
+❗pandas는 `__all__` 명령어를 지원하지 않아 아래와 같이 `dir` 함수를 써야 한다.  
 
 ```python
 import pandas as pd

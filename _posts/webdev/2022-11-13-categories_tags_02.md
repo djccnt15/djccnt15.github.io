@@ -76,7 +76,7 @@ layout: plain
 ```
 {% endraw %}
 
-❗ Liquid의 [반복문](https://shopify.github.io/liquid/tags/iteration/)은 스페이스를 구분자로 사용하는데, 그 부분을 따로 처리하지 않았기 때문에 **카테고리에 띄어쓰기가 포함된 포스트가 있으면 버그가 발생**한다.  
+❗Liquid의 [반복문](https://shopify.github.io/liquid/tags/iteration/)은 스페이스를 구분자로 사용하는데, 그 부분을 따로 처리하지 않았기 때문에 **카테고리에 띄어쓰기가 포함된 포스트가 있으면 버그가 발생**한다.  
 {:.note title='attention'}
 
 ### 2-2. 태그 페이지

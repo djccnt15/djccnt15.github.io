@@ -72,7 +72,10 @@ inner_product = np.inner(a, b)
 
 ## 2. 노름(norm)
 
-**노름(norm)**은 벡터의 크기 또는 길이를 말하며 $$\Vert \textbf{v} \Vert$$로 표기한다. 내적이 정의되면 노름(norm)은 자기 자신의 [내적(inner product)](/mathematics/linear_algebra_07/#1-내적)의 제곱근으로 정의할 수 있다. (그러나 노름(norm)이 있다고 해서 그에 자연스럽게 대응되는 내적이 항상 존재하는 것은 아니다.)  
+**노름(norm)**은 벡터의 크기 또는 길이를 말하며 $$\Vert \textbf{v} \Vert$$로 표기한다. 내적이 정의되면 노름(norm)은 자기 자신의 [내적(inner product)](/mathematics/linear_algebra_07/#1-내적)의 제곱근으로 정의할 수 있다.  
+
+❗그러나 노름(norm)이 있다고 해서 그에 자연스럽게 대응되는 내적이 항상 존재하는 것은 아니다.  
+{:.note title='attention'}
 
 벡터 $$\textbf{v}$$의 $$p$$차 노름(norm)은 아래와 같이 정의된다.  
 

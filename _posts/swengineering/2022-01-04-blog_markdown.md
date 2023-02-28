@@ -71,7 +71,7 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 
 $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 
-💡 [CodeCogs Equation Editor](https://editor.codecogs.com/)을 이용하면 쉽게 LaTex 수식을 만들 수 있다.  
+💡[CodeCogs Equation Editor](https://editor.codecogs.com/)을 이용하면 쉽게 LaTex 수식을 만들 수 있다.  
 {:.note}
 
 ## 4. 템플릿 언어 인식 금지

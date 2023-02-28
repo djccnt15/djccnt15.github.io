@@ -167,7 +167,7 @@ Hi djccnt15! You've successfully authenticated, but GitHub does not provide shel
 ![github_sshkey_02](/assets/img/posts/github_sshkey_02.png)
 {:.border-image}
 
-## 3. ⚡ 작업용 명령어
+## 3. ⚡작업용 명령어
 
 [ssh-agent를 자동 실행하는 프로그램](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows)을 만들어두는게 아닌 이상 매번 터미널을 킬 때마다 ssh-agent를 새로 시작해줘야 한다.  
 

@@ -22,7 +22,7 @@ related_posts:
 
 데이터 사이언티스트를 목표로 하는 사람이 인공신경망까지의 진도에 있어서 어떤 알고리즘들을 공부할지 계획을 세울 때 참고하기에도 좋을 듯 하다.  
 
-💡 [scikit-learn 공식 홈페이지](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html)에서는 각각의 알고리즘으로의 링크도 제공한다.  
+💡[scikit-learn 공식 홈페이지](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html)에서는 각각의 알고리즘으로의 링크도 제공한다.  
 {:.note}
 
 ---

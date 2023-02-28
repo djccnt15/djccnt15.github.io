@@ -214,7 +214,7 @@ def question_create(request):
     ...
 ```
 
-💡 Django에서 로그인 회원만 특정 기능을 사용할 수 있도록 제한하는 방법은 여러 가지가 있는데, 전체 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/default/#limiting-access-to-logged-in-users)를 참고하자.  
+💡Django에서 로그인 회원만 특정 기능을 사용할 수 있도록 제한하는 방법은 여러 가지가 있는데, 전체 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/default/#limiting-access-to-logged-in-users)를 참고하자.  
 {:.note}
 
 `template/common/login.html` 파일에 추가한 아래 코드는 `login_required` 데코레이터를 사용할 때, 로그인 후 이동할 페이지를 넘겨주는 역할을 한다.  

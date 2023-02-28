@@ -18,7 +18,7 @@ related_posts:
 
 프로그래밍을 하다보면 객체, 즉 메모리에 있는 바이너리 데이터를 파일로 저장하고 그 파일을 불러와서 재활용해야 하는 경우가 있다. 나는 주로 전처리 관련 모델과 AI 모델을 저장하고 다시 불러올 일이 많은데, 이 때 사용하는 모듈이 pickle과 Joblib이다.  
 
-❗ 외부의 객체를 불러오는 것이기 때문에 절대 안전하지 않고, 반드시 신뢰할 수 있는 파일만 사용해야한다. Python에서 보안 및 데이터 암호화는 [hashlib](https://docs.python.org/3/library/hashlib.html)과 [hmac](https://docs.python.org/3/library/hmac.html)모듈 참고
+❗외부의 객체를 불러오는 것이기 때문에 절대 안전하지 않고, 반드시 신뢰할 수 있는 파일만 사용해야한다. Python에서 보안 및 데이터 암호화는 [hashlib](https://docs.python.org/3/library/hashlib.html)과 [hmac](https://docs.python.org/3/library/hmac.html)모듈 참고
 {:.note title='attention'}
 
 ## pickle
@@ -49,7 +49,7 @@ print(bar.data)
 sample data
 ```
 
-💡 바이너리 파일을 읽고 쓰는 것이기 때문에 모드에 `b`를 지정해야 한다.  
+💡바이너리 파일을 읽고 쓰는 것이기 때문에 모드에 `b`를 지정해야 한다.  
 {:.note}
 
 ## Joblib

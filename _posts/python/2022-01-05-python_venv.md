@@ -43,7 +43,7 @@ Python은 라이브러리 버전 관리가 중요하기 때문에 프로젝트 �
 (venv_name) > Scripts\deactivate.bat
 ```
 
-### 2. ⚡ 특정 Python version 사용
+### 2. ⚡특정 Python version 사용
 
 프로젝트를 하다보면 여러 가지 이유로 특정 Python 버전을 사용해서 작업을 해야한다. 이런 경우에는 아래 명령어와 같이 사용할 파이썬 버전의 실행파일 위치를 지정해서 특정 버전의 Python을 사용하도록 하면 된다.  
 
@@ -56,7 +56,7 @@ Python은 라이브러리 버전 관리가 중요하기 때문에 프로젝트 �
 > C:\programming\Python\Python311\python.exe -m venv [venv_name]
 ```
 
-💡 참고로, 여러 버전의 Python을 설치하면 시스템 환경 변수를 기준으로 가장 위에 있는 Python이 dafault로 사용 된다.  
+💡참고로, 여러 버전의 Python을 설치하면 시스템 환경 변수를 기준으로 가장 위에 있는 Python이 dafault로 사용 된다.  
 {:.note}
 
 ### 3. package 목록 관리
@@ -191,7 +191,7 @@ $ sudo apt install python3-pip
 $ sudo apt-get install python3-venv
 ```
 
-### 2. ⚡ 특정 Python version 사용
+### 2. ⚡특정 Python version 사용
 
 사용하고 싶은 파이썬 버전 `*` 자리에 입력 (e.g. `python3.7`)  
 
