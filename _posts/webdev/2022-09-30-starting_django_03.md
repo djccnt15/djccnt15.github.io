@@ -256,7 +256,7 @@ STATICFILES_DIRS = [
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [점프 투 장고: 2-04 조회와 템플릿](https://wikidocs.net/70736)
 - [점프 투 장고: 2-05 URL 별칭](https://wikidocs.net/70741)
 - [점프 투 장고: 2-07 스태틱](https://wikidocs.net/70804)

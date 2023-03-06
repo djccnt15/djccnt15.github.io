@@ -370,7 +370,7 @@ urlpatterns = [
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [점프 투 장고: 2-06 데이터 저장](https://wikidocs.net/73236)
 - [점프 투 장고: 2-10 폼](https://wikidocs.net/70855)
 - [점프 투 장고: 3-01 내비게이션바](https://wikidocs.net/71108)

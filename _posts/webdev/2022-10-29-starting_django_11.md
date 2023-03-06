@@ -101,5 +101,5 @@ def answer_vote(request, answer_id):
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [점프 투 장고: 3-12 앵커](https://wikidocs.net/71792)

@@ -18,7 +18,7 @@ related_posts:
 
 언젠가부터 아래와 같은 meme이 웹 상에 떠돌아다닌다.  
 
-![googling_stuff_online_does_not_make_you_a_doctor](/assets/img/posts/googling_stuff_online_does_not_make_you_a_doctor.jpg){: width="400px"}  
+![googling_stuff_online_does_not_make_you_a_doctor](/assets/img/posts/googling_stuff_online_does_not_make_you_a_doctor.jpg){: width="400px"}
 
 구글링이 의사를 만들어주지는 않지만, 프로그래머는 만들어준다는 의미인데 나에게 너무 잘 맞는 말로 느껴진다.  
 

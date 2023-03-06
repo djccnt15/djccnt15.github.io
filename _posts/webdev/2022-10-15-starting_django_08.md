@@ -341,5 +341,5 @@ Array.from(delete_elements).forEach(function (element) {
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [점프 투 장고: 3-09 수정과 삭제](https://wikidocs.net/71445)

@@ -210,6 +210,6 @@ urlpatterns = [
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [점프 투 장고: 3-10 views.py 파일 분리](https://wikidocs.net/71657)
 - [The Python Tutorial: 6. Modules](https://docs.python.org/3/tutorial/modules.html)

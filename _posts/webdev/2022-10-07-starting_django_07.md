@@ -199,6 +199,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [점프 투 장고: 3-03 템플릿 필터](https://wikidocs.net/71313)
 - [점프 투 장고: 3-02 페이징](https://wikidocs.net/71240)

@@ -108,4 +108,4 @@ urlpatterns = [  # include() is a function for including url file in each app
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)

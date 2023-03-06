@@ -31,7 +31,7 @@ GitHub Pages를 이용한 블로그 구축 및 공부노트
 # automatic refresh option
 > bundle exec jekyll serve --livereload
 
-# build with future dated posting(just like GitHub)
+# build with future dated posting
 > bundle exec jekyll serve --future
 
 # build with drafts(GitHub doesn't show drafts)

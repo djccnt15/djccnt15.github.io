@@ -168,5 +168,5 @@ Array.from(recommend_elements).forEach(function (element) {
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [점프 투 장고: 3-11 추천](https://wikidocs.net/71791)

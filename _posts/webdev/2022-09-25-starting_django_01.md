@@ -197,7 +197,7 @@ SECRET_KEY = get_secret(var="SECRET_KEY")
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [Writing your first Django app, part 1](https://docs.djangoproject.com/en/4.1/intro/tutorial01/)
 - [Writing your first Django app, part 3](https://docs.djangoproject.com/en/4.1/intro/tutorial03/)
 - [점프 투 장고: 1-04 장고 프로젝트 생성하기](https://wikidocs.net/72377)

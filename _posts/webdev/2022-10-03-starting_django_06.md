@@ -485,7 +485,7 @@ urlpatterns = [
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [점프 투 장고: 3-05 로그인과 로그아웃](https://wikidocs.net/71259)
 - [점프 투 장고: 3-06 회원가입](https://wikidocs.net/71303)
 - [점프 투 장고: 3-07 모델 변경](https://wikidocs.net/71306)

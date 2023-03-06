@@ -454,7 +454,7 @@ admin.site.register(Answer, AnswerAdmin)
 
 ---
 ## Reference
-- [전체 실습 코드](https://github.com/djccnt15/starting_django)
+- [전체 실습 코드](https://github.com/djccnt15/study_django)
 - [Writing your first Django app, part 2](https://docs.djangoproject.com/en/4.1/intro/tutorial02/)
 - [점프 투 장고: 2-01 URL과 뷰](https://wikidocs.net/70649)
 - [점프 투 장고: 2-02 모델](https://wikidocs.net/70650)

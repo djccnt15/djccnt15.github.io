@@ -39,7 +39,7 @@ GitHub과 같은 Git 서비스를 이용한다면 저장소를 생성할 때 프
 
 기존에 관리 대상인 파일은 `.gitignore`에 추가하더라도 변경 내용이 추가로 업로드 되지 않는 것일 뿐 기존 내용은 그대로 저장소에 남아 있게 된다. 따라서 해당 파일을 [Git 저장소에서 삭제](/swengineering/manual_git_04/#rm)해줘야 한다.  
 
-```powershell
+```bash
 # 파일을 워킹 트리와 인덱스에서 삭제
 $ git rm <pathspec>
 
@@ -47,5 +47,5 @@ $ git rm <pathspec>
 $ git rm --cached <pathspec>
 
 # 폴더를 원격 저장소에서만 삭제
-$ git rm -r --cached <dir_name>
+$ git rm -r --cached <directory>
 ```
