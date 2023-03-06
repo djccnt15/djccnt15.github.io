@@ -9,7 +9,7 @@ tags: [correlation]
 image:
     path: /assets/img/posts/thumbnail_correlation_coefficient.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    - _posts/dataanalysis/2023-03-07-correlation_analysis.md
 ---
 * toc
 {:toc}
