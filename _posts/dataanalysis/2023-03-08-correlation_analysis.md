@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[상관분석] 상관관계 분석하기'
 description: >
-    Python으로 상관 분석 하는 방법
+    Python으로 상관분석 하는 방법
 categories: [DataAnalysis]
 tags: [correlation, pandas]
 image:
@@ -14,9 +14,9 @@ related_posts:
 * toc
 {:toc}
 
-## 간단한 상관 분석 방법
+## 간단한 상관분석 방법
 
-**상관 분석(correlation analysis)**은 한 변수의 변화에 따른 다른 변수의 변화 정도와 방향(상관관계)을 확인하는 분석기법으로, 두 변수 사이의 통계적 관계를 표현하기 위해 특정한 상관관계의 정도를 수치적으로 나타낸 수치인 **상관계수(correlation coefficient)**를 통해 상관의 정도를 파악한다.  
+**상관분석(correlation analysis)**은 한 변수의 변화에 따른 다른 변수의 변화 정도와 방향(상관관계)을 확인하는 분석기법으로, 두 변수 사이의 통계적 관계를 표현하기 위해 특정한 상관관계의 정도를 수치적으로 나타낸 수치인 **상관계수(correlation coefficient)**를 통해 상관의 정도를 파악한다.  
 
 상관계수는 **-1에서 1 사이의 값**을 지니며, 부호는 상관관계의 방향, 수치는 상관의 정도를 나타낸다. 데이터 분석에 있어서 요구되는 상관계수의 수치는 분석 대상에 따라 달라지는데, 대체로 사회과학에서는 수치가 조금 낮아도 강력한 상관관계로 해석하며 오히려 너무 높은 상관관계는 데이터 조작을 의심하게 되지만, 반대로 공학계통에서는 높은 상관관계를 요구한다.  
 
@@ -28,7 +28,7 @@ related_posts:
 import pydataset as pds
 
 df = pds.data('iris').reset_index(drop=True)
-corr = df.corr()
+corr = df[[x for x in df.columns if df[x].dtype != 'object']].corr()
 
 print(corr)
 ```
@@ -69,7 +69,7 @@ plt.show()
 
 ### 간단한 함수를 사용한 계산
 
-앞의 방법으로 상관 분석을 진행하면 전체 칼럼의 전체 칼럼에 대한 상관계수를 분석을 진행하기 때문에 그다지 필요하지 않은 칼럼 간의 상관계수도 전부 계산되고, 칼럼이 많아지면 내용이 잘 보이지도 않는다.  
+앞의 방법으로 상관분석을 진행하면 전체 칼럼의 전체 칼럼에 대한 상관계수를 분석을 진행하기 때문에 그다지 필요하지 않은 칼럼 간의 상관계수도 전부 계산되고, 칼럼이 많아지면 내용이 잘 보이지도 않는다.  
 
 그래서 아래와 같이 필요한 칼럼만 골라서 테이블과 함께 입력하면 해당 칼럼끼리만 상관계수를 계산해주는 함수를 만들어보았다.  
 
@@ -79,15 +79,14 @@ import pandas as pd
 
 
 def pearson_series(x: pd.Series, y: pd.Series) -> float:
-    """returns pearson r correlation coefficient of only two array"""
+    """returns pearson r correlation coefficient of two arrays"""
 
-    df = pd.concat([x, y], axis=1)
-    df.dropna(inplace=True)
+    df = pd.concat(objs=[x, y], axis=1).dropna()
     return np.corrcoef(df.iloc[:, 0], df.iloc[:, 1])[0][1]
 
 
 def pearson_df(df: pd.DataFrame, list_a: list, list_b: list) -> pd.DataFrame:
-    """returns pearson r correlation coefficient of just few columns"""
+    """returns pearson r correlation coefficient of selected columns"""
 
     res = [{'a': a, 'b': b, 'pearson_r': pearson_series(df[a], df[b])} for a in list_a for b in list_b]
     return pd.DataFrame(res)
@@ -105,7 +104,7 @@ data = {
     "d": [5, 6, 7, 8]
 }
 
-df = pd.DataFrame.from_dict(data=data)
+df = pd.DataFrame(data=data)
 print(df.head())
 ```
 ```
@@ -124,10 +123,7 @@ print(pearson_series(df['a'], df['c']))
 ```
 
 ```python
-list_x = list(df.columns)[:2]
-list_y = list(df.columns)[2:]
-
-res = pearson_df(df=df, list_a=list_x, list_b=list_y)
+res = pearson_df(df=df, list_a=list(df.columns)[:2], list_b=list(df.columns)[2:])
 # res['pearson_r'] = res['pearson_r'].map('{:,.10f}'.format)
 res['pearson_r'] = [f'{x:,.10f}' for x in res['pearson_r']]
 print(res)
@@ -142,9 +138,9 @@ print(res)
 
 ### 골라낸 칼럼만 시각화
 
-상관 분석 결과는 시각화로 제시하는 경우도 많은데, 히트맵은 프리젠테이션에 적합하지는 않아서 개인적으로는 필요한 칼럼만 골라내서 일일이 산점도로 시각화하는 것을 더 선호한다.  
+상관분석 결과는 시각화로 제시하는 경우도 많은데, 히트맵은 프리젠테이션에 적합하지는 않아서 개인적으로는 필요한 칼럼만 골라내서 일일이 산점도로 시각화하는 것을 더 선호한다.  
 
-골라낸 칼럼들의 상관 분석을 산점도로 시각화 하는 코드는 아래와 같다.  
+골라낸 칼럼들의 상관분석을 산점도로 시각화 하는 코드는 아래와 같다.  
 
 ```python
 import matplotlib.pyplot as plt
@@ -152,8 +148,6 @@ import seaborn as sns
 import pydataset as pds
 
 df = pds.data('iris').reset_index(drop=True)
-df.columns = [i.replace('.', '_') for i in df.columns]
-corr = df.corr()
 
 list_x = list(df.columns)[:2]
 list_y = list(df.columns)[2:-1]
@@ -164,8 +158,9 @@ fig, axes = plt.subplots(
     figsize=(16, 16),
 )
 
-[sns.scatterplot(data=df, x=x, y=y, ax=axes[i][j], hue=df['Species'])
-    for i, x in enumerate(list_x) for j, y in enumerate(list_y)]
+for i, x in enumerate(list_x):
+    for j, y in enumerate(list_y):
+        sns.scatterplot(data=df, x=x, y=y, ax=axes[i][j], hue=df['Species'])
 
 plt.savefig(fname='iris_corr_scatter.png', bbox_inches='tight')
 plt.show()
