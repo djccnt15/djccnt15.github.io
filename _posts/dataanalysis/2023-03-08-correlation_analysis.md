@@ -24,11 +24,13 @@ related_posts:
 
 데이터 분석 과정에서 상관관계를 분석할 때, 아래와 같이 pandas의 [`corr` 메서드](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html)를 사용해서 간단하게 처리할 수 있다.  
 
+해당 메서드는 `method` 파라미터를 통해 [피어슨 상관계수](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient), [스피어만 상관계수](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient), [켄달 타우](https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient) 등을 골라서 계산할 수 있다.  
+
 ```python
 import pydataset as pds
 
 df = pds.data('iris').reset_index(drop=True)
-corr = df[[x for x in df.columns if df[x].dtype != 'object']].corr()
+corr = df[[x for x in df.columns if df[x].dtype != 'object']].corr(method='pearson')
 
 print(corr)
 ```
@@ -71,18 +73,18 @@ plt.show()
 
 앞의 방법으로 상관분석을 진행하면 전체 칼럼의 전체 칼럼에 대한 상관계수를 분석을 진행하기 때문에 그다지 필요하지 않은 칼럼 간의 상관계수도 전부 계산되고, 칼럼이 많아지면 내용이 잘 보이지도 않는다.  
 
-그래서 아래와 같이 필요한 칼럼만 골라서 테이블과 함께 입력하면 해당 칼럼끼리만 상관계수를 계산해주는 함수를 만들어보았다.  
+그래서 아래와 같이 필요한 칼럼만 골라서 테이블과 함께 입력하면 해당 칼럼들 간의 피어슨 상관계수를 계산해주는 함수를 만들어보았다.  
 
 ```python
-import numpy as np
 import pandas as pd
+from scipy import stats
 
 
 def pearson_series(x: pd.Series, y: pd.Series) -> float:
     """returns pearson r correlation coefficient of two arrays"""
 
     df = pd.concat(objs=[x, y], axis=1).dropna()
-    return np.corrcoef(df.iloc[:, 0], df.iloc[:, 1])[0][1]
+    return stats.pearsonr(df.iloc[:, 0], df.iloc[:, 1])[0]
 
 
 def pearson_df(df: pd.DataFrame, list_a: list, list_b: list) -> pd.DataFrame:
@@ -97,15 +99,14 @@ pandas의 `corr` 메서드와는 달리 데이터 타입이 numeric이 아닌 �
 실제 데이터프레임에 적용해보면 아래와 같다.  
 
 ```python
+import math
+
 data = {
-    "a": [1, 2, np.nan, 3],
+    "a": [1, 2, math.nan, 3],
     "b": [3, 5, 8, 10],
     "c": [1, 2, 3, 4],
     "d": [5, 6, 7, 8]
 }
-
-df = pd.DataFrame(data=data)
-print(df.head())
 ```
 ```
      a   b  c  d

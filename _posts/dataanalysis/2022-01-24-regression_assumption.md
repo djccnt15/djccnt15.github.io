@@ -137,7 +137,7 @@ $$y = \beta_{0}x_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \varepsilon$$
 
 $$\beta_{0}x_{0} + \varepsilon = y - \beta_{1}x_{1} - \beta_{2}x_{2}$$
 
-Sepal_Width의 영향력(결정계수)을 확인하기 위해 Sepal_Width와 Sepal_Length를 단변량 회귀 분석을 통해 확인해보자.  
+Sepal_Width의 영향력(결정계수)을 확인하기 위해 Sepal_Width와 Sepal_Length를 단변량 회귀분석을 통해 확인해보자.  
 
 ```python
 import statsmodels.formula.api as smf
@@ -217,7 +217,7 @@ plt.show()
 {:.text-center}
 
 Petal_Length와 Petal_Width의 상관성이 0.96으로 매우 높게 나오는데, 독립변수 간의 상관성이 있을 경우 다중공선성(Multicollinearity)이 있다고 표현되며, 분산팽창요인(VIF, Variance Inflation Factors)을 통해 다중공선성을 계산할 수 있다.  
-VIF를 계산하는 공식은 아래와 같고, $${R^{2}_{i}}$$은 $$i$$ 번째 독립변수에 대해 다른 독립변수들로 회귀 분석을 시행한 선형 모델의 $$R^{2}$$라는 뜻이다.  
+VIF를 계산하는 공식은 아래와 같고, $${R^{2}_{i}}$$은 $$i$$ 번째 독립변수에 대해 다른 독립변수들로 회귀분석을 시행한 선형 모델의 $$R^{2}$$라는 뜻이다.  
 
 $$VIF_{i} = \frac{1}{1-{R^{2}_{i}}}$$
 
@@ -254,7 +254,7 @@ print(vif)
 
 Petal_Length와 Petal_Width가 모두 10 이상이 나와 다중공선성이 있는 것으로 나타났다. 이러면 회귀분석 결과에 왜곡을 줘서 변수들의 결정계수가 틀리게 나오게 된다. 좀 더 정확한 회귀분석 결과를 위해 둘 중 하나를 제외하고 회귀분석을 시행해보자.  
 
-우선 Petal_Width를 제외하고 회귀 분석을 시행한 결과와 VIF는 아래와 같다.  
+우선 Petal_Width를 제외하고 회귀분석을 시행한 결과와 VIF는 아래와 같다.  
 
 ```python
 import statsmodels.formula.api as smf

@@ -32,7 +32,7 @@ $ git restore --staged <file>
 $ git restore --source=<commit> <file>
 ```
 
-### 특정 소스 지정하기
+## 특정 소스 지정하기
 
 restore 명령어의 상세 옵션은 아래와 같은데, `--source` 옵션을 사용하면 어느 소스의 내용으로 현재 파일의 내용을 바꿀 것인지 지정해줄 수 있다.  
 

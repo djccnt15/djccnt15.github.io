@@ -136,7 +136,7 @@ choice = [
 df['b'] = np.select(
     condlist=cond,
     choicelist=choice,
-    default=df['b']                 # all conditions evaluate to False
+    default=df['b']
 )
 
 print(df)
