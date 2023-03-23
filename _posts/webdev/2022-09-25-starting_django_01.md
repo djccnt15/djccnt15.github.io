@@ -157,13 +157,12 @@ SECRET_KEY = 'django-insecure-a)a75!_s7sm8rgd!gw7##m0b3nqzxybw($o+_+2oj^oo34)210
 우선 이 부분을 아래와 같이 변경하자. JSON 파일로 분리한 Secret Key를 읽어오는 코드다.  
 
 ```python
-import os
 import json
 
 from django.core.exceptions import ImproperlyConfigured
 
 # SECURITY WARNING: keep the secret key used in production secret!
-secret_file = os.path.join(BASE_DIR, 'secrets.json')  # set location of secrets.json
+secret_file = BASE_DIR, / 'secrets.json'  # set location of secrets.json
 with open(secret_file) as f:  # get data from secrets list
     secrets = json.loads(f.read())
 
