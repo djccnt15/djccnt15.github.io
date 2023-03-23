@@ -181,12 +181,10 @@ SECRET_KEY = get_secret(var="SECRET_KEY")
 다음으로는 위 코드를 통해 Secret Key를 읽어올 `secrets.json` 파일을 root 디렉토리에 아래와 같이 만들어주자.  
 
 ```json
-{
-    "SECRET_KEY": "YOUR_SECRET_KEY"
-}
+{"SECRET_KEY": "YOUR_SECRET_KEY"}
 ```
 
-\이렇게 만든 **JSON 파일은 `.gitignore` 파일에 반드시 추가**해서 공개된 저장소에 올라가지 않도록 설정하고, 별도로 보관해야 한다.  
+❗해당 JSON 파일은 `.gitignore` **파일에 반드시 추가**해서 공개된 저장소에 올라가지 않도록 설정하고, 별도로 보관해야 한다.  
 {:.note title='warning'}
 
 ## 5. 감상..?
