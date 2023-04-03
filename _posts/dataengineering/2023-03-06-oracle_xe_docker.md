@@ -5,7 +5,7 @@ title: '[Oracle] 도커로 Oracle XE 설치하기'
 description: >
     도커를 활용해서 Oracle XE 간단 설치하는 방법
 categories: [DataEngineering]
-tags: [oracle]
+tags: [oracle, docker]
 image:
     path: /assets/img/posts/thumbnail_oracle.png
 related_posts:
