@@ -188,11 +188,9 @@ dtypes: float64(4), object(1)
 memory usage: 7.0+ KB
 ```
 ```python
-[
-    print(col, get_outlier(df[col]))
-    for col in df
-    if df[col].dtypes != 'object' and get_outlier(df[col]).empty is not True
-]
+for col in df:
+    if df[col].dtypes != 'object' and get_outlier(df[col]).empty is not True:
+        print(col, get_outlier(df[col]))
 ```
 ```
 Sepal.Width Int64Index([16, 33, 34, 61], dtype='int64')
