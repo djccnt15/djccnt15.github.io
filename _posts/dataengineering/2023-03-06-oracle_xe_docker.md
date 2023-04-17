@@ -35,13 +35,8 @@ SQL Server를 설치했을 때도 겪었던 동일한 문제인데, DB는 항상
 다운 받은 도커 이미지로 Oracle XE 컨테이너를 만들고 실행하는 명령어는 아래와 같다.  
 
 ```
-> docker run -d -p 11521:1521 -e ORACLE_PASSWORD=<password> --name <name> gvenzl/oracle-xe
+> docker run -d -p 1521:1521 -e ORACLE_PASSWORD=<password> --name <name> gvenzl/oracle-xe
 ```
-
-💡가이드에서는 `-p 1521:1521`로 되어 있지만 `-p 11521:1521`로 설정해야 `11521` 포트를 통해서 해당 컨테이너에 접속할 수 있다.  
-{:.note}
-
-포트만 제대로 설정하면 그 이후는 Dbeaver 및 SQL Developer로 접속해서 로컬 환경에 설치한 것과 동일하게 작업할 수 있다.  
 
 ---
 ## Reference
