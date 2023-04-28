@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[Python] 정적 타입 언어처럼 사용하기'
 description: >
-    python에서 변수 타입을 고정하고 엄격하게 사용하는 방법
+    Python에서 변수 타입을 고정하고 엄격하게 사용하는 방법
 categories: [Python]
 tags: [python]
 image:
