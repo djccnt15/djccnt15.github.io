@@ -67,11 +67,11 @@ class MyArray:
         return self._capacity
 
     def replace(self, idx: int, val) -> list:
-        self.array: list = [v if i < idx else val if i == idx else v for i, v in enumerate(self.array)]
+        self.array[idx] = val
         return self.array
 
     def remove(self, idx:int) -> list:
-        self.array: list = [v if i < idx else None if i == idx else v for i, v in enumerate(self.array)]
+        self.array[idx] = None
         return self.array
 
     def reverse(self) -> list:
@@ -87,9 +87,9 @@ class MyArray:
                 res += 1
         return res
 
-    def index(self, val) -> int | None:  # linear search
+    def index(self, val) -> list | None:  # linear search
         res: list = [i for i, v in enumerate(self.array) if v == val]
-        return len(res) if len(res) > 0 else None
+        return res if len(res) > 0 else None
 
     def min(self):
         res = self.array[0]
