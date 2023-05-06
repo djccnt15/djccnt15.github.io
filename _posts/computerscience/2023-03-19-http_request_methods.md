@@ -40,7 +40,7 @@ https://github.com/djccnt15?tab=repositories&q=&language=python&sort=name
 
 [^2]: `GET` 요청의 길이 제한은 표준이 없고 웹 브라우저마다 다르다.  
 
-❗ `GET` 방식으로 통신을 할 때는 URL을 통해 정보가 전송되기 때문에 중요한 데이터를 담아서 전송을 하게되면 일반 사용자에게 해당 데이터가 노출되는 문제가 있다. 따라서 `GET`을 통해 중요한 정보를 전송하는 것을 지양해야 한다.
+❗`GET` 방식으로 통신을 할 때는 URL을 통해 정보가 전송되기 때문에 중요한 데이터를 담아서 전송을 하게되면 일반 사용자에게 해당 데이터가 노출되는 문제가 있다. 따라서 `GET`을 통해 중요한 정보를 전송하는 것을 지양해야 한다.
 {:.note title='attention'}
 
 ## 2. POST
@@ -61,7 +61,7 @@ https://github.com/djccnt15?tab=repositories&q=&language=python&sort=name
 - 북마크 불가능
 - 데이터 길이 제한 없음
 
-❗ `POST` 방식은 URL에 데이터가 노출되지는 않지만, 정보를 얻어내는게 조금 귀찮아질 뿐이지 근본적인 보안 통신인 것은 아니다. 제대로 된 보안을 위해서는 암호화 및 HTTPS를 사용해야 한다.  
+❗`POST` 방식은 URL에 데이터가 노출되지는 않지만, 정보를 얻어내는게 조금 귀찮아질 뿐이지 근본적인 보안 통신인 것은 아니다. 제대로 된 보안을 위해서는 암호화 및 HTTPS를 사용해야 한다.  
 {:.note title='attention'}
 
 ---

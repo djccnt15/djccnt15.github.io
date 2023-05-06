@@ -373,7 +373,7 @@ Django에서 관리자 계정을 생성하는 명령어는 아래와 같다.
 > manage.py createsuperuser
 ```
 ```
-Username (leave blank to use 'wizcore'): admin
+Username (leave blank to use '****'): admin
 Email address: djccnt15@gmail.com
 Password:
 Password (again):

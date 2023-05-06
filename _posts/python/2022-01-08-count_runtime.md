@@ -41,8 +41,7 @@ time_start = datetime.now().replace(microsecond=0)
 
 time_end = datetime.now().replace(microsecond=0)
 
-runtime = time_end - time_start
-print(f"run time: {runtime:.3f}")
+print(time_end - time_start)
 ```
 
 ---
