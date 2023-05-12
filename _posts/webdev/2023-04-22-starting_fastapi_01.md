@@ -1,9 +1,9 @@
 ---
 published: true
 layout: post
-title: '[FastAPI] 01. FastAPI 기초와 서버 아키텍처'
+title: '[FastAPI] 01. FastAPI 서버 아키텍처'
 description: >
-    FastAPI 기초와 서버 아키텍처
+    FastAPI 기초 입문과 서버 아키텍처
 categories: [WebDev]
 tags: [FastAPI]
 image:
@@ -11,6 +11,7 @@ image:
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---
+{% include series_fastapi.html %}
 * toc
 {:toc}
 
