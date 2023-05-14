@@ -223,7 +223,7 @@ res = smf.ols(formula='Lottery ~ np.log(Literacy)', data=df).fit()
     - BIC: AIC와 유사하나 패널티를 부여하여 AIC보다 모델 평가 성능이 더 좋으며, 수치가 낮을수록 좋음
 
 - **coef: 변수의 coefficient(계수)**, 각 독립변수가 종속변수의 변화에 미치는 영향의 정도
-- std err: 계수의 [표준오차](/statistics/statistics_12/#1-3-표본분포)(표본 통계량의 표준편차), 값이 작을수록 좋음
+- std err: 계수의 [표준오차](/statistics/sampling_distribution/#1-3-표본분포)(표본 통계량의 표준편차), 값이 작을수록 좋음
 - t: 독립변수와 종속변수간에 선형관계(관련성)가 존재하는 정도, 값이 클수록 상관도가 큼
     - t 값이 크다 = 표준편차가 작다 = 독립-종속변수 간 상관도 높음
     - t 값이 작다 = 표준편차가 크다 = 독립-종속변수 간 상관도 낮음

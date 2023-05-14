@@ -9,8 +9,8 @@ tags: [python]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:
-    - _posts/mathematics/2022-05-19-linear_algebra_02.md
-    - _posts/mathematics/2022-05-22-linear_algebra_03.md
+    - _posts/mathematics/2022-05-19-linear_algebra_various_matrix.md
+    - _posts/mathematics/2022-05-22-linear_algebra_linear_system.md
 ---
 * toc
 {:toc}
@@ -35,7 +35,7 @@ print(b)
 [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 ```
 
-[선형대수](/tags#linear%20algebra)를 공부하면서 list comprehension을 많이 사용했는데, 자세한 내용은 [여기](/mathematics/linear_algebra_02/), [여기](/mathematics/linear_algebra_03/), [여기](/mathematics/linear_algebra_08/)를 참고하자.  
+[선형대수](/tags#linear%20algebra)를 공부하면서 list comprehension을 많이 사용했는데, 자세한 내용은 [여기](/mathematics/linear_algebra_various_matrix/), [여기](/mathematics/linear_algebra_linear_system/), [여기](/mathematics/linear_algebra_orthogonal_qr_decomposition/)를 참고하자.  
 
 ## for + if
 

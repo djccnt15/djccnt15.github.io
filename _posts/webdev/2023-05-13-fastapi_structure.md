@@ -9,7 +9,7 @@ tags: [FastAPI]
 image:
     path: /assets/img/posts/thumbnail_fastapi.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    - _posts/webdev/2023-04-22-fastapi_architecture.md
 ---
 {% include series_fastapi.html %}
 * toc
@@ -127,3 +127,4 @@ dev = http://localhost:5173 http://127.0.0.1:5173
 ---
 ## Reference
 - [FastAPI Bigger Applications with Multiple Separate Files in Python](https://www.tutorialsbuddy.com/python-fastapi-bigger-applications-multiple-separate-files)
+- [전체 실습 코드](https://github.com/djccnt15/study_fastapi)
