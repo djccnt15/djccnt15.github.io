@@ -119,7 +119,7 @@ mode = dev
 dir_config = settings
 
 [CORSLIST]
-dev = http://localhost:5173 http://127.0.0.1:5173
+dev = http://localhost http://127.0.0.1
 ```
 
 이렇게 config 관련 로직과 데이터를 분리하여 프로그램 세팅을 나중에 쉽게 변경할 수 있도록 하고 하드코딩을 막을 수 있다.  

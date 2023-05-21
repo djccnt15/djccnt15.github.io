@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[cmd/terminal] 사용법'
 description: >
-    windows cmd/linux terminal의 유용한 명령어 모음  
+    Windows/Linux terminal의 유용한 명령어 모음  
 categories: [SWEngineering]
 tags: [cmd/terminal, ⭐starred]
 image:
@@ -18,52 +18,76 @@ related_posts:
 
 ### 1-1. help/--help
 
-명령어 설명 보기. 사용법은 조금 달라서, 윈도우는 `help`를 먼저 치지만, linux에서는 `--help`가 뒤에 들어간다.  
+명령어 설명 보기. 사용법은 조금 달라서, Windows는 `help`를 먼저 치지만, Linux에서는 `--help`가 뒤에 들어간다.  
+
+- Windows
 
 ```powershell
-# windows
-> help cls
-
-# linux
-$ clear --help
+help cls
 ```
 
-### 1-2. esc/ctrl + u
+- Linux
 
-작성중이던 명령어 라인 전체 지우기  
+```bash
+clear --help
+```
 
-terminal은 windows cmd의 `esc`에 대응하는 기능의 단축키가 없으며, `ctrl + u`는 엄밀히 말하면 커서의 왼쪽을 지우는 하는 단축키고, 커서 오른쪽을 지우는 단축키는 `ctrl + k`이다.  
+### 1-2. esc/ctrl + u/k
+
+작성중이던 명령어 라인 전체 삭제  
+
+Linux는 Windows의 `esc`에 대응하는 기능의 단축키가 없음  
+
+- `ctrl + u`: 커서의 왼쪽 내용 삭제
+- `ctrl + k`: 커서의 오른쪽 내용 삭제
 
 ### 1-3. type/cat
 
-파일의 내용을 보여준다.  
+파일의 내용 출력  
+
+- Windows
 
 ```powershell
-# windows
-> type <file_name>
+type <file_name>
+```
 
-# linux
-$ cat <file_name>
+- Linux
+
+```bash
+cat <file_name>
+```
+
+### 1-4. more
+
+파일 내용을 한 페이지씩 출력  
+
+```bash
+more <file_name>
 ```
 
 ## 2. 작업용 명령어들
 
 ### 2-1. where/which/find
 
-파일/어플리케이션의 위치를 확인하기 위한 검색 명령어는 다음과 같다.  
+파일/어플리케이션의 위치 확인  
+
+- Windows
 
 ```powershell
-# windows
-> where <app_name>
+where <app_name>
+```
 
-# linux - search application with first match in PATH option
-$ which <app_name>
+- Linux
 
-# linux - search application with all matches in PATH option
-$ which -a <app_name>
+```bash
+# search application with first match in PATH option
+which <app_name>
 
-# linux - search file
-$ find <file_name>
+# search application with all matches in PATH option
+which -a <app_name>
+
+# search file
+find <file_name>
 ```
 
 이 때 `which`는 `PATH`에서 해당 이름을 가진 첫 번째 어플리케이션만을 검색하기 때문에, 모두 검색하고 싶다면 `-a` 옵션을 사용해야한다.  
@@ -74,36 +98,33 @@ change directory의 약자로, 작업중인 폴더를 이동하는 명령어이�
 
 ```powershell
 # 상위 디렉토리로 이동
-> cd ..
+cd ..
 
 # 최상위 디렉토리로 이동
-> cd /
+cd /
 
 # 드라이브를 바꿀 때는 사용하지 않음
-> d:
+d:
 ```
 
-아래는 terminal에서만 사용가능한 사용팁들이다.  
+아래는 Linux에서만 사용가능한 사용팁들이다.  
 
-```powershell
+```bash
 # home 디렉토리로 이동
-$ cd ~
+cd ~
 
 # 이전 디렉토리로 이동
-$ cd -
+cd -
 ```
 
 ### 2-3. dir/ls
 
 현재 디렉토리의 하위 폴더 및 파일을 보여주는 명령어로 와일드카드(*, ?)를 사용해서 출력 범위를 줄일 수 있다.  
 
-```powershell
-# windows
-# 기본 사용
-> dir
+- Windows
 
-# 옵션 사용
-> dir /p/o:-ge
+```powershell
+dir
 ```
 
 주요 옵션들은 아래와 같다.  
@@ -118,20 +139,29 @@ $ cd -
     - -- 순서를 반대로 하는 접두사
 
 ```powershell
-# linux
-$ ls
+dir /p/o:-ge
+```
+
+- Linux
+
+```bash
+ls
 ```
 
 ### 2-4. cls/clear
 
 화면 정리
 
-```powershell
-# windows
-> cls
+- Windows
 
-# linux
-$ clear
+```powershell
+cls
+```
+
+- Linux
+
+```bash
+clear
 ```
 
 ### 2-5. mkdir
@@ -139,52 +169,64 @@ $ clear
 디렉토리 만들기
 
 ```powershell
-> mkdir <directory_name>
+mkdir <dir_name>
 ```
 
 ### 2-6. rmdir
 
-디렉토리 지우기. 윈도우의 경우에는 추가 옵션이 있다.  
+디렉토리 지우기. Windows에서만 사용 가능하다.  
 
 ```powershell
-# 기본 사용
-> rmdir <directory_name>
-
-# 옵션 사용
-> rmdir /s/q <directory_name>
+rmdir <dir_name>
 ```
 
-- /s 지정된 디렉토리와 하위 디렉토리 및 파일을 모두 삭제
-- /q /s 옵션으로 하위 디렉토리 및 파일을 지울 때 일일이 y를 해줘야 하는데, 이 옵션을 추가하면 다시 묻지 않음
+- /s: 지정된 디렉토리와 하위 디렉토리 및 파일을 모두 삭제
+- /q: /s 옵션으로 하위 디렉토리 및 파일을 지울 때 확인 없이 모두 삭제
+
+```powershell
+rmdir /s/q <dir_name>
+```
 
 ### 2-7. del/rm
 
-파일 지우기. 둘이 비슷하지만 리눅스는 하위 파일을 포함해서 디렉토리를 삭제할 때 이 명령어를 사용해야 하기 때문에 활용도가 더 높다.  
+파일 삭제  
+
+- Windows
 
 ```powershell
-# windows
-> del <file_name>
+del <file_name>
+```
 
-# linux
-$ rm <file_name>
+- Linux
 
-# linux 하위 디렉토리 및 파일 지우기
-$ rm -rf <dir_name>
+```bash
+rm <file_name>
+```
+
+Linux에서 하위 디렉토리 및 파일 모두 삭제  
+
+```bash
+rm -rf <dir_name>
 ```
 
 ### 2-8. copy/cp
 
 파일 복사
 
+- Windows
+
 ```powershell
-# windows
-> copy <source> <destination>
+copy <source> <destination>
+```
 
-# linux for file
-$ cp <source> <destination>
+- Linux
 
-# linux for directory
-$ cp -r <source> <destination>
+```bash
+cp <file_name> <destination>
+```
+
+```bash
+cp -r <dir_name> <destination>
 ```
 
 ## 3. 네트워크 관련 명령어들
@@ -193,12 +235,16 @@ $ cp -r <source> <destination>
 
 네트워크 연결 상태 확인
 
-```powershell
-# windows
-> ipconfig
+- Windows
 
-# linux
-$ ifconfig
+```powershell
+ipconfig
+```
+
+- Linux
+
+```bash
+ifconfig
 ```
 
 ### 3-2. ping
@@ -206,17 +252,15 @@ $ ifconfig
 특정 호스트와 통신이 가능한지 확인. 명령어는 같지만 옵션은 조금 다르다.  
 
 ```powershell
-> ping <host_name>
+ping <host_name>
 ```
 
-윈도우 옵션  
+- Windows
+    - --t 중지시킬 때까지 에코를 계속 요청. 이 옵션을 주지 않으면 일정 횟수 요청 후 자동 종료
+    - --n count 에코를 요청할 횟수 count 숫자로 지정
 
-- --t 중지시킬 때까지 에코를 계속 요청. 이 옵션을 주지 않으면 일정 횟수 요청 후 자동 종료
-- --n count 에코를 요청할 횟수 count 숫자로 지정
-
-리눅스 옵션  
-
-- --c count 에코를 요청할 횟수 count 숫자로 지정. 이 옵션을 주지 않으면 무한대로 에코 요청
+- Linux
+    - --c count 에코를 요청할 횟수 count 숫자로 지정. 이 옵션을 주지 않으면 무한대로 에코 요청
 
 ## 4. 환경 관련 명령어들
 
@@ -225,27 +269,37 @@ $ ifconfig
 cmd에서 환경 변수를 보여주는 명령어
 
 ```powershell
-# basic command
-> set
+set
+```
 
-# 특정 문자로 시작하는 환경 변수 호출
-> set <x>
+특정 문자로 시작하는 환경 변수 호출
 
-# 환경 변수 중 컴퓨터 이름 호출
-> set COMPUTERNAME
+```powershell
+set <x>
+```
+
+환경 변수 중 컴퓨터 이름 호출
+
+```powershell
+set COMPUTERNAME
 ```
 
 ### 4-2. tree
 
-현재 경로의 폴더 구조를 tree 형식으로 보여준다. cmd, PowerShell 외의 terminal들에서 사용하려면 별도로 설치해야 한다.  
+현재 경로의 폴더 구조를 tree 형식으로 보여준다. Windows에서만 사용가능  
 
 ```powershell
-# basic command
-> tree
+tree
+```
 
-# show files
-> tree /f
+파일까지 출력  
 
-# save as file
-> tree > <file_name>
+```powershell
+tree /f
+```
+
+출력 결과를 파일로 저장  
+
+```powershell
+tree > <file_name>
 ```

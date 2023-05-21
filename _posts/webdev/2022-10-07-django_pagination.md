@@ -175,7 +175,7 @@ def index(request):
 Django shell을 사용해서 테스트 데이터를 생성하자.  
 
 ```powershell
-> manage.py shell
+manage.py shell
 ```
 ```
 Python 3.10.7 (tags/v3.10.7:6cc6b13, Sep  5 2022, 14:08:36) [MSC v.1933 64 bit (AMD64)] on win32

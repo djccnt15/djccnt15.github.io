@@ -24,7 +24,7 @@ related_posts:
 Django도 기본적으로 Python 라이브러리이기 때문에 `pip`를 통해서 설치하면 된다.  
 
 ```powershell
-> pip install Django
+pip install Django
 ```
 
 아래와 같이 Django와 Python [호환성 제약](https://docs.djangoproject.com/en/4.1/faq/install/#what-python-version-can-i-use-with-django)이 있으니 [Python 가상환경](/python/python_venv/)을 사용해서 버전을 맞춰주어야 한다.  
@@ -45,13 +45,13 @@ Django도 기본적으로 Python 라이브러리이기 때문에 `pip`를 통해
 Django 공식 홈페이지에서는 아래와 같은 명령어로 프로젝트를 시작하면 된다고 한다.  
 
 ```powershell
-> django-admin startproject [project_name]
+django-admin startproject [project_name]
 ```
 
 다만 위와 같이 시작하면 현재 위치의 `project_name` 디렉토리가 생성되어 해당 디렉토리에서 프로젝트를 관리하게 된다. 아래와 같이 `config .` 옵션을 사용해 `config` 디렉토리를 사용하는게 명확성에 더 좋다.  
 
 ```powershell
-> django-admin startproject config .
+django-admin startproject config .
 ```
 
 프로젝트를 시작하면 `config` 디렉토리 아래와 같은 파일들이 생성된다.  
@@ -91,11 +91,11 @@ TIME_ZONE = 'Asia/Seoul'
 아래 명령어로 개발 서버를 구동하고, 특정 포트를 할당할 수도 있다.  
 
 ```powershell
-# basic command
-> manage.py runserver
+manage.py runserver
+```
 
-# port setting
-> manage.py runserver [port_num]
+```powershell
+manage.py runserver [port_num]
 ```
 ```
 Watching for file changes with StatReloader

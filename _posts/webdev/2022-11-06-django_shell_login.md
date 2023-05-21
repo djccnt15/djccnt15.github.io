@@ -21,7 +21,7 @@ Django에서 테스트 데이터를 생성한다든가 할 때 shell에서 Djang
 이 때는 아래와 같이 사용자 인증 API를 직접 호출하여 유저 정보를 입력해주면 된다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/default/#authenticating-users) 참고  
 
 ```powershell
-> manage.py shell
+manage.py shell
 ```
 
 ```python

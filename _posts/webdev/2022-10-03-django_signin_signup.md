@@ -33,7 +33,7 @@ INSTALLED_APPS = [
 로그인/로그아웃 기능은 전체 홈페이지에 공통으로 사용되는 기능이기 때문에 아래와 같이 `common` 앱을 생성해서 관리하는게 좋다.  
 
 ```powershell
-> django-admin startapp common
+django-admin startapp common
 ```
 
 생성한 앱은 아래와 같이 `config/settings.py` 파일의 `INSTALLED_APPS` 리스트에 등록하여 관리한다.  

@@ -22,24 +22,37 @@ related_posts:
 
 브랜치를 관리하는 명령어로, 주요 옵션은 아래와 같다.  
 
+- branch 생성
+
 ```bash
-# branch 생성
-$ git branch <newbranch>
+git branch <newbranch>
+```
 
-# branch 이름 변경
-$ git branch -m [<oldbranch>] <newbranch>
+- branch 이름 변경
 
-# branch copy 생성
-$ git branch -c [<oldbranch>] <newbranch>
+```bash
+git branch -m [<oldbranch>] <newbranch>
+```
 
-# branch 삭제
-$ git branch -d [-r] <branchname>
+- branch copy 생성
 
-# 원격 저장소의 branch를 가져오기
-$ git branch -t <branchname>
+```bash
+git branch -c [<oldbranch>] <newbranch>
+```
+
+- branch 삭제
+
+```bash
+git branch -d [-r] <branchname>
 ```
 
 `git branch -d`로 브랜치를 삭제할 때 `-r` 옵션을 같이 사용하면 원격 저장소의 해당 브랜치를 삭제한다.  
+
+- 원격 저장소의 branch를 가져오기
+
+```bash
+git branch -t <branchname>
+```
 
 원격 저장소에 여러 브랜치가 있는 경우 pull이나 clone을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](/swengineering/manual_git_01/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
 
@@ -47,12 +60,17 @@ $ git branch -t <branchname>
 
 위의 `branch` 명령어로 생성한 브랜치 간에 이동할 때, 즉 작업할 브랜치를 변경할 때 사용하는 명령어다.  
 
-```bash
-# branch 이동
-$ git switch <branchname>
 
-# branch 생성 및 이동
-$ git switch -c <branchname> [<start-point>]
+- branch 이동
+
+```bash
+git switch <branchname>
+```
+
+- branch 생성 및 이동
+
+```bash
+git switch -c <branchname> [<start-point>]
 ```
 
 ## merge
@@ -60,9 +78,11 @@ $ git switch -c <branchname> [<start-point>]
 현재 HEAD가 위치한 브랜치로 대상 브랜치를 합칠 때 사용하는 명령어다.  
 
 ```bash
-$ git merge <branchname>
+git merge <branchname>
+```
 
-$ git merge --no-commit --no-ff <branchname>
+```bash
+git merge --no-commit --no-ff <branchname>
 ```
 
 `--no-commit` 옵션을 사용할 경우 머지 commit이 자동 생성되지 않기 때문에 사용자가 머지 결과를 미리 확인할 수 있다.  
@@ -74,7 +94,7 @@ $ git merge --no-commit --no-ff <branchname>
 공통 base를 가진 브랜치에서 한 브랜치의 base를 다른 브랜치의 최신 커밋으로 브랜치의 base를 옮기는 명령어다.  
 
 ```bash
-$ git rebase <branchname>
+git rebase <branchname>
 ```
 
 `merge`에 비해서 사용법이 복잡하고 중간에 걸친 모든 commit의 conflict를 검토해줘야 한다는 단점이 있지만, commit 이력이 더 깔끔해지고 히스토리 추적이 쉬워진다는 장점이 있다.  

@@ -50,7 +50,7 @@ ORA-12514, TNS:listener does not currently know of service requested in connect 
 설치 완료 후 알려주는 접속 정보를 적어두었다가 참고해도 되고, 아래와 같이 terminal 명령어를 사용해서 접속 정보를 확인해도 된다.  
 
 ```powershell
-> Lsnrctl services
+Lsnrctl services
 ```
 
 아래와 같이 접속 정보를 맞게 설정해주면 정상적으로 접속된다.  

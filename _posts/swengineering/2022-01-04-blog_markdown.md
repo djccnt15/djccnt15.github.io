@@ -26,7 +26,7 @@ related_posts:
 ⭕❌✔️©️®️™️  
 
 전체 이모지는 [여기](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)에서 확인할 수 있다.  
-윈도우에서는 `window key + .`, `window key + ;`로도 확인할 수 있다.  
+Windows에서는 `window key + .`, `window key + ;`로도 확인할 수 있다.  
 
 ## 2. 이미지/동영상 삽입
 

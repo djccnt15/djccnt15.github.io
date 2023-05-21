@@ -20,12 +20,12 @@ GitHub Pages는 정적 웹 사이트를 생성할 수 있는 웹 프레임워크
 
 ### 1-1. Ruby 설치
 
-[Jekyll](https://jekyllrb.com/)은 [Ruby](https://www.ruby-lang.org/en/)의 웹 프레임워크이므로, Ruby를 먼저 설치해야 한다. 윈도우를 사용한다면 [RubyInstaller](https://rubyinstaller.org/downloads/)를 사용해서 Ruby를 설치할 수 있다.  
+[Jekyll](https://jekyllrb.com/)은 [Ruby](https://www.ruby-lang.org/en/)의 웹 프레임워크이므로, Ruby를 먼저 설치해야 한다. Windows를 사용한다면 [RubyInstaller](https://rubyinstaller.org/downloads/)를 사용해서 Ruby를 설치할 수 있다.  
 
 Ruby 설치 여부는 아래와 같이 확인할 수 있다.
 
 ```powershell
-> ruby -v
+ruby -v
 ```
 ```
 ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x64-mingw-ucrt]
@@ -36,7 +36,7 @@ ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x64-mingw-ucrt]
 Ruby의 패키지 관리 프로그램인 gem을 통해 아래와 같이 Jekyll과 Bundler를 설치할 수 있다.  
 
 ```powershell
-> gem install jekyll bundler
+gem install jekyll bundler
 ```
 
 ### 1-3. bundle 설치
@@ -46,9 +46,9 @@ Ruby의 패키지 관리 프로그램인 gem을 통해 아래와 같이 Jekyll�
 아래와 같은 명령어로 bundle을 설치하고 업데이트하면 된다.  
 
 ```powershell
-> bundle install
+bundle install
 
-> bundle update
+bundle update
 ```
 
 ## 2. local 호스팅
@@ -58,19 +58,19 @@ GitHub pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 
 local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명령어는 다음과 같다.  
 
 ```powershell
-> bundle exec jekyll serve
+bundle exec jekyll serve
 ```
 
 `--livereload`옵션을 사용하면 파일이 수정되었을 때 자동으로 새로고침 해준다.  
 
 ```powershell
-> bundle exec jekyll serve --livereload
+bundle exec jekyll serve --livereload
 ```
 
 미래 날짜로 작성한 포스트를 local에서 확인하려면 아래와 같이 `--future`를 붙여야 한다.  
 
 ```powershell
-> bundle exec jekyll serve --future
+bundle exec jekyll serve --future
 ```
 
 ❗현재 서버 구성으로는 저장소로 push 한 시점에만 빌드와 배포가 이루어지기 때문에, 미래 날짜의 문서는 출력이 되지 않고 해당 날짜가 도래해도 자동으로 출력되게 바뀐하거나 하지는 않는다.  
@@ -81,13 +81,13 @@ local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http:/
 기본 포트가 `4000`으로 잡혀있기 때문에 웹페이지를 동시에 여러 프로젝트를 구동하려면 두 번째부터는 포트를 별도로 설정해줘야 한다. 포트를 설정하는 방법은 아래와 같다.  
 
 ```powershell
-> bundle exec jekyll serve --port [port_num]
+bundle exec jekyll serve --port [port_num]
 ```
 
 그림 사이즈를 모바일에서 미리 확인하는 등 다른 디바이스의 브라우저로 테스트 컴퓨터의 호스팅에 접속하고 싶을 경우가 있는데, 그럴 때는 아래와 같이 서버의 IP 주소를 지정해서 구동하면 된다.  
 
 ```powershell
-> bundle exec jekyll serve --host 192.168.0.5
+bundle exec jekyll serve --host 192.168.0.5
 ```
 
 서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig`/`ifconfig` 명령어로 확인할 수 있다. 위의 경우에는 `IPv4`주소인 `192.168.0.5`으로 호스팅 했기 때문에, [http://192.168.0.5:4000](http://192.168.0.5:4000)으로 접속해야 내용을 확인할 수 있다.  
@@ -98,13 +98,13 @@ local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http:/
 `--incremental` 옵션을 사용하면 새롭게 갱신된 문서와 페이지만 재생성하여 빌드 시간을 줄여준다. 다만 [Jekyll 공식 문서](https://jekyllrb-ko.github.io/docs/configuration/incremental-regeneration/)를 참고하면 이 기능은 문서나 페이지 혹은 그 의존관계가 변경되었을 때만 파일을 다시 생성하는데, 특정 의존 관계만 감지할 수 있다는 점이 문제가 될 수 있다고 한다.  
 
 ```powershell
-> bundle exec jekyll serve --incremental
+bundle exec jekyll serve --incremental
 ```
 
 `--profile` 옵션을 사용하면 사이트 생성 과정에서 각 페이지의 조회 횟수, 용량, 소요 시간이 얼마나 되는지를 보여준다. 서버 최적화가 필요할 때 사용하는 옵션이다.  
 
 ```
-> bundle exec jekyll serve --profile
+bundle exec jekyll serve --profile
 ```
 
 ### 2-1. ⚡작업할 때
@@ -115,20 +115,20 @@ local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http:/
 
 ```powershell
 # localhost only
-> bundle exec jekyll serve --livereload --future
+bundle exec jekyll serve --livereload --future
 
 # hosting with specific IP
-> bundle exec jekyll serve --livereload --future --host [IP_address]
+bundle exec jekyll serve --livereload --future --host [IP_address]
 ```
 
 - 모든 글을 빌드할 때
 
 ```powershell
 # localhost only
-> bundle exec jekyll serve --livereload --future --drafts --unpublished
+bundle exec jekyll serve --livereload --future --drafts --unpublished
 
 # hosting with specific IP
-> bundle exec jekyll serve --livereload --future --drafts --unpublished --host [IP_address]
+bundle exec jekyll serve --livereload --future --drafts --unpublished --host [IP_address]
 ```
 
 ## 3. YFM 정의 및 활용
@@ -158,7 +158,7 @@ local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http:/
 `YFM`에서 `published: false`로 정의하면 된다. 비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`를 붙여서 jekyll을 구동하면 된다.  
 
 ```powershell
-> bundle exec jekyll serve --unpublished
+bundle exec jekyll serve --unpublished
 ```
 
 ~~repository에 md 파일이 다 보일텐데 무슨 소용인지 싶긴한데.. 아무튼 가능하긴하다~~  
@@ -169,7 +169,7 @@ local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http:/
 `/_drafts` 폴더는 GitHub Pages가 외부로 배포하지 않도록 설정되어 있다. local에서 내용을 확인하고 싶다면 Jekyll에 `--drafts`를 붙여서 구동해야 한다.  
 
 ```powershell
-> bundle exec jekyll serve --drafts
+bundle exec jekyll serve --drafts
 ```
 
 ## 5. include 태그

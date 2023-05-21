@@ -22,14 +22,10 @@ pip 설치 상태에 오류가 생기면 아래와 같이 pip이 없는 에러�
 ModuleNotFoundError: No module named 'pip'
 ```
 
-이 때는 아래 명령어들로 해결할 수 있다.  
+이 때는 아래 명령어로 해결할 수 있다.  
 
 ```powershell
-# install pip into the current environment
-> python -m ensurepip
-
-# install pip and upgrade to latest one
-> python -m ensurepip --upgrade
+python -m ensurepip --upgrade
 ```
 
 ---

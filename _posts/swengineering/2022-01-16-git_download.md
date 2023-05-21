@@ -20,10 +20,10 @@ related_posts:
 
 ## fetch
 
-원격 저장소의 내용을 가져오는 명령어
+원격 저장소의 내용을 다운로드  
 
 ```bash
-$ git fetch <repository>
+git fetch <repository>
 ```
 
 💡`fetch` + `rebase`의 조합이 `pull` + `merge` 조합보다 좋다. 자세한 이유는 [링크](https://ryanking13.github.io/2021/10/17/why-git-pull-is-broken.html) 참고  
@@ -31,20 +31,29 @@ $ git fetch <repository>
 
 ## pull
 
-원격 저장소의 내용을 가져와서 현재 브랜치와 병합(merge)하는 명령어  
+원격 저장소의 내용을 가져와서 현재 브랜치와 병합(merge)  
 
 ```bash
-$ git pull <repository> <branchname>
+git pull <repository> <branchname>
 ```
 
 ## clone
 
-로컬 저장소의 내용을 원격 저장소의 내용과 일치시키는 명령어로, 폴더의 작업 내용이 사라지기 때문에 프로젝트를 처음 시작할 때만 사용한다.  
+원격 저장소를 로컬 저장소로 복제  
 
 ```bash
-# clone project to directory of project name
-$ git clone <url>
+git clone <url>
+```
 
-# clone project to certain directory
-$ git clone <url> <directory>
+```bash
+git clone <url> <directory>
+```
+
+❗폴더의 작업 내용이 사라지기 때문에 원격 저장소를 처음 다운받을 때만 사용해야한다.  
+{:.note title='attention'}
+
+특정 브랜치만 클론  
+
+```bash
+git clone -b <branchname> --single-branch <repository>
 ```

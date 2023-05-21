@@ -22,15 +22,15 @@ related_posts:
 해당 명령어의 Manual Page를 열어준다.  
 
 ```bash
-$ git help <command>
+git help <command>
 ```
 
 ## init
 
-현재 폴더를 git 저장소로 구성한다.  
+현재 폴더를 git 저장소로 구성  
 
 ```bash
-$ git init
+git init
 ```
 
 ## remote
@@ -38,49 +38,72 @@ $ git init
 원격 저장소를 관리하는 명령어로, 주요 옵션 및 부가명령어는 아래와 같다.  
 
 ```bash
-# 주소까지 출력
-$ git remote -v
+git remote -v
 ```
-```bash
+```
 origin  https://github.com/djccnt15/djccnt15.github.io.git (fetch)
 origin  https://github.com/djccnt15/djccnt15.github.io.git (push)
 ```
 
+- 원격 저장소 추가
+
 ```bash
-# 원격 저장소 추가
-$ git remote add <name> <url>
+git remote add <name> <url>
+```
 
-# 원격 저장소 업데이트
-$ git remote update
+- 원격 저장소 업데이트
 
-# 원격 저장소 이름 수정
-$ git remote rename <old> <new>
+```bash
+git remote update
+```
 
-# 원격 저장소 삭제
-$ git remote remove <name>
+- 원격 저장소 이름 수정
 
-# branch의 head 변경
-$ git remote set-head <name> <branch>
+```bash
+git remote rename <old> <new>
+```
 
-# 원격 저장소 주소 변경
-$ git remote set-url <name> <newurl> [<oldurl>]
+- 원격 저장소 삭제
 
-# 원격 저장소 주소 추가
-$ git remote set-url --add <name> <newurl>
+```bash
+git remote remove <name>
+```
 
-# 원격 저장소 주소 삭제
-$ git remote set-url --delete <name> <url>
+- branch의 head 변경
+
+```bash
+git remote set-head <name> <branch>
+```
+
+- 원격 저장소 주소 변경
+
+```bash
+git remote set-url <name> <newurl> [<oldurl>]
+```
+
+- 원격 저장소 주소 추가
+
+```bash
+git remote set-url --add <name> <newurl>
+```
+
+- 원격 저장소 주소 삭제
+
+```bash
+git remote set-url --delete <name> <url>
 ```
 
 ### 💡여러 저장소에 동시 push
 
-`$ git remote set-url --add <name> <newurl>`을 사용하면 하나의 단축 이름으로 여러 저장소에 동시에 push 할 수 있다.  
-다만 `origin`을 동시 push하는 단축 이름으로 사용하는 것은 권장하지 않는다고 한다. `all` 같은 단축 이름을 새로 등록하자.  
+`git remote set-url --add <name> <newurl>`을 사용하면 하나의 단축 이름으로 여러 저장소에 동시에 push 할 수 있다.  
+
+❗`origin`을 동시 push하는 단축 이름으로 사용하는 것은 권장하지 않는다고 한다. `all` 같은 단축 이름을 새로 등록하자.  
+{:note}
 
 ## status
 
-working tree의 상태를 보여준다.  
+working tree의 상태 출력  
 
 ```bash
-$ git status
+git status
 ```

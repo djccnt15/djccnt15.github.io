@@ -7,14 +7,15 @@ GitHub Pages를 이용한 블로그 구축 및 공부노트
 주로 사용하는 서버 구동 옵션은 아래와 같다.  
 
 ```powershell
-# localhost only
-> bundle exec jekyll serve --livereload --future --drafts --unpublished
+bundle exec jekyll serve --livereload --future --drafts --unpublished
+```
 
-# hosting with specific IP
-> bundle exec jekyll serve --livereload --future --drafts --unpublished --host [IP_address]
+```powershell
+bundle exec jekyll serve --livereload --future --drafts --unpublished --host [IP_address]
+```
 
-# hosting with specific port
-> bundle exec jekyll serve --livereload --future --drafts --unpublished --port [port_num]
+```powershell
+bundle exec jekyll serve --livereload --future --drafts --unpublished --port [port_num]
 ```
 
 `--host`, `--port` 옵션을 사용하지 않을 경우 기본 IP 및 포트는 아래와 같이 할당된다.  
@@ -24,33 +25,58 @@ GitHub Pages를 이용한 블로그 구축 및 공부노트
 
 서버 구동의 세부 옵션 및 설명은 아래와 같다.  
 
+- 기본 구동
+
 ```powershell
-# basic command
-> bundle exec jekyll serve
+bundle exec jekyll serve
+```
 
-# automatic refresh option
-> bundle exec jekyll serve --livereload
+- 내용 변경 시 자동 재시작
 
-# build with future dated posting
-> bundle exec jekyll serve --future
+```powershell
+bundle exec jekyll serve --livereload
+```
 
-# build with drafts(GitHub doesn't show drafts)
-> bundle exec jekyll serve --drafts
+- 미래 날짜 포스팅도 렌더링
 
-# build with unpublished(GitHub doesn't show unpublished posts)
-> bundle exec jekyll serve --unpublished
+```powershell
+bundle exec jekyll serve --future
+```
 
-# hosting with ip address
-> bundle exec jekyll serve --host [IP_address]
+- `_draft` 폴더의 포스팅 렌더링
 
-# setting port
-> bundle exec jekyll serve --port [port_num]
+```powershell
+bundle exec jekyll serve --drafts
+```
 
-# rebuild changed pages only
-> bundle exec jekyll serve --incremental
+- `published: false` 옵션 포스팅 렌더링
 
-# shows building profile
-> bundle exec jekyll serve --profile
+```powershell
+bundle exec jekyll serve --unpublished
+```
+
+- 호스트 IP 설정
+
+```powershell
+bundle exec jekyll serve --host [IP_address]
+```
+
+- 호스트 port 설정
+
+```powershell
+bundle exec jekyll serve --port [port_num]
+```
+
+- 변경된 페이지만 재렌더링
+
+```powershell
+bundle exec jekyll serve --incremental
+```
+
+- 렌더링 프로파일 출력
+
+```powershell
+bundle exec jekyll serve --profile
 ```
 
 ## Powered by
