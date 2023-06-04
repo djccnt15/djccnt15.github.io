@@ -28,25 +28,45 @@ related_posts:
 
 ## 배열의 구현
 
-Python으로 배열을 구현하면 아래와 같다. 이론적으로는 같은 타입으로만 이루어져야 한다는 제약 조건이 있지만, `__doc__`으로 처리하고 조금 간단히 구현해보았다.  
+Python으로 배열을 구현하면 아래와 같다.  
 
 ```python
+from typing import TypeVar, Generic, get_args
 from collections.abc import Iterable
 
+X = TypeVar('X')
 
-class MyArray:
+
+class MyArray(Generic[X]):
     """all elements must be same type"""
 
     def __init__(self, capacity: int = 256) -> None:
-        self.array: list = [None] * capacity
+        self.array: list = [X] * capacity
         self._capacity: int = capacity
         # self._index = 0
+
+    def __getitem__(self, idx: int) -> X:  # make able to get obj item by indexing
+        return self.array[idx]
+
+    def __setitem__(self, idx: int, val: X) -> list:  # make able to set obj item by indexing
+        t = get_args(self.__orig_class__)[0]  # type: ignore
+        if type(val) != t:
+            raise ValueError(f'input type must be {t.__name__}')
+        self.array[idx] = val
+        return self.array
+
+    def __str__(self) -> str:  # make obj printable by print(), str()
+        return str(self.array)
+
+    def __delitem__(self, idx:int) -> list:  # make obj possible to use 'del' statement
+        self.array[idx] = X
+        return self.array
 
     def __contains__(self, val) -> bool:  # make obj possible to use 'in' operator
         return bool(self.index(val))
 
     def __iter__(self) -> Iterable:  # make obj iterable
-        return iter(self.array)  # return obj iterator
+        return iter(self.array)
 
     # def __next__(self):  # alternative way to return obj iterator
     #     if self._index < self._capacity:
@@ -66,13 +86,11 @@ class MyArray:
     def size(self) -> int:
         return self._capacity
 
-    def replace(self, idx: int, val) -> list:
-        self.array[idx] = val
-        return self.array
+    def replace(self, idx: int, val: X) -> list:
+        return self.__setitem__(idx, val)
 
     def remove(self, idx:int) -> list:
-        self.array[idx] = None
-        return self.array
+        return self.__delitem__(idx)
 
     def reverse(self) -> list:
         n: int = len(self.array)

@@ -21,7 +21,7 @@ related_posts:
 
 ```
 .
-└── project_dir
+└── project_root
     ├── settings
     │   ├── config.ini
     │   ├── config.py
