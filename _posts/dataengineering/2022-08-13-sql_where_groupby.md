@@ -287,8 +287,6 @@ HAVING expression;
 
 ## 4. ORDER BY
 
-### 4-1. ORDER BY
-
 `ORDER BY`절은 SQL문의 제일 마지막에 위치하여 선택된 데이터를 특정 칼럼을 기준으로 정렬하여 출력하는데 사용한다. 정렬 기준은 칼럼명, `ALIAS`명, 칼럼 순서를 나타내는 정수를 혼용하여 표시 가능하며, 순서대로 적용할 여러 개의 정렬 기준을 지정하는 것도 가능하다.  
 
 `ORDER BY`절의 옵션은 아래와 같다.  
@@ -310,7 +308,7 @@ ORDER BY expression1 ASC/DESC expression2;
 
 Oracle의 경우 데이터에 접근할 때 행 전체 칼럼을 메모리에 로드하기 때문에 `SELECT`절에 지정되지 않은 칼럼으로도 정렬이 가능하나, `FROM`절이 [서브쿼리](/dataengineering/sql_subquery_view/#1-3-위치에-따른-서브쿼리-분류) 형태로 되어있을 경우(인라인 뷰)에는 불가능하다는 특징이 있다.  
 
-### 4-2. SELECT 문장 실행 순서
+## 5. SQL문 실행 순서
 
 SQL에서 `SELECT`문장의 실행 순서는 다음과 같으며, 옵티마이저가 SQL문의 `SYNTAX`, `SEMANTIC` 에러를 점검하는 순서 역시 동일하다.  
 
