@@ -10,6 +10,7 @@ image:
     path: /assets/img/posts/thumbnail_fastapi.png
 related_posts:
     - _posts/webdev/2023-04-22-fastapi_architecture.md
+    - _posts/webdev/2023-06-10-fastapi_orm.md
 ---
 {% include series_fastapi.html %}
 * toc
@@ -43,8 +44,9 @@ related_posts:
     │   │   └── common
     │   │       └── user.py
     │   ├── models
-    │   │   ├── meta.py
-    │   │   └── models.py
+    │   │   ├── comment.py
+    │   │   ├── models.py
+    │   │   └── post.py
     │   └── schemas
     │       ├── board
     │       │   ├── comment.py
@@ -100,7 +102,7 @@ from configparser import ConfigParser
 dir_config = Path('settings')
 
 
-def get_config():
+def get_config() -> ConfigParser:
     config = ConfigParser()
     config.read(dir_config / 'config.ini')
     return config
@@ -122,7 +124,13 @@ dir_config = settings
 dev = http://localhost:5173 http://127.0.0.1:5173
 ```
 
-이렇게 config 관련 로직과 데이터를 분리하여 프로그램 세팅을 나중에 쉽게 변경할 수 있도록 하고 하드코딩을 막을 수 있다.  
+이렇게 config 관련 로직과 데이터를 분리해 하드코딩을 예방하면 프로그램 설정을 쉽게 변경할 수 있고 유지보수 편의성을 제고할 수 있다.  
+
+FastAPI [공식 문서](https://fastapi.tiangolo.com/tutorial/cors/)에 따르면 아래 세 origin이 모두 다른 것으로 취급된다.  
+
+- http://localhost
+- https://localhost
+- http://localhost:8080
 
 ---
 ## Reference
