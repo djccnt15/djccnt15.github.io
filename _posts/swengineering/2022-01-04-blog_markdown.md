@@ -98,7 +98,9 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
 
 ```html
 <details><summary>summary</summary><div markdown="1">
+
 > **Your** Contents
+
 </div></details>
 ```
 
