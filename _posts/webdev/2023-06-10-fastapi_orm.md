@@ -28,11 +28,11 @@ SQLAlchemy와 Pydantic에서 사용하는 model의 의미가 달라 주의해야
 
 |구분|SQLAlchemy|Pydantic|
 |:-:|:-:|:-:|
-|OOP|Data access object|Data transfer object|
+|역할|Data access object|Data transfer object|
 |용도|데이터베이스 접속 및 CRUD|데이터 전달|
 |지칭[^1]|models|schemas|
 
-[^1]: 해당 지칭 방식은 일반적으로 사용하는 용어가 아니고 FastAPI [공식문서](https://fastapi.tiangolo.com/tutorial/sql-databases/)에서 두 가지 용도의 데이터모델을 구분하기 위해 사용하는 용도이다.  
+[^1]: 해당 지칭 방식은 일반적으로 사용하는 용어가 아니고 FastAPI [공식문서](https://fastapi.tiangolo.com/tutorial/sql-databases/)에서 두 가지 용도의 데이터모델을 구분하기 위해 사용하는 지창이다.  
 
 ## 2. SQLAlchemy 기반 ORM의 기초
 
