@@ -69,8 +69,8 @@ print(now.strftime('%H:%M'))
 ```python
 from datetime import datetime
 
-date = "2022/11/13 16-19-35"
-res = datetime.strptime(date, "%Y/%m/%d %H-%M-%S")
+date = '2022/11/13 16-19-35'
+res = datetime.strptime(date, '%Y/%m/%d %H-%M-%S')
 
 print(res)
 print(type(res))
@@ -79,6 +79,9 @@ print(type(res))
 2022-11-13 16:19:35
 <class 'datetime.datetime'>
 ```
+
+💡`date`, `datetime`, `time` 객체가 모두 갖고 있는 `strftime` 메소드와 달리 `strptime` 메소드는 `datetime` 객체만 갖고 있다.  
+{:.note}
 
 ## KST 표시
 
@@ -96,6 +99,7 @@ print(kst.strftime('%Y-%m-%d %H:%M:%S'))
 kst=datetime.datetime(2022, 12, 4, 23, 46, 57, 684064, tzinfo=datetime.timezone(datetime.timedelta(seconds=32400)))
 2022-12-04 23:46:57
 ```
+
 ```python
 utc = datetime.utcnow()
 
