@@ -69,7 +69,8 @@ FastAPI는 OpenAPI(Swagger)를 기본으로 제공하는데, 아래와 같이 `/
 ![fastapi_docs](/assets/img/posts/fastapi_docs.png)
 {:.border-image}
 
-사용해보면 테스트 데이터를 직접 넣을수도 있고 API에 대한 여러 가지 정보를 알려줘서 사용하기 매우 편리하다.  
+💡Swagger에 디스크립션을 추가하고 내용을 수정하고 싶다면 [공식 문서](https://fastapi.tiangolo.com/tutorial/metadata/) 참고
+{:.note}
 
 ## 2. 아키텍처
 
