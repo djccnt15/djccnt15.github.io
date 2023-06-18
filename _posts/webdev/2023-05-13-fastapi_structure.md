@@ -31,11 +31,13 @@ related_posts:
     │   └── routes.py
     ├── src
     │   ├── apps
+    │   │   └── auth.py
     │   ├── crud
     │   │   ├── board
     │   │   │   ├── comment.py
     │   │   │   └── post.py
     │   │   └── common
+    │   │       ├── log.py
     │   │       └── user.py
     │   ├── endpoints
     │   │   ├── board
@@ -44,20 +46,16 @@ related_posts:
     │   │   └── common
     │   │       └── user.py
     │   ├── models
-    │   │   ├── comment.py
     │   │   ├── models.py
     │   │   └── post.py
     │   └── schemas
-    │       ├── board
-    │       │   ├── comment.py
-    │       │   └── post.py
-    │       └── common
-    │           ├── id.py
-    │           └── user.py
+    │       ├── board.py
+    │       ├── common.py
+    │       └── user.py
     └── main.py
 ```
 
-실제로는 각 디렉토리마다 `__init__.py` 파일이 있는데, `__init__.py` 파일은 단순히 해당 디렉토리가 Python 모듈이고 디렉토리의 모든 파일이 패키지의 일부임을 알려주는 역할을 하는 파일이기 때문에 내용이 비어 있어도 되는데다가 Python 3.3 부터는 해당 파일이 없어도 정상 작동하기 때문에 구성도에서는 빼두었다.  
+실제로는 각 디렉토리마다 `__init__.py` 파일이 추가로 있는데, `__init__.py` 파일에는 단순히 하위 모듈 import 기능 정도만 넣어두었기 때문에 구성도에서는 빼두었다.  
 
 ## 2. main 모듈
 
@@ -126,7 +124,8 @@ dev = http://localhost http://127.0.0.1
 
 이렇게 config 관련 로직과 데이터를 분리해 하드코딩을 예방하면 프로그램 설정을 쉽게 변경할 수 있고 유지보수 편의성을 제고할 수 있다.  
 
-FastAPI [공식 문서](https://fastapi.tiangolo.com/tutorial/cors/)에 따르면 아래 세 origin이 모두 다른 것으로 취급된다.  
+❗FastAPI [공식 문서](https://fastapi.tiangolo.com/tutorial/cors/)에 따르면 아래 세 origin이 모두 다른 것으로 취급된다.  
+{:.note title='attention'}
 
 - http://localhost
 - https://localhost

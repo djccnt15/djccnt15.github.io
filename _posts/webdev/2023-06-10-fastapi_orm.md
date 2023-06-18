@@ -5,7 +5,7 @@ title: '[FastAPI] 03. SQLAlchemy 기반 ORM'
 description: >
     SQLAlchemy와 Alembic을 활용한 데이터베이스 ORM
 categories: [WebDev]
-tags: [FastAPI]
+tags: [FastAPI, SQLAlchemy]
 image:
     path: /assets/img/posts/thumbnail_fastapi.png
 related_posts:
@@ -186,7 +186,7 @@ from settings.database import Base
 class Log(Base):
     __tablename__ = 'log'
 
-    id = Column(Uuid, primary_key=True, index=True)
+    id = Column(Uuid, primary_key=True)
     date_create = Column(DateTime, nullable=False)
     log = Column(Text, nullable=False)
 
@@ -194,7 +194,7 @@ class Log(Base):
 class User(Base):
     __tablename__ = 'user'
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     username = Column(String(length=100), unique=True, nullable=False)
     password = Column(String(length=255), nullable=False)
     email = Column(String(length=255), unique=True, nullable=False)
@@ -229,6 +229,8 @@ class ClassName(Base):
 - `Uuid`
     - `UUID` 타입은 SQL의 `UUID` 타입으로, `UUID`를 자체적으로 지원하는 데이터베이스에서만 사용 가능
     - `Uuid` 타입은 데이터베이스가 `UUID` 타입을 지원하지 않는 경우 `CHAR(32)` 형태로 변경되어 저장
+- `Integer`
+    - `primary_key=True` 파라미터를 지정할 경우 auto-increment 속성이 자동으로 부여
 
 **relationship 설정**
 
@@ -332,7 +334,6 @@ Alembic에 설정한 테이블 메타데이터에 실제로 현재 선언된 테
 ```python
 from .models import *
 from .post import *
-from .comment import *
 ```
 
 - 리비전 파일 생성
