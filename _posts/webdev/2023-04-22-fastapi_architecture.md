@@ -69,9 +69,6 @@ FastAPI는 OpenAPI(Swagger)를 기본으로 제공하는데, 아래와 같이 `/
 ![fastapi_docs](/assets/img/posts/fastapi_docs.png)
 {:.border-image}
 
-💡Swagger에 디스크립션을 추가하고 내용을 수정하고 싶다면 [공식 문서](https://fastapi.tiangolo.com/tutorial/metadata/) 참고
-{:.note}
-
 ## 2. 아키텍처
 
 FastAPI 기반의 백엔드 서버의 전체적인 아키텍처는 아래와 같다.  
