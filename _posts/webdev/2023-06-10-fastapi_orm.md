@@ -5,7 +5,7 @@ title: '[FastAPI] 03. SQLAlchemy 기반 ORM'
 description: >
     SQLAlchemy와 Alembic을 활용한 데이터베이스 ORM
 categories: [WebDev]
-tags: [FastAPI]
+tags: [FastAPI, SQLAlchemy]
 image:
     path: /assets/img/posts/thumbnail_fastapi.png
 related_posts:
@@ -28,11 +28,11 @@ SQLAlchemy와 Pydantic에서 사용하는 model의 의미가 달라 주의해야
 
 |구분|SQLAlchemy|Pydantic|
 |:-:|:-:|:-:|
-|역할|Data access object|Data transfer object|
-|용도|데이터베이스 접속 및 CRUD|데이터 전달|
+|역할|Data Access Object|Data Transfer Object|
+|용도|데이터베이스 접속 및 CRUD|데이터 검증, 변환 및 전달|
 |지칭[^1]|models|schemas|
 
-[^1]: 해당 지칭 방식은 일반적으로 사용하는 용어가 아니고 FastAPI [공식문서](https://fastapi.tiangolo.com/tutorial/sql-databases/)에서 두 가지 용도의 데이터모델을 구분하기 위해 사용하는 지창이다.  
+[^1]: 해당 지칭 방식은 일반적으로 사용하는 용어가 아니고 FastAPI [공식 문서](https://fastapi.tiangolo.com/tutorial/sql-databases/)에서 두 가지 용도의 데이터 모델을 구분하기 위해 사용하는 지칭이다.  
 
 ## 2. SQLAlchemy 기반 ORM의 기초
 
@@ -186,7 +186,7 @@ from settings.database import Base
 class Log(Base):
     __tablename__ = 'log'
 
-    id = Column(Uuid, primary_key=True, index=True)
+    id = Column(Uuid, primary_key=True)
     date_create = Column(DateTime, nullable=False)
     log = Column(Text, nullable=False)
 
@@ -194,7 +194,7 @@ class Log(Base):
 class User(Base):
     __tablename__ = 'user'
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True)
     username = Column(String(length=100), unique=True, nullable=False)
     password = Column(String(length=255), nullable=False)
     email = Column(String(length=255), unique=True, nullable=False)
@@ -229,6 +229,8 @@ class ClassName(Base):
 - `Uuid`
     - `UUID` 타입은 SQL의 `UUID` 타입으로, `UUID`를 자체적으로 지원하는 데이터베이스에서만 사용 가능
     - `Uuid` 타입은 데이터베이스가 `UUID` 타입을 지원하지 않는 경우 `CHAR(32)` 형태로 변경되어 저장
+- `Integer`
+    - `primary_key=True` 파라미터를 지정할 경우 auto-increment 속성이 자동으로 부여
 
 **relationship 설정**
 
@@ -332,7 +334,6 @@ Alembic에 설정한 테이블 메타데이터에 실제로 현재 선언된 테
 ```python
 from .models import *
 from .post import *
-from .comment import *
 ```
 
 - 리비전 파일 생성
@@ -499,28 +500,27 @@ DBeaver등 DB 툴을 이용해서 해당 DB를 확인해보면 `alembic.ini`에�
 
 ## 6. 데이터 모델(DTO)
 
-SQLAlchemy를 통해 가져온 데이터의 레코드는 `_asdict()` 함수를 통해 구조체를 거쳐, Pydantic 객체로 변환될 수 있다.  
-
-이 때 아래와 같이 `class Config: orm_mode = True` 객체를 갖고 있어야 변환이 가능하니 데이터베이스의 데이터를 처리할 데이터모델은 반드시 해당 객체를 넣어주자.  
+Pydantic의 `BaseModel`을 상속한 객체에 아래와 같이 `orm_mode = True` 속성을 만들어주면 SQLAlchemy를 통해 가져온 데이터의 레코드를 `from_orm()` 메소드를 통해 Pydantic 객체로 변환할 수 있다.  
 
 ```python
 from pydantic import BaseModel
 
 
-class UserName(BaseModel):
-    username: str
-
-
-class User(UserName):
-    id: int
-    is_superuser: bool | None = None
-    is_staff: bool | None = None
-    is_blocked: bool | None = None
-    is_active: bool
+class CategoryRec(BaseModel):
+    category: str = Field(alias='name')
 
     class Config:
         orm_mode = True
+        allow_population_by_field_name = True
 ```
+
+Pydantic의 `BaseModel`을 ORM 객체로 사용하는 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/models/#orm-mode-aka-arbitrary-class-instances)를 참고하자.  
+
+Pydantic을 이용한 DTO 모델을 커스터마이징 하려면 위와 같이 `Field()` 함수를 사용하면 된다. `Field()` 함수에 대한 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/schema/#field-customization)를 참고하자.  
+
+또한 위와 같이 매핑될 필드에 alias를 부여할 경우 `allow_population_by_field_name = True` 속성이 있어야 alias로 변환한 필드의 원래 필드명을 사용해서 ORM 객체를 매핑할 수 있다.  
+
+Pydantic의 `class Config`에 대한 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/model_config/)를 참고하자.  
 
 ---
 ## Reference

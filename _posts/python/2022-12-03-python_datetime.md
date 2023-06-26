@@ -30,9 +30,47 @@ print(now)
 
 위에서 볼 수 있듯이 `datetime` 객체는 날짜와 시간을 모두 다루는 객체로, 날짜만 다루는 `date` 객체와 시간만 취급하는 `time` 객체도 있다.  
 
+### date, datetime, time 관련 팁
+
+- `date` -> `datetime`
+
+`date` 객체를 `datetime` 객체로 변환하려면, 아래와 같이 `combine()` 메소드를 통해 시간 정보를 추가해주면 된다.  
+
+```python
+from datetime import datetime, date
+
+d = date(2023, 1, 1)
+dt = datetime.combine(d, datetime.min.time())
+
+print(f'{d=}')
+print(f'{dt=}')
+```
+```
+d=datetime.date(2023, 1, 1)
+dt=datetime.datetime(2023, 1, 1, 0, 0)
+```
+
+- ISO 형식으로 출력하기
+
+ISO 형식으로 데이터를 변환하려면, 아래와 같이 `isoformat()` 메소드를 사용하면 된다.  
+
+```python
+from datetime import datetime, date
+
+iso_d = date.today().isoformat()
+iso_dt = datetime.now().isoformat()
+
+print(f'{iso_d=}')
+print(f'{iso_dt=}')
+```
+```
+iso_d='2023-06-17'
+iso_dt='2023-06-17T13:47:50.665560'
+```
+
 ## strftime, strptime
 
-개발을 하다보면 날짜/시간 데이터를 처리할 일이 많다. 이 때 자주 사용하는 함수로 `strptime`와 `strftime`가 있다.  
+개발을 하다보면 날짜/시간 데이터를 처리할 일이 많다. 이 때 자주 사용하는 메소드로 `strptime`와 `strftime`가 있다.  
 
 날짜 및 시간 데이터 관련 포멧은 [공식 문서](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)에 정리되어 있는데, 주로 사용하는 포멧은 아래와 같다.  
 
@@ -69,8 +107,8 @@ print(now.strftime('%H:%M'))
 ```python
 from datetime import datetime
 
-date = "2022/11/13 16-19-35"
-res = datetime.strptime(date, "%Y/%m/%d %H-%M-%S")
+date = '2022/11/13 16-19-35'
+res = datetime.strptime(date, '%Y/%m/%d %H-%M-%S')
 
 print(res)
 print(type(res))
@@ -79,6 +117,9 @@ print(type(res))
 2022-11-13 16:19:35
 <class 'datetime.datetime'>
 ```
+
+💡`date`, `datetime`, `time` 객체가 모두 갖고 있는 `strftime` 메소드와 달리 `strptime` 메소드는 `datetime` 객체만 갖고 있다.  
+{:.note}
 
 ## KST 표시
 
@@ -96,6 +137,7 @@ print(kst.strftime('%Y-%m-%d %H:%M:%S'))
 kst=datetime.datetime(2022, 12, 4, 23, 46, 57, 684064, tzinfo=datetime.timezone(datetime.timedelta(seconds=32400)))
 2022-12-04 23:46:57
 ```
+
 ```python
 utc = datetime.utcnow()
 

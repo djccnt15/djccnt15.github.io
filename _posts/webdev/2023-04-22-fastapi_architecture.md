@@ -69,8 +69,6 @@ FastAPI는 OpenAPI(Swagger)를 기본으로 제공하는데, 아래와 같이 `/
 ![fastapi_docs](/assets/img/posts/fastapi_docs.png)
 {:.border-image}
 
-사용해보면 테스트 데이터를 직접 넣을수도 있고 API에 대한 여러 가지 정보를 알려줘서 사용하기 매우 편리하다.  
-
 ## 2. 아키텍처
 
 FastAPI 기반의 백엔드 서버의 전체적인 아키텍처는 아래와 같다.  
