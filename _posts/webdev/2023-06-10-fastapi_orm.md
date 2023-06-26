@@ -500,9 +500,7 @@ DBeaver등 DB 툴을 이용해서 해당 DB를 확인해보면 `alembic.ini`에�
 
 ## 6. 데이터 모델(DTO)
 
-SQLAlchemy를 통해 가져온 데이터의 레코드는 `_asdict()` 함수를 통해 구조체를 거쳐, Pydantic 객체로 변환될 수 있다.  
-
-이 때 아래와 같이 `orm_mode = True` 속성을 갖고 있어야 변환이 가능하니 데이터베이스의 데이터를 처리할 데이터 모델은 반드시 해당 속성을 추가하자.  
+Pydantic의 `BaseModel`을 상속한 객체에 아래와 같이 `orm_mode = True` 속성을 만들어주면 SQLAlchemy를 통해 가져온 데이터의 레코드를 `from_orm()` 메소드를 통해 Pydantic 객체로 변환할 수 있다.  
 
 ```python
 from pydantic import BaseModel
@@ -516,11 +514,13 @@ class CategoryRec(BaseModel):
         allow_population_by_field_name = True
 ```
 
+Pydantic의 `BaseModel`을 ORM 객체로 사용하는 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/models/#orm-mode-aka-arbitrary-class-instances)를 참고하자.  
+
 Pydantic을 이용한 DTO 모델을 커스터마이징 하려면 위와 같이 `Field()` 함수를 사용하면 된다. `Field()` 함수에 대한 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/schema/#field-customization)를 참고하자.  
 
 또한 위와 같이 매핑될 필드에 alias를 부여할 경우 `allow_population_by_field_name = True` 속성이 있어야 alias로 변환한 필드의 원래 필드명을 사용해서 ORM 객체를 매핑할 수 있다.  
 
-Pydantic의 `class Config:`에 대한 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/model_config/)를 참고하자.  
+Pydantic의 `class Config`에 대한 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/model_config/)를 참고하자.  
 
 ---
 ## Reference

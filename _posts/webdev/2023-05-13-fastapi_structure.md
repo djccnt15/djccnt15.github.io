@@ -43,8 +43,8 @@ related_posts:
     │   │   └── common
     │   │       └── con_user.py
     │   ├── models
-    │   │   ├── dao_models.py
-    │   │   └── dao_post.py
+    │   │   ├── dao_board.py
+    │   │   └── dao_models.py
     │   └── schemas
     │       ├── dto_board.py
     │       ├── dto_common.py
