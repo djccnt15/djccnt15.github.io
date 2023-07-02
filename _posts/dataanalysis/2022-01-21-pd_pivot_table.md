@@ -5,7 +5,7 @@ title: '[pandas] Pivot Table 분석'
 description: >
     pandas의 pivot_table, groupby API로 피봇 테이블 분석하기
 categories: [DataAnalysis]
-tags: [pivot table, pandas]
+tags: [pivot table, python, pandas]
 image:
     path: /assets/img/posts/thumbnail_pandas.png
 related_posts:

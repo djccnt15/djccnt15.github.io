@@ -5,7 +5,7 @@ title: '[Jekyll] 카테고리/태그 페이지'
 description: >
     posts by Category, posts by Tag
 categories: [WebDev]
-tags: [jekyll]
+tags: [jekyll, HTML, CSS]
 image:
     path: /assets/img/posts/thumbnail_jekyll.png
 related_posts:

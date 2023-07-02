@@ -5,7 +5,7 @@ title: '[Django] 01. 프로젝트 시작'
 description: >
     Django 설치, 프로젝트 시작, 개발서버 구동, Secret Key 숨기기
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

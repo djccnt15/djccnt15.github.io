@@ -5,7 +5,7 @@ title: '[Django] 11. 앵커'
 description: >
     HTML 앵커 추가하기
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

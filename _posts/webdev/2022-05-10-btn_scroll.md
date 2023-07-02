@@ -5,7 +5,7 @@ title: '[Front-end] 스크롤 버튼'
 description: >
     scroll to top/bottom 버튼 만들기
 categories: [WebDev]
-tags: [front-end]
+tags: [HTML, CSS, javascript]
 image:
     path: /assets/img/posts/thumbnail_js.png
 related_posts:

@@ -5,7 +5,7 @@ title: '[pandas] csv 인코딩'
 description: >
     pandas로 csv 인코딩 바꾸기
 categories: [DataAnalysis]
-tags: [pandas]
+tags: [python, pandas]
 image:
     path: /assets/img/posts/thumbnail_pandas.png
 related_posts:

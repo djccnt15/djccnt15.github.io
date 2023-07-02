@@ -5,7 +5,7 @@ title: '[FastAPI] 03. SQLAlchemy 기반 ORM'
 description: >
     SQLAlchemy와 Alembic을 활용한 데이터베이스 ORM
 categories: [WebDev]
-tags: [FastAPI, SQLAlchemy]
+tags: [FastAPI, ORM, SQLAlchemy, Alembic]
 image:
     path: /assets/img/posts/thumbnail_fastapi.png
 related_posts:

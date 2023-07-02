@@ -5,7 +5,7 @@ title: '[Django] 09. view 정리'
 description: >
     views.py 정리
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

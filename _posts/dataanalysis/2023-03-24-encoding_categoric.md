@@ -5,7 +5,7 @@ title: '[전처리] 범주형 데이터의 전처리'
 description: >
     범주형 데이터를 수학으로 분석 가능하게 만드는 방법
 categories: [DataAnalysis]
-tags: [preprocessing]
+tags: [preprocessing, python, scikit-learn, pandas]
 image:
     path: /assets/img/posts/thumbnail_sklearn.png
 related_posts:

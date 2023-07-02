@@ -5,7 +5,7 @@ title: '[Python] calculate runtime'
 description: >
     Python 코드의 런타임을 계산하는 방법
 categories: [Python]
-tags: [datetime]
+tags: [python, datetime]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:

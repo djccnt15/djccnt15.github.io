@@ -5,7 +5,7 @@ title: '[pandas] 데이터 프로파일링'
 description: >
     pandas DataFrame 기초 프로파일링 쉽게 하는 방법
 categories: [DataAnalysis]
-tags: [pandas]
+tags: [python, pandas]
 image:
     path: /assets/img/posts/thumbnail_pandas.png
 related_posts:

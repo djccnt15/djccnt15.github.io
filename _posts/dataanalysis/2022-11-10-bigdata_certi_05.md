@@ -5,7 +5,7 @@ title: '[빅분기] 실기 대비 05'
 description: >
     빅데이터 분석기사 실기 시험장에서 볼 수 있는 cheat sheet
 categories: [DataAnalysis]
-tags: [data analysis, Bigdata Certificate]
+tags: [Bigdata Certificate, python]
 image:
     path: /assets/img/posts/thumbnail_bigdata_certi.png
 related_posts:

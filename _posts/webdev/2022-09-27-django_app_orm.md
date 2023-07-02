@@ -5,7 +5,7 @@ title: '[Django] 02. App과 ORM'
 description: >
     App 생성, 데이터 모델 생성 및 활성화, 관리자 계정 생성
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django, ORM]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

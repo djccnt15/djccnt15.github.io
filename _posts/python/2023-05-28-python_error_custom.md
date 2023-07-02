@@ -5,7 +5,7 @@ title: '[Python] 에러 커스텀하기'
 description: >
     Python 에러를 커스텀하기
 categories: [Python]
-tags: [python]
+tags: [python, Exception]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:

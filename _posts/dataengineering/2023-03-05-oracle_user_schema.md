@@ -5,7 +5,7 @@ title: '[Oracle] 유저와 스키마'
 description: >
     오라클 유저 생성 및 ORA-01950 에러 해결 방법
 categories: [DataEngineering]
-tags: [oracle]
+tags: [database, oracle]
 image:
     path: /assets/img/posts/thumbnail_oracle.png
 related_posts:

@@ -5,7 +5,7 @@ title: '[기초통계학] 02. 자료의 종류와 특성'
 description: >
     자료의 분류, 범주형/수치형 자료의 정리
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, variable types, relative frequency, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_02.png
 related_posts:

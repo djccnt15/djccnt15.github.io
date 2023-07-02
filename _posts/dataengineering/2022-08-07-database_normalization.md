@@ -5,7 +5,7 @@ title: '[SQL] 03. 정규화, 반정규화'
 description: >
     데이터 모델과 성능: 성능 데이터 모델링의 개요, 정규화, 반정규화
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_03.png
 related_posts:

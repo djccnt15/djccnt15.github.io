@@ -5,7 +5,7 @@ title: '[pandas] 유니크 값의 종류 및 개수'
 description: >
     객체형 칼럼의 유니크 값의 종류 및 개수를 반환하는 함수
 categories: [DataAnalysis]
-tags: [pandas]
+tags: [python, pandas]
 image:
     path: /assets/img/posts/thumbnail_pandas.png
 related_posts:

@@ -5,7 +5,7 @@ title: '[기초통계학] 03. 일변량 자료'
 description: >
     수치형 일변량 자료의 중심경향치와 산포
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, central tendency, dispersion, variance, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_03.png
 related_posts:

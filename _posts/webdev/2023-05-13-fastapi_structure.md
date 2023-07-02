@@ -5,7 +5,7 @@ title: '[FastAPI] 02. FastAPI 프로젝트 설계'
 description: >
     FastAPI 기초 세팅 및 프로젝트 설계
 categories: [WebDev]
-tags: [FastAPI]
+tags: [python, FastAPI]
 image:
     path: /assets/img/posts/thumbnail_fastapi.png
 related_posts:
@@ -23,7 +23,7 @@ related_posts:
 ```
 .
 └── project_root
-    ├── settings
+    ├── env
     │   ├── config.ini
     │   ├── config.py
     │   ├── database.py

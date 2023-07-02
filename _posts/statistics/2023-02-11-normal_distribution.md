@@ -5,7 +5,7 @@ title: '[기초통계학] 11. 정규분포'
 description: >
     정규분포
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, probability, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_11.png
 related_posts:

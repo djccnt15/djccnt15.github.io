@@ -5,7 +5,7 @@ title: '[SQL] 01. 데이터 모델의 이해'
 description: >
     데이터 모델링의 이해: 데이터 모델의 이해
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_01.png
 related_posts:

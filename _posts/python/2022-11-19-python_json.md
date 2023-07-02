@@ -5,7 +5,7 @@ title: '[Python] JSON 파일 다루기'
 description: >
     Python으로 JSON 읽고 쓰기
 categories: [Python]
-tags: [json]
+tags: [python, json]
 image:
     path: /assets/img/posts/thumbnail_json.png
 related_posts:

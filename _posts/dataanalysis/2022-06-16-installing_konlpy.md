@@ -5,7 +5,7 @@ title: '[TextMining] KoNLPy 설치법(Windows)'
 description: >
     Python 텍스트마이닝 라이브러리 KoNLPy Windows 설치법
 categories: [DataAnalysis]
-tags: [text mining, konlpy]
+tags: [text mining, python, konlpy]
 image:
     path: /assets/img/posts/thumbnail_konlpy.png
 related_posts:

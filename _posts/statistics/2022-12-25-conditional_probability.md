@@ -5,7 +5,7 @@ title: '[기초통계학] 06. 조건부 확률'
 description: >
     조건부 확률과 베이즈 정리
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, probability, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_06.png
 related_posts:

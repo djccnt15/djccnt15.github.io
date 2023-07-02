@@ -5,7 +5,7 @@ title: '[회귀분석] 회귀분석의 전제조건'
 description: >
     선형성, 독립성, 등분산성, 정규성
 categories: [DataAnalysis]
-tags: [regression, incomplete]
+tags: [regression, incomplete, python]
 image:
     path: /assets/img/posts/thumbnail_statsmodels.png
 related_posts:

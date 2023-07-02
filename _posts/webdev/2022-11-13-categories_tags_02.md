@@ -5,7 +5,7 @@ title: '[Jekyll] 반응형 카테고리/태그 페이지'
 description: >
     반응형 카테고리, 태그 페이지 만들기
 categories: [WebDev]
-tags: [jekyll]
+tags: [jekyll, scss]
 image:
     path: /assets/img/posts/thumbnail_jekyll.png
 related_posts:

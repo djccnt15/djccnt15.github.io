@@ -5,7 +5,7 @@ title: '[Python] 날짜/시간 데이터 다루기'
 description: >
     strftime, strptime으로 날짜와 시간 데이터 다루기
 categories: [Python]
-tags: [datetime]
+tags: [python, datetime]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:

@@ -5,7 +5,7 @@ title: '[pandas] UnicodeDecodeError 해결'
 description: >
     read_csv encoding으로 UnicodeDecodeError 해결하기
 categories: [DataAnalysis]
-tags: [pandas]
+tags: [python, pandas]
 image:
     path: /assets/img/posts/thumbnail_pandas.png
 related_posts:

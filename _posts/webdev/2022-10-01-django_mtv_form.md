@@ -5,7 +5,7 @@ title: '[Django] 04. MTV 패턴과 Create'
 description: >
     MTV 패턴과 form을 활용한 Create
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

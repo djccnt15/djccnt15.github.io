@@ -5,7 +5,7 @@ title: '[SQL] 11. 절차형 SQL'
 description: >
     SQL 활용: 절차형 SQL
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_11.png
 related_posts:

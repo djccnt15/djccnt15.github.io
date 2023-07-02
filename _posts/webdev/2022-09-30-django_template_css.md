@@ -5,7 +5,7 @@ title: '[Django] 03. 템플릿과 css'
 description: >
     기초 화면 구성, css와 Bootstrap을 활용한 스타일 적용
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

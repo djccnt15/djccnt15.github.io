@@ -5,7 +5,7 @@ title: '[기초통계학] 05. 확률과 통계'
 description: >
     경우의 수와 통계적 확률
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, probability, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_05.png
 related_posts:

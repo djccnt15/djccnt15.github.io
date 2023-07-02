@@ -5,7 +5,7 @@ title: '[회귀분석] python 회귀분석'
 description: >
     statsmodels을 이용해서 회귀분석을 해보자
 categories: [DataAnalysis]
-tags: [regression, statsmodels, incomplete]
+tags: [regression, python, statsmodels, incomplete]
 image:
     path: /assets/img/posts/thumbnail_statsmodels.png
 related_posts:

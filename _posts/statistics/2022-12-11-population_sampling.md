@@ -5,7 +5,7 @@ title: '[기초통계학] 01. 모집단과 표본'
 description: >
     모집단과 표본, 표본추출, 가중치
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, population, sample, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_01.png
 related_posts:

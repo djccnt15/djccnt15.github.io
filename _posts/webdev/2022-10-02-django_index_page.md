@@ -5,7 +5,7 @@ title: '[Django] 05. 인덱스 페이지'
 description: >
     인덱스 페이지 만들기
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

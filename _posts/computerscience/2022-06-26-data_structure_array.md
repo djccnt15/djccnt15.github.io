@@ -5,7 +5,7 @@ title: '[자료구조] 02. 배열'
 description: >
     Python으로 배열(Array) 구현하기
 categories: [ComputerScience]
-tags: [data structure]
+tags: [data structure, array]
 image:
     path: /assets/img/posts/thumbnail_data_structure_02.png
 related_posts:

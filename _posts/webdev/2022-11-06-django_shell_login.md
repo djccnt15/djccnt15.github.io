@@ -5,7 +5,7 @@ title: '[Django] shell에서 로그인하기'
 description: >
     Django Shell 로그인
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:
