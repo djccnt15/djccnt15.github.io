@@ -5,7 +5,7 @@ title: '[전처리] IQR 방법론'
 description: >
     IQR 방식의 이상점 확인
 categories: [DataAnalysis]
-tags: [preprocessing, noise detection, IQR]
+tags: [preprocessing, noise detection, IQR, python]
 image:
     path: /assets/img/posts/thumbnail_noise_detection_iqr.png
 related_posts:

@@ -5,7 +5,7 @@ title: '[기초통계학] 04. 다변량 자료'
 description: >
     다변량 자료의 공분산과 상관계수
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, covariance, correlation, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_04.png
 related_posts:

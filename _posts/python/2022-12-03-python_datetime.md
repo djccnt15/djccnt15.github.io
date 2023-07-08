@@ -5,7 +5,7 @@ title: '[Python] 날짜/시간 데이터 다루기'
 description: >
     strftime, strptime으로 날짜와 시간 데이터 다루기
 categories: [Python]
-tags: [datetime]
+tags: [python, datetime]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:
@@ -34,7 +34,7 @@ print(now)
 
 - `date` -> `datetime`
 
-`date` 객체를 `datetime` 객체로 변환하려면, 아래와 같이 `combine()` 메소드를 통해 시간 정보를 추가해주면 된다.  
+`date` 객체를 `datetime` 객체로 변환하려면, 아래와 같이 `combine` 메소드를 통해 시간 정보를 추가해주면 된다.  
 
 ```python
 from datetime import datetime, date
@@ -52,7 +52,7 @@ dt=datetime.datetime(2023, 1, 1, 0, 0)
 
 - ISO 형식으로 출력하기
 
-ISO 형식으로 데이터를 변환하려면, 아래와 같이 `isoformat()` 메소드를 사용하면 된다.  
+ISO 형식으로 데이터를 변환하려면, 아래와 같이 `isoformat` 메소드를 사용하면 된다.  
 
 ```python
 from datetime import datetime, date
@@ -102,7 +102,7 @@ print(now.strftime('%H:%M'))
 
 ### strptime
 
-`strptime`은 parse time의 약자로, 문자열 형식의 날짜와 시간을 datetime 자료형으로 변환한다.  
+`strptime`은 parse time의 약자로, 문자열 형식의 날짜와 시간을 `datetime` 객체로 변환한다.  
 
 ```python
 from datetime import datetime

@@ -5,7 +5,7 @@ title: '[기초통계학] 08. 기대값과 모분산'
 description: >
     모집단의 기대값과 분포
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, expectation, variance, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_08.png
 related_posts:

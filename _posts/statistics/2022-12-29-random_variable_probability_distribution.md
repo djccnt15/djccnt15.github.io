@@ -5,7 +5,7 @@ title: '[기초통계학] 07. 확률변수와 확률분포'
 description: >
     확률변수와 확률분포
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, probability, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_07.png
 related_posts:

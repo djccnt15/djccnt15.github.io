@@ -5,7 +5,7 @@ title: '[pip] pip 업그레이드'
 description: >
     Python pip 업그레이드 하기
 categories: [Python]
-tags: [pip]
+tags: [python, pip]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:

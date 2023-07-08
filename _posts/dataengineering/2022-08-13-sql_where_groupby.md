@@ -5,7 +5,7 @@ title: '[SQL] 06. WHERE, GROUP BY, ORDER BY'
 description: >
     SQL 기본: WHERE, 함수, GROUP BY, HAVING, ORDER BY
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_06.png
 related_posts:

@@ -5,7 +5,7 @@ title: '[Bot] Telegram Bot 만들기'
 description: >
     Telegram Bot API로 Python 자동 알림 만들기
 categories: [Python]
-tags: [bot]
+tags: [python, telegram bot]
 image:
     path: /assets/img/posts/thumbnail_telegram.png
 related_posts:

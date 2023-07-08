@@ -5,7 +5,7 @@ title: '[pandas] 단일값으로 이루어진 칼럼 찾기'
 description: >
     pandas 테이블에서 단일값으로 이루어진 칼럼을 반환하는 함수
 categories: [DataAnalysis]
-tags: [pandas]
+tags: [python, pandas]
 image:
     path: /assets/img/posts/thumbnail_pandas.png
 related_posts:

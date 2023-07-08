@@ -5,7 +5,7 @@ title: '[Django] 08. Update/Delete'
 description: >
     질문/답변 수정 및 삭제
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

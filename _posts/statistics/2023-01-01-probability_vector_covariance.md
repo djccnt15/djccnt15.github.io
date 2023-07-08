@@ -5,7 +5,7 @@ title: '[기초통계학] 09. 확률 벡터와 공분산'
 description: >
     확률 벡터와 공분산
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, probability, covariance, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_09.png
 related_posts:

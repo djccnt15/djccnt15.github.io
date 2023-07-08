@@ -5,7 +5,7 @@ title: '[SQL] 10. 그룹 함수, 윈도우 함수'
 description: >
     SQL 활용: 그룹 함수, 윈도우 함수
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_10.png
 related_posts:

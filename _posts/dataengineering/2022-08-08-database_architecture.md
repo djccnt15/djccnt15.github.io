@@ -5,7 +5,7 @@ title: '[SQL] 04. 데이터베이스 구조와 성능'
 description: >
     데이터 모델과 성능: 대량 데이터, 데이터베이스 구조, 분산 데이터베이스와 성능
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_04.png
 related_posts:

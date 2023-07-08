@@ -5,7 +5,7 @@ title: '[Django] 01. 프로젝트 시작'
 description: >
     Django 설치, 프로젝트 시작, 개발서버 구동, Secret Key 숨기기
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:
@@ -125,7 +125,7 @@ Quit the server with CTRL-BREAK.
 
 Django 프로젝트의 Secret Key가 노출되었다는 것인데, Secret Key는 [디지털 서명](https://docs.djangoproject.com/en/1.11/topics/signing/)을 위해 사용되고, 사용 대상은 아래와 같다.  
 
-- `django.contrib.sessions.backends.cache`이외의 session backend를 사용하거나 기본 `get_session_auth_hash()`를 사용하는 모든 [session](https://docs.djangoproject.com/en/1.11/topics/http/sessions/)
+- `django.contrib.sessions.backends.cache`이외의 session backend를 사용하거나 기본 `get_session_auth_hash`를 사용하는 모든 [session](https://docs.djangoproject.com/en/1.11/topics/http/sessions/)
 - `CookieStorage`나 `FallbackStorage`를 사용하는 모든 [메세지](https://docs.djangoproject.com/en/1.11/ref/contrib/messages/)
 - 모든 [`PasswordResetView`](https://docs.djangoproject.com/en/1.11/topics/auth/default/#django.contrib.auth.views.PasswordResetView) 토큰
 - 다른 키가 제공되지 않는 모든 [디지털 서명](https://docs.djangoproject.com/en/1.11/topics/signing/)

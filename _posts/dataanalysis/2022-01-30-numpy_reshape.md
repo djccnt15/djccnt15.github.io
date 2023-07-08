@@ -5,7 +5,7 @@ title: '[NumPy] numpy array의 변형'
 description: >
     `numpy.array`를 쉽게 변형해보자. reshape, transpose, T의 활용
 categories: [DataAnalysis]
-tags: [numpy]
+tags: [python, numpy, array]
 image:
     path: /assets/img/posts/thumbnail_numpy.png
 related_posts:

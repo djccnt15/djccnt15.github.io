@@ -5,7 +5,7 @@ title: '[Python] list comprehension'
 description: >
     List Comprehensions of Python
 categories: [Python]
-tags: [python]
+tags: [python, list comprehension]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:

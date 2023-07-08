@@ -5,7 +5,7 @@ title: '[Django] 07. 페이지네이션'
 description: >
     페이지네이션과 템플릿 필터
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django, pagination]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

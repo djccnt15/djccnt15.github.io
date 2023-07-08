@@ -5,7 +5,7 @@ title: '[Python] 가상환경'
 description: >
     Windows와 Linux에서 Python 가상환경 만들고 사용하기
 categories: [Python]
-tags: [venv, ⭐starred]
+tags: [python, venv, ⭐starred]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:

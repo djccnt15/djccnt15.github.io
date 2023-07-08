@@ -5,7 +5,7 @@ title: '[SQL] 05. 관계형 데이터베이스'
 description: >
     SQL 기본: 관계형 데이터베이스, DDL, DML, TCL, DCL
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_05.png
 related_posts:

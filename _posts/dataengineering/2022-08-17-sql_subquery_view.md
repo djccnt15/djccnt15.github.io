@@ -5,7 +5,7 @@ title: '[SQL] 09. 서브쿼리, 뷰'
 description: >
     SQL 활용: 서브쿼리, 뷰
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_09.png
 related_posts:

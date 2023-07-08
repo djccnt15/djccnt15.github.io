@@ -5,7 +5,7 @@ title: '[Django] 10. 추천 기능'
 description: >
     추천 기능 만들기
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:

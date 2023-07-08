@@ -5,7 +5,7 @@ title: "[pip] No module named 'pip'"
 description: >
     How to reinstall pip
 categories: [Python]
-tags: [pip]
+tags: [python, pip]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:

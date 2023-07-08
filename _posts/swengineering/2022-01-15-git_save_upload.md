@@ -91,3 +91,9 @@ git push <repository> <branchname>
 ```bash
 git push -n <repository> <branchname>
 ```
+
+- 원격 저장소의 브랜치 삭제
+
+```bash
+git push <repository> -d <branchname>
+```

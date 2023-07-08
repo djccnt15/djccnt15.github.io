@@ -5,7 +5,7 @@ title: '[Django] 03. 템플릿과 css'
 description: >
     기초 화면 구성, css와 Bootstrap을 활용한 스타일 적용
 categories: [WebDev]
-tags: [Django]
+tags: [python, Django]
 image:
     path: /assets/img/posts/thumbnail_django.png
 related_posts:
@@ -75,9 +75,9 @@ def detail(request, question_id):
     return render(request, 'board_qna/question_detail.html', context)
 ```
 
-`order_by()`는 QuerySet API로, QuerySet은 데이터베이스에서 가져온 객체들의 모음을 말한다. QuerySet API에 대한 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/querysets/)를 참고하자.  
+`order_by`는 QuerySet API로, QuerySet은 데이터베이스에서 가져온 객체들의 모음을 말한다. QuerySet API에 대한 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/querysets/)를 참고하자.  
 
-`render()`는 템플릿과 데이터를 조합하여 [`HttpResponse` 객체](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)로 반환하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)를 참고하자.
+`render`는 템플릿과 데이터를 조합하여 [`HttpResponse` 객체](https://docs.djangoproject.com/en/4.1/ref/request-response/#django.http.HttpResponse)로 반환하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render)를 참고하자.
 
 ### 2-2. URL 매핑
 

@@ -5,7 +5,7 @@ title: '[Hydejack] time series style layout'
 description: >
     list layout을 시계열 디자인으로 수정하기
 categories: [WebDev]
-tags: [Hydejack]
+tags: [jekyll, Hydejack, HTML, CSS]
 image:
     path: /assets/img/posts/thumbnail_jekyll.png
 related_posts:

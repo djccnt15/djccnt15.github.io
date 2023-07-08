@@ -5,7 +5,7 @@ title: '[자료구조] 05. 연결 리스트'
 description: >
     Python으로 연결 리스트(Linked List) 구현하기
 categories: [ComputerScience]
-tags: [data structure]
+tags: [data structure, linked list, python]
 image:
     path: /assets/img/posts/thumbnail_data_structure_05.png
 related_posts:

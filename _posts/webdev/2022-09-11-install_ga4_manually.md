@@ -5,7 +5,7 @@ title: '[GA] 웹페이지에 GA4 적용하기'
 description: >
     Hydejack 테마에 GA4 직접 적용하기
 categories: [WebDev]
-tags: [GA]
+tags: [GA, javascript]
 image:
     path: /assets/img/posts/google_analytics.webp
 related_posts:

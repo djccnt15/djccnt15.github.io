@@ -5,7 +5,7 @@ title: '[Python] Dictionary 쉽게 사용하기'
 description: >
     addict 라이브러리로 Dictionary 다루기
 categories: [Python]
-tags: [json]
+tags: [python, json]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:
@@ -63,7 +63,7 @@ print(test)
 {'a': 1, 'b': 2, 'c': {'d': 2, 'e': [3, 4], 'f': {'g': {'h': [5, 6, 7], 'i': [8, 9, 10]}}}}
 ```
 
-addict 라이브러리의 `Dict` 자료형을 Python의 `dict` 자료형으로 바꾸고 싶다면 아래와 같이 `to_dict()` 메서드를 사용하면 된다.  
+addict 라이브러리의 `Dict` 자료형을 Python의 `dict` 자료형으로 바꾸고 싶다면 아래와 같이 `to_dict` 메서드를 사용하면 된다.  
 
 ```python
 test.to_dict()

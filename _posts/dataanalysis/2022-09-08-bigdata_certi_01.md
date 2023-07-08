@@ -5,7 +5,7 @@ title: '[빅분기] 실기 대비 01'
 description: >
     빅데이터 분석기사 실기 예제 문제 풀이
 categories: [DataAnalysis]
-tags: [data analysis, Bigdata Certificate]
+tags: [Bigdata Certificate, python]
 image:
     path: /assets/img/posts/thumbnail_bigdata_certi.png
 related_posts:

@@ -5,7 +5,7 @@ title: '[SQL] 08. 계층형 질의, 셀프 조인'
 description: >
     SQL 활용: 계층형 질의, 셀프 조인
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_08.png
 related_posts:

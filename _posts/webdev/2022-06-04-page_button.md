@@ -5,7 +5,7 @@ title: '[Jekyll] 이전 글, 다음 글'
 description: >
     이전 글, 다음 글 버튼 만들기
 categories: [WebDev]
-tags: [jekyll]
+tags: [jekyll, HTML, CSS]
 image:
     path: /assets/img/posts/thumbnail_jekyll.png
 related_posts:

@@ -5,7 +5,7 @@ title: '[기초통계학] 10. 다양한 이산확률분포'
 description: >
     베르누이 분포, 이항분포, 초기하분포, 포아송 분포, 기하분포, 음이항분포, 다항분포
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, probability, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_10.png
 related_posts:

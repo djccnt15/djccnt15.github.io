@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[Git] 05. branch 다루기'
 description: >
-    branch 관리를 위한 명령어들: branch, switch, merge
+    브랜치 관리를 위한 명령어들: branch, switch, merge
 categories: [SWEngineering]
 tags: [git]
 image:
@@ -22,52 +22,52 @@ related_posts:
 
 브랜치를 관리하는 명령어로, 주요 옵션은 아래와 같다.  
 
-- branch 생성
+- 브랜치 생성
 
 ```bash
 git branch <newbranch>
 ```
 
-- branch 이름 변경
+- 브랜치 이름 변경
 
 ```bash
 git branch -m [<oldbranch>] <newbranch>
 ```
 
-- branch copy 생성
+- 브랜치 copy 생성
 
 ```bash
 git branch -c [<oldbranch>] <newbranch>
 ```
 
-- branch 삭제
+- 브랜치 삭제
 
 ```bash
-git branch -d [-r] <branchname>
+git branch -d <branchname>
 ```
 
-`git branch -d`로 브랜치를 삭제할 때 `-r` 옵션을 같이 사용하면 원격 저장소의 해당 브랜치를 삭제한다.  
+💡참고로 원격 저장소의 브랜치를 삭제하려면 [`push` 명령어를 사용](/swengineering/git_save_upload/#push)해야 한다.
 
-- 원격 저장소의 branch를 가져오기
+- 원격 저장소의 브랜치를 가져오기
 
 ```bash
 git branch -t <branchname>
 ```
 
-원격 저장소에 여러 브랜치가 있는 경우 pull이나 clone을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](/swengineering/manual_git_01/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
+원격 저장소에 여러 브랜치가 있는 경우 `pull`이나 `clone`을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](/swengineering/manual_git_01/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
 
 ## switch
 
 위의 `branch` 명령어로 생성한 브랜치 간에 이동할 때, 즉 작업할 브랜치를 변경할 때 사용하는 명령어다.  
 
 
-- branch 이동
+- 브랜치 이동
 
 ```bash
 git switch <branchname>
 ```
 
-- branch 생성 및 이동
+- 브랜치 생성 및 이동
 
 ```bash
 git switch -c <branchname> [<start-point>]

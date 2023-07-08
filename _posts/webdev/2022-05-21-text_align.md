@@ -5,7 +5,7 @@ title: '[Jekyll] 글자 정렬'
 description: >
     how to align text
 categories: [WebDev]
-tags: [jekyll]
+tags: [jekyll, CSS]
 image:
     path: /assets/img/posts/thumbnail_jekyll.png
 related_posts:

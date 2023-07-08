@@ -5,7 +5,7 @@ title: '[SQL] 02. 엔티티, 속성, 관계, 식별자'
 description: >
     데이터 모델링의 이해: 엔티티, 속성, 관계, 식별자
 categories: [DataEngineering]
-tags: [SQL]
+tags: [database, RDB, SQL]
 image:
     path: /assets/img/posts/thumbnail_sql_02.png
 related_posts:

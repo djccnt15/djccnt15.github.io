@@ -5,7 +5,7 @@ title: '[상관분석] 상관관계 분석하기'
 description: >
     Python으로 상관분석 하는 방법
 categories: [DataAnalysis]
-tags: [correlation, pandas]
+tags: [correlation, python, pandas]
 image:
     path: /assets/img/posts/thumbnail_correlation_coefficient.png
 related_posts:

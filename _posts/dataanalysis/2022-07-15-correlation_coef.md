@@ -5,7 +5,7 @@ title: '[상관분석] 상관계수 구현'
 description: >
     Python으로 상관계수 구현하기
 categories: [DataAnalysis]
-tags: [correlation]
+tags: [correlation, python]
 image:
     path: /assets/img/posts/thumbnail_correlation_coefficient.png
 related_posts:

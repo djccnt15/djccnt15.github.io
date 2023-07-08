@@ -5,7 +5,7 @@ title: '[pandas] pandas 옵션 설정'
 description: >
     pandas.set_option 사용법
 categories: [DataAnalysis]
-tags: [pandas]
+tags: [python, pandas]
 image:
     path: /assets/img/posts/thumbnail_pandas.png
 related_posts:

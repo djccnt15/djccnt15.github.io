@@ -5,7 +5,7 @@ title: '[기초통계학] 12. 확률표본과 중심극한정리'
 description: >
     확률표본, 표본분포, 중심극한정리
 categories: [Statistics]
-tags: [statistics]
+tags: [statistics 101, probability, python]
 image:
     path: /assets/img/posts/thumbnail_statistics_12.png
 related_posts:

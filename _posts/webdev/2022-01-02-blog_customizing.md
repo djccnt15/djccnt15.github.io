@@ -5,7 +5,7 @@ title: '[MM] 커스터마이징'
 description: >
     Minimal Mistakes 테마 커스터마이징
 categories: [WebDev]
-tags: [Minimal Mistakes]
+tags: [jekyll, Minimal Mistakes, HTML, CSS]
 image:
     path: /assets/img/posts/thumbnail_minimalmistakes.png
 related_posts:
