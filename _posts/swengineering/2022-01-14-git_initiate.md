@@ -69,7 +69,7 @@ git remote rename <old> <new>
 git remote remove <name>
 ```
 
-- branch의 head 변경
+- 브랜치의 head 변경
 
 ```bash
 git remote set-head <name> <branch>

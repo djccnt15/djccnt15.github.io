@@ -16,7 +16,7 @@ related_posts:
 
 ## 명령어 도움말 보기
 
-```bash
+```powershell
 docker [CMD] --help
 ```
 
@@ -24,31 +24,49 @@ docker [CMD] --help
 
 ### 이미지 다운로드
 
-```bash
+```powershell
 docker pull [URL]
 ```
 
 ### 이미지 삭제
 
-```bash
-docker rmi [ID]
+```powershell
+docker rmi [IMAGE]
 ```
 
 ### 이미지 목록 보기
 
-```bash
+```powershell
 docker image ls
+```
+
+### 이미지 저장
+
+- 이미지를 tar 파일로 저장
+
+```powershell
+docker save -o [FILENAME] [IMAGE]
+```
+
+- tar 파일을 이미지로 변환
+
+```powershell
+docker load -i [FILENAME]
 ```
 
 ## 컨테이너 관련
 
 ### 컨테이너 목록 보기
 
-```bash
+- 실행중인 컨테이너 목록 보기
+
+```powershell
 docker ps
 ```
 
-```bash
+- 생성된 컨테이너 전체 목록 보기
+
+```powershell
 docker ps -a
 ```
 
@@ -56,46 +74,48 @@ docker ps -a
 
 - 생성 및 접속
 
-```bash
-docker run [ID]
+```powershell
+docker run [CONTAINER]
 ```
 
 - `^P^Q`를 통해 접속 해지가 가능한 TTY 접속
 
-```bash
-docker run -itd [ID]
+```powershell
+docker run -itd [CONTAINER]
 ```
 
 - 단순 컨테이너 생성
 
-```bash
-docker create [ID]
+```powershell
+docker create [CONTAINER]
 ```
 
 ### 컨테이너 삭제
 
-```bash
-docker rm [ID]
+```powershell
+docker rm [CONTAINER]
 ```
 
 ### 컨테이너 접속
 
 - 해당 컨테이너의 root 프로세스에 콘솔 접근
 
-```bash
-docker attach [ID]
+```powershell
+docker attach [CONTAINER]
 ```
 
 ❗`docker attach` 명령어로 접속할 경우 docker 커맨드가 전달되는 외부 환경의 표준 입출력이 컨테이너의 root 프로세스의 표준입출력과 연결되는 상태이기 때문에 `exit` 명령을 하는 경우 컨테이너 자체가 종료 된다.  
 {:.note title='attention'}
 
-- 컨테이너의 bash 프로세스 실행 및 접속
+- 컨테이너의 powershell 프로세스 실행 및 접속
 
-```bash
-docker exec -it [CONTAINER_ID] bin/bash
+```powershell
+docker exec -it [CONTAINER] bin/powershell
 ```
 
-`docker exec` 명령어는 docker 컨테이너 내에 새로운 프로세스를 실행시키고 그 프로세스를 `/bin/bash`로 정한 것이기 때문에 컨테이너 내에 `/bin/bash`가 존재할 경우에만 사용할 수 있다는 단점이 있다.  
+`exec` 명령어는 실행중인 컨테이너에서 입력된 명령어를 실행하는 명령어이다.  
+
+따라서 위와 같이 입력하게 되면 docker 컨테이너 내에 새로운 프로세스를 실행시키고 그 프로세스를 `/bin/bash`로 정한 것이기 때문에 컨테이너 내에 `/bin/bash`가 존재할 경우에만 사용할 수 있다는 단점이 있다.  
 
 그러나 root 프로세스에 콘솔 접근을 한 것이 아니라 별도로 실행한 `bash` 터미널 프로세스를 통해 접속한 것이기 때문에 `exit` 명령어로 접속을 종료해도 컨테이너가 종료되지 않는다.  
 
@@ -108,6 +128,34 @@ docker exec -it [CONTAINER_ID] bin/bash
 
 ### 컨테이너 정지
 
-```bash
-docker stop [ID]
+```powershell
+docker stop [CONTAINER]
+```
+
+### 파일 복사
+
+- 로컬 환경 → 컨테이너
+
+```powershell
+docker cp [SRC_PATH] [CONTAINER]:[DEST_PATH]
+```
+
+- 컨테이너 → 로컬 환경
+
+```powershell
+docker cp [CONTAINER]:[SRC_PATH] [DEST_PATH]
+```
+
+### 컨테이너 저장
+
+- 컨테이너를 tar 파일로 저장
+
+```powershell
+docker export -o [FILENAME] [CONTAINER]
+```
+
+- tar 파일을 컨테이너로 변환
+
+```powershell
+docker import [FILENAME] [REPOSITORY[:TAG]]
 ```

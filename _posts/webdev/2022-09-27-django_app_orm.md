@@ -88,14 +88,14 @@ urlpatterns = [  # include() is a function for including url file in each app
 ]
 ```
 
-[`include()`](https://docs.djangoproject.com/ko/4.1/ref/urls/#include)는 앱별로 URL을 관리하기 위해 사용하는 함수로, 위와 같이 코드를 작성하면 `board_qna/`로 시작하는 페이지에 대한 요청이 있을 경우 `board_qna/urls.py` 파일을 읽어서 처리하라는 뜻이다.  
+[`include`](https://docs.djangoproject.com/ko/4.1/ref/urls/#include)는 앱별로 URL을 관리하기 위해 사용하는 함수로, 위와 같이 코드를 작성하면 `board_qna/`로 시작하는 페이지에 대한 요청이 있을 경우 `board_qna/urls.py` 파일을 읽어서 처리하라는 뜻이다.  
 
 ```python
 def _path(route, view, kwargs=None, name=None, Pattern=None):
     ...
 ```
 
-`path()`의 소스 코드를 보면 parameter는 위와 같은데, [공식 문서](https://docs.djangoproject.com/en/4.1/ref/urls/#django.urls.path)를 보면 각각의 의미는 다음과 같다.  
+`path`의 소스 코드를 보면 parameter는 위와 같은데, [공식 문서](https://docs.djangoproject.com/en/4.1/ref/urls/#django.urls.path)를 보면 각각의 의미는 다음과 같다.  
 
 - `route`
     - URL 패턴을 가진 문자열로 프로젝트에서 사용할 URL 지정

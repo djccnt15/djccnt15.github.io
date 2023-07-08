@@ -195,7 +195,7 @@ def question_create(request):
     ...
 ```
 
-`login_required` 데코레이터가 부여해주는 `login_required()` 함수는 기본적으로 로그인이 필요한 기능을 사용자가 사용하려고 하면 `settings.py`의 `LOGIN_URL` 옵션에 지정된 주소로 리다이렉트한다.  
+`login_required` 데코레이터가 부여해주는 `login_required` 함수는 기본적으로 로그인이 필요한 기능을 사용자가 사용하려고 하면 `settings.py`의 `LOGIN_URL` 옵션에 지정된 주소로 리다이렉트한다.  
 
 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/settings/#login-url)를 보면 `LOGIN_URL`은 기본값이 `/accounts/login/`으로 되어 있어 현재 개발 내용과 일치하지 않는데, 이를 바꿔주는 방법은 아래 두 가지가 있다.  
 
@@ -406,9 +406,9 @@ class CheckPasswordForm(forms.Form):
 
 주석에 적었듯이, 사용자로부터 비밀번호를 입력 받아서 해당 비밀번호가 데이터베이스에 저장된 비밀번호와 일치하는지 확인해주는 코드이다.  
 
-`clean()` 함수는 요약하자면 입력된 데이터가 form에서 요구하는 데이터와 일치하는 양식인지를 확인하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/forms/validation/)를 보자.  
+`clean` 함수는 요약하자면 입력된 데이터가 form에서 요구하는 데이터와 일치하는 양식인지를 확인하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/forms/validation/)를 보자.  
 
-`check_password()` 함수는 입력된 비밀번호와 데이터베이스에서 가져온 사용자의 비밀번호가 일치하는지를 확인하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/passwords/#django.contrib.auth.hashers.check_password)를 보자.  
+`check_password` 함수는 입력된 비밀번호와 데이터베이스에서 가져온 사용자의 비밀번호가 일치하는지를 확인하는 함수로, 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/passwords/#django.contrib.auth.hashers.check_password)를 보자.  
 
 ### 4-2. view 생성
 

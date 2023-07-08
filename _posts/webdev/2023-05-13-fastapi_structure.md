@@ -22,16 +22,17 @@ related_posts:
 
 ```
 .
-└── project_root
+└── project
     ├── env
     │   ├── config.ini
     │   ├── config.py
     │   ├── database.py
-    │   ├── keys.json
-    │   └── routes.py
+    │   ├── key.bin
+    │   └── security.py
     ├── src
     │   ├── apps
-    │   │   └── auth.py
+    │   │   ├── auth.py
+    │   │   └── routes.py
     │   ├── crud
     │   │   ├── crud_comment.py
     │   │   ├── crud_common.py
@@ -62,23 +63,13 @@ related_posts:
 `main` 모듈에 아래와 같이 FastAPI 객체를 선언하고, CORS 리스트를 추가해준다.  
 
 ```python
-from settings.config import get_config, mode, dir_config
-from settings.routes import router
+from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
+
+from env.config import get_config, mode, dir_config
+from src.app import router
 
 metadata = get_config()['DEFAULT']
-
-with open(file=dir_config / metadata.get('description'), mode='r') as f:
-    description = f.read()
-
-tags_metadata = [
-    {
-        'name': 'default',
-        'externalDocs': {
-            'description': 'External docs',
-            'url': f'{metadata.get("url")}',
-        },
-    }
-]
 
 app = FastAPI(
     title=metadata.get('title'),
@@ -86,13 +77,12 @@ app = FastAPI(
     contact={
         'name': metadata.get('name'),
         'url': metadata.get('url'),
+        'email': metadata.get('email')
     },
     license_info={
         'name': metadata.get('license_name'),
         'url': metadata.get('license_url')
-    },
-    description=description,
-    openapi_tags=tags_metadata
+    }
 )
 
 origins = get_config()['CORSLIST'].get(mode).split()  # get CORS allow list
@@ -125,7 +115,7 @@ config 관련 로직은 `config.py`에 만들어준다.
 from pathlib import Path
 from configparser import ConfigParser
 
-dir_config = Path('settings')
+dir_config = Path('env')
 
 
 def get_config() -> ConfigParser:
@@ -137,7 +127,7 @@ def get_config() -> ConfigParser:
 mode = get_config()['DEFAULT'].get('mode')
 ```
 
-위에서 `get_config()` 함수를 통해 불러오는 `config.ini` 파일은 아래와 같다.  
+위에서 `get_config` 함수를 통해 불러오는 `config.ini` 파일은 아래와 같다.  
 
 ```ini
 [DEFAULT]
@@ -149,9 +139,6 @@ name = djccnt15
 url = https://djccnt15.github.io/tags#FastAPI
 license_name = MIT
 license_url = https://en.wikipedia.org/wiki/MIT_License
-
-[DIRS]
-dir_config = settings
 
 [CORSLIST]
 dev = http://localhost:5173 http://127.0.0.1:5173
@@ -192,10 +179,11 @@ from src.endpoints import *
 from src.schemas import Tags
 
 router = APIRouter()
+api = '/api'
 
 router.include_router(
-    user.router,
-    prefix='/api/user',
+    con_user.router,
+    prefix=f'{api}/user',
     tags=[Tags.auth]
 )
 ```
@@ -213,7 +201,7 @@ class Tags(Enum):
 ```python
 from fastapi import FastAPI
 
-from settings.routes import router
+from env.routes import router
 
 app = FastAPI()
 

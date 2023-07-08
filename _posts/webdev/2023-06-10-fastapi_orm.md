@@ -5,7 +5,7 @@ title: '[FastAPI] 03. SQLAlchemy 기반 ORM'
 description: >
     SQLAlchemy와 Alembic을 활용한 데이터베이스 ORM
 categories: [WebDev]
-tags: [FastAPI, ORM, SQLAlchemy, Alembic]
+tags: [python, FastAPI, ORM, SQLAlchemy, Alembic]
 image:
     path: /assets/img/posts/thumbnail_fastapi.png
 related_posts:
@@ -51,22 +51,16 @@ FastAPI는 Django와 같은 자체적인 ORM 엔진은 없지만 SQLAlchemy라�
 
 ## 3. 데이터베이스 환경 설정
 
-`settings/database.py` 파일을 아래와 같이 만들어주자.  
+`env/database.py` 파일을 아래와 같이 만들어주자.  
 
 ```python
-import json
-
 from sqlalchemy.engine import URL
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import declarative_base
-from addict import Dict
 
-from settings.config import get_config, mode, dir_config
+from env.config import mode, get_key
 
-db_key = dir_config / get_config()['DATABASE'].get('db')
-
-with open(file=db_key, mode='r') as f:
-    db_key = Dict(json.load(fp=f)).db[mode]
+db_key = get_key().db[mode]
 
 SQLALCHEMY_DATABASE_URL = URL.create(
     drivername=db_key.drivername,
@@ -99,18 +93,23 @@ if __name__ == '__main__':
     print(SQLALCHEMY_DATABASE_URL)
 ```
 
-### 데이터베이스 주소 설정
+### 데이터베이스 설정
 
-우선 `get_config()` 함수가 `config.ini`에서 `db_key`의 내용을 불러올 수 있도록 `config.ini`에 아래 내용을 추가하자.  
+**중요정보**
+
+데이터베이스 관련 정보를 코드 내부에 하드코딩으로 작성해두면 보안상 좋지 않을 뿐 아니라, DB 관련 정보를 바꿀 때 코드를 업데이트 해야하는 단점이 있다.  
+
+❗KISA의 가이드에 따르면, SW 내부에 사용되는 각종 Key와 같은 중요정보들은 암호화 후 분리해서 보관해야 한다.  
+{:.note title='attention'}
+
+우선 `get_key` 함수가 `config.ini`에서 `db_key`의 내용을 불러올 수 있도록 `config.ini`에 아래 내용을 추가하자.  
 
 ```ini
-[DATABASE]
-db = keys.json
+[DEFAULT]
+key = key.bin
 ```
 
-데이터베이스의 주소를 코드에 작성해두면 보안상 좋지 않을 뿐 아니라, DB 관련 정보를 바꿀 때 코드를 업데이트 해야하는 단점이 있다.  
-
-`keys.json` 파일은 데이터베이스 주소에 대한 하드코딩을 막고, 저장소에 올라가면 안 되는 정보를 별도로 보관하기 위해 사용하는 JSON 파일로, 해당 파일의 양식은 아래와 같다.  
+`key.bin` 파일은 데이터베이스 관련 중요정보를 별도로 보관하는 암호화 된 파일로, 데이터의 내용은 아래와 같다.  
 
 ```json
 {
@@ -131,13 +130,25 @@ db = keys.json
 }
 ```
 
+`get_key` 함수는 아래와 같은데, 내부적으로 사용되는 암호화 모듈에 대한 자세한 내용은 [여기](/python/python_asymmetric_encryption)를 참고하자.
+
+```python
+def get_key(
+        file_name: Path | str = 'key.bin',
+        private_key: Path | str = 'private.pem'
+):
+    return Dict(literal_eval(decrypt_rsa(file_name, private_key)))
+```
+
+**데이터베이스 주소**
+
 `SQLALCHEMY_DATABASE_URL`는 데이터베이스의 주소로, 아래와 같은 규칙을 따른다.  
 
 ```
 dialect+driver://username:password@host:port/database
 ```
 
-위 양식에서 볼 수 있듯이 데이터베이스 주소는 `:`, `/`, `@`등을 구분자로 사용하기 때문에 비밀번호 등에 해당 특수문자가 있을 경우 주소를 제대로 인식하지 못하는 문제가 있다. 이런 문제를 방지하기 위해서는 `URL.create()` 함수를 사용해야 한다.  
+위 양식에서 볼 수 있듯이 데이터베이스 주소는 `:`, `/`, `@`등을 구분자로 사용하기 때문에 비밀번호 등에 해당 특수문자가 있을 경우 주소를 제대로 인식하지 못하는 문제가 있다. 이런 문제를 방지하기 위해서는 `URL.create` 함수를 사용해야 한다.  
 
 DB URL에 대한 자세한 내용은 SQLAlchemy [공식 문서](https://docs.sqlalchemy.org/en/20/core/engines.html#database-urls)를 참고하자.  
 
@@ -158,9 +169,9 @@ SQLAlchemy는 데이터베이스를 엔진 방식으로 사용함으로서 데�
 
 ### 데이터베이스 의존성 주입
 
-SQLAlchemy를 사용하면서 db 세션 객체를 생성한 후에 `db.close()`를 수행하지 않으면 SQLAlchemy가 사용하는 컨넥션 풀에 db 세션이 반환되지 않아 문제가 생긴다.  
+SQLAlchemy를 사용하면서 db 세션 객체를 생성한 후에 `db.close`를 수행하지 않으면 SQLAlchemy가 사용하는 컨넥션 풀에 db 세션이 반환되지 않아 문제가 생긴다.  
 
-`get_db()` 함수는 CRUD 함수를 호출할 때, 간단한 코드를 추가하여 CRUD 함수가 끝나면 자동으로 `db.close()`가 실행되도록 보조해주는 의존성 주입을 위한 함수이다. `endpoints` 함수에 DB에 대한 의존성 주입을 추가하려면 아래와 같이 `Depends()` 함수를 사용하면 된다.  
+`get_db` 함수는 CRUD 함수를 호출할 때, 간단한 코드를 추가하여 CRUD 함수가 끝나면 자동으로 `db.close`가 실행되도록 보조해주는 의존성 주입을 위한 함수이다. `endpoints` 함수에 DB에 대한 의존성 주입을 추가하려면 아래와 같이 `Depends` 함수를 사용하면 된다.  
 
 ```python
 async def post_detail(id: UUID, db: AsyncSession = Depends(get_db)):
@@ -169,7 +180,7 @@ async def post_detail(id: UUID, db: AsyncSession = Depends(get_db)):
 
 ### Base 객체
 
-`declarative_base()` 함수를 통해 생성되는 Base 객체는 ORM을 위한 데이터 모델 및 테이블 정의를 선언형으로 사용하기 위해 사용된다.  
+`declarative_base` 함수를 통해 생성되는 Base 객체는 ORM을 위한 데이터 모델 및 테이블 정의를 선언형으로 사용하기 위해 사용된다.  
 
 ## 4. 데이터 모델(DAO)
 
@@ -180,7 +191,7 @@ from sqlalchemy.schema import Column
 from sqlalchemy.types import Boolean, Integer, String, Text, DateTime, Uuid
 from sqlalchemy.orm import relationship
 
-from settings.database import Base
+from env.database import Base
 
 
 class Log(Base):
@@ -208,10 +219,10 @@ class User(Base):
     comment = relationship('Comment', back_populates='user')
 ```
 
-다른 모듈들도 동일한 구조로 작성되며 모두 아래와 같이 `settings/database.py` 파일에서 생성한 Base 객체를 공유해서 사용한다는 특징이 있다.  
+다른 모듈들도 동일한 구조로 작성되며 모두 아래와 같이 `env/database.py` 파일에서 생성한 Base 객체를 공유해서 사용한다는 특징이 있다.  
 
 ```python
-from settings.database import Base
+from env.database import Base
 
 class ClassName(Base):
     fk = Column(Integer, ForeignKey(parent.id))
@@ -245,13 +256,13 @@ class ClassName(Base):
 💡`bqckref`와 `back_populates`는 동일하게 Foreign 객체가 연관된 객체를 참조하기 위한 역참조를 제공하는 기능을 하지만, 코딩 방식이 조금 다른데, 차이점은 스택 오버플로우 [질문글](https://stackoverflow.com/questions/51335298/concepts-of-backref-and-back-populate-in-sqlalchemy)을 참고하자. 다만, SQLAlchemy [공식 문서](https://docs.sqlalchemy.org/en/20/orm/backref.html)에서는 `bqckref` 방식이 레거시라고 한다.  
 {:.note}
 
-개발하는 데이터 모델에 대한 요구사항은 아래와 같았는데, 데이터 모델을 모듈별로 분리하면서 `relationship()` 함수를 통한 참조 관계를 사용할 수 있도록 하는 부분이 생각보다 어려웠다.  
+개발하는 데이터 모델에 대한 요구사항은 아래와 같았는데, 데이터 모델을 모듈별로 분리하면서 `relationship` 함수를 통한 참조 관계를 사용할 수 있도록 하는 부분이 생각보다 어려웠다.  
 
 - 코드 관리가 용이하도록 SQLAlchemy 모델을 분리할 것
 - Alembic 기반 자동화 마이그레이션 사용이 가능할 것
 - 마이그레이션을 위한 코드와 서버 구동을 위한 코드가 동일할 것
 
-위 요구 사항을 달성하기 위해서는 Mapper 클래스를 활용한 타입 힌트 방식이 아닌 `relationship()` 함수의 인자로 참조 대상 객체의 이름을 str 타입으로 입력하고, 각 모듈들이 Base를 모두 동일한 인스턴스를 사용해야 한다.
+위 요구 사항을 달성하기 위해서는 Mapper 클래스를 활용한 타입 힌트 방식이 아닌 `relationship` 함수의 인자로 참조 대상 객체의 이름을 str 타입으로 입력하고, 각 모듈들이 Base를 모두 동일한 인스턴스를 사용해야 한다.
 
 <details><summary>트러블슈팅 과정의 에러들</summary><div markdown="1">
 
@@ -314,14 +325,14 @@ Alembic을 사용할 때 생성되는 리비전 파일 및 각종 보조 파일�
 sqlalchemy.url = driver://user:pass@localhost/dbname
 ```
 
-데이터베이스 주소를 확인하려면 `settings/database.py` 파일에서 설정한 `SQLALCHEMY_DATABASE_URL` 변수를 출력해보고, 출력 결과에서 드라이버 부분을 제외하고 입력하면 된다.  
+데이터베이스 주소를 확인하려면 `env/database.py` 파일에서 설정한 `SQLALCHEMY_DATABASE_URL` 변수를 출력해보고, 출력 결과에서 드라이버 부분을 제외하고 입력하면 된다.  
 
 - `migrations/env.py` 파일 수정
 
 Alembic에 테이블의 메타데이터를 설정해준다.  
 
 ```python
-from settings.database import Base
+from env.database import Base
 from src.models import *
 
 target_metadata = Base.metadata
@@ -500,7 +511,7 @@ DBeaver등 DB 툴을 이용해서 해당 DB를 확인해보면 `alembic.ini`에�
 
 ## 6. 데이터 모델(DTO)
 
-Pydantic의 `BaseModel`을 상속한 객체에 아래와 같이 `orm_mode = True` 속성을 만들어주면 SQLAlchemy를 통해 가져온 데이터의 레코드를 `from_orm()` 메소드를 통해 Pydantic 객체로 변환할 수 있다.  
+Pydantic의 `BaseModel`을 상속한 객체에 아래와 같이 `orm_mode = True` 속성을 만들어주면 SQLAlchemy를 통해 가져온 데이터의 레코드를 `from_orm` 메소드를 통해 Pydantic 객체로 변환할 수 있다.  
 
 ```python
 from pydantic import BaseModel
@@ -514,9 +525,12 @@ class CategoryRec(BaseModel):
         allow_population_by_field_name = True
 ```
 
+💡SQLAlchemy의 객체를 그 자체로 `dict` 객체로 변환하고 싶을 경우 `_asdict` 메소드를 사용하거나, `__dict__` 어트리뷰트를 사용하면 된다.  
+{:.note}
+
 Pydantic의 `BaseModel`을 ORM 객체로 사용하는 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/models/#orm-mode-aka-arbitrary-class-instances)를 참고하자.  
 
-Pydantic을 이용한 DTO 모델을 커스터마이징 하려면 위와 같이 `Field()` 함수를 사용하면 된다. `Field()` 함수에 대한 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/schema/#field-customization)를 참고하자.  
+Pydantic을 이용한 DTO 모델을 커스터마이징 하려면 위와 같이 `Field` 함수를 사용하면 된다. `Field` 함수에 대한 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/schema/#field-customization)를 참고하자.  
 
 또한 위와 같이 매핑될 필드에 alias를 부여할 경우 `allow_population_by_field_name = True` 속성이 있어야 alias로 변환한 필드의 원래 필드명을 사용해서 ORM 객체를 매핑할 수 있다.  
 

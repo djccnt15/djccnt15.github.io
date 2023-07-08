@@ -93,7 +93,7 @@ def question_create(request):
     return render(request, 'board_qna/question_form.html', context)
 ```
 
-html에서 `<a>`를 사용하면 무조건 GET 방식으로 요청이 요청되기 때문에 `질문 등록` 버튼을 누를 경우 `else`문이 수행되어 `QuestionForm()`을 렌더링하고, `저장 하기` 버튼을 누르면 `<button>` 태그가 POST 방식으로 수행되어 해당 조건의 코드를 수행한다.  
+html에서 `<a>`를 사용하면 무조건 GET 방식으로 요청이 요청되기 때문에 `질문 등록` 버튼을 누를 경우 `else`문이 수행되어 `QuestionForm`을 렌더링하고, `저장 하기` 버튼을 누르면 `<button>` 태그가 POST 방식으로 수행되어 해당 조건의 코드를 수행한다.  
 
 ### 1-3. URL 매핑
 
@@ -310,7 +310,7 @@ def answer_create(request, question_id):
     return render(request, 'board_qna/question_detail.html', context)
 ```
 
-`request.POST.get('content')`는 POST로 전송된 form의 데이터 항목 중 content 값을 읽는다는 뜻이며, `redirect()` 함수를 사용했기 때문에 답변을 생성한 후 질문 상세 화면으로 다시 돌아간다.  
+`request.POST.get('content')`는 POST로 전송된 form의 데이터 항목 중 content 값을 읽는다는 뜻이며, `redirect` 함수를 사용했기 때문에 답변을 생성한 후 질문 상세 화면으로 다시 돌아간다.  
 
 ### 3-3. URL 매핑
 

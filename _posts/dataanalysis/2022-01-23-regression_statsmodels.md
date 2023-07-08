@@ -179,13 +179,13 @@ strong multicollinearity or other numerical problems.
 ```
 요약 결과에 `const(상수)` 대신에 `Intercept(절편)`로 나오는데 회귀분석에서는 같은 뜻이니 상관 없다.  
 
-범주형 변수의 경우 아래처럼 `C()`를 표시해주면 알아서 더미변수로 변환한다.  
+범주형 변수의 경우 아래처럼 `C`를 표시해주면 알아서 더미변수로 변환한다.  
 
 ```python
 res = smf.ols(formula='Lottery ~ Literacy + Wealth + C(Region)', data=df).fit()
 ```
 
-아래와 같이 변수에 `scale()`을 표시하면 해당 변수에 표준정규화를 적용해서 회귀분석을 시행한다.
+아래와 같이 변수에 `scale`을 표시하면 해당 변수에 표준정규화를 적용해서 회귀분석을 시행한다.
 
 ```python
 formula = 'medv ~ scale(crim) + scale(zn)'

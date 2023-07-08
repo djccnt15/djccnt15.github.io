@@ -5,7 +5,7 @@ title: '[Python] 비대칭 암호화'
 description: >
     Python으로 비대칭 암호화 하기
 categories: [Python]
-tags: [Python, security, asymmetric encryption]
+tags: [Python, security, encrypt, decrypt]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:

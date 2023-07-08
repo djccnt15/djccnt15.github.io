@@ -18,7 +18,7 @@ related_posts:
 
 JSON은 **{Key: Value}** 쌍으로 이루어져있어 데이터의 저장 및 전달에 유용한 데이터 타입이라 이래저래 많이 쓰인다.  
 
-Python에서는 [Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) 자료형이 동일한 구조를 갖고 있으며, 기본 모듈로 제공되는 json 모듈과 `dict` 자료형을 이용해서 JSON 파일을 읽고 수정할 수 있다.  
+Python에서는 [Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) 자료형이 동일한 구조를 갖고 있으며, 기본 모듈로 제공되는 json 모듈과 `dict` 객체를 이용해서 JSON 파일을 읽고 수정할 수 있다.  
 
 ## JSON 읽기
 
@@ -41,7 +41,7 @@ Python에서는 [Dictionaries](https://docs.python.org/3/tutorial/datastructures
 }
 ```
 
-위와 같은 JSON 파일을 읽기 위해서는 아래와 같이 `json.load()`를 사용해 `dict` 타입으로 불러와주면 된다.  
+위와 같은 JSON 파일을 읽기 위해서는 아래와 같이 `json.load`를 사용해 `dict` 타입으로 불러와주면 된다.  
 
 ```python
 import json
@@ -65,7 +65,7 @@ print(res)
 
 ## JSON 저장하기
 
-반대로 `dict` 타입 데이터를 JSON으로 저장하려면 `json.dump()`를 사용하면 된다.  
+반대로 `dict` 타입 데이터를 JSON으로 저장하려면 `json.dump`를 사용하면 된다.  
 
 ```python
 import json

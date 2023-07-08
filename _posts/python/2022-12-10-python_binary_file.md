@@ -23,7 +23,7 @@ related_posts:
 
 ## pickle
 
-pickle은 Python의 기본 모듈로 json 모듈과 마찬가지로 `dump()` 함수로 파일을 저장하고 `load()` 함수로 파일을 불러온다.  
+pickle은 Python의 기본 모듈로 json 모듈과 마찬가지로 `dump` 함수로 파일을 저장하고 `load` 함수로 파일을 불러온다.  
 
 ```python
 import pickle
@@ -54,7 +54,7 @@ sample data
 
 ## Joblib
 
-Joblib은 데이터 파이프라이닝을 쉽게 하기 위한 라이브러리로 다른 기능들도 제공하지만 pickle을 쉽게 쓸 수 있는 `dump()`와 `load()` 함수를 제공한다.  
+Joblib은 데이터 파이프라이닝을 쉽게 하기 위한 라이브러리로 다른 기능들도 제공하지만 pickle을 쉽게 쓸 수 있는 `dump`와 `load` 함수를 제공한다.  
 
 ```python
 import joblib

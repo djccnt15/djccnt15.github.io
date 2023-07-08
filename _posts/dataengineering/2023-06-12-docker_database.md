@@ -9,7 +9,7 @@ tags: [database, RDB, docker, oracle, SQL Server, MySQL, PostgreSQL]
 image:
     path: /assets/img/posts/thumbnail_docker.png
 related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    - _posts/swengineering/2023-06-11-docker_commands.md
 ---
 * toc
 {:toc}
@@ -26,7 +26,7 @@ related_posts:
 
 `gvenzl/oracle-xe` 이미지는 공식 이미지는 아니지만 다운로드 횟수가 `1M+`을 찍을 정도로 많이 사용중이다.  
 
-```bash
+```powershell
 docker pull gvenzl/oracle-xe
 ```
 
@@ -34,7 +34,7 @@ docker pull gvenzl/oracle-xe
 
 ### 컨테이너 생성
 
-```bash
+```powershell
 docker run -d -p 1521:1521 -e ORACLE_PASSWORD=<password> --name <name> gvenzl/oracle-xe
 ```
 
@@ -42,13 +42,13 @@ docker run -d -p 1521:1521 -e ORACLE_PASSWORD=<password> --name <name> gvenzl/or
 
 ### 이미지 다운로드
 
-```bash
+```powershell
 docker pull mcr.microsoft.com/mssql/server
 ```
 
 ### 컨테이너 생성
 
-```bash
+```powershell
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourNewStrong@Passw0rd>" -p 1433:1433 --name mssql --hostname mssql -d mcr.microsoft.com/mssql/server
 ```
 
@@ -58,7 +58,7 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourNewStrong@Passw0rd>" -p
 
 SQL Server는 SSMS(SQL Server Management Studio)를 사용해서 접속해보면 기본 생성되는 시스템 데이터베이스를 확인할 수 있다.  
 
-SSMS에서 사용할 데이터베이스를 생성한 후 신규 생성한 데이터베이스로 바로 접속해도 되고, `tempdb` 데이터베이스로 접속한 후 사용할 데이터베이스를 생성해 사용해도 된다.  
+SSMS에서 사용할 데이터베이스를 생성한 후 신규 생성한 데이터베이스로 바로 접속해도 되고, master, msdb, tempdb 등 시스템 데이터베이스로 접속한 후 사용할 데이터베이스를 생성해 사용해도 된다.  
 
 **sqlcmd** 사용
 
@@ -66,13 +66,13 @@ SSMS를 사용하고 싶지 않다면 sqlcmd를 통해 확인할 수 있다.
 
 - 컨테이너 접속
 
-```bash
+```powershell
 docker exec -it sql1 "bash"
 ```
 
 - sqlcmd 실행
 
-```bash
+```powershell
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
 ```
 
@@ -100,13 +100,13 @@ msdb
 
 ### 이미지 다운로드
 
-```bash
+```powershell
 docker pull mysql
 ```
 
 ### 컨테이너 생성
 
-```bash
+```powershell
 docker run --name <name> -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> -d mysql:latest
 ```
 
@@ -114,16 +114,16 @@ docker run --name <name> -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> -d mysql
 
 - 컨테이너 접속
 
-```bash
+```powershell
 docker exec -it <name> bash
 ```
-```bash
+```powershell
 bash-4.4#
 ```
 
 - MySQL 접속 및 `MYSQL_ROOT_PASSWORD` 입력
 
-```bash
+```powershell
 mysql -u root -p
 ```
 ```
@@ -178,13 +178,13 @@ jdbc:mysql://localhost:3306/mysql?allowPublicKeyRetrieval=true
 
 ### 이미지 다운로드
 
-```bash
+```powershell
 docker pull postgres
 ```
 
 ### 컨테이너 생성
 
-```bash
+```powershell
 docker run --name <name> -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 
@@ -192,13 +192,13 @@ docker run --name <name> -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d p
 
 - 컨테이너 접속
 
-```bash
+```powershell
 docker exec -it <name> /bin/bash
 ```
 
 - PostgreSQL 접속
 
-```bash
+```powershell
 psql -U postgres
 ```
 ```
@@ -210,7 +210,7 @@ postgres=#
 
 - 데이터베이스 목록 출력
 
-```bash
+```powershell
 \l
 ```
 ```
