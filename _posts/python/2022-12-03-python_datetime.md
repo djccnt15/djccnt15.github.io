@@ -50,6 +50,19 @@ d=datetime.date(2023, 1, 1)
 dt=datetime.datetime(2023, 1, 1, 0, 0)
 ```
 
+- `datetime` -> `date`
+
+`datetime` 객체를 `date` 객체로 변환할 때는 `date` 메소드를 사용하면 된다.  
+
+```python
+from datetime import datetime
+
+print(datetime.now().date())
+```
+```
+2023-07-11
+```
+
 - ISO 형식으로 출력하기
 
 ISO 형식으로 데이터를 변환하려면, 아래와 같이 `isoformat` 메소드를 사용하면 된다.  
@@ -80,6 +93,7 @@ iso_dt='2023-06-17T13:47:50.665560'
 - `%H`, `%I`: 24시간/12시간 형식의 시간
 - `%M`: 앞 자리가 빌 경우 0으로 채우는 분
 - `%S`: 앞 자리가 빌 경우 0으로 채우는 초
+- `%f`: 앞 자리가 빌 경우 0으로 채우는 microsecond
 - `%B`, `%b`: 월 전체/축약 이름
 - `%A`, `%a`: 일 전체/축약 이름
 
