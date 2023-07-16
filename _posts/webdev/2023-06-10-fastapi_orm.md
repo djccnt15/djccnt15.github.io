@@ -528,13 +528,28 @@ class CategoryRec(BaseModel):
 💡SQLAlchemy의 객체를 그 자체로 `dict` 객체로 변환하고 싶을 경우 `_asdict` 메소드를 사용하거나, `__dict__` 어트리뷰트를 사용하면 된다.  
 {:.note}
 
-Pydantic의 `BaseModel`을 ORM 객체로 사용하는 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/models/#orm-mode-aka-arbitrary-class-instances)를 참고하자.  
+Pydantic의 `BaseModel`을 ORM 객체로 사용하는 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/models/#arbitrary-class-instances)를 참고하자.  
 
 Pydantic을 이용한 DTO 모델을 커스터마이징 하려면 위와 같이 `Field` 함수를 사용하면 된다. `Field` 함수에 대한 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/schema/#field-customization)를 참고하자.  
 
 또한 위와 같이 매핑될 필드에 alias를 부여할 경우 `allow_population_by_field_name = True` 속성이 있어야 alias로 변환한 필드의 원래 필드명을 사용해서 ORM 객체를 매핑할 수 있다.  
 
 Pydantic의 `class Config`에 대한 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/model_config/)를 참고하자.  
+
+참고로 Pydantic v2.0 부터는 모델 config 방식과 이름이 아래와 같이 변경되었다.  
+
+```python
+from pydantic import BaseModel, ConfigDict
+
+
+class Parent(BaseModel):
+    model_config = ConfigDict(
+        from_attributes=True,  # orm_mode
+        populate_by_name=True  # allow_population_by_field_name
+    )
+
+    category: str = Field(alias='name')
+```
 
 ---
 ## Reference

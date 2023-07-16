@@ -162,7 +162,7 @@ SHOW DATABASES;
 4 rows in set (0.01 sec)
 ```
 
-`mysql` 데이터베이스로 접속 후 사용할 데이터베이스를 생성하면 된다.  
+`mysql` 데이터베이스 등 system DB로 초기 접속 후 사용할 데이터베이스를 생성하면 된다.  
 
 ### 트러블슈팅
 
@@ -173,6 +173,68 @@ SHOW DATABASES;
 ```
 jdbc:mysql://localhost:3306/mysql?allowPublicKeyRetrieval=true
 ```
+
+## MariaDB
+
+### 이미지 다운로드
+
+```powershell
+docker pull mariadb
+```
+
+### 컨테이너 생성
+
+```powershell
+docker run -d --name <name> -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> mariadb:latest
+```
+
+`MYSQL_ROOT_PASSWORD` 옵션은 `MARIADB_ROOT_PASSWORD`으로 바꿔서 입력해도 된다.  
+
+### 기본 DB 확인 및 데이터베이스 접속
+
+- 컨테이너 접속
+
+```powershell
+docker exec -it mariadb /bin/bash
+```
+
+- MariaDB 접속 및 `MYSQL_ROOT_PASSWORD` 입력
+
+```powershell
+mariadb -u root -p
+```
+```
+Enter password:
+```
+```
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 3
+Server version: 11.0.2-MariaDB-1:11.0.2+maria~ubu2204 mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+```
+
+- 데이터베이스 목록 출력
+
+```sql
+SHOW DATABASES;
+```
+```
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+```
+
+`mysql` 데이터베이스 등 system DB로 초기 접속 후 사용할 데이터베이스를 생성하면 된다.  
 
 ## PostgreSQL
 
