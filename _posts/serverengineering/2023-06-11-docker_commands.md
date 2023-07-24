@@ -4,7 +4,7 @@ layout: post
 title: '[Docker] 도커 기초 명령어'
 description: >
     도커 활용을 위한 기초 명령어들
-categories: [SWEngineering]
+categories: [ServerEngineering]
 tags: [docker]
 image:
     path: /assets/img/posts/thumbnail_docker.png
