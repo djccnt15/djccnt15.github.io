@@ -31,8 +31,9 @@ related_posts:
     │   └── security.py
     ├── src
     │   ├── apps
-    │   │   ├── auth.py
-    │   │   └── routes.py
+    │   │   └── auth.py
+    │   ├── routes
+    │   │   └── router.py
     │   ├── crud
     │   │   ├── crud_comment.py
     │   │   ├── crud_common.py
@@ -67,7 +68,7 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from env.config import get_config, mode, dir_config
-from src.app import router
+from src.routes import router
 
 metadata = get_config()['DEFAULT']
 
@@ -96,7 +97,7 @@ app.add_middleware(  # allow CORS credential
 )
 
 # Routers
-app.include_router(router)
+app.include_router(router, prefix='/api')
 
 
 @app.get('/')
@@ -170,7 +171,7 @@ def post_list(category: str):
     ...
 ```
 
-라우터를 통합 관리하는 `routes.py` 모듈은 아래와 같다.  
+라우터를 통합 관리하는 `router.py` 모듈은 아래와 같다.  
 
 ```python
 from fastapi import APIRouter
@@ -179,11 +180,10 @@ from src.endpoints import *
 from src.schemas import Tags
 
 router = APIRouter()
-api = '/api'
 
 router.include_router(
     con_user.router,
-    prefix=f'{api}/user',
+    prefix='/user',
     tags=[Tags.auth]
 )
 ```
@@ -208,7 +208,7 @@ app = FastAPI()
 ...
 
 # Routers
-app.include_router(router)
+app.include_router(router, prefix='/api')
 ```
 
 ---
