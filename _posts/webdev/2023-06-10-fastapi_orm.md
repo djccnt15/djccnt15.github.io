@@ -36,7 +36,9 @@ SQLAlchemy와 Pydantic에서 사용하는 model의 의미가 달라 주의해야
 
 ## 2. SQLAlchemy 기반 ORM의 기초
 
-FastAPI는 Django와 같은 자체적인 ORM 엔진은 없지만 SQLAlchemy라는 패키지를 이용할 수 있다. [공식 문서](https://docs.sqlalchemy.org/en/20/dialects/index.html)에 따르면 SQLAlchemy는 아래와 같은 DB들을 지원하는데, 각 데이터베이스가 지원하는 드라이버와 조합하여 사용할 수 있다.  
+Java의 경우에는 [JPA](https://jakarta.ee/specifications/platform/9/apidocs/jakarta/persistence/package-summary.html)에 ORM Spec이 정의되어 있고 개발자는 JPA의 구현체인 [Hibernate](https://hibernate.org/)를 사용해 ORM을 사용하는 것처럼, Python은 [PEP 249](https://peps.python.org/pep-0249/)에 ORM Spec이 정의되어 있다.  
+
+FastAPI는 Django와 같은 자체적인 ORM 엔진은 없지만 [SQLAlchemy](https://www.sqlalchemy.org/)라는 패키지를 이용할 수 있다. [공식 문서](https://docs.sqlalchemy.org/en/20/dialects/index.html)에 따르면 SQLAlchemy는 아래와 같은 DB들을 지원하는데, 각 데이터베이스가 지원하는 드라이버와 조합하여 사용할 수 있다.  
 
 - [PostgreSQL](https://docs.sqlalchemy.org/en/20/dialects/postgresql.html)
 - [MySQL and MariaDB](https://docs.sqlalchemy.org/en/20/dialects/mysql.html)
@@ -44,7 +46,7 @@ FastAPI는 Django와 같은 자체적인 ORM 엔진은 없지만 SQLAlchemy라�
 - [Oracle](https://docs.sqlalchemy.org/en/20/dialects/oracle.html)
 - [Microsoft SQL Server](https://docs.sqlalchemy.org/en/20/dialects/mssql.html)
 
-각 데이터베이스의 드라이버의 목록을 보면 여러가지가 있는데, FastAPI의 장점인 비동기처리를 DB IO에까지 적용하려면 Async를 지원하는 드라이버를 사용해야한다.  
+각 데이터베이스의 드라이버의 목록을 보면 여러가지가 있는데, FastAPI의 장점인 비동기처리를 DB IO에까지 적용하려면 Async를 지원하는 DB 및 드라이버를 사용해야한다.  
 
 ❗대표적으로 Microsoft SQL Server의 경우 SQLAlchemy가 지원하는 드라이버는 [pymssql](https://pymssql.readthedocs.io/en/latest/)와 [PyODBC](https://github.com/mkleehammer/pyodbc)가 있는데, 둘 다 비동기처리를 지원하지 않는다.  
 {:.note title='attention'}
@@ -326,6 +328,13 @@ sqlalchemy.url = driver://user:pass@localhost/dbname
 ```
 
 데이터베이스 주소를 확인하려면 `env/database.py` 파일에서 설정한 `SQLALCHEMY_DATABASE_URL` 변수를 출력해보고, 출력 결과에서 드라이버 부분을 제외하고 입력하면 된다.  
+
+SQLAlchemy와 마찬가지로 Alembic도 데이터베이스 유저명이나 암호에 구분자에 해당하는 특수문자가 들어갈 경우 제대로 인식하지 못하는 문제가 있다.  
+
+이 문제를 해결하기 위해서는 특수문자를 `%xx` escape으로 인코딩해서 입력하면 되는데, 해당 값이 파싱될 때 제대로 인식되게 하기 위해 escape를 추가한 `%%xx`로 입력해야 한다.  
+
+💡특수문자를 `%xx`으로 쉽게 인코딩하려면 `urllib.parse` 모듈의 `quote` 함수를 사용하면 된다.  
+{:.note}
 
 - `migrations/env.py` 파일 수정
 
