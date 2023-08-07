@@ -18,7 +18,9 @@ GitHub: **[github.com/djccnt15](https://github.com/djccnt15)**
 LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**  
 {:.note title='contacts'}
 
-**기억하기보다는 기록하기**를 좋아하는 데이터 사이언티스트 겸 MLOps 엔지니어입니다.  
+**기억하기보다는 기록하기**를 좋아하는 개발자입니다.  
+
+데이터 사이언티스트, MLOps, 데이터 엔지니어링, 백엔드 엔지니어링 업무를 수행하고 있습니다.  
 
 컴퓨터공학이나 통계학 전공은 아니지만, 산업용 AI와 웹 기반 서비스 개발에 흥미가 있어 관련 분야를 꾸준히 공부하며 실무 경험을 쌓기 위해 노력중입니다.  
 
@@ -52,11 +54,12 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 
 - Web Server / Web Application Server  
 ![NGINX](https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white)
 ![Gunicorn](https://img.shields.io/badge/Gunicorn-499848?style=for-the-badge&logo=gunicorn&logoColor=white)
-![Apache Tomcat](https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white)
+![Apache Tomcat](https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black)
 
 - Containerization  
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
@@ -75,6 +78,7 @@ LinkedIn: **[djccnt15](https://www.linkedin.com/in/djccnt15)**
 
 - Version Control System  
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Subversion](https://img.shields.io/badge/Subversion-809CC9?style=for-the-badge&logo=subversion&logoColor=white)
 
 - Editor  
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)

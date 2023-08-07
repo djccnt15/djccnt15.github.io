@@ -98,7 +98,7 @@ git remote set-url --delete <name> <url>
 `git remote set-url --add <name> <newurl>`을 사용하면 하나의 단축 이름으로 여러 저장소에 동시에 push 할 수 있다.  
 
 ❗`origin`을 동시 push하는 단축 이름으로 사용하는 것은 권장하지 않는다고 한다. `all` 같은 단축 이름을 새로 등록하자.  
-{:note}
+{:.note title='attention'}
 
 ## status
 

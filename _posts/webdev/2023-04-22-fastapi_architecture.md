@@ -19,7 +19,7 @@ related_posts:
 
 ### 1-1. 설치
 
-FastAPI를 기반으로 백엔드 서버 개발을 시작하려면 다음과 같은 패키지들을 설치해야 한다.  
+FastAPI로 백엔드 서버를 개발하려면 다음과 같이 `fastapi`와 `uvicorn[standard]` 패키지를 설치해야 한다.  
 
 ```powershell
 pip install fastapi uvicorn[standard]
@@ -56,6 +56,8 @@ uvicorn main:app --reload
     - 코드에 변경이 생길 경우 서버 재구동
 - `--port`
     - 포트 설정. 기본값은 8000
+- `--host`
+    - 호스트 설정. 어플리케이션을 로컬 네트워크에 바인드 하려면 `0.0.0.0`으로 설정
 
 구동한 서버로 접속해보면 단 몇 줄의 짧은 코드로 아래와 같이 API가 생성된 것을 확인할 수 있다.  
 
@@ -77,9 +79,9 @@ FastAPI 기반의 백엔드 서버의 전체적인 아키텍처는 아래와 같
 
 ### 2-1. Web Server
 
-웹 서버(Web server)는 HTTP를 통해 웹 브라우저가 요청하는 HTML, css, js 문서 및 오브젝트(이미지 파일 등)를 전송해주는 서비스 프로그램이다.  
+웹 서버(Web server)는 HTTP를 통해 웹 브라우저가 요청하는 HTML, CSS, JavaScript 문서 및 오브젝트(이미지 파일 등)를 전송해주는 서비스 프로그램이다.  
 
-[Apache](https://httpd.apache.org/), [NGINX](https://www.nginx.com/), [IIS](https://www.iis.net/) 세 가지 웹 서버가 대표적인데, FastAPI 및 Django 등 Python의 웹 프레임워크들은 **NGINX**가 호환성이 좋다고 한다.  
+[Apache](https://httpd.apache.org/), [NGINX](https://www.nginx.com/), [IIS](https://www.iis.net/) 세 가지 웹 서버가 대표적인데, Python 기반의 서버들이 WSGI로 많이 사용하는 Gunicorn의 경우 공식문서에서 **NGINX**를 사용하는 것을 강력하게 추천하고 있다.  
 
 ### 2-2. WSGI, ASGI
 
@@ -97,7 +99,7 @@ CGI는 요청이 들어올 때마다 애플리케이션 프로세스 전체를 �
 
 Python으로 CGI 웹어플리케이션을 개발하려면 [cgi 모듈](https://docs.python.org/3/library/cgi.html)을 사용하고 개발한 어플리케이션을 웹서버에 직접 등록하면 되는데, 자세한 방법은 생활코딩님의 [WEB2 Python](https://youtube.com/playlist?list=PLuHgQVnccGMDMxfZEpLbzHPZUEwObEaZq) 수업에 잘 정리되어 있다.  
 
-참고로 Python의 cgi 모듈은 Python 3.11 부터 deprecated 되었다.  
+참고로 Python의 cgi 모듈은 Python 3.11 부터 deprecate 되었다.  
 {:.note}
 
 **WSGI**

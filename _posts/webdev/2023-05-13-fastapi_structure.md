@@ -23,7 +23,7 @@ related_posts:
 ```
 .
 └── project
-    ├── env
+    ├── common
     │   ├── config.ini
     │   ├── config.py
     │   ├── database.py
@@ -32,8 +32,6 @@ related_posts:
     ├── src
     │   ├── apps
     │   │   └── auth.py
-    │   ├── routes
-    │   │   └── router.py
     │   ├── crud
     │   │   ├── crud_comment.py
     │   │   ├── crud_common.py
@@ -47,6 +45,8 @@ related_posts:
     │   ├── models
     │   │   ├── dao_board.py
     │   │   └── dao_models.py
+    │   ├── routes
+    │   │   └── router.py
     │   └── schemas
     │       ├── dto_board.py
     │       ├── dto_common.py
@@ -61,13 +61,15 @@ related_posts:
 
 ## 2. main 모듈
 
+`main` 모듈은 실질적으로 서버로 구동되는 모듈로, uvicorn이 FastAPI 기반으로 구현된 서버와 로직을 담고있는 모듈이다.  
+
 `main` 모듈에 아래와 같이 FastAPI 객체를 선언하고, CORS 리스트를 추가해준다.  
 
 ```python
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from env.config import get_config, mode, dir_config
+from common.config import get_config, mode, dir_config
 from src.routes import router
 
 metadata = get_config()['DEFAULT']
@@ -116,7 +118,7 @@ config 관련 로직은 `config.py`에 만들어준다.
 from pathlib import Path
 from configparser import ConfigParser
 
-dir_config = Path('env')
+dir_config = Path('common')
 
 
 def get_config() -> ConfigParser:
@@ -201,7 +203,7 @@ class Tags(Enum):
 ```python
 from fastapi import FastAPI
 
-from env.routes import router
+from common.routes import router
 
 app = FastAPI()
 
