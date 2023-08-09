@@ -5,7 +5,7 @@ title: '[VS Code] Python 디버그 고치기'
 description: >
     VS Code에서 Python 브레이크포인트 인식 버그 해결하기
 categories: [SWEngineering]
-tags: [VS Code]
+tags: [VS Code, debug, python]
 image:
     path: /assets/img/posts/thumbnail_vscode.png
 related_posts:
@@ -18,7 +18,7 @@ related_posts:
 
 VS Code의 디버그 기능을 사용하면 브레이크포인트를 사용해서 특정 위치에서 코드 실행을 정지시키고 변수가 어떻게 변화하는지 확인할 수 있다.  
 
-문제는 Python 버그인지 VS Code 버그인지는 모르겠는데, 나의 현재 개발 환경에서는 VS Code가 브레이크포인트를 인식하지 못하는 버그가 있어서 디버그가 제대로 작동하지 않는다.  
+문제는 Python 버그인지 VS Code 버그인지는 모르겠는데, 나의 현재 개발 환경에서는 VS Code가 Python 가상환경에서의 브레이크포인트를 인식하지 못하는 버그가 있어서 디버그가 제대로 작동하지 않는다.  
 
 이때는 디버그 설정을 켜서 아래와 같이 `"justMyCode": false` 옵션을 지정해주면 된다.  
 

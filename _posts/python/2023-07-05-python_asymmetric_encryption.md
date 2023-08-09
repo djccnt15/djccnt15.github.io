@@ -16,7 +16,7 @@ related_posts:
 
 ## 비대칭 암호화 모듈 개발
 
-SW를 개발할 때 각종 키 등 구동에 필요한 중요정보는 암호화 후 분리해서 보관해야 하는데, KISA의 [Python 시큐어 코딩 가이드](https://www.kisa.or.kr/2060204/form?postSeq=13&lang_type=KO)에서는 PyCryptodome 패키지를 암호화 하는 것을 추천하고 있다.  
+SW를 개발할 때 각종 키 등 구동에 필요한 중요정보는 암호화 후 분리해서 보관해야 하는데, KISA의 [Python 시큐어 코딩 가이드](https://www.kisa.or.kr/2060204/form?postSeq=13&lang_type=KO)에서는 PyCryptodome 패키지를 사용해 암호화 하는 것을 추천하고 있다.  
 
 PyCryptodome 패키지의 [공식 문서](https://www.pycryptodome.org/src/examples)를 참고하여 Python SW에 사용할 암호화/복호화 모듈을 개발해보았다.  
 
