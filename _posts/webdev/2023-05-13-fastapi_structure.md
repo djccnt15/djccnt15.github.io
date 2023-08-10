@@ -61,7 +61,7 @@ related_posts:
 
 ## 2. main 모듈
 
-`main` 모듈은 실질적으로 서버로 구동되는 모듈로, uvicorn이 FastAPI 기반으로 구현된 서버와 로직을 담고있는 모듈이다.  
+`main` 모듈은 FastAPI 기반으로 구현된 서버와 로직을 담고있는 모듈로, Web Application 서버로 구동되는 모듈이다.  
 
 `main` 모듈에 아래와 같이 FastAPI 객체를 선언하고, CORS 리스트를 추가해준다.  
 

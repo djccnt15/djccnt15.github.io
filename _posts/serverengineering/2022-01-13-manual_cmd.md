@@ -5,7 +5,7 @@ title: '[cmd/terminal] 사용법'
 description: >
     Windows/Linux terminal의 유용한 명령어 모음  
 categories: [ServerEngineering]
-tags: [cmd/terminal, ⭐starred]
+tags: [cmd, terminal, ⭐starred]
 image:
     path: /assets/img/posts/thumbnail_terminal.png
 related_posts:

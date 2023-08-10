@@ -5,7 +5,7 @@ title: '[FastAPI] 01. FastAPI 서버 아키텍처'
 description: >
     FastAPI 기초 입문과 서버 아키텍처
 categories: [WebDev]
-tags: [python, FastAPI]
+tags: [python, FastAPI, gunicorn, uvicorn]
 image:
     path: /assets/img/posts/thumbnail_fastapi.png
 related_posts:
