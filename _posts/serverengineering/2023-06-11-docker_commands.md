@@ -14,7 +14,15 @@ related_posts:
 * toc
 {:toc}
 
-## 명령어 도움말 보기
+## 기초 팁
+
+- 여러 명령어 한번에 입력하고 싶을 땐 `&&`으로 연속 입력 가능
+
+```powershell
+docker stop [CONTAINER] && docker rm [CONTAINER] && docker rmi [IMAGE]
+```
+
+- 명령어 도움말 보기
 
 ```powershell
 docker [CMD] --help
@@ -34,13 +42,17 @@ docker pull [URL]
 docker rmi [IMAGE]
 ```
 
+```powershell
+docker image rm [IMAGE]
+```
+
 ### 이미지 목록 보기
 
 ```powershell
 docker image ls
 ```
 
-### 이미지 저장
+### 이미지 저장 및 로드
 
 - 이미지를 tar 파일로 저장
 
@@ -110,7 +122,7 @@ docker attach [CONTAINER]
 - 컨테이너의 bash 프로세스 실행 및 접속
 
 ```powershell
-docker exec -it [CONTAINER] bin/bash
+docker exec -it [CONTAINER] /bin/bash
 ```
 
 `exec` 명령어는 실행중인 컨테이너에서 입력된 명령어를 실행하는 명령어이다.  
@@ -162,4 +174,12 @@ docker export -o [FILENAME] [CONTAINER]
 
 ```powershell
 docker import [FILENAME] [REPOSITORY[:TAG]]
+```
+
+### 컨테이너 수정본 생성
+
+컨테이너 내부에서 작업을 한 뒤, 해당 수정 사항을 반영한 이미지를 새로 생성
+
+```powershell
+docker commit [OPTIONS] [CONTAINER] [REPOSITORY[:TAG]]
 ```

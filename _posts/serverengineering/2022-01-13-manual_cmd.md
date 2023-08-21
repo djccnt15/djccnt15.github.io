@@ -18,7 +18,7 @@ related_posts:
 
 ### 1-1. help/--help
 
-명령어 설명 보기. 사용법은 조금 달라서, Windows는 `help`를 먼저 치지만, Linux에서는 `--help`가 뒤에 들어간다.  
+명령어 설명 보기  
 
 - Windows
 
@@ -90,11 +90,11 @@ which -a <app_name>
 find <file_name>
 ```
 
-이 때 `which`는 `PATH`에서 해당 이름을 가진 첫 번째 어플리케이션만을 검색하기 때문에, 모두 검색하고 싶다면 `-a` 옵션을 사용해야한다.  
+이 때 `which`는 `PATH`에서 해당 이름을 가진 첫 번째 어플리케이션만을 검색하기 때문에 모두 검색하고 싶다면 `-a` 옵션 필요  
 
 ### 2-2. cd
 
-change directory의 약자로, 작업중인 폴더를 이동하는 명령어이다. 주요 사용팁은 아래와 같다.  
+change directory의 약자로, 작업중인 폴더 이동  
 
 ```powershell
 # 상위 디렉토리로 이동
@@ -107,7 +107,7 @@ cd /
 d:
 ```
 
-아래는 Linux에서만 사용가능한 사용팁들이다.  
+아래는 Linux에서만 사용 가능한 사용팁들이다.  
 
 ```bash
 # home 디렉토리로 이동
@@ -119,7 +119,7 @@ cd -
 
 ### 2-3. dir/ls
 
-현재 디렉토리의 하위 폴더 및 파일을 보여주는 명령어로 와일드카드(*, ?)를 사용해서 출력 범위를 줄일 수 있다.  
+현재 디렉토리의 하위 폴더 및 파일을 보여주는 명령어, 와일드카드(*, ?) 사용 가능  
 
 - Windows
 
@@ -174,7 +174,7 @@ mkdir <dir_name>
 
 ### 2-6. rmdir
 
-디렉토리 지우기. Windows에서만 사용 가능하다.  
+디렉토리 지우기. Windows에서만 사용 가능  
 
 ```powershell
 rmdir <dir_name>
@@ -203,7 +203,7 @@ del <file_name>
 rm <file_name>
 ```
 
-Linux에서 하위 디렉토리 및 파일 모두 삭제  
+하위 디렉토리 및 파일 모두 삭제  
 
 ```bash
 rm -rf <dir_name>
@@ -227,6 +227,26 @@ cp <file_name> <destination>
 
 ```bash
 cp -r <dir_name> <destination>
+```
+
+### 2-9. 프로세스 리스트 확인
+
+- Windows
+
+```powershell
+tasklist
+```
+
+- Linux
+
+```bash
+ps
+```
+
+다른 사용자가 실행한 모든 작업 목록 모두 확인
+
+```bash
+ps -ef
 ```
 
 ## 3. 네트워크 관련 명령어들
@@ -256,11 +276,11 @@ ping <host_name>
 ```
 
 - Windows
-    - --t 중지시킬 때까지 에코를 계속 요청. 이 옵션을 주지 않으면 일정 횟수 요청 후 자동 종료
-    - --n count 에코를 요청할 횟수 count 숫자로 지정
+    - -t 중지시킬 때까지 에코를 계속 요청. 이 옵션을 주지 않으면 일정 횟수 요청 후 자동 종료
+    - -n count 에코를 요청할 횟수 count 숫자로 지정
 
 - Linux
-    - --c count 에코를 요청할 횟수 count 숫자로 지정. 이 옵션을 주지 않으면 무한대로 에코 요청
+    - -c count 에코를 요청할 횟수 count 숫자로 지정. 이 옵션을 주지 않으면 무한대로 에코 요청
 
 ## 4. 환경 관련 명령어들
 
@@ -286,7 +306,7 @@ set COMPUTERNAME
 
 ### 4-2. tree
 
-현재 경로의 폴더 구조를 tree 형식으로 보여준다. Windows에서만 사용가능  
+현재 경로의 폴더 구조를 tree 형식으로 보여준다. Windows에서만 사용 가능  
 
 ```powershell
 tree

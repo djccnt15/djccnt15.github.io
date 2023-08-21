@@ -53,14 +53,14 @@ FastAPI는 Django와 같은 자체적인 ORM 엔진은 없지만 [SQLAlchemy](ht
 
 ## 3. 데이터베이스 환경 설정
 
-`common/database.py` 파일을 아래와 같이 만들어주자.  
+`conf/database.py` 파일을 아래와 같이 만들어주자.  
 
 ```python
 from sqlalchemy.engine import URL
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import declarative_base
 
-from common.config import mode, get_key
+from conf.config import mode, get_key
 
 db_key = get_key().db[mode]
 
@@ -193,7 +193,7 @@ from sqlalchemy.schema import Column
 from sqlalchemy.types import Boolean, Integer, String, Text, DateTime, Uuid
 from sqlalchemy.orm import relationship
 
-from common.database import Base
+from conf.database import Base
 
 
 class Log(Base):
@@ -221,10 +221,10 @@ class User(Base):
     comment = relationship('Comment', back_populates='user')
 ```
 
-다른 모듈들도 동일한 구조로 작성되며 모두 아래와 같이 `common/database.py` 파일에서 생성한 Base 객체를 공유해서 사용한다는 특징이 있다.  
+다른 모듈들도 동일한 구조로 작성되며 모두 아래와 같이 `conf/database.py` 파일에서 생성한 Base 객체를 공유해서 사용한다는 특징이 있다.  
 
 ```python
-from common.database import Base
+from conf.database import Base
 
 class ClassName(Base):
     fk = Column(Integer, ForeignKey(parent.id))
@@ -327,7 +327,7 @@ Alembic을 사용할 때 생성되는 리비전 파일 및 각종 보조 파일�
 sqlalchemy.url = driver://user:pass@localhost/dbname
 ```
 
-데이터베이스 주소를 확인하려면 `common/database.py` 파일에서 설정한 `SQLALCHEMY_DATABASE_URL` 변수를 출력해보고, 출력 결과에서 드라이버 부분을 제외하고 입력하면 된다.  
+데이터베이스 주소를 확인하려면 `conf/database.py` 파일에서 설정한 `SQLALCHEMY_DATABASE_URL` 변수를 출력해보고, 출력 결과에서 드라이버 부분을 제외하고 입력하면 된다.  
 
 SQLAlchemy와 마찬가지로 Alembic도 데이터베이스 유저명이나 암호에 구분자에 해당하는 특수문자가 들어갈 경우 제대로 인식하지 못하는 문제가 있다.  
 
@@ -336,12 +336,12 @@ SQLAlchemy와 마찬가지로 Alembic도 데이터베이스 유저명이나 암�
 💡특수문자를 `%xx`으로 쉽게 인코딩하려면 `urllib.parse` 모듈의 `quote` 함수를 사용하면 된다.  
 {:.note}
 
-- `migrations/common.py` 파일 수정
+- `migrations/env.py` 파일 수정
 
 Alembic에 테이블의 메타데이터를 설정해준다.  
 
 ```python
-from common.database import Base
+from conf.database import Base
 from src.models import *
 
 target_metadata = Base.metadata
