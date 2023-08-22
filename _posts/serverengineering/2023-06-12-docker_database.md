@@ -5,7 +5,7 @@ title: '[Docker] 도커 기반 데이터베이스 설치'
 description: >
     도커를 활용해서 데이터베이스 간단 설치하는 방법
 categories: [ServerEngineering]
-tags: [database, RDB, docker, oracle, SQL Server, MySQL, PostgreSQL]
+tags: [database, RDB, docker, oracle, SQL Server, MySQL, MariaDB, PostgreSQL]
 image:
     path: /assets/img/posts/thumbnail_docker.png
 related_posts:
