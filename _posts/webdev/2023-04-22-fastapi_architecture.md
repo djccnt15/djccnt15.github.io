@@ -5,7 +5,7 @@ title: '[FastAPI] 01. FastAPI 서버 아키텍처'
 description: >
     FastAPI 기초 입문과 서버 아키텍처
 categories: [WebDev]
-tags: [python, FastAPI]
+tags: [python, WSGI, ASGI, FastAPI, gunicorn, uvicorn]
 image:
     path: /assets/img/posts/thumbnail_fastapi.png
 related_posts:
@@ -108,10 +108,7 @@ Python으로 CGI 웹어플리케이션을 개발하려면 [cgi 모듈](https://d
 
 WSGI의 핵심은 웹 서버와 Python 스크립트를 분리하여 Python 스크립트를 프로세스로 미리 실행시켜두고, 웹 서버가 클라이언트의 요청을 받아서 스크립트에 전달했을 때, 스크립트는 필요한 로직 하나만 실행한 후 결과를 응답함으로써 동적인 콘텐츠에 대한 요청에 빠르게 응답할 수 있게 한 것이다.  
 
-대표적인 WSGI로는 [Gunicorn](https://gunicorn.org/), [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/), [Werkzeug](https://werkzeug.palletsprojects.com/) 등이 있는데, 상용화 수준으로 사용하려면 **Gunicorn**을 사용하는 것이 좋다고 한다.  
-
-💡대부분의 Python의 WSGI, 특히 Gunicorn은 UNIX 서버에서만 작동한다. Windows 서버에서 사용하려면 도커와 같은 가상환경 엔진을 사용하거나 아니면 [Waitress](https://docs.pylonsproject.org/projects/waitress/en/latest/), [Werkzeug](https://werkzeug.palletsprojects.com/)와 같은 Windows에서 구동 가능한 WSGI를 사용해야 한다.  
-{:.note}
+대표적인 WSGI로는 [Gunicorn](https://gunicorn.org/), [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/), [Waitress](https://docs.pylonsproject.org/projects/waitress/en/latest/) 등이 있는데, 상용화 수준에 사용할 수 있는 WSGI 패키지는 Linux에서는 **Gunicorn**, **Waitress**가 있다.  
 
 **ASGI**
 

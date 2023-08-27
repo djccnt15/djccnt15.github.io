@@ -23,7 +23,7 @@ related_posts:
 ```
 .
 └── project
-    ├── common
+    ├── conf
     │   ├── config.ini
     │   ├── config.py
     │   ├── database.py
@@ -61,7 +61,7 @@ related_posts:
 
 ## 2. main 모듈
 
-`main` 모듈은 실질적으로 서버로 구동되는 모듈로, uvicorn이 FastAPI 기반으로 구현된 서버와 로직을 담고있는 모듈이다.  
+`main` 모듈은 FastAPI 기반으로 구현된 서버와 로직을 담고있는 모듈로, Web Application 서버로 구동되는 모듈이다.  
 
 `main` 모듈에 아래와 같이 FastAPI 객체를 선언하고, CORS 리스트를 추가해준다.  
 
@@ -69,7 +69,7 @@ related_posts:
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from common.config import get_config, mode, dir_config
+from conf.config import get_config, mode, dir_config
 from src.routes import router
 
 metadata = get_config()['DEFAULT']
@@ -118,7 +118,9 @@ config 관련 로직은 `config.py`에 만들어준다.
 from pathlib import Path
 from configparser import ConfigParser
 
-dir_config = Path('common')
+from starlette.config import Config
+
+dir_config = Path('conf')
 
 
 def get_config() -> ConfigParser:
@@ -127,7 +129,8 @@ def get_config() -> ConfigParser:
     return config
 
 
-mode = get_config()['DEFAULT'].get('mode')
+config = Config('.env')
+mode = config('mode')
 ```
 
 위에서 `get_config` 함수를 통해 불러오는 `config.ini` 파일은 아래와 같다.  
@@ -147,9 +150,18 @@ license_url = https://en.wikipedia.org/wiki/MIT_License
 dev = http://localhost:5173 http://127.0.0.1:5173
 ```
 
+`.env` 파일도 ini 파일과 같은 양식을 갖고 있는데, starlette의 `Config` 모듈을 통해서 쉽게 관리할 수 있다는 장점이 있다.  
+
+```ini
+[DEFAULT]
+mode = dev
+```
+
+내 경우에는 바뀔 일이 거의 없고 노출 되어도 되는 항목은 `config.ini`, 바뀔 일이 많거나 노출되면 안 되는 항목은 `.env`로 관리하기로 했다.  
+
 이렇게 config 관련 로직과 데이터를 분리해 하드코딩을 예방하면 프로그램 설정을 쉽게 변경할 수 있고 유지보수 편의성을 제고할 수 있다.  
 
-❗FastAPI [공식 문서](https://fastapi.tiangolo.com/tutorial/cors/)에 따르면 아래 세 origin이 모두 다른 것으로 취급된다. CORS를 설정할 때 주의하자.  
+❗참고로 FastAPI [공식 문서](https://fastapi.tiangolo.com/tutorial/cors/)에 따르면 아래 세 origin이 모두 다른 것으로 취급된다. CORS를 설정할 때 주의하자.  
 {:.note title='attention'}
 
 - http://localhost
@@ -203,7 +215,7 @@ class Tags(Enum):
 ```python
 from fastapi import FastAPI
 
-from common.routes import router
+from src.routes import router
 
 app = FastAPI()
 
