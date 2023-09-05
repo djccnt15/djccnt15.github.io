@@ -35,7 +35,7 @@ docker pull gvenzl/oracle-xe
 ### 컨테이너 생성
 
 ```powershell
-docker run -d -p 1521:1521 -e ORACLE_PASSWORD=<password> --name <name> gvenzl/oracle-xe
+docker run -d -p 1521:1521 -e ORACLE_PASSWORD=<password> --name oracle-xe gvenzl/oracle-xe
 ```
 
 ## Microsoft SQL Server
@@ -52,6 +52,11 @@ docker pull mcr.microsoft.com/mssql/server
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourNewStrong@Passw0rd>" -p 1433:1433 --name mssql --hostname mssql -d mcr.microsoft.com/mssql/server
 ```
 
+MSSQL은 비밀번호 조건이 강력하고, 해당 조건을 맞추지 못하면 컨테이너가 구동되지 않기 때문에 주의해야 한다. 암호의 조건은 아래와 같다.  
+
+- 8자 이상
+- 대문자, 소문자, 0~9까지의 숫자 및 기호 네 가지 집합 중 세 집합의 문자를 포함
+
 ### 기본 DB 확인 및 데이터베이스 접속
 
 **SSMS 사용**
@@ -67,7 +72,7 @@ SSMS를 사용하고 싶지 않다면 sqlcmd를 통해 확인할 수 있다.
 - 컨테이너 접속
 
 ```powershell
-docker exec -it sql1 "bash"
+docker exec -it mssql "bash"
 ```
 
 - sqlcmd 실행
@@ -107,7 +112,7 @@ docker pull mysql
 ### 컨테이너 생성
 
 ```powershell
-docker run --name <name> -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> -d mysql:latest
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> -d mysql:latest
 ```
 
 ### 기본 DB 확인 및 데이터베이스 접속
@@ -115,7 +120,7 @@ docker run --name <name> -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> -d mysql
 - 컨테이너 접속
 
 ```powershell
-docker exec -it <name> bash
+docker exec -it mysql bash
 ```
 ```powershell
 bash-4.4#
@@ -185,7 +190,7 @@ docker pull mariadb
 ### 컨테이너 생성
 
 ```powershell
-docker run -d --name <name> -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> mariadb:latest
+docker run -d --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> mariadb:latest
 ```
 
 `MYSQL_ROOT_PASSWORD` 옵션은 `MARIADB_ROOT_PASSWORD`으로 바꿔서 입력해도 된다.  
@@ -247,7 +252,7 @@ docker pull postgres
 ### 컨테이너 생성
 
 ```powershell
-docker run --name <name> -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 
 ### 기본 DB 확인 및 데이터베이스 접속
@@ -255,7 +260,7 @@ docker run --name <name> -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d p
 - 컨테이너 접속
 
 ```powershell
-docker exec -it <name> /bin/bash
+docker exec -it postgres /bin/bash
 ```
 
 - PostgreSQL 접속

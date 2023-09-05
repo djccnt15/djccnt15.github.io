@@ -87,19 +87,19 @@ docker ps -a
 - 생성 및 접속
 
 ```powershell
-docker run [CONTAINER]
+docker run [IMAGE]
 ```
 
 - `^P^Q`를 통해 접속 해지가 가능한 TTY 접속
 
 ```powershell
-docker run -itd [CONTAINER]
+docker run -itd [IMAGE]
 ```
 
 - 단순 컨테이너 생성
 
 ```powershell
-docker create [CONTAINER]
+docker create [IMAGE]
 ```
 
 ### 컨테이너 삭제
