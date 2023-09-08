@@ -61,10 +61,10 @@ Scripts\deactivate.bat
 내 세팅의 개발환경에서는 아래와 같은 명령어로 만들 수 있다.  
 
 ```powershell
-C:\programming\Python\Python310\python.exe -m venv [venv_name]
+C:\programming\Python\Python310\python.exe -m venv .venv
 ```
 
-💡참고로, 여러 버전의 Python을 설치하면 시스템 환경 변수를 기준으로 가장 위에 있는 Python이 dafault로 사용 된다.  
+💡참고로, 여러 버전의 Python을 설치하면 시스템 환경 변수를 기준으로 가장 위에 있는 Python이 default로 사용 된다.  
 {:.note}
 
 ### 3. package 목록 관리
