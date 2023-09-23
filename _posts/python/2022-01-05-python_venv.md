@@ -171,6 +171,13 @@ VIRTUAL_ENV=venv_location_b4 -> VIRTUAL_ENV=venv_location_now
 
 나는 해보지 않아서 잘 되는지 모르겠다. 사실 시도해보고 싶지도 않다.  
 
+#### 5-4. VS Code에서 가상환경이 제대로 인식되지 않을 때
+
+가끔 캐시 문제 등으로 VS Code에서 가상환경이 제대로 인식되지 않는 경우가 있다. 이 때는 아래 방법으로 캐시를 지우고 환경을 리로딩하면 된다.  
+
+1. `ctrl` + `shift` + `p` 로 명령 프롬프트 열기
+1. `Python: Clear Cache and Reload` 명령 실행
+
 ---
 
 ## Linux에서
