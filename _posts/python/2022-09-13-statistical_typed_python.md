@@ -111,7 +111,7 @@ Found 1 error in 1 file (checked 1 source file)
 
 #### IDE 기능 사용
 
-VSCode에서 Python 스크립트를 코딩할 때 사용하는 extension 중 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)가 있다. Pylance의 `Type Checking Mode`옵션을 켜주면 아래 그림과 같이 데이터의 자료형을 검사해준다.  
+VS Code에서 Python 스크립트를 코딩할 때 사용하는 extension 중 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)가 있다. Pylance의 `Type Checking Mode`옵션을 켜주면 아래 그림과 같이 데이터의 자료형을 검사해준다.  
 
 ![python_type_checking_pylance](/assets/img/posts/python_type_checking_pylance.png)
 
