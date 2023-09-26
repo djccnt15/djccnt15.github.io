@@ -74,3 +74,17 @@ print(df.head())
 4  setosa  [set, sa]
 5  setosa  [set, sa]
 ```
+
+## 응용
+
+위 메소드들을 응용하면, 칼럼에 배열이 들어있는 형태의 칼럼을 처리해주는 함수를 아래와 같이 만들 수 있다. 일정한 길이의 배열에 담은 센서 데이터를 한 칼럼에 저장한 형태의 데이터를 일괄적으로 전처리하기 위해 만들어 보았다.  
+
+```python
+import pandas as pd
+
+
+def df_text_split(df: pd.DataFrame, col_name: list[str], target: str, sep: str = ','):
+    df_sep = pd.DataFrame(df[target].str.split(sep).tolist(), columns=col_name)
+    df.drop(columns=target, inplace=True)
+    return pd.concat(objs=[df, df_sep], axis=1)
+```
