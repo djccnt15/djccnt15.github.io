@@ -81,7 +81,7 @@ FastAPI 기반의 백엔드 서버의 전체적인 아키텍처는 아래와 같
 
 웹 서버(Web server)는 HTTP를 통해 웹 브라우저가 요청하는 HTML, CSS, JavaScript 문서 및 오브젝트(이미지 파일 등)를 전송해주는 서비스 프로그램이다.  
 
-[Apache](https://httpd.apache.org/), [NGINX](https://www.nginx.com/), [IIS](https://www.iis.net/) 세 가지 웹 서버가 대표적인데, Python 기반의 서버들이 WSGI로 많이 사용하는 Gunicorn의 경우 공식문서에서 **NGINX**를 사용하는 것을 강력하게 추천하고 있다.  
+[Apache](https://httpd.apache.org/), [NGINX](https://www.nginx.com/), [IIS](https://www.iis.net/) 세 가지 웹 서버가 대표적인데, Python 기반의 서버들이 WSGI로 많이 사용하는 Gunicorn의 경우 [공식 문서](https://docs.gunicorn.org/en/latest/deploy.html#nginx-configuration)에서 **NGINX**를 사용하는 것을 강력하게 추천하고 있다.  
 
 ### 2-2. WSGI, ASGI
 
@@ -108,7 +108,7 @@ Python으로 CGI 웹어플리케이션을 개발하려면 [cgi 모듈](https://d
 
 WSGI의 핵심은 웹 서버와 Python 스크립트를 분리하여 Python 스크립트를 프로세스로 미리 실행시켜두고, 웹 서버가 클라이언트의 요청을 받아서 스크립트에 전달했을 때, 스크립트는 필요한 로직 하나만 실행한 후 결과를 응답함으로써 동적인 콘텐츠에 대한 요청에 빠르게 응답할 수 있게 한 것이다.  
 
-대표적인 WSGI로는 [Gunicorn](https://gunicorn.org/), [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/), [Waitress](https://docs.pylonsproject.org/projects/waitress/en/latest/) 등이 있는데, 상용화 수준에 사용할 수 있는 WSGI 패키지는 Linux에서는 **Gunicorn**, **Waitress**가 있다.  
+대표적인 WSGI로는 [Gunicorn](https://gunicorn.org/), [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/), [Waitress](https://docs.pylonsproject.org/projects/waitress/en/latest/) 등이 있는데, 상용화 수준에 사용할 수 있는 WSGI 패키지는 Linux 전용의 **Gunicorn**과 Windows와 UNIX에서 모두 사용할 수 있는 **Waitress**가 있다.  
 
 **ASGI**
 
