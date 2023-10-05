@@ -229,7 +229,9 @@ cp <file_name> <destination>
 cp -r <dir_name> <destination>
 ```
 
-### 2-9. 프로세스 리스트 확인
+### 2-9. tasklist/ps
+
+프로세스 리스트를 확인하는 명령어  
 
 - Windows
 
@@ -248,6 +250,27 @@ ps
 ```bash
 ps -ef
 ```
+
+### 2-10. start/nohub
+
+프로그램을 백그라운드로 실행하여 터미널이 종료되도 프로그램이 종료되지 않도록 하는 명령어  
+
+- Windows
+
+```powershell
+start <app_name>
+```
+
+- Linux
+
+```bash
+nohub <app_name> &
+```
+
+리눅스에서는 `&`을 붙이면 백그라운드로 실행하라는 뜻인데, 단순히 `&`을 붙여서만 실행하면 터미널을 종료할 경우 같이 실행이 같이 종료되기 때문에 `nohub` 명령어를 같이 사용해야 한다.  
+
+💡최신 버전의 OS들은 `&`만 사용해도 `nohub` 명령어를 사용한 것과 동일하게 작동하기도 한다.  
+{:.note}
 
 ## 3. 네트워크 관련 명령어들
 
