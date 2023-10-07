@@ -5,7 +5,7 @@ title: '[Network] TCP 포트 사용 범위 제외 문제'
 description: >
     Windows에서 TCP 포트 사용 범위 제외 문제 해결하는 방법
 categories: [SWEngineering]
-tags: [network]
+tags: [network, ⭐starred]
 image:
     path: /assets/img/posts/thumbnail_network.png
 related_posts:
