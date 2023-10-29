@@ -82,12 +82,16 @@ git merge <branchname>
 ```
 
 ```bash
+git merge --no-ff <branchname>
+```
+
+`git merge`의 기본값인 fast-forward 방식 머지는 머지 commit을 생성하지 않는다. 따라서 `--no-ff` 옵션을 사용해서 머지 commit이 생성되도록 해줘야 이력 관리가 용이하다.  
+
+```bash
 git merge --no-commit --no-ff <branchname>
 ```
 
 `--no-commit` 옵션을 사용할 경우 머지 commit이 자동 생성되지 않기 때문에 사용자가 머지 결과를 미리 확인할 수 있다.  
-
-다만 fast-forward 머지는 머지 commit을 생성하지 않기 때문에 `--no-ff` 옵션을 사용해서 fast-forward의 경우에도 머지 commit이 생성되도록 해줘야 쉽게 비교할 수 있다.  
 
 ## rebase
 
