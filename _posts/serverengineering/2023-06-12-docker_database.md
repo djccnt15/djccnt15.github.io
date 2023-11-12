@@ -38,6 +38,31 @@ docker pull gvenzl/oracle-xe
 docker run -d -p 1521:1521 -e ORACLE_PASSWORD=<password> --name oracle-xe gvenzl/oracle-xe
 ```
 
+### 기본 DB 확인 및 데이터베이스 접속
+
+- 컨테이너 접속
+
+```powershell
+docker exec -it oracle-xe /bin/bash
+```
+
+- sqlplus 실행
+
+sqlplus 실행 후 유저 이름은 `SYSTEM`, 비밀번호는 컨테이너 생성 시 입력한 비밀번호 사용
+
+```powershell
+sqlplus
+```
+
+- 쿼리 실행
+
+```sql
+select name from V$database;
+```
+```
+xe
+```
+
 ## Microsoft SQL Server
 
 ### 이미지 다운로드
@@ -190,7 +215,7 @@ docker pull mariadb
 ### 컨테이너 생성
 
 ```powershell
-docker run -d --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> mariadb:latest
+docker run -d --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> mariadb:latest
 ```
 
 `MYSQL_ROOT_PASSWORD` 옵션은 `MARIADB_ROOT_PASSWORD`으로 바꿔서 입력해도 된다.  
@@ -240,6 +265,28 @@ SHOW DATABASES;
 ```
 
 `mysql` 데이터베이스 등 system DB로 초기 접속 후 사용할 데이터베이스를 생성하면 된다.  
+
+### 트러블슈팅
+
+- Access denied for user 'root'@'172.17.0.1' 에러
+
+아래와 같이 ip 에러가 뜨는 이유는 도커 내부에 설치된 mariadb가 도커 컨테이너의 가상 IP로 연결되어 있지 않아서 발생하는 에러이기 때문에 mariadb에 컨테이너의 IP를 사용하는 계정을 생성해주면 된다.  
+
+```
+(conn=8) Access denied for user 'root'@'172.17.0.1' (using password: YES)
+```
+
+유저 생성
+
+```sql
+CREATE USER 'root'@'172.17.0.1' IDENTIFIED BY <password>;
+```
+
+권한 부여
+
+```sql
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'172.17.0.1' WITH GRANT OPTION;
+```
 
 ## PostgreSQL
 
