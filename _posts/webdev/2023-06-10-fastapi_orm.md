@@ -520,7 +520,7 @@ DBeaver등 DB 툴을 이용해서 해당 DB를 확인해보면 `alembic.ini`에�
 
 ## 6. 데이터 모델(DTO)
 
-Pydantic의 `BaseModel`을 상속한 객체에 아래와 같이 `orm_mode = True` 속성을 만들어주면 SQLAlchemy를 통해 가져온 데이터의 레코드를 `from_orm` 메소드를 통해 Pydantic 객체로 변환할 수 있다.  
+Pydantic의 `BaseModel`을 상속한 객체에 아래와 같이 `orm_mode = True` 속성을 만들어주면 SQLAlchemy를 통해 가져온 데이터의 레코드를 `from_orm` 메서드를 통해 Pydantic 객체로 변환할 수 있다.  
 
 ```python
 from pydantic import BaseModel
@@ -534,7 +534,7 @@ class CategoryRec(BaseModel):
         allow_population_by_field_name = True
 ```
 
-💡SQLAlchemy의 객체를 그 자체로 `dict` 객체로 변환하고 싶을 경우 `_asdict` 메소드를 사용하거나, `__dict__` 어트리뷰트를 사용하면 된다.  
+💡SQLAlchemy의 객체를 그 자체로 `dict` 객체로 변환하고 싶을 경우 `_asdict` 메서드를 사용하거나, `__dict__` 어트리뷰트를 사용하면 된다.  
 {:.note}
 
 Pydantic의 `BaseModel`을 ORM 객체로 사용하는 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/models/#arbitrary-class-instances)를 참고하자.  

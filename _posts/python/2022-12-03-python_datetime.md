@@ -34,7 +34,7 @@ print(now)
 
 - `date` -> `datetime`
 
-`date` 객체를 `datetime` 객체로 변환하려면, 아래와 같이 `combine` 메소드를 통해 시간 정보를 추가해주면 된다.  
+`date` 객체를 `datetime` 객체로 변환하려면, 아래와 같이 `combine` 메서드를 통해 시간 정보를 추가해주면 된다.  
 
 ```python
 from datetime import datetime, date
@@ -52,7 +52,7 @@ dt=datetime.datetime(2023, 1, 1, 0, 0)
 
 - `datetime` -> `date`
 
-`datetime` 객체를 `date` 객체로 변환할 때는 `date` 메소드를 사용하면 된다.  
+`datetime` 객체를 `date` 객체로 변환할 때는 `date` 메서드를 사용하면 된다.  
 
 ```python
 from datetime import datetime
@@ -65,7 +65,7 @@ print(datetime.now().date())
 
 - ISO 형식으로 출력하기
 
-ISO 형식으로 데이터를 변환하려면, 아래와 같이 `isoformat` 메소드를 사용하면 된다.  
+ISO 형식으로 데이터를 변환하려면, 아래와 같이 `isoformat` 메서드를 사용하면 된다.  
 
 ```python
 from datetime import datetime, date
@@ -83,7 +83,7 @@ iso_dt='2023-06-17T13:47:50.665560'
 
 ## strftime, strptime
 
-개발을 하다보면 날짜/시간 데이터를 처리할 일이 많다. 이 때 자주 사용하는 메소드로 `strptime`와 `strftime`가 있다.  
+개발을 하다보면 날짜/시간 데이터를 처리할 일이 많다. 이 때 자주 사용하는 메서드로 `strptime`와 `strftime`가 있다.  
 
 날짜 및 시간 데이터 관련 포멧은 [공식 문서](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)에 정리되어 있는데, 주로 사용하는 포멧은 아래와 같다.  
 
@@ -132,7 +132,7 @@ print(type(res))
 <class 'datetime.datetime'>
 ```
 
-💡`date`, `datetime`, `time` 객체가 모두 갖고 있는 `strftime` 메소드와 달리 `strptime` 메소드는 `datetime` 객체만 갖고 있다.  
+💡`date`, `datetime`, `time` 객체가 모두 갖고 있는 `strftime` 메서드와 달리 `strptime` 메서드는 `datetime` 객체만 갖고 있다.  
 {:.note}
 
 ## KST 표시
