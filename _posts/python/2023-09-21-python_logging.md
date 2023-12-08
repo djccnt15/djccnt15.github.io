@@ -102,6 +102,9 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 - `when`: time rotate의 기준 시점
 - `backupCount`: 로그를 남길 파일 개수, 로그 파일이 해당 설정의 수보다 많을 경우 자동 삭제
 
+💡`file_handler.suffix = "%Y%m%d.log"`와 같이 `suffix` 속성을 설정할 경우 롤오버 시 생성되는 파일의 파일명 규칙을 수정할 수 있지만, 이 경우 `backupCount` 속성이 제대로 작동하지 않게 된다.  
+{:.note}
+
 |`when` 값|interval 유형|`atTime` 사용 시|
 |:-:|:-:|:-:|
 |S|초|영향 없음|
