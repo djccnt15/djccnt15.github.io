@@ -33,18 +33,18 @@ from Crypto.PublicKey import RSA
 
 
 def create_keys_rsa(
-        private_key: Path | str = 'private.pem',
-        public_key: Path | str = 'public.pem',
-        length: int = 2048
+    private_key: Path | str = "private.pem",
+    public_key: Path | str = "public.pem",
+    length: int = 2048,
 ):
     key = RSA.generate(length)
 
     private = key.export_key()
-    with open(private_key, 'wb') as f:
+    with open(private_key, "wb") as f:
         f.write(private)
 
     public = key.publickey().export_key()
-    with open(public_key, 'wb') as f:
+    with open(public_key, "wb") as f:
         f.write(public)
 ```
 
@@ -57,15 +57,12 @@ def create_keys_rsa(
 ```python
 from pathlib import Path
 
+from Crypto.Cipher import AES, PKCS1_OAEP
 from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
-from Crypto.Cipher import AES, PKCS1_OAEP
 
 
-def encrypt_rsa(
-        data: str,
-        public_key: Path | str = 'public.pem'
-):
+def encrypt_rsa(data: str, public_key: Path | str = "public.pem"):
     session_key = get_random_bytes(16)
 
     # Encrypt the session key with the public RSA key
@@ -75,19 +72,19 @@ def encrypt_rsa(
 
     # Encrypt the data with the AES session key
     cipher_aes = AES.new(session_key, AES.MODE_EAX)
-    ciphertext, tag = cipher_aes.encrypt_and_digest(data.encode('utf-8'))
+    ciphertext, tag = cipher_aes.encrypt_and_digest(data.encode("utf-8"))
 
     return enc_session_key, cipher_aes.nonce, tag, ciphertext
 
 
 def rsa_to_file(
-        enc_session_key: bytes,
-        nonce: bytes,
-        tag: bytes,
-        ciphertext: bytes,
-        file_name: Path | str = 'encrypted.bin'
+    enc_session_key: bytes,
+    nonce: bytes,
+    tag: bytes,
+    ciphertext: bytes,
+    file_name: Path | str = "encrypted.bin",
 ):
-    with open(file_name, 'wb') as f:
+    with open(file_name, "wb") as f:
         for x in (enc_session_key, nonce, tag, ciphertext):
             f.write(x)
 ```
@@ -103,29 +100,30 @@ PyCryptodome 패키지는 오직 bytes형만 처리 가능하기 때문에 암�
 ```python
 from pathlib import Path
 
-from Crypto.PublicKey import RSA
 from Crypto.Cipher import AES, PKCS1_OAEP
+from Crypto.PublicKey import RSA
 
 
 def rsa_from_file(
-        private_key: Path | str = 'private.pem',
-        file_name: Path | str = 'encrypted.bin'
+    private_key: Path | str = "private.pem", file_name: Path | str = "encrypted.bin"
 ):
     with open(private_key) as k:
         private = RSA.import_key(k.read())
 
-    with open(file_name, 'rb') as f:
-        enc_session_key, nonce, tag, ciphertext = [f.read(x) for x in (private.size_in_bytes(), 16, 16, -1)]
+    with open(file_name, "rb") as f:
+        enc_session_key, nonce, tag, ciphertext = [
+            f.read(x) for x in (private.size_in_bytes(), 16, 16, -1)
+        ]
 
     return enc_session_key, nonce, tag, ciphertext
 
 
 def decrypt_rsa(
-        enc_session_key: bytes,
-        nonce: bytes,
-        tag: bytes,
-        ciphertext: bytes,
-        private_key: Path | str = 'private.pem'
+    enc_session_key: bytes,
+    nonce: bytes,
+    tag: bytes,
+    ciphertext: bytes,
+    private_key: Path | str = "private.pem",
 ):
     with open(private_key) as k:
         private = RSA.import_key(k.read())
@@ -136,7 +134,7 @@ def decrypt_rsa(
 
     # Decrypt the data with the AES session key
     cipher_aes = AES.new(session_key, AES.MODE_EAX, nonce)
-    return cipher_aes.decrypt_and_verify(ciphertext, tag).decode('utf-8')
+    return cipher_aes.decrypt_and_verify(ciphertext, tag).decode("utf-8")
 ```
 
 ## 사용 예시
@@ -159,15 +157,15 @@ import json
 from ast import literal_eval
 
 # create RSA key
-create_keys_rsa('private.pem', 'public.pem')
+create_keys_rsa("private.pem", "public.pem")
 
 # encrypt key data
-with open('tmp.json') as f:
+with open("tmp.json") as f:
     key_json = json.load(f)
-encrypt_rsa(str(key_json), 'encrypted.bin', 'public.pem')
+encrypt_rsa(str(key_json), "encrypted.bin", "public.pem")
 
 # decrypt key data
-key = literal_eval(decrypt_rsa('encrypted.bin', 'private.pem'))
+key = literal_eval(decrypt_rsa("encrypted.bin", "private.pem"))
 print(key, type(key))
 ```
 ```
