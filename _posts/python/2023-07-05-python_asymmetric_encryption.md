@@ -62,7 +62,10 @@ from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
 
 
-def encrypt_rsa(data: str, public_key: Path | str = "public.pem"):
+def encrypt_rsa(
+    data: str,
+    public_key: Path | str = "public.pem",
+):
     session_key = get_random_bytes(16)
 
     # Encrypt the session key with the public RSA key
@@ -105,7 +108,8 @@ from Crypto.PublicKey import RSA
 
 
 def rsa_from_file(
-    private_key: Path | str = "private.pem", file_name: Path | str = "encrypted.bin"
+    private_key: Path | str = "private.pem",
+    file_name: Path | str = "encrypted.bin",
 ):
     with open(private_key) as k:
         private = RSA.import_key(k.read())
@@ -150,22 +154,32 @@ def decrypt_rsa(
 }
 ```
 
-Python은 JSON을 입력받을 경우 자동으로 `dict`로 매핑하기 때문에 `literal_eval`를 사용해서 데이터를 자료구조로 복원하는 것이 가능하다.  
+Python은 JSON을 입력받을 경우 자동으로 `dict`로 매핑하는데 `literal_eval`를 사용하면 입력된 데이터를 손쉽게 자료구조로 복원할 수 있다.  
 
 ```python
 import json
 from ast import literal_eval
 
 # create RSA key
-create_keys_rsa("private.pem", "public.pem")
+create_keys_rsa(private_key="private.pem", public_key="public.pem")
 
 # encrypt key data
 with open("tmp.json") as f:
     key_json = json.load(f)
-encrypt_rsa(str(key_json), "encrypted.bin", "public.pem")
+enc_session_key, nonce, tag, ciphertext = encrypt_rsa(
+    data=str(key_json), public_key="public.pem"
+)
 
 # decrypt key data
-key = literal_eval(decrypt_rsa("encrypted.bin", "private.pem"))
+key = literal_eval(
+    decrypt_rsa(
+        enc_session_key=enc_session_key,
+        nonce=nonce,
+        tag=tag,
+        ciphertext=ciphertext,
+        private_key="private.pem",
+    )
+)
 print(key, type(key))
 ```
 ```
