@@ -304,7 +304,7 @@ ValueError: Duplicate table keys across multiple MetaData objects: "table1", "ta
 
 - 자동화 마이그레이션을 위한 Alembic 시작
 
-```powershell
+```bat
 alembic init migrations
 ```
 ```
@@ -358,7 +358,7 @@ from .post import *
 
 - 리비전 파일 생성
 
-```powershell
+```bat
 alembic revision --autogenerate
 ```
 ```

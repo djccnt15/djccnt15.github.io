@@ -60,11 +60,11 @@ class Answer(models.Model):
 
 모델을 변경한 후에는 데이터베이스에 적용하기 위한 마이그레이션을 진행해야한다.  
 
-```powershell
+```bat
 manage.py makemigrations
 ```
 
-```powershell
+```bat
 manage.py migrate
 ```
 

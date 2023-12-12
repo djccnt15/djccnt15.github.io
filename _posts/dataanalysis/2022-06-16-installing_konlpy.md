@@ -28,7 +28,7 @@ related_posts:
 
 - 터미널에서 `Jpype1` 설치
 
-```powershell
+```bat
 pip install JPype1-1.4.0-cp39-cp39-win_amd64.whl
 ```
 
@@ -36,7 +36,7 @@ pip install JPype1-1.4.0-cp39-cp39-win_amd64.whl
 
 준비 단계가 완료되면 아래와 같이 `KoNLPy` 설치 후 cmd 재실행
 
-```powershell
+```bat
 pip install konlpy
 ```
 

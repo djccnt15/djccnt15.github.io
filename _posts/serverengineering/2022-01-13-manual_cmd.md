@@ -16,13 +16,13 @@ related_posts:
 
 ## 1. 기본 사용 팁
 
-### 1-1. help/--help
+### 1-1. help/\-\-help
 
 명령어 설명 보기  
 
 - Windows
 
-```powershell
+```bat
 help cls
 ```
 
@@ -47,7 +47,7 @@ Linux는 Windows의 `esc`에 대응하는 기능의 단축키가 없음
 
 - Windows
 
-```powershell
+```bat
 type <file_name>
 ```
 
@@ -73,7 +73,7 @@ more <file_name>
 
 - Windows
 
-```powershell
+```bat
 where <app_name>
 ```
 
@@ -96,7 +96,7 @@ find <file_name>
 
 change directory의 약자로, 작업중인 폴더 이동  
 
-```powershell
+```bat
 # 상위 디렉토리로 이동
 cd ..
 
@@ -123,14 +123,14 @@ cd -
 
 - Windows
 
-```powershell
+```bat
 dir
 ```
 
 주요 옵션들은 아래와 같다.  
 
-- /p 출력이 너무 많아 화면이 꽉 차면 멈추면서 보여줌
-- /o: 정렬 옵션 추가
+- `/p`: 출력이 너무 많아 화면이 꽉 차면 멈추면서 보여줌
+- `/o:`: 정렬 옵션 추가
     - N  이름순(알파벳순)
     - S  크기순(가장 작은 항목부터)
     - E  확장명순(알파벳순)
@@ -138,7 +138,7 @@ dir
     - G  그룹 디렉터리 먼저
     - -- 순서를 반대로 하는 접두사
 
-```powershell
+```bat
 dir /p/o:-ge
 ```
 
@@ -154,7 +154,7 @@ ls
 
 - Windows
 
-```powershell
+```bat
 cls
 ```
 
@@ -168,7 +168,7 @@ clear
 
 디렉토리 만들기
 
-```powershell
+```bat
 mkdir <dir_name>
 ```
 
@@ -176,14 +176,14 @@ mkdir <dir_name>
 
 디렉토리 지우기. Windows에서만 사용 가능  
 
-```powershell
+```bat
 rmdir <dir_name>
 ```
 
-- /s: 지정된 디렉토리와 하위 디렉토리 및 파일을 모두 삭제
-- /q: /s 옵션으로 하위 디렉토리 및 파일을 지울 때 확인 없이 모두 삭제
+- `/s`: 지정된 디렉토리와 하위 디렉토리 및 파일을 모두 삭제
+- `/q`: `/s` 옵션으로 하위 디렉토리 및 파일을 지울 때 확인 없이 모두 삭제
 
-```powershell
+```bat
 rmdir /s/q <dir_name>
 ```
 
@@ -193,7 +193,7 @@ rmdir /s/q <dir_name>
 
 - Windows
 
-```powershell
+```bat
 del <file_name>
 ```
 
@@ -215,7 +215,7 @@ rm -rf <dir_name>
 
 - Windows
 
-```powershell
+```bat
 copy <source> <destination>
 ```
 
@@ -235,7 +235,7 @@ cp -r <dir_name> <destination>
 
 - Windows
 
-```powershell
+```bat
 tasklist
 ```
 
@@ -259,7 +259,7 @@ ps -ef
 
 - Windows
 
-```powershell
+```bat
 ipconfig
 ```
 
@@ -273,22 +273,22 @@ ifconfig
 
 특정 호스트와 통신이 가능한지 확인. 명령어는 같지만 옵션은 조금 다르다.  
 
-```powershell
+```bat
 ping <host_name>
 ```
 
 - Windows
-    - -t 중지시킬 때까지 에코를 계속 요청. 이 옵션을 주지 않으면 일정 횟수 요청 후 자동 종료
-    - -n count 에코를 요청할 횟수 count 숫자로 지정
+    - `-t`: 중지시킬 때까지 에코를 계속 요청. 이 옵션을 주지 않으면 일정 횟수 요청 후 자동 종료
+    - `-n`: count 에코를 요청할 횟수 count 숫자로 지정
 
 - Linux
-    - -c count 에코를 요청할 횟수 count 숫자로 지정. 이 옵션을 주지 않으면 무한대로 에코 요청
+    - `-c`: count 에코를 요청할 횟수 count 숫자로 지정. 이 옵션을 주지 않으면 무한대로 에코 요청
 
 ### 3-3. ssh
 
 터미널을 통해 원격 서버에 ssh 연결하는 명령어
 
-```powershell
+```bat
 ssh [id]@[ip] -p [port]
 ```
 
@@ -298,19 +298,19 @@ ssh [id]@[ip] -p [port]
 
 cmd에서 환경 변수를 보여주는 명령어
 
-```powershell
+```bat
 set
 ```
 
 특정 문자로 시작하는 환경 변수 호출
 
-```powershell
+```bat
 set <x>
 ```
 
 환경 변수 중 컴퓨터 이름 호출
 
-```powershell
+```bat
 set COMPUTERNAME
 ```
 
@@ -318,19 +318,19 @@ set COMPUTERNAME
 
 현재 경로의 폴더 구조를 tree 형식으로 보여준다. Windows에서만 사용 가능  
 
-```powershell
+```bat
 tree
 ```
 
 파일까지 출력  
 
-```powershell
+```bat
 tree /f
 ```
 
 출력 결과를 파일로 저장  
 
-```powershell
+```bat
 tree > <file_name>
 ```
 

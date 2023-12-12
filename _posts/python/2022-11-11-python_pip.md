@@ -22,13 +22,13 @@ Python으로 개발을 하다보면 아래와 같이 pip 버전이 오래되었�
 
 경고가 알려주는대로 복붙해서 업그레이드하면 된다.  
 
-```powershell
+```bat
 python.exe -m pip install --upgrade pip
 ```
 
 간혹 아래와 같이 pip 버전이 제대로 체크되지 않아 에러만 띄우고 업그레이드 명령어를 알려주지 않는 경우가 있다. 경험상 정말 오랫동안 중지했던 프로젝트를 오랜만에 다룰 때 주로 발생했던 것 같다. 이 때도 동일하게 pip를 업그레이드 해주면 된다.  
 
-```powershell
+```bat
 WARNING: There was an error checking the latest version of pip
 ```
 
@@ -59,7 +59,7 @@ self signed certificate in certificate chain (_ssl.c:997)'))) - skipping
 
 아래와 같이 pip의 저장소 링크를 신뢰한다는 옵션을 추가하여 설치하면 정상적으로 설치가 가능하다.  
 
-```powershell
+```bat
 pip --trusted-host pypi.org --trusted-host files.pythonhosted.org install [package]
 ```
 
@@ -73,7 +73,7 @@ ModuleNotFoundError: No module named 'pip'
 
 이 때는 아래 명령어로 해결할 수 있다.  
 
-```powershell
+```bat
 python -m ensurepip --upgrade
 ```
 

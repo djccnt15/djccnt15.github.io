@@ -22,7 +22,7 @@ related_posts:
 
 Git이 특정 파일이나 폴더를 관리하지 않도록 설정하려면 `.gitignore` 파일을 만들어서 목록을 추가해두면 된다.  
 
-```powershell
+```bat
 # 특정 파일 제외
 example.txt
 

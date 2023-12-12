@@ -18,7 +18,7 @@ related_posts:
 
 Windows에서 linux용 프로그램을 사용하거나 linux 서버에서 구동할 프로그램을 개발할 때는 wsl을 사용한다. wsl의 버전을 확인하는 명령어는 아래와 같다.  
 
-```powershell
+```bat
 wsl -l -v
 ```
 ```
@@ -65,7 +65,7 @@ Codename:       jammy
 
 Ubuntu를 업그레이드 하려면 아래와 같이 업그레이드 하려는 wsl로 진입한 후 평범하게 업그레이드 하면 된다.  
 
-```powershell
+```bat
 wsl -d <Distro>
 ```
 
@@ -79,7 +79,7 @@ sudo do-release-upgrade
 
 아래와 같이 WSL 자체에서 Ubuntu 자체를 삭제해버린 후 Microsoft Store에서 원하는 버전을 다운 받아 설치하는 방법도 있다.  
 
-```powershell
+```bat
 wsl --unregister <Distro>
 ```
 

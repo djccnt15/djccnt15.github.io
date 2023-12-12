@@ -29,7 +29,7 @@ related_posts:
 
 홈페이지도 웹사이트의 각 페이지들을 모아서 보여주는 **기능**을 하니 앱으로 관리하기로 한다. `config` 폴더에 바로 만들어도 되지만, 나중에 기능이 많아졌을 때 분리하는 것도 일이라 처음부터 분리해서 개발하는게 좋다.  
 
-```powershell
+```bat
 django-admin startapp homepage
 ```
 

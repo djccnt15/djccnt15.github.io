@@ -21,7 +21,7 @@ related_posts:
 
 FastAPI로 백엔드 서버를 개발하려면 다음과 같이 `fastapi`와 `uvicorn[standard]` 패키지를 설치해야 한다.  
 
-```powershell
+```bat
 pip install fastapi uvicorn[standard]
 ```
 
@@ -42,7 +42,7 @@ async def root():
 
 Uvicorn을 이용해서 서버를 구동하는 명령어는 아래와 같다.  
 
-```powershell
+```bat
 uvicorn main:app --reload
 ```
 
