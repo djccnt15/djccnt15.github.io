@@ -22,7 +22,7 @@ related_posts:
 
 App(앱)은 **Application software/program**의 줄임말로, 운영체제가 아닌 모든 응용 프로그램을 말한다. Django 프로젝트에 기능을 추가하기 위해서는 앱을 생성해야 한다.  
 
-```powershell
+```bat
 django-admin startapp [app_name]
 ```
 
@@ -32,7 +32,7 @@ Django 공식 문서에서는 [Project와 App의 차이](https://docs.djangoproj
 - A project is a collection of configuration and apps for a particular website.
     - A project can contain multiple apps. An app can be in multiple projects.
 
-```powershell
+```bat
 django-admin startapp board_qna
 ```
 
@@ -128,7 +128,7 @@ Django에서 데이터 모델을 관리하기 위해 사용하는 명령어들�
 
 Django의 서버를 호스팅하면 아래와 같이 18개의 적용되지 않은 migration이 있다고 뜬다.  
 
-```powershell
+```bat
 manage.py runserver
 ```
 ```
@@ -138,7 +138,7 @@ Run 'python manage.py migrate' to apply them.
 
 아래와 같은 명령어를 통해 migration을 진행해주자.  
 
-```powershell
+```bat
 manage.py migrate
 ```
 ```
@@ -263,13 +263,13 @@ id = models.BigAutoField(primary_key=True)
 
 생성/변경된 모델을 활성화 하기 위해선 우선 변화를 반영한 새로운 migrations를 생성해야 한다. 이를 위해 아래와 같이 `makemigrations` 명령어를 사용한다.  
 
-```powershell
+```bat
 manage.py makemigrations
 ```
 
 특정 앱을 마이그레이션 하려면 아래와 같이 앱 이름을 지정해주면 된다.  
 
-```powershell
+```bat
 manage.py makemigrations [app_name]
 ```
 ```
@@ -281,11 +281,11 @@ Migrations for 'board_qna':
 
 `board_qna\migrations\0001_initial.py` 파일이 생성되면서 마이그레이션 된 것을 확인할 수 있다. 만약 실제 SQL Query를 확인하고 싶다면 아래와 같이 `sqlmigrate` 명령어를 쓰면 된다.  
 
-```powershell
+```bat
 manage.py sqlmigrate [app_name] [migrate_index]
 ```
 
-```powershell
+```bat
 manage.py sqlmigrate board_qna 0001
 ```
 ```
@@ -308,7 +308,7 @@ SQL Query를 보면 모델에 `id`를 생성하지 않았음에도 불구하고 
 
 참고로 나는 최초에 `author` 속성을 사용했다가 `user`로 수정했다. 이 때도 `makemigrations`과 `migrate`를 다시 진행해주면 되고, `sqlmigrate` 명령어를 통해서 확인해보면 아래와 같이 SQL Query가 추가/변경 된 것을 확인할 수 있다.  
 
-```powershell
+```bat
 manage.py sqlmigrate board_qna 0002
 ```
 
@@ -340,7 +340,7 @@ COMMIT;
 
 다음으로 `migrate` 명령어를 사용하여 실제로 테이블을 생성하면 된다.  
 
-```powershell
+```bat
 manage.py migrate
 ```
 ```
@@ -359,7 +359,7 @@ Running migrations:
 
 모델이 생성된 이후에는 아래와 같이 `shell` 명령어를 사용해서 Django의 API를 직접 다뤄볼 수 있다.  
 
-```powershell
+```bat
 manage.py shell
 ```
 
@@ -371,7 +371,7 @@ manage.py shell
 
 Django에서 관리자 계정을 생성하는 명령어는 아래와 같다.  
 
-```powershell
+```bat
 manage.py createsuperuser
 ```
 ```

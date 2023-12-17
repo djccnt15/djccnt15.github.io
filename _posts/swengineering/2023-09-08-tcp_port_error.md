@@ -28,7 +28,7 @@ Error invoking remote method 'docker-start-container': Error: (HTTP code 500) se
 
 - 현재 사용 범위에서 제외된 포트의 범위 확인
 
-```powershell
+```bat
 netsh interface ipv4 show excludedportrange protocol=tcp
 ```
 ```
@@ -65,19 +65,19 @@ netsh interface ipv4 show excludedportrange protocol=tcp
 
 - Windows NAT 사용 중지
 
-```powershell
+```bat
 net stop winnat
 ```
 
 - Windows NAT 시작
 
-```powershell
+```bat
 net start winnat
 ```
 
 - 현재 사용 범위에서 제외된 포트의 범위 확인
 
-```powershell
+```bat
 netsh interface ipv4 show excludedportrange protocol=tcp
 ```
 ```
@@ -96,6 +96,6 @@ netsh interface ipv4 show excludedportrange protocol=tcp
 
 - 특정 포트 범위에 대해 동적 예약 금지
 
-```powershell
+```bat
 netsh int ipv4 add excludedportrange protocol=tcp startport=[port] numberofports=[int]
 ```

@@ -26,7 +26,7 @@ related_posts:
 
 `gvenzl/oracle-xe` 이미지는 공식 이미지는 아니지만 다운로드 횟수가 `1M+`을 찍을 정도로 많이 사용중이다.  
 
-```powershell
+```bat
 docker pull gvenzl/oracle-xe
 ```
 
@@ -34,7 +34,7 @@ docker pull gvenzl/oracle-xe
 
 ### 컨테이너 생성
 
-```powershell
+```bat
 docker run -d -p 1521:1521 -e ORACLE_PASSWORD=<password> --name oracle-xe gvenzl/oracle-xe
 ```
 
@@ -42,7 +42,7 @@ docker run -d -p 1521:1521 -e ORACLE_PASSWORD=<password> --name oracle-xe gvenzl
 
 - 컨테이너 접속
 
-```powershell
+```bat
 docker exec -it oracle-xe /bin/bash
 ```
 
@@ -50,7 +50,7 @@ docker exec -it oracle-xe /bin/bash
 
 sqlplus 실행 후 유저 이름은 `SYSTEM`, 비밀번호는 컨테이너 생성 시 입력한 비밀번호 사용
 
-```powershell
+```bat
 sqlplus
 ```
 
@@ -67,13 +67,13 @@ xe
 
 ### 이미지 다운로드
 
-```powershell
+```bat
 docker pull mcr.microsoft.com/mssql/server
 ```
 
 ### 컨테이너 생성
 
-```powershell
+```bat
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourNewStrong@Passw0rd>" -p 1433:1433 --name mssql --hostname mssql -d mcr.microsoft.com/mssql/server
 ```
 
@@ -96,13 +96,13 @@ SSMS를 사용하고 싶지 않다면 sqlcmd를 통해 확인할 수 있다.
 
 - 컨테이너 접속
 
-```powershell
+```bat
 docker exec -it mssql "bash"
 ```
 
 - sqlcmd 실행
 
-```powershell
+```bat
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
 ```
 
@@ -130,13 +130,13 @@ msdb
 
 ### 이미지 다운로드
 
-```powershell
+```bat
 docker pull mysql
 ```
 
 ### 컨테이너 생성
 
-```powershell
+```bat
 docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> -d mysql:latest
 ```
 
@@ -144,16 +144,16 @@ docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> -d mysql:
 
 - 컨테이너 접속
 
-```powershell
+```bat
 docker exec -it mysql bash
 ```
-```powershell
+```bat
 bash-4.4#
 ```
 
 - MySQL 접속 및 `MYSQL_ROOT_PASSWORD` 입력
 
-```powershell
+```bat
 mysql -u root -p
 ```
 ```
@@ -208,13 +208,13 @@ jdbc:mysql://localhost:3306/mysql?allowPublicKeyRetrieval=true
 
 ### 이미지 다운로드
 
-```powershell
+```bat
 docker pull mariadb
 ```
 
 ### 컨테이너 생성
 
-```powershell
+```bat
 docker run -d --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> mariadb:latest
 ```
 
@@ -224,13 +224,13 @@ docker run -d --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<password> mari
 
 - 컨테이너 접속
 
-```powershell
+```bat
 docker exec -it mariadb /bin/bash
 ```
 
 - MariaDB 접속 및 `MYSQL_ROOT_PASSWORD` 입력
 
-```powershell
+```bat
 mariadb -u root -p
 ```
 ```
@@ -292,13 +292,13 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'172.17.0.1' WITH GRANT OPTION;
 
 ### 이미지 다운로드
 
-```powershell
+```bat
 docker pull postgres
 ```
 
 ### 컨테이너 생성
 
-```powershell
+```bat
 docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 
@@ -306,13 +306,13 @@ docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d
 
 - 컨테이너 접속
 
-```powershell
+```bat
 docker exec -it postgres /bin/bash
 ```
 
 - PostgreSQL 접속
 
-```powershell
+```bat
 psql -U postgres
 ```
 ```
@@ -324,7 +324,7 @@ postgres=#
 
 - 데이터베이스 목록 출력
 
-```powershell
+```bat
 \l
 ```
 ```

@@ -23,7 +23,7 @@ related_posts:
 
 Django도 기본적으로 Python 라이브러리이기 때문에 `pip`를 통해서 설치하면 된다.  
 
-```powershell
+```bat
 pip install Django
 ```
 
@@ -44,13 +44,13 @@ pip install Django
 
 Django 공식 홈페이지에서는 아래와 같은 명령어로 프로젝트를 시작하면 된다고 한다.  
 
-```powershell
+```bat
 django-admin startproject [project_name]
 ```
 
 다만 위와 같이 시작하면 현재 위치의 `project_name` 디렉토리가 생성되어 해당 디렉토리에서 프로젝트를 관리하게 된다. 아래와 같이 `config .` 옵션을 사용해 `config` 디렉토리를 사용하는게 명확성에 더 좋다.  
 
-```powershell
+```bat
 django-admin startproject config .
 ```
 
@@ -90,11 +90,11 @@ TIME_ZONE = 'Asia/Seoul'
 
 아래 명령어로 개발 서버를 구동하고, 특정 포트를 할당할 수도 있다.  
 
-```powershell
+```bat
 manage.py runserver
 ```
 
-```powershell
+```bat
 manage.py runserver [port_num]
 ```
 ```

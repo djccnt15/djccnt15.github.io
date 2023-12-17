@@ -24,29 +24,29 @@ Python은 라이브러리 버전 관리가 중요하기 때문에 프로젝트 �
 
 `python -m venv` 명령어로 파이썬 가상환경을 만든다.  
 
-```powershell
+```bat
 python -m venv [venv_name]
 ```
 
 가상환경을 구동하려면 생성한 가상환경의 `\Scripts\activate.bat`을 실행시킨다.  
 
-```powershell
+```bat
 Scripts\activate.bat
 ```
 
 가상환경이 정상적으로 실행되면 아래와 같이 터미널에 가상환경 이름이 표시된다.  
 
-```powershell
+```bat
 (venv_name) C:\>
 ```
 
 가상환경을 중지하려면 `deactivate`를 입력하거나 `Scripts\deactivate.bat`를 실행하면 된다.  
 
-```powershell
+```bat
 deactivate
 ```
 
-```powershell
+```bat
 Scripts\deactivate.bat
 ```
 
@@ -54,13 +54,13 @@ Scripts\deactivate.bat
 
 프로젝트를 하다보면 여러 가지 이유로 특정 Python 버전을 사용해서 작업을 해야한다. 이런 경우에는 아래 명령어와 같이 사용할 파이썬 버전의 실행파일 위치를 지정해서 특정 버전의 Python을 사용하도록 하면 된다.  
 
-```powershell
+```bat
 [your_python_location] -m venv [venv_name]
 ```
 
 내 세팅의 개발환경에서는 아래와 같은 명령어로 만들 수 있다.  
 
-```powershell
+```bat
 C:\programming\Python\Python310\python.exe -m venv .venv
 ```
 
@@ -77,7 +77,7 @@ C:\programming\Python\Python310\python.exe -m venv .venv
 
 아래와 같이 입력하면 라이브러리 리스트 파일을 생성한다. 일반적으로 `requirements.txt`파일로 생성하지만 다른 이름으로도 만들 수 있으며, `./requirements/` 디렉토리에 용도별(개발용/배포용/서버용 등)로 나누어서 라이브러리를 관리할 수도 있다.  
 
-```powershell
+```bat
 pip freeze > requirements.txt
 ```
 
@@ -85,19 +85,19 @@ pip freeze > requirements.txt
 
 위에서 만든 `requirements.txt`의 목록대로 라이브러리를 설치하는 명령어는 아래와 같다.  
 
-```powershell
+```bat
 pip install -r requirements.txt
 ```
 
 `requirements.txt`의 목록대로 라이브러리를 삭제하는 명령어는 아래와 같다.  
 
-```powershell
+```bat
 pip uninstall -r requirements.txt
 ```
 
 이때 모든 라이브러리에 대해 하나하나 삭제 확인 명령을 내려줘야 하기 때문에 매우 귀찮은데, 아래와 같이 `-y` 옵션을 사용하면 추가 확인 없이 삭제한다.  
 
-```powershell
+```bat
 pip uninstall -r requirements.txt -y
 ```
 
@@ -107,7 +107,7 @@ pip uninstall -r requirements.txt -y
 
 특정 버전의 라이브러리를 설치하고 싶을 때는 아래와 같이 명령어를 입력하면 된다. 라이브러리 간의 호환성이 중요한 경우나 신버전의 라이브러리에서 삭제된 구버전 기능을 사용하고 싶을 경우 사용한다.  
 
-```powershell
+```bat
 pip install [library_name]==[version]
 ```
 
@@ -115,13 +115,13 @@ pip install [library_name]==[version]
 
 라이브러리를 업그레이드하고 싶을 때는 아래와 같이 명령어를 입력하며 된다.  
 
-```powershell
+```bat
 pip install --upgrade [library_name]
 ```
 
 특정 버전으로 업그레이드하려면 아래와 같이 조합하면 된다.  
 
-```powershell
+```bat
 pip install --upgrade [library_name]==[version]
 ```
 
@@ -131,7 +131,7 @@ pip install --upgrade [library_name]==[version]
 
 아래와 같이 `--force-reinstall`을 통해 강제로 삭제하고 재설치하는 방법도 있다.  
 
-```powershell
+```bat
 pip install [library_name]==[version] --force-reinstall
 ```
 
@@ -141,13 +141,13 @@ pip install [library_name]==[version] --force-reinstall
 
 `.py`파일을 특정 Python 버전으로 실행시키고 싶을 경우, 아래 명령어처럼 하면 된다고 한다.  
 
-```powershell
+```bat
 py -version .py
 ```
 
 pip을 사용할 경우 아래 명령어처럼 하면 된다고 한다.  
 
-```powershell
+```bat
 py -version -m pip install virtualenv
 ```
 

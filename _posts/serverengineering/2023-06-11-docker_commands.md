@@ -18,13 +18,13 @@ related_posts:
 
 - 여러 명령어 한번에 입력하고 싶을 땐 `&&`으로 연속 입력 가능
 
-```powershell
+```bat
 docker stop [CONTAINER] && docker rm [CONTAINER] && docker rmi [IMAGE]
 ```
 
 - 명령어 도움말 보기
 
-```powershell
+```bat
 docker [CMD] --help
 ```
 
@@ -32,23 +32,23 @@ docker [CMD] --help
 
 ### 이미지 다운로드
 
-```powershell
+```bat
 docker pull [URL]
 ```
 
 ### 이미지 삭제
 
-```powershell
+```bat
 docker rmi [IMAGE]
 ```
 
-```powershell
+```bat
 docker image rm [IMAGE]
 ```
 
 ### 이미지 목록 보기
 
-```powershell
+```bat
 docker image ls
 ```
 
@@ -56,13 +56,13 @@ docker image ls
 
 - 이미지를 tar 파일로 저장
 
-```powershell
+```bat
 docker save -o [FILENAME] [IMAGE]
 ```
 
 - tar 파일을 이미지로 변환
 
-```powershell
+```bat
 docker load -i [FILENAME]
 ```
 
@@ -72,13 +72,13 @@ docker load -i [FILENAME]
 
 - 실행중인 컨테이너 목록 보기
 
-```powershell
+```bat
 docker ps
 ```
 
 - 생성된 컨테이너 전체 목록 보기
 
-```powershell
+```bat
 docker ps -a
 ```
 
@@ -86,25 +86,25 @@ docker ps -a
 
 - 생성 및 접속
 
-```powershell
+```bat
 docker run [IMAGE]
 ```
 
 - `^P^Q`를 통해 접속 해지가 가능한 TTY 접속
 
-```powershell
+```bat
 docker run -itd [IMAGE]
 ```
 
 - 단순 컨테이너 생성
 
-```powershell
+```bat
 docker create [IMAGE]
 ```
 
 ### 컨테이너 삭제
 
-```powershell
+```bat
 docker rm [CONTAINER]
 ```
 
@@ -112,7 +112,7 @@ docker rm [CONTAINER]
 
 - 해당 컨테이너의 root 프로세스에 콘솔 접근
 
-```powershell
+```bat
 docker attach [CONTAINER]
 ```
 
@@ -121,7 +121,7 @@ docker attach [CONTAINER]
 
 - 컨테이너의 bash 프로세스 실행 및 접속
 
-```powershell
+```bat
 docker exec -it [CONTAINER] /bin/bash
 ```
 
@@ -140,11 +140,11 @@ docker exec -it [CONTAINER] /bin/bash
 
 ### 컨테이너 실행/정지
 
-```powershell
+```bat
 docker start [CONTAINER]
 ```
 
-```powershell
+```bat
 docker stop [CONTAINER]
 ```
 
@@ -152,13 +152,13 @@ docker stop [CONTAINER]
 
 - 로컬 환경 → 컨테이너
 
-```powershell
+```bat
 docker cp [SRC_PATH] [CONTAINER]:[DEST_PATH]
 ```
 
 - 컨테이너 → 로컬 환경
 
-```powershell
+```bat
 docker cp [CONTAINER]:[SRC_PATH] [DEST_PATH]
 ```
 
@@ -166,13 +166,13 @@ docker cp [CONTAINER]:[SRC_PATH] [DEST_PATH]
 
 - 컨테이너를 tar 파일로 저장
 
-```powershell
+```bat
 docker export -o [FILENAME] [CONTAINER]
 ```
 
 - tar 파일을 컨테이너로 변환
 
-```powershell
+```bat
 docker import [FILENAME] [REPOSITORY[:TAG]]
 ```
 
@@ -180,6 +180,6 @@ docker import [FILENAME] [REPOSITORY[:TAG]]
 
 컨테이너 내부에서 작업을 한 뒤, 해당 수정 사항을 반영한 이미지를 새로 생성
 
-```powershell
+```bat
 docker commit [OPTIONS] [CONTAINER] [REPOSITORY[:TAG]]
 ```

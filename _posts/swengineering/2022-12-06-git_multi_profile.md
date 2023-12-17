@@ -60,7 +60,7 @@ Generating public/private rsa key pair.
 
 비밀번호를 만드는게 권장사항인데, 새로운 터미널을 킬 때마다 매번 비밀번호를 입력해야하는게 귀찮긴 하다. 선택은 자유  
 
-```powershell
+```bat
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 ```

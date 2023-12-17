@@ -46,7 +46,7 @@ formatter = logging.Formatter(
 file_handler = TimedRotatingFileHandler(
     filename=log_dir / "log.log",
     when="midnight",  # rotate every midnight
-    backupCount=3,  # define number of log files, set 0 to save infinity log files
+    backupCount=3,  # define number of log files, 0 to save all log files
     encoding="utf-8",
 )
 file_handler.setFormatter(formatter)
@@ -60,7 +60,7 @@ logger.addHandler(file_handler)
 logger.addHandler(stream_handler)
 ```
 
-위와 같은 내용으로 생성한 `logger` 사용하는 `main`의 예시는 아래와 같다.  
+위와 같은 내용으로 생성한 `logger`를 사용하는 `main`의 예시는 아래와 같다.  
 
 ```python
 from logger import logger
@@ -102,6 +102,9 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 - `when`: time rotate의 기준 시점
 - `backupCount`: 로그를 남길 파일 개수, 로그 파일이 해당 설정의 수보다 많을 경우 자동 삭제
 
+💡`file_handler.suffix = "%Y%m%d.log"`와 같이 `suffix` 속성을 설정할 경우 롤오버 시 생성되는 파일의 파일명 규칙을 수정할 수 있지만, 이 경우 `backupCount` 속성이 제대로 작동하지 않게 된다.  
+{:.note}
+
 |`when` 값|interval 유형|`atTime` 사용 시|
 |:-:|:-:|:-:|
 |S|초|영향 없음|
@@ -112,11 +115,11 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 |midnight|`atTime` 미지정 시 자정, 지정 시 `atTime`에 롤오버|최초 롤오버 시간 계산에 사용|
 {:.scroll-table}
 
-## LogRecord attributes
+## LogRecord
 
-로그가 출력될 때 실제로는 `LogRecord Objects` 인스턴스가 생성되고, 해당 인스턴스에 각종 정보들이 담긴 후 사용자가 설정한 내용들만 추려서 출력된다.  
+로그가 출력될 때 실제로는 `LogRecord` 클래스의 인스턴스가 생성되고, 해당 인스턴스에 각종 정보들이 담긴 후 사용자가 설정한 내용들만 추려서 출력된다.  
 
-`LogRecord Objects` 인스턴스의 요소들은 [공식 문서](https://docs.python.org/3/library/logging.html#logrecord-attributes)에서 확인할 수 있는데, 주로 사용할만한 속성들은 아래와 같다.  
+`LogRecord` 클래스의 요소들은 [공식 문서](https://docs.python.org/3/library/logging.html#logrecord-attributes)에서 확인할 수 있는데, 주로 사용할만한 속성들은 아래와 같다.  
 
 |Attribute name|Format|Description|
 |:-:|:-:|:-:|
@@ -133,4 +136,5 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 ## Reference
 - [logging — Logging facility for Python](https://docs.python.org/3/library/logging.html)
 - [logging.handlers — Logging handlers](https://docs.python.org/3/library/logging.handlers.html)
+- [LogRecord Objects](https://docs.python.org/3/library/logging.html#logrecord-objects)
 - [LogRecord attributes](https://docs.python.org/3/library/logging.html#logrecord-attributes)

@@ -24,7 +24,7 @@ GitHub Pages는 정적 웹 사이트를 생성할 수 있는 웹 프레임워크
 
 Ruby 설치 여부는 아래와 같이 확인할 수 있다.
 
-```powershell
+```bat
 ruby -v
 ```
 ```
@@ -35,7 +35,7 @@ ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x64-mingw-ucrt]
 
 Ruby의 패키지 관리 프로그램인 gem을 통해 아래와 같이 Jekyll과 Bundler를 설치할 수 있다.  
 
-```powershell
+```bat
 gem install jekyll bundler
 ```
 
@@ -45,11 +45,11 @@ gem install jekyll bundler
 
 아래와 같은 명령어로 bundle을 설치하고 업데이트하면 된다.  
 
-```powershell
+```bat
 bundle install
 ```
 
-```powershell
+```bat
 bundle update
 ```
 
@@ -59,19 +59,19 @@ GitHub pages는 업로드도 귀찮고, 업로드 후 반영되는데 시간이 
 
 local에 설치된 Jekyll을 작동시켜서 local 호스팅을 구동하는 명령어는 다음과 같다.  
 
-```powershell
+```bat
 bundle exec jekyll serve
 ```
 
 `--livereload`옵션을 사용하면 파일이 수정되었을 때 자동으로 새로고침 해준다.  
 
-```powershell
+```bat
 bundle exec jekyll serve --livereload
 ```
 
 미래 날짜로 작성한 포스트를 local에서 확인하려면 아래와 같이 `--future`를 붙여야 한다.  
 
-```powershell
+```bat
 bundle exec jekyll serve --future
 ```
 
@@ -82,13 +82,13 @@ local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http:/
 
 기본 포트가 `4000`으로 잡혀있기 때문에 웹페이지를 동시에 여러 프로젝트를 구동하려면 두 번째부터는 포트를 별도로 설정해줘야 한다. 포트를 설정하는 방법은 아래와 같다.  
 
-```powershell
+```bat
 bundle exec jekyll serve --port [port_num]
 ```
 
 그림 사이즈를 모바일에서 미리 확인하는 등 다른 디바이스의 브라우저로 테스트 컴퓨터의 호스팅에 접속하고 싶을 경우가 있는데, 그럴 때는 아래와 같이 서버의 IP 주소를 지정해서 구동하면 된다.  
 
-```powershell
+```bat
 bundle exec jekyll serve --host 192.168.0.5
 ```
 
@@ -99,7 +99,7 @@ bundle exec jekyll serve --host 192.168.0.5
 
 `--incremental` 옵션을 사용하면 새롭게 갱신된 문서와 페이지만 재생성하여 빌드 시간을 줄여준다. 다만 [Jekyll 공식 문서](https://jekyllrb-ko.github.io/docs/configuration/incremental-regeneration/)를 참고하면 이 기능은 문서나 페이지 혹은 그 의존관계가 변경되었을 때만 파일을 다시 생성하는데, 특정 의존 관계만 감지할 수 있다는 점이 문제가 될 수 있다고 한다.  
 
-```powershell
+```bat
 bundle exec jekyll serve --incremental
 ```
 
@@ -115,7 +115,7 @@ bundle exec jekyll serve --profile
 
 - 업로드 결과와 동일하게 빌드할 때
 
-```powershell
+```bat
 # localhost only
 bundle exec jekyll serve --livereload --future
 
@@ -125,7 +125,7 @@ bundle exec jekyll serve --livereload --future --host [IP_address]
 
 - 모든 글을 빌드할 때
 
-```powershell
+```bat
 # localhost only
 bundle exec jekyll serve --livereload --future --drafts --unpublished
 
@@ -159,7 +159,7 @@ bundle exec jekyll serve --livereload --future --drafts --unpublished --host [IP
 
 `YFM`에서 `published: false`로 정의하면 된다. 비밀글로 정의된 글을 local에서 미리 확인하고 싶을 때는, 아래와 같이 `--unpublished`를 붙여서 jekyll을 구동하면 된다.  
 
-```powershell
+```bat
 bundle exec jekyll serve --unpublished
 ```
 
@@ -170,7 +170,7 @@ bundle exec jekyll serve --unpublished
 
 `/_drafts` 폴더는 GitHub Pages가 외부로 배포하지 않도록 설정되어 있다. local에서 내용을 확인하고 싶다면 Jekyll에 `--drafts`를 붙여서 구동해야 한다.  
 
-```powershell
+```bat
 bundle exec jekyll serve --drafts
 ```
 

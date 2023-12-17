@@ -174,7 +174,7 @@ def index(request):
 
 Django shell을 사용해서 테스트 데이터를 생성하자.  
 
-```powershell
+```bat
 manage.py shell
 ```
 ```
