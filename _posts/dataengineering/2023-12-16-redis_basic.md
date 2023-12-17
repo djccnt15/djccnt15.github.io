@@ -3,7 +3,7 @@ published: true
 layout: post
 title: '[Redis] Redis 기초'
 description: >
-    Redis의 기초 및 설치
+    Redis의 입문을 위한 간단 정리
 categories: [DataEngineering]
 tags: [in-memory database, redis]
 image:
@@ -11,7 +11,6 @@ image:
 related_posts:
     - _posts/category/0000-01-01-format_post.md
 ---
-{% include series_redis.html %}
 * toc
 {:toc}
 
@@ -33,8 +32,8 @@ related_posts:
 1. Single Thread
     - 싱글 쓰레드로 처리되어 작업의 복잡성을 낮추고 트랜잭션의 원자성을 보장함
     - 과도한 요청이 발생할 경우 지연이 발생하여 서비스 성능에 영향을 줄 수 있음
-    - Redis 공식문서에서는 *Big O notation*을 통해 명령어들의 처리 속도에 대한 정보를 제공함
-    - Redis 6.0 이상부터는 일부 I/O에 Multi Thread가 도입됨
+    - Redis 공식문서에서는 *Big O notation*을 통해 명령어들의 시간복잡도(처리 속도)에 대한 정보를 제공함
+    - Redis 6.0 이상 버전부터는 성능 향상을 위해 일부 I/O에 Multi Thread가 도입됨
 
 ## Redis의 주요 활용
 
@@ -89,6 +88,21 @@ docker exec -it redis /bin/bash
 redis-benchmark
 ```
 
+## Redis Data Types
+
+Redis는 아래와 같이 다양한 자료구조를 지원함
+
+- Strings
+- Lists
+- Sets
+- Hashes
+- Sorted Sets
+- Streams
+- Geospatial Indexes
+- Bitmaps
+- Bitfields
+- HyperLogLog
+
 ## Redis 주요 명령어
 
 - Ping
@@ -106,10 +120,10 @@ info
 - CRUD
 
 ```sql
--- create
+-- create string
 SET [key] [value]
 
--- create many
+-- multiple create string
 MSET [key] [value] [key] [value] ...
 ```
 
@@ -122,6 +136,37 @@ keys [pattern]
 -- read
 GET [key]
 
--- read many
+-- multiple read
 MGET [key] [key] ...
 ```
+
+```sql
+-- sync delete
+DEL [key] [key] ...
+
+-- async delete
+UNLINK [key] [key] ...
+```
+
+```sql
+-- set expire seconds to key
+EXPIRE [key] [seconds]
+
+-- get remaining seconds of the key
+TTL [key]
+```
+
+- Memory Usage
+
+```sql
+MEMORY USAGE [key]
+```
+
+## 주요 공식 문서 참고 자료
+
+- 명령어 목록 및 상세 설명
+    - [Commands](https://redis.io/commands/)
+- 자료구조
+    - [Understand Redis data types](https://redis.io/docs/data-types/)
+- 언어별 client 가이드
+    - [Connect with Redis clients](https://redis.io/docs/connect/clients/)
