@@ -1,0 +1,60 @@
+---
+published: true
+layout: post
+title: '[web] HTTP 주요 Method 정리'
+description: >
+    CRUD와 GET, POST, PUT, DELETE
+categories: [Web]
+tags: [web protocol, http]
+image:
+    path: /assets/img/posts/thumbnail_http.png
+related_posts:
+    - _posts/category/0000-01-01-format_post.md
+---
+* toc
+{:toc}
+
+## 1. CRUD와 HTTP Method
+
+- **GET**
+
+`GET`은 특정 정보를 요청하기 위한 method로 Read를 수행하기 위해 사용한다.  
+
+- **POST**
+
+`POST`는 Create를 수행하기 위해 사용한다. Create를 위한 데이터는 HTTP 메시지의 body 부분에 담겨서 전송되며, 일반적으로 HTML의 `<form>` 태그를 통해 전송된다.  
+
+- **PUT**
+
+`PUT`은 Create와 Update를 수행하기 위해 사용되는 method로 request payload를 통해 데이터를 전송한다.  
+
+💡`POST`와 `PUT`의 가장 큰 차이점은 [멱등성(Idempotent)](https://en.wikipedia.org/wiki/Idempotence)[^1]의 충족 여부이다. `PUT`은 멱등성을 충족하나 `POST`는 멱등성을 충족하지 않는다.  
+{:.note}
+
+[^1]: 멱등성이란 수학의 함수와 같이 input이 일정하면 output도 일정한 성질을 말한다.  
+
+- **DELETE**
+
+`DELETE`는 Delete를 수행하기 위해 사용되는 method이다.  
+
+## 2. 주요 Method 비교
+
+|Method|의미|CRUD|멱등성|안정성|Path Variable|Query Parameter|Data Body|
+|:-:|-|:-:|:-:|:-:|:-:|:-:|:-:|
+|GET|리소스 요청|Read|O|O|O|O|X|
+|POST|리소스 생성|Create|X|X|O|△|O|
+|PUT|리소스 갱신, 생성|Update, Create|O|X|O|△|O|
+|DELETE|리소스 삭제|Delete|O|X|O|O|△|
+
+Query Parameter는 URL의 일부인 **쿼리스트링(Query string)**을 통해 전송하는데, 아래와 같이 URL의 뒤에 `?`으로 요청 파라미터를 덧붙인 요청 양식을 쿼리스트링이라고 부른다. 쿼리스트링에서 요청 파라미터가 여러 개면 `&`로 연결한다.  
+
+```
+https://github.com/djccnt15?tab=repositories&q=&language=python&sort=name
+```
+
+❗쿼리스트링으로 통신을 할 때는 URL을 통해 정보가 전송되기 때문에 중요한 데이터를 담아서 전송을 하게되면 일반 사용자에게 해당 데이터가 노출되는 문제가 있다. 따라서 쿼리스트링을 통해 중요한 정보를 전송하는 것을 지양해야 한다.
+{:.note title='attention'}
+
+---
+## Reference
+- [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
