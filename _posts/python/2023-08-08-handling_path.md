@@ -9,7 +9,7 @@ tags: [python, path]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:
-    - _posts/programming/2022-01-08-python_os.md
+    - _posts/programming/2022-01-08-handling_os.md
 ---
 * toc
 {:toc}

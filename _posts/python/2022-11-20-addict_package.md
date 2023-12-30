@@ -9,7 +9,7 @@ tags: [python, json]
 image:
     path: /assets/img/posts/thumbnail_python.png
 related_posts:
-    - _posts/python/2022-11-19-python_json.md
+    - _posts/python/2022-11-19-json_module.md
 ---
 * toc
 {:toc}
