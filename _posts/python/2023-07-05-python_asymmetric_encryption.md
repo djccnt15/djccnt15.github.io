@@ -55,11 +55,20 @@ def create_keys_rsa(
 암호화 함수의 경우 암호화에 `public key`를 사용하는 것으로 작성해두었지만, 실제로는 용도에 따라 `private key`를 입력해도 상관없다.  
 
 ```python
+from dataclasses import dataclass
 from pathlib import Path
 
 from Crypto.Cipher import AES, PKCS1_OAEP
 from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
+
+
+@dataclass
+class EncryptedData:
+    enc_session_key: bytes
+    nonce: bytes
+    tag: bytes
+    ciphertext: bytes
 
 
 def encrypt_rsa(
@@ -77,7 +86,12 @@ def encrypt_rsa(
     cipher_aes = AES.new(session_key, AES.MODE_EAX)
     ciphertext, tag = cipher_aes.encrypt_and_digest(data.encode("utf-8"))
 
-    return enc_session_key, cipher_aes.nonce, tag, ciphertext
+    return EncryptedData(
+        enc_session_key=enc_session_key,
+        nonce=cipher_aes.nonce,
+        tag=tag,
+        ciphertext=ciphertext,
+    )
 
 
 def rsa_to_file(
@@ -101,10 +115,19 @@ PyCryptodome 패키지는 오직 bytes형만 처리 가능하기 때문에 암�
 암호화 모듈과 마찬가지로 복호화에 `private key`를 사용하는 것으로 작성해두었지만, `private key`로 입력된 데이터를 복호화할 때는 `public key`를 사용하면 된다.  
 
 ```python
+from dataclasses import dataclass
 from pathlib import Path
 
 from Crypto.Cipher import AES, PKCS1_OAEP
 from Crypto.PublicKey import RSA
+
+
+@dataclass
+class EncryptedData:
+    enc_session_key: bytes
+    nonce: bytes
+    tag: bytes
+    ciphertext: bytes
 
 
 def rsa_from_file(
@@ -119,7 +142,12 @@ def rsa_from_file(
             f.read(x) for x in (private.size_in_bytes(), 16, 16, -1)
         ]
 
-    return enc_session_key, nonce, tag, ciphertext
+    return EncryptedData(
+        enc_session_key=enc_session_key,
+        nonce=nonce,
+        tag=tag,
+        ciphertext=ciphertext,
+    )
 
 
 def decrypt_rsa(
@@ -139,51 +167,6 @@ def decrypt_rsa(
     # Decrypt the data with the AES session key
     cipher_aes = AES.new(session_key, AES.MODE_EAX, nonce)
     return cipher_aes.decrypt_and_verify(ciphertext, tag).decode("utf-8")
-```
-
-## 사용 예시
-
-개인적으로 중요정보는 JSON 형태로 사용하기 때문에 JSON 파일을 예시로 들면 아래와 같다.  
-
-```json
-{
-    "auth": {
-        "secret_key": "****",
-        "algorithm": "HS256"
-    }
-}
-```
-
-Python은 JSON을 입력받을 경우 자동으로 `dict`로 매핑하는데 `literal_eval`를 사용하면 입력된 데이터를 손쉽게 자료구조로 복원할 수 있다.  
-
-```python
-import json
-from ast import literal_eval
-
-# create RSA key
-create_keys_rsa(private_key="private.pem", public_key="public.pem")
-
-# encrypt key data
-with open("tmp.json") as f:
-    key_json = json.load(f)
-enc_session_key, nonce, tag, ciphertext = encrypt_rsa(
-    data=str(key_json), public_key="public.pem"
-)
-
-# decrypt key data
-key = literal_eval(
-    decrypt_rsa(
-        enc_session_key=enc_session_key,
-        nonce=nonce,
-        tag=tag,
-        ciphertext=ciphertext,
-        private_key="private.pem",
-    )
-)
-print(key, type(key))
-```
-```
-{'auth': {'secret_key': '****', 'algorithm': 'HS256'}} <class 'dict'>
 ```
 
 ---

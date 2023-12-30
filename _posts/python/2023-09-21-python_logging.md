@@ -42,7 +42,7 @@ formatter = logging.Formatter(
     "%(asctime)s - %(levelname)s - [%(filename)s:%(module)s:%(name)s:%(lineno)d] %(message)s"
 )
 
-# create TimedRotatingFileHandler
+# TimedRotatingFileHandler
 file_handler = TimedRotatingFileHandler(
     filename=log_dir / "log.log",
     when="midnight",  # rotate every midnight
@@ -50,13 +50,11 @@ file_handler = TimedRotatingFileHandler(
     encoding="utf-8",
 )
 file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
-# create StreamHandler
+# StreamHandler
 stream_handler = StreamHandler()
 stream_handler.setFormatter(formatter)
-
-# add log handler to logger
-logger.addHandler(file_handler)
 logger.addHandler(stream_handler)
 ```
 
