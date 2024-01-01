@@ -37,14 +37,14 @@ def create_keys_rsa(
     public_key: Path | str = "public.pem",
     length: int = 2048,
 ):
-    key = RSA.generate(length)
+    key = RSA.generate(bits=length)
 
     private = key.export_key()
-    with open(private_key, "wb") as f:
+    with open(file=private_key, mode="wb") as f:
         f.write(private)
 
     public = key.publickey().export_key()
-    with open(public_key, "wb") as f:
+    with open(file=public_key, mode="wb") as f:
         f.write(public)
 ```
 
@@ -55,11 +55,20 @@ def create_keys_rsa(
 암호화 함수의 경우 암호화에 `public key`를 사용하는 것으로 작성해두었지만, 실제로는 용도에 따라 `private key`를 입력해도 상관없다.  
 
 ```python
+from dataclasses import asdict, dataclass
 from pathlib import Path
 
 from Crypto.Cipher import AES, PKCS1_OAEP
 from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
+
+
+@dataclass
+class EncryptedData:
+    enc_session_key: bytes
+    nonce: bytes
+    tag: bytes
+    ciphertext: bytes
 
 
 def encrypt_rsa(
@@ -70,26 +79,32 @@ def encrypt_rsa(
 
     # Encrypt the session key with the public RSA key
     with open(public_key) as key:
-        cipher_rsa = PKCS1_OAEP.new(RSA.import_key(key.read()))
-    enc_session_key = cipher_rsa.encrypt(session_key)
+        rsa_key = RSA.import_key(extern_key=key.read())
+    cipher_rsa = PKCS1_OAEP.new(key=rsa_key)
+    enc_session_key = cipher_rsa.encrypt(message=session_key)
 
     # Encrypt the data with the AES session key
-    cipher_aes = AES.new(session_key, AES.MODE_EAX)
-    ciphertext, tag = cipher_aes.encrypt_and_digest(data.encode("utf-8"))
+    cipher_aes = AES.new(
+        key=session_key,
+        mode=AES.MODE_EAX,
+    )
+    ciphertext, tag = cipher_aes.encrypt_and_digest(plaintext=data.encode("utf-8"))
 
-    return enc_session_key, cipher_aes.nonce, tag, ciphertext
+    return Encrypted(
+        enc_session_key=enc_session_key,
+        nonce=cipher_aes.nonce,
+        tag=tag,
+        ciphertext=ciphertext,
+    )
 
 
 def rsa_to_file(
-    enc_session_key: bytes,
-    nonce: bytes,
-    tag: bytes,
-    ciphertext: bytes,
+    encrypted: Encrypted,
     file_name: Path | str = "encrypted.bin",
 ):
     with open(file_name, "wb") as f:
-        for x in (enc_session_key, nonce, tag, ciphertext):
-            f.write(x)
+        for _, v in asdict(obj=encrypted).items():
+            f.write(v)
 ```
 
 PyCryptodome 패키지는 오직 bytes형만 처리 가능하기 때문에 암호화할 데이터를 인코딩해야한다.  
@@ -101,10 +116,19 @@ PyCryptodome 패키지는 오직 bytes형만 처리 가능하기 때문에 암�
 암호화 모듈과 마찬가지로 복호화에 `private key`를 사용하는 것으로 작성해두었지만, `private key`로 입력된 데이터를 복호화할 때는 `public key`를 사용하면 된다.  
 
 ```python
+from dataclasses import dataclass
 from pathlib import Path
 
 from Crypto.Cipher import AES, PKCS1_OAEP
 from Crypto.PublicKey import RSA
+
+
+@dataclass
+class EncryptedData:
+    enc_session_key: bytes
+    nonce: bytes
+    tag: bytes
+    ciphertext: bytes
 
 
 def rsa_from_file(
@@ -112,78 +136,43 @@ def rsa_from_file(
     file_name: Path | str = "encrypted.bin",
 ):
     with open(private_key) as k:
-        private = RSA.import_key(k.read())
+        private = RSA.import_key(extern_key=k.read())
 
     with open(file_name, "rb") as f:
         enc_session_key, nonce, tag, ciphertext = [
             f.read(x) for x in (private.size_in_bytes(), 16, 16, -1)
         ]
 
-    return enc_session_key, nonce, tag, ciphertext
-
-
-def decrypt_rsa(
-    enc_session_key: bytes,
-    nonce: bytes,
-    tag: bytes,
-    ciphertext: bytes,
-    private_key: Path | str = "private.pem",
-):
-    with open(private_key) as k:
-        private = RSA.import_key(k.read())
-
-    # Decrypt the session key with the private RSA key
-    cipher_rsa = PKCS1_OAEP.new(private)
-    session_key = cipher_rsa.decrypt(enc_session_key)
-
-    # Decrypt the data with the AES session key
-    cipher_aes = AES.new(session_key, AES.MODE_EAX, nonce)
-    return cipher_aes.decrypt_and_verify(ciphertext, tag).decode("utf-8")
-```
-
-## 사용 예시
-
-개인적으로 중요정보는 JSON 형태로 사용하기 때문에 JSON 파일을 예시로 들면 아래와 같다.  
-
-```json
-{
-    "auth": {
-        "secret_key": "****",
-        "algorithm": "HS256"
-    }
-}
-```
-
-Python은 JSON을 입력받을 경우 자동으로 `dict`로 매핑하는데 `literal_eval`를 사용하면 입력된 데이터를 손쉽게 자료구조로 복원할 수 있다.  
-
-```python
-import json
-from ast import literal_eval
-
-# create RSA key
-create_keys_rsa(private_key="private.pem", public_key="public.pem")
-
-# encrypt key data
-with open("tmp.json") as f:
-    key_json = json.load(f)
-enc_session_key, nonce, tag, ciphertext = encrypt_rsa(
-    data=str(key_json), public_key="public.pem"
-)
-
-# decrypt key data
-key = literal_eval(
-    decrypt_rsa(
+    return Encrypted(
         enc_session_key=enc_session_key,
         nonce=nonce,
         tag=tag,
         ciphertext=ciphertext,
-        private_key="private.pem",
     )
-)
-print(key, type(key))
-```
-```
-{'auth': {'secret_key': '****', 'algorithm': 'HS256'}} <class 'dict'>
+
+
+def decrypt_rsa(
+    encrypted: Encrypted,
+    private_key: Path | str = "private.pem",
+):
+    with open(private_key) as k:
+        private = RSA.import_key(extern_key=k.read())
+
+    # Decrypt the session key with the private RSA key
+    cipher_rsa = PKCS1_OAEP.new(key=private)
+    session_key = cipher_rsa.decrypt(ciphertext=encrypted.enc_session_key)
+
+    # Decrypt the data with the AES session key
+    cipher_aes = AES.new(
+        key=session_key,
+        mode=AES.MODE_EAX,
+        nonce=encrypted.nonce,
+    )
+
+    return cipher_aes.decrypt_and_verify(
+        ciphertext=encrypted.ciphertext,
+        received_mac_tag=encrypted.tag,
+    ).decode("utf-8")
 ```
 
 ---

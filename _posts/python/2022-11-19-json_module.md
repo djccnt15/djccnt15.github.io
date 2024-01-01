@@ -9,7 +9,7 @@ tags: [python, json]
 image:
     path: /assets/img/posts/thumbnail_json.png
 related_posts:
-    - _posts/python/2022-11-20-python_addict.md
+    - _posts/python/2022-11-20-addict_package.md
 ---
 * toc
 {:toc}
