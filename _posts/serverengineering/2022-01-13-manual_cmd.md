@@ -251,6 +251,26 @@ ps
 ps -ef
 ```
 
+### 2-10. taskkill/kill
+
+프로세스 종료 명령어  
+
+- Windows
+
+```bat
+taskkill /pid <PID> /f
+```
+
+- Linux
+
+```bash
+kill -15 <PID>
+```
+
+```bash
+kill -9 <PID>
+```
+
 ## 3. 네트워크 관련 명령어들
 
 ### 3-1. ipconfig/ifconfig
