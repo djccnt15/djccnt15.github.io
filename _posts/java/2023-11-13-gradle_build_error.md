@@ -5,7 +5,7 @@ title: '[Gradle] 빌드 에러 해결'
 description: >
     Gradle 빌드 에러
 categories: [Java]
-tags: [Java, Gradle, IntelliJ]
+tags: [java, gradle, IntelliJ]
 image:
     path: /assets/img/posts/thumbnail_openjdk.png
 related_posts:
