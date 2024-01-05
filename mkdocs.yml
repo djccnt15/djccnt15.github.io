@@ -20,7 +20,7 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
-    - header.autohide
+    # - header.autohide
   palette:
     - media: "(prefers-color-scheme)"  # Palette toggle for automatic mode
       primary: cyan
@@ -44,6 +44,8 @@ extra_javascript:
   - javascripts/katex.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 markdown_extensions:
@@ -51,6 +53,7 @@ markdown_extensions:
       permalink: true
       permalink_title: Anchor link to this section for reference
   - admonition
+  - abbr
   - footnotes
   - attr_list
   - def_list
@@ -82,7 +85,7 @@ plugins:
       blog_dir: post
       draft_if_future_date: true
       post_date_format: medium
-      post_url_format: "{slug}"
+      post_url_format: "{categories}/{slug}"
       post_readtime: false
       pagination_per_page: 10
       pagination_url_format: "page/{page}"
@@ -92,6 +95,7 @@ plugins:
         - Blog
         - Python
         - Java
+        - AI
   - tags:
       tags_file: tags.md
 extra:
@@ -108,24 +112,24 @@ extra:
   analytics:
     provider: google
     property: G-FQG7LWZEVF
-  consent:
-    title: Cookie consent
-    description: >-
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
-    cookies:
-      analytics: Google Analytics
-    actions:
-      - manage
-      - accept
-      - reject
+  # consent:
+  #   title: Cookie consent
+  #   description: >-
+  #     We use cookies to recognize your repeated visits and preferences, as well
+  #     as to measure the effectiveness of our documentation and whether users
+  #     find what they're searching for. With your consent, you're helping us to
+  #     make our documentation better.
+  #   cookies:
+  #     analytics: Google Analytics
+  #   actions:
+  #     - manage
+  #     - accept
+  #     - reject
 nav:
   - Home:
     - index.md
   - About:
-    - about/index.md
+    - about.md
   - Posts:
     - post/index.md
   - Tags:

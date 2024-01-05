@@ -1,6 +1,6 @@
 # Blog of djccnt15
 
-GitHub Pages를 이용한 블로그 구축 및 공부노트
+GitHub Pages를 이용한 블로그 구축
 
 ## MkDocs 서버 구동
 
@@ -13,8 +13,6 @@ mkdocs serve
 - 기본 서버 주소
     - [http://127.0.0.1:8000](http://127.0.0.1:8000)
     - [http://localhost:8000](http://localhost:8000)
-
-서버 구동의 세부 옵션 및 설명은 아래와 같다.  
 
 ## Powered by
 
