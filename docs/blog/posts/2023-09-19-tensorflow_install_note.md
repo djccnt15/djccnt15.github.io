@@ -1,18 +1,20 @@
 ---
-published: true
-layout: post
-title: '[TF] TensorFlow 설치 시 주의점'
+slug: tensorflow-install-note
+title: TensorFlow 설치 시 주의점
+date:
+    created: 2023-09-19
 description: >
     TensorFlow 설치 시 주의할 점
-categories: [AI]
-tags: [tensorflow]
-image:
-    path: /assets/img/posts/thumbnail_tensorflow.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - AI
+tags:
+    - AI
+    - tensorflow
 ---
-* toc
-{:toc}
+
+TensorFlow 설치 관련 주의할 점들에 대한 기록들  
+
+<!-- more -->
 
 ## TensorFlow 설치 시 주의점
 

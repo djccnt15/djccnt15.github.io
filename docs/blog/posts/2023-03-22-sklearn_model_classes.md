@@ -1,18 +1,20 @@
 ---
-published: true
-layout: post
-title: '[AI] scikit-learn 분류 모델의 classes'
+slug: sklearn-model-classes
+title: scikit-learn 분류 모델의 classes
+date:
+    created: 2023-03-22
 description: >
     scikit-learn 분류 모델의 카테고리 확인 방법
-categories: [AI]
-tags: [scikit-learn]
-image:
-    path: /assets/img/posts/thumbnail_sklearn.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - AI
+tags:
+    - AI
+    - scikit-learn
 ---
-* toc
-{:toc}
+
+scikit-learn 기반의 분류 모델에서 종속 변수의 카테고리 확인 방법  
+
+<!-- more -->
 
 ## classes_
 
@@ -26,15 +28,15 @@ scikit-learn의 분류 모델이 학습한 결과값의 카테고리는 `classes
 import pydataset as pds
 from sklearn.linear_model import LogisticRegression
 
-data = pds.data('iris')
+data = pds.data("iris")
 
-target = 'Species'
+target = "Species"
 endog = data[target]
 exog = data[[x for x in data.columns if x != target]]
 
 model = LogisticRegression(
     random_state=0,
-    max_iter=1000
+    max_iter=1000,
 ).fit(X=exog, y=endog)
 
 print(model.classes_)
