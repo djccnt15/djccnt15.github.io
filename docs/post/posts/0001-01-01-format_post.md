@@ -1,8 +1,9 @@
 ---
 draft: true
-title: title
+slug: draft
+title: head
 date:
-  created: 9999-01-01
+    created: 0001-01-01
 description: >
     description
 categories:
@@ -13,7 +14,9 @@ tags:
 
 > Quotes
 
-# head
+text
+
+<!-- more -->
 
 ## head2
 

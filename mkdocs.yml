@@ -8,8 +8,8 @@ theme:
   favicon: assets/icons/favicon.ico
   logo: assets/icons/logo_w.png
   features:
-    - navigation.instant
-    - navigation.instant.progress
+    # - navigation.instant  # turned off to solve LaTex rendering problem
+    # - navigation.instant.progress  # turned off to solve LaTex rendering problem
     - navigation.tracking
     - navigation.tabs
     # - navigation.tabs.sticky
