@@ -1,20 +1,24 @@
 ---
-published: true
-layout: post
+slug: variable-types
 title: '[기초통계학] 02. 자료의 종류와 특성'
+date:
+    created: 2022-12-17
 description: >
-    자료의 분류, 범주형/수치형 자료의 정리
-categories: [Statistics]
-tags: [statistics 101, variable types, relative frequency, python]
-image:
-    path: /assets/img/posts/thumbnail_statistics_02.png
-related_posts:
-    - _posts/statistics/2022-12-11-population_sampling.md
-    - _posts/statistics/2022-12-18-univariate_date.md
+    자료의 분류, 범주형 자료와 수치형 자료
+categories:
+    - Statistics
+tags:
+    - statistics 101
+    - variable types
+    - relative frequency
+    - python
 ---
-{% include series_statistics.html %}
-* toc
-{:toc}
+
+자료의 분류, 범주형 자료와 수치형 자료
+
+<!-- more -->
+
+---
 
 ## 1. 자료의 종류와 특성
 
@@ -65,39 +69,41 @@ related_posts:
 
 도수, 상대도수, 누적도수 구하는 함수를 Python으로 구현하면 아래와 같다.  
 
-```python
-numeric = list[int | float]
+=== "Python"
+
+    ```python
+    numeric = list[int | float]
 
 
-def freq(data: numeric) -> dict:
-    """returns frequency of each value"""
+    def freq(data: numeric) -> dict:
+        """returns frequency of each value"""
 
-    return {val: data.count(val) for val in set(data)}
-
-
-def freq_rel(data: numeric) -> dict:
-    """returns relative frequency of each value"""
-
-    return {val: data.count(val) / len(data) for val in set(data)}
+        return {val: data.count(val) for val in set(data)}
 
 
-def freq_cum(data: numeric) -> dict:
-    """returns cumulative frequency of sorted value"""
+    def freq_rel(data: numeric) -> dict:
+        """returns relative frequency of each value"""
 
-    data_sort = sorted(list(set(data)))
-    return {val: sum(data.count(j) for j in data_sort[:i + 1]) for i, val in enumerate(data_sort)}
-```
+        return {val: data.count(val) / len(data) for val in set(data)}
 
-아래와 같이 SciPy 라이브러리를 이용하면, 상대도수와 누적도수를 쉽게 구할 수 있다.  
 
-```python
-from scipy.stats import *
+    def freq_cum(data: numeric) -> dict:
+        """returns cumulative frequency of sorted value"""
 
-data = [1, 2, 1, 3, 1, 2, 3, 1, 1, 2, 1, 1]
+        data_sort = sorted(list(set(data)))
+        return {val: sum(data.count(j) for j in data_sort[:i + 1]) for i, val in enumerate(data_sort)}
+    ```
 
-relative_freq = relfreq(a=data, numbins=len(set(data)))
-cumulative_freq = cumfreq(a=data, numbins=len(set(data)))
-```
+=== "SciPy"
+
+    ```python
+    from scipy.stats import *
+
+    data = [1, 2, 1, 3, 1, 2, 3, 1, 1, 2, 1, 1]
+
+    relative_freq = relfreq(a=data, numbins=len(set(data)))
+    cumulative_freq = cumfreq(a=data, numbins=len(set(data)))
+    ```
 
 이 외에도 히스토그램, 바 차트(막대 그래프), 파이 차트 등 다양한 시각화를 통해 범주형 자료를 파악할 수 있다.  
 
@@ -120,8 +126,8 @@ cumulative_freq = cumfreq(a=data, numbins=len(set(data)))
 - 왜도가 작은 경우(왜도의 절대값 < 1), **동일 너비 분할(Equal Width Binning)** 사용
 - 왜도가 큰 경우 (왜도의 절대값 > 1의 경우), **동일 빈도 분할(Equal Frequency Binning)** 사용
 
-❗범주화를 적용하려면 변수에 결측치가 존재해서는 안 되기 때문에 결측 데이터에 대한 처리가 선행되어야 한다.  
-{:.note title='attention'}
+!!! warning
+    범주화를 적용하려면 변수에 결측치가 존재해서는 안 되기 때문에 결측 데이터에 대한 처리가 선행되어야 한다.  
 
 이 외에도 점도표, 산점도(scatter plot), 히스토그램, 줄기-잎 그래프, 상자수염 그래프(box plot) 등의 시각화를 통해 수치형 자료를 파악할 수 있다.  
 
@@ -131,7 +137,9 @@ cumulative_freq = cumfreq(a=data, numbins=len(set(data)))
 
 히스토그램은 수지자료를 시각화 하며 연속형 자료의 분포 형태를 표시한다. 따라서 계급의 상대도수를 사각형의 면적으로 표시하며 따라서 그래프의 높이, 즉 밀도(density)는 아래 공식에 따라 정해진다.  
 
-$$\text{density} = \frac{\text{relative frequency}}{\text{width of bins}}$$
+$$
+\text{density} = \frac{\text{relative frequency}}{\text{width of bins}}
+$$
 
 따라서 히스토그램의 경우 밀도 추정(density estimation)을 통한 확률 밀도 그래프의 기반이 된다.  
 
