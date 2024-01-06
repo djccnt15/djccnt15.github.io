@@ -7,7 +7,7 @@ date:
 description: >
     description
 categories:
-    - Category
+    - '*Draft'
 tags:
     - tag
 ---

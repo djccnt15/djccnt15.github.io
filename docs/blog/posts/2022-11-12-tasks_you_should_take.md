@@ -1,20 +1,19 @@
 ---
-published: true
-layout: post
-title: '[Career] 회사에서 나서서 맡아야 하는 업무'
+slug: tasks-you-should-take
+title: 회사에서 나서서 맡아야 하는 업무
+date:
+    created: 2022-11-12
 description: >
     회사에서 나서서 맡아야 하는 업무와 반드시 피해야 하는 업무
-categories: [Blog]
-tags: [career, 📌pinned]
-image:
-    path: /assets/img/posts/thumbnail_tasks_you_should_take.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Post
+tags:
+    - career
 ---
-* toc
-{:toc}
 
 > 더 적게 일하는 방법은 핵심만 하는 것이다 - 퇴사한 이형
+
+<!-- more -->
 
 ## 1. 나서서 맡아야 하는 업무
 
@@ -24,7 +23,7 @@ related_posts:
 
 우선 피해야 하는 업무들의 공통적인 특징은 일은 많고 성과는 내기 힘든 과업이라는 점이다. 따라서 **물경력**으로 연결될 가능성도 매우 높다.  
 
-## 2. 피해야 하는 업무를 맡았을 때
+## 2. 피해야 하는 업무와 해결 방법
 
 ### 2-1. 높은 난도에 비해 파급력이 낮은 경우
 
@@ -54,8 +53,8 @@ related_posts:
 
 커리어에 있어서 성장의 척도는 결국 **성공 경험**으로 귀결된다. 성공의 경험의 크기가 커져야 영향력이 커지고, 그 과정에서 어떤 크기와 난이도의 프로젝트에서 어떤 역할을 맡아 얼마나 복잡한 문제를 해결해보았는지가 바로 커리어의 실체이자 핵심이다.
 
-❗다만 해당 업무를 맡았을 때 처리할 수 있는 깜냥인지는 판단하고 도전해야 한다.  
-{:.note title='attention'}
+!!! warning
+    다만 해당 업무를 맡았을 때 처리할 수 있는 깜냥인지는 판단하고 도전해야 한다.  
 
 ## 3. 정리
 
