@@ -1,19 +1,23 @@
 ---
-published: true
-layout: post
-title: '[회귀분석] python 회귀분석'
+slug: statsmodels-regression
+title: Python으로 회귀분석하는 방법
+date:
+    created: 2022-01-23
 description: >
     statsmodels을 이용해서 회귀분석을 해보자
-categories: [DataAnalysis]
-tags: [regression, python, statsmodels, incomplete]
-image:
-    path: /assets/img/posts/thumbnail_statsmodels.png
-related_posts:
-    - _posts/mathematics/2022-01-19-regression_linear_scratch.md
-    - _posts/dataanalysis/2022-01-24-regression_assumption.md
+categories:
+    - Data Analysis
+tags:
+    - regression
+    - statsmodels
+    - incomplete
 ---
-* toc
-{:toc}
+
+statsmodels을 이용한 회귀분석 방법  
+
+<!-- more -->
+
+---
 
 statsmodels 라이브러리는 매우 강력한 회귀분석 기능을 제공하는 Python 패키지로, 특히 요약 결과 기능을 제공한다는 점에서 매우 유용하다. statsmodels 라이브러리로 회귀분석을 하는 방법은 두 가지가 있는데, 각각 소개해보기로 한다.  
 
@@ -50,8 +54,8 @@ print(df)
 
 ## 1. statsmodels.api
 
-💡`statsmodels.api`을 통해서 회귀분석을 시행할 경우 **별도로 독립변수에 상수항을 추가**해줘야 한다.  
-{:.note}
+!!! warning
+    `statsmodels.api`을 통해서 회귀분석을 시행할 경우 **별도로 독립변수에 상수항을 추가**해줘야 한다.  
 
 상수항을 추가하기 위해서는 statsmodels가 제공하는 `add_constant` API를 사용해주면 간단하다.  
 
@@ -201,8 +205,8 @@ res = smf.ols(formula='Lottery ~ np.log(Literacy)', data=df).fit()
 
 ## 3. 결과 해석
 
-❗이 글은 미완성입니다.
-{:.note title='attention'}
+!!! failure "Incomplete"
+    이 글은 미완성입니다.
 
 `summary` API의 결과 화면에 나오는 용어들의 뜻은 다음과 같다.  
 
@@ -223,7 +227,7 @@ res = smf.ols(formula='Lottery ~ np.log(Literacy)', data=df).fit()
     - BIC: AIC와 유사하나 패널티를 부여하여 AIC보다 모델 평가 성능이 더 좋으며, 수치가 낮을수록 좋음
 
 - **coef: 변수의 coefficient(계수)**, 각 독립변수가 종속변수의 변화에 미치는 영향의 정도
-- std err: 계수의 [표준오차](/statistics/sampling_distribution/#1-3-표본분포)(표본 통계량의 표준편차), 값이 작을수록 좋음
+- std err: 계수의 [표준오차](2023-02-15-sampling_distribution.md/#1-3)(표본 통계량의 표준편차), 값이 작을수록 좋음
 - t: 독립변수와 종속변수간에 선형관계(관련성)가 존재하는 정도, 값이 클수록 상관도가 큼
     - t 값이 크다 = 표준편차가 작다 = 독립-종속변수 간 상관도 높음
     - t 값이 작다 = 표준편차가 크다 = 독립-종속변수 간 상관도 낮음

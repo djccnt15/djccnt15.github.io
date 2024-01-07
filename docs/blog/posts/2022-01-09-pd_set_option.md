@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[pandas] pandas 옵션 설정'
+slug: pandas-option-setting
+title: pandas 옵션 설정 방법
+date:
+    created: 2022-01-09
 description: >
     pandas.set_option 사용법
-categories: [DataAnalysis]
-tags: [python, pandas]
-image:
-    path: /assets/img/posts/thumbnail_pandas.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Data Analysis
+tags:
+    - pandas
 ---
-* toc
-{:toc}
+
+pandas의 옵션을 설정하는 방법  
+
+<!-- more -->
+
+---
 
 ## 1. display.max_rows
 

@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[상관분석] 상관계수 구현'
+slug: correlation-coefficient
+title: 상관분석을 위한 상관계수 계산 기능 구현
+date:
+    created: 2022-07-15
 description: >
-    Python으로 상관계수 구현하기
-categories: [DataAnalysis]
-tags: [correlation, python]
-image:
-    path: /assets/img/posts/thumbnail_correlation_coefficient.png
-related_posts:
-    - _posts/dataanalysis/2023-03-07-correlation_analysis.md
+    Python으로 상관계수 계산 기능 구현하기
+categories:
+    - Data Analysis
+tags:
+    - correlation
 ---
-* toc
-{:toc}
+
+Python으로 상관계수 계산 기능 구현하기  
+
+<!-- more -->
+
+---
 
 ## 개요
 
@@ -20,8 +23,8 @@ related_posts:
 
 상관계수는 **-1에서 1 사이의 값**을 지니며, 부호는 상관관계의 방향, 수치는 상관의 정도를 나타낸다. 데이터 분석에 있어서 요구되는 상관계수의 수치는 분석 대상에 따라 달라지는데, 대체로 사회과학에서는 수치가 조금 낮아도 강력한 상관관계로 해석하며 오히려 너무 높은 상관관계는 데이터 조작을 의심하게 되지만, 반대로 공학계통에서는 높은 상관관계를 요구한다.  
 
-💡상관계수는 데이터가 추세선을 중심으로 분포한 정도만 알려줄 뿐 추세선의 기울기는 알려주지 않는다. 추세선의 기울기를 분석하는 방법은 [회귀분석](/dataanalysis/regression_statsmodels/)이다.  
-{:.note}
+!!! note
+    상관계수는 **데이터가 추세선을 중심으로 분포한 정도**만 알려줄 뿐 추세선의 기울기는 알려주지 않는다. 추세선의 기울기를 분석하는 방법은 [회귀분석](2022-01-23-regression_statsmodels.md)이다.  
 
 ## 수치형 변수의 상관계수
 
@@ -29,14 +32,18 @@ related_posts:
 
 두 확률변수의 선형관계를 나타내는 **공분산(covariance)**은 아래와 같이 정의된다.  
 
-$$Cov(X, Y) = E((X - \mu_{X})(Y - \mu_{Y}))$$
+$$
+Cov(X, Y) = E((X - \mu_{X})(Y - \mu_{Y}))
+$$
 
-**공분산 행렬(covariance matrix)**은 위의 공분산을 각 변수들마다 계산하는 것으로, 공분산 행렬 $$\Sigma$$는 아래와 같다.  
+**공분산 행렬(covariance matrix)**은 위의 공분산을 각 변수들마다 계산하는 것으로, 공분산 행렬 $\Sigma$는 아래와 같다.  
 
-$$\Sigma = \begin{bmatrix}
+$$
+\Sigma = \begin{bmatrix}
 Cov(X, X) & Cov(X, Y) \\
 Cov(Y, X) & Cov(Y, Y) \\
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 NumPy가 제공하는 공분산 행렬을 계산하는 함수를 사용하면 두 변수 간의 공분산을 구할 수 있다.  
 
@@ -53,7 +60,9 @@ covariance = np.cov(a, b)[0][1]
 
 **피어슨 상관계수(Pearson correlation coefficient, Pearson's r)**는 데이터 분석에서 가장 널리 쓰이는 상관계수로, 측정하려는 두 변수의 상관관계가 서로 **선형**일 때(1차 함수로 표현 가능)할 때 사용할 수 있다. 피어슨 상관계수는 두 변수의 공분산을 각각의 표준편차의 곱으로 나눈 값으로, 아래 공식을 통해 구할 수 있다.  
 
-$$r_{x, y} = Cor(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}$$
+$$
+r_{x, y} = Cor(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
+$$
 
 아래와 같이 NumPy와 SciPy를 통해서 상관계수를 쉽게 구할 수 있다.  
 
@@ -68,8 +77,8 @@ corrcoef = np.corrcoef(a, b)
 pearsonr = stats.pearsonr(a, b)
 ```
 
-💡피어슨 상관계수 $$r$$의 제곱과 다중 선형 회귀 모델의 결정 계수(Coefficient of determination) $$R^{2}$$은 같지 않다. 자세한 내용은 [여기](https://rython.tistory.com/17)를 참고하자.  
-{:.note}
+!!! warning
+    피어슨 상관계수 $r$의 제곱과 다중 선형 회귀 모델의 결정 계수(Coefficient of determination) $R^{2}$은 같지 않다. 자세한 내용은 [여기](https://rython.tistory.com/17)를 참고하자.  
 
 ### 상관계수에 따른 데이터 분포
 
@@ -99,11 +108,10 @@ plt.savefig(fname='plot_corr', bbox_inches='tight')
 plt.show()
 ```
 
-![plot_corr.png](/assets/img/posts/plot_corr.png)
-{:.text-center}
+![plot_corr.png](img/plot_corr.png)
 
-❗참고로 특정 분포의 데이터들은 명백하게 상관관계가 있음에도 불구하고 피어슨 상관관계가 0으로 계산되는데, 이 때는 구간을 나누어서 확인해야 한다. 자세한 내용은 [여기](https://datascienceschool.net/02%20mathematics/07.05%20%EA%B3%B5%EB%B6%84%EC%82%B0%EA%B3%BC%20%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98.html#id8)를 참고하자.
-{:.note title='attention'}
+!!! warning
+    참고로 특정 분포의 데이터들은 명백하게 상관관계가 있음에도 불구하고 피어슨 상관관계가 0으로 계산되는데, 이 때는 구간을 나누어서 확인해야 한다. 자세한 내용은 [여기](https://datascienceschool.net/02%20mathematics/07.05%20%EA%B3%B5%EB%B6%84%EC%82%B0%EA%B3%BC%20%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98.html#id8)를 참고하자.
 
 ## 순서형 변수의 상관계수
 

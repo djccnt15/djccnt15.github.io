@@ -1,19 +1,21 @@
 ---
-published: true
-layout: post
-title: '[빅분기] 실기 대비 01'
+slug: bigdata-certificate-01
+title: 빅데이터 분석기사 실기 예제 풀이
+date:
+    created: 2022-09-08
 description: >
     빅데이터 분석기사 실기 예제 문제 풀이
-categories: [DataAnalysis]
-tags: [Bigdata Certificate, python]
-image:
-    path: /assets/img/posts/thumbnail_bigdata_certi.png
-related_posts:
-    - _posts/dataanalysis/2022-09-09-bigdata_certi_02.md
+categories:
+    - Data Analysis
+tags:
+    - Bigdata Certificate
 ---
-{% include series_bigdatacerti.html %}
-* toc
-{:toc}
+
+빅데이터 분석기사 실기 예제 문제 풀이  
+
+<!-- more -->
+
+---
 
 ## 개요
 
@@ -90,8 +92,8 @@ custid,gender
 3502,0.885
 ```
 
-❗1회차 시험 때 제출 형식의 칼럼명을 다르게 썼다고 **0점 처리**된 사람이 많다는 얘기가 있다. 제출 형식에 주의해야 한다.  
-{:.note title='attention'}
+!!! danger
+    1회차 시험 때 제출 형식의 칼럼명을 다르게 썼다고 **0점 처리**된 사람이 많다고 한다. 제출 형식에 주의해야 한다.  
 
 **유의사항**
 
@@ -111,85 +113,79 @@ endog = pd.read_csv('data/y_train.csv', encoding='euc-kr')
 test = pd.read_csv('data/X_test.csv', encoding='euc-kr')
 ```
 
-[인코딩 문제](/dataanalysis/csv_encoding_02/)가 있어서 `encoding='euc-kr'` 옵션을 추가했는데, 한국데이터산업진흥원에서 제공하는 체험 환경에서는 없어도 작동한다. 아마 시험 환경에서도 입력하지 않아도 될 듯하다.  
-{:.note}
+!!! note
+    [인코딩 문제](2022-09-07-csv_encoding_02.md)가 있어서 `encoding='euc-kr'` 옵션을 추가했는데, 한국데이터산업진흥원에서 제공하는 체험 환경에서는 없어도 작동한다. 아마 시험 환경에서도 입력하지 않아도 될 듯하다.  
 
 **EDA**
 
 데이터에 대한 기본 정보를 확인해본다.  
 
 ```python
-print(exog.info())
+exog.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 3500 entries, 0 to 3499
-Data columns (total 10 columns):
- #   Column   Non-Null Count  Dtype
----  ------   --------------  -----
- 0   cust_id  3500 non-null   int64
- 1   총구매액     3500 non-null   int64
- 2   최대구매액    3500 non-null   int64
- 3   환불금액     1205 non-null   float64
- 4   주구매상품    3500 non-null   object
- 5   주구매지점    3500 non-null   object
- 6   내점일수     3500 non-null   int64
- 7   내점당구매건수  3500 non-null   float64
- 8   주말방문비율   3500 non-null   float64
- 9   구매주기     3500 non-null   int64
-dtypes: float64(3), int64(5), object(2)
-memory usage: 273.6+ KB
-None
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 3500 entries, 0 to 3499
+    Data columns (total 10 columns):
+    #   Column   Non-Null Count  Dtype
+    ---  ------   --------------  -----
+    0   cust_id  3500 non-null   int64
+    1   총구매액     3500 non-null   int64
+    2   최대구매액    3500 non-null   int64
+    3   환불금액     1205 non-null   float64
+    4   주구매상품    3500 non-null   object
+    5   주구매지점    3500 non-null   object
+    6   내점일수     3500 non-null   int64
+    7   내점당구매건수  3500 non-null   float64
+    8   주말방문비율   3500 non-null   float64
+    9   구매주기     3500 non-null   int64
+    dtypes: float64(3), int64(5), object(2)
+    memory usage: 273.6+ KB
+    ```
 
 ```python
-print(endog.info())
+endog.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 3500 entries, 0 to 3499
-Data columns (total 2 columns):
- #   Column   Non-Null Count  Dtype
----  ------   --------------  -----
- 0   cust_id  3500 non-null   int64
- 1   gender   3500 non-null   int64
-dtypes: int64(2)
-memory usage: 54.8 KB
-None
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 3500 entries, 0 to 3499
+    Data columns (total 2 columns):
+    #   Column   Non-Null Count  Dtype
+    ---  ------   --------------  -----
+    0   cust_id  3500 non-null   int64
+    1   gender   3500 non-null   int64
+    dtypes: int64(2)
+    memory usage: 54.8 KB
+    ```
 
 ```python
-print(test.info())
+test.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 2482 entries, 0 to 2481
-Data columns (total 10 columns):
- #   Column   Non-Null Count  Dtype
----  ------   --------------  -----
- 0   cust_id  2482 non-null   int64
- 1   총구매액     2482 non-null   int64
- 2   최대구매액    2482 non-null   int64
- 3   환불금액     871 non-null    float64
- 4   주구매상품    2482 non-null   object
- 5   주구매지점    2482 non-null   object
- 6   내점일수     2482 non-null   int64
- 7   내점당구매건수  2482 non-null   float64
- 8   주말방문비율   2482 non-null   float64
- 9   구매주기     2482 non-null   int64
-dtypes: float64(3), int64(5), object(2)
-memory usage: 194.0+ KB
-None
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 2482 entries, 0 to 2481
+    Data columns (total 10 columns):
+    #   Column   Non-Null Count  Dtype
+    ---  ------   --------------  -----
+    0   cust_id  2482 non-null   int64
+    1   총구매액     2482 non-null   int64
+    2   최대구매액    2482 non-null   int64
+    3   환불금액     871 non-null    float64
+    4   주구매상품    2482 non-null   object
+    5   주구매지점    2482 non-null   object
+    6   내점일수     2482 non-null   int64
+    7   내점당구매건수  2482 non-null   float64
+    8   주말방문비율   2482 non-null   float64
+    9   구매주기     2482 non-null   int64
+    dtypes: float64(3), int64(5), object(2)
+    memory usage: 194.0+ KB
+    ```
 
 EDA를 통해 `주구매상품`, `주구매지점` 두 칼럼이 `object` type인 것을 확인할 수 있다. 해당 칼럼들이 어떤 내용들로 이루어져 있는지 확인할 필요가 있다.  
 
@@ -199,19 +195,18 @@ print(pd.unique(test['주구매상품']))
 print(len(pd.unique(exog['주구매상품'])), len(pd.unique(test['주구매상품'])))
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-['기타' '스포츠' '남성 캐주얼' '보석' '디자이너' '시티웨어' '명품' '농산물' '화장품' '골프' '구두' '가공식품'
- '수산품' '아동' '차/커피' '캐주얼' '섬유잡화' '육류' '축산가공' '젓갈/반찬' '액세서리' '피혁잡화' '일용잡화'
- '주방가전' '주방용품' '건강식품' '가구' '주류' '모피/피혁' '남성 트랜디' '셔츠' '남성정장' '생활잡화'
- '트래디셔널' '란제리/내의' '커리어' '침구/수예' '대형가전' '통신/컴퓨터' '식기' '소형가전' '악기']
-['골프' '농산물' '가공식품' '주방용품' '수산품' '화장품' '기타' '스포츠' '디자이너' '시티웨어' '구두' '캐주얼'
- '명품' '건강식품' '남성정장' '커리어' '남성 캐주얼' '축산가공' '식기' '피혁잡화' '모피/피혁' '섬유잡화'
- '트래디셔널' '차/커피' '육류' '가구' '아동' '셔츠' '액세서리' '젓갈/반찬' '대형가전' '일용잡화' '통신/컴퓨터'
- '생활잡화' '주방가전' '란제리/내의' '남성 트랜디' '보석' '주류' '침구/수예' '악기']
-42 41
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    ['기타' '스포츠' '남성 캐주얼' '보석' '디자이너' '시티웨어' '명품' '농산물' '화장품' '골프' '구두' '가공식품'
+    '수산품' '아동' '차/커피' '캐주얼' '섬유잡화' '육류' '축산가공' '젓갈/반찬' '액세서리' '피혁잡화' '일용잡화'
+    '주방가전' '주방용품' '건강식품' '가구' '주류' '모피/피혁' '남성 트랜디' '셔츠' '남성정장' '생활잡화'
+    '트래디셔널' '란제리/내의' '커리어' '침구/수예' '대형가전' '통신/컴퓨터' '식기' '소형가전' '악기']
+    ['골프' '농산물' '가공식품' '주방용품' '수산품' '화장품' '기타' '스포츠' '디자이너' '시티웨어' '구두' '캐주얼'
+    '명품' '건강식품' '남성정장' '커리어' '남성 캐주얼' '축산가공' '식기' '피혁잡화' '모피/피혁' '섬유잡화'
+    '트래디셔널' '차/커피' '육류' '가구' '아동' '셔츠' '액세서리' '젓갈/반찬' '대형가전' '일용잡화' '통신/컴퓨터'
+    '생활잡화' '주방가전' '란제리/내의' '남성 트랜디' '보석' '주류' '침구/수예' '악기']
+    42 41
+    ```
 
 ```python
 print(pd.unique(exog['주구매지점']))
@@ -219,17 +214,16 @@ print(pd.unique(test['주구매지점']))
 print(len(pd.unique(exog['주구매지점'])), len(pd.unique(test['주구매지점'])))
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-['강남점' '잠실점' '관악점' '광주점' '본  점' '일산점' '대전점' '부산본점' '분당점' '영등포점' '미아점'
- '청량리점' '안양점' '부평점' '동래점' '포항점' '노원점' '창원점' '센텀시티점' '인천점' '대구점' '전주점'
- '울산점' '상인점']
-['부산본점' '잠실점' '본  점' '청량리점' '분당점' '일산점' '대전점' '강남점' '동래점' '영등포점' '부평점'
- '대구점' '노원점' '광주점' '관악점' '미아점' '창원점' '인천점' '안양점' '상인점' '포항점' '울산점' '전주점'
- '센텀시티점']
-24 24
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    ['강남점' '잠실점' '관악점' '광주점' '본  점' '일산점' '대전점' '부산본점' '분당점' '영등포점' '미아점'
+    '청량리점' '안양점' '부평점' '동래점' '포항점' '노원점' '창원점' '센텀시티점' '인천점' '대구점' '전주점'
+    '울산점' '상인점']
+    ['부산본점' '잠실점' '본  점' '청량리점' '분당점' '일산점' '대전점' '강남점' '동래점' '영등포점' '부평점'
+    '대구점' '노원점' '광주점' '관악점' '미아점' '창원점' '인천점' '안양점' '상인점' '포항점' '울산점' '전주점'
+    '센텀시티점']
+    24 24
+    ```
 
 **명목 변수와 수치형 변수 분리**
 
@@ -263,27 +257,26 @@ df = pd.concat([exog, test])
 df.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-Int64Index: 5982 entries, 0 to 2481
-Data columns (total 10 columns):
- #   Column   Non-Null Count  Dtype  
----  ------   --------------  -----  
- 0   cust_id  5982 non-null   int64  
- 1   총구매액     5982 non-null   int64  
- 2   최대구매액    5982 non-null   int64  
- 3   환불금액     2076 non-null   float64
- 4   주구매상품    5982 non-null   object 
- 5   주구매지점    5982 non-null   object 
- 6   내점일수     5982 non-null   int64  
- 7   내점당구매건수  5982 non-null   float64
- 8   주말방문비율   5982 non-null   float64
- 9   구매주기     5982 non-null   int64  
-dtypes: float64(3), int64(5), object(2)
-memory usage: 514.1+ KB
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    Int64Index: 5982 entries, 0 to 2481
+    Data columns (total 10 columns):
+    #   Column   Non-Null Count  Dtype  
+    ---  ------   --------------  -----  
+    0   cust_id  5982 non-null   int64  
+    1   총구매액     5982 non-null   int64  
+    2   최대구매액    5982 non-null   int64  
+    3   환불금액     2076 non-null   float64
+    4   주구매상품    5982 non-null   object 
+    5   주구매지점    5982 non-null   object 
+    6   내점일수     5982 non-null   int64  
+    7   내점당구매건수  5982 non-null   float64
+    8   주말방문비율   5982 non-null   float64
+    9   구매주기     5982 non-null   int64  
+    dtypes: float64(3), int64(5), object(2)
+    memory usage: 514.1+ KB
+    ```
 
 **필요 없는 칼럼 제거**
 
@@ -304,7 +297,7 @@ df['환불금액'].fillna(value=0, inplace=True)
 
 **정규화**
 
-정규화는 이상점의 영향을 적게 받는 Robust Scaling을 적용해주는게 무난하다. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
+정규화는 이상점의 영향을 적게 받는 Robust Scaling을 적용해주는게 무난하다. 자세한 설명은 [이 글](2022-07-11-scalers.md) 참고  
 
 ```python
 import numpy as np
@@ -327,40 +320,39 @@ df.drop(columns=['주구매상품', '주구매지점'], inplace=True)
 df.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-Output exceeds the size limit. Open the full output data in a text editor
-<class 'pandas.core.frame.DataFrame'>
-Int64Index: 5982 entries, 0 to 2481
-Data columns (total 73 columns):
- #   Column        Non-Null Count  Dtype  
----  ------        --------------  -----  
- 0   총구매액          5982 non-null   float64
- 1   최대구매액         5982 non-null   float64
- 2   환불금액          5982 non-null   float64
- 3   내점일수          5982 non-null   float64
- 4   내점당구매건수       5982 non-null   float64
- 5   주말방문비율        5982 non-null   float64
- 6   구매주기          5982 non-null   float64
- 7   주구매상품_가공식품    5982 non-null   uint8  
- 8   주구매상품_가구      5982 non-null   uint8  
- 9   주구매상품_건강식품    5982 non-null   uint8  
- 10  주구매상품_골프      5982 non-null   uint8  
- 11  주구매상품_구두      5982 non-null   uint8  
- 12  주구매상품_기타      5982 non-null   uint8  
- 13  주구매상품_남성 캐주얼  5982 non-null   uint8  
- 14  주구매상품_남성 트랜디  5982 non-null   uint8  
- 15  주구매상품_남성정장    5982 non-null   uint8  
- 16  주구매상품_농산물     5982 non-null   uint8  
- 17  주구매상품_대형가전    5982 non-null   uint8  
- 18  주구매상품_디자이너    5982 non-null   uint8  
- 19  주구매상품_란제리/내의  5982 non-null   uint8  
-...
- 72  주구매지점_포항점     5982 non-null   uint8  
-dtypes: float64(7), uint8(66)
-memory usage: 759.4 KB
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    Output exceeds the size limit. Open the full output data in a text editor
+    <class 'pandas.core.frame.DataFrame'>
+    Int64Index: 5982 entries, 0 to 2481
+    Data columns (total 73 columns):
+    #   Column        Non-Null Count  Dtype  
+    ---  ------        --------------  -----  
+    0   총구매액          5982 non-null   float64
+    1   최대구매액         5982 non-null   float64
+    2   환불금액          5982 non-null   float64
+    3   내점일수          5982 non-null   float64
+    4   내점당구매건수       5982 non-null   float64
+    5   주말방문비율        5982 non-null   float64
+    6   구매주기          5982 non-null   float64
+    7   주구매상품_가공식품    5982 non-null   uint8  
+    8   주구매상품_가구      5982 non-null   uint8  
+    9   주구매상품_건강식품    5982 non-null   uint8  
+    10  주구매상품_골프      5982 non-null   uint8  
+    11  주구매상품_구두      5982 non-null   uint8  
+    12  주구매상품_기타      5982 non-null   uint8  
+    13  주구매상품_남성 캐주얼  5982 non-null   uint8  
+    14  주구매상품_남성 트랜디  5982 non-null   uint8  
+    15  주구매상품_남성정장    5982 non-null   uint8  
+    16  주구매상품_농산물     5982 non-null   uint8  
+    17  주구매상품_대형가전    5982 non-null   uint8  
+    18  주구매상품_디자이너    5982 non-null   uint8  
+    19  주구매상품_란제리/내의  5982 non-null   uint8  
+    ...
+    72  주구매지점_포항점     5982 non-null   uint8  
+    dtypes: float64(7), uint8(66)
+    memory usage: 759.4 KB
+    ```
 
 **테이블 분리**
 
@@ -433,9 +425,9 @@ endog = pd.read_csv('data/y_train.csv', encoding='euc-kr')
 test = pd.read_csv('data/X_test.csv', encoding='euc-kr')
 
 # EDA
-print(exog.info())
-print(endog.info())
-print(test.info())
+exog.info()
+endog.info()
+test.info()
 
 # check the unique values of columns with object type
 print(pd.unique(exog['주구매상품']))
@@ -489,9 +481,9 @@ df.info()
 exog = df.iloc[:3500, :]
 test = df.iloc[3500:, :]
 
-print(exog.info())
-print(test.info())
-print(endog.info())
+exog.info()
+test.info()
+endog.info()
 
 # model tuning and training
 # load model for classification, not really did any hyperparameter tuning

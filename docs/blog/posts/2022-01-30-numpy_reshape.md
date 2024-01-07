@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[NumPy] numpy array의 변형'
+slug: reshape-numpy-array
+title: numpy array의 변형
+date:
+    created: 2022-01-30
 description: >
     `numpy.array`를 쉽게 변형해보자. reshape, transpose, T의 활용
-categories: [DataAnalysis]
-tags: [python, numpy, array]
-image:
-    path: /assets/img/posts/thumbnail_numpy.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Data Analysis
+tags:
+    - numpy
+    - array
 ---
-* toc
-{:toc}
+
+numpy array의 shape를 변형하는 방법, reshape, transpose, T  
+
+<!-- more -->
+
+---
 
 ## 0. 예제 데이터 준비
 
@@ -31,8 +35,8 @@ print(array)
 
 `numpy.array`의 데이터 변형 없이 모양만 바꿔주는 함수로, 주요 파라미터는 아래와 같다.  
 
-- a: array_like, 변형될 데이터
-- newshape: 변형할 모양, -1이 입력되면 나머지 차원의 설정에 따라 자동으로 계산된다
+- `a`: array_like, 변형될 데이터
+- `newshape`: 변형할 모양, -1이 입력되면 나머지 차원의 설정에 따라 자동으로 계산된다
 
 ```python
 import numpy as np

@@ -1,19 +1,22 @@
 ---
-published: true
-layout: post
-title: '[회귀분석] 회귀분석의 전제조건'
+slug: assumption-for-regression
+title: 회귀분석의 전제조건
+date:
+    created: 2022-01-24
 description: >
     선형성, 독립성, 등분산성, 정규성
-categories: [DataAnalysis]
-tags: [regression, incomplete, python]
-image:
-    path: /assets/img/posts/thumbnail_statsmodels.png
-related_posts:
-    - _posts/mathematics/2022-01-19-regression_linear_scratch.md
-    - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
+categories:
+    - Data Analysis
+tags:
+    - regression
+    - incomplete
 ---
-* toc
-{:toc}
+
+회귀분석의 전제조건, 선형성, 독립성, 등분산성, 정규성  
+
+<!-- more -->
+
+---
 
 선형회귀는 분석 데이터가 선형성, 독립성, 등분산성, 정규성의 성질을 갖는다고 가정하기 때문에 좋은 선형 회귀분석 모델을 만들기 위해서는 네개의 기본가정을 모두 만족하는지 확인해야 한다.  
 
@@ -48,7 +51,7 @@ memory usage: 6.0+ KB
 
 ## 1. 선형성
 
-`iris`데이터의 분포는 다음과 같다.
+`iris` 데이터의 분포는 다음과 같다.  
 
 ```python
 import matplotlib.pyplot as plt
@@ -62,11 +65,11 @@ sns.pairplot(
 plt.show()
 ```
 
-![iris_pairplot](/assets/img/posts/iris_pairplot.png)
+![iris_pairplot](img/iris_pairplot.png)
 
-만약 Sepal_Length를 예측하려고 하는 종속변수라고 한다면, 위 그래프를 보았을 때 Sepal_Length와 대략적인 선형관계를 이루고 있는 변수는 Petal_Length와 Petal_Width이고, 선형성을 만족하지 않는 것은 Sepal_Width인 것으로 보인다.
+만약 Sepal_Length를 예측하려고 하는 종속변수라고 한다면, 위 그래프를 보았을 때 Sepal_Length와 대략적인 선형관계를 이루고 있는 변수는 Petal_Length와 Petal_Width이고, 선형성을 만족하지 않는 것은 Sepal_Width인 것으로 보인다.  
 
-이 상황에서 선형 회귀모델을 만들어 보자.
+이 상황에서 선형 회귀모델을 만들어 보자.  
 
 ```python
 import statsmodels.formula.api as smf
@@ -125,17 +128,21 @@ sns.pairplot(
 plt.show()
 ```
 
-![iris_pairplot](/assets/img/posts/iris_pairplot_2.png)
+![iris_pairplot](img/iris_pairplot_2.png)
 
 Petal_Length와 Petal_Width의 영향도를 제거한 Rest_Sepal_Width를 Sepal_Width와 비교해보면 선형성이 아주 약간 생긴 것을 확인할 수 있다.  
 
-Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값을 위와 같이 계산하는 이유는 Sepal_Length를 $$y$$, Sepal_Width를 $$x_{0}$$, Petal_Length를 $$x_{1}$$, Petal_Width를 $$x_{2}$$라고 할 때 회귀식은 아래와 같이 정리되고,  
+Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값을 위와 같이 계산하는 이유는 Sepal_Length를 $y$, Sepal_Width를 $x_{0}$, Petal_Length를 $x_{1}$, Petal_Width를 $x_{2}$라고 할 때 회귀식은 아래와 같이 정리되고,  
 
-$$y = \beta_{0}x_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \varepsilon$$
+$$
+y = \beta_{0}x_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \varepsilon
+$$
 
-따라서 종속변수 $$y$$에서 Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값인 Rest_Sepal_Width($$\beta_{0}x_{0} + \varepsilon$$)는 아래와 같이 정리되기 때문이다.  
+따라서 종속변수 $y$에서 Petal_Length와 Petal_Width의 영향도를 뺀 나머지 값인 Rest_Sepal_Width($\beta_{0}x_{0} + \varepsilon$)는 아래와 같이 정리되기 때문이다.  
 
-$$\beta_{0}x_{0} + \varepsilon = y - \beta_{1}x_{1} - \beta_{2}x_{2}$$
+$$
+\beta_{0}x_{0} + \varepsilon = y - \beta_{1}x_{1} - \beta_{2}x_{2}
+$$
 
 Sepal_Width의 영향력(결정계수)을 확인하기 위해 Sepal_Width와 Sepal_Length를 단변량 회귀분석을 통해 확인해보자.  
 
@@ -213,16 +220,17 @@ ax = sns.heatmap(
 plt.show()
 ```
 
-![iris_corr](/assets/img/posts/iris_corr.png)
-{:.text-center}
+![iris_corr](img/iris_corr.png)
 
 Petal_Length와 Petal_Width의 상관성이 0.96으로 매우 높게 나오는데, 독립변수 간의 상관성이 있을 경우 다중공선성(Multicollinearity)이 있다고 표현되며, 분산팽창요인(VIF, Variance Inflation Factors)을 통해 다중공선성을 계산할 수 있다.  
-VIF를 계산하는 공식은 아래와 같고, $${R^{2}_{i}}$$은 $$i$$ 번째 독립변수에 대해 다른 독립변수들로 회귀분석을 시행한 선형 모델의 $$R^{2}$$라는 뜻이다.  
+VIF를 계산하는 공식은 아래와 같고, ${R^{2}_{i}}$은 $i$ 번째 독립변수에 대해 다른 독립변수들로 회귀분석을 시행한 선형 모델의 $R^{2}$라는 뜻이다.  
 
-$$VIF_{i} = \frac{1}{1-{R^{2}_{i}}}$$
+$$
+VIF_{i} = \frac{1}{1-{R^{2}_{i}}}
+$$
 
-💡**VIF가 10이 넘으면 다중공선성이 있으며 5가 넘으면 주의할 필요가 있다**고 보는데, 독립변수 a와 b가 서로 상관관계가 있다고 했을 때 두 변수 모두 VIF가 높고, 어느 하나만 VIF가 높은 경우는 없다. 서로 연관 있는 변수끼리 VIF가 높다.
-{:.note}
+!!! tip
+    **VIF가 10이 넘으면 다중공선성이 있으며 5가 넘으면 주의할 필요가 있다**고 보는데, 독립변수 a와 b가 서로 상관관계가 있다고 했을 때 두 변수 모두 VIF가 높고, 어느 하나만 VIF가 높은 경우는 없다. 서로 연관 있는 변수끼리 VIF가 높다.
 
 Python에서는 statsmodels 패키지에서 제공하는 함수를 통해 직접 확인해보자.
 
@@ -381,9 +389,8 @@ Notes:
 |VIF Petal_Length|15.097572|1.224831||
 |VIF Petal_Width|14.234335||1.154799|
 
-💡다중공선성을 해결하는 방법은 위에서 진행한 것과 같이 다중공선성이 높은 변수를 제외하는 방법과,  
-다중공선성이 높은 변수들을 합쳐서 하나로 치환해주는 방법이 있다.
-{:.note}
+!!! tip
+    다중공선성을 해결하는 방법은 위에서 진행한 것과 같이 다중공선성이 높은 변수를 제외하는 방법과, 다중공선성이 높은 변수들을 합쳐서 하나로 치환해주는 방법이 있다.  
 
 ### 2-1. 💡다중공선성 계산용 모듈
 
@@ -430,8 +437,8 @@ print(vif)
 
 ## 3. 등분산성
 
-❗이 글은 미완성입니다.
-{:.note title='attention'}
+!!! failure "Incomplete"
+    이 글은 미완성입니다.
 
 등분산검정(Equal-variance test)은 두 정규분포로부터 생성된 두 개의 데이터 집합으로부터 두 정규분포의 분산 모수가 같은지 확인하기 위한 검정이다. SciPy 패키지를 통해서 검정할 수 있다.
 
@@ -442,8 +449,8 @@ print(vif)
 
 ## 4. 정규성
 
-❗이 글은 미완성입니다.
-{:.note title='attention'}
+!!! failure "Incomplete"
+    이 글은 미완성입니다.
 
 마지막 정규성은 확률분포가 가우시안 정규분포를 따르는지의 여부를 의미한다. 모델 요약의 Omnibus, Prob(Omnibus), Durbin-Watson, Jarque-Bera (JB), Prob(JB) 등이 정규성을 확인하는 지표이며, SciPy, statsmodels 패키지를 통해서 별도로 확인할 수 있다.
 

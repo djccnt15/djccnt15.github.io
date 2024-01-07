@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
-title: '[빅분기] 실기 대비 02'
+slug: bigdata-certificate-02
+title: 빅데이터 분석기사 실기 단답형 기출 문제
+date:
+    created: 2022-09-09
 description: >
-    빅데이터 분석기사 실기 기출 단답형 문제 정리
-categories: [DataAnalysis]
-tags: [Bigdata Certificate, python]
-image:
-    path: /assets/img/posts/thumbnail_bigdata_certi.png
-related_posts:
-    - _posts/dataanalysis/2022-09-08-bigdata_certi_01.md
-    - _posts/dataanalysis/2022-09-12-bigdata_certi_03.md
+    
+categories:
+    - Data Analysis
+tags:
+    - Bigdata Certificate
 ---
-{% include series_bigdatacerti.html %}
-* toc
-{:toc}
+
+빅데이터 분석기사 실기 기출 단답형 문제 정리  
+
+<!-- more -->
+
+---
 
 ## 개요
 
@@ -40,7 +41,7 @@ related_posts:
 1. KNN 알고리즘은 거리를 계산하는 알고리즘
 1. 군집화 연결법: 중심연결법, 최장연결법, 최단연결법, 평균연결법, 와드연결법
 1. 최소-최대 정규화
-1. GROUP BY <sub>불확실</sub>
+1. GROUP BY ~불확실~
 1. 명목형 변수
 1. 앙상블
 1. SVM
@@ -67,7 +68,7 @@ related_posts:
 1. 데이터마스킹
 1. RMSE 계산
 1. 리키렐루, Leaky ReLU
-1. PCA <sub>불확실</sub>
+1. PCA ~불확실~
 1. DBSCAN
 1. z-score 계산
 1. F1-score 계산

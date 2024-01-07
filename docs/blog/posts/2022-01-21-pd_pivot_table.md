@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[pandas] Pivot Table 분석'
+slug: pandas-pivot-table
+title: pandas로 Pivot Table 분석하기
+date:
+    created: 2022-01-21
 description: >
-    pandas의 pivot_table, groupby API로 피봇 테이블 분석하기
-categories: [DataAnalysis]
-tags: [pivot table, python, pandas]
-image:
-    path: /assets/img/posts/thumbnail_pandas.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    pandas의 pivot_table, groupby로 피봇 테이블 분석하기
+categories:
+    - Data Analysis
+tags:
+    - pivot table
+    - pandas
 ---
-* toc
-{:toc}
+
+pandas의 pivot_table, groupby로 피봇 테이블 분석하기  
+
+<!-- more -->
+
+---
 
 ## 0. 데이터 준비
 
@@ -49,15 +53,15 @@ print(df)
 
 pandas의 `pivot_table`은 요약할 데이터를 인수로 받는 함수로 주요 파라미터들은 아래와 같다.  
 
-- data: 분석할 데이터  
-- values: 요약될 값  
-- index: 피벗 테이블에서 값을 행으로 그룹화할 기준값  
-- columns: 피벗 테이블에서 값을 열로 그룹화할 기준값  
-- aggfunc: 값을 요약할 계산식, 기본값은 `numpy.mean`  
-- fill_valu: 요약 후 결과 피벗 테이블에서 빈 값을 채울 값  
-- sort: 정렬 여부 결정  
-- margins: 그룹별 부분합계와 총합계의 표시 여부  
-- margins_name: 그룹별 부분합계와 총합계의 이름으로 표시될 문자열 데이터  
+- `data`: 분석할 데이터
+- `values`: 요약될 값
+- `index`: 피벗 테이블에서 값을 행으로 그룹화할 기준값
+- `columns`: 피벗 테이블에서 값을 열로 그룹화할 기준값
+- `aggfunc`: 값을 요약할 계산식, 기본값은 `numpy.mean`
+- `fill_value`: 요약 후 결과 피벗 테이블에서 빈 값을 채울 값
+- `sort`: 정렬 여부 결정
+- `margins`: 그룹별 부분합계와 총합계의 표시 여부
+- `margins_name`: 그룹별 부분합계와 총합계의 이름으로 표시될 문자열 데이터
 
 `recroom`과 `bedrooms`에 따른 `lotsize`의 평균을 구하려면 아래와 같다.  
 
@@ -91,7 +95,7 @@ pt = pd.pivot_table(
     index='airco',
     columns='bedrooms',
     aggfunc='size',
-    fill_value=0
+    fill_value=0,
 )
 
 print(pt)
@@ -116,7 +120,7 @@ pt = pd.pivot_table(
     aggfunc='count',
     fill_value=0,
     margins=True,
-    margins_name='total'
+    margins_name='total',
 )
 
 print(pt)
@@ -144,7 +148,7 @@ pt = pd.pivot_table(
     index=['airco', 'driveway'],
     aggfunc={
         'recroom': 'size',
-        'lotsize': [min, max, np.mean]
+        'lotsize': [min, max, np.mean],
     },
     fill_value=0,
 )
@@ -165,8 +169,8 @@ yes   no          6540  3968.000000  2175      15
 
 `groupby`는 `pivot_table`과 비슷한 기능을 하는 `DataFrame`의 메서드로 SQL의 [GROUP BY](/computerscience/sql_where_groupby/#3-group-by) 명령어와 유사하게 작동한다. `pandas.DataFrame.groupby`의 주요 파라미터는 아래와 같다.  
 
-- by: 요약될 칼럼  
-- axis: 0 or 'index', 1 or 'columns'  
+- `by`: 요약될 칼럼
+- `axis`: 0 or 'index', 1 or 'columns'
 
 `recroom`과 `bedrooms` 값의 요약을 아래와 같이 구할 수 있다.  
 

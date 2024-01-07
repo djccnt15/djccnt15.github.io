@@ -1,19 +1,21 @@
 ---
-published: true
-layout: post
-title: '[빅분기] 실기 대비 06'
+slug: bigdata-certificate-06
+title: 빅데이터 분석기사 실기 4회차 작업형 기출 문제 풀이
+date:
+    created: 2022-11-26
 description: >
     빅데이터 분석기사 실기 기출 작업형 문제 4회차 풀이
-categories: [DataAnalysis]
-tags: [Bigdata Certificate, python]
-image:
-    path: /assets/img/posts/thumbnail_bigdata_certi.png
-related_posts:
-    - _posts/dataanalysis/2022-11-10-bigdata_certi_05.md
+categories:
+    - Data Analysis
+tags:
+    - Bigdata Certificate
 ---
-{% include series_bigdatacerti.html %}
-* toc
-{:toc}
+
+빅데이터 분석기사 실기 기출 작업형 문제 4회차 풀이  
+
+<!-- more -->
+
+---
 
 ## 개요
 
@@ -107,59 +109,55 @@ test = pd.read_csv('data/4th/test.csv')
 **EDA**
 
 ```python
-print(train.info())
+train.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 6665 entries, 0 to 6664
-Data columns (total 11 columns):
- #   Column           Non-Null Count  Dtype  
----  ------           --------------  -----  
- 0   ID               6665 non-null   int64  
- 1   Gender           6665 non-null   object 
- 2   Ever_Married     6665 non-null   object 
- 3   Age              6665 non-null   int64  
- 4   Graduated        6665 non-null   object 
- 5   Profession       6665 non-null   object 
- 6   Work_Experience  6665 non-null   float64
- 7   Spending_Score   6665 non-null   object 
- 8   Family_Size      6665 non-null   float64
- 9   Var_1            6665 non-null   object 
- 10  Segmentation     6665 non-null   int64  
-dtypes: float64(2), int64(3), object(6)
-memory usage: 572.9+ KB
-None
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 6665 entries, 0 to 6664
+    Data columns (total 11 columns):
+    #   Column           Non-Null Count  Dtype  
+    ---  ------           --------------  -----  
+    0   ID               6665 non-null   int64  
+    1   Gender           6665 non-null   object 
+    2   Ever_Married     6665 non-null   object 
+    3   Age              6665 non-null   int64  
+    4   Graduated        6665 non-null   object 
+    5   Profession       6665 non-null   object 
+    6   Work_Experience  6665 non-null   float64
+    7   Spending_Score   6665 non-null   object 
+    8   Family_Size      6665 non-null   float64
+    9   Var_1            6665 non-null   object 
+    10  Segmentation     6665 non-null   int64  
+    dtypes: float64(2), int64(3), object(6)
+    memory usage: 572.9+ KB
+    ```
 
 ```python
-print(test.info())
+test.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 2154 entries, 0 to 2153
-Data columns (total 10 columns):
- #   Column           Non-Null Count  Dtype  
----  ------           --------------  -----  
- 0   ID               2154 non-null   int64  
- 1   Gender           2154 non-null   object 
- 2   Ever_Married     2154 non-null   object 
- 3   Age              2154 non-null   int64  
- 4   Graduated        2154 non-null   object 
- 5   Profession       2154 non-null   object 
- 6   Work_Experience  2154 non-null   float64
- 7   Spending_Score   2154 non-null   object 
- 8   Family_Size      2154 non-null   float64
- 9   Var_1            2154 non-null   object 
-dtypes: float64(2), int64(2), object(6)
-memory usage: 168.4+ KB
-None
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 2154 entries, 0 to 2153
+    Data columns (total 10 columns):
+    #   Column           Non-Null Count  Dtype  
+    ---  ------           --------------  -----  
+    0   ID               2154 non-null   int64  
+    1   Gender           2154 non-null   object 
+    2   Ever_Married     2154 non-null   object 
+    3   Age              2154 non-null   int64  
+    4   Graduated        2154 non-null   object 
+    5   Profession       2154 non-null   object 
+    6   Work_Experience  2154 non-null   float64
+    7   Spending_Score   2154 non-null   object 
+    8   Family_Size      2154 non-null   float64
+    9   Var_1            2154 non-null   object 
+    dtypes: float64(2), int64(2), object(6)
+    memory usage: 168.4+ KB
+    ```
 
 문제의 종류를 확인하기 위해 target 칼럼인 Segmentation 칼럼에 존재하는 unique한 데이터를 확인하고 multiple classfication인 것을 확인한다.  
 
@@ -211,7 +209,8 @@ id = test.iloc[:, 0]
 범주가 두 개만 있거나 서열형 변수로 취급할만한 항목들은 Label Encoding으로 변환해주는게 좋다.  
 
 ```python
-[print(f'{col}={df[col].unique()}') for col in cols_obj]
+for col in cols_obj:
+    print(f'{col}={df[col].unique()}')
 ```
 ```
 Gender=['Male' 'Female']
@@ -258,36 +257,35 @@ df = pd.get_dummies(data=df, columns=['Profession'])
 df.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-Int64Index: 8819 entries, 0 to 2153
-Data columns (total 19 columns):
- #   Column                    Non-Null Count  Dtype  
----  ------                    --------------  -----  
- 0   ID                        8819 non-null   int64  
- 1   Gender                    8819 non-null   int32  
- 2   Ever_Married              8819 non-null   int32  
- 3   Age                       8819 non-null   int64  
- 4   Graduated                 8819 non-null   int32  
- 5   Work_Experience           8819 non-null   float64
- 6   Spending_Score            8819 non-null   int32  
- 7   Family_Size               8819 non-null   float64
- 8   Var_1                     8819 non-null   int32  
- 9   Segmentation              6665 non-null   float64
- 10  Profession_Artist         8819 non-null   uint8  
- 11  Profession_Doctor         8819 non-null   uint8  
- 12  Profession_Engineer       8819 non-null   uint8  
- 13  Profession_Entertainment  8819 non-null   uint8  
- 14  Profession_Executive      8819 non-null   uint8  
- 15  Profession_Healthcare     8819 non-null   uint8  
- 16  Profession_Homemaker      8819 non-null   uint8  
- 17  Profession_Lawyer         8819 non-null   uint8  
- 18  Profession_Marketing      8819 non-null   uint8  
-dtypes: float64(3), int32(5), int64(2), uint8(9)
-memory usage: 663.1 KB
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    Int64Index: 8819 entries, 0 to 2153
+    Data columns (total 19 columns):
+    #   Column                    Non-Null Count  Dtype  
+    ---  ------                    --------------  -----  
+    0   ID                        8819 non-null   int64  
+    1   Gender                    8819 non-null   int32  
+    2   Ever_Married              8819 non-null   int32  
+    3   Age                       8819 non-null   int64  
+    4   Graduated                 8819 non-null   int32  
+    5   Work_Experience           8819 non-null   float64
+    6   Spending_Score            8819 non-null   int32  
+    7   Family_Size               8819 non-null   float64
+    8   Var_1                     8819 non-null   int32  
+    9   Segmentation              6665 non-null   float64
+    10  Profession_Artist         8819 non-null   uint8  
+    11  Profession_Doctor         8819 non-null   uint8  
+    12  Profession_Engineer       8819 non-null   uint8  
+    13  Profession_Entertainment  8819 non-null   uint8  
+    14  Profession_Executive      8819 non-null   uint8  
+    15  Profession_Healthcare     8819 non-null   uint8  
+    16  Profession_Homemaker      8819 non-null   uint8  
+    17  Profession_Lawyer         8819 non-null   uint8  
+    18  Profession_Marketing      8819 non-null   uint8  
+    dtypes: float64(3), int32(5), int64(2), uint8(9)
+    memory usage: 663.1 KB
+    ```
 
 **테이블 분리**
 
@@ -339,8 +337,8 @@ print(score.head())
 4  50    0.470818
 ```
 
-💡`cross_val_score` API는 `scoring` 파라미터를 입력하지 않으면 분류 문제일 경우 기본값으로 accuracy를 사용한다고 한다.  
-{:.note}
+!!! note
+    공식문서에 따르면 `cross_val_score` API는 `scoring` 파라미터를 입력하지 않으면 분류 문제일 경우 기본값으로 accuracy를 사용한다고 한다.  
 
 결과치가 큰 차이가 있지는 않지만, 어쨌든 가장 평균 점수가 높게 나온 `n_neighbors` 값으로 모델을 학습시켜준다.  
 

@@ -1,18 +1,23 @@
 ---
-published: true
-layout: post
-title: '[전처리] IQR 방법론'
+slug: iqr-method
+title: 데이터 전처리를 위한 IQR 방법론
+date:
+    created: 2022-04-01
 description: >
     IQR 방식의 이상점 확인
-categories: [DataAnalysis]
-tags: [preprocessing, noise detection, IQR, python]
-image:
-    path: /assets/img/posts/thumbnail_noise_detection_iqr.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Data Analysis
+tags:
+    - preprocessing
+    - noise detection
+    - IQR
 ---
-* toc
-{:toc}
+
+IQR 방식을 통한 데이터의 이상점 확인  
+
+<!-- more -->
+
+---
 
 ## 0. 용어 정의
 
@@ -38,44 +43,43 @@ scikit-learn 패키지의 경우 **outlier detection**와 **novelty detection**�
 
 아무튼 데이터 분리 단계를 넘어간 후에 모델링 하는 과정에서의 전처리 단계에서 데이터의 noise를 처리하는 방법은 일반적으로 다음의 네 가지 방식을 사용한다.  
 
-- $$\pm1.5*IQR$$ 이상/이하 제거
-- 표준정규분포로 변환 후 $$\pm 3 \sigma$$ 이상/이하 제거
+- $\pm1.5*IQR$ 이상/이하 제거
+- 표준정규분포로 변환 후 $\pm 3 \sigma$ 이상/이하 제거
 - 도메인 지식을 이용한 제거 및 대체
 - Binning 처리
 
 ## 2. IQR 방식을 사용한 이상점 제거
 
-앞서 소개한 네 가지 이상점 처리 방법 중에 가장 편하게 많이 사용되는 방식은 $$IQR$$ 방식의 이상점 탐지 및 제거로, 기본 원리는 아래 그림과 같다.  
+앞서 소개한 네 가지 이상점 처리 방법 중에 가장 편하게 많이 사용되는 방식은 $IQR$ 방식의 이상점 탐지 및 제거로, 기본 원리는 아래 그림과 같다.  
 
-![IQR](/assets/img/posts/iqr.jpg)  
-{:.text-center}
-출처: [Interquartile Range (IQR): What it is and How to Find it](https://www.statisticshowto.com/probability-and-statistics/interquartile-range/)
-{:.figcaption}
+![IQR](img/iqr.jpg)  
+^[출처: Interquartile Range (IQR): What it is and How to Find it](https://www.statisticshowto.com/probability-and-statistics/interquartile-range/)^
 
-$$IQR$$이란 **InterQuartile Range(사분위수 범위)**의 약자로, 데이터를 순서대로 나열했을 때 25% 지점(1분위수)에 있는 데이터와 75% 지점(3분위수)에 있는 데이터의 차이를 말하며, 위 그림에서 볼 수 있듯이, $$IQR$$ 방식에서 정상 데이터로 분류될 범위를 계산하는 방식은 아래와 같다.
+$IQR$이란 **InterQuartile Range(사분위수 범위)**의 약자로, 데이터를 순서대로 나열했을 때 25% 지점(1분위수)에 있는 데이터와 75% 지점(3분위수)에 있는 데이터의 차이를 말하며, 위 그림에서 볼 수 있듯이, $IQR$ 방식에서 정상 데이터로 분류될 범위를 계산하는 방식은 아래와 같다.
 
-$$\begin{align*}
+$$
+\begin{align*}
 IQR & = Q3 - Q1 \\
 min & = Q1 - 1.5 * IQR \\
 max & = Q3 + 1.5 * IQR \\
-\end{align*}$$
+\end{align*}
+$$
 
 계산식에서 계수로 1.5를 곱하는 이유는 짧게 얘기하자면 적당해서.. 인데 자세히 설명하자면 다음과 같다.  
 
 ### 2-1. IQR 방식에서 IQR의 계수로 1.5를 사용하는 이유
 
-![Normal Distribution](/assets/img/posts/Normal-Distribution-curve.jpg)  
-{:.text-center}
-출처: [9 Real Life Examples Of Normal Distribution](https://studiousguy.com/real-life-examples-normal-distribution/)
-{:.figcaption}
+![Normal Distribution](img/Normal-Distribution-curve.jpg)  
+^[출처: 9 Real Life Examples Of Normal Distribution](https://studiousguy.com/real-life-examples-normal-distribution/)^
 
-통계학 기본을 공부 했다면 위 그림과 같은 표준 정규분포 그래프를 본 적이 있을 텐데, 약 $$\pm 2 \sigma$$에서 95%, 약 $$\pm 3 \sigma$$에서 99% 수준으로 표준 정규분포에 들어가게 되고, 분야에 따라 다르지만 일반적으로 $$\pm 3 \sigma$$를 의미 있는 데이터로 본다. ([표준정규분포표 보러가기](https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative(less_than_Z)))
+통계학 기본을 공부 했다면 위 그림과 같은 표준 정규분포 그래프를 본 적이 있을 텐데, 약 $\pm 2 \sigma$에서 95%, 약 $\pm 3 \sigma$에서 99% 수준으로 표준 정규분포에 들어가게 되고, 분야에 따라 다르지만 일반적으로 $\pm 3 \sigma$를 의미 있는 데이터로 본다. ([표준정규분포표 보러가기](https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative(less_than_Z)))
 
-그리고 $$Q1$$과 $$Q3$$는 각각 $$\pm 0.675 \sigma$$에 위치하는데, 이 사실을 기반으로 계수에 따른 $$IQR$$의 범위를 구해보면,  
+그리고 $Q1$과 $Q3$는 각각 $\pm 0.675 \sigma$에 위치하는데, 이 사실을 기반으로 계수에 따른 $IQR$의 범위를 구해보면,  
 
-**계수가 1일 때** 아래와 같이 정상 데이터의 범위가  $$\pm 2.025 \sigma$$ 수준으로 한정되기 때문에 데이터가 정상일 것으로 예상되는 $$\pm 3 \sigma$$에 한참 못 미친다.  
+**계수가 1일 때** 아래와 같이 정상 데이터의 범위가  $\pm 2.025 \sigma$ 수준으로 한정되기 때문에 데이터가 정상일 것으로 예상되는 $\pm 3 \sigma$에 한참 못 미친다.  
 
-$$\begin{align*}
+$$
+\begin{align*}
 \text{min range} & = Q1 - 1 * IQR \\
 & = Q1 - 1 * (Q3 - Q1) \\
 & = -0.675 \sigma - 1 * (0.675 - (-0.675)) \sigma \\
@@ -87,11 +91,13 @@ $$\begin{align*}
 & = 0.675 \sigma + 1 * (0.675 - (-0.675)) \sigma \\
 & = 0.675 \sigma + 1 * 1.35 \sigma \\
 & = 2.025 \sigma \\
-\end{align*}$$
+\end{align*}
+$$
 
-반대로 **계수가 2일 때**는 아래와 같이 $$\pm 3.375 \sigma$$까지로 정상 데이터의 범위가 늘어나기 때문에 너무 많은 데이터를 정상으로 판별하게 된다.  
+반대로 **계수가 2일 때**는 아래와 같이 $\pm 3.375 \sigma$까지로 정상 데이터의 범위가 늘어나기 때문에 너무 많은 데이터를 정상으로 판별하게 된다.  
 
-$$\begin{align*}
+$$
+\begin{align*}
 \text{min range} & = Q1 - 2 * IQR \\
 & = Q1 - 2 * (Q3 - Q1) \\
 & = -0.675 \sigma - 2 * (0.675 - (-0.675)) \sigma \\
@@ -103,12 +109,13 @@ $$\begin{align*}
 & = 0.675 \sigma + 2 * (0.675 - (-0.675))\sigma \\
 & = 0.675 \sigma + 2 * 1.35 \sigma \\
 & = 3.375 \sigma \\
-\end{align*}$$
+\end{align*}
+$$
 
+마지막으로 **계수가 1.5일 때**는 아래와 같이 $\pm 2.7 \sigma$가 정상 데이터의 범위로 들어오기 때문에 $\pm 3 \sigma$에 적당히 가까우면서도 계산하기 편한 값이 나오게 된다.  
 
-마지막으로 **계수가 1.5일 때**는 아래와 같이 $$\pm 2.7 \sigma$$가 정상 데이터의 범위로 들어오기 때문에 $$\pm 3 \sigma$$에 적당히 가까우면서도 계산하기 편한 값이 나오게 된다.  
-
-$$\begin{align*}
+$$
+\begin{align*}
 \text{min range} & = Q1 - 1.5 * IQR \\
 & = Q1 - 1.5 * (Q3 - Q1) \\
 & = -0.675 \sigma - 1.5 * (0.675 - (-0.675)) \sigma \\
@@ -120,15 +127,18 @@ $$\begin{align*}
 & = 0.675 \sigma + 1.5 * (0.675 - (-0.675))\sigma \\
 & = 0.675 \sigma + 1.5 * 1.35 \sigma \\
 & = 2.7 \sigma \\
-\end{align*}$$
+\end{align*}
+$$
 
-좀 더 정확한 계산값을 사용하고 싶을 때는 $$1.7$$을 계수로 사용하면 정상 데이터의 범위가 $$\pm 2.97 \sigma$$이 되어 $$\pm 3 \sigma$$에 좀 더 가까운 결과가 나오게 된다.  
+좀 더 정확한 계산값을 사용하고 싶을 때는 $1.7$을 계수로 사용하면 정상 데이터의 범위가 $\pm 2.97 \sigma$이 되어 $\pm 3 \sigma$에 좀 더 가까운 결과가 나오게 된다.  
 
-💡실제 데이터의 분포에 상관없이 표준 정규분포를 가정하고 IQR 방식을 사용할 수 있는 이유는 [중심극한정리](/statistics/sampling_distribution/#2-2-중심극한정리)([위키피디아]((https://ko.wikipedia.org/wiki/%EC%A4%91%EC%8B%AC_%EA%B7%B9%ED%95%9C_%EC%A0%95%EB%A6%AC)))가 이론적 배경이라고 한다. 중심극한정리는 모집단이 어떤 분포를 가지고 있던지 간에 (모집단 분포가 어떤 모양이던 상관없이) 일단 표본의 크기가 충분히 크다면 표본평균들의 분포가 모집단의 모수를 기반으로한 정규분포를 이룬다는 정리이다.  
-{:.note}
+!!! note annotate
+    실제 데이터의 분포에 상관없이 표준 정규분포를 가정하고 IQR 방식을 사용할 수 있는 이유는 [중심극한정리](2023-02-15-sampling_distribution.md/#2-2)(1)가 이론적 배경이라고 한다. 중심극한정리는 모집단이 어떤 분포를 가지고 있던지 간에 (모집단 분포가 어떤 모양이던 상관없이) 일단 표본의 크기가 충분히 크다면 표본평균들의 분포가 모집단의 모수를 기반으로한 정규분포를 이룬다는 정리이다.  
 
-❗문제는 정확히 어떤 논리적 전개를 통해서 중심극한정리가 IQR 방식 이상점 제거의 이론적 근거가 되는지는 명확한 설명을 아직 못 찾았다. 관련 교재 등에 IQR 방식으로 이상점을 찾는다고 해서 정리는 해보았는데, 근거가 있는 내용인지 조금 의심스럽다.  
-{:.note title='attention'}
+1. [위키피디아 - 중심 극한 정리](https://ko.wikipedia.org/wiki/%EC%A4%91%EC%8B%AC_%EA%B7%B9%ED%95%9C_%EC%A0%95%EB%A6%AC)
+
+!!! warning
+    문제는 정확히 어떤 논리적 전개를 통해서 중심극한정리가 IQR 방식 이상점 제거의 이론적 근거가 되는지는 명확한 설명을 아직 못 찾았다. 관련 교재 등에 IQR 방식으로 이상점을 찾는다고 해서 정리는 해보았는데, 근거가 있는 내용인지 조금 의심스럽다.  
 
 ## 3. Python으로 구현하기
 

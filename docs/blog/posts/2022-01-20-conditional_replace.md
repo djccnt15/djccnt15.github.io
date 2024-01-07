@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[pandas] DataFrame의 조건부 변환'
+slug: conditional-replace
+title: pandas DataFrame의 조건부 변환
+date:
+    created: 2022-01-20
 description: >
     조건에 따라 데이터를 특정하게 수정하는 방법들
-categories: [DataAnalysis]
-tags: [python, preprocessing, pandas]
-image:
-    path: /assets/img/posts/thumbnail_pandas.png
-related_posts:
-    - _posts/dataanalysis/2022-01-08-df_header.md
+categories:
+    - Data Analysis
+tags:
+    - preprocessing
+    - pandas
 ---
-* toc
-{:toc}
+
+pandas DataFrame의 값을 조건에 따라 수정하는 방법  
+
+<!-- more -->
+
+---
 
 ## 0. 예제 데이터 생성
 
@@ -110,12 +114,12 @@ print(df)
 
 함수의 주요 파라미터는 아래와 같다.  
 
-- condlist: choicelist가 적용될 조건으로, **여러 조건을 동시에 만족하면 가장 처음 조건이 적용된다.**  
-- choicelist: condlist에 따라 반환된 요소에 적용될 계산으로, **반드시 condlist와 길이가 동일해야 한다.**  
-- default: 어떤 조건도 해당하지 않는 경우에 적용된다.  
+- `condlist`: `choicelist`가 적용될 조건으로, **여러 조건을 동시에 만족하면 가장 처음 조건이 적용된다.**  
+- `choicelist`: `condlist`에 따라 반환된 요소에 적용될 계산으로, **반드시 condlist와 길이가 동일해야 한다.**  
+- `default`: 어떤 조건도 해당하지 않는 경우에 적용된다.  
 
-❗당연한 얘기지만 **조건 개수와 변환식의 개수는 반드시 동일해야 한다.**  
-{:.note title='attention'}
+!!! info
+    당연한 얘기지만 **조건 개수와 변환식의 개수는 반드시 동일해야 한다.**  
 
 ```python
 import numpy as np
@@ -142,8 +146,8 @@ df['b'] = np.select(
 print(df)
 ```
 
-💡위와 같이 원본데이터를 수정하면서 `default`에 원본 데이터가 그대로 들어가는 경우 `dafault`는 생략해도 된다.
-{:.note}
+!!! note
+    위와 같이 원본데이터를 수정하면서 `default`에 원본 데이터가 그대로 들어가는 경우 `dafault`는 생략해도 된다.
 
 ```
    a   b

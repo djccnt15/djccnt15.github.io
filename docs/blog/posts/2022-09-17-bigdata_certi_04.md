@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
-title: '[빅분기] 실기 대비 04'
+slug: bigdata-certificate-04
+title: 빅데이터 분석기사 실기 3회차 작업형 기출 문제 풀이
+date:
+    created: 2022-09-17
 description: >
     빅데이터 분석기사 실기 기출 작업형 문제 3회차 풀이
-categories: [DataAnalysis]
-tags: [Bigdata Certificate, python]
-image:
-    path: /assets/img/posts/thumbnail_bigdata_certi.png
-related_posts:
-    - _posts/dataanalysis/2022-09-12-bigdata_certi_03.md
-    - _posts/dataanalysis/2022-11-10-bigdata_certi_05.md
+categories:
+    - Data Analysis
+tags:
+    - Bigdata Certificate
 ---
-{% include series_bigdatacerti.html %}
-* toc
-{:toc}
+
+빅데이터 분석기사 실기 기출 작업형 문제 3회차 풀이  
+
+<!-- more -->
+
+---
 
 ## 개요
 
@@ -90,26 +91,25 @@ df = pd.read_csv('data/TravelInsurancePrediction.csv', index_col=0)
 df.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-Int64Index: 1987 entries, 0 to 1986
-Data columns (total 9 columns):
- #   Column               Non-Null Count  Dtype 
----  ------               --------------  ----- 
- 0   Age                  1987 non-null   int64 
- 1   Employment Type      1987 non-null   object
- 2   GraduateOrNot        1987 non-null   object
- 3   AnnualIncome         1987 non-null   int64 
- 4   FamilyMembers        1987 non-null   int64 
- 5   ChronicDiseases      1987 non-null   int64 
- 6   FrequentFlyer        1987 non-null   object
- 7   EverTravelledAbroad  1987 non-null   object
- 8   TravelInsurance      1987 non-null   int64 
-dtypes: int64(5), object(4)
-memory usage: 155.2+ KB
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    Int64Index: 1987 entries, 0 to 1986
+    Data columns (total 9 columns):
+    #   Column               Non-Null Count  Dtype 
+    ---  ------               --------------  ----- 
+    0   Age                  1987 non-null   int64 
+    1   Employment Type      1987 non-null   object
+    2   GraduateOrNot        1987 non-null   object
+    3   AnnualIncome         1987 non-null   int64 
+    4   FamilyMembers        1987 non-null   int64 
+    5   ChronicDiseases      1987 non-null   int64 
+    6   FrequentFlyer        1987 non-null   object
+    7   EverTravelledAbroad  1987 non-null   object
+    8   TravelInsurance      1987 non-null   int64 
+    dtypes: int64(5), object(4)
+    memory usage: 155.2+ KB
+    ```
 
 One-hot encoding을 위해 명목형 변수와 숫자형 변수를 분리해준다.  
 
@@ -127,7 +127,7 @@ print(num_cols)
 
 **정규화**
 
-이상점의 영향을 적게 받는 Robust Scaling으로 정규화 진행. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
+이상점의 영향을 적게 받는 Robust Scaling으로 정규화 진행. 자세한 설명은 [이 글](2022-07-11-scalers.md) 참고  
 
 ```python
 import numpy as np
@@ -148,30 +148,29 @@ df.drop(columns=obj_cols, inplace=True)
 df.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-Int64Index: 1987 entries, 0 to 1986
-Data columns (total 13 columns):
- #   Column                                        Non-Null Count  Dtype  
----  ------                                        --------------  -----  
- 0   Age                                           1987 non-null   float64
- 1   AnnualIncome                                  1987 non-null   float64
- 2   FamilyMembers                                 1987 non-null   float64
- 3   ChronicDiseases                               1987 non-null   float64
- 4   TravelInsurance                               1987 non-null   float64
- 5   Employment Type_Government Sector             1987 non-null   uint8  
- 6   Employment Type_Private Sector/Self Employed  1987 non-null   uint8  
- 7   GraduateOrNot_No                              1987 non-null   uint8  
- 8   GraduateOrNot_Yes                             1987 non-null   uint8  
- 9   FrequentFlyer_No                              1987 non-null   uint8  
- 10  FrequentFlyer_Yes                             1987 non-null   uint8  
- 11  EverTravelledAbroad_No                        1987 non-null   uint8  
- 12  EverTravelledAbroad_Yes                       1987 non-null   uint8  
-dtypes: float64(5), uint8(8)
-memory usage: 108.7 KB
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    Int64Index: 1987 entries, 0 to 1986
+    Data columns (total 13 columns):
+    #   Column                                        Non-Null Count  Dtype  
+    ---  ------                                        --------------  -----  
+    0   Age                                           1987 non-null   float64
+    1   AnnualIncome                                  1987 non-null   float64
+    2   FamilyMembers                                 1987 non-null   float64
+    3   ChronicDiseases                               1987 non-null   float64
+    4   TravelInsurance                               1987 non-null   float64
+    5   Employment Type_Government Sector             1987 non-null   uint8  
+    6   Employment Type_Private Sector/Self Employed  1987 non-null   uint8  
+    7   GraduateOrNot_No                              1987 non-null   uint8  
+    8   GraduateOrNot_Yes                             1987 non-null   uint8  
+    9   FrequentFlyer_No                              1987 non-null   uint8  
+    10  FrequentFlyer_Yes                             1987 non-null   uint8  
+    11  EverTravelledAbroad_No                        1987 non-null   uint8  
+    12  EverTravelledAbroad_Yes                       1987 non-null   uint8  
+    dtypes: float64(5), uint8(8)
+    memory usage: 108.7 KB
+    ```
 
 **train-test split**
 

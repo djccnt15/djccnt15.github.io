@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[pandas] 문자열 칼럼 다루기'
+slug: pandas-handling-string-column
+title: pandas DataFrame에서 문자열 칼럼 다루기
+date:
+    created: 2023-09-25
 description: >
     pandas로 문자열 칼럼 쉽게 다루기
-categories: [DataAnalysis]
-tags: [python, pandas]
-image:
-    path: /assets/img/posts/thumbnail_pandas.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+  - Data Analysis
+tags:
+  - pandas
 ---
-* toc
-{:toc}
+
+pandas로 문자열 칼럼을 쉽게 다루는 방법  
+
+<!-- more -->
+
+---
 
 ## 데이터 준비
 

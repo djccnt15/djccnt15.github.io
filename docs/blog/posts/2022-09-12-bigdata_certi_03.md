@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
-title: '[빅분기] 실기 대비 03'
+slug: bigdata-certificate-03
+title: 빅데이터 분석기사 실기 2회차 작업형 기출 문제 풀이
+date:
+    created: 2022-09-12
 description: >
     빅데이터 분석기사 실기 기출 작업형 문제 2회차 풀이
-categories: [DataAnalysis]
-tags: [Bigdata Certificate, python]
-image:
-    path: /assets/img/posts/thumbnail_bigdata_certi.png
-related_posts:
-    - _posts/dataanalysis/2022-09-09-bigdata_certi_02.md
-    - _posts/dataanalysis/2022-09-17-bigdata_certi_04.md
+categories:
+    - Data Analysis
+tags:
+    - Bigdata Certificate
 ---
-{% include series_bigdatacerti.html %}
-* toc
-{:toc}
+
+빅데이터 분석기사 실기 기출 작업형 문제 2회차 풀이  
+
+<!-- more -->
+
+---
 
 ## 개요
 
@@ -110,29 +111,28 @@ df = pd.read_csv('data/E-Commerce_Shipping.csv')
 df.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 10999 entries, 0 to 10998
-Data columns (total 12 columns):
- #   Column               Non-Null Count  Dtype 
----  ------               --------------  ----- 
- 0   ID                   10999 non-null  int64 
- 1   Warehouse_block      10999 non-null  object
- 2   Mode_of_Shipment     10999 non-null  object
- 3   Customer_care_calls  10999 non-null  int64 
- 4   Customer_rating      10999 non-null  int64 
- 5   Cost_of_the_Product  10999 non-null  int64 
- 6   Prior_purchases      10999 non-null  int64 
- 7   Product_importance   10999 non-null  object
- 8   Gender               10999 non-null  object
- 9   Discount_offered     10999 non-null  int64 
- 10  Weight_in_gms        10999 non-null  int64 
- 11  Reached.on.Time_Y.N  10999 non-null  int64 
-dtypes: int64(8), object(4)
-memory usage: 1.0+ MB
-```
-</div></details><br>
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 10999 entries, 0 to 10998
+    Data columns (total 12 columns):
+    #   Column               Non-Null Count  Dtype 
+    ---  ------               --------------  ----- 
+    0   ID                   10999 non-null  int64 
+    1   Warehouse_block      10999 non-null  object
+    2   Mode_of_Shipment     10999 non-null  object
+    3   Customer_care_calls  10999 non-null  int64 
+    4   Customer_rating      10999 non-null  int64 
+    5   Cost_of_the_Product  10999 non-null  int64 
+    6   Prior_purchases      10999 non-null  int64 
+    7   Product_importance   10999 non-null  object
+    8   Gender               10999 non-null  object
+    9   Discount_offered     10999 non-null  int64 
+    10  Weight_in_gms        10999 non-null  int64 
+    11  Reached.on.Time_Y.N  10999 non-null  int64 
+    dtypes: int64(8), object(4)
+    memory usage: 1.0+ MB
+    ```
 
 One-hot encoding을 위해 명목형 변수와 숫자형 변수를 분리해준다.  
 
@@ -150,7 +150,7 @@ Index(['Warehouse_block', 'Mode_of_Shipment', 'Product_importance', 'Gender'], d
 
 **정규화**
 
-이상점의 영향을 적게 받는 Robust Scaling으로 정규화를 해주자. 자세한 설명은 [이 글](/dataanalysis/scalers/) 참고  
+이상점의 영향을 적게 받는 Robust Scaling으로 정규화를 해주자. 자세한 설명은 [이 글](2022-07-11-scalers.md) 참고  
 
 ```python
 import numpy as np
@@ -171,39 +171,37 @@ df.drop(columns=obj_cols, inplace=True)
 df.info()
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 10999 entries, 0 to 10998
-Data columns (total 21 columns):
- #   Column                     Non-Null Count  Dtype  
----  ------                     --------------  -----  
- 0   ID                         10999 non-null  int64  
- 1   Customer_care_calls        10999 non-null  float64
- 2   Customer_rating            10999 non-null  float64
- 3   Cost_of_the_Product        10999 non-null  float64
- 4   Prior_purchases            10999 non-null  float64
- 5   Discount_offered           10999 non-null  float64
- 6   Weight_in_gms              10999 non-null  float64
- 7   Reached.on.Time_Y.N        10999 non-null  float64
- 8   Warehouse_block_A          10999 non-null  uint8  
- 9   Warehouse_block_B          10999 non-null  uint8  
- 10  Warehouse_block_C          10999 non-null  uint8  
- 11  Warehouse_block_D          10999 non-null  uint8  
- 12  Warehouse_block_F          10999 non-null  uint8  
- 13  Mode_of_Shipment_Flight    10999 non-null  uint8  
- 14  Mode_of_Shipment_Road      10999 non-null  uint8  
- 15  Mode_of_Shipment_Ship      10999 non-null  uint8  
- 16  Product_importance_high    10999 non-null  uint8  
- 17  Product_importance_low     10999 non-null  uint8  
- 18  Product_importance_medium  10999 non-null  uint8  
- 19  Gender_F                   10999 non-null  uint8  
- 20  Gender_M                   10999 non-null  uint8  
-dtypes: float64(7), int64(1), uint8(13)
-memory usage: 827.2 KB
-```
-</div></details><br>
-
+??? quote "Standard Out"
+    ```
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 10999 entries, 0 to 10998
+    Data columns (total 21 columns):
+    #   Column                     Non-Null Count  Dtype  
+    ---  ------                     --------------  -----  
+    0   ID                         10999 non-null  int64  
+    1   Customer_care_calls        10999 non-null  float64
+    2   Customer_rating            10999 non-null  float64
+    3   Cost_of_the_Product        10999 non-null  float64
+    4   Prior_purchases            10999 non-null  float64
+    5   Discount_offered           10999 non-null  float64
+    6   Weight_in_gms              10999 non-null  float64
+    7   Reached.on.Time_Y.N        10999 non-null  float64
+    8   Warehouse_block_A          10999 non-null  uint8  
+    9   Warehouse_block_B          10999 non-null  uint8  
+    10  Warehouse_block_C          10999 non-null  uint8  
+    11  Warehouse_block_D          10999 non-null  uint8  
+    12  Warehouse_block_F          10999 non-null  uint8  
+    13  Mode_of_Shipment_Flight    10999 non-null  uint8  
+    14  Mode_of_Shipment_Road      10999 non-null  uint8  
+    15  Mode_of_Shipment_Ship      10999 non-null  uint8  
+    16  Product_importance_high    10999 non-null  uint8  
+    17  Product_importance_low     10999 non-null  uint8  
+    18  Product_importance_medium  10999 non-null  uint8  
+    19  Gender_F                   10999 non-null  uint8  
+    20  Gender_M                   10999 non-null  uint8  
+    dtypes: float64(7), int64(1), uint8(13)
+    memory usage: 827.2 KB
+    ```
 
 **train test set 분리**
 

@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[pandas] 단일값으로 이루어진 칼럼 찾기'
+slug: pandas-finding-single-value-column
+title: DataFrame에서 단일값으로 이루어진 칼럼 찾는 방법
+date:
+    created: 2023-04-02
 description: >
     pandas 테이블에서 단일값으로 이루어진 칼럼을 반환하는 함수
-categories: [DataAnalysis]
-tags: [python, pandas]
-image:
-    path: /assets/img/posts/thumbnail_pandas.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Data Analysis
+tags:
+    - pandas
 ---
-* toc
-{:toc}
+
+pandas 테이블에서 단일값으로 이루어진 칼럼만 찾아내는 함수  
+
+<!-- more -->
+
+---
 
 ## 단일값 칼럼 찾는 함수
 

@@ -1,19 +1,23 @@
 ---
-published: true
-layout: post
-title: '[데이터분석] exog, endog'
+slug: exog-endog
+title: 독립변수와 종속변수의 변수명
+date:
+    created: 2022-01-22
 description: >
-    독립변수와 종속변수의 변수명
-categories: [DataAnalysis]
-tags: [data analysis]
-image:
-    path: /assets/img/posts/thumbnail_statsmodels.png
-related_posts:
-    - _posts/dataanalysis/2022-01-23-regression_statsmodels.md
-    - _posts/dataanalysis/2022-01-24-regression_assumption.md
+    모델 개발 시 독립변수와 종속변수의 변수명 작명 Tip
+categories:
+    - Data Analysis
+tags:
+    - data analysis
+    - exog
+    - endog
 ---
-* toc
-{:toc}
+
+AI 모델을 개발할 때 독립변수와 종속변수의 변수명 작명 Tip  
+
+<!-- more -->
+
+---
 
 ## 독립변수와 종속변수의 변수명
 
@@ -25,8 +29,8 @@ related_posts:
 
 statsmodels의 [공식 문서](https://www.statsmodels.org/stable/endog_exog.html)에서는 `exog`와 `endog`의 유래를 아래와 같이 밝히고 있다.  
 
-- exogenous: caused by factors outside the system
-- endogenous: caused by factors within the system
+- `exog`: exogenous, caused by factors outside the system
+- `endog`: endogenous, caused by factors within the system
 
 참고할 만한 독립변수와 종속변수의 변수명 조합들은 아래와 같다.  
 

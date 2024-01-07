@@ -1,22 +1,27 @@
 ---
-published: true
-layout: post
-title: '[전처리] 범주형 데이터의 전처리'
+slug: handling-categorical-data
+title: 범주형 데이터의 전처리
+date:
+    created: 2023-03-24
 description: >
     범주형 데이터를 수학으로 분석 가능하게 만드는 방법
-categories: [DataAnalysis]
-tags: [preprocessing, python, scikit-learn, pandas]
-image:
-    path: /assets/img/posts/thumbnail_sklearn.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Data Analysis
+tags:
+    - preprocessing
+    - scikit-learn
+    - pandas
 ---
-* toc
-{:toc}
+
+범주형 데이터를 수학으로 분석 가능하게 만드는 방법  
+
+<!-- more -->
+
+---
 
 데이터에 대한 수학적 분석을 통해 모델을 만드려면 반드시 모든 데이터가 숫자로 이루어져 있어야 한다.  
 
-[pandas를 직접 전처리하거나 NumPy가 제공하는 함수를 사용](/dataanalysis/conditional_replace/)해서 [범주형 자료](/statistics/variable_types/#1-1-자료의-분류)를 수치화하는 전처리 작업을 직접 진행할 수도 있지만, scikit-learn이나 pandas에서 인코딩을 쉽게 할 수 있는 API를 제공하고 있어 정리해둔다.  
+[pandas를 직접 전처리하거나 NumPy가 제공하는 함수를 사용](2022-01-20-conditional_replace.md)해서 [범주형 자료](2022-12-17-variable_types.md/#1-1)를 수치화하는 전처리 작업을 직접 진행할 수도 있지만, scikit-learn이나 pandas에서 인코딩을 쉽게 할 수 있는 API를 제공하고 있어 정리해둔다.  
 
 ## Label 인코딩
 
@@ -73,9 +78,8 @@ print(enc.transform([[np.nan], ['fifth'], ['forth'], ['third'], ['second'], ['fi
 
 일정 카테고리를 drop 하면서 인코딩 되도록 설정할 수도 있고, `sparse_output` 파라미터를 통해 결과값이 SciPy의 `csr_matrix`로 반환될지, 아니면 NumPy 배열로 반환될지 설정할 수 있다.  
 
-❗구버전의 `sparse` 파라미터가 `sparse_output` 파라미터로 변경되었다.  
-{:.note title='attention'}
-
+!!! info
+    구버전의 `sparse` 파라미터가 `sparse_output` 파라미터로 변경되었다.  
 
 ```python
 import pandas as pd

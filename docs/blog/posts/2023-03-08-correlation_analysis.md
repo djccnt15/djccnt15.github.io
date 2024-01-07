@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[상관분석] 상관관계 분석하기'
+slug: correlation-analysis
+title: Python으로 상관관계 분석하는 방법
+date:
+    created: 2023-03-08
 description: >
     Python으로 상관분석 하는 방법
-categories: [DataAnalysis]
-tags: [correlation, python, pandas]
-image:
-    path: /assets/img/posts/thumbnail_correlation_coefficient.png
-related_posts:
-    - _posts/dataanalysis/2022-07-15-correlation_coef.md
+categories:
+    - Data Analysis
+tags:
+    - correlation
+    - pandas
 ---
-* toc
-{:toc}
+
+Python으로 상관분석 하는 방법  
+
+<!-- more -->
+
+---
 
 ## 간단한 상관분석 방법
 
@@ -64,8 +68,7 @@ plt.savefig(fname='iris_corr.png', bbox_inches='tight')
 plt.show()
 ```
 
-![iris_corr](/assets/img/posts/iris_corr.png)
-{:.text-center}
+![iris_corr](img/iris_corr.png)
 
 ## 필요한 칼럼만 골라서 분석하기
 
@@ -167,4 +170,4 @@ plt.savefig(fname='iris_corr_scatter.png', bbox_inches='tight')
 plt.show()
 ```
 
-![iris_corr_scatter](/assets/img/posts/iris_corr_scatter.png)
+![iris_corr_scatter](img/iris_corr_scatter.png)

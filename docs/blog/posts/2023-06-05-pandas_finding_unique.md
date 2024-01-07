@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[pandas] 유니크 값의 종류 및 개수'
+slug: pandas-finding-unique-values
+title: DataFrame의 객체형 데이터에서 유니크 값의 종류 및 개수 확인하는 방법
+date:
+    created: 2023-06-05
 description: >
     객체형 칼럼의 유니크 값의 종류 및 개수를 반환하는 함수
-categories: [DataAnalysis]
-tags: [python, pandas]
-image:
-    path: /assets/img/posts/thumbnail_pandas.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Data Analysis
+tags:
+    - pandas
 ---
-* toc
-{:toc}
+
+객체형 칼럼의 유니크 값의 종류 및 개수를 반환하는 함수  
+
+<!-- more -->
+
+---
 
 ## 함수 만들기
 
@@ -52,7 +55,8 @@ print(unique_obj(df))
 {'Species': ['setosa', 'versicolor', 'virginica'], 'tmp': ['setosa', 'versicolor', 'virginica']}
 ```
 ```python
-[print(v) for v in unique_obj_count(df)]
+for v in unique_obj_count(df):
+    print(v)
 ```
 ```
 setosa        50

@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[pandas] 칼럼 순서 바꾸기'
+slug: pandas-how-to-change-column-order
+title: pandas DataFrame의 칼럼 순서 바꾸기
+date:
+    created: 2023-08-09
 description: >
     pandas DataFrame의 칼럼 순서 바꾸는 방법
-categories: [DataAnalysis]
-tags: [python, pandas]
-image:
-    path: /assets/img/posts/thumbnail_pandas.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Data Analysis
+tags:
+    - pandas
 ---
-* toc
-{:toc}
+
+pandas DataFrame의 칼럼 순서를 바꾸는 방법  
+
+<!-- more -->
+
+---
 
 ## DataFrame 칼럼 순서 바꾸기
 
