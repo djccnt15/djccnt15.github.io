@@ -1,19 +1,21 @@
 ---
-published: true
-layout: post
+slug: data-structure-linked-list
 title: '[자료구조] 05. 연결 리스트'
+date:
+    created: 2022-08-08
 description: >
     Python으로 연결 리스트(Linked List) 구현하기
-categories: [ComputerScience]
-tags: [data structure, linked list, python]
-image:
-    path: /assets/img/posts/thumbnail_data_structure_05.png
-related_posts:
-    - _posts/computerscience/2022-07-03-data_structure_queue_deque.md
+categories:
+    - Computer Science
+tags:
+    - data structure
 ---
-{% include series_datastructure.html %}
-* toc
-{:toc}
+
+연결 리스트(Linked List)의 개념과 Python으로 구현하기  
+
+<!-- more -->
+
+---
 
 ## 연결 리스트의 개념
 
@@ -25,7 +27,7 @@ related_posts:
 - **tail node**: 연결 리스트의 마지막 노드
 
 - 장점
-    - 최대 크기가 정해진 [배열](/computerscience/data_structure_02/)에 비해 최대 크기를 변화시키기 쉽다
+    - 최대 크기가 정해진 [배열](2022-06-26-data_structure_array.md)에 비해 최대 크기를 변화시키기 쉽다
     - 데이터가 삭제되면 해당 데이터에 대한 메모리 예약도 없어지기 때문에 메모리 낭비가 적다
 - 단점
     - index가 없이 반드시 순차 접근을 해야하기 때문에 처리속도가 비교적 느리다

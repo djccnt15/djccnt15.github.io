@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
+slug: data-structure-array
 title: '[자료구조] 02. 배열'
+date:
+    created: 2022-06-26
 description: >
     Python으로 배열(Array) 구현하기
-categories: [ComputerScience]
-tags: [data structure, array, python]
-image:
-    path: /assets/img/posts/thumbnail_data_structure_02.png
-related_posts:
-    - _posts/computerscience/2022-06-25-data_structure_types.md
-    - _posts/computerscience/2022-07-02-data_structure_stack.md
+categories:
+    - Computer Science
+tags:
+    - data structure
 ---
-{% include series_datastructure.html %}
-* toc
-{:toc}
+
+배열(Array)의 개념과 Python으로 구현하기  
+
+<!-- more -->
+
+---
 
 ## 배열의 개념
 
@@ -124,5 +125,5 @@ class MyArray(Generic[X]):
         return res
 ```
 
-💡사실 Python에는 그 자체로 잘 구현된 자료구조인 `list`, `tuple`, `set`, `dictionary` 등이 있어서 대부분의 경우 굳이 `array`를 직접 구현해서 사용하기 보다는 있는걸 잘 쓰는게 더 좋다.  
-{:.note}
+!!! tip
+    사실 Python에는 그 자체로 잘 구현된 자료구조인 `list`, `tuple`, `set`, `dictionary` 등이 있어서 대부분의 경우 굳이 `array`를 직접 구현해서 사용하기 보다는 있는걸 잘 쓰는게 더 좋다.  

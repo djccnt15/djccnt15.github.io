@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
+slug: data-structure-stack
 title: '[자료구조] 03. 스택'
+date:
+    created: 2022-07-02
 description: >
     Python으로 스택(Stack) 구현하기
-categories: [ComputerScience]
-tags: [data structure, stack, python]
-image:
-    path: /assets/img/posts/thumbnail_data_structure_03.png
-related_posts:
-    - _posts/computerscience/2022-06-26-data_structure_array.md
-    - _posts/computerscience/2022-07-03-data_structure_queue_deque.md
+categories:
+    - Computer Science
+tags:
+    - data structure
 ---
-{% include series_datastructure.html %}
-* toc
-{:toc}
+
+스택(Stack)의 개념과 Python으로 구현하기  
+
+<!-- more -->
+
+---
 
 ## 스택의 개념
 

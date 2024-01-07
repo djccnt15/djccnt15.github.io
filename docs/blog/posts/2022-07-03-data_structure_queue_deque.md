@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
+slug: data-structure-queue-deque
 title: '[자료구조] 04. 큐, 덱'
+date:
+    created: 2022-07-03
 description: >
     Python으로 큐(Queue), 덱(Deque) 구현하기
-categories: [ComputerScience]
-tags: [data structure, queue, deque, python]
-image:
-    path: /assets/img/posts/thumbnail_data_structure_04.png
-related_posts:
-    - _posts/computerscience/2022-07-02-data_structure_stack.md
-    - _posts/computerscience/2022-07-08-data_structure_linked_list.md
+categories:
+    - Computer Science
+tags:
+    - data structure
 ---
-{% include series_datastructure.html %}
-* toc
-{:toc}
+
+큐(Queue), 덱(Deque)의 개념과 Python으로 구현하기  
+
+<!-- more -->
+
+---
 
 ## 큐의 개념
 
