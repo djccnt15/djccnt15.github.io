@@ -1,20 +1,16 @@
 ---
-published: true
-layout: post
+slug: baekjoon-prime-number
 title: '[백준] 소수 관련 문제들'
+date:
+    created: 2023-07-23
 description: >
     백준 1978. 소수 찾기, 2581. 소수, 1929. 소수 구하기
-categories: [CodingTest]
-tags: [baekjoon, python]
-image:
-    path: /assets/img/posts/thumbnail_codingtest.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Coding Test
+tags:
+    - baekjoon
+    - python
 ---
-* toc
-{:toc}
-
-## 문제
 
 소수는 1보다 큰 자연수 중 1과 자기 자신만을 약수로 가지는 수를 말한다.  
 
@@ -24,7 +20,9 @@ related_posts:
 
 1929번. M이상 N이하의 소수를 모두 출력하는 프로그램을 작성하라.  
 
-## 풀이
+<!-- more -->
+
+---
 
 소수 관련 문제들은 두 가지 방법으로 풀 수 있는데, 우선 아래와 같이 주어진 자연수가 소수인지 확인하는 함수를 만들어 풀 수 있다. 참고로 특정 수가 소수인지 확인할 때는 자기 자신의 제곱근 보다 큰 수들은 확인할 필요가 없다는 점을 감안하면 좀 더 판별 속도를 올릴 수 있다.  
 
