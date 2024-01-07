@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[SymPy] SymPy 입문'
+slug: sympy-tutorial
+title: SymPy 입문
+date:
+    created: 2022-07-17
 description: >
-    SymPy로 입문하는 symbolic computation
-categories: [Mathematics]
-tags: [sympy]
-image:
-    path: /assets/img/posts/thumbnail_sympy.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    symbolic computation을 다루는 SymPy 튜토리얼  
+categories:
+    - Mathematics
+tags:
+    - sympy
 ---
-* toc
-{:toc}
+
+symbolic computation을 다루는 SymPy 튜토리얼  
+
+<!-- more -->
+
+---
 
 ## SymPy 입문
 
@@ -131,8 +134,8 @@ print(res)
 True
 ```
 
-💡SymPy에서 `==`는 구조적으로 완벽히 동일한지를 확인하고 `boolean` 결과를 반환하는 연산을 한다.  
-{:.note}
+!!! info
+    SymPy에서 `==`는 구조적으로 완벽히 동일한지를 확인하고 `boolean` 결과를 반환하는 연산을 한다.  
 
 ## 다항식의 전개
 
@@ -235,10 +238,12 @@ print(sp.latex(expr))
 
 위 LaTeX 코드를 변환하면 아래와 같이 출력 된다.  
 
-$$\int \sqrt{\frac{1}{x}}\, dx$$
+$$
+\int \sqrt{\frac{1}{x}}\, dx
+$$
 
-💡LaTeX 코드를 수식으로 변환한 결과는 [CODECOGS](https://editor.codecogs.com/)에서 간편하게 볼 수 있다.  
-{:.note}
+!!! info
+    LaTeX 코드를 수식으로 변환한 결과는 [CODECOGS](https://editor.codecogs.com/)에서 간편하게 볼 수 있다.  
 
 ---
 ## Reference
