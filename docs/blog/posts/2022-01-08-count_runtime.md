@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Python] calculate runtime'
+slug: calculate-time
+title: calculate time
+date:
+    created: 2022-01-08
 description: >
-    Python 코드의 런타임을 계산하는 방법
-categories: [Python]
-tags: [python, datetime]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Python 코드의 실행시간을 측정하는 방법
+categories:
+    - Python
+tags:
+    - python
+    - datetime
 ---
-* toc
-{:toc}
+
+Python 코드의 실행시간을 측정하는 방법  
+
+<!-- more -->
+
+---
 
 ## 1. time 사용
 
@@ -28,7 +32,7 @@ runtime = time.time() - time_start
 print(f"run time: {runtime:.3f}")
 ```
 
-## 2. 💡datetime 사용
+## 2. datetime 사용
 
 Python 내장 모듈 `datetime`을 사용하면 날짜 변경으로 인한 계산 오류 등을 예방할 수 있다. 나는 로그를 남기는 코드에서는 import를 하나 줄일 수 있다는 점 때문에 이 방식을 더 선호한다.  
 
@@ -44,9 +48,9 @@ time_end = datetime.now().replace(microsecond=0)
 print(time_end - time_start)
 ```
 
-## 3. with 사용
+## 3. 💡with 사용
 
-아래와 같이 `with` 문법을 통해 특정 구간의 실행 시간을 간편하게 측정할 수 있다. 자세한 내용은 [with 문법 심화 활용 포스팅](/python/python_with/) 참고  
+아래와 같이 `with` 문법을 통해 특정 구간의 실행 시간을 간편하게 측정할 수 있다. 자세한 내용은 [with 문법 심화 활용 포스팅](2023-11-25-understanding_with.md) 참고  
 
 ```python
 import contextlib

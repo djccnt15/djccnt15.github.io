@@ -1,24 +1,28 @@
 ---
-published: true
-layout: post
-title: '[pip] Python pip 관련 팁'
+slug: troubleshooting-pip
+title: Python pip 관련 팁
+date:
+    created: 2022-11-11
 description: >
     Python pip 관련 이슈 해결 기록
-categories: [Python]
-tags: [python, pip]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - python
+    - pip
 ---
-* toc
-{:toc}
+
+Python pip 관련 이슈 해결 기록  
+
+<!-- more -->
+
+---
 
 ## pip 업그레이드
 
 Python으로 개발을 하다보면 아래와 같이 pip 버전이 오래되었다는 경고가 뜰 때가 있다.  
 
-![pip_version_warning](/assets/img/posts/pip_version_warning.png)
+![pip_version_warning](img/pip_version_warning.png){ loading=lazy }
 
 경고가 알려주는대로 복붙해서 업그레이드하면 된다.  
 

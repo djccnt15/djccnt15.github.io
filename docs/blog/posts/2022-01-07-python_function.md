@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Python] Function'
+slug: tips-for-function
+title: 함수
+date:
+    created: 2022-01-07
 description: >
     Python의 함수에 대한 노트
-categories: [Python]
-tags: [python]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - python
+    - function
 ---
-* toc
-{:toc}
+
+Python의 함수에 대한 노트  
+
+<!-- more -->
+
+---
 
 ## Ellipsis
 
@@ -59,11 +63,11 @@ print(add(1))
 1
 ```
 
-💡함수에 입력값이 없어도 되는 parameter를 만들고 싶을 때는 default 값을 상황에 따라 `False`또는 `None`으로 지정하면 된다.  
-{:.note}
+!!! tip
+    함수에 입력값이 없어도 되는 parameter를 만들고 싶을 때는 default 값을 상황에 따라 `False`또는 `None`으로 지정하면 된다.  
 
-❗default값이 설정된 parameter는 default값이 설정되지 않는 parameter보다 반드시 뒤에 나와야 한다.  
-{:.note title='attention'}
+!!! info
+    default값이 설정된 parameter는 default값이 설정되지 않는 parameter보다 반드시 뒤에 나와야 한다.  
 
 ## Function Annotation
 
@@ -159,7 +163,8 @@ def func2(a):
 
 a = 3
 list_func = [func1, func2]
-[print(f(a)) for f in list_func]
+for f in list_func:
+    print(f(a))
 ```
 ```
 4

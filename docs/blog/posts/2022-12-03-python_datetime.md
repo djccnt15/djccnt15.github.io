@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Python] 날짜/시간 데이터 다루기'
+slug: handling-datetime
+title: 날짜/시간 데이터 다루기
+date:
+    created: 2022-12-03
 description: >
     strftime, strptime으로 날짜와 시간 데이터 다루기
-categories: [Python]
-tags: [python, datetime]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - python
+    - datetime
 ---
-* toc
-{:toc}
+
+strftime, strptime으로 날짜와 시간 데이터 다루기  
+
+<!-- more -->
+
+---
 
 ## datetime 모듈
 
@@ -132,8 +136,8 @@ print(type(res))
 <class 'datetime.datetime'>
 ```
 
-💡`date`, `datetime`, `time` 객체가 모두 갖고 있는 `strftime` 메서드와 달리 `strptime` 메서드는 `datetime` 객체만 갖고 있다.  
-{:.note}
+!!! info
+    `date`, `datetime`, `time` 객체가 모두 갖고 있는 `strftime` 메서드와 달리 `strptime` 메서드는 `datetime` 객체만 갖고 있다.  
 
 ## KST 표시
 

@@ -1,18 +1,23 @@
 ---
-published: true
-layout: post
-title: '[Python] Dictionary 쉽게 사용하기'
+slug: handling-dict-easily
+title: Dictionary 쉽게 사용하기
+date:
+    created: 2022-11-20
 description: >
-    addict 라이브러리로 Dictionary 다루기
-categories: [Python]
-tags: [python, json]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/python/2022-11-19-json_module.md
+    addict 라이브러리로 Dictionary 편하게 다루기
+categories:
+    - Python
+tags:
+    - python
+    - dict
+    - json
 ---
-* toc
-{:toc}
+
+addict 라이브러리로 Dictionary 편하게 다루기  
+
+<!-- more -->
+
+---
 
 ## 1. 다층 구조의 dict 자료형 만들기
 

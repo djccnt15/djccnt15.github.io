@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Python] 커스텀 에러 사용법'
+slug: custom-exception
+title: 커스텀 에러 사용법
+date:
+    created: 2023-05-28
 description: >
     Python Exception 커스텀 방법
-categories: [Python]
-tags: [python, Exception]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - python
+    - exception
 ---
-* toc
-{:toc}
+
+Python Exception 커스텀 방법  
+
+<!-- more -->
+
+---
 
 ## 에러 메세지 커멘트 추가하는 방법
 

@@ -1,18 +1,23 @@
 ---
-published: true
-layout: post
-title: '[Python] JSON 파일 다루기'
+slug: handling-json
+title: JSON 파일 다루기
+date:
+    created: 2022-11-19
 description: >
     Python으로 JSON 읽고 쓰기
-categories: [Python]
-tags: [python, json]
-image:
-    path: /assets/img/posts/thumbnail_json.png
-related_posts:
-    - _posts/python/2022-11-20-addict_package.md
+categories:
+    - Python
+tags:
+    - python
+    - dict
+    - json
 ---
-* toc
-{:toc}
+
+Python으로 JSON 읽고 쓰기  
+
+<!-- more -->
+
+---
 
 ## JSON과 Dictionary 자료형
 

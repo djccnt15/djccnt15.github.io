@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Python] main 선언하기'
+slug: how-to-use-main
+title: main 사용법
+date:
+    created: 2023-04-29
 description: >
-    Python에서 main과 외부 모듈 구별하기
-categories: [Python]
-tags: [python]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Python에서 main 사용하는 방법
+categories:
+    - Python
+tags:
+    - python
+    - main
 ---
-* toc
-{:toc}
+
+Python에서 main 사용하는 방법  
+
+<!-- more -->
+
+---
 
 ## 1. \_\_name\_\_ 이란?
 

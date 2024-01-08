@@ -1,18 +1,24 @@
 ---
-published: true
-layout: post
-title: '[Python] with 문법 심화 활용'
+slug: understanding-with
+title: with 문법 심화 활용
+date:
+    created: 2023-11-25
 description: >
     contextmanager, yield를 사용한 with 심화 활용
-categories: [Python]
-tags: [python, with, contextmanager, yield]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - python
+    - with
+    - contextmanager
+    - yield
 ---
-* toc
-{:toc}
+
+`with` 문법의 기초 이해, `contextmanager`, `yield`를 사용한 `with` 심화 활용  
+
+<!-- more -->
+
+---
 
 ## 1. with
 

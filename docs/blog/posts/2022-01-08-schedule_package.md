@@ -1,34 +1,38 @@
 ---
-published: true
-layout: post
-title: '[Python] scheduling'
+slug: scheduling-python-script
+title: 작동 시간 예약하기
+date:
+    created: 2022-01-08
 description: >
-    python 코드 작동 시간 예약하기
-categories: [Python]
-tags: [python, schedule]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Python 코드 작동 시간 예약하기
+categories:
+    - Python
+tags:
+    - python
+    - scheduling
 ---
-* toc
-{:toc}
+
+Python 코드 작동 시간 예약하기  
+
+<!-- more -->
+
+---
 
 ## schedule module
 
-Python 프로그램이 특정 시간에 자동으로 작동하게 하고 싶을 경우 schedule 패키지를 활용해서 아래와 같이 짜면 된다.  
+Python 프로그램이 특정 시간에 자동으로 작동하게 하고 싶을 경우 schedule 패키지를 활용해서 아래와 같이 코딩하면 된다.  
 
 ```python
 import time
 import schedule
 
-def job(): return print('hi')            # define job which you want to shcedule
+def job(): return print('hi')             # define job which you want to shcedule
 
-schedule.every().day.at("18:00").do(job) # assign schedule of the job
+schedule.every().day.at("18:00").do(job)  # assign schedule of the job
 
-while True:                              # put the schedule into the infinite loop
-    schedule.run_pending()               # Run all jobs that are scheduled to run
-    time.sleep(1)                        # sleep process for a while
+while True:                               # put the schedule into the infinite loop
+    schedule.run_pending()                # Run all jobs that are scheduled to run
+    time.sleep(1)                         # sleep process for a while
 ```
 
 schedule 패키지의 `run_pending` 함수에 대한 설명은 아래와 같다.  

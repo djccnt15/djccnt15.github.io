@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Python] 내장 모듈 os'
+slug: handling-os
+title: 내장 모듈 os
+date:
+    created: 2022-01-08
 description: >
     Python 내장 모듈 os의 주요 기능들
-categories: [Python]
-tags: [python]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/2023-08-08-handling_path.md
+categories:
+    - Python
+tags:
+    - python
+    - os
 ---
-* toc
-{:toc}
+
+Python 내장 모듈 os의 주요 기능들  
+
+<!-- more -->
+
+---
 
 ## 1. getcwd()
 

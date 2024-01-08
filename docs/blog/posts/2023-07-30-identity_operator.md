@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Python] 동일성 vs 동등성'
+slug: identity-operator
+title: 동일성 vs 동등성
+date:
+    created: 2023-07-30
 description: >
     동일성(is) vs 동등성(==)
-categories: [Python]
-tags: [python]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - identity operator
 ---
-* toc
-{:toc}
+
+Python의 동일성(is)과 동등성(==)  
+
+<!-- more -->
+
+---
 
 ## 동일성 vs 동등성
 
@@ -55,8 +58,8 @@ id(b)=1934227407616
 
 PEP에서도 아래와 같이 `None`과 같은 Singleton 객체와 대조하는 경우에는 `is` 또는 `is not`을 사용하도록 권장하고 있다.  
 
-Comparisons to singletons like None should always be done with `is` or `is not`, never the equality operators.
-{:.note}
+!!! note
+    Comparisons to singletons like None should always be done with `is` or `is not`, never the equality operators.
 
 ---
 ## Reference

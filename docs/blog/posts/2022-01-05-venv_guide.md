@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Python] 가상환경'
+slug: venv-guide
+title: 가상환경 사용법
+date:
+    created: 2022-01-05
 description: >
-    Windows와 Linux에서 Python 가상환경 만들고 사용하기
-categories: [Python]
-tags: [python, venv, ⭐starred]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    가상환경으로 Python 설치환경 격리하는 방법
+categories:
+    - Python
+tags:
+    - python
+    - venv
 ---
-* toc
-{:toc}
+
+가상환경으로 Python 설치환경 격리하는 방법  
+
+<!-- more -->
+
+---
 
 ## Python 가상환경
 
@@ -64,8 +68,8 @@ Scripts\deactivate.bat
 C:\programming\Python\Python310\python.exe -m venv .venv
 ```
 
-💡참고로, 여러 버전의 Python을 설치하면 시스템 환경 변수를 기준으로 가장 위에 있는 Python이 default로 사용 된다.  
-{:.note}
+!!! tip
+    참고로, 여러 버전의 Python을 설치하면 시스템 환경 변수를 기준으로 가장 위에 있는 Python이 default로 사용 된다.  
 
 ### 3. package 목록 관리
 
@@ -175,7 +179,7 @@ VIRTUAL_ENV=venv_location_b4 -> VIRTUAL_ENV=venv_location_now
 
 가끔 캐시 문제 등으로 VS Code에서 가상환경이 제대로 인식되지 않는 경우가 있다. 이 때는 아래 방법으로 캐시를 지우고 환경을 리로딩하면 된다.  
 
-1. `ctrl` + `shift` + `p` 로 명령 프롬프트 열기
+1. ++ctrl+shift+p++ 로 명령 프롬프트 열기
 1. `Python: Clear Cache and Reload` 명령 실행
 
 ---

@@ -1,18 +1,23 @@
 ---
-published: true
-layout: post
-title: '[Bot] Telegram Bot 만들기'
+slug: telegram-bot
+title: Telegram Bot 만들기
+date:
+    created: 2022-07-30
 description: >
     Telegram Bot API로 Python 자동 알림 만들기
-categories: [Python]
-tags: [python, telegram bot]
-image:
-    path: /assets/img/posts/thumbnail_telegram.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - python
+    - chatbot
+    - telegram
 ---
-* toc
-{:toc}
+
+Telegram Bot API로 Python 자동 알림 만들기  
+
+<!-- more -->
+
+---
 
 ## 0. 왜?
 
@@ -24,13 +29,12 @@ related_posts:
 
 Telegram을 가입 후 **BotFather**를 검색해서 새로운 bot을 만들자.  
 
-![telegram_bot_setting](/assets/img/posts/telegram_bot_setting.png)
-{:.text-center}
+![telegram_bot_setting](img/telegram_bot_setting.png)
 
 검정색으로 가려진 부분이 **HTTP access token**이다.  
 
-❗공식 마크를 잘 확인하자  
-{:.note title='attention'}
+!!! warning
+    공식 마크를 잘 확인하자  
 
 ## 2. HTTP 호출을 통한 bot 생성 확인
 
@@ -40,18 +44,15 @@ Telegram을 가입 후 **BotFather**를 검색해서 새로운 bot을 만들자.
 https://api.telegram.org/bot{YOUR_HTTP_ACCESS_TOKEN}/getMe
 ```
 
-![telegram_bot_getMe_01](/assets/img/posts/telegram_bot_getMe_01.png)
-{:.text-center}
+![telegram_bot_getMe_01](img/telegram_bot_getMe_01.png)
 
-![telegram_bot_getMe_02](/assets/img/posts/telegram_bot_getMe_02.png){: width="50%"}
-{:.text-center}
+![telegram_bot_getMe_02](img/telegram_bot_getMe_02.png){ loading=lazy width="50%" }
 
 ## 3. ID 확인
 
 bot에게 말을 걸어서 대화방을 생성하고 **id**를 확인하자. 스팸의 위험성 때문에 bot이 먼저 사용자에게 말을 걸 수는 없도록 되어있다고 한다.  
 
-![telegram_bot_getUpdates_01](/assets/img/posts/telegram_bot_getUpdates_01.png){: width="50%"}
-{:.text-center}
+![telegram_bot_getUpdates_01](img/telegram_bot_getUpdates_01.png){ loading=lazy width="50%" }
 
 웹브라우저 주소창에 아래와 같이 입력하면 생성한 bot과의 대화방을 업데이트 한다.  
 
@@ -59,11 +60,9 @@ bot에게 말을 걸어서 대화방을 생성하고 **id**를 확인하자. 스
 https://api.telegram.org/bot{YOUR_HTTP_ACCESS_TOKEN}/getUpdates
 ```
 
-![telegram_bot_getUpdates_02](/assets/img/posts/telegram_bot_getUpdates_02.png)
-{:.text-center}
+![telegram_bot_getUpdates_02](img/telegram_bot_getUpdates_02.png){ loading=lazy }
 
-![telegram_bot_getUpdates_03](/assets/img/posts/telegram_bot_getUpdates_03.png){: width="50%"}
-{:.text-center}
+![telegram_bot_getUpdates_03](img/telegram_bot_getUpdates_03.png){ loading=lazy width="50%" }
 
 `message`의 `from` `id`를 보면 되는데, 이 경우에는 `5463934262`이다.  
 
@@ -85,8 +84,7 @@ import requests
 requests.get('https://api.telegram.org/bot{YOUR_HTTP_ACCESS_TOKEN}/sendMessage?chat_id=5463934262&text=Code Finished')
 ```
 
-![telegram_bot_test](/assets/img/posts/telegram_bot_test.png){: width="25%"}
-{:.text-center}
+![telegram_bot_test](img/telegram_bot_test.png){ loading=lazy width="25%" }
 
 ### POST 방식
 
@@ -122,8 +120,7 @@ requests.post(
 )
 ```
 
-![telegram_bot_test_02](/assets/img/posts/telegram_bot_test_02.png)
-{:.test-center}
+![telegram_bot_test_02](img/telegram_bot_test_02.png){ loading=lazy }
 
 정상적으로 메세지가 보내지는 것을 확인할 수 있다.  
 

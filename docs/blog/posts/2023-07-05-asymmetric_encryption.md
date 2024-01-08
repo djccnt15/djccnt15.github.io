@@ -1,18 +1,24 @@
 ---
-published: true
-layout: post
-title: '[Python] 비대칭 암호화'
+slug: asymmetric-encryption
+title: 비대칭 암호화
+date:
+    created: 2023-07-05
 description: >
     Python으로 비대칭 암호화 하기
-categories: [Python]
-tags: [python, security, encrypt, decrypt]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - python
+    - security
+    - encrypt
+    - decrypt
 ---
-* toc
-{:toc}
+
+Python으로 비대칭 암호화 하기  
+
+<!-- more -->
+
+---
 
 ## 비대칭 암호화 모듈 개발
 

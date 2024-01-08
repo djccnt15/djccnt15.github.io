@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Python] 변수를 이름과 함께 출력하기'
+slug: print-with-name
+title: 변수를 이름과 함께 출력하기
+date:
+    created: 2023-12-13
 description: >
     Python에서 변수의 이름과 값을 한번에 출력하기
-categories: [Python]
-tags: [python]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - python
 ---
-* toc
-{:toc}
+
+Python에서 변수의 이름과 값을 한번에 출력하기  
+
+<!-- more -->
+
+---
 
 ## 변수의 이름과 값을 한번에 출력하기
 

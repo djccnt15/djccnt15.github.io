@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Python] 정적 타입 언어처럼 사용하기'
+slug: statistical-typed-python
+title: 정적 타입 언어처럼 사용하기
+date:
+    created: 2022-09-13
 description: >
     Python에서 변수 타입을 고정하고 엄격하게 사용하는 방법
-categories: [Python]
-tags: [python, type hint]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Python
+tags:
+    - python
+    - type hint
 ---
-* toc
-{:toc}
+
+Python에서 변수 타입을 고정하고 엄격하게 사용하는 방법  
+
+<!-- more -->
+
+---
 
 ## 정적 타입 언어와 동적 타입 언어
 
@@ -104,16 +108,16 @@ Found 1 error in 1 file (checked 1 source file)
 
 이렇게 타입 에러를 검사해준다. 참고로 Python의 Annotations은 Comment와 마찬가지로 강제성이 전혀 없기 때문에 실행 시에 Annotations을 작성해주는 것 자체로는 런타임 시에 에러가 나지는 않는다.  
 
-![python_type_checking_mypy](/assets/img/posts/python_type_checking_mypy.png)
+![python_type_checking_mypy](img/python_type_checking_mypy.png){ loading=lazy }
 
-💡참고로 [Variable Annotations](https://peps.python.org/pep-0008/#variable-annotations)는 Python 3.6 부터 도입된 일종의 주석 기능으로, [PEP 526](https://peps.python.org/pep-0526/)에서 세부 내용을 확인할 수 있다.  
-{:.note}
+!!! info
+    참고로 [Variable Annotations](https://peps.python.org/pep-0008/#variable-annotations)는 Python 3.6 부터 도입된 일종의 주석 기능으로, [PEP 526](https://peps.python.org/pep-0526/)에서 세부 내용을 확인할 수 있다.  
 
 #### IDE 기능 사용
 
 VS Code에서 Python 스크립트를 코딩할 때 사용하는 extension 중 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)가 있다. Pylance의 `Type Checking Mode`옵션을 켜주면 아래 그림과 같이 데이터의 자료형을 검사해준다.  
 
-![python_type_checking_pylance](/assets/img/posts/python_type_checking_pylance.png)
+![python_type_checking_pylance](img/python_type_checking_pylance.png){ loading=lazy }
 
 ### Annotation 무시하기
 
@@ -123,7 +127,7 @@ VS Code에서 Python 스크립트를 코딩할 때 사용하는 extension 중 [P
 a: int = "a"  # type: ignore
 ```
 
-![python_type_checking_ignore](/assets/img/posts/python_type_checking_ignore.png)
+![python_type_checking_ignore](img/python_type_checking_ignore.png){ loading=lazy }
 
 ---
 ## Reference

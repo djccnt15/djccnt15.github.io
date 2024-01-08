@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Python] 경로 다루기'
+slug: handling-path
+title: 경로 다루기
+date:
+    created: 2023-08-08
 description: >
-    경로를 객체로 다루는 방법들
-categories: [Python]
-tags: [python, path]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/programming/2022-01-08-handling_os.md
+    Path 객체를 사용해서 경로를 다루는 방법들
+categories:
+    - Python
+tags:
+    - python
+    - path
 ---
-* toc
-{:toc}
+
+Path 객체를 사용해서 경로를 다루는 방법들  
+
+<!-- more -->
+
+---
 
 ## 경로를 객체로 다뤄야 하는 이유
 

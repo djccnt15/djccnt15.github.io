@@ -1,25 +1,29 @@
 ---
-published: true
-layout: post
-title: '[Python] list comprehension'
+slug: list-comprehension
+title: List Comprehensions
+date:
+    created: 2022-05-30
 description: >
-    List Comprehensions of Python
-categories: [Python]
-tags: [python, list comprehension]
-image:
-    path: /assets/img/posts/thumbnail_python.png
-related_posts:
-    - _posts/mathematics/2022-05-19-linear_algebra_various_matrix.md
-    - _posts/mathematics/2022-05-22-linear_algebra_linear_system.md
+    Python의 List Comprehensions 이해하기
+categories:
+    - Python
+tags:
+    - python
+    - list comprehension
 ---
-* toc
-{:toc}
+
+Python의 List Comprehensions 이해하기  
+
+<!-- more -->
+
+---
 
 ## 개요 및 기본 구조
 
-list comprehension을 사용하면 리스트를 간단하게 만들 수 있으며, 리스트를 만드는 속도가 for loop에 비해 빠르다.[^1] 다만 list를 만드는 것이 아니라 연산을 해야할 때는 당연히 for loop이 더 빠르다.  
+list comprehension을 사용하면 리스트를 간단하게 만들 수 있으며, 리스트를 만드는 속도가 for loop에 비해 빠르다.(1) 다만 list를 만드는 것이 아니라 연산을 해야할 때는 당연히 for loop이 더 빠르다.  
+{ .annotate }
 
-[^1]: list comprehension의 속도에 대한 자세한 내용은 [정욱재님의 블로그](https://blog.ukjae.io/posts/inspecting-list-comprehension/)를 참고하자.  
+1. list comprehension의 속도에 대한 자세한 내용은 [정욱재님의 블로그](https://blog.ukjae.io/posts/inspecting-list-comprehension/)를 참고하자.  
 
 list comprehension의 기본 구조는 아래와 같고, 추가 연산을 부여해줄 수도 있다.  
 
@@ -35,7 +39,7 @@ print(b)
 [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 ```
 
-[선형대수](/tags#linear%20algebra)를 공부하면서 list comprehension을 많이 사용했는데, 자세한 내용은 [여기](/mathematics/linear_algebra_various_matrix/), [여기](/mathematics/linear_algebra_linear_system/), [여기](/mathematics/linear_algebra_orthogonal_qr_decomposition/)를 참고하자.  
+[선형대수](../../pages/tags.md/#linear-algebra)를 공부하면서 list comprehension을 많이 사용했는데, 자세한 내용은 [여기](2022-05-19-linear_algebra_various_matrix.md), [여기](2022-05-22-linear_algebra_linear_system.md), [여기](2022-06-06-linear_algebra_orthogonal_qr_decomposition.md)를 참고하자.  
 
 ## for + if
 
