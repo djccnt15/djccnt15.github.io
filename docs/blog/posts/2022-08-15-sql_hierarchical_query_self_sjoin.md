@@ -1,20 +1,23 @@
 ---
-published: true
-layout: post
+slug: sql-hierarchical-query-self-join
 title: '[SQL] 08. 계층형 질의, 셀프 조인'
+date:
+    created: 2022-08-15
 description: >
     SQL 활용: 계층형 질의, 셀프 조인
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_08.png
-related_posts:
-    - _posts/dataengineering/2022-08-14-sql_join.md
-    - _posts/dataengineering/2022-08-17-sql_subquery_view.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+SQL 활용: 계층형 질의, 셀프 조인  
+
+<!-- more -->
+
+---
 
 ## 1. 계층형 질의
 
@@ -87,8 +90,8 @@ FROM table_1 AS alias_1, table_2 AS alias_2
 WHERE alias_1.col_name = alias_2.col_name;
 ```
 
-💡셀프 조인의 경우 조인 연산의 테이블과 칼럼 이름이 모두 동일하기 때문에 식별을 위해 반드시 테이블 별칭(`Alias`)을 사용해야 하며, 칼럼에도 모두 테이블 별칭을 사용해서 어느 테이블의 칼럼인지 식별해줘야 한다.  
-{:.note}
+!!! info
+    셀프 조인의 경우 조인 연산의 테이블과 칼럼 이름이 모두 동일하기 때문에 식별을 위해 반드시 테이블 별칭(`Alias`)을 사용해야 하며, 칼럼에도 모두 테이블 별칭을 사용해서 어느 테이블의 칼럼인지 식별해줘야 한다.  
 
 ---
 ## Reference

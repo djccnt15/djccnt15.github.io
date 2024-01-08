@@ -1,28 +1,31 @@
 ---
-published: true
-layout: post
+slug: sql-group-window-function
 title: '[SQL] 10. 그룹 함수, 윈도우 함수'
+date:
+    created: 2022-08-18
 description: >
     SQL 활용: 그룹 함수, 윈도우 함수
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_10.png
-related_posts:
-    - _posts/dataengineering/2022-08-17-sql_subquery_view.md
-    - _posts/dataengineering/2022-08-19-sql_procedure.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+SQL 활용: 그룹 함수, 윈도우 함수  
+
+<!-- more -->
+
+---
 
 ## 1. 데이터베이스 관점의 데이터 분석
 
 ANSI/ISO SQL 표준은 데이터 분석을 위한 세 가지 종류의 함수를 정의하고 있다.  
 
-- [집계 함수(Aggregate Function)](/dataengineering/sql_where_groupby/#3-1-집계-함수)
-- [그룹 함수(Group Function)](#2-그룹-함수)
-- [윈도우 함수(Window Function)](#3-윈도우-함수)
+- [집계 함수(Aggregate Function)](2022-08-13-sql_where_groupby.md/#3-1)
+- [그룹 함수(Group Function)](#2)
+- [윈도우 함수(Window Function)](#3)
 
 ## 2. 그룹 함수
 
@@ -68,7 +71,7 @@ FROM table_name;
 
 ### 3-2. 일반 집계 함수
 
-`GROUP BY`절의 [집계 함수](/dataengineering/sql_where_groupby/#3-1-집계-함수)와 동일하게 집계 연산을 수행하며, 종류는 다음과 같다.  
+`GROUP BY`절의 [집계 함수](2022-08-13-sql_where_groupby.md/#3-1)와 동일하게 집계 연산을 수행하며, 종류는 다음과 같다.  
 
 - `SUM()`/`AVG()`
 - `MIN()`/`MAX()`

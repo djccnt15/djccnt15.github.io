@@ -1,20 +1,23 @@
 ---
-published: true
-layout: post
+slug: database-normalization
 title: '[SQL] 03. 정규화, 반정규화'
+date:
+    created: 2022-08-07
 description: >
     데이터 모델과 성능: 성능 데이터 모델링의 개요, 정규화, 반정규화
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_03.png
-related_posts:
-    - _posts/dataengineering/2022-08-06-entity_relationship_model.md
-    - _posts/dataengineering/2022-08-08-database_architecture.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+데이터 모델과 성능: 성능 데이터 모델링의 개요, 정규화, 반정규화  
+
+<!-- more -->
+
+---
 
 ## 1. 성능 데이터 모델링
 
@@ -80,7 +83,7 @@ related_posts:
 
 역정규화로 번역되기도 하는 **반정규화(Denormalization)**는 정규화된 엔티티, 속성, 관계에 대해 시스템의 성능 향상, 개발, 운영의 단순화를 위해 중복, 통합, 분리 등을 수행하는 데이터 모델링의 기법을 의미한다.  
 
-반정규화는 데이터의 무결성을 희생하는 대신 조회 성능을 향상시킨다. 정규화를 수행하면 엔티티의 갯수가 증가하고 관계가 많아져 [조인](/dataengineering/sql_join/)을 통해 데이터를 가져오게 되는데, 조회의 처리 성능이 더 중요할 때 반정규화를 수행한다.  
+반정규화는 데이터의 무결성을 희생하는 대신 조회 성능을 향상시킨다. 정규화를 수행하면 엔티티의 갯수가 증가하고 관계가 많아져 [조인](2022-08-14-sql_join.md)을 통해 데이터를 가져오게 되는데, 조회의 처리 성능이 더 중요할 때 반정규화를 수행한다.  
 
 ### 3-2. 반정규화 적용 방법
 
@@ -101,13 +104,13 @@ related_posts:
 **테이블 반정규화**는 아래와 같다.  
 
 - 테이블 병합
-    - 1:1 관계 테이블 병합, 1:M 관계 테이블 병합, [슈퍼타입/서브타입](/dataengineering/database_architecture/#2-1-슈퍼서브타입-모델) 테이블 병합
+    - 1:1 관계 테이블 병합, 1:M 관계 테이블 병합, [슈퍼타입/서브타입](2022-08-08-database_architecture.md/#2-1) 테이블 병합
 - 테이블 분할
-    - 수직 분할: 칼럼 단위 분할, [트랜잭션](/dataengineering/relational_database/#4-tcl) 처리 유형 파악 선행 필수
+    - 수직 분할: 칼럼 단위 분할, [트랜잭션](2022-08-11-relational_database.md/#4-tcl) 처리 유형 파악 선행 필수
     - 수평 분할: 로우 단위 분할
 - 테이블 추가
     - 중복 테이블 추가: 다른 업무이거나 서버가 다른 경우 동일한 테이블 구조를 중복하여 원격 조인 제거
-    - 통계 테이블 추가: [집계 함수](/dataengineering/sql_where_groupby/#3-1-집계-함수)를 미리 계산하여 저장
+    - 통계 테이블 추가: [집계 함수](2022-08-13-sql_where_groupby.md/#3-1)를 미리 계산하여 저장
     - 이력 테이블 추가
     - 부분 테이블 추가: 전체 칼럼 중 이용도가 높은 칼럼을 모은 별도의 테이블 추가
 

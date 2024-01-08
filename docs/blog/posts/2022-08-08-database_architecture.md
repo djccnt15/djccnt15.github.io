@@ -1,20 +1,23 @@
 ---
-published: true
-layout: post
+slug: database-architecture
 title: '[SQL] 04. 데이터베이스 구조와 성능'
+date:
+    created: 2022-08-08
 description: >
     데이터 모델과 성능: 대량 데이터, 데이터베이스 구조, 분산 데이터베이스와 성능
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_04.png
-related_posts:
-    - _posts/dataengineering/2022-08-07-database_normalization.md
-    - _posts/dataengineering/2022-08-11-relational_database.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+데이터 모델과 성능: 대량 데이터, 데이터베이스 구조, 분산 데이터베이스와 성능  
+
+<!-- more -->
+
+---
 
 ## 1. 대량 데이터에 따른 성능
 
@@ -81,12 +84,11 @@ related_posts:
 ||OneToOne Type|Plus Type|Single Type|
 |:-:|:-:|:-:|:-:|
 |특징|개별 테이블|슈퍼 + 서브 타입 데이블|단일 테이블|
-|확장성|우수함|보통|나쁨|
-|조인 성능|나쁨|나쁨|우수함|
-|I/O 성능|좋음|좋음|나쁨|
-|관리 용이성|좋지 않음|좋지 않음|좋음|
+|확장성|1 우수함|3 보통|3 나쁨|
+|조인 성능|4 나쁨|4 나쁨|1 우수함|
+|I/O 성능|2 좋음|1 좋음|3 나쁨|
+|관리 용이성|3 좋지 않음|2 좋지 않음|2 좋음|
 |트랜잭션 유형|개별 테이블로 접근이 많은 경우|슈퍼/서브 공통 처리가 많은 경우|전체 일괄 처리하는 경우|
-{:.scroll-table}
 
 ### 2-2. 인덱스 특성을 고려한 PK/FK
 
@@ -137,7 +139,6 @@ PK/FK 설계는 데이터를 접근할 때 경로를 제공하는 측면에서 �
 |응답 속도 상승|불규칙한 응답 속도|
 |통신 비용 절감|처리 비용 증가|
 |각 지역 사용자의 요구 수용 증대|관리 및 통제의 어려움|
-{:.scroll-table}
 
 ### 3-4. 분산 데이터베이스의 적용 기법
 

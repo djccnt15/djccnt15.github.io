@@ -1,22 +1,25 @@
 ---
-published: true
-layout: post
+slug: how-to-install-oracle-xe
 title: '[Oracle] 오라클 XE 설치 및 Dbeaver 연결'
+date:
+    created: 2023-03-04
 description: >
     Oracle Database Express Edition 설치 및 사용 방법
-categories: [DataEngineering]
-tags: [oracle]
-image:
-    path: /assets/img/posts/thumbnail_oracle.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Data Engineering
+tags:
+    - oracle
 ---
-* toc
-{:toc}
+
+Oracle Database Express Edition 설치 및 사용 방법  
+
+<!-- more -->
+
+---
 
 ## 1. Oracle Database XE
 
-**Oracle Database XE(Oracle Database Express Edition)**는 오라클에서도 제공하는 무료 데이터베이스인데, [여기](https://www.oracle.com/kr/database/technologies/xe-downloads.html)에서 다운 받을 수 있다.  
+**Oracle Database XE(Oracle Database Express Edition)**는 오라클에서도 제공하는 무료 데이터베이스인데, [여기](https://www.oracle.com/database/technologies/xe-downloads.html)에서 다운 받을 수 있다.  
 
 다운 받은 파일의 `setup.exe` 파일을 실행해서 적당한 위치에 설치하면 되는데, 주의점은 아래와 같다.  
 
@@ -26,15 +29,7 @@ related_posts:
 
 설치 단계에서 데이터베이스 비밀번호를 물어보는데, `admin` 같이 적당히 쉽고 기억하기 좋은 것으로 정하자. 잊어버리면 매우 귀찮아진다.  
 
-![oracle_xe_install](/assets/img/posts/oracle_xe_install.png){: width="600px"}
-{:.text-center}
-
-❗참고로 docker가 설치되어 있으면 아래와 같이 host가 docker로 잡혀 제대로 연결이 안 되는 문제가 발생하는 경우가 종종 있다.  
-{:.note title='attention'}
-
-```
-(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=host.docker.internal)(PORT=1521)))에 연결되었습니다
-```
+![oracle_xe_install](img/oracle_xe_install.png){ loading=lazy width="600px" }
 
 ## 3. DBeaver 연결
 
@@ -55,8 +50,7 @@ Lsnrctl services
 
 아래와 같이 접속 정보를 맞게 설정해주면 정상적으로 접속된다.  
 
-![oracle_xe_dbeaver](/assets/img/posts/oracle_xe_dbeaver.png){: width="600px"}
-{:.text-center}
+![oracle_xe_dbeaver](img/oracle_xe_dbeaver.png){ loading=lazy width="600px" }
 
 ---
 ## Reference

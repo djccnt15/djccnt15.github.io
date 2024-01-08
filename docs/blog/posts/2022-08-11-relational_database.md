@@ -1,20 +1,23 @@
 ---
-published: true
-layout: post
+slug: relational-database-ddl-dml-tcl-dcl
 title: '[SQL] 05. 관계형 데이터베이스'
+date:
+    created: 2022-08-11
 description: >
     SQL 기본: 관계형 데이터베이스, DDL, DML, TCL, DCL
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_05.png
-related_posts:
-    - _posts/dataengineering/2022-08-08-database_architecture.md
-    - _posts/dataengineering/2022-08-13-sql_where_groupby.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+SQL 기본: 관계형 데이터베이스, DDL, DML, TCL, DCL  
+
+<!-- more -->
+
+---
 
 ## 1. 관계형 데이터베이스
 
@@ -37,7 +40,7 @@ related_posts:
 
 **테이블(Table)**은 데이터를 저장하는 객체(Object)로, 관계형 데이터베이스의 기본 단위이다. 테이블의 열을 칼럼(Column), 가로 방향을 행(Row)이라고 하고, 열과 행이 겹치는 하나의 공간을 필드(Field)라고 한다.  
 
-테이블을 분할하여 데이터의 불필요한 중복을 줄이는 것을 [정규화(Normalization)](/dataengineering/database_normalization/#2-정규화)라고 한다. 정규화(Normalization)를 통해 데이터의 정합성을 확보하고, 데이터 입력/수정/삭제 시 발생할 수 있는 이상 현상(Anomaly)을 방지할 수 있다.  
+테이블을 분할하여 데이터의 불필요한 중복을 줄이는 것을 [정규화(Normalization)](2022-08-07-database_normalization.md/#2)라고 한다. 정규화(Normalization)를 통해 데이터의 정합성을 확보하고, 데이터 입력/수정/삭제 시 발생할 수 있는 이상 현상(Anomaly)을 방지할 수 있다.  
 
 테이블의 각 행을 한 가지 의미로 특정할 수 있는 한 개 이상의 칼럼을 **기본키(Primary Key, PK)**라고 하며, 다른 테이블의 기본 키로 사용되면서 테이블과의 관계를 연결하는 역할을 하는 칼럼을 **외부키(Foreign Key, FK)**라고 한다.  
 
@@ -114,11 +117,11 @@ SELECT expression INTO table_name FROM table_name;
 - `FOREIGN KEY`(외래키)
     - 테이블 간의 관계 정의를 위한 외래키 지정
 
-💡여러 칼럼에 PK를 설정할 수 있지만 복합키인 하나의 PK로 작동한다.  
-{:.note}
+!!! tip
+    여러 칼럼에 PK를 설정할 수 있지만 그 경우 복합키인 하나의 PK로 작동한다.  
 
-❗`NULL`과 공백은 다르다. `NULL`은 '아직 정의되지 않은 미지의 값' 또는 '현재 데이터를 입력하지 못하는 경우'를 의미한다.  
-{:.note title='attention'}
+!!! warning
+    `NULL`과 공백은 다르다. `NULL`은 '아직 정의되지 않은 미지의 값' 또는 '현재 데이터를 입력하지 못하는 경우'를 의미한다.  
 
 ### 2-2. ALTER TABLE
 
@@ -152,8 +155,8 @@ ALTER TABLE table_name MODIFY (col_name_1 datatype dafault_value NOT NULL, col_n
 ALTER TABLE table_name ALTER col_name datatype dafault_value NOT NULL;
 ```
 
-❗MSSQL은 여러 칼럼을 동시에 수정하는 구문을 지원하지 않는다.  
-{:.note title='attention'}
+!!! info
+    MSSQL은 여러 칼럼을 동시에 수정하는 문법을 지원하지 않는다.  
 
 칼럼 변경 시에는 다음과 같은 점들을 고려햐야 한다.  
 
@@ -175,8 +178,8 @@ ALTER TABLE table_name RENAME COLUMN old_name TO new_name;
 sp_rename old_name, new_name, 'COLUMN';
 ```
 
-💡MSSQL의 `sp_rename`은 칼럼 뿐만 아니라 여러 가지 객체의 이름을 바꾸는데도 [사용](#2-3-rename-table)된다. 상세 내용은 [공식 문서](https://learn.microsoft.com/ko-kr/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=sql-server-ver16#----object_type) 참고  
-{:.note}
+!!! info
+    MSSQL의 `sp_rename`은 칼럼 뿐만 아니라 여러 가지 객체의 이름을 바꾸는데도 [사용](#2-3-rename-table)된다. 상세 내용은 [공식 문서](https://learn.microsoft.com/ko-kr/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?view=sql-server-ver16#----object_type) 참고  
 
 **DROP CONSTRAINT**
 
@@ -217,8 +220,8 @@ DROP TABLE table_name;
 DROP TABLE table_name CASCADE CONSTRAINT;
 ```
 
-❗`DROP TABLE`은 로그를 남기지 않는다.  
-{:.note title='attention'}
+!!! warning
+    `DROP TABLE`은 로그를 남기지 않는다.  
 
 Oracle의 `CASCADE CONSTRAINT`옵션은 해당 테이블과 관계되 참조되는 제약조건에 대해서도 삭제한다는 것을 의미한다. MSSQL의 경우에는 `CASCADE CONSTRAINT`옵션이 없으며, 테이블을 삭제하기 전에 참조하는 Foreign Key 제약조건 또는 참조하는 테이블을 먼저 삭제해야 한다.  
 
@@ -230,8 +233,8 @@ Oracle의 `CASCADE CONSTRAINT`옵션은 해당 테이블과 관계되 참조되�
 TRUNCATE TABLE table_name;
 ```
 
-❗`TRUNCATE TABLE`은 로그를 남기지 않는다.  
-{:.note title='attention'}
+!!! warning
+    `TRUNCATE TABLE`은 로그를 남기지 않는다.  
 
 ## 3. DML
 
@@ -405,7 +408,7 @@ Oracle과 MSSQL의 사용자에 대한 아키텍처의 차이점은 아래와 �
 
 유저의 권한에 대한 세부 명령어들은 아래와 같다.  
 
-**GRANT/REVOKE**
+#### GRANT/REVOKE
 
 유저에게 명령어에 대한 권한을 부여하고 회수한다. DBA(Database Administration) 권한을 갖고 있는 유저만 사용 가능하다.  
 
@@ -415,7 +418,7 @@ GRANT privilege ON table_name TO ID;
 REVOKE privilege FROM ID;
 ```
 
-**CREATE USER**
+#### CREATE USER
 
 유저를 생성한다. MSSQL에서의 유저는 데이터베이스마다 존재하기 때문에, 유저를 생성하기 위해서는 유저가 속할 데이터베이스로 이동을 한 후 처리해야 한다.  
 
@@ -428,7 +431,7 @@ USE database_name;
 GO CREATE USER ID FOR LOGIN ID WITH DEFAULT_SCHEMA=default_schema;
 ```
 
-**CREATE LOGIN/CREATE SESSION**
+#### CREATE LOGIN/CREATE SESSION
 
 MSSQL에서는 유저 생성 이전에 로그인을 먼저 생성해야 한다.
 
@@ -442,7 +445,7 @@ Oracle에서는 로그인을 위해 `CREATE SESSION` 사용 권한이 필요하�
 GRANT CREATE SESSION TO ID;
 ```
 
-**DROP USER**
+#### DROP USER
 
 유저를 삭제한다.  
 
@@ -462,7 +465,7 @@ DROP USER ID CASCADE;
 
 ### 5-3. 사용자 권한 관리
 
-사용자는 [DDL](#2-ddl) 문장은 그에 해당하는 **시스템 권한(System Privilege)**, 객체에 대한 명령어는 **오브젝트 권한(Object Privilege)**을 [`GRANT`](#5-1-유저와-권한)를 통해 부여받아야만 SQL문을 실행할 수 있다. Oracle과 MSSQL에서 사용자의 권한을 편하게 관리하는 방법은 다음과 같다.  
+사용자는 [DDL](#2-ddl) 문장은 그에 해당하는 **시스템 권한(System Privilege)**, 객체에 대한 명령어는 **오브젝트 권한(Object Privilege)**을 [`GRANT`](#5-1)를 통해 부여받아야만 SQL문을 실행할 수 있다. Oracle과 MSSQL에서 사용자의 권한을 편하게 관리하는 방법은 다음과 같다.  
 
 #### Role을 이용한 권한 부여
 

@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
+slug: redis-basic
 title: '[Redis] Redis 기초'
+date:
+    created: 2023-12-16
 description: >
     Redis의 입문을 위한 간단 정리
-categories: [DataEngineering]
-tags: [in-memory database, redis]
-image:
-    path: /assets/img/posts/thumbnail_redis.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Data Engineering
+tags:
+    - in-memory database
+    - redis
 ---
-* toc
-{:toc}
+
+Redis의 입문을 위한 간단 정리  
+
+<!-- more -->
+
+---
 
 ## Redis의 특징
 
@@ -162,7 +166,7 @@ TTL [key]
 MEMORY USAGE [key]
 ```
 
-## 주요 공식 문서 참고 자료
+## 공식 문서 주요 참고 자료
 
 - 명령어 목록 및 상세 설명
     - [Commands](https://redis.io/commands/)

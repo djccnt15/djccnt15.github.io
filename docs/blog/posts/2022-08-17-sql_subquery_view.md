@@ -1,20 +1,23 @@
 ---
-published: true
-layout: post
+slug: sql-subquery-view
 title: '[SQL] 09. 서브쿼리, 뷰'
+date:
+    created: 2022-08-17
 description: >
     SQL 활용: 서브쿼리, 뷰
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_09.png
-related_posts:
-    - _posts/dataengineering/2022-08-15-sql_hierarchical_query_self_sjoin.md
-    - _posts/dataengineering/2022-08-18-sql_group_window_function.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+SQL 활용: 서브쿼리, 뷰  
+
+<!-- more -->
+
+---
 
 ## 1. 서브쿼리의 개념 및 기초
 
@@ -47,8 +50,8 @@ related_posts:
     - 메인쿼리의 조건절에 여러 칼럼을 동시에 비교 가능
     - 서브쿼리와 메인쿼리에서 비교하고자 하는 칼럼 개수와 위치가 동일해야 함
 
-❗다중 칼럼 서브쿼리는 Oracle에서만 지원하며, MSSQL에서는 지원하지 않는다.  
-{:.note title='attention'}
+!!! info
+    다중 칼럼 서브쿼리는 Oracle에서만 지원하며, MSSQL에서는 지원하지 않는다.  
 
 ### 1-2. 동작 방식에 따른 서브쿼리 분류
 
@@ -101,8 +104,8 @@ CREATE VIEW alias AS expression;
 DROP VIEW alias;
 ```
 
-💡실제로 데이터를 저장하는 뷰인 [Materialized view](https://en.wikipedia.org/wiki/Materialized_view)라는 개념도 있다.  
-{:.note}
+!!! info
+    실제로 데이터를 저장하는 뷰인 [Materialized view](https://en.wikipedia.org/wiki/Materialized_view)라는 개념도 있다.  
 
 ---
 ## Reference

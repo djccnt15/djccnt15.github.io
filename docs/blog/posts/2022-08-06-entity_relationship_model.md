@@ -1,20 +1,23 @@
 ---
-published: true
-layout: post
+slug: entity-relationship-model
 title: '[SQL] 02. 엔티티, 속성, 관계, 식별자'
+date:
+    created: 2022-08-06
 description: >
     데이터 모델링의 이해: 엔티티, 속성, 관계, 식별자
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_02.png
-related_posts:
-    - _posts/dataengineering/2022-07-31-date_modeling.md
-    - _posts/dataengineering/2022-08-07-database_normalization.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+데이터 모델링의 이해: 엔티티, 속성, 관계, 식별자  
+
+<!-- more -->
+
+---
 
 ## 1. 엔티티
 
@@ -167,7 +170,6 @@ related_posts:
 |-|-|-|-|-|-|
 |각각의|사원은|한|부서에|때때로|속한다|
 |한|부서에는|여러|사원이|항상|소속된다|
-{:.scroll-table}
 
 ## 4. 식별자
 

@@ -1,25 +1,29 @@
 ---
-published: true
-layout: post
+slug: sql-procedure
 title: '[SQL] 11. 절차형 SQL'
+date:
+    created: 2022-08-19
 description: >
     SQL 활용: 절차형 SQL
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_11.png
-related_posts:
-    - _posts/dataengineering/2022-08-18-sql_group_window_function.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+SQL 활용: 절차형 SQL  
+
+<!-- more -->
+
+---
 
 ## 1. 절차형 SQL 개요
 
 절차형 SQL이란 일반적인 프로그래밍 언어 형식과 같이 절차적으로 명령을 수행하는 SQL문으로, 데이터에 대한 접근방식을 명시하는 SQL이다.  
 
-절차적 SQL을 이용하면 SQL문의 연속적인 실행이나 조건에 따른 분기처리를 이용하여 특정 기능을 수행하는 **저장 모듈(Stored Module)**을 생성할 수 있다. **저장 모듈(Stored Module)**은 SQL문을 데이터베이스 서버에 저장하여 사용자와 애플리케이션 사이에서 공유할 수 있도록 만든 일종의 SQL 컴포넌트 프로그램으로, 독립적으로 실행되거나 다른 프로그램으로부터 실행될 수 있는 완전한 실행 프로그램이다. 저장 모듈의 종류에는 [프로시저](#2-프로시저), [사용자 정의 함수](#3-사용자-정의-함수), [트리거](#4-트리거)가 있다.  
+절차적 SQL을 이용하면 SQL문의 연속적인 실행이나 조건에 따른 분기처리를 이용하여 특정 기능을 수행하는 **저장 모듈(Stored Module)**을 생성할 수 있다. **저장 모듈(Stored Module)**은 SQL문을 데이터베이스 서버에 저장하여 사용자와 애플리케이션 사이에서 공유할 수 있도록 만든 일종의 SQL 컴포넌트 프로그램으로, 독립적으로 실행되거나 다른 프로그램으로부터 실행될 수 있는 완전한 실행 프로그램이다. 저장 모듈의 종류에는 [프로시저](#2), [사용자 정의 함수](#3), [트리거](#4)가 있다.  
 
 ## 2. 프로시저
 
@@ -42,7 +46,7 @@ related_posts:
 
 ## 4. 트리거
 
-**트리거(Trigger)**란 특정 테이블에 [DML](/dataengineering/relational_database/#3-dml)이 수행되었을 때 데이터베이스에서 자동으로 동작하도록 작성된 프로그램으로, 데이터베이스에서 자동적으로 수행한다.  
+**트리거(Trigger)**란 특정 테이블에 [DML](2022-08-11-relational_database.md/#3-dml)이 수행되었을 때 데이터베이스에서 자동으로 동작하도록 작성된 프로그램으로, 데이터베이스에서 자동적으로 수행한다.  
 
 트리거는 테이블, 뷰, 데이터베이스 작업을 대상으로 정의할 수 있으며, 전체 트랜잭션 작업에 대한 트리거와 각 행에 대한 트리거가 있다.  
 
@@ -61,7 +65,6 @@ CREATE TRIGGER schema_name.trigger_name;
 |생성|`CREATE PROCEDURE`|`CREATE TRIGGER`|
 |실행|`EXECUTE`|자동 실행|
 |TCL|`COMMIT`, `ROLLBACK` 실행 가능|`COMMIT`, `ROLLBACK` 불가|
-{:.scroll-table}
 
 ## 5. 절차형 SQL의 실제 사용
 

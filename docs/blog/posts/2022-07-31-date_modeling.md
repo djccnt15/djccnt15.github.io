@@ -1,19 +1,23 @@
 ---
-published: true
-layout: post
+slug: data-modeling
 title: '[SQL] 01. 데이터 모델의 이해'
+date:
+    created: 2022-07-31
 description: >
     데이터 모델링의 이해: 데이터 모델의 이해
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_01.png
-related_posts:
-    - _posts/dataengineering/2022-08-06-entity_relationship_model.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+데이터 모델링의 이해: 데이터 모델의 이해  
+
+<!-- more -->
+
+---
 
 ## 1. 모델링의 이해
 
@@ -93,7 +97,7 @@ related_posts:
 
 ## 5. 데이터 모델링의 요소
 
-데이터 모델링은 [엔티티(Entity)](/dataengineering/entity_relationship_model/#1-엔티티), [속성(Attribute)](/dataengineering/entity_relationship_model/#2-속성), [관계(Relationship)](/dataengineering/entity_relationship_model/#3-관계)의 3요소로 구성됨  
+데이터 모델링은 [엔티티(Entity)](2022-08-06-entity_relationship_model.md/#1), [속성(Attribute)](2022-08-06-entity_relationship_model.md/#2), [관계(Relationship)](2022-08-06-entity_relationship_model.md/#3)의 3요소로 구성됨  
 
 ## 6. E-R Model
 

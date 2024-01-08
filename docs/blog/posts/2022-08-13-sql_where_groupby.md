@@ -1,20 +1,23 @@
 ---
-published: true
-layout: post
+slug: sql-where-group-by-order-by
 title: '[SQL] 06. WHERE, GROUP BY, ORDER BY'
+date:
+    created: 2022-08-13
 description: >
     SQL 기본: WHERE, 함수, GROUP BY, HAVING, ORDER BY
-categories: [DataEngineering]
-tags: [database, RDB, SQL]
-image:
-    path: /assets/img/posts/thumbnail_sql_06.png
-related_posts:
-    - _posts/dataengineering/2022-08-11-relational_database.md
-    - _posts/dataengineering/2022-08-14-sql_join.md
+categories:
+    - Data Engineering
+tags:
+    - database
+    - RDB
+    - SQL
 ---
-{% include series_sql.html %}
-* toc
-{:toc}
+
+SQL 기본: WHERE, 함수, GROUP BY, HAVING, ORDER BY  
+
+<!-- more -->
+
+---
 
 ## 1. WHERE
 
@@ -48,19 +51,19 @@ SELECT col_name AS alias FROM table_name WHERE expression;
 - 논리 연산자
     - `AND`, `OR`, `NOT`
 
-💡참고로 `BETWEEN a AND b`는 `a <= n <= b`를 뜻한다.  
-{:.note}
+!!! info
+    참고로 `BETWEEN a AND b`는 `a <= n <= b`를 뜻한다.  
 
 `LIKE` 연산의 경우 `%`, `_` 등의 와일드 카드를 사용할 수 있다.  
 
 - `%`: 0개 이상의 아무 문자
 - `_`: 1개인 단일 문자
 
-💡`NULL`값과의 수치 연산은 `NULL`, 비교 연산은 `FALSE`를 리턴한다.  
-{:.note}
+!!! info
+    `NULL`값과의 수치 연산은 `NULL`, 비교 연산은 `FALSE`를 리턴한다.  
 
-💡`''`값을 조회하려면, Oracle에서는 `IS NULL` 조건, MSSQL에서는 `= ''` 조건을 사용해야 한다.  
-{:.note}
+!!! tip
+    `''`값을 조회하려면, Oracle에서는 `IS NULL` 조건, MSSQL에서는 `= ''` 조건을 사용해야 한다.  
 
 **연산자의 우선 순위**는 아래와 같다.  
 
@@ -109,8 +112,7 @@ SELECT TOP(4) WITH TIES job, deptno FROM emp ORDER BY job, deptno;
 
 |단일행 함수<br>(Single-Row Function)|다중행 함수<br>(Multi-Row Function)|
 |-|-|
-|[문자형 함수](#2-1-문자형-함수)<br>[숫자형 함수](#2-2-숫자형-함수)<br>[날짜형 함수](#2-3-날짜형-함수)<br>[변환형 함수](#2-4-변환형-함수)<br>[NULL 관련 함수](#2-6-null-관련-함수)|[집계 함수(Aggregate Function)](#3-1-집계-함수)<br>[그룹 함수(Group Function)](/dataengineering/sql_group_window_function/#2-그룹-함수)<br>[윈도우 함수(Window Function)](/dataengineering/sql_group_window_function/#3-윈도우-함수)|
-{:.scroll-table}
+|[문자형 함수](#2-1)<br>[숫자형 함수](#2-2)<br>[날짜형 함수](#2-3)<br>[변환형 함수](#2-4)<br>[NULL 관련 함수](#2-6-null)|[집계 함수(Aggregate Function)](#3-1)<br>[그룹 함수(Group Function)](2022-08-18-sql_group_window_function.md/#2)<br>[윈도우 함수(Window Function)](2022-08-18-sql_group_window_function.md/#3)|
 
 단일행 함수(Single-Row Function)의 주요 특징은 다음과 같다.  
 
@@ -132,7 +134,7 @@ SELECT TOP(4) WITH TIES job, deptno FROM emp ORDER BY job, deptno;
 - `CHR/CHAR(ASCII)`
     - ASCII 코드를 문자로 변경
 - `CONCAT('str1', 'str2')`
-    - 'str1'과 'str2'을 연결. [합성연산자](/dataengineering/relational_database/#3-5-연산자)와 동일
+    - 'str1'과 'str2'을 연결. [합성연산자](2022-08-11-relational_database.md/#3-5)와 동일
 - `SUBSTR/SUBSTRING('str', m, n)`
     - 문자열의 m 위치에서 n개의 문자 길이에 해당하는 문자를 반환. n이 생략되면 마지막 문자까지 반환
 - `LENGTH/LEN('str')`
@@ -189,8 +191,8 @@ DATE 타입의 값을 연산하는 날짜형 함수의 종류는 아래와 같�
 
 특정 데이터 타입을 다양한 형식으로 출력하고 싶을 경우에 데이터의 유형을 변환하는 방법에는 변환형 함수로 데이터 유형의 변환을 명시하는 **명시적(Explicit) 유형 변환**과 DBMS가 자동으로 데이터 유형을 변환하도록 하는 **암시적(Implicit) 유형 변환**이 있다.  
 
-💡암시적 유형 변환은 성능 저하가 발생할 수 있을 뿐만 아니라, DBMS 관련 버그를 일으킬 가능성이 있어 명시적 유형 변환을 사용하는 것이 좋다.  
-{:.note}
+!!! tip
+    암시적 유형 변환은 성능 저하가 발생할 수 있을 뿐만 아니라, DBMS 관련 버그를 일으킬 가능성이 있어 명시적 유형 변환을 사용하는 것이 좋다.  
 
 Oracle의 대표적인 변환형 함수는 아래와 같다.  
 
@@ -303,10 +305,10 @@ HAVING expression
 ORDER BY expression1 ASC/DESC expression2;
 ```
 
-💡Oracle은 `NULL`값을 가장 큰 값으로 취급하는 반면, MSSQL은 가장 작은 값으로 취급한다.  
-{:.note}
+!!! tip
+    Oracle은 `NULL`값을 가장 큰 값으로 취급하는 반면, MSSQL은 가장 작은 값으로 취급한다.  
 
-Oracle의 경우 데이터에 접근할 때 행 전체 칼럼을 메모리에 로드하기 때문에 `SELECT`절에 지정되지 않은 칼럼으로도 정렬이 가능하나, `FROM`절이 [서브쿼리](/dataengineering/sql_subquery_view/#1-3-위치에-따른-서브쿼리-분류) 형태로 되어있을 경우(인라인 뷰)에는 불가능하다는 특징이 있다.  
+Oracle의 경우 데이터에 접근할 때 행 전체 칼럼을 메모리에 로드하기 때문에 `SELECT`절에 지정되지 않은 칼럼으로도 정렬이 가능하나, `FROM`절이 [서브쿼리](2022-08-17-sql_subquery_view.md/#1-3) 형태로 되어있을 경우(인라인 뷰)에는 불가능하다는 특징이 있다.  
 
 ## 5. SQL문 실행 순서
 
