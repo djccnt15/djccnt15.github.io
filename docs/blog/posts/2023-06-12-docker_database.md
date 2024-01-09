@@ -1,18 +1,28 @@
 ---
-published: true
-layout: post
-title: '[Docker] 도커 기반 데이터베이스 설치'
+slug: docker-database
+title: 도커 기반 데이터베이스 설치
+date:
+    created: 2023-06-12
 description: >
     도커를 활용해서 데이터베이스 간단 설치하는 방법
-categories: [ServerEngineering]
-tags: [database, RDB, docker, oracle, SQL Server, MySQL, MariaDB, PostgreSQL]
-image:
-    path: /assets/img/posts/thumbnail_docker.png
-related_posts:
-    - _posts/swengineering/2023-06-11-docker_commands.md
+categories:
+    - Server Engineering
+tags:
+    - database
+    - RDB
+    - docker
+    - oracle
+    - SQL Server
+    - MySQL
+    - MariaDB
+    - PostgreSQL
 ---
-* toc
-{:toc}
+
+도커를 활용해서 데이터베이스 간단 설치하는 방법  
+
+<!-- more -->
+
+---
 
 ## 도커로 데이터베이스를 사용하는 이유
 

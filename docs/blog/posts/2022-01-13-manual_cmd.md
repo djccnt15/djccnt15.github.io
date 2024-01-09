@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[cmd/terminal] 사용법'
+slug: terminal-manual
+title: cmd/terminal 기초 매뉴얼
+date:
+    created: 2022-01-13
 description: >
-    Windows/Linux terminal의 유용한 명령어 모음  
-categories: [ServerEngineering]
-tags: [cmd, terminal, ⭐starred]
-image:
-    path: /assets/img/posts/thumbnail_terminal.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Windows/Linux terminal의 유용한 명령어 모음
+categories:
+    - Server Engineering
+tags:
+    - cmd
+    - terminal
 ---
-* toc
-{:toc}
+
+Windows/Linux terminal의 유용한 명령어 모음  
+
+<!-- more -->
+
+---
 
 ## 1. 기본 사용 팁
 
@@ -38,8 +42,8 @@ clear --help
 
 Linux는 Windows의 `esc`에 대응하는 기능의 단축키가 없음  
 
-- `ctrl + u`: 커서의 왼쪽 내용 삭제
-- `ctrl + k`: 커서의 오른쪽 내용 삭제
+- ++ctrl+u++ : 커서의 왼쪽 내용 삭제
+- ++ctrl+k++ : 커서의 오른쪽 내용 삭제
 
 ### 1-3. type/cat
 
@@ -352,53 +356,4 @@ tree /f
 
 ```bat
 tree > <file_name>
-```
-
-## 5. 💡프로그램 실행용 명령어
-
-### 5-1. nohub
-
-Linux 계열에서 프로그램을 백그라운드로 실행하여 터미널이 종료되도 프로그램이 종료되지 않도록 하는 명령어  
-
-```bash
-nohub <app_name> &
-```
-
-리눅스에서는 `&`을 붙이면 백그라운드로 실행하라는 뜻인데, 단순히 `&`을 붙여서만 실행하면 터미널을 종료할 경우 같이 실행이 같이 종료됨  
-
-데몬 형태로 프로그램을 실행시켜 로그아웃으로 세션이 종료 되어도 프로그램이 계속 실행중이도록하는 `nohub` 명령어를 같이 사용해야 함  
-
-💡최신 버전의 OS들은 `&`만 사용해도 `nohub` 명령어를 사용한 것과 동일하게 작동하기도 한다.  
-{:.note}
-
-### 5-2. start
-
-윈도우에서 프로그램을 실행하기 위한 명령어. 새로운 터미널을 실행시키기 때문에 기존 터미널에서 사용중이던 변수를 사용할 수 없지만, 하나의 batch 파일이 여러 개의 프로그램을 실행시킬 수 있음  
-
-```bat
-start /min <app_name>
-```
-
-- `/MIN`: 최소화 실행
-
-`start` 명령어를 활용한 Python 가상환경 및 프로그램 실행 예시  
-
-```bat
-start .venv\Scripts\python.exe main.py
-
-start /MIN .venv\Scripts\python.exe main.py
-```
-
-### 5-3. call
-
-윈도우 터미널에서 새로운 터미널을 호출하는 명령어. `start` 명령어와 비슷하지만 현재 터미널에서 실행하기 때문에 기존에 사용중인 변수를 그대로 사용할 수 있음  
-
-```bat
-call <app_name>
-```
-
-`call` 명령어를 활용한 Python 가상환경 및 프로그램 실행 예시  
-
-```bat
-call .venv\Scripts\python.exe main.py
 ```

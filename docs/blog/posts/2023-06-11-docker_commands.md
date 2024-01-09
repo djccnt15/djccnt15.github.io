@@ -1,26 +1,23 @@
 ---
-published: true
-layout: post
-title: '[Docker] 도커 기초 명령어'
+slug: docker-commands
+title: 도커 기초 명령어
+date:
+    created: 2023-06-11
 description: >
     도커 활용을 위한 기초 명령어들
-categories: [ServerEngineering]
-tags: [docker]
-image:
-    path: /assets/img/posts/thumbnail_docker.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Server Engineering
+tags:
+    - docker
 ---
-* toc
-{:toc}
+
+도커 활용을 위한 기초 명령어들  
+
+<!-- more -->
+
+---
 
 ## 기초 팁
-
-- 여러 명령어 한번에 입력하고 싶을 땐 `&&`으로 연속 입력 가능
-
-```bat
-docker stop [CONTAINER] && docker rm [CONTAINER] && docker rmi [IMAGE]
-```
 
 - 명령어 도움말 보기
 
@@ -90,7 +87,7 @@ docker ps -a
 docker run [IMAGE]
 ```
 
-- `^P^Q`를 통해 접속 해지가 가능한 TTY 접속
+- ++p+q++를 통해 접속 해지가 가능한 TTY 접속
 
 ```bat
 docker run -itd [IMAGE]
@@ -116,8 +113,8 @@ docker rm [CONTAINER]
 docker attach [CONTAINER]
 ```
 
-❗`docker attach` 명령어로 접속할 경우 docker 커맨드가 전달되는 외부 환경의 표준 입출력이 컨테이너의 root 프로세스의 표준입출력과 연결되는 상태이기 때문에 `exit` 명령을 하는 경우 컨테이너 자체가 종료 된다.  
-{:.note title='attention'}
+!!! tip
+    `docker attach` 명령어로 접속할 경우 docker 커맨드가 전달되는 외부 환경의 표준 입출력이 컨테이너의 root 프로세스의 표준입출력과 연결되는 상태이기 때문에 `exit` 명령을 하는 경우 컨테이너 자체가 종료 된다.  
 
 - 컨테이너의 bash 프로세스 실행 및 접속
 
@@ -131,11 +128,11 @@ docker exec -it [CONTAINER] /bin/bash
 
 그러나 root 프로세스에 콘솔 접근을 한 것이 아니라 별도로 실행한 `bash` 터미널 프로세스를 통해 접속한 것이기 때문에 `exit` 명령어로 접속을 종료해도 컨테이너가 종료되지 않는다.  
 
-**💡컨테이너 접속 종료**
+### 컨테이너 접속 종료
 
-- `^P^Q`: 컨테이너를 끄지 않고 접속 종료
+- ++ctrl+p+q++: 컨테이너를 끄지 않고 접속 종료
     - `-itd` 옵션으로 실행 했을 때만 사용 가능
-- `^C`: 컨테이너 접속 종료 및 컨테이너 종료
+- ++ctrl+c++: 컨테이너 접속 종료 및 컨테이너 종료
 - `exit`: 현재 프로세스 종료
 
 ### 컨테이너 실행/정지
