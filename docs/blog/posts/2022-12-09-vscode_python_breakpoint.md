@@ -1,18 +1,23 @@
 ---
-published: true
-layout: post
-title: '[VS Code] Python 디버그 고치기'
+slug: vscode-python-breakpoint-bug
+title: VS Code Python 디버그 고치기
+date:
+    created: 2022-12-09
 description: >
     VS Code에서 Python 브레이크포인트 인식 버그 해결하기
-categories: [SWEngineering]
-tags: [VS Code, debug, python]
-image:
-    path: /assets/img/posts/thumbnail_vscode.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - SW Engineering
+tags:
+    - VS Code
+    - debug
+    - python
 ---
-* toc
-{:toc}
+
+VS Code에서 Python 브레이크포인트 인식 버그 해결하기  
+
+<!-- more -->
+
+---
 
 ## 디버그를 디버그?
 
@@ -45,7 +50,9 @@ VS Code의 디버그 기능을 사용하면 브레이크포인트를 사용해�
 
 ## 원인 발견
 
-문제를 발견한지 1년만에 원인을 찾았는데, 가상환경을 잘못 설정해서 VS Code가 Python 파일을 Python 소스로 인식하여 발생한 문제였다. Formatter인 Black도 동일한 문제로 formatting을 해주지 못했는데, 가상환경과 관련된 파일을 `.venv` 등 별도의 폴더로 모아주면 해결된다.  
+문제를 발견한지 1년만에 원인을 찾았는데, 가상환경을 잘못 설정해서 VS Code가 Python 파일을 Python 소스로 인식하여 발생한 문제였다.  
+
+Formatter인 Black도 동일한 문제로 formatting을 해주지 못했는데, 가상환경과 관련된 파일을 `.venv` 등 별도의 폴더로 모아주면 해결된다.  
 
 ---
 ## Reference

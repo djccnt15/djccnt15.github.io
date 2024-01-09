@@ -1,19 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Git] 08. 협업 방법론'
+slug: git-cowork-pattern
+title: Git 협업 방법론
+date:
+    created: 2022-12-08
 description: >
     GitFlow 방식의 협업 방법론
-categories: [SWEngineering]
-tags: [git]
-image:
-    path: /assets/img/posts/thumbnail_git.png
-related_posts:
-    - _posts/swengineering/2022-12-06-git_multi_profile.md
+categories:
+    - SW Engineering
+tags:
+    - git
 ---
-{% include series_git.html %}
-* toc
-{:toc}
+
+GitFlow 방식의 협업 방법론 정리  
+
+<!-- more -->
+
+---
 
 > The information manager from Hell. - Linus Benedict Torvalds
 
@@ -21,10 +23,8 @@ related_posts:
 
 GitFlow는 아래 그림만 잘 봐도 이해할 수 있다.  
 
-![git_flow](/assets/img/posts/git_flow.png)
-
-출처: [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
-{:.figcaption}
+![git_flow](img/git_flow.png){ loading=lazy }  
+^[출처: A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)^
 
 부연 설명을 덧붙이자면, GitFlow 방법론에서는 Main, Develop의 핵심 브랜치 2개와 Release, Develop, Feature의 보조 브랜치 3개, 총 5개의 브랜치로 나누어서 소프트웨어 개발을 관리한다.  
 

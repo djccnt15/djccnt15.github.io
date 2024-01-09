@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
-title: '[coding] 깨끗한 코드'
+slug: tips-for-clean-code
+title: 깨끗한 코드
+date:
+    created: 2022-01-08
 description: >
     깨끗한 코드를 위한 팁
-categories: [SWEngineering]
-tags: [coding]
-image:
-    path: /assets/img/posts/thumbnail_clean_code.png
-related_posts:
-    - _posts/swengineering/2022-01-08-clean_code.md
+categories:
+    - SW Engineering
+tags:
+    - clean coding
 ---
-* toc
-{:toc}
 
 [노마드코더](https://www.youtube.com/c/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94NomadCoders)님이 올리신 영상 중에 깨끗한 코드를 위한 좋은 팁이 있어서 까먹지 않기 위해 내 생각을 추가해서 정리해둔다.  
+
+<!-- more -->
+
+---
 
 ## 1. 검색 가능한 이름을 사용할 것
 

@@ -1,25 +1,27 @@
 ---
-published: true
-layout: post
-title: '[Git] 09. restore의 활용'
+slug: git-restore
+title: Git restore의 활용
+date:
+    created: 2023-03-12
 description: >
-    git restore 명령어의 활용
-categories: [SWEngineering]
-tags: [git]
-image:
-    path: /assets/img/posts/thumbnail_git.png
-related_posts:
-    - _posts/swengineering/2022-12-08-git_cowork.md
+    Git restore 명령어의 활용
+categories:
+    - SW Engineering
+tags:
+    - git
 ---
-{% include series_git.html %}
-* toc
-{:toc}
+
+Git restore 명령어의 활용 방법  
+
+<!-- more -->
+
+---
 
 > The information manager from Hell. - Linus Benedict Torvalds
 
 ## restore
 
-[restore](/swengineering/manual_git_04/#restore) 명령어는 원래 수정 사항을 되돌리기 위해 사용하는 명령어로, 아래와 같이 사용한다.  
+[restore](2022-01-17-git_tips.md/#restore) 명령어는 원래 수정 사항을 되돌리기 위해 사용하는 명령어로, 아래와 같이 사용한다.  
 
 - 수정 사항 되돌리기
 

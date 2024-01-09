@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Git] 02. 저장소에 업로드 하기'
+slug: git-save-upload
+title: Git 저장소에 업로드 하기
+date:
+    created: 2022-01-15
 description: >
-    git 저장소에 파일을 업로드하기 위한 명령어들: add, commit, push
-categories: [SWEngineering]
-tags: [git]
-image:
-    path: /assets/img/posts/thumbnail_git.png
-related_posts:
-    - _posts/swengineering/2022-01-14-git_initiate.md
-    - _posts/swengineering/2022-01-16-git_download.md
+    저장소에 파일을 업로드하기 위한 명령어들 정리: add, commit, push
+categories:
+    - SW Engineering
+tags:
+    - git
 ---
-{% include series_git.html %}
-* toc
-{:toc}
+
+Git 저장소에 파일을 업로드하기 위한 명령어들 정리: add, commit, push  
+
+<!-- more -->
+
+---
 
 > The information manager from Hell. - Linus Benedict Torvalds
 

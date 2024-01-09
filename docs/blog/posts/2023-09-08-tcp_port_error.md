@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Network] TCP 포트 사용 범위 제외 문제'
+slug: tcp-port-error
+title: TCP 포트 사용 불가 이슈 해결법
+date:
+    created: 2023-09-08
 description: >
-    Windows에서 TCP 포트 사용 범위 제외 문제 해결하는 방법
-categories: [SWEngineering]
-tags: [network, ⭐starred]
-image:
-    path: /assets/img/posts/thumbnail_network.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Windows에서 TCP 포트 사용 범위 제외 문제 해결 방법
+categories:
+    - SW Engineering
+tags:
+    - network
+    - port
 ---
-* toc
-{:toc}
+
+Windows에서 TCP 포트 사용 범위 제외 문제 해결 방법  
+
+<!-- more -->
+
+---
 
 ## 문제 발생
 

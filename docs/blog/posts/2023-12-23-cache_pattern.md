@@ -1,18 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Pattern] Cache Pattern'
+slug: cache-pattern
+title: Cache Pattern
+date:
+    created: 2023-12-23
 description: >
-    캐시를 위한 디자인 패턴
-categories: [SWEngineering]
-tags: [design patterns, cache]
-image:
-    path: /assets/img/posts/thumbnail_pattern.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    데이터 캐싱을 위한 디자인 패턴 정리
+categories:
+    - SW Engineering
+tags:
+    - design patterns
+    - cache
 ---
-* toc
-{:toc}
+
+데이터 캐싱을 위한 디자인 패턴 정리  
+
+<!-- more -->
+
+---
 
 ## Cache의 위치
 
@@ -24,8 +28,7 @@ related_posts:
 
 Read 관점에서 많이 활용되는 패턴
 
-![cache_aside_pattern_read](/assets/img/posts/cache_aside_pattern_read.png)
-{:.text-center}
+![cache_aside_pattern_read](img/cache_aside_pattern_read.png){ loading=lazy }
 
 1. Cache Query
 1. Cache에 데이터 없을 경우 Database Query
@@ -33,8 +36,7 @@ Read 관점에서 많이 활용되는 패턴
     - TTL 옵션 지정을 통해 Cache 메모리 관리
     - 데이터의 특성에 따라 적절한 TTL 지정 필요
 
-![cache_aside_pattern_write](/assets/img/posts/cache_aside_pattern_write.png)
-{:.text-center}
+![cache_aside_pattern_write](img/cache_aside_pattern_write.png){ loading=lazy }
 
 1. Database Create
 1. Invalidate Cache Data
@@ -44,8 +46,7 @@ Read 관점에서 많이 활용되는 패턴
 
 Write 관점에서 많이 활용되는 패턴
 
-![write_back_pattern](/assets/img/posts/write_back_pattern.png)
-{:.text-center}
+![write_back_pattern](img/write_back_pattern.png){ loading=lazy }
 
 1. 서버는 다수의 쓰기 작업을 Cache로 전송
 1. Cache에서 다수의 쓰기 작업을 모아 Database로 Bulk Insert 함

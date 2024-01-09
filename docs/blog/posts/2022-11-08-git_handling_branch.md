@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Git] 05. branch 다루기'
+slug: git-handling-branch
+title: Git branch 다루기
+date:
+    created: 2022-11-08
 description: >
     브랜치 관리를 위한 명령어들: branch, switch, merge
-categories: [SWEngineering]
-tags: [git]
-image:
-    path: /assets/img/posts/thumbnail_git.png
-related_posts:
-    - _posts/swengineering/2022-01-17-git_tips.md
-    - _posts/swengineering/2022-12-04-gitignore.md
+categories:
+    - SW Engineering
+tags:
+    - git
 ---
-{% include series_git.html %}
-* toc
-{:toc}
+
+Git 브랜치 관리를 위한 명령어들: branch, switch, merge  
+
+<!-- more -->
+
+---
 
 > The information manager from Hell. - Linus Benedict Torvalds
 
@@ -46,7 +47,8 @@ git branch -c [<oldbranch>] <newbranch>
 git branch -d <branchname>
 ```
 
-💡참고로 원격 저장소의 브랜치를 삭제하려면 [`push` 명령어를 사용](/swengineering/git_save_upload/#push)해야 한다.
+!!! tip
+    참고로 원격 저장소의 브랜치를 삭제하려면 [`push`](2022-01-15-git_save_upload.md/#push) 명령어를 사용해야 한다.  
 
 - 원격 저장소의 브랜치를 가져오기
 
@@ -54,7 +56,7 @@ git branch -d <branchname>
 git branch -t <branchname>
 ```
 
-원격 저장소에 여러 브랜치가 있는 경우 `pull`이나 `clone`을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](/swengineering/manual_git_01/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
+원격 저장소에 여러 브랜치가 있는 경우 `pull`이나 `clone`을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](2022-01-14-git_initiate.md/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
 
 ## switch
 

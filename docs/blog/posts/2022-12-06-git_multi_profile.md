@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Git] 07. 멀티 프로필 사용법'
+slug: git-multi-profile
+title: Git 멀티 프로필 사용법
+date:
+    created: 2022-12-06
 description: >
-    한 컴퓨터에서 여러 git 계정 사용하기
-categories: [SWEngineering]
-tags: [git]
-image:
-    path: /assets/img/posts/thumbnail_git.png
-related_posts:
-    - _posts/swengineering/2022-12-04-gitignore.md
-    - _posts/swengineering/2022-12-08-git_cowork.md
+    한 컴퓨터에서 여러 Git 계정 사용하기
+categories:
+    - SW Engineering
+tags:
+    - git
 ---
-{% include series_git.html %}
-* toc
-{:toc}
+
+한 컴퓨터에서 여러 Git 계정 사용하기  
+
+<!-- more -->
+
+---
 
 > The information manager from Hell. - Linus Benedict Torvalds
 
@@ -141,8 +142,7 @@ cat djccnt15.pub
 
 Github의 경우 ssh 키를 아래와 같이 설정에 있는 SSH and GPG keys 메뉴에서 등록하면 된다.  
 
-![github_sshkey_01](/assets/img/posts/github_sshkey_01.png)
-{:.border-image}
+![github_sshkey_01](img/github_sshkey_01.png){ loading=lazy }
 
 ### 2-5. 연결 확인
 
@@ -167,8 +167,7 @@ Hi djccnt15! You've successfully authenticated, but GitHub does not provide shel
 
 위와 같이 모든 준비가 끝나면 git 저장소에서 ssh를 통해 `clone`, `pull`, `push`를 할 수 있다.  
 
-![github_sshkey_02](/assets/img/posts/github_sshkey_02.png)
-{:.border-image}
+![github_sshkey_02](img/github_sshkey_02.png){ loading=lazy }
 
 ## 3. ⚡작업용 명령어
 

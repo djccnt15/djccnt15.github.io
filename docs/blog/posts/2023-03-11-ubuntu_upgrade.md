@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[WSL] Ubuntu 버전 확인 및 업그레이드'
+slug: wsl-ubuntu-upgrade
+title: WSL Ubuntu 업그레이드 방법
+date:
+    created: 2023-03-11
 description: >
     WSL Ubuntu 버전 확인 및 업그레이드하는 방법
-categories: [SWEngineering]
-tags: [WSL]
-image:
-    path: /assets/img/posts/thumbnail_linux.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - SW Engineering
+tags:
+    - wsl
 ---
-* toc
-{:toc}
+
+WSL Ubuntu 버전 확인 및 업그레이드하는 방법  
+
+<!-- more -->
+
+---
 
 ## WSL 버전 확인
 
