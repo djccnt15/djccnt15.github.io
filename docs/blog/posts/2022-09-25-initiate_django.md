@@ -1,19 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Django] 01. 프로젝트 시작'
+slug: how-to-initiate-django
+title: Django 프로젝트 시작
+date:
+    created: 2022-09-25
 description: >
     Django 설치, 프로젝트 시작, 개발서버 구동, Secret Key 숨기기
-categories: [Django]
-tags: [python, Django]
-image:
-    path: /assets/img/posts/thumbnail_django.png
-related_posts:
-    - _posts/django/2022-09-27-app_orm.md
+categories:
+    - Django
+tags:
+    - Django
 ---
-{% include series_django.html %}
-* toc
-{:toc}
+
+Django 설치, 프로젝트 시작, 개발서버 구동, Secret Key 숨기기  
+
+<!-- more -->
+
+---
 
 ## 0. 개요
 
@@ -27,7 +29,7 @@ Django도 기본적으로 Python 라이브러리이기 때문에 `pip`를 통해
 pip install Django
 ```
 
-아래와 같이 Django와 Python [호환성 제약](https://docs.djangoproject.com/en/4.1/faq/install/#what-python-version-can-i-use-with-django)이 있으니 [Python 가상환경](/python/python_venv/)을 사용해서 버전을 맞춰주어야 한다.  
+아래와 같이 Django와 Python [호환성 제약](https://docs.djangoproject.com/en/4.1/faq/install/#what-python-version-can-i-use-with-django)이 있으니 [Python 가상환경](2022-01-05-venv_guide.md)을 사용해서 버전을 맞춰주어야 한다.  
 
 |Django version|Python versions|
 |-|-|
@@ -36,7 +38,6 @@ pip install Django
 |3.2|3.6, 3.7, 3.8, 3.9, 3.10 (added in 3.2.9)|
 |4.0|3.8, 3.9, 3.10|
 |4.1|3.8, 3.9, 3.10, 3.11|
-{:.scroll-table}
 
 ## 2. Project 시작
 
@@ -77,7 +78,7 @@ django-admin startproject config .
 
 `config/setting.py` 파일을 아래와 같이 수정해 프로젝트의 기본 언어와 시간대를 수정할 수 있다.  
 
-```python
+```python title="setting.py"
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -111,17 +112,15 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 ```
 
-위와 같이 개발 서버가 작동하면 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)로 접속할 수 있고, `ctrl-c`로 서버를 중지할 수 있다. 개발 서버에 접속하면 아래와 같이 정상 작동 중인 것을 확인할 수 있다.  
+위와 같이 개발 서버가 작동하면 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)로 접속할 수 있고, ++ctrl+c++로 서버를 중지할 수 있다. 개발 서버에 접속하면 아래와 같이 정상 작동 중인 것을 확인할 수 있다.  
 
-![django_localhost](/assets/img/posts/django_localhost.png)
-{:.border-image}
+![django_localhost](img/django_localhost.png){ loading=lazy }
 
 ## 4. Secret Key 숨기기
 
 구성한 프로젝트를 GitHub에 그대로 push 하면 *Django Secret Key exposed on GitHub*이라는 제목으로 경고가 날아온다.  
 
-![django_secretkey_email](/assets/img/posts/django_secretkey_email.png)
-{:.border-image}
+![django_secretkey_email](img/django_secretkey_email.png){ loading=lazy }
 
 Django 프로젝트의 Secret Key가 노출되었다는 것인데, Secret Key는 [디지털 서명](https://docs.djangoproject.com/en/1.11/topics/signing/)을 위해 사용되고, 사용 대상은 아래와 같다.  
 
@@ -132,7 +131,7 @@ Django 프로젝트의 Secret Key가 노출되었다는 것인데, Secret Key는
 
 Django의 Secret Key에 대한 상세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/settings/#std:setting-SECRET_KEY)에서 확인할 수 있는데, Secret Key를 노출시키면 Django가 제공하는 보안 관련 기능을 무력화하니 주의하라고 한다.  
 
-![django_secretkey_warning](/assets/img/posts/django_secretkey_warning.png)
+![django_secretkey_warning](img/django_secretkey_warning.png){ loading=lazy }
 
 이번 경우에는 이미 노출되었으니 다음과 같은 두 단계로 해결해야 한다.  
 
@@ -156,7 +155,7 @@ SECRET_KEY = 'django-insecure-a)a75!_s7sm8rgd!gw7##m0b3nqzxybw($o+_+2oj^oo34)210
 
 우선 이 부분을 아래와 같이 변경하자. JSON 파일로 분리한 Secret Key를 읽어오는 코드다.  
 
-```python
+```python  title="setting.py"
 import json
 
 from django.core.exceptions import ImproperlyConfigured
@@ -183,8 +182,8 @@ SECRET_KEY = get_secret(var="SECRET_KEY")
 {"SECRET_KEY": "YOUR_SECRET_KEY"}
 ```
 
-❗해당 JSON 파일은 `.gitignore` **파일에 반드시 추가**해서 공개된 저장소에 올라가지 않도록 설정하고, 별도로 보관해야 한다.  
-{:.note title='warning'}
+!!! danger
+    해당 JSON 파일은 `.gitignore` **파일에 반드시 추가**해서 공개된 저장소에 올라가지 않도록 설정하고, 별도로 보관해야 한다.  
 
 ## 5. 감상..?
 

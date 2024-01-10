@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Django] shell에서 로그인하기'
+slug: how-to-login-django-shell
+title: shell에서 로그인하기
+date:
+    created: 2022-11-06
 description: >
-    Django Shell 로그인
-categories: [Django]
-tags: [python, Django]
-image:
-    path: /assets/img/posts/thumbnail_django.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Django Shell 로그인 방법 정리
+categories:
+    - Django
+tags:
+    - Django
 ---
-* toc
-{:toc}
+
+Django Shell 로그인 방법 정리
+
+<!-- more -->
+
+---
 
 ## Django Shell 로그인
 

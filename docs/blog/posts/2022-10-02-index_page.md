@@ -1,27 +1,27 @@
 ---
-published: true
-layout: post
-title: '[Django] 05. 인덱스 페이지'
+slug: index-page-tutorial
+title: 인덱스 페이지
+date:
+    created: 2022-10-02
 description: >
     인덱스 페이지 만들기
-categories: [Django]
-tags: [python, Django]
-image:
-    path: /assets/img/posts/thumbnail_django.png
-related_posts:
-    - _posts/django/2022-10-01-mtv_form.md
-    - _posts/django/2022-10-03-signin_signup.md
+categories:
+    - Django
+tags:
+    - Django
 ---
-{% include series_django.html %}
-* toc
-{:toc}
+
+인덱스 페이지 만들기  
+
+<!-- more -->
+
+---
 
 ## 0. 목표
 
 [인덱스](https://en.wikipedia.org/wiki/Home_page) 페이지가 아래 사진처럼 아무 내용도 없고 404 에러만 보여줘서 개발 중인 페이지를 보고 싶을 경우 매번 주소를 입력해서 접속해야하는게 불편하다.  
 
-![django_homepage_01](/assets/img/posts/django_homepage_01.png)
-{:.border-image}
+![django_homepage_01](img/django_homepage_01.png){ loading=lazy }
 
 어차피 나중에 제대로 된 홈페이지를 만들때 써먹어야하니 이참에 복습 겸 임시로 쓸 인덱스 페이지를 만들어보기로 한다.  
 
@@ -35,7 +35,7 @@ django-admin startapp homepage
 
 생성한 앱은 아래와 같이 `config/settings.py` 파일의 `INSTALLED_APPS` 리스트에 등록하여 관리한다.  
 
-```python
+```python title="settings.py"
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
 ]
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 Django에서 각 페이지가 보여줄 내용은 `views.py` 파일의 함수를 통해 정의한다.  
 
-```python
+```python title="views.py"
 from django.shortcuts import render
 from config import urls
 
@@ -65,7 +65,7 @@ def index(request):
 
 인덱스 페이지에 주소를 매핑하기 위해 `homepage/urls.py` 파일을 아래와 같이 생성해준다.  
 
-```python
+```python title="urls.py"
 from django.urls import path
 from . import views
 
@@ -78,7 +78,7 @@ urlpatterns = [
 
 인덱스 페이지를 `homepage` 앱을 통해 관리하기 위해 `config/urls.py` 파일의 `urlpatterns`에 아래와 같이 추가해준다.  
 
-```python
+```python title="urls.py"
 urlpatterns = [  # include() is a function for including url file in each app
     path('', include('homepage.urls')),
 ]
@@ -88,8 +88,7 @@ urlpatterns = [  # include() is a function for including url file in each app
 
 `templates/homepage/index.html` 파일을 아래와 같이 생성한다.  
 
-{% raw %}
-```html
+```html title="index.html"
 {% extends 'base.html' %}
 {% block content %}
   <ul>
@@ -99,12 +98,10 @@ urlpatterns = [  # include() is a function for including url file in each app
   </ul>
 {% endblock %}
 ```
-{% endraw %}
 
 아래와 같이 각 앱의 목록과 해당 앱의 메인 주소 링크를 보여준다.  
 
-![django_homepage_02](/assets/img/posts/django_homepage_02.png)
-{:.border-image}
+![django_homepage_02](img/django_homepage_02.png){ loading=lazy }
 
 ---
 ## Reference

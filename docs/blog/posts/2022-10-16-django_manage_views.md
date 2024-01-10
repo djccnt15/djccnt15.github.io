@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Django] 09. view 정리'
+slug: how-to-manage-views
+title: view 관리
+date:
+    created: 2022-10-16
 description: >
-    views.py 정리
-categories: [Django]
-tags: [python, Django]
-image:
-    path: /assets/img/posts/thumbnail_django.png
-related_posts:
-    - _posts/django/2022-10-15-update_delete.md
-    - _posts/django/2022-10-22-vote.md
+    views.py 정리를 통한 view 관리
+categories:
+    - Django
+tags:
+    - Django
 ---
-{% include series_django.html %}
-* toc
-{:toc}
+
+views.py 정리를 통한 view 관리  
+
+<!-- more -->
+
+---
 
 ## 1. view 모듈 분리
 
@@ -22,13 +23,13 @@ related_posts:
 
 우선 `board_qna/views` 디렉토리를 만들고, 아래 내용으로 `__init__.py` 파일을 만들어준다.  
 
-```python
+```python title="__init__.py"
 __all__ = ['base', 'answer', 'question']
 ```
 
 `__init__.py` 파일은 해당 폴더를 Python 패키지로 인식하도록 해서 Python이 디렉토리와 디렉토리 안의 모듈을 혼동하는 일을 방지해주는 파일이고, `__all__`를 통해 아래와 같이 `*`을 통해 패키지 내의 모든 모듈을 import하려고 할 때 import 되는 모듈을 정의해준다.  
 
-```python
+```python title="__init__.py"
 from .views import *
 ```
 
@@ -36,7 +37,7 @@ from .views import *
 
 `board_qna/views` 디렉토리에 `base.py` 파일을 만들고, 아래와 같이 `board_qna` 앱의 기본 기능과 관련된 view들을 모아준다.  
 
-```python
+```python title="base.py"
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 
@@ -65,7 +66,7 @@ def detail(request, question_id):
 
 `board_qna/views` 디렉토리에 `question.py` 파일을 만들고, 아래와 같이 `board_qna` 앱의 질문과 관련된 view들을 모아준다.  
 
-```python
+```python title="question.py"
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
@@ -124,7 +125,7 @@ def question_delete(request, question_id):
 
 `board_qna/views` 디렉토리에 `answer.py` 파일을 만들고, 아래와 같이 `board_qna` 앱의 답변과 관련된 view들을 모아준다.  
 
-```python
+```python title="answer.py"
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
@@ -189,7 +190,7 @@ def answer_delete(request, answer_id):
 
 `board_qna/urls.py`를 아래와 같이 수정하여 변경된 모듈로 view를 매핑해준다.  
 
-```python
+```python title="urls.py"
 from django.urls import path
 
 from .views import *

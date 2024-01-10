@@ -1,20 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Django] 08. Update/Delete'
+slug: update-delete-tutorial
+title: Update/Delete
+date:
+    created: 2022-10-15
 description: >
-    질문/답변 수정 및 삭제
-categories: [Django]
-tags: [python, Django]
-image:
-    path: /assets/img/posts/thumbnail_django.png
-related_posts:
-    - _posts/django/2022-10-07-pagination.md
-    - _posts/django/2022-10-16-views.md
+    수정 및 삭제
+categories:
+    - Django
+tags:
+    - Django
 ---
-{% include series_django.html %}
-* toc
-{:toc}
+
+수정 및 삭제  
+
+<!-- more -->
+
+---
 
 ## 1. 질문/답변 수정
 
@@ -22,7 +23,7 @@ related_posts:
 
 게시글이 수정된 일시를 저장하기 위해 데이터 모델에 수정 일시 필드를 추가해야 한다. 수정된 모델은 아래와 같다.  
 
-```python
+```python title="models.py"
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -55,8 +56,8 @@ class Answer(models.Model):
         return self.content
 ```
 
-💡데이터 모델의 필드 옵션에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-options)에서 볼 수 있는데, `null` 옵션은 데이터베이스에 관련된 옵션이고, `blank`는 데이터 검사에 관련된 옵션이다. 또한 데이터 모델에서 `related_name` 파라미터를 통해 관계 모델을 호출할 이름을 설정해줄 수 있다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.ForeignKey.related_name) 참고  
-{:.note}
+!!! note
+    데이터 모델의 필드 옵션에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-options)에서 볼 수 있는데, `null` 옵션은 데이터베이스에 관련된 옵션이고, `blank`는 데이터 검사에 관련된 옵션이다. 또한 데이터 모델에서 `related_name` 파라미터를 통해 관계 모델을 호출할 이름을 설정해줄 수 있다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/models/fields/#django.db.models.ForeignKey.related_name) 참고  
 
 모델을 변경한 후에는 데이터베이스에 적용하기 위한 마이그레이션을 진행해야한다.  
 
@@ -72,7 +73,7 @@ manage.py migrate
 
 질문과 답변 수정 기능을 위한 view들을 아래와 같이 생성한다.  
 
-```python
+```python title="views.py"
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
@@ -126,7 +127,7 @@ def answer_modify(request, answer_id):
 
 `board_qna/urls.py`에 아래 내용을 추가해 위에서 만든 수정 기능들의 URL을 매핑해준다.  
 
-```python
+```python title="urls.py"
 from django.urls import path
 from . import views
 
@@ -142,8 +143,7 @@ urlpatterns = [
 
 `template/board_qna` 디렉토리에 답변 수정 시에 사용할 보조 템플릿인 `answer_form.html`을 아래와 같이 만들어준다.  
 
-{% raw %}
-```html
+```html title="answer_form.html"
 {% extends 'base.html' %}
 {% block content %}
 <!-- modify answer -->
@@ -164,7 +164,6 @@ urlpatterns = [
 </div>
 {% endblock %}
 ```
-{% endraw %}
 
 ## 2. 질문/답변 삭제
 
@@ -172,7 +171,7 @@ urlpatterns = [
 
 아래와 같이 삭제 기능을 위한 view들을 만들어준다.  
 
-```python
+```python title="views.py"
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -205,7 +204,7 @@ def answer_delete(request, answer_id):
 
 삭제 기능을 불러올 URL을 아래와 같이 매핑해준다.  
 
-```python
+```python title="urls.py"
 from django.urls import path
 from . import views
 
@@ -221,7 +220,7 @@ urlpatterns = [
 
 `static` 디렉토리에 `delete.js` 파일을 만들어서 HTML 페이지에서 `delete` 클래스를 갖는 요소가 클릭 될 경우 삭제 여부 확인 팝업을 띄우는 JavaScript를 만들어준다.  
 
-```javascript
+```javascript title="delete.js"
 const delete_elements = document.getElementsByClassName("delete");
 Array.from(delete_elements).forEach(function (element) {
   element.addEventListener(type='click', listener=function () {
@@ -232,20 +231,20 @@ Array.from(delete_elements).forEach(function (element) {
 });
 ```
 
-웹 개발 중에 위와 같이 사용자가 버튼을 눌렀을 때 JavaScript가 특정 동작을 하도록 하는 경우에 대해 아래 예시와 같이 `<a>` 태그를 `href=#`이나 `javascript:void(0)`으로 지정해 페이지 새로고침을 막고, click 이벤트 처리기를 등록해서 가짜 버튼을 만드는 경우가 종종 있다.  
+!!! note
+    웹 개발 중에 사용자가 버튼을 눌렀을 때 JavaScript가 특정 동작을 하도록 하는 경우에 대해 아래 예시와 같이 `<a>` 태그를 `href=#`이나 `javascript:void(0)`으로 지정해 페이지 새로고침을 막고, click 이벤트 처리기를 등록해서 가짜 버튼을 만드는 경우가 종종 있다.  
 
-```html
-<a href="javascript:void(0)" class="delete">삭제</a>
-```
+    ```html
+    <a href="javascript:void(0)" class="delete">삭제</a>
+    ```
 
-모질라의 공식 웹사이트인 [MDN](https://developer.mozilla.org/)에서는 이런 가짜 `<a>` 태그보다는 `<button>` 태그를 사용할 것을 [권장](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#onclick_events)하고 있다.  
+    모질라의 공식 웹사이트인 [MDN](https://developer.mozilla.org/)에서는 이런 가짜 `<a>` 태그보다는 `<button>` 태그를 사용할 것을 [권장](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#onclick_events)하고 있다.  
 
 ## 3. 템플릿 수정
 
 `template/board_qna/question_detail.html` 템플릿을 아래와 같이 수정하여 질문과 답변의 수정 및 삭제 버튼을 만들어주고, 수정될 경우 최종 수정 날짜를 표시하도록 만들어준다. 또한 앞서 데이터 모델을 수정하면서 `related_name` 파라미터를 설정해주었기 때문에 `question.answer_set` 대신에 `question.question_answers`를 사용해서 관계 모델을 호출해준다.  
 
-{% raw %}
-```html
+```html title="question_detail.html"
 {% extends 'base.html' %}
 {% block content %}
   <div class="container my-3">
@@ -334,12 +333,10 @@ Array.from(delete_elements).forEach(function (element) {
   <script type="text/javascript" src="{% static 'delete.js' %}"></script>
 {% endblock %}
 ```
-{% endraw %}
 
 아래와 같이 페이지가 생성되고, 삭제 버튼을 누를 경우 확인창이 뜨는 것을 확인할 수 있다.  
 
-![django_delete](/assets/img/posts/django_delete.png)
-{:.border-image}
+![django_delete](img/django_delete.png){ loading=lazy }
 
 ---
 ## Reference

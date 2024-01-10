@@ -1,20 +1,22 @@
 ---
-published: true
-layout: post
-title: '[Django] 02. App과 ORM'
+slug: app-orm-tutorial
+title: App과 ORM
+date:
+    created: 2022-09-27
 description: >
     App 생성, 데이터 모델 생성 및 활성화, 관리자 계정 생성
-categories: [Django]
-tags: [python, Django, ORM]
-image:
-    path: /assets/img/posts/thumbnail_django.png
-related_posts:
-    - _posts/django/2022-09-25-initiate.md
-    - _posts/django/2022-09-30-template_css.md
+categories:
+    - Django
+tags:
+    - Django
+    - orm
 ---
-{% include series_django.html %}
-* toc
-{:toc}
+
+App 생성, view 생성, URL 매핑, 데이터 모델 생성 및 활성화, 관리자 계정 생성  
+
+<!-- more -->
+
+---
 
 ## 1. 기능 추가
 
@@ -26,11 +28,12 @@ App(앱)은 **Application software/program**의 줄임말로, 운영체제가 �
 django-admin startapp [app_name]
 ```
 
-Django 공식 문서에서는 [Project와 App의 차이](https://docs.djangoproject.com/en/4.1/intro/tutorial01/#creating-the-polls-app)를 다음과 같이 설명하고 있다.  
+!!! note
+    Django 공식 문서에서 말하는 [Project와 App의 차이](https://docs.djangoproject.com/en/4.1/intro/tutorial01/#creating-the-polls-app)
 
-- An app is a web application.
-- A project is a collection of configuration and apps for a particular website.
-    - A project can contain multiple apps. An app can be in multiple projects.
+    - An app is a web application.
+    - A project is a collection of configuration and apps for a particular website.
+        - A project can contain multiple apps. An app can be in multiple projects.
 
 ```bat
 django-admin startapp board_qna
@@ -40,7 +43,7 @@ terminal에 반응은 없지만, 프로젝트 디렉토리에 `board_qna` 디렉
 
 앱을 생성한 후에는 `config/settings.py`에 등록을 해줘야 한다. 해당 파일의 `INSTALLED_APPS` 리스트에 아래와 같이 `board_qna.apps.BoardQnaConfig` 항목을 추가하자.  
 
-```python
+```python title="settings.py"
 # Application definition
 
 INSTALLED_APPS = [
@@ -50,7 +53,7 @@ INSTALLED_APPS = [
 
 여기서 `board_qna.apps.BoardQnaConfig`는 `board_qna/apps.py`에 생성된 아래 클래스를 말한다.  
 
-```python
+```python title="apps.py"
 class BoardQnaConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'board_qna'
@@ -60,7 +63,7 @@ class BoardQnaConfig(AppConfig):
 
 Django [공식 문서](https://docs.djangoproject.com/en/4.1/intro/tutorial03/#overview)에서는 view를 *특정한 기능을 제공하고 특정한 템플릿을 가진 Django 애플리케이션의 웹 페이지의 "type"*이라고 정의하고 있다.  
 
-```python
+```python title="views.py"
 from django.http import HttpResponse
 
 
@@ -78,7 +81,7 @@ Django는 HTTP 요청을 받을 경우 [HttpRequest](https://docs.djangoproject.
 
 나는 `board_qna`라는 이름으로 Q&A 게시판 앱을 생성했기 때문에 `config/urls.py` 파일의 `urlpatterns` 항목에 아래와 같이 추가하였다.  
 
-```python
+```python title="urls.py"
 from django.contrib import admin
 from django.urls import path, include
 
@@ -108,7 +111,7 @@ def _path(route, view, kwargs=None, name=None, Pattern=None):
 
 `board_qna` 앱과 관련된 주소들을 설정하는 `board_qna/urls.py` 파일은 아래와 같은 내용으로 생성해준다.  
 
-```python
+```python title="urls.py"
 from django.urls import path
 
 from . import views
@@ -171,7 +174,7 @@ migration을 수행하면 위 경고문에서 표시된 `admin`, `auth`, `conten
 
 `config/settings.py` 파일에 보면 아래와 같이 Database에 대한 설정이 있다.  
 
-```python
+```python title="settings.py"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -196,19 +199,18 @@ Django가 지원하는 여러 가지 DB의 백엔드 엔진은 아래와 같다.
 
 [^1]: SQLite는 개발용이나 소규모 프로젝트에서 사용되는 가벼운 파일 기반의 데이터베이스로, 개발 시에는 SQLite를 사용하여 빠르게 개발하고 실제 운영에 들어가면 좀 더 규모있는 Database를 사용하는 것이 일반적이라고 한다.  
 
-💡Django의 Database에 대한 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/databases/)에서 확인할 수 있다.  
-{:.note}
+!!! info
+    Django의 Database에 대한 자세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/databases/)에서 확인할 수 있다.  
 
 ### 2-3. Model 생성
 
 `board_qna/models.py` 파일에서 `board_qna` 앱이 사용할 데이터 모델을 설정할 수 있다. 기본적인 데이터 모델의 구상은 아래와 같다.  
 
-![django_erd_board_qna](/assets/img/posts/django_erd_board_qna.png)
-{:.text-center}
+![django_erd_board_qna](img/django_erd_board_qna.png){ loading=lazy }
 
 위와 같이 구상한 데이터 모델을 구현하기 위해 아래와 같이 작성해준다.  
 
-```python
+```python title="models.py"
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -256,8 +258,8 @@ class Answer(models.Model):
 id = models.BigAutoField(primary_key=True)
 ```
 
-💡Django에서 모든 모델은 반드시 Primary Key가 있어야 하는데, 만약 Primary Key 필드를 직접 지정하고 싶다면 해당 필드에 `primary_key=True` 옵션을 주면 되고, 이 경우에는 id 필드가 자동으로 생성되지 않는다.  
-{:.note}
+!!! tip
+    Django에서 모든 모델은 반드시 Primary Key가 있어야 하는데, 만약 Primary Key 필드를 직접 지정하고 싶다면 해당 필드에 `primary_key=True` 옵션을 주면 되고, 이 경우에는 id 필드가 자동으로 생성되지 않는다.  
 
 ### 2-4. migrations 생성
 
@@ -312,29 +314,28 @@ SQL Query를 보면 모델에 `id`를 생성하지 않았음에도 불구하고 
 manage.py sqlmigrate board_qna 0002
 ```
 
-<details><summary>terminal</summary><div markdown="1">
-```
-BEGIN;
---
--- Rename field author on answer to user
---
-CREATE TABLE "new__board_qna_answer" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "content" text NOT NULL, "date_create" datetime NOT NULL, "question_id" bigint NOT NULL REFERENCES "board_qna_question" ("id") DEFERRABLE INITIALLY DEFERRED);
-INSERT INTO "new__board_qna_answer" ("id", "content", "date_create", "question_id", "user_id") SELECT "id", "content", "date_create", "question_id", "author_id" FROM "board_qna_answer";
-DROP TABLE "board_qna_answer";
-ALTER TABLE "new__board_qna_answer" RENAME TO "board_qna_answer";
-CREATE INDEX "board_qna_answer_user_id_c374bc49" ON "board_qna_answer" ("user_id");
-CREATE INDEX "board_qna_answer_question_id_0336aa3c" ON "board_qna_answer" ("question_id");
---
--- Rename field author on question to user
---
-CREATE TABLE "new__board_qna_question" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "subject" varchar(200) NOT NULL, "content" text NOT NULL, "date_create" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED);
-INSERT INTO "new__board_qna_question" ("id", "subject", "content", "date_create", "user_id") SELECT "id", "subject", "content", "date_create", "author_id" FROM "board_qna_question";
-DROP TABLE "board_qna_question";
-ALTER TABLE "new__board_qna_question" RENAME TO "board_qna_question";
-CREATE INDEX "board_qna_question_user_id_942b6691" ON "board_qna_question" ("user_id");
-COMMIT;
-```
-</div></details>
+??? quote "Standard Out"
+    ```
+    BEGIN;
+    --
+    -- Rename field author on answer to user
+    --
+    CREATE TABLE "new__board_qna_answer" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "content" text NOT NULL, "date_create" datetime NOT NULL, "question_id" bigint NOT NULL REFERENCES "board_qna_question" ("id") DEFERRABLE INITIALLY DEFERRED);
+    INSERT INTO "new__board_qna_answer" ("id", "content", "date_create", "question_id", "user_id") SELECT "id", "content", "date_create", "question_id", "author_id" FROM "board_qna_answer";
+    DROP TABLE "board_qna_answer";
+    ALTER TABLE "new__board_qna_answer" RENAME TO "board_qna_answer";
+    CREATE INDEX "board_qna_answer_user_id_c374bc49" ON "board_qna_answer" ("user_id");
+    CREATE INDEX "board_qna_answer_question_id_0336aa3c" ON "board_qna_answer" ("question_id");
+    --
+    -- Rename field author on question to user
+    --
+    CREATE TABLE "new__board_qna_question" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "subject" varchar(200) NOT NULL, "content" text NOT NULL, "date_create" datetime NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED);
+    INSERT INTO "new__board_qna_question" ("id", "subject", "content", "date_create", "user_id") SELECT "id", "subject", "content", "date_create", "author_id" FROM "board_qna_question";
+    DROP TABLE "board_qna_question";
+    ALTER TABLE "new__board_qna_question" RENAME TO "board_qna_question";
+    CREATE INDEX "board_qna_question_user_id_942b6691" ON "board_qna_question" ("user_id");
+    COMMIT;
+    ```
 
 ### 2-5. migrate
 
@@ -352,8 +353,7 @@ Running migrations:
 
 `db.sqlite3`를 데이터베이스 관리 도구로 열어 보면 아래 그림과 같이 실제 ERD가 설계대로 생성된 것을 확인할 수 있다.  
 
-![django_erd_board_qna_actual](/assets/img/posts/django_erd_board_qna_actual.png)
-{:.text-center}
+![django_erd_board_qna_actual](img/django_erd_board_qna_actual.png){ loading=lazy }
 
 ### 2-6. Python shell로 API 접근하기
 
@@ -400,19 +400,17 @@ Superuser created successfully.
 
 접속하면 아래와 같이 관리자 로그인 화면이 뜬다.  
 
-![django_admin_login](/assets/img/posts/django_admin_login.png)
-{:.border-image}
+![django_admin_login](img/django_admin_login.png){ loading=lazy }
 
 앞에서 설정한 이름과 비밀번호를 통해 접속하면 아래와 같이 관리자 화면이 나타난다.  
 
-![django_admin_page_01](/assets/img/posts/django_admin_page_01.png)
-{:.border-image}
+![django_admin_page_01](img/django_admin_page_01.png){ loading=lazy }
 
 ### 3-2. 모델 관리 권한 부여
 
 아래와 같이 `board_qna/admin.py`에서 `django.contrib.admin` 모듈을 통해 관리자가 모델을 직접 관리할 수 있도록 등록 할 수 있다.  
 
-```python
+```python title="admin.py"
 from django.contrib import admin
 from .models import Question, Answer
 
@@ -424,15 +422,13 @@ admin.site.register(Answer)
 
 로컬호스트 서버에서 아래와 같이 관리자가 글을 직접 관리할 수 있는 것을 확인할 수 있다.  
 
-![django_admin_page_02](/assets/img/posts/django_admin_page_02.png)
-{:.border-image}
+![django_admin_page_02](img/django_admin_page_02.png){ loading=lazy }
 
-![django_admin_page_03](/assets/img/posts/django_admin_page_03.png)
-{:.border-image}
+![django_admin_page_03](img/django_admin_page_03.png){ loading=lazy }
 
 만약 관리자에게 검색 기능을 주고 싶다면 아래와 같이 작성하면 된다.  
 
-```python
+```python title="models.py"
 from django.contrib import admin
 from .models import Question, Answer
 
@@ -451,8 +447,8 @@ admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
 ```
 
-💡관리자와 관련된 기능에 대한 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/contrib/admin/)를 참고  
-{:.note}
+!!! info
+    관리자와 관련된 기능에 대한 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/contrib/admin/)를 참고  
 
 ---
 ## Reference

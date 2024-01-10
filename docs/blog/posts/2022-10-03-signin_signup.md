@@ -1,26 +1,28 @@
 ---
-published: true
-layout: post
-title: '[Django] 06. 로그인/로그아웃, 회원가입'
+slug: signin-signup-tutorial
+title: 로그인/로그아웃, 회원가입
+date:
+    created: 2022-10-03
 description: >
     로그인/로그아웃, 회원가입 기능 만들기
-categories: [Django]
-tags: [python, Django, auth]
-image:
-    path: /assets/img/posts/thumbnail_django.png
-related_posts:
-    - _posts/django/2022-10-02-index_page.md
-    - _posts/django/2022-10-07-pagination.md
+categories:
+    - Django
+tags:
+    - Django
+    - auth
 ---
-{% include series_django.html %}
-* toc
-{:toc}
+
+로그인/로그아웃, 회원가입 기능 만들기  
+
+<!-- more -->
+
+---
 
 ## 1. 로그인/로그아웃
 
 Django에서는 기본 제공 모듈인 `django.contrib.auth`을 통해 로그인/로그아웃 기능을 쉽게 개발할 수 있다. 아래와 같이 프로젝트 생성 시에 기본적으로 적용되어 있다.  
 
-```python
+```python title="settings.py"
 INSTALLED_APPS = [
     'django.contrib.auth',
 ]
@@ -38,7 +40,7 @@ django-admin startapp common
 
 생성한 앱은 아래와 같이 `config/settings.py` 파일의 `INSTALLED_APPS` 리스트에 등록하여 관리한다.  
 
-```python
+```python title="settings.py"
 INSTALLED_APPS = [
     'common.apps.CommonConfig',
 ]
@@ -48,7 +50,7 @@ INSTALLED_APPS = [
 
 앞서 얘기한 바와 같이 Django가 제공하는 `django.contrib.auth`를 사용해서 로그인/로그아웃을 위한 view를 만들어준다. 
 
-```python
+```python title="views.py"
 from django.contrib.auth import views as auth_views
 
 # Create your views here.
@@ -63,7 +65,7 @@ logout_view = auth_views.LogoutView.as_view()
 
 로그인과 로그아웃 view를 보여줄 URL을 만들기 위해 `common/urls.py` 파일을 아래와 같이 생성해준다.  
 
-```python
+```python title="urls.py"
 from django.urls import path
 from . import views
 
@@ -77,7 +79,7 @@ urlpatterns = [
 
 기본 제공되는 모듈을 통해 기능을 만들기 때문에 아래와 같이 `urls.py`에서 바로 처리해도 되지만, 프로젝트의 일관성을 위해 위와 같이 분리하였다.  
 
-```python
+```python title="settings.py"
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -87,7 +89,7 @@ urlpatterns = [
 
 `common/urls.py` 파일을 통해 URL을 관리하기 위해 `config/settings.py` 파일의 `urlpatterns` 항목에 아래와 같이 추가한다.  
 
-```python
+```python title="settings.py"
 urlpatterns = [  # include() is a function for including url file in each app
     path('common/', include('common.urls')),
 ]
@@ -97,8 +99,7 @@ urlpatterns = [  # include() is a function for including url file in each app
 
 내비게이션 바에서 `common` 앱의 로그인 view를 사용할 수 있도록 `template/navbar.html`의 로그인 메뉴 부분을 아래와 같이 수정한다.  
 
-{% raw %}
-```html
+```html title="navbar.html"
 <li class="nav-item">
   {% if user.is_authenticated %}
     <a class="nav-link" href="{% url 'common:logout' %}">로그아웃</a>
@@ -107,14 +108,12 @@ urlpatterns = [  # include() is a function for including url file in each app
   {% endif %}
 </li>
 ```
-{% endraw %}
 
 사용자가 로그인 되어 있는지 아닌지에 따라 다른 기능을 제공하기 위해 `user.is_authenticated` 속성을 활용했다. `django.contrib.auth` 앱이 제공하는 `User`의 데이터 모델에 대한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/contrib/auth/#user-model)를 보자.  
 
 사용자의 ID와 비밀번호를 받아 로그인으로 보내주는 템플릿 파일 `common/login.html`을 아래와 같이 생성한다.  
 
-{% raw %}
-```html
+```html title="login.html"
 {% extends "base.html" %}
 {% block content %}
 <div class="container my-3">
@@ -145,18 +144,16 @@ urlpatterns = [  # include() is a function for including url file in each app
 </div>
 {% endblock %}
 ```
-{% endraw %}
 
 아래와 같은 화면으로 생성된다.  
 
-![django_login](/assets/img/posts/django_login.png)
-{:.border-image}
+![django_login](img/django_login.png){ loading=lazy }
 
 ### 1-5. 리다이렉트 지정
 
 `django.contrib.auth` 패키지는 디폴트로 로그인이 성공하면 `/accounts/profile/`이라는 URL로, 로그아웃의 경우 관리 페이지의 로그아웃 URL로 이동시킨다. 이 부분을 홈페이지로 되돌아가는 것으로 변경하려면 `config/settings.py`에 아래 내용을 추가하면 된다.  
 
-```python
+```python title="settings.py"
 # redirection after login/logout
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -168,9 +165,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 프론트 엔드에서 HTML의 `disabled` 속성을 이용하여 막아둘 수 있다. 아래는 `template/board_qna/question_detail.html`에서 답변 등록을 위한 `<textarea>` 태그에 적용시킨 모습이다.  
 
-{% raw %}
-```html
-<!-- b4 -->
+```html title="question_detail.html"
+<!-- before -->
 <textarea name="content" id="content" class="form-control" rows="10"></textarea>
 
 <!-- after -->
@@ -181,7 +177,6 @@ LOGOUT_REDIRECT_URL = '/'
   class="form-control"
   rows="10"></textarea>
 ```
-{% endraw %}
 
 ### 2-2. Django API 사용
 
@@ -201,7 +196,7 @@ def question_create(request):
 
 첫 번째로 아래와 같이 `settings.py`에서 `LOGIN_URL` 옵션을 추가/수정해주는 방법이 있다.  
 
-```python
+```python title="settings.py"
 # redirection for login_required()
 LOGIN_URL = '/common/login/'
 ```
@@ -214,12 +209,12 @@ def question_create(request):
     ...
 ```
 
-💡Django에서 로그인 회원만 특정 기능을 사용할 수 있도록 제한하는 방법은 여러 가지가 있는데, 전체 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/default/#limiting-access-to-logged-in-users)를 참고하자.  
-{:.note}
+!!! info
+    Django에서 로그인 회원만 특정 기능을 사용할 수 있도록 제한하는 방법은 여러 가지가 있는데, 전체 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/topics/auth/default/#limiting-access-to-logged-in-users)를 참고하자.  
 
 `template/common/login.html` 파일에 추가한 아래 코드는 `login_required` 데코레이터를 사용할 때, 로그인 후 이동할 페이지를 넘겨주는 역할을 한다.  
 
-```html
+```html title="login.html"
 <input type="hidden" name="next" value="{{ next }}">  <!-- redirection URL after login -->
 ```
 
@@ -229,7 +224,7 @@ def question_create(request):
 
 회원가입 시 사용자 정보를 받기 위해 `common/forms.py` 파일을 생성하고, `django.contrib.auth.forms`의 `UserCreationForm`을 상속해 아래와 같이 `UserForm` 클래스를 만들어준다.  
 
-```python
+```python title="forms.py"
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -254,7 +249,7 @@ class UserForm(UserCreationForm):
 
 회원 가입 기능을 만들기 위해 `common/views.py` 파일에 아래 내용을 추가한다.  
 
-```python
+```python title="views.py"
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from common.forms import UserForm
@@ -284,7 +279,7 @@ def user_signup(request):
 
 `common/urls.py`에 아래와 같이 추가하여 사용자가 회원가입 페이지를 요청할 경우 `views.py`의 `user_signup`을 호출하도록 매핑해준다.  
 
-```python
+```python title="urls.py"
 urlpatterns = [
     path('signup/', views.user_signup, name='signup'),
 ]
@@ -294,8 +289,7 @@ urlpatterns = [
 
 `template/common` 디렉토리에 회원 가입용 화면을 위한 템플릿 `user_signup.html`을 아래 내용으로 생성해준다.  
 
-{% raw %}
-```html
+```html title="user_signup.html"
 {% extends "base.html" %}
 {% block content %}
 <div class="container my-3">
@@ -343,12 +337,10 @@ urlpatterns = [
 </div>
 {% endblock %}
 ```
-{% endraw %}
 
 `template/navbar.html`의 적당한 위치에 아래 내용을 추가하여 회원가입 및 탈퇴를 위한 메뉴를 만들어주자.  
 
-{% raw %}
-```html
+```html title="navbar.html"
 <li class="nav-item">
   {% if not user.is_authenticated %}
     <a class="nav-link" href="{% url 'common:signup' %}">회원가입</a>
@@ -357,12 +349,10 @@ urlpatterns = [
   {% endif %}
 </li>
 ```
-{% endraw %}
 
 아래와 같은 화면으로 생성된다.  
 
-![django_signup](/assets/img/posts/django_signup.png)
-{:.border-image}
+![django_signup](img/django_signup.png){ loading=lazy }
 
 ## 4. 회원 탈퇴
 
@@ -370,7 +360,7 @@ urlpatterns = [
 
 `common/forms.py` 파일에 비밀번호 확인을 위한 form을 아래와 같이 추가하자.  
 
-```python
+```python title="forms.py"
 from django import forms
 from django.contrib.auth.hashers import check_password
 
@@ -414,7 +404,7 @@ class CheckPasswordForm(forms.Form):
 
 `common/views.py` 파일에 회원 탈퇴를 위한 view를 만들어준다.  
 
-```python
+```python title="views.py"
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from .forms import CheckPasswordForm
@@ -441,7 +431,7 @@ def user_drop(request):
 
 `common/urls.py`에 아래와 같이 추가하여 사용자가 회원탈퇴 페이지를 요청할 경우 `views.py`의 `user_drop`을 호출하도록 매핑해준다.  
 
-```python
+```python title="urls.py"
 urlpatterns = [
     path('user_drop/', views.user_drop, name='user_drop'),
 ]
@@ -451,8 +441,7 @@ urlpatterns = [
 
 아래와 같은 내용으로 `templates/common` 디렉토리에 `user_drop.html` 파일을 생성하여 회원탈퇴 페이지를 위한 템플릿을 만들어준다.  
 
-{% raw %}
-```html
+```html title="user_drop.html"
 {% extends "base.html" %}
 {% block content %}
 <form method="POST" novalidate>
@@ -476,12 +465,10 @@ urlpatterns = [
 </form>
 {% endblock %}
 ```
-{% endraw %}
 
 아래와 같은 화면으로 생성된다.  
 
-![django_user_drop](/assets/img/posts/django_user_drop.png)
-{:.border-image}
+![django_user_drop](img/django_user_drop.png){ loading=lazy }
 
 ---
 ## Reference
