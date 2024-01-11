@@ -1,19 +1,24 @@
 ---
-published: true
-layout: post
-title: '[FastAPI] 03. SQLAlchemy 기반 ORM'
+slug: fastapi-orm
+title: FastAPI ORM 적용
+date:
+    created: 2023-06-10
 description: >
     SQLAlchemy와 Alembic을 활용한 데이터베이스 ORM
-categories: [FastAPI]
-tags: [python, FastAPI, ORM, SQLAlchemy, Alembic]
-image:
-    path: /assets/img/posts/thumbnail_fastapi.png
-related_posts:
-    - _posts/fastapi/2023-05-13-structure.md
+categories:
+    - FastAPI
+tags:
+    - FastAPI
+    - ORM
+    - SQLAlchemy
+    - Alembic
 ---
-{% include series_fastapi.html %}
-* toc
-{:toc}
+
+SQLAlchemy와 Alembic을 활용한 데이터베이스 FastAPI 서버 ORM 활용  
+
+<!-- more -->
+
+---
 
 ## 1. FastAPI ORM 구조
 
@@ -21,8 +26,9 @@ FastAPI에서는 SQLAlchemy와 Pydantic 두 가지 패키지를 이용해 ORM을
 
 SQLAlchemy와 Pydantic에서 사용하는 model의 의미가 달라 주의해야 하는데, FastAPI [공식 문서](https://fastapi.tiangolo.com/tutorial/sql-databases/#create-sqlalchemy-models-from-the-base-class)에 따르면, SQLAlchemy와 Pydantic의 model의 의미는 각각 아래와 같다.  
 
-> SQLAlchemy uses the term **model** to refer to these classes and instances that interact with the database.<br><br>
-> But Pydantic also uses the term **model** to refer to something different, the data validation, conversion, and documentation classes and instances
+!!! quote
+    - SQLAlchemy uses the term **model** to refer to these classes and instances that interact with the database.
+    - But Pydantic also uses the term **model** to refer to something different, the data validation, conversion, and documentation classes and instances
 
 위 설명에 따라 FastAPI에서 사용하는 데이터 모델의 종류를 비교하면 아래와 같다.  
 
@@ -48,14 +54,14 @@ FastAPI는 Django와 같은 자체적인 ORM 엔진은 없지만 [SQLAlchemy](ht
 
 각 데이터베이스의 드라이버의 목록을 보면 여러가지가 있는데, FastAPI의 장점인 비동기처리를 DB IO에까지 적용하려면 Async를 지원하는 DB 및 드라이버를 사용해야한다.  
 
-❗대표적으로 Microsoft SQL Server의 경우 SQLAlchemy가 지원하는 드라이버는 [pymssql](https://pymssql.readthedocs.io/en/latest/)와 [PyODBC](https://github.com/mkleehammer/pyodbc)가 있는데, 둘 다 비동기처리를 지원하지 않는다.  
-{:.note title='attention'}
+!!! note
+    대표적으로 Microsoft SQL Server의 경우 SQLAlchemy가 지원하는 드라이버는 [pymssql](https://pymssql.readthedocs.io/en/latest/)와 [PyODBC](https://github.com/mkleehammer/pyodbc)가 있는데, 둘 다 비동기처리를 지원하지 않는다.  
 
 ## 3. 데이터베이스 환경 설정
 
 `conf/database.py` 파일을 아래와 같이 만들어주자.  
 
-```python
+```python title="database.py"
 from sqlalchemy.engine import URL
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import declarative_base
@@ -97,23 +103,23 @@ if __name__ == '__main__':
 
 ### 데이터베이스 설정
 
-**중요정보**
+#### 중요정보
 
 데이터베이스 관련 정보를 코드 내부에 하드코딩으로 작성해두면 보안상 좋지 않을 뿐 아니라, DB 관련 정보를 바꿀 때 코드를 업데이트 해야하는 단점이 있다.  
 
-❗KISA의 가이드에 따르면, SW 내부에 사용되는 각종 Key와 같은 중요정보들은 암호화 후 분리해서 보관해야 한다.  
-{:.note title='attention'}
+!!! danger
+    KISA의 가이드에 따르면, SW 내부에 사용되는 각종 Key와 같은 중요정보들은 암호화 후 분리해서 보관해야 한다.  
 
 우선 `get_key` 함수가 `config.ini`에서 `db_key`의 내용을 불러올 수 있도록 `config.ini`에 아래 내용을 추가하자.  
 
-```ini
+```ini title="config.ini"
 [DEFAULT]
 key = key.bin
 ```
 
 `key.bin` 파일은 데이터베이스 관련 중요정보를 별도로 보관하는 암호화 된 파일로, 데이터의 내용은 아래와 같다.  
 
-```json
+```json title="key.bin"
 {
     "db": {
         "dev": {
@@ -132,7 +138,7 @@ key = key.bin
 }
 ```
 
-`get_key` 함수는 아래와 같은데, 내부적으로 사용되는 암호화 모듈에 대한 자세한 내용은 [여기](/python/python_asymmetric_encryption)를 참고하자.
+`get_key` 함수는 아래와 같은데, 내부적으로 사용되는 암호화 모듈에 대한 자세한 내용은 [여기](2023-07-05-asymmetric_encryption.md)를 참고하자.
 
 ```python
 def get_key(
@@ -142,7 +148,7 @@ def get_key(
     return Dict(literal_eval(decrypt_rsa(file_name, private_key)))
 ```
 
-**데이터베이스 주소**
+#### 데이터베이스 주소
 
 `SQLALCHEMY_DATABASE_URL`는 데이터베이스의 주소로, 아래와 같은 규칙을 따른다.  
 
@@ -158,16 +164,14 @@ DB URL에 대한 자세한 내용은 SQLAlchemy [공식 문서](https://docs.sql
 
 [엔진](https://docs.sqlalchemy.org/en/20/core/engines.html)은 모든 SQLAlchemy 어플리케이션의 시작점으로, 아래 그림과 같이 [Connection Pool](https://docs.sqlalchemy.org/en/20/core/pooling.html#sqlalchemy.pool.Pool)과 [Dialect](https://docs.sqlalchemy.org/en/20/core/internals.html#sqlalchemy.engine.Dialect)를 연결하여 데이터베이스 연결 및 동작을 위한 소스를 생성해준다.  
 
-💡컨넥션 풀이란 데이터베이스에 접속하는 객체를 일정 갯수만큼 만들어 놓고 재활용하며 사용하는 것을 말한다.  
-{:.note}
+!!! note
+    컨넥션 풀이란 데이터베이스에 접속하는 객체를 일정 갯수만큼 만들어 놓고 재활용하며 사용하는 것을 말한다.  
 
-![](https://docs.sqlalchemy.org/en/20/_images/sqla_engine_arch.png)
-{:.text-center}
+![](https://docs.sqlalchemy.org/en/20/_images/sqla_engine_arch.png){ loading=lazy }
 
 `create_async_engine`은 [공식 문서](https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine)에 따르면 `create_engine`과 마찬가지로 엔진 인스턴스를 생성한다.  
 
 SQLAlchemy는 데이터베이스를 엔진 방식으로 사용함으로서 데이터베이스에 접속하는 세션 수를 제어하고, 세션 접속에 소요되는 시간을 줄일 수 있다고 한다.  
-
 
 ### 데이터베이스 의존성 주입
 
@@ -188,7 +192,7 @@ async def post_detail(id: UUID, db: AsyncSession = Depends(get_db)):
 
 `src/models` 경로에 아래와 같이 DAO를 위한 데이터 모델을 담고 있는 모듈들을 만들어준다. 가장 기초적이고 공용으로 사용될 데이터 모델을 저장해둔 `models.py` 파일은 아래와 같다.  
 
-```python
+```python title="models.py"
 from sqlalchemy.schema import Column
 from sqlalchemy.types import Boolean, Integer, String, Text, DateTime, Uuid
 from sqlalchemy.orm import relationship
@@ -223,7 +227,7 @@ class User(Base):
 
 다른 모듈들도 동일한 구조로 작성되며 모두 아래와 같이 `conf/database.py` 파일에서 생성한 Base 객체를 공유해서 사용한다는 특징이 있다.  
 
-```python
+```python title="database.py"
 from conf.database import Base
 
 class ClassName(Base):
@@ -249,14 +253,11 @@ class ClassName(Base):
 
 `back_populates` 파라미터를 활용하여 관계를 설정하는 방식은 아래 그림이 가장 잘 설명해주고 있다.  
 
-![back_populates](https://sqlmodel.tiangolo.com/img/tutorial/relationships/attributes/back-populates.svg)
-{:.text-center}
+![back_populates](https://sqlmodel.tiangolo.com/img/tutorial/relationships/attributes/back-populates.svg){ loading=lazy }  
+^[출처: Relationship with back_populates](https://sqlmodel.tiangolo.com/tutorial/relationship-attributes/back-populates/#relationship-with-back_populates)^
 
-[출처: Relationship with back_populates](https://sqlmodel.tiangolo.com/tutorial/relationship-attributes/back-populates/#relationship-with-back_populates)
-{:.figcaption}
-
-💡`bqckref`와 `back_populates`는 동일하게 Foreign 객체가 연관된 객체를 참조하기 위한 역참조를 제공하는 기능을 하지만, 코딩 방식이 조금 다른데, 차이점은 스택 오버플로우 [질문글](https://stackoverflow.com/questions/51335298/concepts-of-backref-and-back-populate-in-sqlalchemy)을 참고하자. 다만, SQLAlchemy [공식 문서](https://docs.sqlalchemy.org/en/20/orm/backref.html)에서는 `bqckref` 방식이 레거시라고 한다.  
-{:.note}
+!!! note
+    `bqckref`와 `back_populates`는 동일하게 Foreign 객체가 연관된 객체를 참조하기 위한 역참조를 제공하는 기능을 하지만, 코딩 방식이 조금 다른데, 차이점은 스택 오버플로우 [질문글](https://stackoverflow.com/questions/51335298/concepts-of-backref-and-back-populate-in-sqlalchemy)을 참고하자. 다만, SQLAlchemy [공식 문서](https://docs.sqlalchemy.org/en/20/orm/backref.html)에서는 `bqckref` 방식이 레거시라고 한다.  
 
 개발하는 데이터 모델에 대한 요구사항은 아래와 같았는데, 데이터 모델을 모듈별로 분리하면서 `relationship` 함수를 통한 참조 관계를 사용할 수 있도록 하는 부분이 생각보다 어려웠다.  
 
@@ -266,39 +267,36 @@ class ClassName(Base):
 
 위 요구 사항을 달성하기 위해서는 Mapper 클래스를 활용한 타입 힌트 방식이 아닌 `relationship` 함수의 인자로 참조 대상 객체의 이름을 str 타입으로 입력하고, 각 모듈들이 Base를 모두 동일한 인스턴스를 사용해야 한다.
 
-<details><summary>트러블슈팅 과정의 에러들</summary><div markdown="1">
+??? note "트러블슈팅 과정의 에러들"
+    아래 예시는 SQLAlchemy의 [공식 문서](https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html)에 나오는 가장 권장되는 형태의 참조 관계 모델 형식이다.  
 
-아래 예시는 SQLAlchemy의 [공식 문서](https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html)에 나오는 가장 권장되는 형태의 참조 관계 모델 형식이다.  
+    ```python
+    class Parent(Base):
+        __tablename__ = "parent_table"
 
-```python
-class Parent(Base):
-    __tablename__ = "parent_table"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-    children: Mapped[List["Child"]] = relationship(back_populates="parent")
+        id: Mapped[int] = mapped_column(primary_key=True)
+        children: Mapped[List["Child"]] = relationship(back_populates="parent")
 
 
-class Child(Base):
-    __tablename__ = "child_table"
+    class Child(Base):
+        __tablename__ = "child_table"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
-    parent_id: Mapped[int] = mapped_column(ForeignKey("parent_table.id"))
-    parent: Mapped["Parent"] = relationship(back_populates="children")
-```
+        id: Mapped[int] = mapped_column(primary_key=True)
+        parent_id: Mapped[int] = mapped_column(ForeignKey("parent_table.id"))
+        parent: Mapped["Parent"] = relationship(back_populates="children")
+    ```
 
-각 모델이 작성 된 모듈을 분리한 상태에서 위와 같은 방식으로 DAO 모델을 만들고 각 모듈이 서로를 임포트 해서 사용하면, Alembic을 통한 마이그레이션 단계에서 Python의 근본적인 한계로 인해 아래와 같은 순환 참조 에러가 발생한다.  
+    각 모델이 작성 된 모듈을 분리한 상태에서 위와 같은 방식으로 DAO 모델을 만들고 각 모듈이 서로를 임포트 해서 사용하면, Alembic을 통한 마이그레이션 단계에서 Python의 근본적인 한계로 인해 아래와 같은 순환 참조 에러가 발생한다.  
 
-```
-ImportError: cannot import name 'Post' from partially initialized module 'src.models.models' (most likely due to a circular import) 
-```
+    ```
+    ImportError: cannot import name 'Post' from partially initialized module 'src.models.models' (most likely due to a circular import) 
+    ```
 
-Base를 각 모듈별로 새로 선언해서 독립된 인스턴스를 사용하면, Alembic을 통한 자동화 마이그레이션은 가능했지만, 서버 구동 단계에서 중복 선언 오류가 발생한다.  
+    Base를 각 모듈별로 새로 선언해서 독립된 인스턴스를 사용하면, Alembic을 통한 자동화 마이그레이션은 가능했지만, 서버 구동 단계에서 중복 선언 오류가 발생한다.  
 
-```
-ValueError: Duplicate table keys across multiple MetaData objects: "table1", "table2"
-```
-
-</div></details>
+    ```
+    ValueError: Duplicate table keys across multiple MetaData objects: "table1", "table2"
+    ```
 
 ## 5. Alembic 기반 자동화 마이그레이션
 
@@ -323,7 +321,7 @@ Alembic을 사용할 때 생성되는 리비전 파일 및 각종 보조 파일�
 
 아래와 같이 Alembic에 사용할 데이터베이스 주소를 설정해준다.  
 
-```ini
+```ini title="alembic.ini"
 sqlalchemy.url = driver://user:pass@localhost/dbname
 ```
 
@@ -333,14 +331,14 @@ SQLAlchemy와 마찬가지로 Alembic도 데이터베이스 유저명이나 암�
 
 이 문제를 해결하기 위해서는 특수문자를 `%xx` escape으로 인코딩해서 입력하면 되는데, 해당 값이 파싱될 때 제대로 인식되게 하기 위해 escape를 추가한 `%%xx`로 입력해야 한다.  
 
-💡특수문자를 `%xx`으로 쉽게 인코딩하려면 `urllib.parse` 모듈의 `quote` 함수를 사용하면 된다.  
-{:.note}
+!!! tip
+    특수문자를 `%xx`으로 쉽게 인코딩하려면 `urllib.parse` 모듈의 `quote` 함수를 사용하면 된다.  
 
 - `migrations/env.py` 파일 수정
 
 Alembic에 테이블의 메타데이터를 설정해준다.  
 
-```python
+```python title="env.py"
 from conf.database import Base
 from src.models import *
 
@@ -351,7 +349,7 @@ Alembic에 설정한 테이블 메타데이터에 실제로 현재 선언된 테
 
 위와 같이 `from src.models import *`로 간단하게 테이블 객체들을 불러오려면, `src/models/__init__.py` 파일에 아래와 같이 하위 모듈들을 모두 임포트 시켜주면 된다.  
 
-```python
+```python title="__init__.py"
 from .models import *
 from .post import *
 ```
@@ -379,128 +377,125 @@ INFO  [alembic.autogenerate.compare] Detected added index 'ix_comment_content_id
 Generating C:\projects\study_fastapi\migrations\versions\9c88cc40e702.py ...  done
 ```
 
-`migrations/versions` 디렉토리에 랜덤한 이름으로 리비전 파일이 생성된다. 리비전 파일 내용을 확인해보면 테이블 생성에 관한 [DDL](/dataengineering/relational_database/#2-ddl) ORM 코드들이 생성된 것을 확인할 수 있다.  
+`migrations/versions` 디렉토리에 랜덤한 이름으로 리비전 파일이 생성된다. 리비전 파일 내용을 확인해보면 테이블 생성에 관한 [DDL](2022-08-11-relational_database.md/#2-ddl) ORM 코드들이 생성된 것을 확인할 수 있다.  
 
-<details><summary>리비전 파일 내용 보기</summary><div markdown="1">
+??? note "리비전 파일 내용 보기"
+    ```python
+    """empty message
 
-```python
-"""empty message
+    Revision ID: 9c88cc40e702
+    Revises: 
+    Create Date: 2023-06-10 09:53:15.597527
 
-Revision ID: 9c88cc40e702
-Revises: 
-Create Date: 2023-06-10 09:53:15.597527
-
-"""
-from alembic import op
-import sqlalchemy as sa
-
-
-# revision identifiers, used by Alembic.
-revision = '9c88cc40e702'
-down_revision = None
-branch_labels = None
-depends_on = None
+    """
+    from alembic import op
+    import sqlalchemy as sa
 
 
-def upgrade() -> None:
-    # ### commands auto generated by Alembic - please adjust! ###
-    op.create_table('category',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('tier', sa.Integer(), nullable=False),
-    sa.Column('category', sa.String(length=255), nullable=False),
-    sa.Column('id_parent', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['id_parent'], ['category.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_index(op.f('ix_category_id'), 'category', ['id'], unique=False)
-    op.create_table('log',
-    sa.Column('id', sa.Uuid(), nullable=False),
-    sa.Column('date_create', sa.DateTime(), nullable=False),
-    sa.Column('log', sa.Text(), nullable=False),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_index(op.f('ix_log_id'), 'log', ['id'], unique=False)
-    op.create_table('user',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('username', sa.String(length=100), nullable=False),
-    sa.Column('password', sa.String(length=255), nullable=False),
-    sa.Column('email', sa.String(length=255), nullable=False),
-    sa.Column('date_create', sa.DateTime(), nullable=False),
-    sa.Column('is_superuser', sa.Boolean(), nullable=True),
-    sa.Column('is_staff', sa.Boolean(), nullable=True),
-    sa.Column('is_blocked', sa.Boolean(), nullable=True),
-    sa.Column('is_active', sa.Boolean(), nullable=False),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('username')
-    )
-    op.create_index(op.f('ix_user_id'), 'user', ['id'], unique=False)
-    op.create_table('post',
-    sa.Column('id', sa.Uuid(), nullable=False),
-    sa.Column('id_user', sa.Integer(), nullable=False),
-    sa.Column('id_category', sa.Integer(), nullable=False),
-    sa.Column('date_create', sa.DateTime(), nullable=False),
-    sa.Column('is_active', sa.Boolean(), nullable=False),
-    sa.ForeignKeyConstraint(['id_category'], ['category.id'], ),
-    sa.ForeignKeyConstraint(['id_user'], ['user.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_index(op.f('ix_post_id'), 'post', ['id'], unique=False)
-    op.create_table('comment',
-    sa.Column('id', sa.Uuid(), nullable=False),
-    sa.Column('id_user', sa.Integer(), nullable=False),
-    sa.Column('id_post', sa.Uuid(), nullable=False),
-    sa.Column('date_create', sa.DateTime(), nullable=False),
-    sa.Column('is_active', sa.Boolean(), nullable=False),
-    sa.ForeignKeyConstraint(['id_post'], ['post.id'], ),
-    sa.ForeignKeyConstraint(['id_user'], ['user.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_index(op.f('ix_comment_id'), 'comment', ['id'], unique=False)
-    op.create_table('post_content',
-    sa.Column('id', sa.Uuid(), nullable=False),
-    sa.Column('version', sa.Integer(), nullable=False),
-    sa.Column('date_upd', sa.DateTime(), nullable=False),
-    sa.Column('subject', sa.String(), nullable=False),
-    sa.Column('content', sa.Text(), nullable=False),
-    sa.Column('id_post', sa.Uuid(), nullable=False),
-    sa.ForeignKeyConstraint(['id_post'], ['post.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_index(op.f('ix_post_content_id'), 'post_content', ['id'], unique=False)
-    op.create_table('comment_content',
-    sa.Column('id', sa.Uuid(), nullable=False),
-    sa.Column('version', sa.Integer(), nullable=False),
-    sa.Column('date_upd', sa.DateTime(), nullable=False),
-    sa.Column('content', sa.Text(), nullable=False),
-    sa.Column('id_comment', sa.Uuid(), nullable=False),
-    sa.ForeignKeyConstraint(['id_comment'], ['comment.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_index(op.f('ix_comment_content_id'), 'comment_content', ['id'], unique=False)
-    # ### end Alembic commands ###
+    # revision identifiers, used by Alembic.
+    revision = '9c88cc40e702'
+    down_revision = None
+    branch_labels = None
+    depends_on = None
 
 
-def downgrade() -> None:
-    # ### commands auto generated by Alembic - please adjust! ###
-    op.drop_index(op.f('ix_comment_content_id'), table_name='comment_content')
-    op.drop_table('comment_content')
-    op.drop_index(op.f('ix_post_content_id'), table_name='post_content')
-    op.drop_table('post_content')
-    op.drop_index(op.f('ix_comment_id'), table_name='comment')
-    op.drop_table('comment')
-    op.drop_index(op.f('ix_post_id'), table_name='post')
-    op.drop_table('post')
-    op.drop_index(op.f('ix_user_id'), table_name='user')
-    op.drop_table('user')
-    op.drop_index(op.f('ix_log_id'), table_name='log')
-    op.drop_table('log')
-    op.drop_index(op.f('ix_category_id'), table_name='category')
-    op.drop_table('category')
-    # ### end Alembic commands ###
-```
+    def upgrade() -> None:
+        # ### commands auto generated by Alembic - please adjust! ###
+        op.create_table('category',
+        sa.Column('id', sa.Integer(), nullable=False),
+        sa.Column('tier', sa.Integer(), nullable=False),
+        sa.Column('category', sa.String(length=255), nullable=False),
+        sa.Column('id_parent', sa.Integer(), nullable=True),
+        sa.ForeignKeyConstraint(['id_parent'], ['category.id'], ),
+        sa.PrimaryKeyConstraint('id')
+        )
+        op.create_index(op.f('ix_category_id'), 'category', ['id'], unique=False)
+        op.create_table('log',
+        sa.Column('id', sa.Uuid(), nullable=False),
+        sa.Column('date_create', sa.DateTime(), nullable=False),
+        sa.Column('log', sa.Text(), nullable=False),
+        sa.PrimaryKeyConstraint('id')
+        )
+        op.create_index(op.f('ix_log_id'), 'log', ['id'], unique=False)
+        op.create_table('user',
+        sa.Column('id', sa.Integer(), nullable=False),
+        sa.Column('username', sa.String(length=100), nullable=False),
+        sa.Column('password', sa.String(length=255), nullable=False),
+        sa.Column('email', sa.String(length=255), nullable=False),
+        sa.Column('date_create', sa.DateTime(), nullable=False),
+        sa.Column('is_superuser', sa.Boolean(), nullable=True),
+        sa.Column('is_staff', sa.Boolean(), nullable=True),
+        sa.Column('is_blocked', sa.Boolean(), nullable=True),
+        sa.Column('is_active', sa.Boolean(), nullable=False),
+        sa.PrimaryKeyConstraint('id'),
+        sa.UniqueConstraint('email'),
+        sa.UniqueConstraint('username')
+        )
+        op.create_index(op.f('ix_user_id'), 'user', ['id'], unique=False)
+        op.create_table('post',
+        sa.Column('id', sa.Uuid(), nullable=False),
+        sa.Column('id_user', sa.Integer(), nullable=False),
+        sa.Column('id_category', sa.Integer(), nullable=False),
+        sa.Column('date_create', sa.DateTime(), nullable=False),
+        sa.Column('is_active', sa.Boolean(), nullable=False),
+        sa.ForeignKeyConstraint(['id_category'], ['category.id'], ),
+        sa.ForeignKeyConstraint(['id_user'], ['user.id'], ),
+        sa.PrimaryKeyConstraint('id')
+        )
+        op.create_index(op.f('ix_post_id'), 'post', ['id'], unique=False)
+        op.create_table('comment',
+        sa.Column('id', sa.Uuid(), nullable=False),
+        sa.Column('id_user', sa.Integer(), nullable=False),
+        sa.Column('id_post', sa.Uuid(), nullable=False),
+        sa.Column('date_create', sa.DateTime(), nullable=False),
+        sa.Column('is_active', sa.Boolean(), nullable=False),
+        sa.ForeignKeyConstraint(['id_post'], ['post.id'], ),
+        sa.ForeignKeyConstraint(['id_user'], ['user.id'], ),
+        sa.PrimaryKeyConstraint('id')
+        )
+        op.create_index(op.f('ix_comment_id'), 'comment', ['id'], unique=False)
+        op.create_table('post_content',
+        sa.Column('id', sa.Uuid(), nullable=False),
+        sa.Column('version', sa.Integer(), nullable=False),
+        sa.Column('date_upd', sa.DateTime(), nullable=False),
+        sa.Column('subject', sa.String(), nullable=False),
+        sa.Column('content', sa.Text(), nullable=False),
+        sa.Column('id_post', sa.Uuid(), nullable=False),
+        sa.ForeignKeyConstraint(['id_post'], ['post.id'], ),
+        sa.PrimaryKeyConstraint('id')
+        )
+        op.create_index(op.f('ix_post_content_id'), 'post_content', ['id'], unique=False)
+        op.create_table('comment_content',
+        sa.Column('id', sa.Uuid(), nullable=False),
+        sa.Column('version', sa.Integer(), nullable=False),
+        sa.Column('date_upd', sa.DateTime(), nullable=False),
+        sa.Column('content', sa.Text(), nullable=False),
+        sa.Column('id_comment', sa.Uuid(), nullable=False),
+        sa.ForeignKeyConstraint(['id_comment'], ['comment.id'], ),
+        sa.PrimaryKeyConstraint('id')
+        )
+        op.create_index(op.f('ix_comment_content_id'), 'comment_content', ['id'], unique=False)
+        # ### end Alembic commands ###
 
-</div></details><br>
+
+    def downgrade() -> None:
+        # ### commands auto generated by Alembic - please adjust! ###
+        op.drop_index(op.f('ix_comment_content_id'), table_name='comment_content')
+        op.drop_table('comment_content')
+        op.drop_index(op.f('ix_post_content_id'), table_name='post_content')
+        op.drop_table('post_content')
+        op.drop_index(op.f('ix_comment_id'), table_name='comment')
+        op.drop_table('comment')
+        op.drop_index(op.f('ix_post_id'), table_name='post')
+        op.drop_table('post')
+        op.drop_index(op.f('ix_user_id'), table_name='user')
+        op.drop_table('user')
+        op.drop_index(op.f('ix_log_id'), table_name='log')
+        op.drop_table('log')
+        op.drop_index(op.f('ix_category_id'), table_name='category')
+        op.drop_table('category')
+        # ### end Alembic commands ###
+    ```
 
 - 리비전 파일 실행
 
@@ -515,8 +510,8 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 9c88cc40e702, empty messag
 
 DBeaver등 DB 툴을 이용해서 해당 DB를 확인해보면 `alembic.ini`에서 설정한 데이터베이스의 주소에 `src/models`에 작성한 내용대로 테이블과 칼럼이 생성된 것을 확인할 수 있다.  
 
-💡SQLite를 사용할 경우 해당 위치에 SQLite 데이터베이스를 새로 생성해주기까지 한다.  
-{:.note}
+!!! note
+    SQLite를 사용할 경우 해당 위치에 SQLite 데이터베이스를 새로 생성해준다.  
 
 ## 6. 데이터 모델(DTO)
 
@@ -534,8 +529,8 @@ class CategoryRec(BaseModel):
         allow_population_by_field_name = True
 ```
 
-💡SQLAlchemy의 객체를 그 자체로 `dict` 객체로 변환하고 싶을 경우 `_asdict` 메서드를 사용하거나, `__dict__` 어트리뷰트를 사용하면 된다.  
-{:.note}
+!!! tip
+    SQLAlchemy의 객체를 그 자체로 `dict` 객체로 변환하고 싶을 경우 `_asdict` 메서드를 사용하거나, `__dict__` 어트리뷰트를 사용하면 된다.  
 
 Pydantic의 `BaseModel`을 ORM 객체로 사용하는 자세한 내용은 [공식 문서](https://docs.pydantic.dev/latest/usage/models/#arbitrary-class-instances)를 참고하자.  
 

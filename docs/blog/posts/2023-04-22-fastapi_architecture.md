@@ -1,19 +1,25 @@
 ---
-published: true
-layout: post
-title: '[FastAPI] 01. FastAPI 서버 아키텍처'
+slug: fastapi-architecture
+title: FastAPI 서버 아키텍처
+date:
+    created: 2023-04-22
 description: >
-    FastAPI 기초 입문과 서버 아키텍처
-categories: [FastAPI]
-tags: [python, WSGI, ASGI, FastAPI, gunicorn, uvicorn]
-image:
-    path: /assets/img/posts/thumbnail_fastapi.png
-related_posts:
-    - _posts/fastapi/2023-05-13-structure.md
+    FastAPI 기초 입문과 Python 서버 아키텍처
+categories:
+    - FastAPI
+tags:
+    - WSGI
+    - ASGI
+    - FastAPI
+    - gunicorn
+    - uvicorn
 ---
-{% include series_fastapi.html %}
-* toc
-{:toc}
+
+FastAPI 기초 입문과 Python 서버 아키텍처  
+
+<!-- more -->
+
+---
 
 ## 1. FastAPI 입문
 
@@ -29,7 +35,7 @@ pip install fastapi uvicorn[standard]
 
 아래와 같이 `main.py`를 생성하고 FastAPI 객체를 선언해서 간단히 서버를 만들 수 있다.  
 
-```python
+```python title="main.py"
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -61,21 +67,19 @@ uvicorn main:app --reload
 
 구동한 서버로 접속해보면 단 몇 줄의 짧은 코드로 아래와 같이 API가 생성된 것을 확인할 수 있다.  
 
-![fastapi_firstlook](/assets/img/posts/fastapi_firstlook.png)
-{:.border-image}
+![fastapi_firstlook](img/fastapi_firstlook.png){ loading=lazy }
 
 ### 1-3. OpenAPI
 
 FastAPI는 OpenAPI(Swagger)를 기본으로 제공하는데, 아래와 같이 `/docs` 주소로 접속해서 확인할 수 있다.  
 
-![fastapi_docs](/assets/img/posts/fastapi_docs.png)
-{:.border-image}
+![fastapi_docs](img/fastapi_docs.png){ loading=lazy }
 
 ## 2. 아키텍처
 
 FastAPI 기반의 백엔드 서버의 전체적인 아키텍처는 아래와 같다.  
 
-![fastapi_server_architecture](/assets/img/posts/fastapi_server_architecture.png)
+![fastapi_server_architecture](img/fastapi_server_architecture.png){ loading=lazy }
 
 ### 2-1. Web Server
 
@@ -85,7 +89,7 @@ FastAPI 기반의 백엔드 서버의 전체적인 아키텍처는 아래와 같
 
 ### 2-2. WSGI, ASGI
 
-**CGI**
+#### CGI
 
 WSGI, ASGI에 대해 설명하려면 [CGI(Common Gateway Interface)](https://en.wikipedia.org/wiki/Common_Gateway_Interface)에 대해 먼저 설명해야 한다. 웹 서버는 클라이언트의 요청을 처리하기 위해 서버의 어플리케이션 프로그램을 호출하는데, 호출되는 어플리케이션들의 표준 인터페이스를 CGI라고 한다.  
 
@@ -99,10 +103,10 @@ CGI는 요청이 들어올 때마다 애플리케이션 프로세스 전체를 �
 
 Python으로 CGI 웹어플리케이션을 개발하려면 [cgi 모듈](https://docs.python.org/3/library/cgi.html)을 사용하고 개발한 어플리케이션을 웹서버에 직접 등록하면 되는데, 자세한 방법은 생활코딩님의 [WEB2 Python](https://youtube.com/playlist?list=PLuHgQVnccGMDMxfZEpLbzHPZUEwObEaZq) 수업에 잘 정리되어 있다.  
 
-참고로 Python의 cgi 모듈은 Python 3.11 부터 deprecate 되었다.  
-{:.note}
+!!! warning
+    참고로 Python의 [cgi 라이브러리](https://docs.python.org/3/library/cgi.html)는 Python 3.11 부터 deprecate 되었고, 3.13에서 완전히 제거될 예정이기 때문에 더이상 사용할 수 없다. 앞으로는 최소한 [wsgiref 라이브러리](https://docs.python.org/3/library/wsgiref.html)를 사용해야 한다.  
 
-**WSGI**
+#### WSGI
 
 [WSGI(Web Server Gateway Interface)](https://wsgi.readthedocs.io/)는 Python으로 개발된 어플리케이션 서버와 웹 서버가 통신하고 어플리케이션 서버가 웹 서버의 요청을 처리하기 위한 인터페이스로, WSGI 표준은 [PEP 3333](https://peps.python.org/pep-3333/)에 정의되어 있다.  
 
@@ -110,7 +114,7 @@ WSGI의 핵심은 웹 서버와 Python 스크립트를 분리하여 Python 스�
 
 대표적인 WSGI로는 [Gunicorn](https://gunicorn.org/), [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/), [Waitress](https://docs.pylonsproject.org/projects/waitress/en/latest/) 등이 있는데, 상용화 수준에 사용할 수 있는 WSGI 패키지는 Linux 전용의 **Gunicorn**과 Windows와 UNIX에서 모두 사용할 수 있는 **Waitress**가 있다.  
 
-**ASGI**
+#### ASGI
 
 WSGI는 기본적으로 request와 response로 이루어지는 동기 처리 방식으로 작동하는 single-callable interface이기 때문에 WebSocket을 통한 장기적 통신 등을 지원하는데 한계점이 있고, 이를 보완하기 위해 나온 것이 비동기 처리를 지원하는 [ASGI(Asynchronous Server Gateway Interface)](https://asgi.readthedocs.io/)이다.  
 
