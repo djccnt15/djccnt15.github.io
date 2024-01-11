@@ -1,21 +1,27 @@
 ---
-published: true
-layout: post
-title: '[MM] 커스터마이징'
+slug: minimal-mistakes-customize
+title: Minimal Mistakes 테마 커스터마이징
+date:
+    created: 2022-01-02
 description: >
     Minimal Mistakes 테마 커스터마이징
-categories: [Jekyll]
-tags: [jekyll, Minimal Mistakes, HTML, CSS]
-image:
-    path: /assets/img/posts/thumbnail_minimalmistakes.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Jekyll
+tags:
+    - Jekyll
+    - HTML
+    - CSS
+    - Minimal Mistakes
 ---
-* toc
-{:toc}
 
-아래 내용은 블로그에 처음에 적용했던 [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) 테마를 커스터마이징 했던 내용들이다. **현재 테마와는 관련 없다.**  
-{:.note title='attention'}
+Minimal Mistakes 테마 커스터마이징 방법  
+
+<!-- more -->
+
+---
+
+!!! warning
+    아래 내용은 블로그에 처음에 적용했던 [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) 테마를 커스터마이징 했던 내용들이다. **현재 테마와는 관련 없다.**  
 
 ## 1. 각종 블로그 스타일 수정
 
@@ -27,7 +33,7 @@ related_posts:
 
 나는 default 스킨만 조금 수정하고 다른 스킨들은 건드리기 싫어서 `/_sass/minimal-mistakes/skins/_default.scss`에 아래와 같은 내용을 추가해줬다.
 
-```scss
+```scss title="_default.scss"
 // customize skin color
 $background-color: #eeeeee !default;
 $text-color: #2a2231 !default;
@@ -64,7 +70,7 @@ $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다. 줄간격을 조정하려면 `/_sass/_page.scss`를 수정해주면 된다.  
 나는 아래와 같이 `.page__content`의 `p`에 `line-height`를 추가해서 문단 스타일을 수정했다.
 
-```scss
+```scss title="_page.scss"
 .page__content {
   /* paragraph indents */
   p {
@@ -77,7 +83,7 @@ Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다.
 
 Minimal Mistakes 테마의 좌우 여백은 `/_sass/minimal-mistakes/_variables.scss`에 정의된 `$right-sidebar-width`, `Breakpoints` 변수를 수정해서 조절할 수 있다.  
 
-```scss
+```scss title="_variables.scss"
 $right-sidebar-width-narrow: 200px !default;  // default 200px
 $right-sidebar-width: 250px !default;         // default 300px
 $right-sidebar-width-wide: 250px !default;    // default 400px
@@ -85,7 +91,7 @@ $right-sidebar-width-wide: 250px !default;    // default 400px
 
 기본 좌우 여백이 거슬려서 `Breakpoints`도 아래와 같이 수정해봤는데, 막상 최소한으로 줄이니 답답한 느낌이 들어 기본값으로 되돌렸다.  
 
-```scss
+```scss title="_variables.scss"
 /*
    Breakpoints
    ========================================================================== */
@@ -102,7 +108,7 @@ $max-width: $x-large !default;
 
 `/_sass/minimal-mistakes/_sidebar.scss`의 `.author__avatar` 항목 수정
 
-```scss
+```scss title="_sidebar.scss"
 .author__avatar {
   img {
     max-width: 110px;
@@ -115,7 +121,7 @@ $max-width: $x-large !default;
 
 `/_sass/minimal-mistakes/_base.scss`의 `/* links */` 수정
 
-```scss
+```scss title="_base.scss"
 a {
   text-decoration: none;
 }
@@ -125,7 +131,7 @@ a {
 
 Minimal Mistakes는 기본 설정으로 읽는 시간이 표시되어 있도록 구성되어 있는데, 영 쓸모가 없다. 읽는 시간 대신 업로드 날짜를 보이게 하려면, 아래와 같이 `/_config.yml`에서 `read_time`을 `false`로, `show_date`를 `true`로 수정해주면 된다.  
 
-```yml
+```yml title="_config.yml"
 defaults:
   # _posts
   - scope:
@@ -149,7 +155,7 @@ defaults:
 홈페이지, 맨 위로, 맨 아래로 보내는 단축 버튼 만드는 방법  
 `/_sass/minimal-mistakes/_sidebar.scss`에 아래 내용 추가
 
-```scss
+```scss title="_sidebar.scss"
 .sidebar__home {
   position: fixed;
   bottom: 0.5em;
@@ -174,7 +180,7 @@ defaults:
 
 `/layouts/default.html`의 `<body>`에 아래 내용 추가
 
-```html
+```html title="default.html"
 <html>
   <body>
     <aside class="sidebar__home">
@@ -202,7 +208,7 @@ GitHub Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 
 
 `/_includes/mathjax.html` 생성 및 아래 내용 입력  
 
-```html
+```html title="mathjax.html"
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js"],
@@ -223,8 +229,7 @@ GitHub Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 
 
 `/_layouts/default.html`의 `<head>` 부분에 아래 내용 추가
 
-{% raw %}
-```html
+```html title="default.html"
 <html>
   <head>
     {% if page.mathjax %}
@@ -232,21 +237,20 @@ GitHub Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 
     {% endif %}
   </head>
 ```
-{% endraw %}
 
 수식을 사용할 포스트의 `YFM`을 아래와 같이 설정 
 
-```
+```yaml
 mathjax: true
 ```
 
-글 작성 시 수식 입력 방법은 [여기](/swengineering/blog_markdown/#3-수식-입력)에서 확인할 수 있다.
+글 작성 시 수식 입력 방법은 [여기](2022-01-04-blog_markdown.md/#3)에서 확인할 수 있다.
 
 ## 4. favicon 설정
 
 `/assets/images/logo.ico` 폴더에 favicon 파일들 저장 후 `/_includes/head/custom.html`에 아래 내용 추가
 
-```html
+```html title="custom.html"
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.ico/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.ico/favicon-16x16.png">
@@ -260,8 +264,7 @@ mathjax: true
 
 `/_layouts/monthly.html` 생성 후 아래 내용 입력
 
-{% raw %}
-```html
+```html title="monthly.html"
 ---
 layout: archive
 ---
@@ -292,11 +295,10 @@ layout: archive
   </section>
 {% endfor %}
 ```
-{% endraw %}
 
 `/_pages/archive-monthly.md` 생성 후 아래 내용 입력
 
-```
+```yaml title="archive-monthly.md"
 ---
 title: "Posts by Month"
 permalink: /month-archive/
@@ -307,7 +309,7 @@ author_profile: true
 
 `/_data/navigation.yml`의 `main`항목에 아래 내용 추가
 
-```yml
+```yml title="navigation.yml"
 main:
   - title: "Posts by Month"
     url: /month-archive/
@@ -318,7 +320,7 @@ main:
 블로그의 첫 화면에 대한 설정은 `root`의 `index.html`에서 변경할 수 있다.  
 현재 설정은 아래와 같다.  
 
-```html
+```html title="index.html"
 ---
 layout: splash
 author_profile: true
@@ -334,7 +336,7 @@ author_profile: true
 
 `/_config.yml`에 timezone이 설정된 경우 `/Gemfile`에 아래 코드를 넣어줘야 local에서 Jekyll을 구동시킬 수 있다.  
 
-```ruby
+```ruby title="Gemfile"
 gem 'tzinfo'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 ```

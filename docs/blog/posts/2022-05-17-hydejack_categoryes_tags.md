@@ -1,27 +1,32 @@
 ---
-published: true
-layout: post
-title: '[Jekyll] 카테고리/태그 페이지'
+slug: hydejack-categories-tags-page
+title: Hydejack 테마 카테고리/태그 페이지
+date:
+    created: 2022-05-17
 description: >
-    posts by Category, posts by Tag
-categories: [Jekyll]
-tags: [jekyll, HTML, CSS]
-image:
-    path: /assets/img/posts/thumbnail_jekyll.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Hydejack 테마 카테고리/태그 통계 페이지 만들기
+categories:
+    - Jekyll
+tags:
+    - Jekyll
+    - HTML
+    - CSS
 ---
-* toc
-{:toc}
 
-Minimal Mistakes 테마를 참고해서 만들었다.  
+Hydejack 테마 카테고리/태그 통계 페이지 만들기  
+
+<!-- more -->
+
+---
+
+!!! warning
+    아래 내용은 블로그에 적용했던 [Hydejack](https://hydejack.com/) 테마를 커스터마이징 했던 내용들이다. **현재 테마와는 관련 없다.**  
 
 ## 1. Category 레이아웃 만들기
 
 `_layout/categories.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
 
-{% raw %}
-```html
+```html title="categories.html"
 ---
 layout: about
 ---
@@ -65,14 +70,12 @@ layout: about
   {% endfor %}
 {% endfor %}
 ```
-{% endraw %}
 
 ## 2. Tag 레이아웃 만들기
 
 `_layout/tags.html`을 아래와 같은 내용으로 만들어 넣어주고, 레이아웃을 설정해주면 된다.  
 
-{% raw %}
-```html
+```html title="tags.html"
 ---
 layout: about
 ---
@@ -116,14 +119,12 @@ layout: about
   {% endfor %}
 {% endfor %}
 ```
-{% endraw %}
 
 ## 3. 보조 레이아웃 만들기
 
 `_includes/archive-single.html`을 아래 내용으로 만들어주자.  
 
-{% raw %}
-```html
+```html title="archive-single.html"
 {% assign format = include.format | default:site.data.date_formats.related_post | default:"%Y-%m-%d" %}
 
 {% if post.header.teaser %}
@@ -152,13 +153,12 @@ layout: about
   </article>
 </div>
 ```
-{% endraw %}
 
 ## 3. 스타일 수정하기
 
 `_sass/my-style.scss`에 아래와 같이 추가하자.  
 
-```scss
+```scss title="my-style.scss"
 // taxonomy__index columns
 
 .taxonomy__index {

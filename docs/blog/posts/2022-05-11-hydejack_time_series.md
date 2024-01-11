@@ -1,18 +1,27 @@
 ---
-published: true
-layout: post
-title: '[Hydejack] time series style layout'
+slug: hydejack-time-series-list
+title: Hydejack 테마 시계열 디자인 커스터마이즈
+date:
+    created: 2022-05-11
 description: >
-    list layout을 시계열 디자인으로 수정하기
-categories: [Jekyll]
-tags: [jekyll, Hydejack, HTML, CSS]
-image:
-    path: /assets/img/posts/thumbnail_jekyll.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Hydejack 테마 list layout을 시계열 디자인으로 수정하기
+categories:
+    - Jekyll
+tags:
+    - Jekyll
+    - HTML
+    - CSS
+    - Hydejack
 ---
-* toc
-{:toc}
+
+Hydejack 테마 list layout을 시계열 디자인으로 수정하는 방법  
+
+<!-- more -->
+
+---
+
+!!! warning
+    아래 내용은 블로그에 적용했던 [Hydejack](https://hydejack.com/) 테마를 커스터마이징 했던 내용들이다. **현재 테마와는 관련 없다.**  
 
 [따라쟁이](https://khw11044.github.io/githubpages/)님의 블로그 디자인이 아주 괜찮아서 따라해보았다.  
 
@@ -21,7 +30,7 @@ related_posts:
 hydejack 테마는 style에 적용되는 scss 코드를 추가할 때 `_sass/my-style.scss` 파일을 수정하면 된다.  
 아래 코드와 같이 추가하자.
 
-```scss
+```scss title="my-style.scss"
 // time-line
 
 .list-lead{
@@ -108,8 +117,7 @@ hydejack 테마는 style에 적용되는 scss 코드를 추가할 때 `_sass/my-
 
 `_layouts/list.html`을 아래와 같이 수정하자.  
 
-{% raw %}
-```html
+```html title="list.html"
 ---
 layout: page
 ---
@@ -138,14 +146,12 @@ layout: page
 {% endfor %}
 </div>
 ```
-{% endraw %}
 
 ## 3. components 수정
 
 `_includes/components/post-list-item.html`을 아래와 같이 수정하자.  
 
-{% raw %}
-```html
+```html title="post-list-item.html"
 {% assign post = include.post %}
 {% assign format = include.format | default:site.data.date_formats.related_post | default:"%Y %m %d" %}
 
@@ -157,13 +163,12 @@ layout: page
   </div>
 </li>
 ```
-{% endraw %}
 
 ## 4. description style 설정
 
 `_sass/my-style.scss`에 아래 내용 추가
 
-```scss
+```scss title="my-style.scss"
 // post description style
 
 .description {

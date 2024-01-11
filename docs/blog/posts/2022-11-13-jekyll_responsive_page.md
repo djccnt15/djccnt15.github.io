@@ -1,22 +1,26 @@
 ---
-published: true
-layout: post
-title: '[Jekyll] 반응형 카테고리/태그 페이지'
+slug: jekyll-responsive-web-page
+title: Jekyll 반응형 페이지
+date:
+    created: 2022-11-13
 description: >
-    반응형 카테고리, 태그 페이지 만들기
-categories: [Jekyll]
-tags: [jekyll, scss]
-image:
-    path: /assets/img/posts/thumbnail_jekyll.png
-related_posts:
-    - _posts/jekyll/2022-05-17-categories_tags.md
+    SCSS를 사용해서 반응형 페이지 만들기
+categories:
+    - Jekyll
+tags:
+    - Jekyll
+    - SCSS
 ---
-* toc
-{:toc}
+
+SCSS를 사용해서 Jekyll 프레임워크의 반응형 카테고리, 태그 페이지 만들기  
+
+<!-- more -->
+
+---
 
 ## 1. 목표
 
-기존에 사용하던 [카테고리/태그 페이지](/framework/categories_tags/)에서 마음에 안 드는 점들이 있어서 수정해서 다시 만들었다. 이번 수정에서 개선한 내용은 아래와 같다.  
+기존에 사용하던 [카테고리/태그 페이지](2022-05-17-hydejack_categoryes_tags.md)에서 마음에 안 드는 점들이 있어서 수정해서 다시 만들었다. 이번 수정에서 개선한 내용은 아래와 같다.  
 
 1. 필요 없는 코드 지우기
     - 기존 코드는 다른 사람의 코드를 베껴서 만들다보니 기존 코드에는 필요 없는 코드가 많이 있었는데, 신규 코드는 처음부터 만드는 수준으로 기존 코드를 아주 약간만 참고해서 만들고 그 과정에서 필요 없는 코드는 다 지워버리기
@@ -35,10 +39,7 @@ Jekyll은 [템플릿 언어](https://jekyllrb.com/docs/step-by-step/02-liquid/#u
 
 Liquid에는 정렬을 위한 필터가 두 개가 있는데, `sort` 필터는 대소문자를 구분하고 `sort_natural` 필터는 대소문자를 구분하지 않는다는 차이가 있다.  
 
-`categories.html` 파일을 아래와 같이 수정했다.  
-
-{% raw %}
-```html
+```html title="categories.html"
 ---
 layout: plain
 ---
@@ -74,19 +75,15 @@ layout: plain
   </section>
 {% endfor %}
 ```
-{% endraw %}
 
-❗Liquid의 [반복문](https://shopify.github.io/liquid/tags/iteration/)은 스페이스를 구분자로 사용하는데, 그 부분을 따로 처리하지 않았기 때문에 **카테고리에 띄어쓰기가 포함된 포스트가 있으면 버그가 발생**한다.  
-{:.note title='attention'}
+!!! warning
+    Liquid의 [반복문](https://shopify.github.io/liquid/tags/iteration/)은 스페이스를 구분자로 사용하는데, 그 부분을 따로 처리하지 않았기 때문에 **카테고리에 띄어쓰기가 포함된 포스트가 있으면 버그가 발생**한다.  
 
 ### 2-2. 태그 페이지
 
 태그는 카테고리와 달리 스페이스가 들어간 포스트가 있어 구분자를 스페이스가 아닌 `,`로 바꿔주고 [스페이스를 따로 처리](https://shopify.github.io/liquid/basics/whitespace/)해 주었다.  
 
-`tags.html` 파일을 아래와 같이 수정했다.  
-
-{% raw %}
-```html
+```html title="tags.html"
 ---
 layout: plain
 ---
@@ -127,14 +124,12 @@ layout: plain
   </section>
 {% endfor %}
 ```
-{% endraw %}
 
 ### 2-3. 보조 템플릿
 
-각 페이지에서 카테고리/태그 별로 포스트를 모아서 목록을 만들어주는 템플릿을 {% raw %}`{% include [source] %}`{% endraw %} 태그로 가져오는데, 해당 템플릿을 아래와 같이 만들어준다.  
+각 페이지에서 카테고리/태그 별로 포스트를 모아서 목록을 만들어주는 템플릿을 `{% include [source] %}` 태그로 가져오는데, 해당 템플릿을 아래와 같이 만들어준다.  
 
-{% raw %}
-```html
+```html title="archive-single.html"
 <div>
   <article class="archive__item">
     <b>
@@ -147,7 +142,6 @@ layout: plain
   </article>
 </div>
 ```
-{% endraw %}
 
 ## 3. 반응형 스타일
 
@@ -155,7 +149,7 @@ Jeykll에서 Sass 관련 파일은 `_sass` 디렉토리에서 관리하고, Hyde
 
 아래와 같이 [미디어 쿼리](https://developer.mozilla.org/ko/docs/Learn/CSS/CSS_layout/Media_queries)를 이용해 화면 크기에 따라 칼럼의 개수가 변하도록 만들어준다.  
 
-```scss
+```scss title="my-style.scss"
 // break point
 
 $small: 600px;

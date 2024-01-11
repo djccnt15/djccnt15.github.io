@@ -1,18 +1,21 @@
 ---
-published: true
-layout: post
-title: '[Jekyll] Github Pages 사용법'
+slug: basic-tutorial-for-jekyll
+title: Jekyll 기초 사용법
+date:
+    created: 2022-01-02
 description: >
-    Jekyll 기반 Github Pages의 각종 사용법
-categories: [Jekyll]
-tags: [jekyll, Github Pages, ⭐starred]
-image:
-    path: /assets/img/posts/thumbnail_jekyll.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Jekyll로 마크다운 기반 블로그 구축하는 방법 기초 입문
+categories:
+    - Jekyll
+tags:
+    - Jekyll
 ---
-* toc
-{:toc}
+
+Jekyll로 마크다운 기반 블로그 구축하는 방법 기초 입문  
+
+<!-- more -->
+
+---
 
 ## 1. 설치
 
@@ -75,8 +78,8 @@ bundle exec jekyll serve --livereload
 bundle exec jekyll serve --future
 ```
 
-❗현재 서버 구성으로는 저장소로 push 한 시점에만 빌드와 배포가 이루어지기 때문에, 미래 날짜의 문서는 출력이 되지 않고 해당 날짜가 도래해도 자동으로 출력되게 바뀐하거나 하지는 않는다.  
-{:.note title='attention'}
+!!! info
+    GitHub Pages를 사용한다면 저장소로 push 한 시점에만 빌드와 배포가 이루어지기 때문에, 미래 날짜의 문서는 출력이 되지 않고 해당 날짜가 도래해도 자동으로 출력되게 바뀐하거나 하지는 않는다.  
 
 local 호스팅은 [http://127.0.0.1:4000](http://127.0.0.1:4000) 또는 [http://localhost:4000](http://localhost:4000)에서 확인할 수 있다.  
 
@@ -94,8 +97,8 @@ bundle exec jekyll serve --host 192.168.0.5
 
 서버의 주소로 지정할 테스트 컴퓨터의 IP는 `ipconfig`/`ifconfig` 명령어로 확인할 수 있다. 위의 경우에는 `IPv4`주소인 `192.168.0.5`으로 호스팅 했기 때문에, [http://192.168.0.5:4000](http://192.168.0.5:4000)으로 접속해야 내용을 확인할 수 있다.  
 
-❗`https://192.168.0.5:4000`가 아니고 `http://192.168.0.5:4000`이다.  
-{:.note title='attention'}
+!!! note
+    `https://192.168.0.5:4000`가 아니고 `http://192.168.0.5:4000`이다.  
 
 `--incremental` 옵션을 사용하면 새롭게 갱신된 문서와 페이지만 재생성하여 빌드 시간을 줄여준다. 다만 [Jekyll 공식 문서](https://jekyllrb-ko.github.io/docs/configuration/incremental-regeneration/)를 참고하면 이 기능은 문서나 페이지 혹은 그 의존관계가 변경되었을 때만 파일을 다시 생성하는데, 특정 의존 관계만 감지할 수 있다는 점이 문제가 될 수 있다고 한다.  
 
@@ -139,13 +142,11 @@ bundle exec jekyll serve --livereload --future --drafts --unpublished --host [IP
 
 이를 이용해서 정의된 `YFM`을 이중 괄호 구문을 사용해서 아래와 같이 사이트 정보가 바뀔 때 내용이 변경내용을 자동으로 반영하도록 작성할 수 있다.  
 
-{% raw %}
 ```
 이 글의 제목은 {{ page.title }}이고,
 카테고리는 {{ page.categories }}이다.
 블로그 타이틀은 {{ site.title }}이고, 저자는 {{ site.author.name }}이다.
 ```
-{% endraw %}
 
 ```
 이 글의 제목은 {{ page.title }}이고,
@@ -164,7 +165,7 @@ bundle exec jekyll serve --unpublished
 ```
 
 ~~repository에 md 파일이 다 보일텐데 무슨 소용인지 싶긴한데.. 아무튼 가능하긴하다~~  
-[devinlife님의 블로그](https://devinlife.com/)를 보면서 질문하다 알게 되었는데, Github Pro를 사용하면 Github Pages의 repo를 비공개 설정 할 수 있다고 한다.  
+[devinlife님의 블로그](https://devinlife.com/)를 보면서 질문하다 알게 되었는데, GitHub Pro를 사용하면 GitHub Pages의 repo를 비공개 설정 할 수 있다고 한다.  
 
 ### 4-2. _drafts 폴더에 작성하기
 
@@ -176,15 +177,13 @@ bundle exec jekyll serve --drafts
 
 ## 5. include 태그
 
-아래와 같이 {% raw %}`{% include [source] %}`{% endraw %}를 사용해서 다른 파일의 내용을 포함시킬 수 있다.  
+아래와 같이 `include` 태그를 사용해서 다른 파일의 내용을 포함시킬 수 있다.  
 
-{% raw %}
 ```liquid
 {% include [source] %}
 ```
-{% endraw %}
 
-기본적으로는 `_includes` 디렉토리에서 파일을 가져오지만, {% raw %}`{% include_relative [source] %}`{% endraw %} 태그를 이용해서 상대참조도 가능하다.  
+기본적으로는 `_includes` 디렉토리에서 파일을 가져오지만, `{% include_relative [source] %}` 태그를 이용해서 상대참조도 가능하다.  
 
 ---
 ## Reference
