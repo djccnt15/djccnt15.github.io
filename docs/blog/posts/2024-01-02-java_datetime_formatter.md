@@ -1,18 +1,23 @@
 ---
-published: true
-layout: post
-title: '[Java] 날짜/시간 데이터 다루기'
+slug: datetime-formatter
+title: 날짜/시간 데이터 다루기
+date:
+    created: 2024-01-02
 description: >
     DateTimeFormatter로 날짜 및 시간 데이터 다루기
-categories: [Java]
-tags: [java, datetime, java 17]
-image:
-    path: /assets/img/posts/thumbnail_openjdk.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+categories:
+    - Java
+tags:
+    - java
+    - java 17
+    - datetime
 ---
-* toc
-{:toc}
+
+DateTimeFormatter로 날짜 및 시간 데이터 다루기  
+
+<!-- more -->
+
+---
 
 ## DateTimeFormatter
 

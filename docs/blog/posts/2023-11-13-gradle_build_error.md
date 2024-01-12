@@ -1,18 +1,23 @@
 ---
-published: true
-layout: post
-title: '[Gradle] 빌드 에러 해결'
+slug: troubleshooting-gradle-build-error
+title: Gradle 빌드 에러 해결
+date:
+    created: 2023-11-13
 description: >
-    Gradle 빌드 에러
-categories: [Java]
-tags: [java, gradle, IntelliJ]
-image:
-    path: /assets/img/posts/thumbnail_openjdk.png
-related_posts:
-    - _posts/category/0000-01-01-format_post.md
+    Gradle 빌드 에러 해결 기록들
+categories:
+    - Java
+tags:
+    - java
+    - gradle
+    - IntelliJ
 ---
-* toc
-{:toc}
+
+Gradle 빌드 에러 해결 기록들  
+
+<!-- more -->
+
+---
 
 ## Gradle 빌드 에러
 
