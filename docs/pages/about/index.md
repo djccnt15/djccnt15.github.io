@@ -1,12 +1,7 @@
----
-hide:
-  - navigation
----
+# About Me
 
-# About
-
-![googling_does_make_you_a_programmer](assets/img/googling_does_make_you_a_programmer_b.png#only-light){ loading=lazy }
-![googling_does_make_you_a_programmer](assets/img/googling_does_make_you_a_programmer_w.png#only-dark){ loading=lazy }
+![googling_does_make_you_a_programmer](../../assets/img/googling_does_make_you_a_programmer_b.png#only-light){ loading=lazy }
+![googling_does_make_you_a_programmer](../../assets/img/googling_does_make_you_a_programmer_w.png#only-dark){ loading=lazy }
 
 ## Contacts
 
@@ -33,7 +28,6 @@ MLOps, 데이터 엔지니어링, 데이터 사이언티스트, 백엔드 엔지
 > 형성된 것은 모두 소멸하기 마련이다. 끊임없이 정진하여 성취하라 - 석가모니  
 > 중요한 것은 꺾이지 않는 마음 - 데프트  
 > 엔지니어는 구현을 못하면 모르는 것이다. - [Carl's Tech Blog](https://wotres.tistory.com/)  
-> Googling stuff online does make you a Programmer.  
 
 ## Interests and Skills
 
@@ -82,28 +76,3 @@ MLOps, 데이터 엔지니어링, 데이터 사이언티스트, 백엔드 엔지
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white){ loading=lazy }
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white){ loading=lazy }
 ![IntelliJ](https://img.shields.io/badge/IntelliJ-000000?style=flat-square&logo=intellijidea&logoColor=white){ loading=lazy }
-
-## Articles
-
-- 2021년
-    - 석사학위논문. [스마트공장 성숙도 수준 기반 도입기업 특성 분석](http://www.riss.kr/link?id=T15766958)
-- 2020년
-    - KCI. [6-도메인 스마트팩토리 성숙도 평가 모델 기반 도입기업 군집분석](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002627006)
-
-<!-- ## Patents -->
-
-<!-- ## Competition -->
-
-## Career
-
-- 2021 ~ now [WIZCORE 주식회사](http://wizcore.co.kr/)
-
-## Education
-
-- 2021 충북대학교 경영정보학 석사 졸업
-- 2015 한양대학교 정치외교학 학사 졸업
-
-## Certificate
-
-- 빅데이터분석기사, ADsP
-- 정보처리기사, SQLD

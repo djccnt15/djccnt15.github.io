@@ -1,13 +1,13 @@
 ---
 draft: true
-slug: draft
+slug: posting-form
 title: head
 date:
-    created: 0001-01-01
+    created: 9999-01-01
 description: >
     description
 categories:
-    - '*Draft'
+    - "*Form"
 tags:
     - tag
 ---
@@ -17,6 +17,8 @@ tags:
 text
 
 <!-- more -->
+
+---
 
 ## head2
 
