@@ -11,7 +11,6 @@ tags:
     - statistics 101
     - population
     - sample
-    - python
 ---
 
 모집단과 표본, 표본추출, 가중치  

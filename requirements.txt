@@ -1,0 +1,4 @@
+wheel
+mkdocs==1.5.3
+mkdocs-material==9.5.3
+mkdocs-glightbox==0.3.6

@@ -11,7 +11,6 @@ tags:
     - statistics 101
     - variable types
     - relative frequency
-    - python
 ---
 
 자료의 분류, 범주형 자료와 수치형 자료  

@@ -10,7 +10,6 @@ categories:
 tags:
     - statistics 101
     - probability
-    - python
 ---
 
 경우의 수와 통계적 확률  

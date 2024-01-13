@@ -10,7 +10,6 @@ categories:
 tags:
     - statistics 101
     - probability
-    - python
 ---
 
 확률변수와 확률분포  

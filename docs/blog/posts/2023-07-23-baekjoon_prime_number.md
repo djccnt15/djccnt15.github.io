@@ -9,7 +9,6 @@ categories:
     - Coding Test
 tags:
     - baekjoon
-    - python
 ---
 
 소수는 1보다 큰 자연수 중 1과 자기 자신만을 약수로 가지는 수를 말한다.  

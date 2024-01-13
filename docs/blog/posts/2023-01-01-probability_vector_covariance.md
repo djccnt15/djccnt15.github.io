@@ -11,7 +11,6 @@ tags:
     - statistics 101
     - probability
     - covariance
-    - python
 ---
 
 확률 벡터와 공분산  

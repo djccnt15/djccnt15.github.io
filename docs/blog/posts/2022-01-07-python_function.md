@@ -1,6 +1,6 @@
 ---
 slug: tips-for-function
-title: 함수
+title: Python의 함수
 date:
     created: 2022-01-07
 description: >
