@@ -11,7 +11,6 @@ tags:
     - statistics 101
     - expectation
     - variance
-    - python
 ---
 
 모집단의 기대값과 분포  

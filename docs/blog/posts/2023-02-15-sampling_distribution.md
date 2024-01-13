@@ -10,7 +10,6 @@ categories:
 tags:
     - statistics 101
     - probability
-    - python
 ---
 
 확률표본, 표본분포, 중심극한정리  

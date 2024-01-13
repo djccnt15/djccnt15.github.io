@@ -10,7 +10,6 @@ categories:
 tags:
     - statistics 101
     - probability
-    - python
 ---
 
 정규분포 개념 정리  

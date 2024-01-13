@@ -10,7 +10,6 @@ categories:
 tags:
     - statistics 101
     - probability
-    - python
 ---
 
 베르누이 분포, 이항분포, 초기하분포, 포아송 분포, 기하분포, 음이항분포, 다항분포  

@@ -1,6 +1,6 @@
 ---
 slug: how-to-use-main
-title: main 사용법
+title: Python의 main 함수
 date:
     created: 2023-04-29
 description: >

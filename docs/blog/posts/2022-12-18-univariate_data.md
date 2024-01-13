@@ -12,7 +12,6 @@ tags:
     - central tendency
     - dispersion
     - variance
-    - python
 ---
 
 수치형 일변량 자료의 중심경향치와 산포  

@@ -11,7 +11,6 @@ tags:
     - statistics 101
     - covariance
     - correlation
-    - python
 ---
 
 다변량 자료의 공분산과 상관계수  

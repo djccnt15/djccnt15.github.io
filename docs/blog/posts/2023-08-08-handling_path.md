@@ -1,6 +1,6 @@
 ---
 slug: handling-path
-title: 경로 다루기
+title: Python에서 경로 다루기
 date:
     created: 2023-08-08
 description: >
