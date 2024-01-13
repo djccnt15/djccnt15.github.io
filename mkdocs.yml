@@ -1,4 +1,6 @@
+site_url: https://djccnt15.github.io/
 site_name: Note of Jay.D
+site_author: djccnt15
 copyright: Copyright &copy; djccnt15
 # repo_url: https://github.com/djccnt15
 extra_javascript:
@@ -50,44 +52,7 @@ markdown_extensions:
       custom_checkbox: true
 theme:
   name: material
-  # custom_dir: overrides
-  icon:
-    repo: fontawesome/brands/github
-    tag:
-      api: material/api
-      python: fontawesome/brands/python
-      numpy: simple/numpy
-      sympy: simple/sympy
-      skleran: simple/scikitlearn
-      pandas: simple/pandas
-      java: fontawesome/brands/java
-      html: fontawesome/brands/html5
-      css: simple/css3
-      markdown: fontawesome/brands/markdown
-      git: simple/git
-      terminal: simple/windowsterminal
-      shell: simple/powershell
-      docker: simple/docker
-      redis: simple/redis
-      telegram: simple/telegram
-      tensorflow: simple/tensorflow
-      gunicorn: simple/gunicorn
-      gradle: simple/gradle
-      fastapi: simple/fastapi
-      django: simple/django
-      spring: simple/spring
-      spring_boot: simple/springboot
-      jekyll: simple/jekyll
-      db: fontawesome/solid/database
-      mariadb: simple/mariadb
-      mysql: simple/mysql
-      postgresql: simple/postgresql
-      mssql: simple/microsoftsqlserver
-      oracle: simple/oracle
-      cv: simple/opencv
-      ga: simple/googleanalytics
-      vscode: simple/visualstudiocode
-      intellij: simple/intellijidea
+  custom_dir: overrides
   favicon: assets/icons/favicon.ico
   logo: assets/icons/logo_w.png
   features:
@@ -129,6 +94,43 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to system preference
+  icon:
+    repo: fontawesome/brands/github
+    tag:
+      api: material/api
+      python: fontawesome/brands/python
+      numpy: simple/numpy
+      sympy: simple/sympy
+      skleran: simple/scikitlearn
+      pandas: simple/pandas
+      java: fontawesome/brands/java
+      html: fontawesome/brands/html5
+      css: simple/css3
+      markdown: fontawesome/brands/markdown
+      git: simple/git
+      terminal: simple/windowsterminal
+      shell: simple/powershell
+      docker: simple/docker
+      redis: simple/redis
+      telegram: simple/telegram
+      tensorflow: simple/tensorflow
+      gunicorn: simple/gunicorn
+      gradle: simple/gradle
+      fastapi: simple/fastapi
+      django: simple/django
+      spring: simple/spring
+      spring_boot: simple/springboot
+      jekyll: simple/jekyll
+      db: fontawesome/solid/database
+      mariadb: simple/mariadb
+      mysql: simple/mysql
+      postgresql: simple/postgresql
+      mssql: simple/microsoftsqlserver
+      oracle: simple/oracle
+      cv: simple/opencv
+      ga: simple/googleanalytics
+      vscode: simple/visualstudiocode
+      intellij: simple/intellijidea
 extra:
   # generator: false  # enable to remove `Made with Material for MkDocs` comment at footer
   social:
@@ -147,6 +149,19 @@ extra:
   analytics:
     provider: google
     property: G-FQG7LWZEVF
+  # consent:
+  #   title: Cookie consent
+  #   description: >-
+  #     We use cookies to recognize your repeated visits and preferences, as well
+  #     as to measure the effectiveness of our documentation and whether users
+  #     find what they're searching for. With your consent, you're helping us to
+  #     make our documentation better.
+  #   cookies:
+  #     analytics: Google Analytics
+  #   actions:
+  #     - manage
+  #     - accept
+  #     - reject
   tags:
     API: api
     REST API: api
@@ -193,19 +208,6 @@ extra:
     Google Analytics: ga
     VS Code: vscode
     IntelliJ: intellij
-  # consent:
-  #   title: Cookie consent
-  #   description: >-
-  #     We use cookies to recognize your repeated visits and preferences, as well
-  #     as to measure the effectiveness of our documentation and whether users
-  #     find what they're searching for. With your consent, you're helping us to
-  #     make our documentation better.
-  #   cookies:
-  #     analytics: Google Analytics
-  #   actions:
-  #     - manage
-  #     - accept
-  #     - reject
 plugins:
   - search:
       lang:
@@ -226,7 +228,7 @@ plugins:
       pagination_url_format: "page/{page}"
       pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
       categories_allowed:
-        - "*Form"
+        - \`Draft
         - AI
         - Coding Test
         - Computer Science
@@ -250,7 +252,7 @@ nav:
   - Home:
     - index.md
   - About:
-    - pages/about/index.md
+    - About Me: pages/about/about.md
     - Career: pages/about/career.md
   - Blog:
     - blog/index.md

@@ -3,7 +3,7 @@ slug: how-to-show-image
 title: Python에서 이미지 확인하기
 date:
     created: 2023-12-24
-    updated: 2023-01-31
+    updated: 2023-01-14
 description: >
     OpenCV로 불러온 이미지 확인하는 방법
 categories:

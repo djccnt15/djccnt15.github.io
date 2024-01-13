@@ -23,11 +23,11 @@ MLOps, 데이터 엔지니어링, 데이터 사이언티스트, 백엔드 엔지
 
 ## Motto
 
-> Standing on the shoulders of giants. - 유럽 속담  
 > 느린 것을 두려워하지 말고, 다만 멈추는 것을 경계하라.(不怕慢 只怕站) - 중국 속담  
+
 > 형성된 것은 모두 소멸하기 마련이다. 끊임없이 정진하여 성취하라 - 석가모니  
+
 > 중요한 것은 꺾이지 않는 마음 - 데프트  
-> 엔지니어는 구현을 못하면 모르는 것이다. - [Carl's Tech Blog](https://wotres.tistory.com/)  
 
 ## Interests and Skills
 
