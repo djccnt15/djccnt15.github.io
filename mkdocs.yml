@@ -1,4 +1,6 @@
+site_url: https://djccnt15.github.io/
 site_name: Note of Jay.D
+site_author: djccnt15
 copyright: Copyright &copy; djccnt15
 # repo_url: https://github.com/djccnt15
 extra_javascript:
@@ -50,7 +52,7 @@ markdown_extensions:
       custom_checkbox: true
 theme:
   name: material
-  # custom_dir: overrides
+  custom_dir: overrides
   favicon: assets/icons/favicon.ico
   logo: assets/icons/logo_w.png
   features:
