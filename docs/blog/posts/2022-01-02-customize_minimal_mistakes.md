@@ -1,4 +1,5 @@
 ---
+status: deprecated
 slug: minimal-mistakes-customize
 title: Minimal Mistakes 테마 커스터마이징
 date:

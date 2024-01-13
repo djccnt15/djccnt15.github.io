@@ -108,7 +108,7 @@ plt.savefig(fname='plot_corr', bbox_inches='tight')
 plt.show()
 ```
 
-![plot_corr.png](img/plot_corr.png)
+![plot_corr.png](img/plot_corr.png){ loading=lazy }
 
 !!! warning
     참고로 특정 분포의 데이터들은 명백하게 상관관계가 있음에도 불구하고 피어슨 상관관계가 0으로 계산되는데, 이 때는 구간을 나누어서 확인해야 한다. 자세한 내용은 [여기](https://datascienceschool.net/02%20mathematics/07.05%20%EA%B3%B5%EB%B6%84%EC%82%B0%EA%B3%BC%20%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98.html#id8)를 참고하자.

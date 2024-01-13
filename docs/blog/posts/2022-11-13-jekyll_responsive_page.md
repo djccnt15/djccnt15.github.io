@@ -1,4 +1,5 @@
 ---
+status: deprecated
 slug: jekyll-responsive-web-page
 title: Jekyll 반응형 페이지
 date:

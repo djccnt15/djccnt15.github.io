@@ -496,7 +496,7 @@ Python으로 구현하면 아래와 같다.
     q, r = linalg.qr(s)
     ```
 
-??? note "중간의 3중첩 [list comprehension](/python/list_comprehension/) 풀이"
+??? note "중간의 3중첩 [list comprehension](2022-05-30-list_comprehension.md) 풀이"
 
     ```python
     h_list = []

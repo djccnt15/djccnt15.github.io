@@ -15,6 +15,8 @@ tags:
 
 <!-- more -->
 
+---
+
 언젠가부터 아래와 같은 meme이 웹 상에 떠돌아다닌다.  
 
 ![googling_stuff_online_does_not_make_you_a_doctor](img/googling_stuff_online_does_not_make_you_a_doctor.jpg){ loading=lazy }

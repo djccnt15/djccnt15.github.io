@@ -1,6 +1,6 @@
 ---
 slug: app-orm-tutorial
-title: App과 ORM
+title: Django의 App과 ORM
 date:
     created: 2022-09-27
 description: >
@@ -9,7 +9,7 @@ categories:
     - Django
 tags:
     - Django
-    - orm
+    - ORM
 ---
 
 App 생성, view 생성, URL 매핑, 데이터 모델 생성 및 활성화, 관리자 계정 생성  

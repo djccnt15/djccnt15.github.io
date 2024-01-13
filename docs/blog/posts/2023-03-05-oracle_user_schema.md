@@ -1,6 +1,6 @@
 ---
 slug: oracle-user-schema
-title: '[Oracle] 유저와 스키마'
+title: Oracle 유저와 스키마
 date:
     created: 2023-03-05
 description: >

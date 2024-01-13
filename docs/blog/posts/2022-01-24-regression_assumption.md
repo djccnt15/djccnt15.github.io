@@ -65,7 +65,7 @@ sns.pairplot(
 plt.show()
 ```
 
-![iris_pairplot](img/iris_pairplot.png)
+![iris_pairplot](img/iris_pairplot.png){ loading=lazy }
 
 만약 Sepal_Length를 예측하려고 하는 종속변수라고 한다면, 위 그래프를 보았을 때 Sepal_Length와 대략적인 선형관계를 이루고 있는 변수는 Petal_Length와 Petal_Width이고, 선형성을 만족하지 않는 것은 Sepal_Width인 것으로 보인다.  
 
@@ -128,7 +128,7 @@ sns.pairplot(
 plt.show()
 ```
 
-![iris_pairplot](img/iris_pairplot_2.png)
+![iris_pairplot](img/iris_pairplot_2.png){ loading=lazy }
 
 Petal_Length와 Petal_Width의 영향도를 제거한 Rest_Sepal_Width를 Sepal_Width와 비교해보면 선형성이 아주 약간 생긴 것을 확인할 수 있다.  
 
@@ -220,7 +220,7 @@ ax = sns.heatmap(
 plt.show()
 ```
 
-![iris_corr](img/iris_corr.png)
+![iris_corr](img/iris_corr.png){ loading=lazy }
 
 Petal_Length와 Petal_Width의 상관성이 0.96으로 매우 높게 나오는데, 독립변수 간의 상관성이 있을 경우 다중공선성(Multicollinearity)이 있다고 표현되며, 분산팽창요인(VIF, Variance Inflation Factors)을 통해 다중공선성을 계산할 수 있다.  
 VIF를 계산하는 공식은 아래와 같고, ${R^{2}_{i}}$은 $i$ 번째 독립변수에 대해 다른 독립변수들로 회귀분석을 시행한 선형 모델의 $R^{2}$라는 뜻이다.  

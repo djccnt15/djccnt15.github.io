@@ -1,6 +1,6 @@
 ---
 slug: how-to-install-oracle-xe
-title: '[Oracle] 오라클 XE 설치 및 Dbeaver 연결'
+title: Oracle XE 설치 및 Dbeaver 연결
 date:
     created: 2023-03-04
 description: >

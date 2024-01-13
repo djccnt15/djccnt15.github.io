@@ -1,6 +1,6 @@
 ---
 slug: how-to-login-django-shell
-title: shell에서 로그인하기
+title: Django shell에서 로그인하기
 date:
     created: 2022-11-06
 description: >

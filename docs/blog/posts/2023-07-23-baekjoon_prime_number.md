@@ -54,8 +54,7 @@ for v in (i for i in range(a, b + 1)):
 
 그리고 [에라토스테네스의 체](https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4)라는 개념이 있는데, 주어진 수의 범위에서 작은 숫자부터 시작하여 해당 수의 배수들을 전부 지워나가면 소수를 쉽게 찾을 수 있는 방법이다.  
 
-![Sieve_of_Eratosthenes](https://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif)
-{:.text-center}
+![Sieve_of_Eratosthenes](https://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif){ loading=lazy }
 
 에라토스테네스의 체를 응용하면 아래와 같이 문제를 풀어낼 수도 있다. BOJ에 제출해서 결과를 보면 아래 해법이 메모리를 좀 더 많이 먹는 대신 작동 시간이 위 방법에 비해 확연히 빠른 것을 확인할 수 있다.  
 

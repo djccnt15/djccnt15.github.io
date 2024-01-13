@@ -1,6 +1,6 @@
 ---
 slug: pagination-tutorial
-title: 페이지네이션
+title: Django 페이지네이션
 date:
     created: 2022-10-07
 description: >

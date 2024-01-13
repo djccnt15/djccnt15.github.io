@@ -1,4 +1,5 @@
 ---
+status: deprecated
 slug: hydejack-text-align
 title: Hydejack 테마 글자 정렬
 date:
@@ -10,6 +11,7 @@ categories:
 tags:
     - Jekyll
     - CSS
+    - Hydejack
 ---
 
 css로 Hydejack 테마 글자 정렬 기능 만들기  

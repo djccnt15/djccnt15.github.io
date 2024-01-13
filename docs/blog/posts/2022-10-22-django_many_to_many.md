@@ -1,6 +1,6 @@
 ---
 slug: many-to-many-tutorial
-title: 추천 기능
+title: Django 추천 기능
 date:
     created: 2022-10-22
 description: >

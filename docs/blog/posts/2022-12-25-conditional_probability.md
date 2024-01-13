@@ -13,7 +13,7 @@ tags:
     - python
 ---
 
-조건부 확률과 베이즈 정리
+조건부 확률과 베이즈 정리  
 
 <!-- more -->
 
@@ -137,7 +137,7 @@ $$
 P(B \vert A) = \frac{P(A \cap B)}{P(A)}, \quad P(A) > 0
 $$
 
-!!! tip
+!!! info
     참고로 위 식을 영어로는 *probability of event B given event A*라고 읽는다.  
 
 ### 2-1. 순차적 사건의 조건부 확률

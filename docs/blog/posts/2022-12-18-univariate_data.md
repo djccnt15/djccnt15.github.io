@@ -15,7 +15,7 @@ tags:
     - python
 ---
 
-수치형 일변량 자료의 중심경향치와 산포
+수치형 일변량 자료의 중심경향치와 산포  
 
 <!-- more -->
 
@@ -463,8 +463,11 @@ $$
     data = [1, 2, 3, 4, 5, 6, 7, 8]
     q = [0.25, 0.5, 0.75]
 
-    quantiles = stats.quantiles(data, method='inclusive')
+    quantiles = stats.quantiles(data, method='inclusive')  # (1)
     ```
+    { .annotate }
+
+    1. statistics 모듈의 경우 `method` 파라미터를 `inclusive`로 지정하지 않으면 데이터를 표본집단으로 인식하기 때문에 계산 결과가 달라진다.  
 
 === "NumPy"
 
@@ -476,9 +479,6 @@ $$
 
     quantiles = [np.quantile(a=data, q=q) for q in q]
     ```
-
-!!! info
-    statistics 모듈의 경우 `method` 파라미터를 `inclusive`로 지정하지 않으면 데이터를 표본집단으로 인식하기 때문에 계산 결과가 달라진다.  
 
 ### 2-3. 거리와 산포
 
@@ -497,7 +497,7 @@ D(a, b) =  \vert a - b \vert, \quad D(a, b) = (a - b)^{2}
 $$
 
 !!! info
-    $D(a, b) = (a - b)^{2}$ 이 성립하는 이유는, 여기서 말하는 **거리**가 벡터의 크기([norm](/mathematics/linear_algebra_inner_product_norm/#2-노름norm))를 의미하는 것이 아니기 때문이다. 데이터의 산포를 수학적으로 계산하기 위해서 **거리**를 사용할 때, 큰 것은 크게 작은 것은 작게 계산되는 부분에 변동이 없다면 제곱근을 하나 줄여 계산을 간결하게 하는 것이 더 좋다.  
+    $D(a, b) = (a - b)^{2}$ 이 성립하는 이유는, 여기서 말하는 **거리**가 벡터의 크기([norm](2022-06-05-linear_algebra_inner_product_norm.md/#2-norm))를 의미하는 것이 아니기 때문이다. 데이터의 산포를 수학적으로 계산하기 위해서 **거리**를 사용할 때, 큰 것은 크게 작은 것은 작게 계산되는 부분에 변동이 없다면 제곱근을 하나 줄여 계산을 간결하게 하는 것이 더 좋다.  
 
 따라서 위 정리를 바탕으로 모든 관측값들 간 거리의 합을 표현하면 아래와 같다.  
 
@@ -684,7 +684,7 @@ $$
     ```
 
 !!! tip
-    표준화 외에도 다양한 scaling 방식이 있다. [관련 링크](/dataanalysis/scalers/) 참고
+    표준화 외에도 다양한 scaling 방식이 있다. [관련 링크](2022-07-11-data_scalers.md) 참고
 
 ### 2-4. 변동계수
 

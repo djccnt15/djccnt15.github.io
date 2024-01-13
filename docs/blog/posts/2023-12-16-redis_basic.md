@@ -1,6 +1,6 @@
 ---
 slug: redis-basic
-title: '[Redis] Redis 기초'
+title: Redis 기초
 date:
     created: 2023-12-16
 description: >

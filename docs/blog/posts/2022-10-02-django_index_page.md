@@ -1,6 +1,6 @@
 ---
 slug: index-page-tutorial
-title: 인덱스 페이지
+title: Django 인덱스 페이지
 date:
     created: 2022-10-02
 description: >

@@ -1,4 +1,5 @@
 ---
+status: deprecated
 slug: hydejack-categories-tags-page
 title: Hydejack 테마 카테고리/태그 페이지
 date:
@@ -11,6 +12,7 @@ tags:
     - Jekyll
     - HTML
     - CSS
+    - Hydejack
 ---
 
 Hydejack 테마 카테고리/태그 통계 페이지 만들기  

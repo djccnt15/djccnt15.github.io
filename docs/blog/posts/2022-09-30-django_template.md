@@ -1,6 +1,6 @@
 ---
 slug: template-tutorial
-title: 템플릿과 css
+title: Django 템플릿과 css
 date:
     created: 2022-09-30
 description: >

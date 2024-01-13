@@ -1,28 +1,29 @@
 ---
-slug: opencv-imshow
-title: OpenCV 이미지 켜두기
+slug: how-to-show-image
+title: Python에서 이미지 확인하기
 date:
     created: 2023-12-24
+    updated: 2023-01-31
 description: >
-    OpenCV에서 이미지를 켜두는 방법
+    OpenCV로 불러온 이미지 확인하는 방법
 categories:
     - Vision
 tags:
-    - OpenCV
     - python
+    - OpenCV
 ---
 
-OpenCV에서 이미지를 켜두는 방법  
+OpenCV로 불러온 이미지 확인하는 방법  
 
 <!-- more -->
 
 ---
 
-## OpenCV로 영상 확인 방법
+## OpenCV 활용
 
-OpenCV를 이용해서 영상 처리를 할 때, `imshow` 함수로 영상을 확인하면서 처리를 하게 되는데 이때 영상의 재생이 모두 끝나면 자동으로 종료된다.  
+OpenCV를 사용한다면, `imshow` 함수를 사용해서 이미지를 확인할 수 있다. 
 
-영상의 자동 종료를 막고 싶으면 `waitKey` 함수를 같이 사용해줘야 하는데, 아래와 같이 함수로 묶어두면 편리하다.  
+다만 `imshow`함수는 영상의 재생이 모두 끝나면 자동으로 종료되는데, 영상의 자동 종료를 막고 싶다면 `waitKey` 함수를 같이 사용해줘야 한다.  
 
 ```python
 import cv2

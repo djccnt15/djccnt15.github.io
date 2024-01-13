@@ -1,6 +1,6 @@
 ---
 slug: signin-signup-tutorial
-title: 로그인/로그아웃, 회원가입
+title: Django 로그인/로그아웃, 회원가입
 date:
     created: 2022-10-03
 description: >

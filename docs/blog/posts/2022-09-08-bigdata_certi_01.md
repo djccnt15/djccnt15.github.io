@@ -29,7 +29,7 @@ scipy
 xgboost
 ```
 
-`pip install` 명령어를 사용해서 각각의 패키지들을 설치해주자. Python 환경을 분리해야할 경우 [가상환경](/python/python_venv/)을 만들어서 작업하면 된다.  
+`pip install` 명령어를 사용해서 각각의 패키지들을 설치해주자. Python 환경을 분리해야할 경우 [가상환경](2022-01-05-venv_guide.md)을 만들어서 작업하면 된다.  
 
 ## 작업형 제1유형 : 데이터 처리 영역
 
@@ -297,7 +297,7 @@ df['환불금액'].fillna(value=0, inplace=True)
 
 **정규화**
 
-정규화는 이상점의 영향을 적게 받는 Robust Scaling을 적용해주는게 무난하다. 자세한 설명은 [이 글](2022-07-11-scalers.md) 참고  
+정규화는 이상점의 영향을 적게 받는 Robust Scaling을 적용해주는게 무난하다. 자세한 설명은 [이 글](2022-07-11-data_scalers.md) 참고  
 
 ```python
 import numpy as np

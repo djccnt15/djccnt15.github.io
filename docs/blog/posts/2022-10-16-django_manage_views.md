@@ -1,6 +1,6 @@
 ---
 slug: how-to-manage-views
-title: view 관리
+title: Django view 관리
 date:
     created: 2022-10-16
 description: >

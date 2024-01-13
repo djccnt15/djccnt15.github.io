@@ -167,7 +167,7 @@ yes   no          6540  3968.000000  2175      15
 
 ## 2. pandas.DataFrame.groupby
 
-`groupby`는 `pivot_table`과 비슷한 기능을 하는 `DataFrame`의 메서드로 SQL의 [GROUP BY](/computerscience/sql_where_groupby/#3-group-by) 명령어와 유사하게 작동한다. `pandas.DataFrame.groupby`의 주요 파라미터는 아래와 같다.  
+`groupby`는 `pivot_table`과 비슷한 기능을 하는 `DataFrame`의 메서드로 SQL의 [GROUP BY](2022-08-13-sql_where_groupby.md/#3-group-by) 명령어와 유사하게 작동한다. `pandas.DataFrame.groupby`의 주요 파라미터는 아래와 같다.  
 
 - `by`: 요약될 칼럼
 - `axis`: 0 or 'index', 1 or 'columns'

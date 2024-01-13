@@ -1,6 +1,6 @@
 ---
 slug: mtv-pattern-tutorial
-title: MTV 패턴과 Create
+title: Django MTV 패턴과 Create
 date:
     created: 2022-10-01
 description: >

@@ -1,6 +1,6 @@
 ---
 slug: sql-tuning-basic-tip
-title: '[SQL] SQL 조회 튜닝 팁'
+title: SQL 조회 튜닝 팁
 date:
     created: 2023-09-11
 description: >

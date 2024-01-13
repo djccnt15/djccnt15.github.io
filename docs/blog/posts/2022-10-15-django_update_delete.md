@@ -1,6 +1,6 @@
 ---
 slug: update-delete-tutorial
-title: Update/Delete
+title: Django Update/Delete
 date:
     created: 2022-10-15
 description: >

@@ -1,4 +1,5 @@
 ---
+status: deprecated
 slug: jekyll-next-page-button
 title: Jekyll 이전/다음 글 버튼
 date:

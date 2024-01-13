@@ -1,4 +1,5 @@
 ---
+status: deprecated
 slug: basic-tutorial-for-jekyll
 title: Jekyll 기초 사용법
 date:

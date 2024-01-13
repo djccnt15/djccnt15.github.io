@@ -1,6 +1,6 @@
 ---
 slug: anchor-tutorial
-title: 앵커
+title: Django 앵커
 date:
     created: 2022-10-29
 description: >

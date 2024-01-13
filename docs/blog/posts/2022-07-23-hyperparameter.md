@@ -43,4 +43,4 @@ $$
 
 위 식의 $\beta_{0}, \beta_{1}, \beta_{2}, \cdots, \beta_{n}$, 즉 모델 내부에서 정해지는 변수를 **parameter**라고 하며, 문제를 해결하는 최적의 parameter를 도출하기 위해 연구자가 직접 세팅하는 값을 **hyperparameter**라고 한다.  
 
-hyperparameter의 예시는 KNN 알고리즘의 K, k-means 알고리즘의 K, SVM 알고리즘의 C, ANN 알고리즘의 batch/epoch/learning rate 등등이 있다. 머신러닝 모델을 개발할 때 이런 값들을 함수의 parameter로 입력하다보니 혼용이 생기는 것 같다.  
+**hyperparameter**의 예시는 KNN 알고리즘의 _K_, k-means 알고리즘의 _K_, SVM 알고리즘의 _C_, ANN 알고리즘의 _batch,epoch,learning rate_ 등등이 있다. AI 모델을 개발할 때 이런 값들을 함수의 **parameter**로 입력하다보니 혼용이 생기는 것 같다.  

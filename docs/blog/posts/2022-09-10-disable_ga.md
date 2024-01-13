@@ -1,4 +1,5 @@
 ---
+status: deprecated
 slug: how-to-inactivate-ga-at-localhost
 title: GA 비활성화 방법
 date:

@@ -150,7 +150,7 @@ Index(['Warehouse_block', 'Mode_of_Shipment', 'Product_importance', 'Gender'], d
 
 **정규화**
 
-이상점의 영향을 적게 받는 Robust Scaling으로 정규화를 해주자. 자세한 설명은 [이 글](2022-07-11-scalers.md) 참고  
+이상점의 영향을 적게 받는 Robust Scaling으로 정규화를 해주자. 자세한 설명은 [이 글](2022-07-11-data_scalers.md) 참고  
 
 ```python
 import numpy as np

@@ -1,4 +1,5 @@
 ---
+status: deprecated
 slug: hydejack-time-series-list
 title: Hydejack 테마 시계열 디자인 커스터마이즈
 date:

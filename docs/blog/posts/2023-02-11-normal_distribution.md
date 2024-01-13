@@ -13,7 +13,7 @@ tags:
     - python
 ---
 
-정규분포
+정규분포 개념 정리  
 
 <!-- more -->
 
@@ -27,7 +27,7 @@ $$
 X \sim N(\mu, \sigma^{2})
 $$
 
-![Normal_Distribution_PDF](img/Normal_Distribution_PDF.svg)
+![Normal_Distribution_PDF](img/Normal_Distribution_PDF.svg){ loading=lazy }  
 ^[출처: wikipedia - Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution)^
 
 정규분포의 확률질량함수는 아래와 같다.  
