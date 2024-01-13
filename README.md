@@ -4,10 +4,22 @@ GitHub Pages를 이용한 블로그 구축
 
 ## MkDocs 서버 구동
 
-- 서버 구동 명령어
+- [서버 구동 명령어](https://www.mkdocs.org/user-guide/cli/#mkdocs-serve)
 
 ```bat
 mkdocs serve
+```
+
+- 자동 재실행 disable
+
+```bat
+mkdocs serve --no-livereload
+```
+
+- 자동 재실행 시 변경된 페이지만 리빌드
+
+```bat
+mkdocs serve --dirty
 ```
 
 - 기본 서버 주소
