@@ -1,4 +1,4 @@
-site_url: https://djccnt15.github.io/
+site_url: https://djccnt15.github.io/  # necessary to enable sitemap
 site_name: Note of Jay.D
 site_author: djccnt15
 copyright: Copyright &copy; djccnt15
@@ -78,13 +78,13 @@ theme:
     - content.tooltips
   palette:
     - media: "(prefers-color-scheme)"  # Palette toggle for automatic mode
-      primary: light blue
+      primary: blue
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"  # Palette toggle for light mode
       scheme: default
-      primary: light blue
+      primary: blue
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
