@@ -1,7 +1,12 @@
+---
+search:
+    exclude: true
+---
+
 # About Me
 
-![googling_does_make_you_a_programmer](../../assets/img/googling_does_make_you_a_programmer_b.png#only-light){ loading=lazy }
-![googling_does_make_you_a_programmer](../../assets/img/googling_does_make_you_a_programmer_w.png#only-dark){ loading=lazy }
+![googling_does_make_you_a_programmer](../../assets/img/googling_does_make_you_a_programmer_b.png#only-light)
+![googling_does_make_you_a_programmer](../../assets/img/googling_does_make_you_a_programmer_w.png#only-dark)
 
 ## Contacts
 

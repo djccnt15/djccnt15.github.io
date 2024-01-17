@@ -3,6 +3,7 @@ slug: handling-datetime
 title: 날짜/시간 데이터 다루기
 date:
     created: 2022-12-03
+    updated: 2024-01-17
 description: >
     strftime, strptime으로 날짜와 시간 데이터 다루기
 categories:
@@ -67,22 +68,26 @@ print(datetime.now().date())
 2023-07-11
 ```
 
-- ISO 형식으로 출력하기
+- ISO 형식으로 입출력하기
 
-ISO 형식으로 데이터를 변환하려면, 아래와 같이 `isoformat` 메서드를 사용하면 된다.  
+ISO 형식으로 `datetime` 데이터를 입출력하려면, 아래와 같이 `isoformat`, `fromisoformat` 메서드를 사용하면 된다.  
 
 ```python
-from datetime import datetime, date
+from datetime import date, datetime
 
 iso_d = date.today().isoformat()
 iso_dt = datetime.now().isoformat()
 
-print(f'{iso_d=}')
-print(f'{iso_dt=}')
+dt = datetime.fromisoformat(iso_dt)
+
+print(f"{iso_d=}")
+print(f"{iso_dt=}")
+print(f"{dt=}")
 ```
 ```
-iso_d='2023-06-17'
-iso_dt='2023-06-17T13:47:50.665560'
+iso_d='2024-01-15'
+iso_dt='2024-01-15T01:39:21.732844'
+dt=datetime.datetime(2024, 1, 15, 1, 39, 21, 732844)
 ```
 
 ## strftime, strptime
