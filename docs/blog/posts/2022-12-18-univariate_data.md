@@ -462,7 +462,7 @@ $$
     data = [1, 2, 3, 4, 5, 6, 7, 8]
     q = [0.25, 0.5, 0.75]
 
-    quantiles = stats.quantiles(data, method='inclusive')  # (1)
+    quantiles = stats.quantiles(data, method='inclusive')  # (1)!
     ```
     { .annotate }
 

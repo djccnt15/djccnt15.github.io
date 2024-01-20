@@ -177,7 +177,7 @@ $$
         n: int = len(a)
         v: matrix = mat_identity(n)
 
-        for _ in range(100):  # (1)
+        for _ in range(100):  # (1)!
             q, r = qr_gramschmidt(a)
             a = mat_mul(r, q)
             v: matrix = mat_mul(v, q)

@@ -77,7 +77,7 @@ FastAPI는 OpenAPI(Swagger)를 기본으로 제공하는데, 아래와 같이 `/
 
 ## 2. 아키텍처
 
-FastAPI 기반의 백엔드 서버의 전체적인 아키텍처는 아래와 같다.  
+FastAPI 기반 백엔드 서버의 전체적인 아키텍처는 아래와 같다.  
 
 ![fastapi_server_architecture](img/fastapi_server_architecture.png){ loading=lazy }
 
@@ -122,8 +122,9 @@ WSGI는 기본적으로 request와 response로 이루어지는 동기 처리 방
 
 ### 2-3. Gunicorn, Uvicorn
 
-FastAPI 기반의 백엔드 서버는 그림에 표현된 것과 같이 Gunicorn과 Uvicorn을 동시에 사용하는데, 이 때 Gunicorn은 프로세스 매니저로서 서버에서 Master 프로세스의 역할을 하고, Worker 프로세스인 Uvicorn 프로세스를 여러개 실행해 두었다 
-웹 서버를 통해 브라우저의 요청이 들어오면 Uvicorn 프로세스를 통해 해당 요청을 처리한다.  
+FastAPI 기반 백엔드 서버는 [그림에 표현된 것](#2)과 같이 Gunicorn과 Uvicorn을 동시에 사용한다.  
+
+이 때 Gunicorn은 프로세스 매니저로서 서버에서 Master 프로세스의 역할을 하고 Worker 프로세스인 Uvicorn 프로세스를 여러 개 실행해서 관리하며, 웹 서버를 통해 브라우저의 요청이 들어오면 Uvicorn 프로세스를 통해 해당 요청을 처리한다.  
 
 Uvicorn의 [공식 문서](https://www.uvicorn.org/settings/#implementation)에 따르면 Uvicorn은 Python의 자체 비동기 처리 이벤트 루프를 대체하기 위해 개발된 [uvloop](https://uvloop.readthedocs.io/)을 지원하기 때문에 uvloop을 사용 가능한 환경이라면 uvloop을 사용해서 프로세스를 더 빠르게 처리할 수 있다고 한다.  
 

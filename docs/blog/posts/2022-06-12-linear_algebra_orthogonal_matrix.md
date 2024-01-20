@@ -45,7 +45,7 @@ $$
         """checks whether orthogonal matrix or not"""
 
         tmp: matrix = mat_mul(a, mat_trans(a))
-        tmp: matrix = mat_smul(1 / tmp[0][0], tmp)  # (1)
+        tmp: matrix = mat_smul(1 / tmp[0][0], tmp)  # (1)!
         I: matrix = mat_identity(len(a))
 
         return tmp == I

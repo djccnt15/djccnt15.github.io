@@ -109,7 +109,7 @@ $$
         this function just sorts rows as order by descending with first elements of each row
         """
 
-        return sorted(mat, key=lambda x: abs(x[0]), reverse=True)  # (1)
+        return sorted(mat, key=lambda x: abs(x[0]), reverse=True)  # (1)!
     ```
     { .annotation }
 
