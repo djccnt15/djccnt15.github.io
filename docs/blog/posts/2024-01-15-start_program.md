@@ -3,6 +3,7 @@ slug: how-to-start-program
 title: 서버에서 프로그램 실행하는 방법
 date:
     created: 2024-01-15
+    updated: 2024-01-21
 description: >
     터미널을 통해 프로그램을 실행하는 방법
 categories:
@@ -71,4 +72,9 @@ call <app_name>
 
     ```bat
     call .venv\Scripts\python.exe main.py
+    ```
+
+    ```bat
+    call .venv\Scripts\activate.bat
+    labelImg
     ```
