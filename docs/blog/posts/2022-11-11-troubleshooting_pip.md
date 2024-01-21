@@ -3,6 +3,7 @@ slug: troubleshooting-pip
 title: Python pip 관련 팁
 date:
     created: 2022-11-11
+    updated: 2024-01-21
 description: >
     Python pip 관련 이슈 해결 기록
 categories:
@@ -81,8 +82,23 @@ ModuleNotFoundError: No module named 'pip'
 python -m ensurepip --upgrade
 ```
 
+## pip 캐시 삭제
+
+pip를 통해 패키지를 설치하면 해당 패키지가 pip 캐시 공간에 저장되고, 쌓이다 보면 엄청난 용량을 차지한다. 해당 캐시는 아래 명령어로 삭제 가능하다.  
+
+```bat
+pip cache purge
+```
+
+패키지 다운로드 및 설치 시에 캐시가 저장되지 않도록 하려면 아래와 같이 `--no-cache-dir` 옵션을 주면서 설치하면 된다.  
+
+```bat
+pip install [package] --no-cache-dir
+```
+
 ---
 ## Reference
 - [There was an error checking the latest version of pip](https://stackoverflow.com/questions/72439001/there-was-an-error-checking-the-latest-version-of-pip)
 - [[Python] 파이썬 pip 설치 시 SSL 인증서 문제 해결 (error: [SSL: CERTIFICATE_VERIFY_FAILED])](https://harryp.tistory.com/831)
 - [ensurepip](https://docs.python.org/3/library/ensurepip.html)([한글](https://docs.python.org/ko/3/library/ensurepip.html))
+- [Disabling caching](https://pip.pypa.io/en/stable/topics/caching/#disabling-caching)
