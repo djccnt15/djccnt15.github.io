@@ -1,6 +1,8 @@
 ---
 hide:
     - navigation
+search:
+    exclude: true
 ---
 
 # Tags

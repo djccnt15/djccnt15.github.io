@@ -100,7 +100,7 @@ SQL Server는 SSMS(SQL Server Management Studio)를 사용해서 접속해보면
 
 SSMS에서 사용할 데이터베이스를 생성한 후 신규 생성한 데이터베이스로 바로 접속해도 되고, master, msdb, tempdb 등 시스템 데이터베이스로 접속한 후 사용할 데이터베이스를 생성해 사용해도 된다.  
 
-**sqlcmd** 사용
+**sqlcmd 사용**
 
 SSMS를 사용하고 싶지 않다면 sqlcmd를 통해 확인할 수 있다.  
 

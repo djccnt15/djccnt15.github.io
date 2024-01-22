@@ -32,7 +32,7 @@ PyCryptodome 패키지의 [공식 문서](https://www.pycryptodome.org/src/examp
 
 RSA 암호화에서는 키의 길이가 중요한데, KISA에서는 2048 비트 이상으로 길게 설정할 것을 추천하고 있다.  
 
-```python
+```python title="key.py"
 from pathlib import Path
 
 from Crypto.PublicKey import RSA
@@ -54,19 +54,8 @@ def create_keys_rsa(
         f.write(public)
 ```
 
-### 데이터 암호화 모듈
-
-데이터 암호화 모듈은 실제로 데이터를 암호화 하는 암호화 함수와 암호화 된 결과 데이터를 파일로 저장하는 함수로 이루어져 있다.  
-
-암호화 함수의 경우 암호화에 `public key`를 사용하는 것으로 작성해두었지만, 실제로는 용도에 따라 `private key`를 입력해도 상관없다.  
-
-```python
-from dataclasses import asdict, dataclass
-from pathlib import Path
-
-from Crypto.Cipher import AES, PKCS1_OAEP
-from Crypto.PublicKey import RSA
-from Crypto.Random import get_random_bytes
+```python title="model.py"
+from dataclasses import dataclass
 
 
 @dataclass
@@ -75,6 +64,23 @@ class EncryptedData:
     nonce: bytes
     tag: bytes
     ciphertext: bytes
+```
+
+### 데이터 암호화 모듈
+
+데이터 암호화 모듈은 실제로 데이터를 암호화 하는 암호화 함수와 암호화 된 결과 데이터를 파일로 저장하는 함수로 이루어져 있다.  
+
+암호화 함수의 경우 암호화에 `public key`를 사용하는 것으로 작성해두었지만, 실제로는 용도에 따라 `private key`를 입력해도 상관없다.  
+
+```python title="encrypt.key"
+from dataclasses import asdict
+from pathlib import Path
+
+from Crypto.Cipher import AES, PKCS1_OAEP
+from Crypto.PublicKey import RSA
+from Crypto.Random import get_random_bytes
+
+from model import EncryptedData
 
 
 def encrypt_rsa(
@@ -96,7 +102,7 @@ def encrypt_rsa(
     )
     ciphertext, tag = cipher_aes.encrypt_and_digest(plaintext=data.encode("utf-8"))
 
-    return Encrypted(
+    return EncryptedData(
         enc_session_key=enc_session_key,
         nonce=cipher_aes.nonce,
         tag=tag,
@@ -105,7 +111,7 @@ def encrypt_rsa(
 
 
 def rsa_to_file(
-    encrypted: Encrypted,
+    encrypted: EncryptedData,
     file_name: Path | str = "encrypted.bin",
 ):
     with open(file_name, "wb") as f:
@@ -121,20 +127,13 @@ PyCryptodome 패키지는 오직 bytes형만 처리 가능하기 때문에 암�
 
 암호화 모듈과 마찬가지로 복호화에 `private key`를 사용하는 것으로 작성해두었지만, `private key`로 입력된 데이터를 복호화할 때는 `public key`를 사용하면 된다.  
 
-```python
-from dataclasses import dataclass
+```python title="decrypt.py"
 from pathlib import Path
 
 from Crypto.Cipher import AES, PKCS1_OAEP
 from Crypto.PublicKey import RSA
 
-
-@dataclass
-class EncryptedData:
-    enc_session_key: bytes
-    nonce: bytes
-    tag: bytes
-    ciphertext: bytes
+from model import EncryptedData
 
 
 def rsa_from_file(
@@ -149,7 +148,7 @@ def rsa_from_file(
             f.read(x) for x in (private.size_in_bytes(), 16, 16, -1)
         ]
 
-    return Encrypted(
+    return EncryptedData(
         enc_session_key=enc_session_key,
         nonce=nonce,
         tag=tag,
@@ -158,7 +157,7 @@ def rsa_from_file(
 
 
 def decrypt_rsa(
-    encrypted: Encrypted,
+    encrypted: EncryptedData,
     private_key: Path | str = "private.pem",
 ):
     with open(private_key) as k:

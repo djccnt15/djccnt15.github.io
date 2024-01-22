@@ -3,7 +3,7 @@ slug: how-to-show-image
 title: Python에서 이미지 확인하기
 date:
     created: 2023-12-24
-    updated: 2024-01-18
+    updated: 2024-01-23
 description: >
     OpenCV로 불러온 이미지 확인하는 방법
 categories:
@@ -35,6 +35,7 @@ def imshow(
     image: np.ndarray,
     title: str = "title",
     time: int = 0,
+    resize_ratio: float = 1 / 2
 ) -> None:
     """show image and wait
 
@@ -46,14 +47,21 @@ def imshow(
         window name
     time : int
         image waiting time(ms), need push a key to close window if 0 is given
+    resize_ratio : float
+        ratio for window resizing
 
     Returns
     -------
     None
     """
+    
+    width = int(image.shape[1] * resize_ratio)
+    height = int(image.shape[0] * resize_ratio)
 
+    cv2.namedWindow(winname=title, flags=cv2.WINDOW_NORMAL)
+    cv2.resizeWindow(title, width=width, height=height)
     cv2.imshow(winname=title, mat=image)
-    cv2.waitKey(time)
+    cv2.waitKey(delay=time)
     cv2.destroyAllWindows()
 ```
 

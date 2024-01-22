@@ -98,39 +98,39 @@ theme:
     repo: fontawesome/brands/github
     tag:
       api: material/api
-      python: fontawesome/brands/python
-      numpy: simple/numpy
-      sympy: simple/sympy
-      skleran: simple/scikitlearn
-      pandas: simple/pandas
-      java: fontawesome/brands/java
-      html: fontawesome/brands/html5
       css: simple/css3
-      markdown: fontawesome/brands/markdown
-      git: simple/git
-      terminal: simple/windowsterminal
-      shell: simple/powershell
-      docker: simple/docker
-      redis: simple/redis
-      telegram: simple/telegram
-      tensorflow: simple/tensorflow
-      gunicorn: simple/gunicorn
-      gradle: simple/gradle
-      fastapi: simple/fastapi
+      cv: simple/opencv
+      db: fontawesome/solid/database
       django: simple/django
+      docker: simple/docker
+      fastapi: simple/fastapi
+      ga: simple/googleanalytics
+      git: simple/git
+      gradle: simple/gradle
+      gunicorn: simple/gunicorn
+      html: fontawesome/brands/html5
+      intellij: simple/intellijidea
+      java: fontawesome/brands/java
+      jekyll: simple/jekyll
+      mariadb: simple/mariadb
+      markdown: fontawesome/brands/markdown
+      mssql: simple/microsoftsqlserver
+      mysql: simple/mysql
+      numpy: simple/numpy
+      oracle: simple/oracle
+      pandas: simple/pandas
+      postgresql: simple/postgresql
+      python: fontawesome/brands/python
+      redis: simple/redis
+      shell: simple/powershell
+      skleran: simple/scikitlearn
       spring: simple/spring
       spring_boot: simple/springboot
-      jekyll: simple/jekyll
-      db: fontawesome/solid/database
-      mariadb: simple/mariadb
-      mysql: simple/mysql
-      postgresql: simple/postgresql
-      mssql: simple/microsoftsqlserver
-      oracle: simple/oracle
-      cv: simple/opencv
-      ga: simple/googleanalytics
+      sympy: simple/sympy
+      telegram: simple/telegram
+      tensorflow: simple/tensorflow
+      terminal: simple/windowsterminal
       vscode: simple/visualstudiocode
-      intellij: simple/intellijidea
 extra:
   # generator: false  # enable to remove `Made with Material for MkDocs` comment at footer
   social:
@@ -164,50 +164,50 @@ extra:
   #     - reject
   tags:
     API: api
-    REST API: api
-    RESTful API: api
-    python: python
+    cmd: terminal
+    CSS: css
+    database: db
+    Django: django
+    docker: docker
+    FastAPI: fastapi
+    git: git
+    Google Analytics: ga
+    gradle: gradle
+    gunicorn: gunicorn
+    HTML: html
+    IntelliJ: intellij
+    java 17: java
+    java: java
+    Jekyll: jekyll
+    list comprehension: python
+    MariaDB: mariadb
+    markdown: markdown
+    MySQL: mysql
+    numpy: numpy
+    OpenCV: cv
+    oracle: oracle
+    pandas: pandas
     PEP: python
     pip: python
-    venv: python
-    list comprehension: python
-    numpy: numpy
-    sympy: sympy
-    pandas: pandas
-    scikit-learn: skleran
-    java: java
-    java 17: java
-    HTML: html
-    CSS: css
-    SCSS: css
-    markdown: markdown
-    git: git
-    cmd: terminal
-    terminal: terminal
-    shell: powershell
-    docker: docker
+    PostgreSQL: postgresql
+    python: python
+    RDB: db
     redis: redis
+    REST API: api
+    RESTful API: api
+    scikit-learn: skleran
+    SCSS: css
+    shell: powershell
+    Spring batch: spring
+    Spring: spring
+    SQL Server: mssql
+    SQL: db
+    sympy: sympy
     telegram: telegram
     tensorflow: tensorflow
-    gunicorn: gunicorn
-    gradle: gradle
-    FastAPI: fastapi
-    Django: django
-    Spring: spring
-    Spring batch: spring
-    Jekyll: jekyll
-    database: db
-    RDB: db
-    SQL: db
-    MariaDB: mariadb
-    MySQL: mysql
-    PostgreSQL: postgresql
-    SQL Server: mssql
-    oracle: oracle
-    OpenCV: cv
-    Google Analytics: ga
+    terminal: terminal
+    venv: python
     VS Code: vscode
-    IntelliJ: intellij
 plugins:
   - search:
       lang:
@@ -236,6 +236,7 @@ plugins:
         - Data Engineering
         - Django
         - FastAPI
+        - Front-End
         - Java
         - Jekyll
         - Mathematics

@@ -1,6 +1,8 @@
 ---
 hide:
     - navigation
+search:
+    exclude: true
 ---
 
 ## 📌Pinned
@@ -35,7 +37,7 @@ hide:
 - :material-ip-network: [TCP 포트 사용 범위 제외 문제 해결](../blog/posts/2023-09-08-tcp_port_error.md)
 - :material-cog-off: [port 사용중인 프로세스 강제 종료 방법](../blog/posts/2024-01-03-netstat_taskkill.md)
 - :fontawesome-brands-python: [Python logging 모듈 사용법](../blog/posts/2023-09-21-python_logging.md)
-- :simple-opencv: [OpenCV 이미지 확인하기](../blog/posts/2023-12-24-show_image.md)
+- :simple-opencv: [OpenCV 이미지 확인하기](../blog/posts/2023-12-24-visualize_image.md)
 - :material-play-network: [서버에서 프로그램 실행하는 방법](../blog/posts/2024-01-15-start_program.md)
 
 </div>

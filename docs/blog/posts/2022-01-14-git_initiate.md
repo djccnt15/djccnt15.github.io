@@ -3,6 +3,7 @@ slug: git-initiate
 title: Git 시작하기
 date:
     created: 2022-01-14
+    updated: 2024-01-20
 description: >
     시작하기 위한 명령어들 정리: help, init, remote, status
 categories:
@@ -94,6 +95,15 @@ git remote set-url --add <name> <newurl>
 ```bash
 git remote set-url --delete <name> <url>
 ```
+
+- 원격 저장소의 존재하지 않는 브랜치 정리
+
+```bash
+git remote prune <name>
+```
+
+!!! tip
+    원격 저장소에서 브랜치가 삭제되는 것은 `git remote update`로 로컬에 반영되지 않는다. 원격에서 삭제된 브랜치를 로컬에 반영하려면 `git remote prune` 명령어를 사용해야 한다.  
 
 ### 💡여러 저장소에 동시 push
 
