@@ -3,6 +3,7 @@ slug: custom-exception
 title: 커스텀 에러 사용법
 date:
     created: 2023-05-28
+    updated: 2024-01-24
 description: >
     Python Exception 커스텀 방법
 categories:
@@ -46,38 +47,53 @@ Your own custom error comment
 개발을 하다보면 특정 상황에 대해 에러를 일으켜야 할 경우가 있다. 이 때 아래와 같이 커스텀 에러를 만들어 사용한다면 다양한 상황에 대해 유연하게 대처할 수 있다.  
 
 ```python
-class CustomError(Exception):
+class MyException(Exception):
     ...
 
 
-raise CustomError
+raise MyException
 ```
 ```
 Traceback (most recent call last):
   File "C:\projects\python311\note.py", line 5, in <module>
-    raise CustomError
-CustomError
+    raise MyException
+MyException
 ```
 
 ## 에러의 기본 메세지 커스텀하기
 
 ```python
-class CustomError(Exception):
+class MyException(Exception):
+    def __init__(self, message="custom error") -> None:
+        super().__init__(message)
+
+
+try:
+    raise MyException
+except MyException as e:
+    print(e)
+```
+```
+custom error
+```
+
+
+```python
+class MyException(Exception):
     def __init__(
         self,
-        api_interface,
+        api_interface: str | None = None,
         message="%s is not valid API interface",
     ) -> None:
-        self.api_interface = api_interface
         self.message = message % api_interface
         super().__init__(self.message)
 
 
-raise CustomError("ASDF")
+raise MyException("ASDF")
 ```
 ```
 Traceback (most recent call last):
   File "C:\projects\python311\main.py", line 12, in <module>
-    raise CustomError("ASDF")
-CustomError: ASDF is not valid API interface
+    raise MyException("ASDF")
+MyException: ASDF is not valid API interface
 ```
