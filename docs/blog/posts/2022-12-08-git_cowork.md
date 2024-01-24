@@ -44,8 +44,6 @@ GitFlow는 아래 그림만 잘 봐도 이해할 수 있다.
 
 ---
 ## Reference
-- [(알아두면 개발팀장가능) GitFlow vs Trunk-based 협업방식](https://youtu.be/EV3FZ3cWBp8)
-
-<iframe src="https://www.youtube.com/embed/EV3FZ3cWBp8" title="(알아두면 개발팀장가능) GitFlow vs Trunk-based 협업방식" frameborder="0" allowfullscreen></iframe>
-
+- [(알아두면 개발팀장가능) GitFlow vs Trunk-based 협업방식](https://youtu.be/EV3FZ3cWBp8)  
+    <iframe src="https://www.youtube.com/embed/EV3FZ3cWBp8" title="(알아두면 개발팀장가능) GitFlow vs Trunk-based 협업방식" frameborder="0" allowfullscreen></iframe>
 - [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
