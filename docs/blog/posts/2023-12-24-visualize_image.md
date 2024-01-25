@@ -3,7 +3,7 @@ slug: how-to-show-image
 title: Python에서 이미지 확인하기
 date:
     created: 2023-12-24
-    updated: 2024-01-23
+    updated: 2024-01-25
 description: >
     OpenCV로 불러온 이미지 확인하는 방법
 categories:
@@ -26,44 +26,97 @@ OpenCV를 사용한다면, `imshow` 함수를 사용해서 이미지를 확인�
 
 다만 `imshow`함수는 영상의 재생이 모두 끝나면 자동으로 종료되는데, 영상의 자동 종료를 막고 싶다면 `waitKey` 함수를 같이 사용해줘야 한다.  
 
-```python
-import cv2
-import numpy as np
+=== "Python3.9"
+
+    ```python
+    from typing import Union
+
+    import cv2
+    import numpy as np
 
 
-def imshow(
-    image: np.ndarray,
-    title: str = "title",
-    time: int = 0,
-    resize_ratio: float = 1 / 2
-) -> None:
-    """show image and wait
+    def imshow(
+        image: np.ndarray,
+        title: str = "title",
+        time: int = 0,
+        resize_ratio: Union[int, float, None] = None,
+    ) -> None:
+        """show image and wait
 
-    Parameters
-    ----------
-    image : np.ndarray
-        image matrix
-    title : str
-        window name
-    time : int
-        image waiting time(ms), need push a key to close window if 0 is given
-    resize_ratio : float
-        ratio for window resizing
+        Parameters
+        ----------
+        image : np.ndarray
+            image matrix read with OpenCV
+        title : str
+            window name
+        time : int
+            image waiting time(ms), need push a key to close window if 0 is given
+        resize_ratio:
+            ratio for window resizing, size of the window will be same with the image size if none
 
-    Returns
-    -------
-    None
-    """
-    
-    width = int(image.shape[1] * resize_ratio)
-    height = int(image.shape[0] * resize_ratio)
+        Returns
+        -------
+        None
+        """
 
-    cv2.namedWindow(winname=title, flags=cv2.WINDOW_NORMAL)
-    cv2.resizeWindow(title, width=width, height=height)
-    cv2.imshow(winname=title, mat=image)
-    cv2.waitKey(delay=time)
-    cv2.destroyAllWindows()
-```
+        cv2.namedWindow(winname=title, flags=cv2.WINDOW_NORMAL)  # (1)!
+        if resize_ratio:
+            width = int(image.shape[1] * resize_ratio)
+            height = int(image.shape[0] * resize_ratio)
+            cv2.resizeWindow(title, width=width, height=height)
+
+        cv2.imshow(winname=title, mat=image)
+        cv2.waitKey(time)
+        cv2.destroyAllWindows()
+    ```
+    { .annotation }
+
+    1. 윈도우 크기를 조절할 수 있도록 해주는 블록
+
+=== "Python3.10+"
+
+    ```python
+    import cv2
+    import numpy as np
+
+
+    def imshow(
+        image: np.ndarray,
+        title: str = "title",
+        time: int = 0,
+        resize_ratio: int | float | None = None,
+    ) -> None:
+        """show image and wait
+
+        Parameters
+        ----------
+        image : np.ndarray
+            image matrix read with OpenCV
+        title : str
+            window name
+        time : int
+            image waiting time(ms), need push a key to close window if 0 is given
+        resize_ratio: int | float | None
+            ratio for window resizing, size of the window will be same with the image size if none
+
+        Returns
+        -------
+        None
+        """
+
+        cv2.namedWindow(winname=title, flags=cv2.WINDOW_NORMAL)  # (1)!
+        if resize_ratio:
+            width = int(image.shape[1] * resize_ratio)
+            height = int(image.shape[0] * resize_ratio)
+            cv2.resizeWindow(title, width=width, height=height)
+
+        cv2.imshow(winname=title, mat=image)
+        cv2.waitKey(time)
+        cv2.destroyAllWindows()
+    ```
+    { .annotation }
+
+    1. 윈도우 크기를 조절할 수 있도록 해주는 블록
 
 !!! tip
     참고로 `cv2.waitKey`의 입력 인자를 0으로 입력하면 사용자가 키를 누를 때까지 대기한다.  
