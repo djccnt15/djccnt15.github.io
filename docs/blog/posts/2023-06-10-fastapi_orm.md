@@ -3,6 +3,7 @@ slug: fastapi-orm
 title: FastAPI ORM 적용
 date:
     created: 2023-06-10
+    updated: 2024-01-25
 description: >
     SQLAlchemy와 Alembic을 활용한 데이터베이스 ORM
 categories:
@@ -79,12 +80,18 @@ SQLALCHEMY_DATABASE_URL = URL.create(
     database=db_key.database,
 )
 
-if str(SQLALCHEMY_DATABASE_URL).startswith("sqlite"):  # check_same_thread arg is only for SQLite
+if str(SQLALCHEMY_DATABASE_URL).startswith("sqlite"):
+    # check_same_thread arg is only for SQLite
     engine = create_async_engine(
-        SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+        url=SQLALCHEMY_DATABASE_URL,
+        connect_args={"check_same_thread": False},
+        echo=True,
     )
 else:
-    engine = create_async_engine(SQLALCHEMY_DATABASE_URL)
+    engine = create_async_engine(
+        url=SQLALCHEMY_DATABASE_URL,
+        echo=True,
+    )
 
 
 async def get_db():
@@ -100,6 +107,9 @@ Base = declarative_base()
 if __name__ == '__main__':
     print(SQLALCHEMY_DATABASE_URL)
 ```
+
+!!! tip
+    engine 생성 시에 `echo=True` 옵션을 주면 터미널에 SQLAlchemy 엔진의 로그가 출력 된다.  
 
 ### 데이터베이스 설정
 

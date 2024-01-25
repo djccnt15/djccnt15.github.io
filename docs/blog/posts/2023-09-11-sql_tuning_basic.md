@@ -33,6 +33,5 @@ SQL 조회 쿼리 튜닝 기초 팁
 
 ---
 ## Reference
-- [SQL 이렇게 작성하면 안돼요!](https://youtu.be/NZE-FmpV__M)
-
-<iframe src="https://www.youtube.com/embed/NZE-FmpV__M" title="SQL 이렇게 작성하면 안돼요! 😵" frameborder="0" allowfullscreen></iframe>
+- [SQL 이렇게 작성하면 안돼요!](https://youtu.be/NZE-FmpV__M)  
+    <iframe src="https://www.youtube.com/embed/NZE-FmpV__M" title="SQL 이렇게 작성하면 안돼요! 😵" frameborder="0" allowfullscreen></iframe>

@@ -68,10 +68,8 @@ tags:
 
 ---
 ## Reference
-- [회사에서 절대 맡으면 안 되는 업무 (개고생 주의)](https://youtu.be/5rlUa1el3AU)
+- [회사에서 절대 맡으면 안 되는 업무 (개고생 주의)](https://youtu.be/5rlUa1el3AU)  
+    <iframe src="https://www.youtube.com/embed/5rlUa1el3AU" title="회사에서 절대 맡으면 안 되는 업무 (개고생 주의)" frameborder="0" allowfullscreen></iframe>
 
-<iframe src="https://www.youtube.com/embed/5rlUa1el3AU" title="회사에서 절대 맡으면 안 되는 업무 (개고생 주의)" frameborder="0" allowfullscreen></iframe>
-
-- [회사에서 모두가 피하는 일을 맡았을 때](https://youtu.be/vOfTE79BpAQ)
-
-<iframe src="https://www.youtube.com/embed/vOfTE79BpAQ" title="회사에서 모두가 피하는 일을 맡았을 때" frameborder="0" allowfullscreen></iframe>
+- [회사에서 모두가 피하는 일을 맡았을 때](https://youtu.be/vOfTE79BpAQ)  
+    <iframe src="https://www.youtube.com/embed/vOfTE79BpAQ" title="회사에서 모두가 피하는 일을 맡았을 때" frameborder="0" allowfullscreen></iframe>
