@@ -43,12 +43,12 @@ CRUD와 GET, POST, PUT, DELETE
 
 ## 2. 주요 Method 비교
 
-|Method|의미|CRUD|멱등성|안정성|Path Variable|Query Parameter|Data Body|
-|:-:|-|:-:|:-:|:-:|:-:|:-:|:-:|
-|GET|리소스 요청|Read|O|O|O|O|X|
-|POST|리소스 생성|Create|X|X|O|△|O|
-|PUT|리소스 갱신, 생성|Update, Create|O|X|O|△|O|
-|DELETE|리소스 삭제|Delete|O|X|O|O|△|
+| Method | 의미              |      CRUD      | 멱등성 | 안정성 | Path Variable | Query Parameter | Data Body |
+| :----: | ----------------- | :------------: | :----: | :----: | :-----------: | :-------------: | :-------: |
+|  GET   | 리소스 요청       |      Read      |   O    |   O    |       O       |        O        |     X     |
+|  POST  | 리소스 생성       |     Create     |   X    |   X    |       O       |        △        |     O     |
+|  PUT   | 리소스 갱신, 생성 | Update, Create |   O    |   X    |       O       |        △        |     O     |
+| DELETE | 리소스 삭제       |     Delete     |   O    |   X    |       O       |        O        |     △     |
 
 Query Parameter는 URL의 일부인 **쿼리스트링(Query string)**을 통해 전송하는데, 아래와 같이 URL의 뒤에 `?`으로 요청 파라미터를 덧붙인 요청 양식을 쿼리스트링이라고 부른다. 쿼리스트링에서 요청 파라미터가 여러 개면 `&`로 연결한다.  
 

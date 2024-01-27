@@ -110,9 +110,16 @@ SELECT TOP(4) WITH TIES job, deptno FROM emp ORDER BY job, deptno;
 
 함수는 크게 **내장 함수(Builtin Function)**와 **사용자 정의 함수(User Defined Function)**로 나뉘며, 내장 함수의 종류는 다음과 같다.  
 
-|단일행 함수<br>(Single-Row Function)|다중행 함수<br>(Multi-Row Function)|
-|-|-|
-|[문자형 함수](#2-1)<br>[숫자형 함수](#2-2)<br>[날짜형 함수](#2-3)<br>[변환형 함수](#2-4)<br>[NULL 관련 함수](#2-6-null)|[집계 함수(Aggregate Function)](#3-1)<br>[그룹 함수(Group Function)](2022-08-18-sql_group_window_function.md/#2)<br>[윈도우 함수(Window Function)](2022-08-18-sql_group_window_function.md/#3)|
+- 단일행 함수(Single-Row Function)
+    - [문자형 함수](#2-1)
+    - [숫자형 함수](#2-2)
+    - [날짜형 함수](#2-3)
+    - [변환형 함수](#2-4)
+    - [NULL 관련 함수](#2-6-null)
+- 다중행 함수(Multi-Row Function)
+    - [집계 함수(Aggregate Function)](#3-1)
+    - [그룹 함수(Group Function)](2022-08-18-sql_group_window_function.md/#2)
+    - [윈도우 함수(Window Function)](2022-08-18-sql_group_window_function.md/#3)
 
 단일행 함수(Single-Row Function)의 주요 특징은 다음과 같다.  
 

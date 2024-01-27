@@ -47,7 +47,7 @@ logger.setLevel(logging.DEBUG)
 # set log format
 formatter = logging.Formatter(
     fmt="%(asctime)s - %(levelname)s - [%(module)s:%(lineno)d] %(message)s",
-    datefmt="%Y-%m-%dT%H:%M:%S:%z",
+    datefmt="%Y-%m-%dT%H:%M:%S%z",
 )
 
 # TimedRotatingFileHandler
@@ -87,12 +87,12 @@ except Exception as e:
 위 `main.py` 파일을 실행 시키면 아래와 같이 로그가 출력된다.  
 
 ```log
-2024-01-25T01:02:58:+0900 - DEBUG - [main:46] debug message
-2024-01-25T01:02:58:+0900 - INFO - [main:47] info message
-2024-01-25T01:02:58:+0900 - WARNING - [main:48] warn message
-2024-01-25T01:02:58:+0900 - ERROR - [main:49] error message
-2024-01-25T01:02:58:+0900 - CRITICAL - [main:50] critical message
-2024-01-25T01:02:58:+0900 - ERROR - [main:55] 
+2024-01-25T01:02:58+0900 - DEBUG - [main:46] debug message
+2024-01-25T01:02:58+0900 - INFO - [main:47] info message
+2024-01-25T01:02:58+0900 - WARNING - [main:48] warn message
+2024-01-25T01:02:58+0900 - ERROR - [main:49] error message
+2024-01-25T01:02:58+0900 - CRITICAL - [main:50] critical message
+2024-01-25T01:02:58+0900 - ERROR - [main:55] 
 Traceback (most recent call last):
   File "C:\projects\python311\main.py", line 53, in <module>
     raise Exception
@@ -108,17 +108,19 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 - `when`: time rotate의 기준 시점
 - `backupCount`: 로그를 남길 파일 개수, 로그 파일이 해당 설정의 수보다 많을 경우 자동 삭제
 
+| `when` 값 |            interval 유형             |       `atTime` 입력 시       |
+| :-------: | :----------------------------------: | :--------------------------: |
+|     S     |                  초                  |          영향 없음           |
+|     M     |                  분                  |          영향 없음           |
+|     H     |                 시간                 |          영향 없음           |
+|     D     |                  일                  |          영향 없음           |
+|  W0 - W6  |           요일 (0=월요일)            | 최초 롤오버 시간 계산에 사용 |
+| midnight  | `atTime` 미입력 시 자정에 롤오버[^1] | 최초 롤오버 시간 계산에 사용 |
+
+[^1]: `atTime` 입력 시 해당 시간에 롤오버
+
 !!! tip
     `file_handler.suffix = "%Y%m%d.log"`와 같이 `suffix` 속성을 설정할 경우 롤오버 시 생성되는 파일의 파일명 규칙을 수정할 수 있지만, 이 경우 `backupCount` 속성이 제대로 작동하지 않게 된다.  
-
-|`when` 값|interval 유형|`atTime` 사용 시|
-|:-:|:-:|:-:|
-|S|초|영향 없음|
-|M|분|영향 없음|
-|H|시간|영향 없음|
-|D|일|영향 없음|
-|W0 - W6|요일 (0=월요일)|최초 롤오버 시간 계산에 사용|
-|midnight|`atTime` 미지정 시 자정, 지정 시 `atTime`에 롤오버|최초 롤오버 시간 계산에 사용|
 
 ### LogRecord
 
@@ -126,17 +128,17 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 
 `LogRecord` 클래스의 요소들은 [공식 문서](https://docs.python.org/3/library/logging.html#logrecord-attributes)에서 확인할 수 있는데, 주로 사용할만한 속성들은 아래와 같다.  
 
-|Attribute name|Format|Description|
-|:-:|:-:|:-:|
-|asctime|%(asctime)s|로그가 생성된 시간|
-|filename|%(filename)s|로그를 발생시킨 파일의 이름|
-|levelname|%(levelname)s|로그 레벨 이름|
-|lineno|%(lineno)d|소스코드에서 로그를 발생시킨 라인 넘버|
-|message|%(message)s|로그 메세지|
-|module|%(module)s|로그를 발생시킨 모듈 이름|
-|name|%(name)s|로거의 이름|
-|process|%(process)d|프로세스 ID(가능할 경우에만)|
-|thread|%(thread)d|쓰레드 ID(가능할 경우에만)|
+| Attribute name |    Format     |              Description               |
+| :------------: | :-----------: | :------------------------------------: |
+|    asctime     |  %(asctime)s  |           로그가 생성된 시간           |
+|    filename    | %(filename)s  |      로그를 발생시킨 파일의 이름       |
+|   levelname    | %(levelname)s |             로그 레벨 이름             |
+|     lineno     |  %(lineno)d   | 소스코드에서 로그를 발생시킨 라인 넘버 |
+|    message     |  %(message)s  |              로그 메세지               |
+|     module     |  %(module)s   |       로그를 발생시킨 모듈 이름        |
+|      name      |   %(name)s    |              로거의 이름               |
+|    process     |  %(process)d  |      프로세스 ID(가능할 경우에만)      |
+|     thread     |  %(thread)d   |       쓰레드 ID(가능할 경우에만)       |
 
 ### Filter
 
@@ -152,7 +154,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 
     === "Python 3.11"
     
-        ```python
+        ```python hl_lines="35-36"
         class Filterer(object):
             """
             A base class for loggers and handlers which allows them to share
@@ -171,12 +173,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
                 if not (filter in self.filters):
                     self.filters.append(filter)
 
-            def removeFilter(self, filter):
-                """
-                Remove the specified filter from this handler.
-                """
-                if filter in self.filters:
-                    self.filters.remove(filter)
+            ...
 
             def filter(self, record):
                 """
@@ -225,14 +222,14 @@ logger.setLevel(logging.DEBUG)
 
 # set log format
 formatter = logging.Formatter(
-    fmt="%(asctime)s - [%(module)s:%(lineno)d] %(message)s",
-    datefmt="%Y-%m-%dT%H:%M:%S:%z",
+    fmt="%(asctime)s - %(levelname)s - [%(module)s:%(lineno)d] %(message)s",
+    datefmt="%Y-%m-%dT%H:%M:%S%z",
 )
 
 # StreamHandler
 stream_handler = StreamHandler()
 stream_handler.setFormatter(formatter)
-stream_handler.addFilter(MyFilter(logging.DEBUG))  # type: ignore
+stream_handler.addFilter(MyFilter(logging.DEBUG))
 logger.addHandler(stream_handler)
 
 if __name__ == "__main__":
@@ -245,10 +242,10 @@ if __name__ == "__main__":
 { .annotation }
 
 1. note에 작성했듯이 `class MyFilter(object)`로 만들어도 전혀 문제 없다.
-1. 특정 레벨보다 하위의 레벨을 출력하는 방식의 필터를 만들고 싶다면, `logRecord.levelno <= self.__level`과 같이 만들어주면 된다.
+1. 특정 레벨보다 하위의 레벨을 출력하는 방식의 필터를 만들고 싶다면, `logRecord.levelno <= self.__level`으로 만들어주면 된다.
 
 ```
-2024-01-25T01:06:19:+0900 - [note:30] debug message
+2024-01-25T01:06:19+0900 - DEBUG - [note:30] debug message
 ```
 
 ---

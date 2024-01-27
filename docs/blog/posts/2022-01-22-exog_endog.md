@@ -34,12 +34,12 @@ statsmodels의 [공식 문서](https://www.statsmodels.org/stable/endog_exog.htm
 
 참고할 만한 독립변수와 종속변수의 변수명 조합들은 아래와 같다.  
 
-|independent Variable|dependent Variable|
-|:-:|:-:|
-|exog|endog|
-|independ|depend|
-|X|y|
-|data|target|
+| independent Variable | dependent Variable |
+| :------------------: | :----------------: |
+|         exog         |       endog        |
+|       independ       |       depend       |
+|          X           |         y          |
+|         data         |       target       |
 
 ---
 ## Reference

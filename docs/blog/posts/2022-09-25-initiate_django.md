@@ -31,13 +31,13 @@ pip install Django
 
 아래와 같이 Django와 Python [호환성 제약](https://docs.djangoproject.com/en/4.1/faq/install/#what-python-version-can-i-use-with-django)이 있으니 [Python 가상환경](2022-01-05-venv_guide.md)을 사용해서 버전을 맞춰주어야 한다.  
 
-|Django version|Python versions|
-|-|-|
-|2.2|3.5, 3.6, 3.7, 3.8 (added in 2.2.8), 3.9 (added in 2.2.17)|
-|3.1|3.6, 3.7, 3.8, 3.9 (added in 3.1.3)|
-|3.2|3.6, 3.7, 3.8, 3.9, 3.10 (added in 3.2.9)|
-|4.0|3.8, 3.9, 3.10|
-|4.1|3.8, 3.9, 3.10, 3.11|
+| Django version | Python versions                                            |
+| -------------- | ---------------------------------------------------------- |
+| 2.2            | 3.5, 3.6, 3.7, 3.8 (added in 2.2.8), 3.9 (added in 2.2.17) |
+| 3.1            | 3.6, 3.7, 3.8, 3.9 (added in 3.1.3)                        |
+| 3.2            | 3.6, 3.7, 3.8, 3.9, 3.10 (added in 3.2.9)                  |
+| 4.0            | 3.8, 3.9, 3.10                                             |
+| 4.1            | 3.8, 3.9, 3.10, 3.11                                       |
 
 ## 2. Project 시작
 
