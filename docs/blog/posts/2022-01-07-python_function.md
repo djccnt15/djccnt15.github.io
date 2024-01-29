@@ -3,6 +3,7 @@ slug: tips-for-function
 title: Python의 함수
 date:
     created: 2022-01-07
+    updated: 2024-01-29
 description: >
     Python의 함수에 대한 노트
 categories:
@@ -98,21 +99,24 @@ print(add.__doc__)
 this is test function
 ```
 
-## *args, **kwargs
+## \*args, \*\*kwargs
 
-`asterisk`를 사용해서 하나의 파라미터가 여러 개의 입력값을 받거나 여러 개의 파라미터가 하나의 집합객체를 각각 입력받는 함수를 만들 수 있다. 각각 `packing`, `unpacking`이라고 한다. 같은 개념인데, `asterisk`가 `parameter`에 붙는지 아니면 `input`에 붙는지만 달라진다고 보면 된다.  
+자료구조의 packing과 unpacking을 이용해서 하나의 파라미터가 여러 개의 인자를 입력 받거나 여러 개의 파라미터가 하나의 해시테이블로 입력되는 함수를 만들 수 있다.  
+
+!!! note
+    tuple이나 list를 unpacking 할때는 `*`, dict를 unpacking 할때는 `**`를 사용한다.  
 
 ```python
 a = [1, 2]
 b = [3, 4]
 c = [a, b, b, b]
 
-# addition of vector
 def v_add(*a):  # packing
-    res = [sum(v) for v in zip(*a)]
+    res = [sum(v) for v in zip(*a)]  # unpacking
     return res
 
 res = v_add(*c)  # unpacking
+
 
 print(res)
 ```
@@ -124,7 +128,10 @@ print(res)
 def test(**kwargs):  # packing
     return kwargs
 
-print(test(name='John Doe', age=30))
+
+data = {"name": "John Doe", "age": 30}
+print(test(**data))  # unpacking
+# print(test(name="John Doe", age=30))  # 동일한 결과 출력
 ```
 ```
 {'name': 'John Doe', 'age': 30}
@@ -170,6 +177,9 @@ for f in list_func:
 4
 5
 ```
+
+!!! note
+    이런 호출이 가능한 이유는 Python이 함수를 [일급객체(first-class object)](https://en.wikipedia.org/wiki/First-class_citizen)로 취급하는 언어이기 때문에 가능하다.  
 
 ---
 ## Reference
