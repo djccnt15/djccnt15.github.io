@@ -33,9 +33,10 @@ IQR 방식을 통한 데이터의 이상점 확인
 
 scikit-learn 패키지의 경우 **outlier detection**와 **novelty detection**에 대해서 [아래와 같이 정리](https://scikit-learn.org/stable/modules/outlier_detection.html)하고 있다.  
 
-|outlier detection|novelty detection|
-|-|-|
-|The training data contains outliers which are defined as observations that are far from the others. Outlier detection estimators thus try to fit the regions where the training data is the most concentrated, ignoring the deviant observations.|The training data is not polluted by outliers and we are interested in detecting whether a new observation is an outlier. In this context an outlier is also called a novelty.|
+- outlier detection
+    - The training data contains outliers which are defined as observations that are far from the others. Outlier detection estimators thus try to fit the regions where the training data is the most concentrated, ignoring the deviant observations.
+- novelty detection
+    - The training data is not polluted by outliers and we are interested in detecting whether a new observation is an outlier. In this context an outlier is also called a novelty.
 
 ## 1. 이상점 탐지 방법
 

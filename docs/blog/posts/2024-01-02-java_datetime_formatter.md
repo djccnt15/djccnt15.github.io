@@ -31,13 +31,13 @@ public class ParseDatetime {
     
     public static void main(String[] args) {
     
-    String sampleDatetime = "2024-01-01T14:18:11.314750";
-    
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
-    
-    LocalDateTime parsedDatetime = LocalDateTime.parse(sampleDatetime, formatter);
-    
-    System.out.println("parsed datetime: %s".formatted(parsedDatetime));
+        String sampleDatetime = "2024-01-01T14:18:11.314750";
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
+        
+        LocalDateTime parsedDatetime = LocalDateTime.parse(sampleDatetime, formatter);
+        
+        System.out.println("parsed datetime: %s".formatted(parsedDatetime));
     }
 }
 ```

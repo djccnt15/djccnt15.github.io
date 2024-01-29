@@ -3,6 +3,7 @@ slug: tips-for-function
 title: Python의 함수
 date:
     created: 2022-01-07
+    updated: 2024-01-30
 description: >
     Python의 함수에 대한 노트
 categories:
@@ -98,21 +99,24 @@ print(add.__doc__)
 this is test function
 ```
 
-## *args, **kwargs
+## \*args, \*\*kwargs
 
-`asterisk`를 사용해서 하나의 파라미터가 여러 개의 입력값을 받거나 여러 개의 파라미터가 하나의 집합객체를 각각 입력받는 함수를 만들 수 있다. 각각 `packing`, `unpacking`이라고 한다. 같은 개념인데, `asterisk`가 `parameter`에 붙는지 아니면 `input`에 붙는지만 달라진다고 보면 된다.  
+자료구조의 packing과 unpacking을 이용해서 하나의 파라미터가 여러 개의 인자를 입력 받거나 여러 개의 파라미터가 하나의 해시테이블로 입력되는 함수를 만들 수 있다.  
+
+!!! note
+    tuple이나 list를 unpacking 할때는 `*`, dict를 unpacking 할때는 `**`를 사용한다.  
 
 ```python
 a = [1, 2]
 b = [3, 4]
 c = [a, b, b, b]
 
-# addition of vector
 def v_add(*a):  # packing
-    res = [sum(v) for v in zip(*a)]
+    res = [sum(v) for v in zip(*a)]  # unpacking
     return res
 
 res = v_add(*c)  # unpacking
+
 
 print(res)
 ```
@@ -124,10 +128,87 @@ print(res)
 def test(**kwargs):  # packing
     return kwargs
 
-print(test(name='John Doe', age=30))
+
+data = {"name": "John Doe", "age": 30}
+print(test(**data))  # unpacking
+# print(test(name="John Doe", age=30))  # 동일한 결과 출력
 ```
 ```
 {'name': 'John Doe', 'age': 30}
+```
+
+## Positional-Only/Keyword-Only Arguments
+
+함수나 클래스를 선언할 때 Positional Arguments 또는 Keyword Arguments만 입력 받도록 할 수 있다.  
+
+### Keyword-Only Arguments
+
+아래와 같이 `*`를 사용해서 함수나 클래스의 파라미터가 인자를 반드시 kwargs 방식으로만 입력 받을 수 있도록 강제할 수 있다.  
+
+```python
+def func(*, a):
+    return a
+
+
+print(func(1))
+```
+```
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 5, in <module>
+    print(func(1))
+          ^^^^^^^
+TypeError: func() takes 0 positional arguments but 1 was given
+```
+
+```python
+class MyClass:
+    def __init__(self, *, a) -> None:
+        self.a = a
+
+
+mc = MyClass(1)
+```
+```
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 6, in <module>
+    mc = MyClass(1)
+         ^^^^^^^^^^
+TypeError: MyClass.__init__() takes 1 positional argument but 2 were given
+```
+
+### Positional-Only Arguments
+
+개인적으로 그다지 선호하지는 않지만 아래와 같이 `/`를 사용해서 함수나 클래스의 파라미터가 인자를 반드시 args 방식으로만 입력 받을 수 있도록 강제할 수 있다.  
+
+```python
+def add(a, /):
+    return a
+
+
+print(add(a=1))
+```
+```
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 5, in <module>
+    print(add(a=1))
+          ^^^^^^^^
+TypeError: add() got some positional-only arguments passed as keyword arguments: 'a'
+```
+
+```python
+class MyClass:
+    def __init__(self, a, /) -> None:
+        self.a = a
+
+
+mc = MyClass(a=1)
+```
+```
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 6, in <module>
+    mc = MyClass(a=1)
+         ^^^^^^^^^^^^
+TypeError: MyClass.__init__() got some positional-only arguments passed as keyword arguments: 'a'
 ```
 
 ## 함수의 호출
@@ -170,6 +251,9 @@ for f in list_func:
 4
 5
 ```
+
+!!! note
+    이런 호출이 가능한 이유는 Python이 함수를 [일급객체(first-class object)](https://en.wikipedia.org/wiki/First-class_citizen)로 취급하는 언어이기 때문에 가능하다.  
 
 ---
 ## Reference

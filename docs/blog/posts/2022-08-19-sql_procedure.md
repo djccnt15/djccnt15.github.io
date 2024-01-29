@@ -60,11 +60,11 @@ CREATE TRIGGER schema_name.trigger_name;
 
 프로시저와 트리거의 차이점은 아래와 같다.  
 
-||프로시저|트리거|
-|:-:|:-:|:-:|
-|생성|`CREATE PROCEDURE`|`CREATE TRIGGER`|
-|실행|`EXECUTE`|자동 실행|
-|TCL|`COMMIT`, `ROLLBACK` 실행 가능|`COMMIT`, `ROLLBACK` 불가|
+|       |            프로시저            |          트리거           |
+| :---: | :----------------------------: | :-----------------------: |
+| 생성  |       `CREATE PROCEDURE`       |     `CREATE TRIGGER`      |
+| 실행  |           `EXECUTE`            |         자동 실행         |
+|  TCL  | `COMMIT`, `ROLLBACK` 실행 가능 | `COMMIT`, `ROLLBACK` 불가 |
 
 ## 5. 절차형 SQL의 실제 사용
 

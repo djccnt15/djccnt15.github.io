@@ -22,12 +22,12 @@ data scaling을 위한 다양한 종류의 scaler들
 
 데이터의 전처리 과정 중에 **scaling**이라는 단계가 있다. 데이터 분석의 근본이라할 수 있는 통계학에서의 **[정규화(Normalization)](https://en.wikipedia.org/wiki/Normalization_(statistics))**에서 출발한 방법론인데, 모델의 왜곡(학습 결과의 발산)과 성능 저하(학습 속도 및 메모리 최적화)를 막기 위한 전처리로, 여러 가지 방법들이 있어 정리해둔다.  
 
-|이름|설명|
-|-|-|
-|StandardScaler|평균과 표준편차를 통한 표준정규화|
-|MinMaxScaler|최대, 최소값이 각각 1, 0이되도록 스케일링|
-|MaxAbsScaler|최대절대값과 0이 각각 1, 0이되도록 스케일링|
-|RobustScaler|중앙값(median)과 IQR(interquartile range) 사용. 아웃라이어의 영향을 최소화|
+| 이름           | 설명                                          |
+| -------------- | --------------------------------------------- |
+| StandardScaler | 평균과 표준편차를 통한 표준정규화             |
+| MinMaxScaler   | 최대, 최소값이 각각 1, 0이되도록 스케일링     |
+| MaxAbsScaler   | 최대절대값과 0이 각각 1, 0이되도록 스케일링   |
+| RobustScaler   | 중앙값과 IQR 사용. 아웃라이어의 영향을 최소화 |
 
 ## 예제 데이터
 

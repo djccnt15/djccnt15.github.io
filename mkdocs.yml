@@ -198,7 +198,7 @@ extra:
     scikit-learn: skleran
     SCSS: css
     shell: powershell
-    Spring batch: spring
+    Spring Batch: spring
     Spring: spring
     SQL Server: mssql
     SQL: db

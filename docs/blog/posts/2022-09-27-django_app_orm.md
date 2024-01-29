@@ -388,11 +388,11 @@ Superuser created successfully.
 
 본 프로젝트에서 사용한 관리자 계정의 정보는 아래와 같다. 비밀번호 경고가 뜨는데, 연습용 프로젝트이니 무시하고 넘어가기로 한다.  
 
-|속성|값|
-|-|-|
-|사용자 이름|admin|
-|이메일 주소|djccnt15@gmail.com|
-|Password|admin|
+| 속성        | 값                 |
+| ----------- | ------------------ |
+| 사용자 이름 | admin              |
+| 이메일 주소 | djccnt15@gmail.com |
+| Password    | admin              |
 
 관리자 계정을 생성하면 아래 주소를 통해 관리자 페이지로 접속할 수 있다.  
 

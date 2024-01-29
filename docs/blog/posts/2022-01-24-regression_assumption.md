@@ -378,16 +378,16 @@ Notes:
 
 아래와 같이 R-squared는 크게 변하지 않으면서 VIF가 크게 개선된 것을 확인할 수 있다.  
 
-|지표|모든 변수|Petal_Width 제외|Petal_Length 제외|
-|-:|-:|-:|-:|
-|R-squared|0.859|0.840|0.707|
-|Adj. R-squared|0.856|0.838|0.703|
-|coef Sepal_Width|0.6508|0.5955|0.3991|
-|coef Petal_Length|0.7091|0.4719||
-|coef Petal_Width|-0.5565||0.9721|
-|VIF Sepal_Width|1.270815|1.224831|1.154799|
-|VIF Petal_Length|15.097572|1.224831||
-|VIF Petal_Width|14.234335||1.154799|
+|              지표 | 모든 변수 | Petal_Width 제외 | Petal_Length 제외 |
+| ----------------: | --------: | ---------------: | ----------------: |
+|         R-squared |     0.859 |            0.840 |             0.707 |
+|    Adj. R-squared |     0.856 |            0.838 |             0.703 |
+|  coef Sepal_Width |    0.6508 |           0.5955 |            0.3991 |
+| coef Petal_Length |    0.7091 |           0.4719 |                   |
+|  coef Petal_Width |   -0.5565 |                  |            0.9721 |
+|   VIF Sepal_Width |  1.270815 |         1.224831 |          1.154799 |
+|  VIF Petal_Length | 15.097572 |         1.224831 |                   |
+|   VIF Petal_Width | 14.234335 |                  |          1.154799 |
 
 !!! tip
     다중공선성을 해결하는 방법은 위에서 진행한 것과 같이 다중공선성이 높은 변수를 제외하는 방법과, 다중공선성이 높은 변수들을 합쳐서 하나로 치환해주는 방법이 있다.  
