@@ -3,7 +3,7 @@ slug: tips-for-function
 title: Python의 함수
 date:
     created: 2022-01-07
-    updated: 2024-01-29
+    updated: 2024-01-30
 description: >
     Python의 함수에 대한 노트
 categories:
@@ -135,6 +135,80 @@ print(test(**data))  # unpacking
 ```
 ```
 {'name': 'John Doe', 'age': 30}
+```
+
+## Positional-Only/Keyword-Only Arguments
+
+함수나 클래스를 선언할 때 Positional Arguments 또는 Keyword Arguments만 입력 받도록 할 수 있다.  
+
+### Keyword-Only Arguments
+
+아래와 같이 `*`를 사용해서 함수나 클래스의 파라미터가 인자를 반드시 kwargs 방식으로만 입력 받을 수 있도록 강제할 수 있다.  
+
+```python
+def func(*, a):
+    return a
+
+
+print(func(1))
+```
+```
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 5, in <module>
+    print(func(1))
+          ^^^^^^^
+TypeError: func() takes 0 positional arguments but 1 was given
+```
+
+```python
+class MyClass:
+    def __init__(self, *, a) -> None:
+        self.a = a
+
+
+mc = MyClass(1)
+```
+```
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 6, in <module>
+    mc = MyClass(1)
+         ^^^^^^^^^^
+TypeError: MyClass.__init__() takes 1 positional argument but 2 were given
+```
+
+### Positional-Only Arguments
+
+개인적으로 그다지 선호하지는 않지만 아래와 같이 `/`를 사용해서 함수나 클래스의 파라미터가 인자를 반드시 args 방식으로만 입력 받을 수 있도록 강제할 수 있다.  
+
+```python
+def add(a, /):
+    return a
+
+
+print(add(a=1))
+```
+```
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 5, in <module>
+    print(add(a=1))
+          ^^^^^^^^
+TypeError: add() got some positional-only arguments passed as keyword arguments: 'a'
+```
+
+```python
+class MyClass:
+    def __init__(self, a, /) -> None:
+        self.a = a
+
+
+mc = MyClass(a=1)
+```
+```
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 6, in <module>
+    mc = MyClass(a=1)
+         ^^^^^^^^^^^^
+TypeError: MyClass.__init__() got some positional-only arguments passed as keyword arguments: 'a'
 ```
 
 ## 함수의 호출
