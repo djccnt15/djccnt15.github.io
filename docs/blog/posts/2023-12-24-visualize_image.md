@@ -69,7 +69,6 @@ OpenCV를 사용한다면, `imshow` 함수를 사용해서 이미지를 확인�
         cv2.waitKey(time)
         cv2.destroyAllWindows()
     ```
-    { .annotation }
 
     1. 윈도우 크기를 조절할 수 있도록 해주는 블록
 
@@ -114,7 +113,6 @@ OpenCV를 사용한다면, `imshow` 함수를 사용해서 이미지를 확인�
         cv2.waitKey(time)
         cv2.destroyAllWindows()
     ```
-    { .annotation }
 
     1. 윈도우 크기를 조절할 수 있도록 해주는 블록
 
