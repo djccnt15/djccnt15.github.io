@@ -150,13 +150,12 @@ def func(*, a):
     return a
 
 
-print(func(1))
+func(1)
 ```
 ```
 Traceback (most recent call last):
   File "C:\projects\python311\main.py", line 5, in <module>
-    print(func(1))
-          ^^^^^^^
+    func(1)
 TypeError: func() takes 0 positional arguments but 1 was given
 ```
 
@@ -181,18 +180,17 @@ TypeError: MyClass.__init__() takes 1 positional argument but 2 were given
 개인적으로 그다지 선호하지는 않지만 아래와 같이 `/`를 사용해서 함수나 클래스의 파라미터가 인자를 반드시 args 방식으로만 입력 받을 수 있도록 강제할 수 있다.  
 
 ```python
-def add(a, /):
+def func(a, /):
     return a
 
 
-print(add(a=1))
+func(a=1)
 ```
 ```
 Traceback (most recent call last):
   File "C:\projects\python311\main.py", line 5, in <module>
-    print(add(a=1))
-          ^^^^^^^^
-TypeError: add() got some positional-only arguments passed as keyword arguments: 'a'
+    func(a=1)
+TypeError: func() got some positional-only arguments passed as keyword arguments: 'a'
 ```
 
 ```python

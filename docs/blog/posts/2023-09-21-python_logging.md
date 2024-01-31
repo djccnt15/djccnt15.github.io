@@ -3,7 +3,7 @@ slug: how-to-log-python
 title: logging 모듈을 사용하여 로깅하기
 date:
     created: 2023-09-21
-    updated: 2024-01-28
+    updated: 2024-02-01
 description: >
     Python 로깅에 대한 정리와 Best Practice 예시
 categories:
@@ -60,7 +60,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 
 | Attribute name |    Format     |              Description               |
 | :------------: | :-----------: | :------------------------------------: |
-|    asctime     |  %(asctime)s  |           로그가 생성된 시간           |
+|    asctime     |  %(asctime)s  |         로그가 생성된 시간[^2]         |
 |    filename    | %(filename)s  |      로그를 발생시킨 파일의 이름       |
 |   levelname    | %(levelname)s |             로그 레벨 이름             |
 |     lineno     |  %(lineno)d   | 소스코드에서 로그를 발생시킨 라인 넘버 |
@@ -69,6 +69,62 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 |      name      |   %(name)s    |              로거의 이름               |
 |    process     |  %(process)d  |      프로세스 ID(가능할 경우에만)      |
 |     thread     |  %(thread)d   |       쓰레드 ID(가능할 경우에만)       |
+
+[^2]: 엄밀히 말하면 `asctime`은 `LogRecord` 객체의 요소는 아니다. `LogRecord` 객체는 `time.time()`[^3]으로 생성시간을 저장한 후, [`Formatter`](#formatter)가 생성시간을 [`time.strftime`](2022-12-03-python_datetime.md/#strftime)을 사용해서 입력받은 포맷대로 생성해준다.  
+
+[^3]: 시간의 시작점인 _epoch_ [^4] 로부터의 초를 반환한다.
+
+[^4]: January 1, 1970, 00:00:00 (UTC)
+
+??? note "LogRecord"
+
+    === "Python 3.11"
+
+        ```python
+        class LogRecord(object):
+            ...
+
+            def __init__(self, name, level, pathname, lineno,
+                        msg, args, exc_info, func=None, sinfo=None, **kwargs):
+                ...
+
+                ct = time.time()
+
+                ...
+
+                self.created = ct
+
+                ...
+        ```
+
+??? note "Formatter"
+
+    === "Python 3.11"
+
+        ```python
+        class Formatter(object):
+            ...
+
+            converter = time.localtime
+
+            def __init__(self, fmt=None, datefmt=None, style='%', validate=True, *,
+                        defaults=None):
+                ...
+
+            def formatTime(self, record, datefmt=None):
+                ...
+
+                ct = self.converter(record.created)
+                if datefmt:
+                    s = time.strftime(datefmt, ct)
+                else:
+                    s = time.strftime(self.default_time_format, ct)
+                    if self.default_msec_format:
+                        s = self.default_msec_format % (s, record.msecs)
+                return s
+            
+            ...
+        ```
 
 ### Filter
 
@@ -88,55 +144,39 @@ class MyFilter(logging.Filter):  # (1)!
 
     def filter(self, logRecord):
         return logRecord.levelno in self.__level
-
 ```
-{ .annotation }
 
 1. note에 작성했듯이 `class MyFilter(object)`로 만들어도 전혀 문제 없다.
 
-??? note
+??? note "Filterer"
     참고로 Python 공식문서 [Logging facility for Python](https://docs.python.org/3/library/logging.html#filter-objects)에서는 필터는 굳이 표준 라이브러리의 클래스를 상속해서 만들 필요 없이, 단순히 `filter` 메서드를 가진 객체는 아무 것이나 사용해도 된다고 한다.  
 
     > You don’t actually need to subclass `Filter`: you can pass any instance which has a `filter` method with the same semantics.
 
     실제로 `logging.Handler` 클래스가 상속하고 있는 `logging.Filterer` 클래스를 살펴보면 아래와 같이 `addFilter` 메서드는 `filters` 리스트에 필터 객체를 추가해주기만 하며, `filter` 메서드는 `filters` 리스트에 속한 필터들의 `filter` 메서드를 호출하는 역할만 한다.  
 
-
     === "Python 3.11"
     
         ```python hl_lines="35-36"
         class Filterer(object):
-            """
-            A base class for loggers and handlers which allows them to share
-            common code.
-            """
+            ...
+
             def __init__(self):
-                """
-                Initialize the list of filters to be an empty list.
-                """
+                ...
+
                 self.filters = []
 
             def addFilter(self, filter):
-                """
-                Add the specified filter to this handler.
-                """
+                ...
+
                 if not (filter in self.filters):
                     self.filters.append(filter)
 
             ...
 
             def filter(self, record):
-                """
-                Determine if a record is loggable by consulting all the filters.
+                ...
 
-                The default is to allow the record to be logged; any filter can veto
-                this and the record is then dropped. Returns a zero value if a record
-                is to be dropped, else non-zero.
-
-                .. versionchanged:: 3.2
-
-                Allow filters to be just callables.
-                """
                 rv = True
                 for f in self.filters:
                     if hasattr(f, 'filter'):
@@ -147,6 +187,8 @@ class MyFilter(logging.Filter):  # (1)!
                         rv = False
                         break
                 return rv
+
+            ...
         ```
 
 ### Formatter
@@ -201,7 +243,6 @@ class MyFilter(logging.Filter):  # (1)!
 
             return message
     ```
-    { .annotation }
 
     1. UTC 기준으로 로그를 생성하고 싶다면 `dt.datetime.fromtimestamp(record.created, tz=dt.timezone.utc)`으로 만들면 된다.
 
@@ -254,7 +295,6 @@ class MyFilter(logging.Filter):  # (1)!
 
             return message
     ```
-    { .annotation }
 
     1. UTC 기준으로 로그를 생성하고 싶다면 `dt.datetime.fromtimestamp(record.created, tz=dt.timezone.utc)`으로 만들면 된다.
 
@@ -454,7 +494,6 @@ if __name__ == "__main__":
     }
 }
 ```
-{ .annotation }
 
 1. 사용자 class를 사용할 때는 키 값을 `()`으로 설정하지 않으면 key 들이 하드코딩으로 주입된다.
 
