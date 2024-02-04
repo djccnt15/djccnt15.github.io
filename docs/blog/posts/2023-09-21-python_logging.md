@@ -52,6 +52,8 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 
 로깅을 위한 IO는 프로그램의 속도를 저하시키는 원인이 되기 때문에 웹 서비스와 같이 빠른 속도가 중요한 프로그램을 만들 때에는 로깅을 메인 쓰레드와 분리된 새로운 쓰레드에서 수행해 줄 필요가 있는데, 이를 위해서 [QueueHandler](https://docs.python.org/3/library/logging.handlers.html#queuehandler)와 [QueueListener](https://docs.python.org/3/library/logging.handlers.html#queuelistener)를 사용한다.  
 
+> Along with the [QueueListener](https://docs.python.org/3/library/logging.handlers.html#logging.handlers.QueueListener) class, [QueueHandler](https://docs.python.org/3/library/logging.handlers.html#logging.handlers.QueueHandler) can be used to let handlers do their work on a separate thread from the one which does the logging.
+
 ### LogRecord
 
 로그가 출력될 때 실제로는 `LogRecord` 클래스의 인스턴스가 생성되고, 해당 인스턴스에 각종 정보들이 담긴 후 사용자가 설정한 내용들만 추려서 출력된다.  
@@ -375,7 +377,7 @@ debug_handler.addFilter(
 )
 
 # QueueHandler
-log_queue = queue.Queue()
+log_queue = queue.Queue()  # (1)!
 queue_handler = QueueHandler(log_queue)
 logger.addHandler(queue_handler)
 
@@ -384,6 +386,8 @@ log_listener = QueueListener(
     log_queue, stream_handler, file_handler, json_handler, debug_handler
 )
 ```
+
+1. 멀티프로세싱 환경에서 QueueHandler를 사용할 경우 [multiprocessing.Queue](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue)를 사용해야 한다.  
 
 실제 어플리케이션에서의 로그 활용  
 
