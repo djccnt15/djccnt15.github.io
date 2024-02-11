@@ -325,7 +325,7 @@ Generating C:\projects\study_fastapi\migrations\script.py.mako ...  done
 Please edit configuration/connection/logging settings in 'C:\\projects\\study_fastapi\\alembic.ini' before proceeding.
 ```
 
-Alembic을 사용할 때 생성되는 리비전 파일 및 각종 보조 파일들을 저장하는 `migrations` 디렉터리와 Alembic의 환경 설정 파일인 `alembic.ini` 파일이 생성된다.  
+Alembic을 사용할 때 생성되는 리비전 파일 및 각종 보조 파일들을 저장하는 `migrations` 디렉토리와 Alembic의 환경 설정 파일인 `alembic.ini` 파일이 생성된다.  
 
 - `alembic.ini` 파일 수정
 
