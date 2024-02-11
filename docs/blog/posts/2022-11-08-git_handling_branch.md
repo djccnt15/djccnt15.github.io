@@ -3,6 +3,7 @@ slug: git-handling-branch
 title: Git branch 다루기
 date:
     created: 2022-11-08
+    updated: 2024-02-11
 description: >
     브랜치 관리를 위한 명령어들: branch, switch, merge
 categories:
@@ -60,7 +61,7 @@ git branch -t <branchname>
 
 ## switch
 
-위의 `branch` 명령어로 생성한 브랜치 간에 이동할 때, 즉 작업할 브랜치를 변경할 때 사용하는 명령어다.  
+위의 `branch` 명령어로 생성한 브랜치 간에 이동할 때, 즉 작업할 브랜치를 변경할 때 사용하는 명령어  
 
 
 - 브랜치 이동
@@ -69,15 +70,21 @@ git branch -t <branchname>
 git switch <branchname>
 ```
 
-- 브랜치 생성 및 이동
+- 브랜치 생성 및 이동. `<start-point>`를 입력할 경우 해당 커밋을 브랜치의 시작점으로 지정
 
 ```bash
 git switch -c <branchname> [<start-point>]
 ```
 
+- 커밋을 되돌리지 않고 단순히 과거 코드를 보기 위한 이동
+
+```bash
+git switch --detach <commit>
+```
+
 ## merge
 
-현재 HEAD가 위치한 브랜치로 대상 브랜치를 합칠 때 사용하는 명령어다.  
+현재 HEAD가 위치한 브랜치로 대상 브랜치를 합칠 때 사용하는 명령어  
 
 ```bash
 git merge <branchname>
@@ -97,7 +104,7 @@ git merge --no-commit --no-ff <branchname>
 
 ## rebase
 
-공통 base를 가진 브랜치에서 한 브랜치의 base를 다른 브랜치의 최신 커밋으로 브랜치의 base를 옮기는 명령어다.  
+공통 base를 가진 브랜치에서 한 브랜치의 base를 다른 브랜치의 최신 커밋으로 브랜치의 base를 옮기는 명령어  
 
 ```bash
 git rebase <branchname>
