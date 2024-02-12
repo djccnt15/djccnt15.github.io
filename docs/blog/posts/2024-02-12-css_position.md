@@ -1,5 +1,5 @@
 ---
-slug: position-of-css
+slug: css-positions
 title: CSS position 정리
 date:
     created: 2024-02-12
