@@ -26,7 +26,7 @@ tags:
 
 ## Cache aside Pattern
 
-Read 관점에서 많이 활용되는 패턴
+Read 관점에서 많이 활용되는 패턴  
 
 ![cache_aside_pattern_read](img/cache_aside_pattern_read.png){ loading=lazy }
 
@@ -44,7 +44,7 @@ Read 관점에서 많이 활용되는 패턴
 
 ## Write-Back Pattern
 
-Write 관점에서 많이 활용되는 패턴
+Write 관점에서 많이 활용되는 패턴  
 
 ![write_back_pattern](img/write_back_pattern.png){ loading=lazy }
 
@@ -52,3 +52,8 @@ Write 관점에서 많이 활용되는 패턴
 1. Cache에서 다수의 쓰기 작업을 모아 Database로 Bulk Insert 함
 1. Cache의 가용성에 따라 데이터 유실의 위험성 존재
 1. 엔티티의 복잡도가 높을수록 Pattern 구현 난이도 상승
+
+---
+## Reference
+- [Redis와 FastAPI를 사용한 Python 서버](https://github.com/djccnt15/fastapi_msa)
+- [Redis와 Spring을 사용한 Java 서버](https://github.com/djccnt15/spring_redis)
