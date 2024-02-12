@@ -4,7 +4,7 @@ title: CSS position 정리
 date:
     created: 2024-02-12
 description: >
-    CSS에서 위치 설정을 위한 position 속성 기초 정리  
+    CSS에서 위치 설정을 위한 position 속성 기초 정리
 categories:
     - Front-End
 tags:
@@ -33,4 +33,4 @@ CSS의 위치 설정을 위한 `position` 속성은 MDN Web Docs의 [position](h
 1. `Sticky`
     - `relative`와 비슷하지만 스크롤을 내리면 `fixed`처럼 그 위치에 고정됨
 
-[^1]: `body` 태그는 `relative`를 기본 속성으로 가지고 있음
+[^1]: `body` 태그는 `relative`를 기본 속성으로 가지고 있음  

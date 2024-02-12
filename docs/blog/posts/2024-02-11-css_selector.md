@@ -8,7 +8,7 @@ description: >
 categories:
     - Front-End
 tags:
-    - css
+    - CSS
 ---
 
 CSS의 선택자는 MDN Web Docs의 [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors)와 W3Schools의 [CSS Selectors](https://www.w3schools.com/css/css_selectors.asp), [CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.php)에 자세히 정리되어 있다.  
