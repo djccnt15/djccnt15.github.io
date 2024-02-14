@@ -98,6 +98,9 @@ theme:
     repo: fontawesome/brands/github
     tag:
       api: material/api
+      bootstrap: simple/bootstrap
+      c: simple/c
+      cpp: simple/cplusplus
       css: simple/css3
       cv: simple/opencv
       db: fontawesome/solid/database
@@ -121,6 +124,8 @@ theme:
       pandas: simple/pandas
       postgresql: simple/postgresql
       python: fontawesome/brands/python
+      pytorch: simple/pytorch
+      r: simple/r
       redis: simple/redis
       shell: simple/powershell
       skleran: simple/scikitlearn
@@ -164,7 +169,10 @@ extra:
   #     - reject
   tags:
     API: api
+    bootstrap: bootstrap
     cmd: terminal
+    C: c
+    CPP: cpp
     CSS: css
     database: db
     Django: django
@@ -191,6 +199,8 @@ extra:
     pip: python
     PostgreSQL: postgresql
     python: python
+    pytorch: pytorch
+    R: r
     RDB: db
     redis: redis
     REST API: api
@@ -230,6 +240,7 @@ plugins:
       categories_allowed:
         - \`Draft
         - AI
+        - C
         - Coding Test
         - Computer Science
         - Data Analysis
@@ -242,6 +253,7 @@ plugins:
         - Mathematics
         - Post
         - Python
+        - R
         - Research
         - Server Engineering
         - Spring
