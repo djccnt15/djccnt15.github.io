@@ -43,7 +43,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 |  W0 - W6  |           요일 (0=월요일)            | 최초 롤오버 시간 계산에 사용 |
 | midnight  | `atTime` 미입력 시 자정에 롤오버[^1] | 최초 롤오버 시간 계산에 사용 |
 
-[^1]: `atTime` 입력 시 해당 시간에 롤오버
+[^1]: `atTime` 입력 시 해당 시간에 롤오버  
 
 !!! tip
     `file_handler.suffix = "%Y%m%d.log"`와 같이 `suffix` 속성을 설정할 경우 롤오버 시 생성되는 파일의 파일명 규칙을 수정할 수 있지만, 이 경우 `backupCount` 속성이 제대로 작동하지 않게 된다.  
