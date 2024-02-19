@@ -9,8 +9,6 @@ description: >
 categories:
     - Jekyll
 tags:
-    - Jekyll
-    - CSS
     - Hydejack
 ---
 
