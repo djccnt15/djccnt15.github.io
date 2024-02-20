@@ -147,7 +147,7 @@ layout: plain
 
 Jeykll에서 Sass 관련 파일은 `_sass` 디렉토리에서 관리하고, Hydejack 테마는 `my-style.scss` 파일을 통해 개발자가 스타일을 커스터마이징할 수 있도록 지원한다.  
 
-아래와 같이 [미디어 쿼리](2024-02-19-css_media_query.md)를 이용해 화면 크기에 따라 칼럼의 개수가 변하도록 만들어준다.  
+아래와 같이 [미디어 쿼리](2024-02-21-css_media_query.md)를 이용해 화면 크기에 따라 칼럼의 개수가 변하도록 만들어준다.  
 
 ```scss title="my-style.scss"
 // break point
