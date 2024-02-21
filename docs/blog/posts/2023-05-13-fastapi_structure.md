@@ -161,7 +161,7 @@ mode = dev
 
 이렇게 config 관련 로직과 데이터를 분리해 하드코딩을 예방하면 프로그램 설정을 쉽게 변경할 수 있고 유지보수 편의성을 제고할 수 있다.  
 
-!!! warning
+!!! info
     참고로 FastAPI [공식 문서](https://fastapi.tiangolo.com/tutorial/cors/)에 따르면 아래 세 origin이 모두 다른 것으로 취급된다. CORS를 설정할 때 주의하자.  
 
     - http://localhost

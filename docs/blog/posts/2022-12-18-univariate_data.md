@@ -464,7 +464,6 @@ $$
 
     quantiles = stats.quantiles(data, method='inclusive')  # (1)!
     ```
-    { .annotate }
 
     1. statistics 모듈의 경우 `method` 파라미터를 `inclusive`로 지정하지 않으면 데이터를 표본집단으로 인식하기 때문에 계산 결과가 달라진다.  
 

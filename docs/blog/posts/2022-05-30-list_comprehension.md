@@ -20,10 +20,9 @@ Python의 List Comprehensions 이해하기
 
 ## 개요 및 기본 구조
 
-list comprehension을 사용하면 리스트를 간단하게 만들 수 있으며, 리스트를 만드는 속도가 for loop에 비해 빠르다.(1) 다만 list를 만드는 것이 아니라 연산을 해야할 때는 당연히 for loop이 더 빠르다.  
-{ .annotate }
+list comprehension을 사용하면 리스트를 간단하게 만들 수 있으며, 리스트를 만드는 속도가 for loop에 비해 빠르다.[^1] 다만 list를 만드는 것이 아니라 연산을 해야할 때는 당연히 for loop이 더 빠르다.  
 
-1. list comprehension의 속도에 대한 자세한 내용은 [정욱재님의 블로그](https://blog.ukjae.io/posts/inspecting-list-comprehension/)를 참고하자.  
+[^1]: list comprehension의 속도에 대한 자세한 내용은 [정욱재님의 블로그](https://blog.ukjae.io/posts/inspecting-list-comprehension/)를 참고하자.  
 
 list comprehension의 기본 구조는 아래와 같고, 추가 연산을 부여해줄 수도 있다.  
 

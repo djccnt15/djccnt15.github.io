@@ -151,7 +151,7 @@ class MyFilter(logging.Filter):  # (1)!
 1. note에 작성했듯이 `class MyFilter(object)`로 만들어도 전혀 문제 없다.
 
 ??? note "Filterer"
-    참고로 Python 공식문서 [Logging facility for Python](https://docs.python.org/3/library/logging.html#filter-objects)에서는 필터는 굳이 표준 라이브러리의 클래스를 상속해서 만들 필요 없이, 단순히 `filter` 메서드를 가진 객체는 아무 것이나 사용해도 된다고 한다.  
+    참고로 Python 공식 문서 [Logging facility for Python](https://docs.python.org/3/library/logging.html#filter-objects)에서는 필터는 굳이 표준 라이브러리의 클래스를 상속해서 만들 필요 없이, 단순히 `filter` 메서드를 가진 객체는 아무 것이나 사용해도 된다고 한다.  
 
     > You don’t actually need to subclass `Filter`: you can pass any instance which has a `filter` method with the same semantics.
 

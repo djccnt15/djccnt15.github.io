@@ -338,7 +338,7 @@ print(score.head())
 ```
 
 !!! note
-    공식문서에 따르면 `cross_val_score` API는 `scoring` 파라미터를 입력하지 않으면 분류 문제일 경우 기본값으로 accuracy를 사용한다고 한다.  
+    공식 문서에 따르면 `cross_val_score` API는 `scoring` 파라미터를 입력하지 않으면 분류 문제일 경우 기본값으로 accuracy를 사용한다고 한다.  
 
 결과치가 큰 차이가 있지는 않지만, 어쨌든 가장 평균 점수가 높게 나온 `n_neighbors` 값으로 모델을 학습시켜준다.  
 
