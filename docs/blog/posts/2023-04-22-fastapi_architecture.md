@@ -103,7 +103,7 @@ CGI는 요청이 들어올 때마다 애플리케이션 프로세스 전체를 �
 
 Python으로 CGI 웹어플리케이션을 개발하려면 [cgi 모듈](https://docs.python.org/3/library/cgi.html)을 사용하고 개발한 어플리케이션을 웹서버에 직접 등록하면 되는데, 자세한 방법은 생활코딩님의 [WEB2 Python](https://youtube.com/playlist?list=PLuHgQVnccGMDMxfZEpLbzHPZUEwObEaZq) 수업에 잘 정리되어 있다.  
 
-!!! warning
+!!! info
     참고로 Python의 [cgi 라이브러리](https://docs.python.org/3/library/cgi.html)는 Python 3.11 부터 deprecate 되었고, 3.13에서 완전히 제거될 예정이기 때문에 더이상 사용할 수 없다. 앞으로는 최소한 [wsgiref 라이브러리](https://docs.python.org/3/library/wsgiref.html)를 사용해야 한다.  
 
 #### WSGI

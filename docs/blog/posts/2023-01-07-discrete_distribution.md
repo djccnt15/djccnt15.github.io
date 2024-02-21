@@ -215,7 +215,7 @@ $$
     print(hypergeom.cdf(k=k, n=n, N=N, M=M))
     ```
 
-!!! warning
+!!! info
     SciPy는 수식 표기가 조금 달라 변수 입력 시에 주의해야 한다. SciPy에서 사용하는 초기하분포의 확률질량함수는 아래와 같다.  
 
 $$

@@ -32,10 +32,10 @@ CRUD와 GET, POST, PUT, DELETE
 
 `PUT`은 Create와 Update를 수행하기 위해 사용되는 method로 request payload를 통해 데이터를 전송한다.  
 
-!!! note annotate
-    `POST`와 `PUT`의 가장 큰 차이점은 [멱등성(Idempotent)](https://en.wikipedia.org/wiki/Idempotence)(1)의 충족 여부이다. `PUT`은 멱등성을 충족하나 `POST`는 멱등성을 충족하지 않는다.  
+!!! note
+    `POST`와 `PUT`의 가장 큰 차이점은 [멱등성(Idempotent)](https://en.wikipedia.org/wiki/Idempotence)[^1]의 충족 여부이다. `PUT`은 멱등성을 충족하나 `POST`는 멱등성을 충족하지 않는다.  
 
-1. 멱등성이란 수학의 함수와 같이 input이 일정하면 output도 일정한 성질을 말한다.  
+[^1]: 멱등성이란 수학의 함수와 같이 input이 일정하면 output도 일정한 성질을 말한다.  
 
 ### DELETE
 

@@ -25,7 +25,7 @@ CSS의 위치 설정을 위한 `position` 속성은 MDN Web Docs의 [position](h
     - 해당 HTML 태그가 있는 위치에서 `left`/`right`/`top`/`bottom`값을 통해 움직임
 1. `absolute`
     - 부모 영역에서 `left`/`right`/`top`/`bottom`을 이용해 주어진 위치로 움직임
-    !!! warning
+    !!! info
         부모 태그의 `position` 속성이 `relative`, `absolute`, `fixed` 중 하나여야 함. 만약 부모 태그가 해당 속성을 가지고 있지 않다면 상위 요소를 기준으로 하고, 최종적으로는 `body` 태그를 기준으로 함[^1]
 1. `fixed`
     - `absolute`와 비슷하지만 스크롤을 내려도 그 위치에 고정됨

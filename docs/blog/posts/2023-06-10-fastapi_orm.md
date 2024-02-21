@@ -177,7 +177,7 @@ DB URL에 대한 자세한 내용은 SQLAlchemy [공식 문서](https://docs.sql
 !!! note
     컨넥션 풀이란 데이터베이스에 접속하는 객체를 일정 갯수만큼 만들어 놓고 재활용하며 사용하는 것을 말한다.  
 
-![](https://docs.sqlalchemy.org/en/20/_images/sqla_engine_arch.png){ loading=lazy }
+![sql_alchemy_engin_architecture](https://docs.sqlalchemy.org/en/20/_images/sqla_engine_arch.png){ loading=lazy }
 
 `create_async_engine`은 [공식 문서](https://docs.sqlalchemy.org/en/20/core/engines.html#sqlalchemy.create_engine)에 따르면 `create_engine`과 마찬가지로 엔진 인스턴스를 생성한다.  
 

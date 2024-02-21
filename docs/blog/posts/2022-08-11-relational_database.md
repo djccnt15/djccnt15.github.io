@@ -120,7 +120,7 @@ SELECT expression INTO table_name FROM table_name;
 !!! tip
     여러 칼럼에 PK를 설정할 수 있지만 그 경우 복합키인 하나의 PK로 작동한다.  
 
-!!! warning
+!!! info
     `NULL`과 공백은 다르다. `NULL`은 '아직 정의되지 않은 미지의 값' 또는 '현재 데이터를 입력하지 못하는 경우'를 의미한다.  
 
 ### 2-2. ALTER TABLE

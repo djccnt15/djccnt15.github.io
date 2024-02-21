@@ -103,7 +103,7 @@ this is test function
 
 자료구조의 packing과 unpacking을 이용해서 하나의 파라미터가 여러 개의 인자를 입력 받거나 여러 개의 파라미터가 하나의 해시테이블로 입력되는 함수를 만들 수 있다.  
 
-!!! note
+!!! info
     tuple이나 list를 unpacking 할때는 `*`, dict를 unpacking 할때는 `**`를 사용한다.  
 
 ```python
