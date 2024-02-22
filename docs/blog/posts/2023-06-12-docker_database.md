@@ -240,9 +240,12 @@ docker exec -it mariadb /bin/bash
 
 - MariaDB 접속 및 `MYSQL_ROOT_PASSWORD` 입력
 
-```bat
-mariadb -u root -p
+```c
+mariadb -u root -p  // (1)!
 ```
+
+1. 버전에 따라 `mariadb` 명령어가 없는 경우도 있다. 이 때는 `mysql -u root -p` 사용
+
 ```
 Enter password:
 ```
