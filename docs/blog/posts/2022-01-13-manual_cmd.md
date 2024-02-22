@@ -205,31 +205,35 @@ del <file_name>
 
 ```bash
 rm <file_name>
-```
 
-하위 디렉토리 및 파일 모두 삭제  
-
-```bash
+# 하위 디렉토리 및 파일 모두 삭제  
 rm -rf <dir_name>
 ```
 
 ### 2-8. copy/cp
 
-파일 복사
+파일 및 디렉토리 복사 명령어
 
 - Windows
 
-```bat
+```powershell
+# 파일 복사
 copy <source> <destination>
+
+# 디렉토리 복사
+xcopy <source> <destination>
+
+# 디렉토리 복사
+robocopy <source> <destination>
 ```
 
 - Linux
 
 ```bash
+# 파일 복사
 cp <file_name> <destination>
-```
 
-```bash
+# 디렉토리 복사
 cp -r <dir_name> <destination>
 ```
 
@@ -268,12 +272,14 @@ taskkill /pid <PID> /f
 - Linux
 
 ```bash
-kill -15 <PID>
-```
+# 기본 설정, 어플리케이션에게 종료 요청
+kill -15 <PID>  # (1)!
 
-```bash
+# 어플리케이션 직접 종료
 kill -9 <PID>
 ```
+
+1. 어플리케이션이 해당 요청을 종료로 처리하지 않을 경우 효력 없음
 
 ## 3. 네트워크 관련 명령어들
 

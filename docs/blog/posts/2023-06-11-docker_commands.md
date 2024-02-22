@@ -105,6 +105,14 @@ docker create [IMAGE]
 docker rm [CONTAINER]
 ```
 
+### 컨테이너 환경설정 확인
+
+- 해당 컨테이너의 전체 환경 변수 확인
+
+```bat
+docker exec [CONTAINER] env
+```
+
 ### 컨테이너 접속
 
 - 해당 컨테이너의 root 프로세스에 콘솔 접근
