@@ -6,7 +6,7 @@ date:
 description: >
     MySQL, MariaDB 최대 동시 접속 제한 설정 확인 및 수정 방법
 categories:
-    - Server Engineering
+    - Data Engineering
 tags:
     - database
     - MySQL
@@ -45,7 +45,7 @@ SHOW GLOBAL VARIABLES LIKE 'max_connect%';
 +--------------------+-------+
 ```
 
-!!! tip
+!!! note
     MariaDB [공식 문서](https://mariadb.com/kb/en/server-system-variables/#max_connections)에 따르면, MariaDB는 superuser를 위한 connection 하나를 반드시 남겨놓는다고 한다.  
 
 - 현재 접속 커넥션 통계 확인
@@ -74,7 +74,7 @@ SHOW STATUS LIKE 'max_used_connections';
 +----------------------+-------+
 ```
 
-!!! note
+!!! tip
     MariaDB [공식 문서](https://mariadb.com/kb/en/handling-too-many-connections/)에 따르면, `threads_connected`는 현재 접속 통계만을 보여주기 때문에 `max_used_connections`을 사용하는 것이 더 유용하다.  
 
 ## 설정 방법
@@ -85,7 +85,7 @@ SHOW STATUS LIKE 'max_used_connections';
 SET GLOBAL max_connections = 300;
 ```
 
-!!! info
+!!! note
     이 방법은 `SUPER` 권한이 있는 유저로만 사용 가능하다.  
 
 ### 설정 파일
