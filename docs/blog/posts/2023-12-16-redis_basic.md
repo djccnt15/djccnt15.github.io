@@ -3,6 +3,7 @@ slug: redis-basic
 title: Redis 기초
 date:
     created: 2023-12-16
+    updated: 2024-02-26
 description: >
     Redis의 입문을 위한 간단 정리
 categories:
@@ -48,7 +49,7 @@ Redis의 입문을 위한 간단 정리
     - Pub(Publish)/Sub(Subscribe) 패턴 아키텍처에서 Message Broker로 활용 가능
 1. Message Queue
 
-## Redis 설치 및 접속
+## 설치 및 접속
 
 도커를 통한 Redis 설치 및 접속 방법  
 
@@ -70,12 +71,6 @@ docker run -it -d --name redis -p 6379:6379 redis
 docker exec -it redis redis-cli
 ```
 
-- Redis Monitoring 실행
-
-```bat
-docker exec -it redis redis-cli monitor
-```
-
 ## 성능 테스트
 
 Redis 서버의 terminal에서 Redis 성능 분석이 가능함  
@@ -92,7 +87,74 @@ docker exec -it redis /bin/bash
 redis-benchmark
 ```
 
-## Redis Data Types
+## 모니터링
+
+!!! tip
+    실제 프로덕션 수준의 운영 환경에서는 Redis-cli의 실행으로 인한 성능 저하의 가능성이 있을 뿐만 아니라 로그도 남지 않기 때문에 Prometheus/Grafana 등의 외부 서비스를 이용해 모니터링해야 한다.  
+
+### Redis-cli
+
+Redis-cli를 기반으로 Redis의 성능 및 상태를 모니터링할 수 있다.  
+
+- `monitor`
+    - Redis에 전달된 명령어들을 출력
+    - 주로 개발 단계에서 어플리케이션이 의도한대로 작동했는지를 확인하기 위해 사용함
+
+```bat
+docker exec -it redis redis-cli monitor
+```
+
+- `--stat`
+    - Redis 서버의 주요 통계 정보를 출력
+    - 메모리 정보, 연결 및 클라이언트 수 등
+
+```bat
+docker exec -it redis redis-cli --stat
+```
+
+- `--bigkeys`
+    - 스캔 명령을 기반으로 element 개수가 많은 key들을 출력
+
+```bat
+docker exec -it redis redis-cli --bigkeys
+```
+
+- `--memkeys`
+    - 메모리를 많이 사용하는 key들을 출력
+
+```bat
+docker exec -it redis redis-cli --memkeys
+```
+
+- `--latency`
+    - 전달받은 명령들의 처리 속도 관련 정보를 출력
+
+```bat
+docker exec -it redis redis-cli --latency
+```
+
+## 메모리 관련 정책
+
+Redis는 메모리 정리(Memory Eviction)에 대한 정책을 제공하는데, 주요 내용은 아래와 같다.  
+
+- `maxmemory`
+    - 최대 메모리 설정
+- `maxmemory-policy`
+    - 최대 메모리 도달 시 가용 메모리 확보 방법
+    - 저장중인 키 삭제 정책
+
+|    대상    |             방식              | 상세                                |
+| :--------: | :---------------------------: | ----------------------------------- |
+| noeviction |            무삭제             | 기본 설정, 정책 x                   |
+| `allkeys`  |    `lru`, `lfu`, `random`     | 전체 키에 대한 eviction 진행        |
+| `volatile` | `lru`, `lfu`, `random`, `ttl` | expire 설정 키에 대한 eviction 진행 |
+
+- `lru`: least recently used, 최신 키 저장
+- `lfu`: least frequently used, 빈번 키 저장
+- `random`: 임의 키 삭제
+- `ttl`: 만료 시간이 얼마 남지 않은 키 삭제
+
+## Data Types
 
 Redis는 아래와 같이 다양한 자료구조를 지원함
 
@@ -107,7 +169,7 @@ Redis는 아래와 같이 다양한 자료구조를 지원함
 - Bitfields
 - HyperLogLog
 
-## Redis 주요 명령어
+## 주요 명령어
 
 - Ping
 
@@ -168,9 +230,6 @@ MEMORY USAGE [key]
 
 ## 공식 문서 주요 참고 자료
 
-- 명령어 목록 및 상세 설명
-    - [Commands](https://redis.io/commands/)
-- 자료구조
-    - [Understand Redis data types](https://redis.io/docs/data-types/)
-- 언어별 client 가이드
-    - [Connect with Redis clients](https://redis.io/docs/connect/clients/)
+- [Commands](https://redis.io/commands/): 명령어 목록 및 상세 설명
+- [Understand Redis data types](https://redis.io/docs/data-types/): 자료구조
+- [Connect with Redis clients](https://redis.io/docs/connect/clients/): 언어별 client 가이드
