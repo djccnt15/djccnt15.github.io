@@ -141,7 +141,7 @@ import logging
 
 
 class MyFilter(logging.Filter):  # (1)!
-    def __init__(self, levels: list[int])
+    def __init__(self, levels: list[int]):
         self.__level = levels
 
     def filter(self, logRecord):
