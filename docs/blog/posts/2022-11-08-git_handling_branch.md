@@ -3,7 +3,7 @@ slug: git-handling-branch
 title: Git branch 다루기
 date:
     created: 2022-11-08
-    updated: 2024-02-11
+    updated: 2024-03-01
 description: >
     브랜치 관리를 위한 명령어들: branch, switch, merge
 categories:
@@ -57,12 +57,12 @@ git branch -d <branchname>
 git branch -t <branchname>
 ```
 
-원격 저장소에 여러 브랜치가 있는 경우 `pull`이나 `clone`을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](2022-01-14-git_initiate.md/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
+!!! note
+    원격 저장소에 여러 브랜치가 있는 경우 `pull`이나 `clone`을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](2022-01-14-git_initiate.md/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
 
 ## switch
 
 위의 `branch` 명령어로 생성한 브랜치 간에 이동할 때, 즉 작업할 브랜치를 변경할 때 사용하는 명령어  
-
 
 - 브랜치 이동
 
@@ -76,11 +76,18 @@ git switch <branchname>
 git switch -c <branchname> [<start-point>]
 ```
 
-- 커밋을 되돌리지 않고 단순히 과거 코드를 보기 위한 이동
+- 저장 상태를 변경하지 않고 단순히 과거 특정 커밋 상태인 코드를 보기 위한 이동
 
 ```bash
 git switch --detach <commit>
 ```
+
+!!! note
+    `--detach` 옵션은 detached HEAD[^1][^2] 상태를 만들어준다.  
+
+[^1]: Git에서 HEAD란 저장소에서 현재 위치를 뜻하는데, 쉽게 말하자면 **사용자에게 실제로 보이는 저장소**[^3]의 상태를 뜻한다.  
+[^2]: HEAD가 현재 작업중인 브랜치의 최신 커밋을 가리킬 때 attached HEAD, 그렇지 않을 때 detached HEAD라고 부른다.  
+[^3]: Working Directory나 Staging Area가 아님에 주의  
 
 ## merge
 
@@ -94,13 +101,15 @@ git merge <branchname>
 git merge --no-ff <branchname>
 ```
 
-`git merge`의 기본값인 fast-forward 방식 머지는 머지 commit을 생성하지 않는다. 따라서 `--no-ff` 옵션을 사용해서 머지 commit이 생성되도록 해줘야 이력 관리가 용이하다.  
+!!! tip
+    `git merge`의 기본값인 fast-forward 방식 머지는 머지 commit을 생성하지 않는다. 따라서 `--no-ff` 옵션을 사용해서 머지 commit이 생성되도록 해줘야 이력 관리가 용이하다.  
 
 ```bash
 git merge --no-commit --no-ff <branchname>
 ```
 
-`--no-commit` 옵션을 사용할 경우 머지 commit이 자동 생성되지 않기 때문에 사용자가 머지 결과를 미리 확인할 수 있다.  
+!!! tip
+    `--no-commit` 옵션을 사용할 경우 머지 commit이 자동 생성되지 않기 때문에 사용자가 머지 결과를 미리 확인할 수 있다.  
 
 ## rebase
 
@@ -110,6 +119,5 @@ git merge --no-commit --no-ff <branchname>
 git rebase <branchname>
 ```
 
-`merge`에 비해서 사용법이 복잡하고 중간에 걸친 모든 commit의 conflict를 검토해줘야 한다는 단점이 있지만, commit 이력이 더 깔끔해지고 히스토리 추적이 쉬워진다는 장점이 있다.  
-
-또한 conflict 해결을 여러 차례 반복하는 것이 결과적으로는 코드 에러를 더 줄일 수 있다.  
+!!! note
+    `merge`에 비해서 사용법이 복잡하고 중간에 걸친 모든 commit의 conflict를 검토해줘야 한다는 단점이 있지만, commit 이력이 더 깔끔해지고 히스토리 추적이 쉬워진다는 장점이 있다.  
