@@ -3,7 +3,7 @@ slug: redis-basic
 title: Redis 기초
 date:
     created: 2023-12-16
-    updated: 2024-02-26
+    updated: 2024-03-03
 description: >
     Redis의 입문을 위한 간단 정리
 categories:
@@ -168,6 +168,27 @@ Redis는 아래와 같이 다양한 자료구조를 지원함
 - Bitmaps
 - Bitfields
 - HyperLogLog
+
+## 고가용성
+
+Redis는 Replication, Sentinel, Cluster 등의 기능들을 제공하는데, 이 기능들을 사용해 고가용성 및 확장성을 동시에 확보할 수 있다.  
+
+1. [Replication](https://redis.io/docs/management/replication/)
+    - master-replica(slave)의 관계로 두 DB를 연결
+    - master DB에 입력되는 명령어 stream을 replica에도 전송하여 동일하게 작동하도록 함
+    - resync를 지원해 두 DB 간의 네트워크가 끊어지더라도 재연결됨
+    - ID, offset 기반으로 작동하기 때문에 resync 발생 시 연결이 끊어진 부분부터 이어서 동기화 가능
+
+    !!! warning
+        master DB에 장에가 발생했을 때의 failover를 지원하지는 않음
+
+1. [Sentinel](https://redis.io/docs/management/sentinel/)
+    - Redis Cluster를 사용하지 않고 Replication을 사용할 때 Replication의 고가용성을 보장하기 위해 같이 사용함
+    - master와 replica에 대한 모니터링, 관리자 알람, failover 등의 기능을 지원함
+    - master DB에 장에가 발생했을 때 replica 중 하나를 자동으로 master로 승격시킴으로서 failover를 지원함
+1. [Cluster](https://redis.io/docs/management/scaling/)
+    - 다수의 master DB를 운영하여 쓰기 작업에 대한 수평 확장성을 확보함
+    - 저장할 데이터를 샤딩하여 해시 알고리즘을 통해 저장할 master를 결정함
 
 ## 주요 명령어
 
