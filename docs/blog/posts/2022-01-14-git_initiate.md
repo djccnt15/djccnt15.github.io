@@ -3,7 +3,6 @@ slug: git-initiate
 title: Git 시작하기
 date:
     created: 2022-01-14
-    updated: 2024-01-20
 description: >
     시작하기 위한 명령어들 정리: help, init, remote, status
 categories:

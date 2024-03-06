@@ -3,7 +3,6 @@ slug: git-handling-branch
 title: Git branch 다루기
 date:
     created: 2022-11-08
-    updated: 2024-03-01
 description: >
     브랜치 관리를 위한 명령어들: branch, switch, merge
 categories:

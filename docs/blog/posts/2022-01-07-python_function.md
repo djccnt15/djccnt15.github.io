@@ -3,7 +3,6 @@ slug: tips-for-function
 title: Python의 함수
 date:
     created: 2022-01-07
-    updated: 2024-01-30
 description: >
     Python의 함수에 대한 노트
 categories:

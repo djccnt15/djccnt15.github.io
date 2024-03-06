@@ -3,7 +3,6 @@ slug: redis-basic
 title: Redis 기초
 date:
     created: 2023-12-16
-    updated: 2024-03-03
 description: >
     Redis의 입문을 위한 간단 정리
 categories:

@@ -3,7 +3,6 @@ slug: fastapi-orm
 title: FastAPI ORM 적용
 date:
     created: 2023-06-10
-    updated: 2024-01-25
 description: >
     SQLAlchemy와 Alembic을 활용한 데이터베이스 ORM
 categories:

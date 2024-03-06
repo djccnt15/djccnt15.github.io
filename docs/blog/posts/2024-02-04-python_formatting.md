@@ -3,7 +3,6 @@ slug: formatting-tips
 title: Python 포메팅 활용 팁
 date:
     created: 2024-02-04
-    updated: 2024-02-29
 description: >
     Python 포메팅 관련 활용 팁 정리  
 categories:
