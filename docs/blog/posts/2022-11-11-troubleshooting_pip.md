@@ -3,7 +3,6 @@ slug: troubleshooting-pip
 title: Python pip 관련 팁
 date:
     created: 2022-11-11
-    updated: 2024-01-21
 description: >
     Python pip 관련 이슈 해결 기록
 categories:

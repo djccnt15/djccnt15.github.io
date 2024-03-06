@@ -4,7 +4,7 @@ title: HTTP 주요 Method 정리
 date:
     created: 2023-03-19
 description: >
-    CRUD와 GET, POST, PUT, DELETE
+    CRUD와 GET, POST, PUT, DELETE, PATCH
 categories:
     - Web
 tags:
@@ -12,7 +12,7 @@ tags:
     - http
 ---
 
-CRUD와 GET, POST, PUT, DELETE  
+CRUD와 GET, POST, PUT, DELETE, PATCH  
 
 <!-- more -->
 
@@ -37,18 +37,26 @@ CRUD와 GET, POST, PUT, DELETE
 
 [^1]: 멱등성이란 수학의 함수와 같이 input이 일정하면 output도 일정한 성질을 말한다.  
 
+### PATCH
+
+`PATCH`는 Update를 수행하기 위해 사용하는 method로 데이터의 일부만 수정할 때 사용하며, 대부분의 경우에 `PUT`으로 대체 가능하기 때문에 굳이 사용하지는 않는 경우가 많다.  
+
+!!! note
+    `PATCH`는 반드시 멱등적이어야 하는 `PUT`과는 달리, 멱등적일수는 있지만 멱등적일 필요는 없다. 따라서 잘못된 `PATCH`의 사용은 `POST`와 마찬가지로 다른 리소스에 의도치 않은 부작용을 발생시킬 수 있다.  
+
 ### DELETE
 
 `DELETE`는 Delete를 수행하기 위해 사용되는 method이다.  
 
 ## 2. 주요 Method 비교
 
-| Method | 의미              |      CRUD      | 멱등성 | 안정성 | Path Variable | Query Parameter | Data Body |
-| :----: | ----------------- | :------------: | :----: | :----: | :-----------: | :-------------: | :-------: |
-|  GET   | 리소스 요청       |      Read      |   O    |   O    |       O       |        O        |     X     |
-|  POST  | 리소스 생성       |     Create     |   X    |   X    |       O       |        △        |     O     |
-|  PUT   | 리소스 갱신, 생성 | Update, Create |   O    |   X    |       O       |        △        |     O     |
-| DELETE | 리소스 삭제       |     Delete     |   O    |   X    |       O       |        O        |     △     |
+| Method |       의미        |      CRUD      | Request Body | 안정성 | 멱등성 | HTML form 전송 |
+| :----: | :---------------: | :------------: | :----------: | :----: | :----: | :------------: |
+|  GET   |    리소스 요청    |      Read      |      X       |   O    |   O    |       O        |
+|  POST  |    리소스 생성    |     Create     |      O       |   X    |   X    |       O        |
+|  PUT   | 리소스 갱신, 생성 | Update, Create |      O       |   X    |   O    |       X        |
+| PATCH  | 리소스 일부 갱신  |     Update     |      O       |   X    |   X    |       X        |
+| DELETE |    리소스 삭제    |     Delete     |      △       |   X    |   O    |       X        |
 
 Query Parameter는 URL의 일부인 **쿼리스트링(Query string)**을 통해 전송하는데, 아래와 같이 URL의 뒤에 `?`으로 요청 파라미터를 덧붙인 요청 양식을 쿼리스트링이라고 부른다. 쿼리스트링에서 요청 파라미터가 여러 개면 `&`로 연결한다.  
 
@@ -57,7 +65,7 @@ https://github.com/djccnt15?tab=repositories&q=&language=python&sort=name
 ```
 
 !!! warning
-    쿼리스트링으로 통신을 할 때는 URL을 통해 정보가 전송되기 때문에 중요한 데이터를 담아서 전송을 하게되면 일반 사용자에게 해당 데이터가 노출되는 문제가 있다. 따라서 쿼리스트링을 통해 중요한 정보를 전송하는 것을 지양해야 한다.
+    쿼리스트링으로 통신을 할 때는 URL을 통해 정보가 전송되기 때문에 중요한 데이터를 담아서 전송을 하게되면 일반 사용자에게 해당 데이터가 노출되는 문제가 있다. 따라서 쿼리스트링을 통해 중요한 정보를 전송하는 것을 지양해야 한다.  
 
 ---
 ## Reference

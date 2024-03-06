@@ -3,7 +3,6 @@ slug: handling-datetime
 title: 날짜/시간 데이터 다루기
 date:
     created: 2022-12-03
-    updated: 2024-01-17
 description: >
     strftime, strptime으로 날짜와 시간 데이터 다루기
 categories:
