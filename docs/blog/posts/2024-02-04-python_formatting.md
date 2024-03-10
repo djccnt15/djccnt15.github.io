@@ -69,6 +69,17 @@ print(f"{a:_.2f}")
 1_000.12
 ```
 
+아래와 같이 float을 %로 간편하게 변경해 출력할 수 있다.  
+
+```python
+a = 0.12345
+
+print(f"{a:.2%}")
+```
+```
+12.35%
+```
+
 ## Datetime 포메팅
 
 아래와 같이 datetime 정보를 포메팅하여 출력할 수 있다.  
@@ -79,7 +90,7 @@ from datetime import datetime, timedelta, timezone
 KST = timezone(offset=timedelta(hours=9), name="KST")
 now = datetime.now(KST)
 
-print(f"{now:%Y-%m-%d}T{now:%H:%M:%S%z}")
+print(f"{now:%Y-%m-%dT%H:%M:%S%z}")
 ```
 ```
 2024-02-28T00:26:36+0900
