@@ -55,7 +55,7 @@ mc = MyClass()
 mc.a = 1
 ```
 
-아래와 같이 [name mangling](2024-01-28-access_modifier.md/#python)을 통해 private화 된 요소를 호출할 수 있다.  
+아래와 같이 [name mangling](2024-01-28-access_modifier.md/#python의-접근제한자)을 통해 private화 된 요소를 호출할 수 있다.  
 
 ```python
 print(f"{mc.a=}")

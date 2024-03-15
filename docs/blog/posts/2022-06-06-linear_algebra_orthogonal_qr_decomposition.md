@@ -21,7 +21,7 @@ tags:
 
 ### 직교, 정규 직교 벡터, 정규 직교 공간, 정규화
 
-**직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1([단위 벡터](2022-05-29-linear_algebra_basis_dimension.md/#_2))이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
+**직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1([단위 벡터](2022-05-29-linear_algebra_basis_dimension.md/#단위-벡터))이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
 
 $$
 \textbf{v}_{n} = \frac{\textbf{u}_{n}}{\Vert \textbf{u}_{n} \Vert}
@@ -150,7 +150,7 @@ $$
 
 ### 직교 정사영
 
-벡터 공간 $S$의 부분 공간 $W$에서 부분 공간 $W$의  **직교 기저(orthogonal basis)**가 $U = \{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$일 때, $\textbf{a}$가 전체 벡터 공간 $S$의 임의의 벡터이면 $\textbf{a}$를 $W$로 정사영 시킨 벡터는 다음과 같다. [직교 벡터를 활용한 좌표 표현](#_3)을 참고하자.  
+벡터 공간 $S$의 부분 공간 $W$에서 부분 공간 $W$의  **직교 기저(orthogonal basis)**가 $U = \{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$일 때, $\textbf{a}$가 전체 벡터 공간 $S$의 임의의 벡터이면 $\textbf{a}$를 $W$로 정사영 시킨 벡터는 다음과 같다. [직교 벡터를 활용한 좌표 표현](#정규-직교-벡터를-활용한-좌표-표현)을 참고하자.  
 
 $$
 proj_{\textbf{w}} \textbf{a} = \frac{\langle \textbf{a}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}\textbf{u}_{1} + \frac{\langle \textbf{a}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}\textbf{u}_{2} + \cdots + \frac{\langle \textbf{a}, \textbf{u}_{n} \rangle}{\Vert \textbf{u}_{n} \Vert^{2}}\textbf{u}_{n}
@@ -162,7 +162,7 @@ $$
 proj_{\textbf{w}} \textbf{a} = \left\{ \frac{\langle \textbf{a}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}, \frac{\langle \textbf{a}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \textbf{a}, \textbf{u}_{n} \rangle}{\Vert \textbf{u}_{n} \Vert^{2}} \right\}
 $$
 
-벡터 공간 $S$의 부분 공간 $W$에서, 부분 공간 $W$의 **정규 직교 기저(orthonormal basis)**가 $\{ \textbf{v}_{1}, \textbf{v}_{2}, \cdots, \textbf{v}_{n} \}$일 때, $\textbf{a}$가 전체 벡터 공간 $S$의 임의의 벡터이면 $\textbf{a}$를 $W$로 정사영시킨 벡터는 다음과 같다. [정규 직교 벡터를 활용한 좌표 표현](#_3)을 참고하자.  
+벡터 공간 $S$의 부분 공간 $W$에서, 부분 공간 $W$의 **정규 직교 기저(orthonormal basis)**가 $\{ \textbf{v}_{1}, \textbf{v}_{2}, \cdots, \textbf{v}_{n} \}$일 때, $\textbf{a}$가 전체 벡터 공간 $S$의 임의의 벡터이면 $\textbf{a}$를 $W$로 정사영시킨 벡터는 다음과 같다. [정규 직교 벡터를 활용한 좌표 표현](##정규-직교-벡터를-활용한-좌표-표현)을 참고하자.  
 
 $$
 proj_{\textbf{w}} \textbf{a} = \langle \textbf{a}, \textbf{v}_{1} \rangle \textbf{v}_{1} + \langle \textbf{a}, \textbf{v}_{2} \rangle \textbf{v}_{2} + \cdots + \langle \textbf{a}, \textbf{v}_{n} \rangle \textbf{v}_{n}
@@ -170,7 +170,7 @@ $$
 
 ## 3. 그람-슈미트 과정
 
-**그람-슈미트 과정(Gram-Schmidt Process)**은 [기저(basis) 벡터](2022-05-29-linear_algebra_basis_dimension.md/#_3) $\{ \textbf{s}_{1}, \textbf{s}_{2}, \cdots, \textbf{s}_{n} \}$를 [직교 기저(orthogonal basis) 벡터](#_1) $\{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
+**그람-슈미트 과정(Gram-Schmidt Process)**은 [기저(basis) 벡터](2022-05-29-linear_algebra_basis_dimension.md/#기저-벡터) $\{ \textbf{s}_{1}, \textbf{s}_{2}, \cdots, \textbf{s}_{n} \}$를 [직교 기저(orthogonal basis) 벡터](#직교-정규-직교-벡터-정규-직교-공간-정규화) $\{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
 
 - 1) 기존 기저 벡터 $\textbf{s}_{1}$을 통해 새로운 직교 기저 벡터 $\textbf{u}_{1}$을 정의한다.
 
@@ -232,7 +232,7 @@ A = QR
 $$
 
 이러한 **QR분해(QR decomposition, QR factorization)**는 주어진 행렬을 직교하는 행렬로 나타내어 행렬을 다루기 편하게 만들어주며, 크기가 큰 행렬의 고유값을 구할 때 유용하게 사용된다.  
-[정규 직교 벡터를 활용한 좌표 표현](#_2)을 참고하면, 행렬 $A$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
+[정규 직교 벡터를 활용한 좌표 표현](#정규-직교-벡터를-활용한-좌표-표현)을 참고하면, 행렬 $A$의 각 열 벡터는 아래와 같이 나타낼 수 있다.  
 
 $$
 \begin{align*}
@@ -301,9 +301,9 @@ $$
 
 ### 하우스홀더 행렬을 이용한 QR분해
 
-[하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다. 하우스홀더 행렬을 사용한 QR분해 방법은 다음과 같다.  
+[하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다. 하우스홀더 행렬을 사용한 QR분해 방법은 다음과 같다.  
 
-- 1) 주어진 행렬 $A$를 통해 $\textbf{v}_{1}$를 구한다. 아래 식에서 $sign$은 벡터의 첫 스칼라의 부호로, 0 이상이면 $+$, 0 미만이면 $-$가 된다. $\textbf{e}_{1}$은 [기저 벡터](2022-05-29-linear_algebra_basis_dimension.md/#_2)를 말한다.  
+- 1) 주어진 행렬 $A$를 통해 $\textbf{v}_{1}$를 구한다. 아래 식에서 $sign$은 벡터의 첫 스칼라의 부호로, 0 이상이면 $+$, 0 미만이면 $-$가 된다. $\textbf{e}_{1}$은 [기저 벡터](2022-05-29-linear_algebra_basis_dimension.md/#기저-벡터)를 말한다.  
 
 $$
 A_{1} = A = \begin{bmatrix}
@@ -333,7 +333,7 @@ a_{41}\end{bmatrix}, \quad
 \end{align*}
 $$
 
-- 2) 위에서 구한 $\textbf{v}_{1}$를 통해서 [하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8)을 구한다.  
+- 2) 위에서 구한 $\textbf{v}_{1}$를 통해서 [하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬)을 구한다.  
 
 $$
 \begin{align*}
@@ -518,7 +518,7 @@ Python으로 구현하면 아래와 같다.
         h_list.append(tmp)
     ```
 
-NumPy, SciPy로 구한 값 및 위의 [그람-슈미트 과정](#-qr)을 이용해서 도출한 값과는 부호가 조금 다르게 나오는데, 마찬가지로 바뀐 부호가 $Q$와 $R$에 공통적으로 적용되어 $A = QR$이라는 최종 검산 결과를 만족하면 상관 없다고 한다.  
+NumPy, SciPy로 구한 값 및 위의 [그람-슈미트 과정](#3-그람-슈미트-과정)을 이용해서 도출한 값과는 부호가 조금 다르게 나오는데, 마찬가지로 바뀐 부호가 $Q$와 $R$에 공통적으로 적용되어 $A = QR$이라는 최종 검산 결과를 만족하면 상관 없다고 한다.  
 
 ---
 ## Reference

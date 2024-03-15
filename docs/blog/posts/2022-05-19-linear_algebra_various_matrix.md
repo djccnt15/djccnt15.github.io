@@ -109,7 +109,7 @@ Python으로 대칭 행렬 여부를 확인하려면 아래와 같이 앞서 만
 
 ### 반대칭 행렬
 
-아래와 같이 [전치 행렬](#1)이 원래 행렬에 $-1$을 곱한 행렬일 경우 행렬 $A$를 **반대칭 행렬(skew-symmetric matrix)**이라고 한다.  
+아래와 같이 [전치 행렬](#1-전치-행렬)이 원래 행렬에 $-1$을 곱한 행렬일 경우 행렬 $A$를 **반대칭 행렬(skew-symmetric matrix)**이라고 한다.  
 
 $$
 A^{T} = -A
@@ -259,7 +259,7 @@ $$
 
 ## 4. 단위 행렬
 
-**단위 행렬(identity matrix)**은 아래와 같이 주 대각 원소가 1이고 그 외 나머지 원소는 모두 0인 [대각 행렬](#3)을 의미한다. $I$로 표기하며, **항등 행렬**이라고도 부른다.  
+**단위 행렬(identity matrix)**은 아래와 같이 주 대각 원소가 1이고 그 외 나머지 원소는 모두 0인 [대각 행렬](#3-대각-행렬)을 의미한다. $I$로 표기하며, **항등 행렬**이라고도 부른다.  
 
 $$
 I = \begin{bmatrix}
@@ -440,7 +440,7 @@ $$
 
 ## 8. 하우스홀더 행렬
 
-**하우스홀더 행렬(householder matrix)**은 모든 열이 [정규 직교(orthonormal)](2022-06-06-linear_algebra_orthogonal_qr_decomposition.md/#1)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $H$를 말한다.  
+**하우스홀더 행렬(householder matrix)**은 모든 열이 [정규 직교(orthonormal)](2022-06-06-linear_algebra_orthogonal_qr_decomposition.md/#1-직교-공간)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $H$를 말한다.  
 
 $$
 \textbf{v} = \begin{bmatrix}
@@ -452,7 +452,7 @@ v_{n}
 \to H = I - 2\frac{\textbf{vv}^{T}}{\textbf{v}^{T}\textbf{v}}
 $$
 
-${\textbf{vv}^{T}}$은 [벡터의 외적](2022-06-09-linear_algebra_various_products.md/#1), ${\textbf{v}^{T}\textbf{v}}$은 [벡터의 내적](2022-06-05-linear_algebra_inner_product_norm.md/#1)을 뜻하기 때문에 하우스홀더 행렬 공식을 Python으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
+${\textbf{vv}^{T}}$은 [벡터의 외적](2022-06-09-linear_algebra_various_products.md/#1-외적), ${\textbf{v}^{T}\textbf{v}}$은 [벡터의 내적](2022-06-05-linear_algebra_inner_product_norm.md/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 Python으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 === "Python"
 
