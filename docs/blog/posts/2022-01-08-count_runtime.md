@@ -73,7 +73,47 @@ with cal_time("test"):
 test: 0:00:01.013775
 ```
 
+## 4. timeit 사용
+
+Python의 표준 라이브러리 중 `timeit` 패키지를 사용하면 코드의 실행 시간을 측정할 수 있다.  
+
+```python
+import timeit
+
+SETUP_CODE = """
+import statistics
+
+import numpy as np
+
+DATA_LIST = [i for i in range(int(1e3))]
+DATA_ARRAY = np.array(DATA_LIST)
+"""
+
+STD_MEAN_WITH_LIST = """statistics.mean(DATA_LIST)"""
+STD_MEAN_WITH_ARRAY = """statistics.mean(DATA_ARRAY)"""
+NP_MEAN_WITH_LIST = """np.mean(DATA_LIST)"""
+NP_MEAN_WITH_ARRAY = """np.mean(DATA_ARRAY)"""
+
+
+def main():
+    print(timeit.timeit(stmt=STD_MEAN_WITH_LIST, setup=SETUP_CODE))
+    print(timeit.timeit(stmt=STD_MEAN_WITH_ARRAY, setup=SETUP_CODE))
+    print(timeit.timeit(stmt=NP_MEAN_WITH_LIST, setup=SETUP_CODE))
+    print(timeit.timeit(stmt=NP_MEAN_WITH_ARRAY, setup=SETUP_CODE))
+
+
+if __name__ == "__main__":
+    main()
+```
+```
+142.78164129995275
+586.6689014999429
+35.12082770001143
+3.3709149999776855
+```
+
 ---
 ## Reference
-- [Python Documentation: time — 시간 액세스와 변환](https://docs.python.org/ko/3/library/time.html)([영문](https://docs.python.org/3/library/time.html))
-- [Python Documentation: datetime — 기본 날짜와 시간 형](https://docs.python.org/ko/3/library/datetime.html)([영문](https://docs.python.org/3/library/datetime.html))
+- [time — Time access and conversions](https://docs.python.org/3/library/time.html)
+- [datetime — Basic date and time types](https://docs.python.org/3/library/datetime.html)
+- [timeit — Measure execution time of small code snippets](https://docs.python.org/3/library/timeit.html)
