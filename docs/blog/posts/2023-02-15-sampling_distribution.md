@@ -54,7 +54,7 @@ $$
 
 ### 1-3. 표본분포
 
-통계량의 확률분포를 **표본분포(sampling distribution)**라 하며, 통계량의 [표준편차](2022-12-18-univariate_data.md/#_8)($SD$)를 **표준 오차(standard error)**라고 한다.  
+통계량의 확률분포를 **표본분포(sampling distribution)**라 하며, 통계량의 [표준편차](2022-12-18-univariate_data.md/#표본표준편차)($SD$)를 **표준 오차(standard error)**라고 한다.  
 
 표본평균/표본비율, 표본분산/표본표준편차, 극한값 등 다양한 통계량이 있는데, 표본평균을 예로 들면 평균이 $\mu$, 분산이 $\sigma^{2}$인 [정규분포](2023-02-11-normal_distribution.md)에서 $n$개의 확률표본을 추출했을 때 표본평균 $\overline{X}$의 분포는 아래와 같다.  
 
@@ -83,7 +83,7 @@ $$
     \end{align*}
     $$
 
-모집단이 정규분포일 때 통계량 $\overline{X}$을 [표준화](2022-12-18-univariate_data.md/#_9) 하면 아래와 같다.  
+모집단이 정규분포일 때 통계량 $\overline{X}$을 [표준화](2022-12-18-univariate_data.md/#표준화) 하면 아래와 같다.  
 
 $$
 \begin{gathered}
@@ -97,9 +97,9 @@ $$
 
 ### 2-1. 큰 수의 법칙
 
-위에서 확인했듯이 평균이 $\mu$, 분산이 $\sigma^{2}$인 [정규분포](2023-02-11-normal_distribution.md)에서 $n$개의 확률표본을 추출했을 때 [표본평균](2022-12-18-univariate_data.md/#1-1) $\overline{X}$의 평균과 분산은 각각 $\mu$와 $\sigma^{2}/n$이 된다. 이 때, $n$이 무한대로 발산하면 $\overline{X}$는 $\mu$로 수렴한다.  
+위에서 확인했듯이 평균이 $\mu$, 분산이 $\sigma^{2}$인 [정규분포](2023-02-11-normal_distribution.md)에서 $n$개의 확률표본을 추출했을 때 [표본평균](2022-12-18-univariate_data.md/#1-1-평균) $\overline{X}$의 평균과 분산은 각각 $\mu$와 $\sigma^{2}/n$이 된다. 이 때, $n$이 무한대로 발산하면 $\overline{X}$는 $\mu$로 수렴한다.  
 
-이처럼 표본집단의 크기가 커지면 그 표본평균이 모평균에 가까워지며 결과적으로 [확률분포](2022-12-29-random_variable_probability_distribution.md/#1-1)가 [통계적 확률](2022-12-24-statistical_probability.md/#3)로 수렴하는 것을 큰 수의 법칙이라고 한다.  
+이처럼 표본집단의 크기가 커지면 그 표본평균이 모평균에 가까워지며 결과적으로 [확률분포](2022-12-29-random_variable_probability_distribution.md/#1-1-확률분포)가 [통계적 확률](2022-12-24-statistical_probability.md/#3-통계적-확률)로 수렴하는 것을 큰 수의 법칙이라고 한다.  
 
 이러한 정리가 **큰 수의 법칙(law of large numbers)** 중 하나인 약한 큰 수의 법칙이며 아래와 같이 표현한다.  
 
@@ -137,7 +137,7 @@ $$
 
 ### 3-1. 표본평균의 표본분포
 
-[이항분포](2023-01-07-discrete_distribution.md/#2)의 [표본평균](2022-12-18-univariate_data.md/#1-1)은 각각의 조건에 따라 아래와 같이 근사한다.  
+[이항분포](2023-01-07-discrete_distribution.md/#2-이항분포)의 [표본평균](2022-12-18-univariate_data.md/#1-1-평균)은 각각의 조건에 따라 아래와 같이 근사한다.  
 
 - $n$이 크고 $p$가 작은 경우: 포아송 근사
 - $n$이 크고 $p$가 큰 경우: 포아송 근사
@@ -200,7 +200,7 @@ $$
 
 ### 3-2. 표본분산의 표본분포
 
-모집단이 정규분포를 따를 때, [표본분산](2022-12-18-univariate_data.md/#_7)의 표본분포는 자유도가 $n - 1$인 카이제곱분포로 근사한다.  
+모집단이 정규분포를 따를 때, [표본분산](2022-12-18-univariate_data.md/#표본분산)의 표본분포는 자유도가 $n - 1$인 카이제곱분포로 근사한다.  
 
 $$
 P(X) \simeq \chi_{n - 1}^{2}

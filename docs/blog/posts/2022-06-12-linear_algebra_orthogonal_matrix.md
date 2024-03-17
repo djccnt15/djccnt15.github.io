@@ -19,7 +19,7 @@ tags:
 
 ## 1. 직교 행렬
 
-**직교 행렬(orthogonal matrix)**이란 어떤 행렬의 행 벡터와 열 벡터가 [정규 직교(orthonomal) 기저](2022-06-06-linear_algebra_orthogonal_qr_decomposition.md/#1)를 이루는 행렬을 의미한다. 직교 행렬은 자기 자신의 [전치 행렬](2022-05-19-linear_algebra_various_matrix.md/#1)과 곱했을 때 [단위 행렬](2022-05-19-linear_algebra_various_matrix.md/#4)이 되는 성질이 있기 때문에 이를 통해 주어진 행렬이 직교 행렬인지 확인할 수 있다.  
+**직교 행렬(orthogonal matrix)**이란 어떤 행렬의 행 벡터와 열 벡터가 [정규 직교(orthonomal) 기저](2022-06-06-linear_algebra_orthogonal_qr_decomposition.md/#직교-정규-직교-벡터-정규-직교-공간-정규화)를 이루는 행렬을 의미한다. 직교 행렬은 자기 자신의 [전치 행렬](2022-05-19-linear_algebra_various_matrix.md/#1-전치-행렬)과 곱했을 때 [단위 행렬](2022-05-19-linear_algebra_various_matrix.md/#4-단위-행렬)이 되는 성질이 있기 때문에 이를 통해 주어진 행렬이 직교 행렬인지 확인할 수 있다.  
 
 - 행렬 $A$가 직교 행렬일 때,
 
@@ -86,7 +86,7 @@ $$
 
 
 - 행렬 $A$가 가역 행렬이라는 말은 $P^{-1}AP$가 가역 행렬이라는 말과 같다.
-- 행렬 $A$와 $P^{-1}AP$의 [랭크(rank)와 널리티(nullity)](2022-05-29-linear_algebra_basis_dimension.md/#7)는 동일하다.
+- 행렬 $A$와 $P^{-1}AP$의 [랭크(rank)와 널리티(nullity)](2022-05-29-linear_algebra_basis_dimension.md/#7-랭크와-널리티)는 동일하다.
 
 $$
 \begin{align*}

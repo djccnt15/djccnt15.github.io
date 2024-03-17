@@ -116,7 +116,7 @@ urlpatterns = [
 {% endif %}
 ```
 
-`{% url [URL_name] %}` 태그는 [URL 매핑](#2-2-url)을 사용할 수 있도록 해준다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/intro/tutorial03/#removing-hardcoded-urls-in-templates)를 참고하자.  
+`{% url [URL_name] %}` 태그는 [URL 매핑](#2-2-url-매핑)을 사용할 수 있도록 해준다. 자세한 내용은 [공식 문서](https://docs.djangoproject.com/en/4.1/intro/tutorial03/#removing-hardcoded-urls-in-templates)를 참고하자.  
 
 `templates/board_qna` 폴더에 `question_detail.html` 파일을 아래와 같이 생성해준다.  
 

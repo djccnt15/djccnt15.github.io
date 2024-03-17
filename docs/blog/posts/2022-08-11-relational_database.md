@@ -40,7 +40,7 @@ SQL 기본: 관계형 데이터베이스, DDL, DML, TCL, DCL
 
 **테이블(Table)**은 데이터를 저장하는 객체(Object)로, 관계형 데이터베이스의 기본 단위이다. 테이블의 열을 칼럼(Column), 가로 방향을 행(Row)이라고 하고, 열과 행이 겹치는 하나의 공간을 필드(Field)라고 한다.  
 
-테이블을 분할하여 데이터의 불필요한 중복을 줄이는 것을 [정규화(Normalization)](2022-08-07-database_normalization.md/#2)라고 한다. 정규화(Normalization)를 통해 데이터의 정합성을 확보하고, 데이터 입력/수정/삭제 시 발생할 수 있는 이상 현상(Anomaly)을 방지할 수 있다.  
+테이블을 분할하여 데이터의 불필요한 중복을 줄이는 것을 [정규화(Normalization)](2022-08-07-database_normalization.md/#2-정규화)라고 한다. 정규화(Normalization)를 통해 데이터의 정합성을 확보하고, 데이터 입력/수정/삭제 시 발생할 수 있는 이상 현상(Anomaly)을 방지할 수 있다.  
 
 테이블의 각 행을 한 가지 의미로 특정할 수 있는 한 개 이상의 칼럼을 **기본키(Primary Key, PK)**라고 하며, 다른 테이블의 기본 키로 사용되면서 테이블과의 관계를 연결하는 역할을 하는 칼럼을 **외부키(Foreign Key, FK)**라고 한다.  
 
@@ -465,7 +465,7 @@ DROP USER ID CASCADE;
 
 ### 5-3. 사용자 권한 관리
 
-사용자는 [DDL](#2-ddl) 문장은 그에 해당하는 **시스템 권한(System Privilege)**, 객체에 대한 명령어는 **오브젝트 권한(Object Privilege)**을 [`GRANT`](#5-1)를 통해 부여받아야만 SQL문을 실행할 수 있다. Oracle과 MSSQL에서 사용자의 권한을 편하게 관리하는 방법은 다음과 같다.  
+사용자는 [DDL](#2-ddl) 문장은 그에 해당하는 **시스템 권한(System Privilege)**, 객체에 대한 명령어는 **오브젝트 권한(Object Privilege)**을 [`GRANT`](#5-1-유저와-권한)를 통해 부여받아야만 SQL문을 실행할 수 있다. Oracle과 MSSQL에서 사용자의 권한을 편하게 관리하는 방법은 다음과 같다.  
 
 #### Role을 이용한 권한 부여
 

@@ -25,7 +25,7 @@ $$
 \textbf{u} \otimes \textbf{v} = \textbf{u} \textbf{v}^{T}
 $$
 
-Python으로 구현하면 아래와 같다. [하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8) 공식에서 이미 구현한 바 있다.  
+Python으로 구현하면 아래와 같다. [하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
 === "Python"
 
@@ -61,7 +61,7 @@ $$
 
 ## 2. 벡터 곱
 
-**벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 다음과 같이 [기저 벡터](2022-05-29-linear_algebra_basis_dimension.md/#_3)를 사용해 구할 수 있다.  
+**벡터 곱(vector product)**은 **크로스 곱(cross product)** 또는 **가위 곱**이라고 부르기도 하는데, **3차원 공간의 벡터들 간에서만 적용할 수 있는 연산**으로, 다음과 같이 [기저 벡터](2022-05-29-linear_algebra_basis_dimension.md/#기저-벡터)를 사용해 구할 수 있다.  
 
 $$
 \textbf{i} = \begin{bmatrix}
@@ -106,7 +106,7 @@ v_{1} & v_{2} \\
 \end{align*}
 $$
 
-벡터 곱 $\textbf{u} \times \textbf{v}$의 방향은 벡터 $\textbf{u}$와 $\textbf{v}$에 수직이고, 크기는 $\textbf{u}$와 $\textbf{v}$ 두 벡터가 이루는 정사각형의 넓이, 즉 벡터 $\textbf{u}$와 벡터 $\textbf{v}$의 벡터 곱의 [노름(norm)](2022-06-05-linear_algebra_inner_product_norm.md/#2-norm)과 같다. 이를 수식으로 나타내면 다음과 같다.  
+벡터 곱 $\textbf{u} \times \textbf{v}$의 방향은 벡터 $\textbf{u}$와 $\textbf{v}$에 수직이고, 크기는 $\textbf{u}$와 $\textbf{v}$ 두 벡터가 이루는 정사각형의 넓이, 즉 벡터 $\textbf{u}$와 벡터 $\textbf{v}$의 벡터 곱의 [노름(norm)](2022-06-05-linear_algebra_inner_product_norm.md/#2-노름norm)과 같다. 이를 수식으로 나타내면 다음과 같다.  
 
 $$
 \Vert \textbf{u} \times \textbf{v} \Vert = \Vert \textbf{u} \Vert \Vert \textbf{v} \Vert \vert \sin \theta \vert

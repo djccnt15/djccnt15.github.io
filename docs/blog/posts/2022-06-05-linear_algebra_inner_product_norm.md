@@ -21,7 +21,7 @@ tags:
 
 ### 내적의 개념
 
-[벡터 공간](2022-05-29-linear_algebra_basis_dimension.md/#1)의 설명에서 언급했듯이 **내적(inner product)**이 주어진 벡터 공간을 **내적 공간(inner product space)**이라고 부르는데, 벡터의 **내적(inner product)**은 벡터를 방향이 일치하는 만큼만 곱한다는 뜻으로 아래와 같이 표기한다.  
+[벡터 공간](2022-05-29-linear_algebra_basis_dimension.md/#1-벡터-공간)의 설명에서 언급했듯이 **내적(inner product)**이 주어진 벡터 공간을 **내적 공간(inner product space)**이라고 부르는데, 벡터의 **내적(inner product)**은 벡터를 방향이 일치하는 만큼만 곱한다는 뜻으로 아래와 같이 표기한다.  
 
 $$
 \textbf{u}
@@ -42,7 +42,7 @@ $$
 \langle \textbf{u}, \textbf{v} \rangle = \textbf{u} \cdot \textbf{v} = \textbf{u}^{T} \textbf{v} = \sum_{i=1}^{n}u_{i}v_{i} = \vert \textbf{u} \vert \vert \textbf{v} \vert \cos \theta
 $$
 
-벡터의 내적을 Python으로 구현하면 아래와 같다. [하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8) 공식에서 이미 구현한 바 있다.  
+벡터의 내적을 Python으로 구현하면 아래와 같다. [하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
 === "Python"
 
@@ -79,7 +79,7 @@ $$
 
 ## 2. 노름(norm)
 
-**노름(norm)**은 벡터의 크기 또는 길이를 말하며 $\Vert \textbf{v} \Vert$로 표기한다. 내적이 정의되면 노름(norm)은 자기 자신의 [내적(inner product)](#1)의 제곱근으로 정의할 수 있다.  
+**노름(norm)**은 벡터의 크기 또는 길이를 말하며 $\Vert \textbf{v} \Vert$로 표기한다. 내적이 정의되면 노름(norm)은 자기 자신의 [내적(inner product)](#1-내적)의 제곱근으로 정의할 수 있다.  
 
 !!! warning
     그러나 노름(norm)이 있다고 해서 그에 자연스럽게 대응되는 내적이 항상 존재하는 것은 아니다.  
@@ -172,7 +172,7 @@ $$
 
 ## 3. 코사인 유사도
 
-**[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미하는데, [노름(norm)](#2-norm)을 통해 정리하면 **코사인 유사도(cosine similarity)**를 다음과 같이 유도할 수 있다.  
+**[코사인 유사도(cosine similarity)](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%82%AC%EC%9D%B8_%EC%9C%A0%EC%82%AC%EB%8F%84)**는 내적 공간의 두 벡터 간의 유사한 정도를 벡터 간 각도의 코사인 값을 이용하여 측정한 것을 의미하는데, [노름(norm)](#2-노름norm)을 통해 정리하면 **코사인 유사도(cosine similarity)**를 다음과 같이 유도할 수 있다.  
 
 $$
 \text{cosine similarity} = S_{c}(\textbf{u}, \textbf{v}) = \cos \theta = \frac{\textbf{u} \cdot \textbf{v}}{\Vert \textbf{u} \Vert \Vert \textbf{v} \Vert}

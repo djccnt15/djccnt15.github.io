@@ -97,7 +97,7 @@ tags:
 
 ## 5. 데이터 모델링의 요소
 
-데이터 모델링은 [엔티티(Entity)](2022-08-06-entity_relationship_model.md/#1), [속성(Attribute)](2022-08-06-entity_relationship_model.md/#2), [관계(Relationship)](2022-08-06-entity_relationship_model.md/#3)의 3요소로 구성됨  
+데이터 모델링은 [엔티티(Entity)](2022-08-06-entity_relationship_model.md/#1-엔티티), [속성(Attribute)](2022-08-06-entity_relationship_model.md/#2-속성), [관계(Relationship)](2022-08-06-entity_relationship_model.md/#3-관계)의 3요소로 구성됨  
 
 ## 6. E-R Model
 

@@ -111,15 +111,15 @@ SELECT TOP(4) WITH TIES job, deptno FROM emp ORDER BY job, deptno;
 함수는 크게 **내장 함수(Builtin Function)**와 **사용자 정의 함수(User Defined Function)**로 나뉘며, 내장 함수의 종류는 다음과 같다.  
 
 - 단일행 함수(Single-Row Function)
-    - [문자형 함수](#2-1)
-    - [숫자형 함수](#2-2)
-    - [날짜형 함수](#2-3)
-    - [변환형 함수](#2-4)
-    - [NULL 관련 함수](#2-6-null)
+    - [문자형 함수](#2-1-문자형-함수)
+    - [숫자형 함수](#2-2-숫자형-함수)
+    - [날짜형 함수](#2-3-날짜형-함수)
+    - [변환형 함수](#2-4-변환형-함수)
+    - [NULL 관련 함수](#2-6-null-관련-함수)
 - 다중행 함수(Multi-Row Function)
-    - [집계 함수(Aggregate Function)](#3-1)
-    - [그룹 함수(Group Function)](2022-08-18-sql_group_window_function.md/#2)
-    - [윈도우 함수(Window Function)](2022-08-18-sql_group_window_function.md/#3)
+    - [집계 함수(Aggregate Function)](#3-1-집계-함수)
+    - [그룹 함수(Group Function)](2022-08-18-sql_group_window_function.md/#2-그룹-함수)
+    - [윈도우 함수(Window Function)](2022-08-18-sql_group_window_function.md/#3-윈도우-함수)
 
 단일행 함수(Single-Row Function)의 주요 특징은 다음과 같다.  
 
@@ -141,7 +141,7 @@ SELECT TOP(4) WITH TIES job, deptno FROM emp ORDER BY job, deptno;
 - `CHR/CHAR(ASCII)`
     - ASCII 코드를 문자로 변경
 - `CONCAT('str1', 'str2')`
-    - 'str1'과 'str2'을 연결. [합성연산자](2022-08-11-relational_database.md/#3-5)와 동일
+    - 'str1'과 'str2'을 연결. [합성연산자](2022-08-11-relational_database.md/#3-5-연산자)와 동일
 - `SUBSTR/SUBSTRING('str', m, n)`
     - 문자열의 m 위치에서 n개의 문자 길이에 해당하는 문자를 반환. n이 생략되면 마지막 문자까지 반환
 - `LENGTH/LEN('str')`
@@ -315,7 +315,7 @@ ORDER BY expression1 ASC/DESC expression2;
 !!! tip
     Oracle은 `NULL`값을 가장 큰 값으로 취급하는 반면, MSSQL은 가장 작은 값으로 취급한다.  
 
-Oracle의 경우 데이터에 접근할 때 행 전체 칼럼을 메모리에 로드하기 때문에 `SELECT`절에 지정되지 않은 칼럼으로도 정렬이 가능하나, `FROM`절이 [서브쿼리](2022-08-17-sql_subquery_view.md/#1-3) 형태로 되어있을 경우(인라인 뷰)에는 불가능하다는 특징이 있다.  
+Oracle의 경우 데이터에 접근할 때 행 전체 칼럼을 메모리에 로드하기 때문에 `SELECT`절에 지정되지 않은 칼럼으로도 정렬이 가능하나, `FROM`절이 [서브쿼리](2022-08-17-sql_subquery_view.md/#1-3-위치에-따른-서브쿼리-분류) 형태로 되어있을 경우(인라인 뷰)에는 불가능하다는 특징이 있다.  
 
 ## 5. SQL문 실행 순서
 

@@ -21,11 +21,11 @@ tags:
 
 ### 대각화
 
-행렬을 [대각 행렬(diagonal matrix)](2022-05-19-linear_algebra_various_matrix.md/#3)로 만드는 것을 **대각화(diagonalization)**라고 하며, $n \times n$ 행렬 $A$가 대각화 가능하려면 $n$개의 서로 다른 고유값을 가져야 한다.  
+행렬을 [대각 행렬(diagonal matrix)](2022-05-19-linear_algebra_various_matrix.md/#3-대각-행렬)로 만드는 것을 **대각화(diagonalization)**라고 하며, $n \times n$ 행렬 $A$가 대각화 가능하려면 $n$개의 서로 다른 고유값을 가져야 한다.  
 
 ### 직교 대각화
 
-[직교 닮음](2022-06-12-linear_algebra_orthogonal_matrix.md/#2)인 행렬이 대각 행렬일 때, 즉 아래 식 처럼 행렬 $A$가 행렬 $P$에 의해 대각화 될 때 직교 행렬 $P$가 행렬 $A$를 **직교 대각화(orthogonal diagonalization)**한다고 말한다.  
+[직교 닮음](2022-06-12-linear_algebra_orthogonal_matrix.md/#2-닮음)인 행렬이 대각 행렬일 때, 즉 아래 식 처럼 행렬 $A$가 행렬 $P$에 의해 대각화 될 때 직교 행렬 $P$가 행렬 $A$를 **직교 대각화(orthogonal diagonalization)**한다고 말한다.  
 
 $$
 D = P^{-1}AP = P^{T}AP
@@ -62,7 +62,7 @@ $$
 
 위 식에서 $\lambda_{1}, \lambda_{2}, \lambda_{3}$는 행렬 $A$의 고유값이고, $\textbf{u}_{1}, \textbf{u}_{2}, \textbf{u}_{3}$는 각 고유값에 해당하는 고유 벡터다.  
 
-고유벡터 구하는 함수를 Python으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](2022-06-11-linear_algebra_eigenvalue_eigenvector.md/#qr)에서 이미 구현한 바 있다.  
+고유벡터 구하는 함수를 Python으로 구현하면 아래와 같다. 앞서 [고유값과 고유벡터 계산](2022-06-11-linear_algebra_eigenvalue_eigenvector.md/#qr분해를-통한-고유값과-고유벡터-계산)에서 이미 구현한 바 있다.  
 
 === "Python"
 

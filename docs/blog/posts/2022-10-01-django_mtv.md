@@ -25,7 +25,7 @@ MVC(Model, View, Controller)와 MTV(Model, Template, View) 각각의 요소는 �
 
 - Model
     - 모델은 데이터 모델을 가리키는 말로, 데이터베이스에 저장된 데이터를 가리킨다.
-    - [App과 ORM](2022-09-27-django_app_orm.md) 단계에서 생성한 [모델](2022-09-27-django_app_orm.md/#2-3-model)이 해당된다.
+    - [App과 ORM](2022-09-27-django_app_orm.md) 단계에서 생성한 [모델](2022-09-27-django_app_orm.md/#2-3-model-생성)이 해당된다.
 - View/Template
     - 뷰는 사용자에게 보여주는 화면과 정보를 가리키는 말로, 웹개발 관점에서는 프론트엔드를 가리킨다.
     - Django에서는 뷰 대신에 HTML 템플릿이라고 부른다.

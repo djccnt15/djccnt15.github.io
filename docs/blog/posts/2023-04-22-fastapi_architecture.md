@@ -122,7 +122,7 @@ WSGI는 기본적으로 request와 response로 이루어지는 동기 처리 방
 
 ### 2-3. Gunicorn, Uvicorn
 
-FastAPI 기반 백엔드 서버는 [그림에 표현된 것](#2)과 같이 Gunicorn과 Uvicorn을 동시에 사용한다.  
+FastAPI 기반 백엔드 서버는 [그림에 표현된 것](#2-아키텍처)과 같이 Gunicorn과 Uvicorn을 동시에 사용한다.  
 
 이 때 Gunicorn은 프로세스 매니저로서 서버에서 Master 프로세스의 역할을 하고 Worker 프로세스인 Uvicorn 프로세스를 여러 개 실행해서 관리하며, 웹 서버를 통해 브라우저의 요청이 들어오면 Uvicorn 프로세스를 통해 해당 요청을 처리한다.  
 
