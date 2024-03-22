@@ -58,15 +58,6 @@ CRUD와 GET, POST, PUT, DELETE, PATCH
 | PATCH  | 리소스 일부 갱신  |     Update     |      O       |   X    |   X    |       X        |
 | DELETE |    리소스 삭제    |     Delete     |      △       |   X    |   O    |       X        |
 
-Query Parameter는 URL의 일부인 **쿼리스트링(Query string)**을 통해 전송하는데, 아래와 같이 URL의 뒤에 `?`으로 요청 파라미터를 덧붙인 요청 양식을 쿼리스트링이라고 부른다. 쿼리스트링에서 요청 파라미터가 여러 개면 `&`로 연결한다.  
-
-```
-https://github.com/djccnt15?tab=repositories&q=&language=python&sort=name
-```
-
-!!! warning
-    쿼리스트링으로 통신을 할 때는 URL을 통해 정보가 전송되기 때문에 중요한 데이터를 담아서 전송을 하게되면 일반 사용자에게 해당 데이터가 노출되는 문제가 있다. 따라서 쿼리스트링을 통해 중요한 정보를 전송하는 것을 지양해야 한다.  
-
 ---
 ## Reference
 - [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
