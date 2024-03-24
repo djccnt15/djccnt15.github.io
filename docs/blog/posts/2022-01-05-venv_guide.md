@@ -10,6 +10,7 @@ categories:
 tags:
     - python
     - venv
+    - pip
 ---
 
 가상환경으로 Python 설치환경 격리하는 방법  
@@ -68,8 +69,8 @@ Scripts\deactivate.bat
 C:\programming\Python\Python310\python.exe -m venv .venv
 ```
 
-!!! tip
-    참고로, 여러 버전의 Python을 설치하면 시스템 환경 변수를 기준으로 가장 위에 있는 Python이 default로 사용 된다.  
+!!! info
+    여러 버전의 Python을 설치하면 시스템 환경 변수를 기준으로 가장 위에 있는 Python이 default로 사용 된다.  
 
 ### 3. package 목록 관리
 
@@ -99,11 +100,12 @@ pip install -r requirements.txt
 pip uninstall -r requirements.txt
 ```
 
-이때 모든 라이브러리에 대해 하나하나 삭제 확인 명령을 내려줘야 하기 때문에 매우 귀찮은데, 아래와 같이 `-y` 옵션을 사용하면 추가 확인 없이 삭제한다.  
+!!! tip
+    이때 모든 라이브러리에 대해 하나하나 삭제 확인 명령을 내려줘야 하기 때문에 매우 귀찮은데, 아래와 같이 `-y` 옵션을 사용하면 추가 확인 없이 삭제한다.  
 
-```bat
-pip uninstall -r requirements.txt -y
-```
+    ```bat
+    pip uninstall -r requirements.txt -y
+    ```
 
 ### 4. 라이브러리 버전 관리
 
@@ -163,7 +165,10 @@ Python 가상환경을 삭제하는 별도의 명령어는 없다. 필요한 내
 
 #### 5-3. 파이썬 가상환경 옮기기
 
-우선, **절대 추천하지 않는다.** 차라리 저장소에 필요한 파일들만 백업한 후 가상환경을 원하는 위치에 처음부터 다시 만드는게 속편하다. 그래도 반드시 옮겨야겠다면 이동 후 아래 세 파일들의 내용을 수정하면 된다고 한다.  
+파일 이동 후 아래 세 파일들의 내용을 수정하면 된다고 한다.  
+
+!!! warning
+    **절대 추천하지 않는다.** 필요한 파일들만 백업한 후 원하는 위치에 가상환경을 비롯한 프로젝트 세팅을 처음부터 진행하는 것이 좋다.  
 
 - activate
 - activate.bat
@@ -173,7 +178,7 @@ Python 가상환경을 삭제하는 별도의 명령어는 없다. 필요한 내
 VIRTUAL_ENV=venv_location_b4 -> VIRTUAL_ENV=venv_location_now
 ```
 
-나는 해보지 않아서 잘 되는지 모르겠다. 사실 시도해보고 싶지도 않다.  
+~~직접 해보지 않아서 잘 되는지 모르겠다. 사실 시도해보고 싶지도 않다.~~  
 
 #### 5-4. VS Code에서 가상환경이 제대로 인식되지 않을 때
 
