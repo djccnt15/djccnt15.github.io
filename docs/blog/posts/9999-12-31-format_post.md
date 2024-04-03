@@ -12,8 +12,6 @@ tags:
     - tag
 ---
 
-> Quotes
-
 text
 
 <!-- more -->
