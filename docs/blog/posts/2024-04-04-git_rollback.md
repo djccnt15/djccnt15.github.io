@@ -2,7 +2,7 @@
 slug: git-rollback
 title: Git 과거 코드로 되돌리기
 date:
-    created: 9999-12-31
+    created: 2024-04-04
 description: >
     Git을 사용해서 과거 코드 이력으로 되돌리는 방법
 categories:
