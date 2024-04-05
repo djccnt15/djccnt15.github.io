@@ -119,3 +119,54 @@ git rebase <branch>
 
 !!! note
     `merge`에 비해서 사용법이 복잡하고 중간에 걸친 모든 commit의 conflict를 검토해줘야 한다는 단점이 있지만, commit 이력이 더 깔끔해지고 히스토리 추적이 쉬워진다는 장점이 있다.  
+
+`B` 브랜치를 베이스로 한 `C` 브랜치가 있다고 할 때, `C` 브랜치의 시작점을 `B` 브랜치에서 `main` 등 다른 브랜치로 옮기려면 `--onto` 옵션을 사용하면 된다.  
+
+```bash
+git rebase --onto <newbase> <oldbase> <branch>  # (1)!
+```
+
+1. 마지막의 `<branch>` 입력을 생략할 경우 현재 브랜치에 대해 적용된다.  
+
+??? note "좀 더 자세한 설명"
+
+    ```mermaid
+    gitGraph
+    commit id: "A"
+        commit id: "B"
+        branch feature/a
+        commit id: "C"
+        commit id: "D"
+        branch feature/b
+        commit id: "E"
+        commit id: "F"
+        commit id: "G"
+        checkout main
+        commit id: "H"
+        commit id: "I"
+        commit id: "J"
+    ```
+
+    위와 같은 커밋 히스토리가 있을 때, `feature/b` 브랜치에서 작업한 커밋이 `feature/a` 브랜치의 커밋 내용과는 완전히 독립적이고, 따라서 `main` 브랜치에서 작업을 시작한 것으로 바꾸고 싶다면 아래와 같이 명령하면 된다.  
+
+    ```bash
+    git rebase --onto main feature/a feature/b
+    ```
+
+    ```mermaid
+    gitGraph
+    commit id: "A"
+        commit id: "B"
+        branch feature/a
+        commit id: "C"
+        commit id: "D"
+        checkout main
+        commit id: "H"
+        commit id: "I"
+        commit id: "J"
+        branch feature/b
+        commit id: "E"
+        commit id: "F"
+        commit id: "G"
+        checkout main
+    ```
