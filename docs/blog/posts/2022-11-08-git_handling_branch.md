@@ -44,7 +44,7 @@ git branch -c [<oldbranch>] <newbranch>
 - 브랜치 삭제
 
 ```bash
-git branch -d <branchname>
+git branch -d <branch>
 ```
 
 !!! tip
@@ -53,7 +53,7 @@ git branch -d <branchname>
 - 원격 저장소의 브랜치를 가져오기
 
 ```bash
-git branch -t <branchname>
+git branch -t <branch>
 ```
 
 !!! note
@@ -66,13 +66,13 @@ git branch -t <branchname>
 - 브랜치 이동
 
 ```bash
-git switch <branchname>
+git switch <branch>
 ```
 
 - 브랜치 생성 및 이동. `<start-point>`를 입력할 경우 해당 커밋을 브랜치의 시작점으로 지정
 
 ```bash
-git switch -c <branchname> [<start-point>]
+git switch -c <branch> [<start-point>]
 ```
 
 - 저장 상태를 변경하지 않고 단순히 과거 특정 커밋 상태인 코드를 보기 위한 이동
@@ -84,27 +84,26 @@ git switch --detach <commit>
 !!! note
     `--detach` 옵션은 detached HEAD[^1][^2] 상태를 만들어준다.  
 
-[^1]: Git에서 HEAD란 저장소에서 현재 위치를 뜻하는데, 쉽게 말하자면 **사용자에게 실제로 보이는 저장소**[^3]의 상태를 뜻한다.  
+[^1]: Git에서 HEAD란 저장소에서 현재 위치, 즉 **사용자에게 실제로 보이는 저장소**의 상태를 뜻한다.  
 [^2]: HEAD가 현재 작업중인 브랜치의 최신 커밋을 가리킬 때 attached HEAD, 그렇지 않을 때 detached HEAD라고 부른다.  
-[^3]: Working Directory나 Staging Area가 아님에 주의  
 
 ## merge
 
 현재 HEAD가 위치한 브랜치로 대상 브랜치를 합칠 때 사용하는 명령어  
 
 ```bash
-git merge <branchname>
+git merge <branch>
 ```
 
 ```bash
-git merge --no-ff <branchname>
+git merge --no-ff <branch>
 ```
 
 !!! tip
     `git merge`의 기본값인 fast-forward 방식 머지는 머지 commit을 생성하지 않는다. 따라서 `--no-ff` 옵션을 사용해서 머지 commit이 생성되도록 해줘야 이력 관리가 용이하다.  
 
 ```bash
-git merge --no-commit --no-ff <branchname>
+git merge --no-commit --no-ff <branch>
 ```
 
 !!! tip
@@ -115,8 +114,59 @@ git merge --no-commit --no-ff <branchname>
 공통 base를 가진 브랜치에서 한 브랜치의 base를 다른 브랜치의 최신 커밋으로 브랜치의 base를 옮기는 명령어  
 
 ```bash
-git rebase <branchname>
+git rebase <branch>
 ```
 
 !!! note
     `merge`에 비해서 사용법이 복잡하고 중간에 걸친 모든 commit의 conflict를 검토해줘야 한다는 단점이 있지만, commit 이력이 더 깔끔해지고 히스토리 추적이 쉬워진다는 장점이 있다.  
+
+`B` 브랜치를 베이스로 한 `C` 브랜치가 있다고 할 때, `C` 브랜치의 시작점을 `B` 브랜치에서 `main` 등 다른 브랜치로 옮기려면 `--onto` 옵션을 사용하면 된다.  
+
+```bash
+git rebase --onto <newbase> <oldbase> <branch>  # (1)!
+```
+
+1. 마지막의 `<branch>` 입력을 생략할 경우 현재 브랜치에 대해 적용된다.  
+
+??? note "좀 더 자세한 설명"
+
+    ```mermaid
+    gitGraph
+    commit id: "A"
+        commit id: "B"
+        branch feature/a
+        commit id: "C"
+        commit id: "D"
+        branch feature/b
+        commit id: "E"
+        commit id: "F"
+        commit id: "G"
+        checkout main
+        commit id: "H"
+        commit id: "I"
+        commit id: "J"
+    ```
+
+    위와 같은 커밋 히스토리가 있을 때, `feature/b` 브랜치에서 작업한 커밋이 `feature/a` 브랜치의 커밋 내용과는 완전히 독립적이고, 따라서 `main` 브랜치에서 작업을 시작한 것으로 바꾸고 싶다면 아래와 같이 명령하면 된다.  
+
+    ```bash
+    git rebase --onto main feature/a feature/b
+    ```
+
+    ```mermaid
+    gitGraph
+    commit id: "A"
+        commit id: "B"
+        branch feature/a
+        commit id: "C"
+        commit id: "D"
+        checkout main
+        commit id: "H"
+        commit id: "I"
+        commit id: "J"
+        branch feature/b
+        commit id: "E"
+        commit id: "F"
+        commit id: "G"
+        checkout main
+    ```

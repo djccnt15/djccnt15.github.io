@@ -35,7 +35,7 @@ git fetch <repository>
 원격 저장소의 내용을 가져와서 현재 브랜치와 병합(merge)  
 
 ```bash
-git pull <repository> <branchname>
+git pull <repository> <branch>
 ```
 
 ## clone
@@ -56,5 +56,5 @@ git clone <url> <directory>
 특정 브랜치만 클론  
 
 ```bash
-git clone -b <branchname> --single-branch <repository>
+git clone -b <branch> --single-branch <repository>
 ```

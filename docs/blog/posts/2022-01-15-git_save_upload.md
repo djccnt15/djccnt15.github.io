@@ -51,6 +51,32 @@ git add -u
 git add *.txt
 ```
 
+- 특정 블럭만 추가
+
+```bash
+git add -p
+```
+
+```bash
+git add --patch
+```
+
+상세 옵션은 아래와 같다.  
+
+```
+y - stage this hunk
+n - do not stage this hunk
+q - quit; do not stage this hunk or any of the remaining ones
+a - stage this hunk and all later hunks in the file
+d - do not stage this hunk or any of the later hunks in the file
+j - leave this hunk undecided, see next undecided hunk
+J - leave this hunk undecided, see next hunk
+g - select a hunk to go to
+/ - search for a hunk matching the given regex
+e - manually edit the current hunk
+? - print help
+```
+
 ## commit
 
 add된 파일들을 local 저장소에 추가  
@@ -84,17 +110,17 @@ git commit --amend --no-edit --date="May 23 11:08:49 2022 +0900"
 - commit된 내용을 원격 저장소로 업로드  
 
 ```bash
-git push <repository> <branchname>
+git push <repository> <branch>
 ```
 
 - dry-run을 통해 명령을 수행할 시 어떤 일이 일어날지 출력
 
 ```bash
-git push -n <repository> <branchname>
+git push -n <repository> <branch>
 ```
 
 - 원격 저장소의 브랜치 삭제
 
 ```bash
-git push <repository> -d <branchname>
+git push <repository> -d <branch>
 ```

@@ -21,7 +21,7 @@ Git restore 명령어의 활용 방법
 
 ## restore
 
-[restore](2022-01-17-git_tips.md/#restore) 명령어는 원래 수정 사항을 되돌리기 위해 사용하는 명령어로, 아래와 같이 사용한다.  
+[`restore`](2022-01-17-git_tips.md/#restore) 명령어는 원래 수정 사항을 되돌리기 위해 사용하는 명령어로, 아래와 같이 사용한다.  
 
 - 수정 사항 되돌리기
 
@@ -41,7 +41,7 @@ git restore --source=<commit> <file>
 
 ## 특정 소스 지정하기
 
-restore 명령어의 상세 옵션은 아래와 같은데, `--source` 옵션을 사용하면 어느 소스의 내용으로 현재 파일의 내용을 바꿀 것인지 지정해줄 수 있다.  
+`restore` 명령어의 상세 옵션은 아래와 같은데, `--source` 옵션을 사용하면 어느 소스의 내용으로 현재 파일의 내용을 바꿀 것인지 지정해줄 수 있다.  
 
 ```bash
 git restore (-p|--patch) [--source=<tree>] [--worktree] [<pathspec>…​]
