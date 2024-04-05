@@ -84,17 +84,17 @@ git commit --amend --no-edit --date="May 23 11:08:49 2022 +0900"
 - commit된 내용을 원격 저장소로 업로드  
 
 ```bash
-git push <repository> <branchname>
+git push <repository> <branch>
 ```
 
 - dry-run을 통해 명령을 수행할 시 어떤 일이 일어날지 출력
 
 ```bash
-git push -n <repository> <branchname>
+git push -n <repository> <branch>
 ```
 
 - 원격 저장소의 브랜치 삭제
 
 ```bash
-git push <repository> -d <branchname>
+git push <repository> -d <branch>
 ```
