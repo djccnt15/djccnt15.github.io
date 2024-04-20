@@ -73,7 +73,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 |     thread     |  %(thread)d   |       쓰레드 ID(가능할 경우에만)       |
 
 [^2]: 엄밀히 말하면 `asctime`은 `LogRecord` 객체의 요소는 아니다. `LogRecord` 객체는 `time.time()`[^3]으로 생성시간을 저장한 후, [`Formatter`](#formatter)가 생성시간을 [`time.strftime`](2022-12-03-python_datetime.md/#strftime)을 사용해서 입력받은 포맷대로 생성해준다.  
-[^3]: 시간의 시작점인 _epoch_ [^4] 로부터의 초를 반환한다.  
+[^3]: 시간의 시작점인 *epoch*[^4] 로부터의 초를 반환한다.  
 [^4]: January 1, 1970, 00:00:00 (UTC)  
 
 ??? note "LogRecord"
@@ -612,7 +612,9 @@ Traceback (most recent call last):
 Exception
 ```
 
-## 디버그용 로거 설정
+## 로거 프리셋
+
+### 디버그용 로거 설정
 
 프로그램 디버깅만을 위한 디버그 전용 로거 설정 방법  
 
@@ -660,6 +662,41 @@ logger.addHandler(queue_handler)
 
 # QueueListener
 log_listener = QueueListener(log_queue, debug_handler)
+```
+
+### 간단한 로거 설정
+
+```python title="log_config.py"
+import logging
+from logging.handlers import TimedRotatingFileHandler
+from pathlib import Path
+
+# set log directory
+log_dir = Path("logs")
+try:
+    log_dir.mkdir()
+except FileExistsError:
+    ...
+
+# create Logger instance
+logger = logging.getLogger("logger")
+logger.setLevel(logging.DEBUG)
+
+# set log format
+formatter = logging.Formatter(
+    fmt="%(asctime)s - %(levelname)s - [%(module)s:%(lineno)d] %(message)s",
+    datefmt="%Y-%m-%dT%H:%M:%S"
+)
+
+# TimedRotatingFileHandler
+file_handler = TimedRotatingFileHandler(
+    filename=log_dir / "debug_log.log",
+    when="midnight",  # rotate every midnight
+    backupCount=3,  # define number of log files, 0 to save all log files
+    encoding="utf-8",
+)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 ```
 
 ---
