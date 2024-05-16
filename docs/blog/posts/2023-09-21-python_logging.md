@@ -134,7 +134,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 
 로그 필터를 직접 만들어 주입해주면 **특정 정보의 로그**만 필터링 해줄 수 있다.  
 
-```python title="log_filter.py"
+```python title="src/log/filter.py"
 import logging
 
 
@@ -197,7 +197,7 @@ class MyFilter(logging.Filter):  # (1)!
 
 === "Python 3.11"
 
-    ```python title="log_formatter.py"
+    ```python title="src/log/formatter.py"
     import datetime as dt
     import json
     import logging
@@ -248,7 +248,7 @@ class MyFilter(logging.Filter):  # (1)!
 
 === "Python 3.12+"
 
-    ```python title="log_formatter.py"
+    ```python title="src/log/formatter.py"
     import datetime as dt
     import json
     import logging
@@ -302,14 +302,14 @@ class MyFilter(logging.Filter):  # (1)!
 
 ### Code를 통한 로그 설정
 
-```python title="log_config.py"
+```python title="src/log/config.py"
 import logging
 import queue
 from logging import StreamHandler
 from logging.handlers import QueueHandler, QueueListener, TimedRotatingFileHandler
 from pathlib import Path
 
-from src import log_filter, log_formatter
+from src.log import filter, formatter
 
 # set log directory
 log_dir = Path("logs")
@@ -360,7 +360,7 @@ fmt_keys = {
     "function": "funcName",
     "line": "lineno",
 }
-json_handler.setFormatter(log_formatter.JsonFormatter(fmt_keys=fmt_keys))
+json_handler.setFormatter(formatter.JsonFormatter(fmt_keys=fmt_keys))
 
 # DebugHandler
 debug_handler = TimedRotatingFileHandler(
@@ -371,7 +371,7 @@ debug_handler = TimedRotatingFileHandler(
 )
 debug_handler.setFormatter(detailed_formatter)
 debug_handler.addFilter(
-    log_filter.MyFilter([logging.DEBUG, logging.ERROR, logging.CRITICAL])
+    filter.MyFilter([logging.DEBUG, logging.ERROR, logging.CRITICAL])
 )
 
 # QueueHandler
@@ -381,7 +381,11 @@ logger.addHandler(queue_handler)
 
 # QueueListener
 log_listener = QueueListener(
-    log_queue, stream_handler, file_handler, json_handler, debug_handler
+    log_queue,
+    stream_handler,
+    file_handler,
+    json_handler,
+    debug_handler,
 )
 ```
 
@@ -390,7 +394,7 @@ log_listener = QueueListener(
 실제 어플리케이션에서의 로그 활용  
 
 ```python title="main.py"
-from src.log_config import log_listener, logger
+from src.log.config import log_listener, logger
 
 
 def main():
@@ -432,7 +436,7 @@ if __name__ == "__main__":
             "datefmt": "%Y-%m-%dT%H:%M:%S%z"
         },
         "json": {
-            "()": "src.log_formatter.JsonFormatter",  // (1)!
+            "()": "src.log.formatter.JsonFormatter",  // (1)!
             "fmt_keys": {
                 "level": "levelname",
                 "message": "message",
@@ -507,20 +511,20 @@ if __name__ == "__main__":
 
 `log_config.json`에서 입력받은 로그 설정을 어플리케이션에 주입하기 위한 코드  
 
-```python title="log_config.py"
+```python title="src/log/config.py"
 import atexit
 import json
 import logging
 import logging.config
 from pathlib import Path
 
-from src import log_filter
+from src.log import filter
 
 logger = logging.getLogger("logger")
 
 
 def set_logger():
-    log_config_file = Path("config") / "log_config.json"
+    log_config_file = Path(r"config\log_config.json")
     with open(log_config_file, encoding="utf-8") as f:
         log_config = json.load(f)
     logging.config.dictConfig(log_config)
@@ -533,14 +537,14 @@ def set_logger():
     debug_handler = logging.getHandlerByName("debug_handler")
     if debug_handler is not None:
         debug_handler.addFilter(
-            log_filter.MyFilter([logging.DEBUG, logging.ERROR, logging.CRITICAL])
+            filter.MyFilter([logging.DEBUG, logging.ERROR, logging.CRITICAL])
         )
 ```
 
 실제 어플리케이션에서의 로그 활용  
 
 ```python title="main.py"
-from src.log_config import logger, set_logger
+from src.log.config import log_listener, logger
 
 
 def main():
@@ -618,13 +622,13 @@ Exception
 
 프로그램 디버깅만을 위한 디버그 전용 로거 설정 방법  
 
-```python title="log_config.py"
+```python title="src/log/config.py"
 import logging
 import queue
 from logging.handlers import QueueHandler, QueueListener, TimedRotatingFileHandler
 from pathlib import Path
 
-from src import log_filter
+from src.log import filter
 
 # set log directory
 log_dir = Path("logs")
@@ -652,7 +656,7 @@ debug_handler = TimedRotatingFileHandler(
 )
 debug_handler.setFormatter(detailed_formatter)
 debug_handler.addFilter(
-    log_filter.MyFilter([logging.DEBUG, logging.ERROR, logging.CRITICAL])
+    filter.MyFilter([logging.DEBUG, logging.ERROR, logging.CRITICAL])
 )
 
 # QueueHandler
@@ -666,7 +670,7 @@ log_listener = QueueListener(log_queue, debug_handler)
 
 ### 간단한 로거 설정
 
-```python title="log_config.py"
+```python title="src/log/config.py"
 import logging
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
