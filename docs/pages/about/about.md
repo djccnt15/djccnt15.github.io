@@ -55,6 +55,7 @@ MLOps, 데이터 엔지니어링, 데이터 사이언티스트, 백엔드 엔지
 - Web Server / Web Application Server  
 ![NGINX](https://img.shields.io/badge/NGINX-009639?style=flat-square&logo=nginx&logoColor=white){ loading=lazy }
 ![Gunicorn](https://img.shields.io/badge/Gunicorn-499848?style=flat-square&logo=gunicorn&logoColor=white){ loading=lazy }
+![Uvicorn](https://img.shields.io/badge/uvicorn-4051b5?style=flat-square){ loading=lazy }
 ![Apache Tomcat](https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=flat-square&logo=apachetomcat&logoColor=black){ loading=lazy }
 
 - Containerization  
@@ -75,9 +76,7 @@ MLOps, 데이터 엔지니어링, 데이터 사이언티스트, 백엔드 엔지
 
 - Version Control System  
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white){ loading=lazy }
-![Subversion](https://img.shields.io/badge/Subversion-809CC9?style=flat-square&logo=subversion&logoColor=white){ loading=lazy }
 
 - Editor  
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white){ loading=lazy }
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white){ loading=lazy }
 ![IntelliJ](https://img.shields.io/badge/IntelliJ-000000?style=flat-square&logo=intellijidea&logoColor=white){ loading=lazy }
