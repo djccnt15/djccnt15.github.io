@@ -48,10 +48,10 @@ class User(Base):
 매핑 Entity에 속성을 부여하는 방법은 여러 가지가 있는데, 아래와 같이 추상 테이블 객체에 칼럼을 만들어두면, 해당 추상 테이블을 상속 받는 테이블들에는 해당 칼럼이 기본적으로 생성되게 된다.  
 
 ```python title="src/db/entity.py"
+from datetime import datetime
 from enum import IntEnum
 
-from sqlalchemy.orm import DeclarativeBase, mapped_column
-from sqlalchemy.schema import Column
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.types import BigInteger, DateTime, String
 
 
@@ -65,7 +65,7 @@ class BaseEntity(DeclarativeBase): ...
 class BigintIdEntity(BaseEntity):
     __abstract__ = True  # (1)!
 
-    id = mapped_column(
+    id: Mapped[int] = mapped_column(
         type_=BigInteger,
         primary_key=True,
         autoincrement=True,
@@ -76,11 +76,8 @@ class BigintIdEntity(BaseEntity):
 class UserEntity(BigintIdEntity):
     __tablename__ = "user"
 
-    name = Column(
-        String(length=UserEntityEnum.NAME.value),  # (3)!
-        nullable=False,
-    )
-    created_at = Column(DateTime, nullable=False)
+    name: Mapped[str] = mapped_column(String(length=UserEntityEnum.NAME.value))  # (3)!
+    created_at: Mapped[datetime] = mapped_column(DateTime)
 ```
 
 1. 추상 테이블 표시를 통해 Alembic으로 테이블을 관리할 때 테이블 생성에서 제외
@@ -88,11 +85,6 @@ class UserEntity(BigintIdEntity):
 1. 칼럼 길이를 Enum으로 별도 관리하면 DTO를 만들 때 속성의 최대 길이와 동시에 관리할 수 있다.  
 
 `BaseEntity`에 속성을 부여하면 모든 테이블이 해당 속성을 사용하게 된다. 특정 테이블들만 속성을 공유하도록 하려면 중간에 추상 테이블을 별도로 생성해야 한다.  
-
-!!! tip
-    개인적으로는 더 직관적으로 보이는 `Column` 객체 사용을 더 선호하는데, `Column` 객체는 `sort_order` 속성이 없어서 추상 테이블에서 선언한 칼럼의 순서를 설정해줄 수 없다.  
-    
-    기존 테이블에 ORM을 통해 연결할 경우 문제가 없지만, Alembic을 통해 테이블을 생성하고 관리하게 된다면 상속 받은 칼럼이 나중에 생성되어 칼럼 순서가 직관적이지 않은 문제가 발생한다.  
 
 !!! warning
     위 예시처럼 칼럼 길이를 Enum으로 별도 관리할 때는 SQLAlchemy Entity에 입력할 때는 반드시 `.value` 까지 입력해서 값만 불러오도록 해야한다. Alembic이 Enum 객체를 제대로 인식하지 못해 revision 생성 시 칼럼 길이에 값 대신 Enum 객체를 입력해버리는 문제가 있다.  
