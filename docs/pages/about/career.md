@@ -3,21 +3,22 @@ search:
     exclude: true
 ---
 
-# Career
-
-## Projects
+## Projects and Experience
 
 ### 2024년
 
-- [LS Electric](https://www.ls-electric.com/) MCCB 비전검사 시스템 안정화 및 개선
+- [LS Electric](https://www.ls-electric.com/) 비전검사 시스템 안정화 및 개선
+    - 산출물 및 업무 프로세스 표준화
+        - AI 모델 학습 업무 프로세스 및 관리 산출물 표준화
+        - AI 시스템 개발 및 관리 산출물 표준화
     - 주요 이슈 정리 및 요구사항 분석
     - 이미지 데이터 분석 알고리즘 개선 설계 및 개발, 코드 리팩토링
-    - 이슈 재발 원인 분석 및 판정 알고리즘 개선을 통한 재발 빈도 감소
+        - 이슈 재발 원인 분석 및 판정 알고리즘 개선을 통한 재발 빈도 감소
 
 ### 2023년
 
-- [LS Electric](https://www.ls-electric.com/) MC 비전검사 시스템 고도와 및 안정화 프로젝트
-    - 비전검사 SW 구조 개선안 설계
+- [LS Electric](https://www.ls-electric.com/) 비전검사 시스템 고도와 및 안정화 프로젝트
+    - 비전검사 SW 아키텍처 개선안 설계
         - 공통 프로세스를 추상화한 추상 클래스 설계 및 상속을 통한 공통 프로세스 관리
         - 비즈니스 프로세스 분석 기반 절차적 프로그래밍 적용 및 유지보수 용이성 제고
         - 공통 기능을 일반화한 객체지향 프로그래밍 적용을 통한 개발 생산성 제고
@@ -27,12 +28,13 @@ search:
     - OCR 기반 고지서 관리 시스템 설계
         - 화면 설계 및 디자인 시안 도출
         - 데이터 정의 및 DB 설계
-        - 백엔드 구조 설계 및 엔드포인트 API 설계
-    - SQLAlchemy 기반 테이블 개발 및 관리, ORM 쿼리 개발
-    - FastAPI 기반 백엔드 서버 개발
-        - 프레임워크 설정 및 SW 구조 설계
-        - 엔드포인트 API 및 데이터 암호화 모듈 개발
+        - 백엔드 아키텍처 및 API 설계
+    - FastAPI 기반 백엔드 설계 및 개발
+        - 프레임워크 설정 및 SW 아키텍처 설계
+        - 백엔드 API 및 데이터 암호화 모듈 개발
+        - [Tesseract](https://tesseract-ocr.github.io/) 연동 기반 OCR 기능 개발
         - 비동기 처리 기반 공공데이터 포털 API 연동
+    - SQLAlchemy 기반 테이블 개발 및 관리, ORM 쿼리 개발
     - AI 모델 개발 관리
     - Docker 기반 배포 환경 설정 및 Dockerfile 개발
 
@@ -50,6 +52,12 @@ search:
     - AI 모델 개발
 - 한국도로공사(국토교통부) [스마트건설](http://smartconstruction.kr/) - 스마트 안전 통합 관제 시스템 개발
     - 사업 관리 및 보고서 작성
+
+### 2020년
+
+- 과학기술정보통신부/한국지능정보사회진흥원(NIA) - [빅데이터 플랫폼 및 센터 구축사업](https://www.bigdata-map.kr/)
+    - 사업계획서 작성 및 사업기획
+    - 사업 관리 및 감리 대응
 
 ## Articles
 

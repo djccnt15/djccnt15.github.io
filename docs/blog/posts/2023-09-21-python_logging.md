@@ -135,14 +135,14 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 로그 필터를 직접 만들어 주입해주면 **특정 정보의 로그**만 필터링 해줄 수 있다.  
 
 ```python title="src/log/filter.py"
-import logging
+from logging import Filter, LogRecord
 
 
-class MyFilter(logging.Filter):  # (1)!
+class MyFilter(Filter):  # (1)!
     def __init__(self, levels: list[int]):
         self.__level = levels
 
-    def filter(self, logRecord):
+    def filter(self, logRecord: LogRecord):
         return logRecord.levelno in self.__level
 ```
 
@@ -200,12 +200,12 @@ class MyFilter(logging.Filter):  # (1)!
     ```python title="src/log/formatter.py"
     import datetime as dt
     import json
-    import logging
+    from logging import Formatter, LogRecord
 
-    KST = dt.timezone(dt.timedelta(hours=9))
+    KST = dt.timezone(offset=dt.timedelta(hours=9))
 
 
-    class JsonFormatter(logging.Formatter):
+    class JsonFormatter(Formatter):
         def __init__(
             self,
             *,
@@ -215,11 +215,11 @@ class MyFilter(logging.Filter):  # (1)!
             self.fmt_keys = fmt_keys if fmt_keys is not None else {}
 
         # override
-        def format(self, record: logging.LogRecord) -> str:
+        def format(self, record: LogRecord) -> str:
             message = self._prepare_log(record=record)
-            return json.dumps(message, default=str)
+            return json.dumps(obj=message, default=str)
 
-        def _prepare_log(self, record: logging.LogRecord):
+        def _prepare_log(self, record: LogRecord):
             always_fields = {
                 "message": record.getMessage(),
                 "timestamp": (
@@ -234,9 +234,11 @@ class MyFilter(logging.Filter):  # (1)!
                 always_fields["stack_info"] = self.formatStack(record.stack_info)
 
             message = {
-                key: msg_val
-                if (msg_val := always_fields.pop(val, None)) is not None
-                else getattr(record, val)
+                key: (
+                    msg_val
+                    if (msg_val := always_fields.pop(val, None)) is not None
+                    else getattr(record, val)
+                )
                 for key, val in self.fmt_keys.items()
             }
             message.update(always_fields)
@@ -251,13 +253,13 @@ class MyFilter(logging.Filter):  # (1)!
     ```python title="src/log/formatter.py"
     import datetime as dt
     import json
-    import logging
+    from logging import Formatter, LogRecord
     from typing import override
 
     KST = dt.timezone(dt.timedelta(hours=9))
 
 
-    class JsonFormatter(logging.Formatter):
+    class JsonFormatter(Formatter):
         def __init__(
             self,
             *,
@@ -267,15 +269,15 @@ class MyFilter(logging.Filter):  # (1)!
             self.fmt_keys = fmt_keys if fmt_keys is not None else {}
 
         @override
-        def format(self, record: logging.LogRecord) -> str:
+        def format(self, record: LogRecord) -> str:
             message = self._prepare_log(record=record)
             return json.dumps(message, default=str)
 
-        def _prepare_log(self, record: logging.LogRecord):
+        def _prepare_log(self, record: LogRecord):
             always_fields = {
                 "message": record.getMessage(),
                 "timestamp": (
-                    dt.datetime.fromtimestamp(record.created, tz=KST)  # (1)!
+                    dt.datetime.fromtimestamp(timestamp=record.created, tz=KST)  # (1)!
                 ).isoformat(),
             }
 
@@ -286,9 +288,11 @@ class MyFilter(logging.Filter):  # (1)!
                 always_fields["stack_info"] = self.formatStack(record.stack_info)
 
             message = {
-                key: msg_val
-                if (msg_val := always_fields.pop(val, None)) is not None
-                else getattr(record, val)
+                key: (
+                    msg_val
+                    if (msg_val := always_fields.pop(val, None)) is not None
+                    else getattr(record, val)
+                )
                 for key, val in self.fmt_keys.items()
             }
             message.update(always_fields)
@@ -296,7 +300,7 @@ class MyFilter(logging.Filter):  # (1)!
             return message
     ```
 
-    1. UTC 기준으로 로그를 생성하고 싶다면 `dt.datetime.fromtimestamp(record.created, tz=dt.timezone.utc)`으로 만들면 된다.
+    1. UTC 기준으로 로그를 생성하고 싶다면 `dt.datetime.fromtimestamp(timestamp=record.created, tz=dt.timezone.utc)`으로 만들면 된다.
 
 ## Best Practice
 
@@ -305,7 +309,7 @@ class MyFilter(logging.Filter):  # (1)!
 ```python title="src/log/config.py"
 import logging
 import queue
-from logging import StreamHandler
+from logging import Formatter, StreamHandler
 from logging.handlers import QueueHandler, QueueListener, TimedRotatingFileHandler
 from pathlib import Path
 
@@ -319,22 +323,22 @@ except FileExistsError:
     ...
 
 # create Logger instance
-logger = logging.getLogger("logger")
-logger.setLevel(logging.DEBUG)
+logger = logging.getLogger(name="logger")
+logger.setLevel(level=logging.DEBUG)
 
 # set log format
-simple_formatter = logging.Formatter(
+simple_formatter = Formatter(
     fmt="%(asctime)s - %(levelname)s - %(message)s",
     datefmt="%Y-%m-%dT%H:%M:%S%z",
 )
-detailed_formatter = logging.Formatter(
+detailed_formatter = Formatter(
     fmt="%(asctime)s - %(levelname)s - [%(module)s:%(lineno)d] %(message)s",
     datefmt="%Y-%m-%dT%H:%M:%S%z",
 )
 
 # StreamHandler
 stream_handler = StreamHandler()
-stream_handler.setFormatter(simple_formatter)
+stream_handler.setFormatter(fmt=simple_formatter)
 
 # TimedRotatingFileHandler
 file_handler = TimedRotatingFileHandler(
@@ -343,7 +347,7 @@ file_handler = TimedRotatingFileHandler(
     backupCount=3,  # define number of log files, 0 to save all log files
     encoding="utf-8",
 )
-file_handler.setFormatter(detailed_formatter)
+file_handler.setFormatter(fmt=detailed_formatter)
 
 # JsonlHandler
 json_handler = TimedRotatingFileHandler(
@@ -360,7 +364,7 @@ fmt_keys = {
     "function": "funcName",
     "line": "lineno",
 }
-json_handler.setFormatter(formatter.JsonFormatter(fmt_keys=fmt_keys))
+json_handler.setFormatter(fmt=formatter.JsonFormatter(fmt_keys=fmt_keys))
 
 # DebugHandler
 debug_handler = TimedRotatingFileHandler(
@@ -369,15 +373,21 @@ debug_handler = TimedRotatingFileHandler(
     backupCount=3,
     encoding="utf-8",
 )
-debug_handler.setFormatter(detailed_formatter)
+debug_handler.setFormatter(fmt=detailed_formatter)
 debug_handler.addFilter(
-    filter.MyFilter([logging.DEBUG, logging.ERROR, logging.CRITICAL])
+    filter=filter.MyFilter(
+        levels=[
+            logging.DEBUG,
+            logging.ERROR,
+            logging.CRITICAL,
+        ]
+    )
 )
 
 # QueueHandler
 log_queue = queue.Queue()  # (1)!
-queue_handler = QueueHandler(log_queue)
-logger.addHandler(queue_handler)
+queue_handler = QueueHandler(queue=log_queue)
+logger.addHandler(hdlr=queue_handler)
 
 # QueueListener
 log_listener = QueueListener(
@@ -409,7 +419,7 @@ def main():
     try:
         raise Exception
     except Exception as e:
-        logger.exception(e)  # log for error catch
+        logger.exception(e)  # logging error traceback
 
     log_listener.stop()
 
@@ -520,24 +530,30 @@ from pathlib import Path
 
 from src.log import filter
 
-logger = logging.getLogger("logger")
+logger = logging.getLogger(name="logger")
 
 
 def set_logger():
     log_config_file = Path(r"config\log_config.json")
-    with open(log_config_file, encoding="utf-8") as f:
-        log_config = json.load(f)
-    logging.config.dictConfig(log_config)
+    with open(file=log_config_file, encoding="utf-8") as f:
+        log_config = json.load(fp=f)
+    logging.config.dictConfig(config=log_config)
 
-    queue_handler = logging.getHandlerByName("queue_handler")
+    queue_handler = logging.getHandlerByName(name="queue_handler")
     if queue_handler is not None:
         queue_handler.listener.start()
-        atexit.register(queue_handler.listener.stop)
+        atexit.register(func=queue_handler.listener.stop)
 
-    debug_handler = logging.getHandlerByName("debug_handler")
+    debug_handler = logging.getHandlerByName(name="debug_handler")
     if debug_handler is not None:
         debug_handler.addFilter(
-            filter.MyFilter([logging.DEBUG, logging.ERROR, logging.CRITICAL])
+            filter=filter.MyFilter(
+                levels=[
+                    logging.DEBUG,
+                    logging.ERROR,
+                    logging.CRITICAL,
+                ]
+            )
         )
 ```
 

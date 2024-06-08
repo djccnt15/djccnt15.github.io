@@ -10,8 +10,8 @@ categories:
 tags:
     - FastAPI
     - ORM
-    - SQLAlchemy
-    - Alembic
+    - aqlalchemy
+    - alembic
 ---
 
 SQLAlchemy와 Alembic을 활용한 데이터베이스 FastAPI 서버 ORM 활용  
