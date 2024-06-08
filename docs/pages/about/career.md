@@ -3,8 +3,6 @@ search:
     exclude: true
 ---
 
-# Career
-
 ## Projects and Experience
 
 ### 2024년
