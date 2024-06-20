@@ -137,4 +137,4 @@ FastAPI는 Django, Flask, Sanic과 같은 웹 프레임워크로, 브라우저�
 ---
 ## Reference
 - [FastAPI: Tutorial - User Guide](https://fastapi.tiangolo.com/tutorial/)
-- [전체 실습 코드](https://github.com/djccnt15/study_fastapi)
+- [게시판 서비스 백엔드 실습 코드](https://github.com/djccnt15/fastapi_board)
