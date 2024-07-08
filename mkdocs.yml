@@ -284,6 +284,7 @@ nav:
     - blog/index.md
   - Portfolios:
     - portfolio/index.md
+    - portfolio/board.md
   - Tags:
     - pages/tags.md
   - Favorites:
