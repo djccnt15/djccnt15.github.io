@@ -18,4 +18,12 @@ search:
 
     [:octicons-arrow-right-24: Continue Reading](./board.md)
 
+- :material-ocr:{ .lg .middle } **OCR 서비스 Backend**
+
+    ---
+
+    문서 OCR 서비스 FastAPI Backend  
+
+    [:octicons-arrow-right-24: Continue Reading](./ocr.md)
+
 </div>
