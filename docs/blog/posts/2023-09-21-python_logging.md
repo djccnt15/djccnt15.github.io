@@ -21,6 +21,73 @@ Python 로깅에 대한 정리와 Best Practice 예시
 
 ## Python logging
 
+Python 로깅의 workflow는 아래와 같다.  
+
+```mermaid
+stateDiagram-v2
+    logging_flow : Logging Flow
+    state logging_flow {
+        logging_call : logging call
+        [*] --> logging_call
+        state enabled_level_logger <<choice>>
+        logging_call --> enabled_level_logger : enabled level?
+
+        create_LogRecord : create LogRecord
+        enabled_level_logger --> create_LogRecord : Yes
+        enabled_level_logger --> STOP : No
+
+        state rejected_by_filter <<choice>>
+        create_LogRecord --> rejected_by_filter : rejected by filter?
+
+        pass_to_handler : pass LogRecord to Handler
+        rejected_by_filter --> pass_to_handler : No
+        rejected_by_filter --> STOP : Yes
+
+        state is_propagate <<choice>>
+        pass_to_handler --> is_propagate : is propagate True?
+
+        is_propagate --> STOP : No
+
+        state parent_exist <<choice>>
+        is_propagate --> parent_exist : is there a parent logger?
+
+        set_current_to_parent : set current logger to parent
+        parent_exist --> STOP : No
+        parent_exist --> set_current_to_parent : Yes
+
+        set_current_to_parent --> pass_to_handler
+
+        state handler_exist <<choice>>
+        pass_to_handler --> handler_exist : does handler exits in hierarchy?
+        
+        use_lastResort_handler : use lastResort handler
+        handler_exist --> use_lastResort_handler : No
+        logging_handler : logging handler
+        use_lastResort_handler --> logging_handler
+        handler_exist --> logging_handler : Yes
+    }
+    
+    handler_flow : Handler Flow
+        state handler_flow {
+
+        state enabled_level_handler <<choice>>
+
+        stop2: STOP
+        enabled_level_handler --> stop2 : No
+
+        state rejected_by_filter_handler <<choice>>
+        logging_handler --> enabled_level_handler : enabled level?
+        enabled_level_handler --> rejected_by_filter_handler : rejected by filter?
+        rejected_by_filter_handler --> stop2 : Yes
+
+        EMIT : Emit (includes formatting)
+        rejected_by_filter_handler --> EMIT : No
+        EMIT --> [*]
+    }
+```
+
+[출처: Python - Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-flow)
+
 ### Handler
 
 Python에서 기본 제공하는 로깅 모듈을 사용하면 시스템 로그를 아주 간편하게 남길 수 있는데, Handler를 사용하여 로깅을 위한 여러가지 설정을 쉽게 관리할 수 있다.  
