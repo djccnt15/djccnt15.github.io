@@ -14,7 +14,7 @@ search:
 
     ---
 
-    FastAPI, django, Spring 기반 게시판 서비스  
+    FastAPI 기반 게시판 서비스  
 
     [:octicons-arrow-right-24: Continue Reading](./board.md)
 
