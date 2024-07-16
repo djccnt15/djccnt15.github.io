@@ -373,7 +373,7 @@ class MyFilter(Filter):  # (1)!
 
 ### Code를 통한 로그 설정
 
-```python title="src/log/config.py"
+```python title="src/log/__init__.py"
 import logging
 import queue
 from logging import Formatter, StreamHandler
@@ -471,7 +471,7 @@ log_listener = QueueListener(
 실제 어플리케이션에서의 로그 활용  
 
 ```python title="main.py"
-from src.log.config import log_listener, logger
+from src.log import log_listener, logger
 
 
 def main():
@@ -588,7 +588,7 @@ if __name__ == "__main__":
 
 `log_config.json`에서 입력받은 로그 설정을 어플리케이션에 주입하기 위한 코드  
 
-```python title="src/log/config.py"
+```python title="src/log/__init__.py"
 import atexit
 import json
 import logging
@@ -627,7 +627,7 @@ def set_logger():
 실제 어플리케이션에서의 로그 활용  
 
 ```python title="main.py"
-from src.log.config import log_listener, logger
+from src.log import log_listener, logger
 
 
 def main():
@@ -705,7 +705,7 @@ Exception
 
 프로그램 디버깅만을 위한 디버그 전용 로거 설정 방법  
 
-```python title="src/log/config.py"
+```python title="src/log/__init__.py"
 import logging
 import queue
 from logging.handlers import QueueHandler, QueueListener, TimedRotatingFileHandler
@@ -739,7 +739,13 @@ debug_handler = TimedRotatingFileHandler(
 )
 debug_handler.setFormatter(detailed_formatter)
 debug_handler.addFilter(
-    filter.MyFilter([logging.DEBUG, logging.ERROR, logging.CRITICAL])
+    filter.MyFilter(
+        levels=[
+            logging.DEBUG,
+            logging.ERROR,
+            logging.CRITICAL,
+        ]
+    )
 )
 
 # QueueHandler
@@ -753,7 +759,7 @@ log_listener = QueueListener(log_queue, debug_handler)
 
 ### 간단한 로거 설정
 
-```python title="src/log/config.py"
+```python title="src/log/__init__.py"
 import logging
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
