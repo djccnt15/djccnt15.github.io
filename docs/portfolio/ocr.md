@@ -25,14 +25,11 @@ tags:
 
 ### 서비스 설명
 
-- 서버 가용성 확보를 위한 비동기 처리 적용
-- 유지보수 용이성 및 기능 확장성 확보를 위한 설계 적용
-    - 도메인 주도의 레이어드 아키텍처
-    - 헥사고날 아키텍처(port - adapter 패턴)
-- JWT 기반 로그인 기능
+- 절차적 프로그래밍을 기반으로 한 도메인 주도의 레이어드 아키텍처 구성을 통해 코드 가독성 확보
+- 객체 지향적 프로그래밍 기반의 헥사고날 아키텍처(port - adapter 패턴) 적용을 통해 설계 유연성 확보
+- 배열 데이터의 일괄 처리 시 가독성 향상을 위해 comprehension 문법을 사용한 함수형 프로그래밍 적용
+- `bcrypt` 알고리즘을 사용한 JWT 로그인 기능
 - 배포를 위한 docker 컨테이너화
-- 이미지 Blob 데이터베이스 및 인식 결과 문서 저장을 위한 No-SQL DB 활용
-- 테서렉트 프로세스 관리를 위해 싱글턴 패턴 활용
 
 ## 아키텍처
 
@@ -40,20 +37,65 @@ tags:
 
 ![ocr_backend_architecture](./assets/ocr_backend_architecture.png)
 
+- 서버 가용성 확보를 위한 비동기 처리 적용
+- 커넥션 풀(connection pool) 기반의 ORM 사용
+    - SQL injection 방지
+    - 데이터베이스 부하 방지
+- 이미지 Blob 데이터베이스 및 인식 결과 문서 저장을 위한 No-SQL DB 활용
+- 테서렉트 프로세스 관리를 위해 싱글턴 패턴 활용
+
+    ??? note "테서렉트 프로세스 관리 class"
+
+        ```python
+        class TesseractInferencer(OcrInferencer):
+            _instance = None
+
+            def __new__(cls, path: Path, *args, **kwargs):
+                if not cls._instance:
+                    cls._instance = super(TesseractInferencer, cls).__new__(
+                        cls, *args, **kwargs
+                    )
+                    pytesseract.pytesseract.tesseract_cmd = path
+                return cls._instance
+
+            async def extract_text(
+                self,
+                *,
+                image: Image.Image,
+                roi: ocr_model.Roi,
+                lang: str | None = None,
+                config: str = "",
+                nice: int = 0,
+                timeout: int = 0,
+            ) -> list[str]:
+                image = crop_image(image=image, roi=roi)
+                extracted_text: str = await concurrency.run_in_threadpool(
+                    func=pytesseract.image_to_string,
+                    image=image,
+                    lang=lang,
+                    config=config,
+                    nice=nice,
+                    timeout=timeout,
+                )
+                res = extracted_text.replace("\n", "").split(" ")
+                return res
+        ```
+
 ### DB 설계
 
 ```mermaid
 erDiagram
-    ROLE ||..o{ USER : role
     ROLE {
         bigint id   PK
         string name UK
     }
 
-    USER ||..o{ USER_STATE : state
-    USER ||..o{ LOGGED_IN : history
-    USER ||..O{ IMAGE : owner
-    USER ||..O{ OCR : creator
+    STATE {
+        bigint id PK
+        string name UK
+    }
+
+    ROLE ||..o{ USER : role
     USER {
         bigint      id                  PK
         string      name                UK  "null"
@@ -64,11 +106,7 @@ erDiagram
     }
 
     STATE ||..o{ USER_STATE : state
-    STATE {
-        bigint id PK
-        string name UK
-    }
-
+    USER ||..o{ USER_STATE : state
     USER_STATE {
         bigint      user_id             PK, FK
         bigint      state_id            PK, FK
@@ -76,13 +114,14 @@ erDiagram
         datetime    created_datetime
     }
 
+    USER ||..o{ LOGGED_IN : history
     LOGGED_IN {
         bigint      id                  PK
         bigint      user_id             FK
         datetime    created_datetime
     }
 
-    IMAGE ||..o{ OCR : image
+    USER ||..O{ IMAGE : owner
     IMAGE {
         bigint      id                  PK
         string      name
@@ -93,6 +132,8 @@ erDiagram
         bigint      user_id             FK
     }
 
+    USER ||..O{ OCR : creator
+    IMAGE ||..o{ OCR : image
     OCR {
         bigint      id                  PK
         int         version                 "default=1"
@@ -103,6 +144,8 @@ erDiagram
     }
 ```
 
+- 데이터의 생성 및 관리 단위에 따라 테이블 분리 및 정규화
+- N + 1 문제 방지를 위해 연관 관계(relationship mapping) 사용 지양
 - IMAGE 엔티티의 `image_id`, `thumbnail_id` 칼럼은 Blob 데이터베이스에 저장된 이미지 데이터의 식별자
 - OCR 엔티티의 `content_id` 칼럼은 배열로 도출되는 인식 결과를 문서 형태로 저장한 NO-SQL DB에서의 식별자
 
