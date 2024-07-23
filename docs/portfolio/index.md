@@ -24,6 +24,6 @@ search:
 
     문서 OCR 서비스 FastAPI Backend  
 
-    [:octicons-arrow-right-24: Continue Reading](./ocr.md)
+    [:octicons-arrow-right-24: Continue Reading](./vision.md)
 
 </div>

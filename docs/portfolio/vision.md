@@ -6,7 +6,7 @@ tags:
 
 ## 개요
 
-[Github 저장소 링크](https://github.com/djccnt15/ocr_backend)
+[Github 저장소 링크](https://github.com/djccnt15/fastapi_vision)
 
 사용자가 이미지를 업로드 하고 업로드한 이미지에서 영역을 정해 OCR을 수행할 수 있는 서비스  
 
