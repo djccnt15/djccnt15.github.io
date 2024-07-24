@@ -1,12 +1,12 @@
 ---
-title: 문서 OCR 서비스 Backend
+title: 비전 검사 서비스 Backend
 tags:
     - portfolio
 ---
 
 ## 개요
 
-[Github 저장소 링크](https://github.com/djccnt15/fastapi_vision)
+[GitHub 저장소 링크](https://github.com/djccnt15/fastapi_vision)
 
 사용자가 이미지를 업로드 하고 업로드한 이미지에서 영역을 정해 OCR을 수행할 수 있는 서비스  
 
@@ -83,6 +83,8 @@ tags:
 
 ### DB 설계
 
+#### OCR 서비스
+
 ```mermaid
 erDiagram
     ROLE {
@@ -149,11 +151,14 @@ erDiagram
 - IMAGE 엔티티의 `image_id`, `thumbnail_id` 칼럼은 Blob 데이터베이스에 저장된 이미지 데이터의 식별자
 - OCR 엔티티의 `content_id` 칼럼은 배열로 도출되는 인식 결과를 문서 형태로 저장한 NO-SQL DB에서의 식별자
 
-## 주요 비즈니스 프로세스
+## 주요 비즈니스 프로세스 및 SW 설계
 
-### 이미지 업로드 프로세스
+### 이미지 OCR 서비스
 
 ```mermaid
+---
+title: Image Upload Process
+---
 sequenceDiagram
     Client ->> FastAPI: API request
     FastAPI -->> Blob Database: upload thumbnail
@@ -166,9 +171,10 @@ sequenceDiagram
     FastAPI ->> Client: response
 ```
 
-### OCR 인식 프로세스
-
 ```mermaid
+---
+title: Document OCR Process
+---
 sequenceDiagram
     Client ->> FastAPI: API request
     FastAPI -->> Database: query

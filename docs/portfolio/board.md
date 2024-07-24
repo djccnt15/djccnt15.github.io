@@ -6,7 +6,7 @@ tags:
 
 ## FastAPI
 
-[Github 저장소 링크](https://github.com/djccnt15/fastapi_board)
+[GitHub 저장소 링크](https://github.com/djccnt15/fastapi_board)
 
 ### 기술 스택
 
@@ -337,6 +337,9 @@ DB 호출 빈도가 가장 높은 API에 [Cache Aside 패턴](../blog/posts/2023
 - 게시글 내용 API
 
 ```mermaid
+---
+title: Cache Aside Pattern - Read Sequence
+---
 sequenceDiagram
     Client ->> FastAPI: API request
     alt if cached data

@@ -140,7 +140,7 @@ Host github.com
 cat djccnt15.pub
 ```
 
-Github의 경우 ssh 키를 아래와 같이 설정에 있는 SSH and GPG keys 메뉴에서 등록하면 된다.  
+GitHub의 경우 ssh 키를 아래와 같이 설정에 있는 SSH and GPG keys 메뉴에서 등록하면 된다.  
 
 ![github_sshkey_01](img/github_sshkey_01.png){ loading=lazy }
 
