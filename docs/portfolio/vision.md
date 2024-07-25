@@ -97,7 +97,7 @@ erDiagram
         string name UK
     }
 
-    ROLE ||..o{ USER : role
+    ROLE |o..o{ USER : role
     USER {
         bigint      id                  PK
         string      name                UK  "null"

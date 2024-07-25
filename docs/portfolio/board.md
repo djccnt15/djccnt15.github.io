@@ -174,11 +174,11 @@ erDiagram
     }
 
     STATE {
-        bigint id PK
+        bigint id   PK
         string name UK
     }
 
-    ROLE ||..o{ USER : role
+    ROLE |o..o{ USER : role
     USER {
         bigint      id                  PK
         string      name                UK  "null"
@@ -204,7 +204,7 @@ erDiagram
         datetime    created_datetime
     }
 
-    CATEGORY ||..o{ CATEGORY : child
+    CATEGORY |o..o{ CATEGORY : child
     CATEGORY {
         bigint      id          PK
         int         tier
