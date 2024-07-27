@@ -122,7 +122,6 @@ theme:
       kafka: simple/apachekafka
       mariadb: simple/mariadb
       markdown: fontawesome/brands/markdown
-      mssql: simple/microsoftsqlserver
       mysql: simple/mysql
       mongodb: simple/mongodb
       numpy: simple/numpy
@@ -134,7 +133,6 @@ theme:
       r: simple/r
       rabbitmq: simple/rabbitmq
       redis: simple/redis
-      shell: simple/powershell
       skleran: simple/scikitlearn
       scipy: simple/scipy
       spring: simple/spring
@@ -142,8 +140,7 @@ theme:
       sympy: simple/sympy
       telegram: simple/telegram
       tensorflow: simple/tensorflow
-      terminal: simple/windowsterminal
-      vscode: simple/visualstudiocode
+      vscode: material/microsoft-visual-studio-code
 extra:
   # generator: false  # enable to remove `Made with Material for MkDocs` comment at footer
   social:
