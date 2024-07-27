@@ -122,7 +122,6 @@ theme:
       kafka: simple/apachekafka
       mariadb: simple/mariadb
       markdown: fontawesome/brands/markdown
-      mssql: simple/microsoftsqlserver
       mysql: simple/mysql
       mongodb: simple/mongodb
       numpy: simple/numpy
