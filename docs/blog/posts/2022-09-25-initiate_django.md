@@ -55,7 +55,7 @@ django-admin startproject [project_name]
 django-admin startproject config .
 ```
 
-프로젝트를 시작하면 `config` 디렉토리 아래와 같은 파일들이 생성된다.  
+프로젝트를 시작하면 아래와 같은 파일들이 생성된다.  
 
 - `manage.py`
     - 개발자가 Django 프로젝트와 상호작용할 수 있도록 해주는 파일([공식 문서](https://docs.djangoproject.com/en/4.1/ref/django-admin/))
@@ -72,7 +72,8 @@ django-admin startproject config .
 - `config/wsgi.py`
     - WSGI 호환성을 위한 entry-point 파일([공식 문서](https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/))
 
-추가로, 대부분의 Python 프로젝트와 마찬가지로 프로젝트가 저장된 root 디렉토리의 이름은 아무 영향이 없어서 마음대로 바꿔도 된다고 한다. 다만 가상환경을 사용하는 경우 가상환경 구성에 문제가 생기니 root 디렉토리 이름을 바꾸면 안 된다.  
+!!! note
+    추가로, 대부분의 Python 프로젝트와 마찬가지로 프로젝트가 저장된 root 디렉토리의 이름은 아무 영향이 없어서 마음대로 바꿔도 된다고 한다. 다만 가상환경을 사용하는 경우 가상환경을 새로 구성해줘야 하는 점은 주의하자.  
 
 ### 2-2. 언어 및 시간대 설정
 

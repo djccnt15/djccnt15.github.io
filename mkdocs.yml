@@ -282,6 +282,10 @@ nav:
     - pages/about/career.md
   - Note:
     - blog/index.md
+  - Portfolios:
+    - portfolio/index.md
+    - portfolio/board.md
+    - portfolio/vision.md
   - Tags:
     - pages/tags.md
   - Favorites:
