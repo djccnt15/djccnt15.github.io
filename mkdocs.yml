@@ -133,7 +133,6 @@ theme:
       r: simple/r
       rabbitmq: simple/rabbitmq
       redis: simple/redis
-      shell: simple/powershell
       skleran: simple/scikitlearn
       scipy: simple/scipy
       spring: simple/spring
