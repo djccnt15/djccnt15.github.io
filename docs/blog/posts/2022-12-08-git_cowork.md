@@ -23,7 +23,7 @@ GitFlow 방식의 협업 방법론 정리
 
 GitFlow는 아래 그림만 잘 봐도 이해할 수 있다.  
 
-![git_flow](img/git_flow.png){ loading=lazy }  
+![git_flow](./img/git_flow.png){ loading=lazy }  
 ^[출처: A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)^
 
 부연 설명을 덧붙이자면, GitFlow 방법론에서는 Main, Develop의 핵심 브랜치 2개와 Release, Develop, Feature의 보조 브랜치 3개, 총 5개의 브랜치로 나누어서 소프트웨어 개발을 관리한다.  

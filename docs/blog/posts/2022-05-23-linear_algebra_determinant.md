@@ -106,13 +106,13 @@ $$
 
 ### 특이한 행렬의 행렬식
 
-[삼각 행렬](2022-05-19-linear_algebra_various_matrix.md/#6-삼각-행렬), [대각 행렬](2022-05-19-linear_algebra_various_matrix.md/#3-대각-행렬)의 행렬식은 주 대각 원소의 곱과 같다.  
+[삼각 행렬](./2022-05-19-linear_algebra_various_matrix.md/#6-삼각-행렬), [대각 행렬](./2022-05-19-linear_algebra_various_matrix.md/#3-대각-행렬)의 행렬식은 주 대각 원소의 곱과 같다.  
 
 $$
 \det(A) = a_{11} a_{22} \cdots a_{nn}
 $$
 
-[전치 행렬](2022-05-19-linear_algebra_various_matrix.md/#1-전치-행렬)의 행렬식: 행렬 $A$가 정사각 행렬일 경우 행렬 $A$와 그 전치 행렬 $A^{T}$의 행렬식은 동일하다.  
+[전치 행렬](./2022-05-19-linear_algebra_various_matrix.md/#1-전치-행렬)의 행렬식: 행렬 $A$가 정사각 행렬일 경우 행렬 $A$와 그 전치 행렬 $A^{T}$의 행렬식은 동일하다.  
 
 $$
 \det(A) = \det(A)^{T}
@@ -122,7 +122,7 @@ $$
 
 ### 행렬의 기본 행 연산과 행렬식
 
-[기본 행 연산](2022-05-01-linear_algebra_vector_scalar.md/#기본-행-연산)에 의한 행렬식의 변경은 아래와 같다.  
+[기본 행 연산](./2022-05-01-linear_algebra_vector_scalar.md/#기본-행-연산)에 의한 행렬식의 변경은 아래와 같다.  
 
 - 한 행에 영이 아닌 상수를 모두 곱한다.
 

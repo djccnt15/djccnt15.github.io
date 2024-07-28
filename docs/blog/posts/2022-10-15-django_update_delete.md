@@ -336,7 +336,7 @@ Array.from(delete_elements).forEach(function (element) {
 
 아래와 같이 페이지가 생성되고, 삭제 버튼을 누를 경우 확인창이 뜨는 것을 확인할 수 있다.  
 
-![django_delete](img/django_delete.png){ loading=lazy }
+![django_delete](./img/django_delete.png){ loading=lazy }
 
 ---
 ## Reference

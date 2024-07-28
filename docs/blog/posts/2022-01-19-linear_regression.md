@@ -148,4 +148,4 @@ axes.legend()
 plt.show()
 ```
 
-![simple_linear_regression](img/simple_linear_regression.png){ loading=lazy }
+![simple_linear_regression](./img/simple_linear_regression.png){ loading=lazy }

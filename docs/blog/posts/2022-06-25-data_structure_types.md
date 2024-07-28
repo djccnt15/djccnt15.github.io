@@ -25,18 +25,18 @@ tags:
 
 ## 기본적인 자료구조
 
-다양한 자료구조가 있지만, 그 중에서도 다음의 자료구조들이 가장 기본적이라고 한다.
+다양한 자료구조가 있지만, 그 중 대표적인 자료구조들은 다음과 같다.  
 
-- [배열(Array)](2022-06-26-data_structure_array.md)
+- [배열(Array)](./2022-06-26-data_structure_array.md)
     - 가장 기본적인 자료형으로, 자료를 원소로 취급해 나열한 자료구조
     - 생성 시 원소들에게 부여되는 index를 통해 원소들에게 접근 가능
-- [스택(Stack)](2022-07-02-data_structure_stack.md)
+- [스택(Stack)](./2022-07-02-data_structure_stack.md)
     - 순서가 보존되는 선형 데이터 구조 유형
     - LIFO(Last In First Out) 메커니즘에 따라 데이터를 처리
-- [큐(Queue)](2022-07-03-data_structure_queue_deque.md)
+- [큐(Queue)](./2022-07-03-data_structure_queue_deque.md)
     - 순서가 보존되는 선형 데이터 구조 유형
     - FIFO(First In First Out) 메커니즘에 따라 데이터를 처리
-- [연결 리스트(Linked List)](2022-07-08-data_structure_linked_list.md)
+- [연결 리스트(Linked List)](./2022-07-08-data_structure_linked_list.md)
     - 노드(node, 데이터 묶음)를 저장할 때 그 다음 순서의 자료가 있는 위치를 데이터에 포함시키는 방식으로 자료를 저장하는 자료구조
 - 그래프(Graph)
     - 정점(vertex) 사이에 변(edge)이 있는 자료구조

@@ -28,7 +28,7 @@ tags:
 
 Read 관점에서 많이 활용되는 패턴  
 
-![cache_aside_pattern_read](img/cache_aside_pattern_read.png){ loading=lazy }
+![cache_aside_pattern_read](./img/cache_aside_pattern_read.png){ loading=lazy }
 
 1. Cache Query
 1. Cache에 데이터 없을 경우 Database Query
@@ -36,7 +36,7 @@ Read 관점에서 많이 활용되는 패턴
     - TTL 옵션 지정을 통해 Cache 메모리 관리
     - 데이터의 특성에 따라 적절한 TTL 지정 필요
 
-![cache_aside_pattern_write](img/cache_aside_pattern_write.png){ loading=lazy }
+![cache_aside_pattern_write](./img/cache_aside_pattern_write.png){ loading=lazy }
 
 1. Database Create
 1. Invalidate Cache Data
@@ -46,7 +46,7 @@ Read 관점에서 많이 활용되는 패턴
 
 Write 관점에서 많이 활용되는 패턴  
 
-![write_back_pattern](img/write_back_pattern.png){ loading=lazy }
+![write_back_pattern](./img/write_back_pattern.png){ loading=lazy }
 
 1. 서버는 다수의 쓰기 작업을 Cache로 전송
 1. Cache에서 다수의 쓰기 작업을 모아 Database로 Bulk Insert 함

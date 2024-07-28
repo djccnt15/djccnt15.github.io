@@ -21,7 +21,7 @@ Git을 사용해서 과거 코드 이력으로 되돌리는 방법
 
 ## 💡switch
 
-[`switch`](2022-11-08-git_handling_branch.md/#switch) 명령어는 원래 특정 브랜치로 HEAD를 옮기기 위한 명령어인데, HEAD를 옮길 수 있다는 점 때문인지 과거 커밋으로 HEAD를 옮기는 용도로도 사용 가능하다.  
+[`switch`](./2022-11-08-git_handling_branch.md/#switch) 명령어는 원래 특정 브랜치로 HEAD를 옮기기 위한 명령어인데, HEAD를 옮길 수 있다는 점 때문인지 과거 커밋으로 HEAD를 옮기는 용도로도 사용 가능하다.  
 
 아래와 같이 `--detach` 옵션을 사용하면 **과거 특정 커밋 상태인 코드를 보기 위한 이동 개념**으로 detached HEAD 상태를 만들어 저장 상태를 변경하지 않고 코드를 일시적으로 되돌릴 수 있다.  
 
@@ -37,7 +37,7 @@ git switch --detach <commit>
 
 ## restore
 
-[`restore`](2022-01-17-git_tips.md/#restore) 명령어는 삭제한 파일을 되살리는 명령어인데, 아래와 같이 `-s`, `--sorce` 옵션과 함께 사용하면 특정 커밋에서 해당 파일의 내용을 되살릴 수 있다.  
+[`restore`](./2022-01-17-git_tips.md/#restore) 명령어는 삭제한 파일을 되살리는 명령어인데, 아래와 같이 `-s`, `--sorce` 옵션과 함께 사용하면 특정 커밋에서 해당 파일의 내용을 되살릴 수 있다.  
 
 ```bash
 git restore --s <commit> <file>
@@ -52,7 +52,7 @@ git restore --source=<commit> <file>
 
 ## reset
 
-[`reset`](2022-01-17-git_tips.md/#reset) 명령어는 현재의 HEAD를 특정 상태로 되돌리는 명령어인데, 아래와 같이 특정 커밋의 특정 파일에 대해서도 지정할 수 있다.  
+[`reset`](./2022-01-17-git_tips.md/#reset) 명령어는 현재의 HEAD를 특정 상태로 되돌리는 명령어인데, 아래와 같이 특정 커밋의 특정 파일에 대해서도 지정할 수 있다.  
 
 ```bash
 git reset <commit> <file>

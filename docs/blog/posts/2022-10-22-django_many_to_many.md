@@ -165,7 +165,7 @@ Array.from(recommend_elements).forEach(function (element) {
 
 아래와 같이 추천 기능이 정상적으로 작동하는 것을 확인할 수 있다.  
 
-![django_recommend](img/django_recommend.png){ loading=lazy }
+![django_recommend](./img/django_recommend.png){ loading=lazy }
 
 ---
 ## Reference

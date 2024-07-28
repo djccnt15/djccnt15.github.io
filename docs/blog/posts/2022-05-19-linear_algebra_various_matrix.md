@@ -440,7 +440,7 @@ $$
 
 ## 8. 하우스홀더 행렬
 
-**하우스홀더 행렬(householder matrix)**은 모든 열이 [정규 직교(orthonormal)](2022-06-06-linear_algebra_orthogonal_qr_decomposition.md/#1-직교-공간)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $H$를 말한다.  
+**하우스홀더 행렬(householder matrix)**은 모든 열이 [정규 직교(orthonormal)](./2022-06-06-linear_algebra_orthogonal_qr_decomposition.md/#1-직교-공간)하는 정사각 행렬로, 아래와 같은 수식을 따르는 행렬 $H$를 말한다.  
 
 $$
 \textbf{v} = \begin{bmatrix}
@@ -452,7 +452,7 @@ v_{n}
 \to H = I - 2\frac{\textbf{vv}^{T}}{\textbf{v}^{T}\textbf{v}}
 $$
 
-${\textbf{vv}^{T}}$은 [벡터의 외적](2022-06-09-linear_algebra_various_products.md/#1-외적), ${\textbf{v}^{T}\textbf{v}}$은 [벡터의 내적](2022-06-05-linear_algebra_inner_product_norm.md/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 Python으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
+${\textbf{vv}^{T}}$은 [벡터의 외적](./2022-06-09-linear_algebra_various_products.md/#1-외적), ${\textbf{v}^{T}\textbf{v}}$은 [벡터의 내적](./2022-06-05-linear_algebra_inner_product_norm.md/#1-내적)을 뜻하기 때문에 하우스홀더 행렬 공식을 Python으로 구현하기 위해서는 벡터의 내적과 외적의 함수를 먼저 구현해야 한다.  
 
 === "Python"
 

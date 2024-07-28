@@ -26,8 +26,8 @@ Minimal Mistakes 테마 커스터마이징 방법
 ### 1-1. 스킨 수정
 
 스킨을 수정하고 싶을 때는  
-1. `/assets/css/main.scss`에 입력해서 오버라이드 하거나  
-2. `/_sass/minimal-mistakes/skins`에서 각 스킨들을 직접 건드리면 된다.  
+1. `/assets/css/main.scss`에 입력해서 오버라이드 하거나
+1. `/_sass/minimal-mistakes/skins`에서 각 스킨들을 직접 건드리면 된다.
 
 나는 default 스킨만 조금 수정하고 다른 스킨들은 건드리기 싫어서 `/_sass/minimal-mistakes/skins/_default.scss`에 아래와 같은 내용을 추가해줬다.
 
@@ -66,7 +66,7 @@ $navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
 ### 1-2. 줄간격 조정
 
 Minimal Mistakes는 기본 줄간격이 너무 좁아 가독성이 떨어진다. 줄간격을 조정하려면 `/_sass/_page.scss`를 수정해주면 된다.  
-나는 아래와 같이 `.page__content`의 `p`에 `line-height`를 추가해서 문단 스타일을 수정했다.
+나는 아래와 같이 `.page__content`의 `p`에 `line-height`를 추가해서 문단 스타일을 수정했다.  
 
 ```scss title="_page.scss"
 .page__content {
@@ -225,7 +225,7 @@ GitHub Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 
 </script>
 ```
 
-`/_layouts/default.html`의 `<head>` 부분에 아래 내용 추가
+`/_layouts/default.html`의 `<head>` 부분에 아래 내용 추가  
 
 ```html title="default.html"
 <html>
@@ -236,17 +236,17 @@ GitHub Pages에 수학식을 출력하는 방법은 여러 가지가 있는데, 
   </head>
 ```
 
-수식을 사용할 포스트의 `YFM`을 아래와 같이 설정 
+수식을 사용할 포스트의 `YFM`을 아래와 같이 설정  
 
 ```yaml
 mathjax: true
 ```
 
-글 작성 시 수식 입력 방법은 [여기](2022-01-04-blog_markdown.md/#수식-입력)에서 확인할 수 있다.
+글 작성 시 수식 입력 방법은 [여기](./2022-01-04-blog_markdown.md/#수식-입력)에서 확인할 수 있다.  
 
 ## 4. favicon 설정
 
-`/assets/images/logo.ico` 폴더에 favicon 파일들 저장 후 `/_includes/head/custom.html`에 아래 내용 추가
+`/assets/images/logo.ico` 폴더에 favicon 파일들 저장 후 `/_includes/head/custom.html`에 아래 내용 추가  
 
 ```html title="custom.html"
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo.ico/apple-touch-icon.png">
@@ -339,7 +339,7 @@ gem 'tzinfo'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 ```
 
-Minimal Mistakes의 [Configuration](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) 문서에 따르면 default는 os에 설정된 local timezone으로 설정되어 있기 때문에 어지간해서는 굳이 설정할 필요는 없다.
+Minimal Mistakes의 [Configuration](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) 문서에 따르면 default는 os에 설정된 local timezone으로 설정되어 있기 때문에 어지간해서는 굳이 설정할 필요는 없다.  
 
 ---
 ## Reference

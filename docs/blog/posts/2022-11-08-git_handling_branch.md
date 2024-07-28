@@ -48,7 +48,7 @@ git branch -d <branch>
 ```
 
 !!! tip
-    참고로 원격 저장소의 브랜치를 삭제하려면 [`push`](2022-01-15-git_save_upload.md/#push) 명령어를 사용해야 한다.  
+    참고로 원격 저장소의 브랜치를 삭제하려면 [`push`](./2022-01-15-git_save_upload.md/#push) 명령어를 사용해야 한다.  
 
 - 원격 저장소의 브랜치를 가져오기
 
@@ -57,7 +57,7 @@ git branch -t <branch>
 ```
 
 !!! note
-    원격 저장소에 여러 브랜치가 있는 경우 `pull`이나 `clone`을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](2022-01-14-git_initiate.md/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
+    원격 저장소에 여러 브랜치가 있는 경우 `pull`이나 `clone`을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](./2022-01-14-git_initiate.md/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
 
 ## switch
 

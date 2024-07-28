@@ -188,7 +188,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 페이지네이션이 적용된 결과는 아래와 같다.  
 
-![django_paging](img/django_paging.png){ loading=lazy }
+![django_paging](./img/django_paging.png){ loading=lazy }
 
 ---
 ## Reference

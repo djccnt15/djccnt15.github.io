@@ -8,7 +8,7 @@ description: >
 categories:
     - Computer Science
 tags:
-    - data structure
+    - recursion
 ---
 
 부분곱과 팩토리얼 구현으로 알아보는 재귀함수
@@ -64,7 +64,7 @@ Python에서 $\prod$을 구현하는 방법들은 아래와 같다.
 
 ## 재귀함수
 
-**[재귀함수(recursive function)](2023-04-09-recursion.md)**는 아래 함수처럼 함수 내에서 자기 자신을 다시 호출하는 함수를 말한다.  
+**[재귀함수(recursive function)](./2023-04-09-recursion.md)**는 아래 함수처럼 함수 내에서 자기 자신을 다시 호출하는 함수를 말한다.  
 
 === "Production"
 

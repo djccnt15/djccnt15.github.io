@@ -22,7 +22,7 @@ Python pip 관련 이슈 해결 기록
 
 Python으로 개발을 하다보면 아래와 같이 pip 버전이 오래되었다는 경고가 뜰 때가 있다.  
 
-![pip_version_warning](img/pip_version_warning.png){ loading=lazy }
+![pip_version_warning](./img/pip_version_warning.png){ loading=lazy }
 
 경고가 알려주는대로 복붙해서 업그레이드하면 된다.  
 

@@ -67,19 +67,19 @@ uvicorn main:app --reload
 
 구동한 서버로 접속해보면 단 몇 줄의 짧은 코드로 아래와 같이 API가 생성된 것을 확인할 수 있다.  
 
-![fastapi_firstlook](img/fastapi_firstlook.png){ loading=lazy }
+![fastapi_firstlook](./img/fastapi_firstlook.png){ loading=lazy }
 
 ### 1-3. OpenAPI
 
 FastAPI는 OpenAPI(Swagger)를 기본으로 제공하는데, 아래와 같이 `/docs` 주소로 접속해서 확인할 수 있다.  
 
-![fastapi_docs](img/fastapi_docs.png){ loading=lazy }
+![fastapi_docs](./img/fastapi_docs.png){ loading=lazy }
 
 ## 2. 아키텍처
 
 FastAPI 기반 백엔드 서버의 전체적인 아키텍처는 아래와 같다.  
 
-![fastapi_server_architecture](img/fastapi_server_architecture.png){ loading=lazy }
+![fastapi_server_architecture](./img/fastapi_server_architecture.png){ loading=lazy }
 
 ### 2-1. Web Server
 

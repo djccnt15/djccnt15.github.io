@@ -53,7 +53,7 @@ scikit-learn 패키지의 경우 **outlier detection**와 **novelty detection**�
 
 앞서 소개한 네 가지 이상점 처리 방법 중에 가장 편하게 많이 사용되는 방식은 $IQR$ 방식의 이상점 탐지 및 제거로, 기본 원리는 아래 그림과 같다.  
 
-![IQR](img/iqr.jpg){ loading=lazy }  
+![IQR](./img/iqr.jpg){ loading=lazy }  
 ^[출처: Interquartile Range (IQR): What it is and How to Find it](https://www.statisticshowto.com/probability-and-statistics/interquartile-range/)^
 
 $IQR$이란 **InterQuartile Range(사분위수 범위)**의 약자로, 데이터를 순서대로 나열했을 때 25% 지점(1분위수)에 있는 데이터와 75% 지점(3분위수)에 있는 데이터의 차이를 말하며, 위 그림에서 볼 수 있듯이, $IQR$ 방식에서 정상 데이터로 분류될 범위를 계산하는 방식은 아래와 같다.
@@ -70,7 +70,7 @@ $$
 
 ### 2-1. IQR 방식에서 IQR의 계수로 1.5를 사용하는 이유
 
-![Normal Distribution](img/Normal-Distribution-curve.jpg){ loading=lazy }  
+![Normal Distribution](./img/Normal-Distribution-curve.jpg){ loading=lazy }  
 ^[출처: 9 Real Life Examples Of Normal Distribution](https://studiousguy.com/real-life-examples-normal-distribution/)^
 
 통계학 기본을 공부 했다면 위 그림과 같은 표준 정규분포 그래프를 본 적이 있을 텐데, 약 $\pm 2 \sigma$에서 95%, 약 $\pm 3 \sigma$에서 99% 수준으로 표준 정규분포에 들어가게 되고, 분야에 따라 다르지만 일반적으로 $\pm 3 \sigma$를 의미 있는 데이터로 본다. ([표준정규분포표 보러가기](https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative(less_than_Z)))
@@ -134,7 +134,7 @@ $$
 좀 더 정확한 계산값을 사용하고 싶을 때는 $1.7$을 계수로 사용하면 정상 데이터의 범위가 $\pm 2.97 \sigma$이 되어 $\pm 3 \sigma$에 좀 더 가까운 결과가 나오게 된다.  
 
 !!! note
-    실제 데이터의 분포에 상관없이 표준 정규분포를 가정하고 IQR 방식을 사용할 수 있는 이유는 [중심극한정리](2023-02-15-sampling_distribution.md/#2-2-중심극한정리)[^1]가 이론적 배경이라고 한다. 중심극한정리는 모집단이 어떤 분포를 가지고 있던지 간에 (모집단 분포가 어떤 모양이던 상관없이) 일단 표본의 크기가 충분히 크다면 표본평균들의 분포가 모집단의 모수를 기반으로한 정규분포를 이룬다는 정리이다.  
+    실제 데이터의 분포에 상관없이 표준 정규분포를 가정하고 IQR 방식을 사용할 수 있는 이유는 [중심극한정리](./2023-02-15-sampling_distribution.md/#2-2-중심극한정리)[^1]가 이론적 배경이라고 한다. 중심극한정리는 모집단이 어떤 분포를 가지고 있던지 간에 (모집단 분포가 어떤 모양이던 상관없이) 일단 표본의 크기가 충분히 크다면 표본평균들의 분포가 모집단의 모수를 기반으로한 정규분포를 이룬다는 정리이다.  
 
 [^1]: [위키피디아 - 중심 극한 정리](https://ko.wikipedia.org/wiki/%EC%A4%91%EC%8B%AC_%EA%B7%B9%ED%95%9C_%EC%A0%95%EB%A6%AC)
 

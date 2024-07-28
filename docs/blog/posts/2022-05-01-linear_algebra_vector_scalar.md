@@ -56,7 +56,7 @@ $$
 
 두 벡터의 합 $\textbf{u} + \textbf{v}$는 $\textbf{u}$의 종점에 $\textbf{v}$의 시점을 일치시켰을 때, $\textbf{u}$의 시점을 시점으로, $\textbf{v}$의 종점을 종점으로 하는 벡터를 뜻하고, 두 백터의 차 $\textbf{u} - \textbf{v}$는 $\textbf{u}$의 시점에 $\textbf{v}$의 시점을 일치시켰을 때, $\textbf{v}$의 종점을 시점으로, $\textbf{u}$의 종점을 종점으로 하는 벡터를 뜻한다.  
 
-![Vector_Addition](img/Vector_Addition.png){ loading=lazy width="50%" }  
+![Vector_Addition](./img/Vector_Addition.png){ loading=lazy width="50%" }  
 ^[출처: wikimedia - Vector_Addition.png](https://commons.wikimedia.org/wiki/File:Vector_Addition.png)^
 
 벡터의 덧셈과 뺄셈은 동일 위치의 각 원소를 더하고 빼는 것으로, 교환 법칙이 성립하며 두 벡터의 크기가 동일할 때(벡터를 구성하는 스칼라의 개수가 동일할 때)만 연산이 가능하다. Python으로 구현하면 아래와 같다.  

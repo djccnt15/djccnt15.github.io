@@ -25,7 +25,7 @@ MVC(Model, View, Controller)와 MTV(Model, Template, View) 각각의 요소는 �
 
 - Model
     - 모델은 데이터 모델을 가리키는 말로, 데이터베이스에 저장된 데이터를 가리킨다.
-    - [App과 ORM](2022-09-27-django_app_orm.md) 단계에서 생성한 [모델](2022-09-27-django_app_orm.md/#2-3-model-생성)이 해당된다.
+    - [App과 ORM](./2022-09-27-django_app_orm.md) 단계에서 생성한 [모델](./2022-09-27-django_app_orm.md/#2-3-model-생성)이 해당된다.
 - View/Template
     - 뷰는 사용자에게 보여주는 화면과 정보를 가리키는 말로, 웹개발 관점에서는 프론트엔드를 가리킨다.
     - Django에서는 뷰 대신에 HTML 템플릿이라고 부른다.
@@ -165,7 +165,7 @@ MIDDLEWARE = [
 
 아래와 같은 화면으로 생성된다.  
 
-![django_bootstrap_02](img/django_bootstrap_02.png){ loading=lazy }
+![django_bootstrap_02](./img/django_bootstrap_02.png){ loading=lazy }
 
 #### 템플릿 포함
 
@@ -244,7 +244,7 @@ form의 에러를 확인하는 `form_errors.html` 파일은 아래와 같다.
 
 아래와 같은 화면으로 생성된다.  
 
-![django_bootstrap_01](img/django_bootstrap_01.png){ loading=lazy }
+![django_bootstrap_01](./img/django_bootstrap_01.png){ loading=lazy }
 
 ## 3. 답변 등록 화면
 
@@ -370,7 +370,7 @@ urlpatterns = [
 
 아래와 같은 화면으로 생성된다.  
 
-![django_bootstrap_03](img/django_bootstrap_03.png){ loading=lazy }
+![django_bootstrap_03](./img/django_bootstrap_03.png){ loading=lazy }
 
 ---
 ## Reference
