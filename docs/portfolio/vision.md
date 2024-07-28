@@ -161,14 +161,14 @@ title: Image Upload Process
 ---
 sequenceDiagram
     Client ->> FastAPI: API request
-    FastAPI -->> Blob Database: upload thumbnail
     activate FastAPI
+    FastAPI -->> Blob Database: upload thumbnail
     Blob Database --) FastAPI: thumbnail id
     FastAPI -->> Blob Database: upload image
     Blob Database --) FastAPI: image id
     FastAPI -->> Database: insert image meta data
-    deactivate FastAPI
     FastAPI ->> Client: response
+    deactivate FastAPI
 ```
 
 ```mermaid
@@ -177,8 +177,8 @@ title: Document OCR Process
 ---
 sequenceDiagram
     Client ->> FastAPI: API request
-    FastAPI -->> Database: query
     activate FastAPI
+    FastAPI -->> Database: query
     Database --) FastAPI: image meta data
     FastAPI -->> Blob Database: query
     Blob Database --) FastAPI: image data
