@@ -11,7 +11,7 @@ tags:
     - data structure
 ---
 
-자료구조의 기본 개념, Array, Stack, Queue, Linked List, Graph, Tree
+자료구조의 기본 개념, Array, Stack, Queue, Linked List, Hast Table, Graph, Tree  
 
 <!-- more -->
 
@@ -38,6 +38,9 @@ tags:
     - FIFO(First In First Out) 메커니즘에 따라 데이터를 처리
 - [연결 리스트(Linked List)](./2022-07-08-data_structure_linked_list.md)
     - 노드(node, 데이터 묶음)를 저장할 때 그 다음 순서의 자료가 있는 위치를 데이터에 포함시키는 방식으로 자료를 저장하는 자료구조
+- [해시 테이블(Hash Table)](./2024-07-29-data_structure_hash_table.md)
+    - 데이터를 Key - Value 쌍으로 묶어 저장하는 데이터 구조
+    - Key를 통해 데이터에 접근할 수 있기 때문에 접근 속도가 매우 빠름
 - 그래프(Graph)
     - 정점(vertex) 사이에 변(edge)이 있는 자료구조
     - 일방통행을 나타내는 Directed graph와 양방향 통행을 나타내는 Undirected graph가 있음
