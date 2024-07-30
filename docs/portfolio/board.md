@@ -178,7 +178,7 @@ erDiagram
         string name UK
     }
 
-    ROLE |o..o{ USER : role
+    ROLE |o..o{ USER : ""
     USER {
         bigint      id                  PK
         string      name                UK  "null"
@@ -188,8 +188,8 @@ erDiagram
         bigint      role_id             FK  "null"
     }
 
-    STATE ||..o{ USER_STATE : state
-    USER ||..o{ USER_STATE : state
+    STATE ||..o{ USER_STATE : ""
+    USER ||..o{ USER_STATE : ""
     USER_STATE {
         bigint      user_id             PK, FK
         bigint      state_id            PK, FK
@@ -197,7 +197,7 @@ erDiagram
         datetime    created_datetime
     }
 
-    USER ||..o{ LOGGED_IN : history
+    USER ||..o{ LOGGED_IN : create
     LOGGED_IN {
         bigint      id                  PK
         bigint      user_id             FK
@@ -212,8 +212,8 @@ erDiagram
         bigint      parent_id   FK  "null"
     }
 
-    USER ||..o{ POST : author
-    CATEGORY ||..o{ POST : post-category
+    USER ||..o{ POST : create
+    CATEGORY ||..o{ POST : categorize
     POST {
         bigint      id                  PK
         bigint      user_id             FK
@@ -239,7 +239,7 @@ erDiagram
         bigint post_id PK, FK
     }
 
-    USER ||..o{ COMMENT : author
+    USER ||..o{ COMMENT : creates
     COMMENT {
         bigint      id                  PK
         bigint      user_id             FK

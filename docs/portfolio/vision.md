@@ -97,7 +97,7 @@ erDiagram
         string name UK
     }
 
-    ROLE |o..o{ USER : role
+    ROLE |o..o{ USER : ""
     USER {
         bigint      id                  PK
         string      name                UK  "null"
@@ -107,8 +107,8 @@ erDiagram
         bigint      role_id             FK  "null"
     }
 
-    STATE ||..o{ USER_STATE : state
-    USER ||..o{ USER_STATE : state
+    STATE ||..o{ USER_STATE : ""
+    USER ||..o{ USER_STATE : ""
     USER_STATE {
         bigint      user_id             PK, FK
         bigint      state_id            PK, FK
@@ -116,14 +116,14 @@ erDiagram
         datetime    created_datetime
     }
 
-    USER ||..o{ LOGGED_IN : history
+    USER ||..o{ LOGGED_IN : creates
     LOGGED_IN {
         bigint      id                  PK
         bigint      user_id             FK
         datetime    created_datetime
     }
 
-    USER ||..O{ IMAGE : owner
+    USER ||..O{ IMAGE : owns
     IMAGE {
         bigint      id                  PK
         string      name
@@ -134,8 +134,8 @@ erDiagram
         bigint      user_id             FK
     }
 
-    USER ||..O{ OCR : creator
-    IMAGE ||..o{ OCR : image
+    USER ||..O{ OCR : creates
+    IMAGE ||..o{ OCR : meta-data
     OCR {
         bigint      id                  PK
         int         version                 "default=1"
