@@ -10,6 +10,7 @@ categories:
 tags:
     - AI
     - TensorFlow
+    - troubleshooting
 ---
 
 TensorFlow 설치 관련 주의할 점들에 대한 기록들  

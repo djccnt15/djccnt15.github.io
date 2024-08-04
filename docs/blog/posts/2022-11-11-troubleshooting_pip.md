@@ -10,6 +10,7 @@ categories:
 tags:
     - python
     - pip
+    - troubleshooting
 ---
 
 Python pip 관련 이슈 해결 기록  

@@ -11,6 +11,7 @@ tags:
     - VS Code
     - debug
     - python
+    - troubleshooting
 ---
 
 VS Code에서 Python 브레이크포인트 인식 버그 해결하기  
