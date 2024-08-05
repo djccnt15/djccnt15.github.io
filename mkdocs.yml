@@ -140,6 +140,7 @@ theme:
       sympy: simple/sympy
       telegram: simple/telegram
       tensorflow: simple/tensorflow
+      tomcat: simple/apachetomcat
       vscode: material/microsoft-visual-studio-code
 extra:
   # generator: false  # enable to remove `Made with Material for MkDocs` comment at footer
@@ -226,6 +227,7 @@ extra:
     telegram: telegram
     TensorFlow: tensorflow
     terminal: terminal
+    tomcat: tomcat
     venv: python
     VS Code: vscode
 plugins:
