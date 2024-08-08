@@ -6,7 +6,7 @@ date:
 description: >
     Windows에서 TCP 포트 사용 범위 제외 문제 해결 방법
 categories:
-    - SW Engineering
+    - Server Engineering
 tags:
     - network
     - port
