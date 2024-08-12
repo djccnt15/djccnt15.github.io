@@ -75,7 +75,7 @@ $$
 \end{gathered}
 $$
 
-위 표기에서 $\text{sgn}$은 부호 함수를 뜻하며, $\Vert \textbf{u} \Vert$는 [노름(norm)](./2022-06-05-linear_algebra_inner_product_norm.md/#2-norm)을 뜻한다.  
+위 표기에서 $\text{sgn}$은 부호 함수를 뜻하며, $\Vert \textbf{u} \Vert$는 [노름(norm)](./2022-06-05-linear_algebra_inner_product_norm.md/#2-노름norm)을 뜻한다.  
 
 !!! info
     참고로 **^** 기호를 수학에서 **Hat(모자)** 기호라고 부르는데, 상황에 따라 단위 벡터, 추정량 등 의미가 달라진다. 자세한 내용은 [위키피디아](https://en.wikipedia.org/wiki/Hat_operator)를 참고하자.  
