@@ -282,7 +282,7 @@ $$
 SciPy의 경우, 이론대로 일정 비율에 따라 데이터를 잘라낸다. [공식 문서](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.trim_mean.html)에 따르면 절사할 숫자가 정수가 아닐 경우 소수점을 버린다고 한다.  
 
 !!! info
-    참고로 하위 $\alpha$%에 해당하는 값을 $\alpha$ 백분위수(percentile)라고 하며, $p = \alpha / 100$일 때, $p$ [분위수(quantile)](#2-2-사분위(간)-범위)이라고 말한다.  
+    참고로 하위 $\alpha$%에 해당하는 값을 $\alpha$ 백분위수(percentile)라고 하며, $p = \alpha / 100$일 때, $p$ [분위수(quantile)](#2-2-사분위간-범위)이라고 말한다.  
 
 ### 1-2. 표본중앙값
 
