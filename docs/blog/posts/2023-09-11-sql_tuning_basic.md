@@ -29,7 +29,7 @@ SQL 조회 쿼리 튜닝 기초 팁
     - VARCHAR로 지정된 숫자 칼럼의 경우 변수를 숫자로 사용하게 되면 내부적으로 칼럼에 TO_NUMBER 함수로 형변환을 하기 때문에 마찬가지로 index를 사용할 수 없게 됨
 1. 한 테이블은 한번만 조회
     - 테이블에 여러 번 조회할수록 조회 성능이 저하됨
-    - [SQL문의 수행 순서](./2022-08-13-sql_where_groupby.md/#5-sql)는 `FROM` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY`이기 때문에 한 테이블의 데이터는 한번에 가져오는 것이 IO 비용이 절감됨
+    - [SQL문의 수행 순서](./2022-08-13-sql_where_groupby.md/#5-sql문-실행-순서)는 `FROM` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY`이기 때문에 한 테이블의 데이터는 한번에 가져오는 것이 IO 비용이 절감됨
 
 ---
 ## Reference

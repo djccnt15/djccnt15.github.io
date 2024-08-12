@@ -162,7 +162,7 @@ $$
 proj_{\textbf{w}} \textbf{a} = \left\{ \frac{\langle \textbf{a}, \textbf{u}_{1} \rangle}{\Vert \textbf{u}_{1} \Vert^{2}}, \frac{\langle \textbf{a}, \textbf{u}_{2} \rangle}{\Vert \textbf{u}_{2} \Vert^{2}}, \cdots, \frac{\langle \textbf{a}, \textbf{u}_{n} \rangle}{\Vert \textbf{u}_{n} \Vert^{2}} \right\}
 $$
 
-벡터 공간 $S$의 부분 공간 $W$에서, 부분 공간 $W$의 **정규 직교 기저(orthonormal basis)**가 $\{ \textbf{v}_{1}, \textbf{v}_{2}, \cdots, \textbf{v}_{n} \}$일 때, $\textbf{a}$가 전체 벡터 공간 $S$의 임의의 벡터이면 $\textbf{a}$를 $W$로 정사영시킨 벡터는 다음과 같다. [정규 직교 벡터를 활용한 좌표 표현](##정규-직교-벡터를-활용한-좌표-표현)을 참고하자.  
+벡터 공간 $S$의 부분 공간 $W$에서, 부분 공간 $W$의 **정규 직교 기저(orthonormal basis)**가 $\{ \textbf{v}_{1}, \textbf{v}_{2}, \cdots, \textbf{v}_{n} \}$일 때, $\textbf{a}$가 전체 벡터 공간 $S$의 임의의 벡터이면 $\textbf{a}$를 $W$로 정사영시킨 벡터는 다음과 같다. [정규 직교 벡터를 활용한 좌표 표현](#정규-직교-벡터를-활용한-좌표-표현)을 참고하자.  
 
 $$
 proj_{\textbf{w}} \textbf{a} = \langle \textbf{a}, \textbf{v}_{1} \rangle \textbf{v}_{1} + \langle \textbf{a}, \textbf{v}_{2} \rangle \textbf{v}_{2} + \cdots + \langle \textbf{a}, \textbf{v}_{n} \rangle \textbf{v}_{n}
