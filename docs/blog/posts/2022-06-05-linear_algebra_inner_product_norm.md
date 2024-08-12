@@ -21,7 +21,7 @@ tags:
 
 ### 내적의 개념
 
-[벡터 공간](2022-05-29-linear_algebra_basis_dimension.md/#1-벡터-공간)의 설명에서 언급했듯이 **내적(inner product)**이 주어진 벡터 공간을 **내적 공간(inner product space)**이라고 부르는데, 벡터의 **내적(inner product)**은 벡터를 방향이 일치하는 만큼만 곱한다는 뜻으로 아래와 같이 표기한다.  
+[벡터 공간](./2022-05-29-linear_algebra_basis_dimension.md/#1-벡터-공간)의 설명에서 언급했듯이 **내적(inner product)**이 주어진 벡터 공간을 **내적 공간(inner product space)**이라고 부르는데, 벡터의 **내적(inner product)**은 벡터를 방향이 일치하는 만큼만 곱한다는 뜻으로 아래와 같이 표기한다.  
 
 $$
 \textbf{u}
@@ -42,7 +42,7 @@ $$
 \langle \textbf{u}, \textbf{v} \rangle = \textbf{u} \cdot \textbf{v} = \textbf{u}^{T} \textbf{v} = \sum_{i=1}^{n}u_{i}v_{i} = \vert \textbf{u} \vert \vert \textbf{v} \vert \cos \theta
 $$
 
-벡터의 내적을 Python으로 구현하면 아래와 같다. [하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
+벡터의 내적을 Python으로 구현하면 아래와 같다. [하우스홀더 행렬](./2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬) 공식에서 이미 구현한 바 있다.  
 
 === "Python"
 

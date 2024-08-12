@@ -178,7 +178,7 @@ erDiagram
         string name UK
     }
 
-    ROLE |o..o{ USER : role
+    ROLE |o..o{ USER : ""
     USER {
         bigint      id                  PK
         string      name                UK  "null"
@@ -188,8 +188,8 @@ erDiagram
         bigint      role_id             FK  "null"
     }
 
-    STATE ||..o{ USER_STATE : state
-    USER ||..o{ USER_STATE : state
+    STATE ||..o{ USER_STATE : ""
+    USER ||..o{ USER_STATE : ""
     USER_STATE {
         bigint      user_id             PK, FK
         bigint      state_id            PK, FK
@@ -197,7 +197,7 @@ erDiagram
         datetime    created_datetime
     }
 
-    USER ||..o{ LOGGED_IN : history
+    USER ||..o{ LOGGED_IN : create
     LOGGED_IN {
         bigint      id                  PK
         bigint      user_id             FK
@@ -212,8 +212,8 @@ erDiagram
         bigint      parent_id   FK  "null"
     }
 
-    USER ||..o{ POST : author
-    CATEGORY ||..o{ POST : post-category
+    USER ||..o{ POST : create
+    CATEGORY ||..o{ POST : categorize
     POST {
         bigint      id                  PK
         bigint      user_id             FK
@@ -239,7 +239,7 @@ erDiagram
         bigint post_id PK, FK
     }
 
-    USER ||..o{ COMMENT : author
+    USER ||..o{ COMMENT : creates
     COMMENT {
         bigint      id                  PK
         bigint      user_id             FK
@@ -268,7 +268,7 @@ erDiagram
 - 데이터의 생성 및 관리 단위에 따라 테이블 분리 및 정규화
     - 게시글과 댓글의 이력 관리를 위한 테이블 분리
 - N + 1 문제 방지를 위해 연관 관계(relationship mapping) 사용 지양
-- 복잡한 연관 관계의 테이블에서 빠른 데이터 추출을 위해 한방 쿼리 사용
+- 복잡한 연관 관계의 테이블에서 정확한 데이터 추출을 위해 한방 쿼리 사용
 
     ??? note "게시글 리스트 추출 Query"
 
@@ -342,16 +342,14 @@ title: Cache Aside Pattern - Read Sequence
 ---
 sequenceDiagram
     Client ->> FastAPI: API request
+    activate FastAPI
     alt if cached data
     FastAPI -->> Cache Server: check data
-    activate FastAPI
     Cache Server --) FastAPI: response data
-    deactivate FastAPI
     else if not cached data
     FastAPI -->> Database: query
-    activate FastAPI
     Database --) FastAPI: result
-    deactivate FastAPI
     end
     FastAPI --) Client: response
+    deactivate FastAPI
 ```

@@ -40,10 +40,10 @@ GitHub Pages 작성에 유용한 마크다운 팁 정리
 이미지를 삽입하려면 이미지를 어딘가에 업로드 하고 링크를 걸면 된다.  
 
 ```
-![yagongman_Dijkstra](img/yagongman_Dijkstra.png)
+![yagongman_Dijkstra](./img/yagongman_Dijkstra.png)
 ```
 
-![yagongman_Dijkstra](img/yagongman_Dijkstra.png){ loading=lazy }
+![yagongman_Dijkstra](./img/yagongman_Dijkstra.png){ loading=lazy }
 
 ### 동영상 삽입
 

@@ -28,13 +28,13 @@ tags:
 ??? note "통계학"
     - [ ] 📙[데이터 과학을 위한 통계](http://www.yes24.com/Product/Goods/99942893)
     - [ ] 📙[An Introduction to Statistical Learning](https://www.statlearning.com/)
-    - [x] 🖥️💡[통계학의 이해 Ⅰ](http://www.kmooc.kr/courses/course-v1:SookmyungK+SM_sta_004k+2019_03SM_02/about)
-    - [ ] [통계학의 이해 Ⅱ](http://www.kmooc.kr/courses/course-v1:SookmyungK+SM_sta_009k+2020_03SM_04/about)
+    - [x] 🖥️💡[통계학의 이해 Ⅰ(숙명여대 여인권)](http://www.kmooc.kr/courses/course-v1:SookmyungK+SM_sta_004k+2019_03SM_02/about)
+    - [ ] 🖥️[통계학의 이해 Ⅱ(숙명여대 여인권)](http://www.kmooc.kr/courses/course-v1:SookmyungK+SM_sta_009k+2020_03SM_04/about)
     - [ ] 🖥️[데이터로 배우는 통계학](http://www.kmooc.kr/courses/course-v1:SNUk+SNU064.020k+2022_T2/about)
     - [ ] 🖥️[확률론](http://www.kocw.net/home/cview.do?cid=e8a7769e2bfe9497)
-    - [ ] [확률 및 통계(한양대학교 안종창)](http://www.kocw.net/home/cview.do?cid=0b0f037aa47cb5f0)
-    - [ ] [확률 및 통계(한양대학교 이상화)](http://www.kocw.net/home/cview.do?cid=a2881d53f7ea3252)
-    - [ ] [2014-2 확률통계론](https://www.youtube.com/watch?v=Qk-Qe06s3ow&list=PLSN_PltQeOyjGOCnBz402iwXeki2wVXMJ&index=2)
+    - [ ] 🖥️[확률 및 통계(한양대학교 안종창)](http://www.kocw.net/home/cview.do?cid=0b0f037aa47cb5f0)
+    - [ ] 🖥️[확률 및 통계(한양대학교 이상화)](http://www.kocw.net/home/cview.do?cid=a2881d53f7ea3252)
+    - [ ] 🖥️[2014-2 확률통계론](https://www.youtube.com/watch?v=Qk-Qe06s3ow&list=PLSN_PltQeOyjGOCnBz402iwXeki2wVXMJ&index=2)
     - [ ] 🖥️💡[베이지안통계학](http://www.kocw.net/home/cview.do?cid=2eea29dbf2f4e070)
     - [ ] 🖥️[응용통계](http://www.kocw.net/home/cview.do?cid=6c61eb3c868f4d86)
     - [ ] 🖥️[경영통계분석](http://www.kocw.net/home/cview.do?cid=8ab6016717940a1d)
@@ -47,7 +47,7 @@ tags:
     - [ ] 🖥️💡[고급통계학특강 (II)](http://www.kocw.net/home/cview.do?cid=f653717700cd7176)
     - [ ] 🖥️[생존분석](http://www.kocw.net/home/cview.do?cid=decbdeb1b4af6adc)
     - [ ] 🖥️💡[시계열분석 기법과 응용](http://www.kmooc.kr/courses/course-v1:POSTECHk+IMEN677+2021_T2/about)
-    - [ ] [2013 2학기 시계열분석](https://youtube.com/playlist?list=PLSN_PltQeOyjnE4AnJyQUlHXNwE_hVtKL)
+    - [ ] 🖥️[2013 2학기 시계열분석](https://youtube.com/playlist?list=PLSN_PltQeOyjnE4AnJyQUlHXNwE_hVtKL)
 
 ??? note "선형대수학"
     - [ ] 📙💡[딥러닝을 위한 선형대수학](http://www.yes24.com/Product/Goods/91574113)([강의](http://www.kmooc.kr/courses/course-v1:PNUk+LD_C01+2022_KM011/about))
@@ -72,6 +72,7 @@ tags:
 
 ??? note "컴퓨터 공학 입문"
     - [ ] 🖥️💡[CS50x Courses from Harvard](https://youtube.com/playlist?list=PLhQjrBD2T382_R182iC2gNZI9HzWFMC_8)
+    - [ ] 🖥️💡[운영체제(이화여대 - 반효경)](http://www.kocw.net/home/cview.do?cid=4b9cd4c7178db077)
 
 ??? note "자료구조/알고리즘"
     - [ ] 📙💡[파이썬 알고리즘 인터뷰](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&barcode=9791189909178)
@@ -82,7 +83,8 @@ tags:
 
 
 ??? note "네트워크"
-    - [ ] [컴퓨터네트워크](http://www.kocw.net/home/cview.do?cid=6b984f376cfb8f70)
+    - [ ] 📙[모두의 네트워크](https://www.yes24.com/Product/Goods/61794014)
+    - [ ] 🖥️[컴퓨터네트워크](http://www.kocw.net/home/cview.do?cid=6b984f376cfb8f70)
 
 ??? note "소프트웨어 엔지니어링"
     - [ ] 🖥️[Python for Everybody](https://www.py4e.com/)([강의](https://www.coursera.org/specializations/python))
@@ -138,8 +140,8 @@ tags:
 ## 개발
 
 ??? note "백엔드 엔지니어링"
-    - [ ] 🔗[FastAPI](https://fastapi.tiangolo.com/ko/)
+    - [x] 🔗[FastAPI](https://fastapi.tiangolo.com/)
     - [x] 📙[점프 투 FastAPI](https://wikidocs.net/book/8531)
-    - [ ] 🔗[Django](https://docs.djangoproject.com/ko/4.1/intro/)
+    - [ ] 🔗[Django](https://docs.djangoproject.com/)
     - [x] 📙[점프 투 장고](https://wikidocs.net/book/4223)
     - [ ] 🔗[DATA ON-AIR: SQL](https://dataonair.or.kr/db-tech-reference/d-guide/sql/)

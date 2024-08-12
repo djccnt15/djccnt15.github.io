@@ -11,6 +11,7 @@ tags:
     - java
     - gradle
     - IntelliJ
+    - troubleshooting
 ---
 
 Gradle 빌드 에러 해결 기록들  

@@ -140,6 +140,7 @@ theme:
       sympy: simple/sympy
       telegram: simple/telegram
       tensorflow: simple/tensorflow
+      tomcat: simple/apachetomcat
       vscode: material/microsoft-visual-studio-code
 extra:
   # generator: false  # enable to remove `Made with Material for MkDocs` comment at footer
@@ -226,6 +227,7 @@ extra:
     telegram: telegram
     TensorFlow: tensorflow
     terminal: terminal
+    tomcat: tomcat
     venv: python
     VS Code: vscode
 plugins:
@@ -248,7 +250,7 @@ plugins:
       pagination_url_format: "page/{page}"
       pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
       categories_allowed:
-        - \`Draft
+        - _Draft
         - AI
         - C
         - Coding Test

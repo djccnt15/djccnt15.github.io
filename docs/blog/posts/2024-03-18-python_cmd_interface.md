@@ -19,7 +19,7 @@ Python을 실행할 때, command line 입력을 통해 추가적인 옵션을 �
 
 ## 최적화 실행
 
-프로그램의 품질 향상을 위해 `assert` 구문과 [Docstring](2022-01-07-python_function.md/#documentation-strings)을 사용하는데, 해당 코드도 결국 메모리와 CPU 성능을 소모하게 된다.  
+프로그램의 품질 향상을 위해 `assert` 구문과 [Docstring](./2022-01-07-python_function.md/#documentation-strings)을 사용하는데, 해당 코드도 결국 메모리와 CPU 성능을 소모하게 된다.  
 
 아래 옵션을 통해 프로그램 실행 시에 해당 구문을 삭제하고 실행하도록 할 수 있다.  
 
@@ -98,7 +98,7 @@ options:
 
 ## 모듈 Docstring 출력
 
-[함수나 클래스의 Docstring](2022-01-07-python_function.md/#documentation-strings)은 해당 객체의 `__doc__`을 호출하면 된다.  
+[함수나 클래스의 Docstring](./2022-01-07-python_function.md/#documentation-strings)은 해당 객체의 `__doc__`을 호출하면 된다.  
 
 모듈의 Docstring을 출력하고 싶다면 아래와 같이 [pydoc](https://docs.python.org/3/library/pydoc.html)을 사용하면 된다.  
 

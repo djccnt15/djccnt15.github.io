@@ -85,7 +85,7 @@ def plotting(df: pd.DataFrame, title: str):
 plotting(df=df, title='Raw data')
 ```
 
-![plot_rawdata](img/plot_Raw_data.png){ loading=lazy }
+![plot_rawdata](./img/plot_Raw_data.png){ loading=lazy }
 
 ## StandardScaler
 
@@ -120,7 +120,7 @@ max    3.418111e+00  1.561643e+00
 plotting(df=df_standard_scaled, title='StandardScaled data')
 ```
 
-![plot_rawdata](img/plot_StandardScaled.png){ loading=lazy }
+![plot_rawdata](./img/plot_StandardScaled.png){ loading=lazy }
 
 ## MinMaxScaler
 
@@ -153,7 +153,7 @@ max        1.000000      1.000000
 plotting(df=df_minmax_scaled, title='MinMaxScaled data')
 ```
 
-![plot_rawdata](img/plot_MinMaxScaled.png){ loading=lazy }
+![plot_rawdata](./img/plot_MinMaxScaled.png){ loading=lazy }
 
 ## MaxAbsScaler
 
@@ -186,11 +186,11 @@ max        1.000000      1.000000
 plotting(df=df_maxabs_scaled, title='MaxAbsScaled data')
 ```
 
-![plot_rawdata](img/plot_MaxAbsScaled.png){ loading=lazy }
+![plot_rawdata](./img/plot_MaxAbsScaled.png){ loading=lazy }
 
 ## 💡RobustScaler
 
-중앙값과 [IQR](2022-04-01-iqr_method.md)을 사용하기 때문에 이상점의 영향을 덜 받는다는 장점이 있다. Python으로 구현하면 아래와 같다.  
+중앙값과 [IQR](./2022-04-01-iqr_method.md)을 사용하기 때문에 이상점의 영향을 덜 받는다는 장점이 있다. Python으로 구현하면 아래와 같다.  
 
 ```python
 from sklearn.preprocessing import RobustScaler
@@ -219,7 +219,7 @@ max    1.471466e+01      2.682501
 plotting(df=df_robust_scaled, title='RobustScaled data')
 ```
 
-![plot_rawdata](img/plot_RobustScaled.png){ loading=lazy }
+![plot_rawdata](./img/plot_RobustScaled.png){ loading=lazy }
 
 ## 결과 비교
 
@@ -254,7 +254,7 @@ plt.savefig(fname='plot_Scaled', bbox_inches='tight')
 plt.show()
 ```
 
-![plot_rawdata](img/plot_Scaled.png){ loading=lazy }
+![plot_rawdata](./img/plot_Scaled.png){ loading=lazy }
 
 변화된 분포를 원본 데이터와 비교해보면, Robust Scaling이 가장 이상점의 영향을 적게 받아 변환된 결과를 보여주고, 다음으로는 Standard Scaling이 비교적 이상점의 영향을 적게 받는 결과를 보여준다.  
 

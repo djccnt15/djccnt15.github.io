@@ -142,7 +142,7 @@ cat djccnt15.pub
 
 GitHub의 경우 ssh 키를 아래와 같이 설정에 있는 SSH and GPG keys 메뉴에서 등록하면 된다.  
 
-![github_sshkey_01](img/github_sshkey_01.png){ loading=lazy }
+![github_sshkey_01](./img/github_sshkey_01.png){ loading=lazy }
 
 ### 2-5. 연결 확인
 
@@ -167,7 +167,7 @@ Hi djccnt15! You've successfully authenticated, but GitHub does not provide shel
 
 위와 같이 모든 준비가 끝나면 git 저장소에서 ssh를 통해 `clone`, `pull`, `push`를 할 수 있다.  
 
-![github_sshkey_02](img/github_sshkey_02.png){ loading=lazy }
+![github_sshkey_02](./img/github_sshkey_02.png){ loading=lazy }
 
 ## 3. ⚡작업용 명령어
 

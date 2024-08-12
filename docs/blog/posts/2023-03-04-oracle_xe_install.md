@@ -29,7 +29,7 @@ Oracle Database Express Edition 설치 및 사용 방법
 
 설치 단계에서 데이터베이스 비밀번호를 물어보는데, `admin` 같이 적당히 쉽고 기억하기 좋은 것으로 정하자. 잊어버리면 매우 귀찮아진다.  
 
-![oracle_xe_install](img/oracle_xe_install.png){ loading=lazy width="600px" }
+![oracle_xe_install](./img/oracle_xe_install.png){ loading=lazy width="600px" }
 
 ## 3. DBeaver 연결
 
@@ -50,7 +50,7 @@ Lsnrctl services
 
 아래와 같이 접속 정보를 맞게 설정해주면 정상적으로 접속된다.  
 
-![oracle_xe_dbeaver](img/oracle_xe_dbeaver.png){ loading=lazy width="600px" }
+![oracle_xe_dbeaver](./img/oracle_xe_dbeaver.png){ loading=lazy width="600px" }
 
 ---
 ## Reference

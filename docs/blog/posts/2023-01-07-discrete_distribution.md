@@ -88,7 +88,7 @@ $$
 X = X_{1} + X_{2} + \cdots + X_{n}
 $$
 
-따라서 [독립인 결합분포의 성질](2023-01-01-probability_vector_covariance.md/#2-공분산과-상관계수)을 바탕으로 이항분포의 기대값과 분산을 유도하면 아래와 같다.  
+따라서 [독립인 결합분포의 성질](./2023-01-01-probability_vector_covariance.md/#2-공분산과-상관계수)을 바탕으로 이항분포의 기대값과 분산을 유도하면 아래와 같다.  
 
 $$
 \begin{align*}
@@ -657,7 +657,7 @@ Var(X_{i}) & = np_{i}(1 - p_{i})
 \end{align*}
 $$
 
-또한 특정 결과들($R_{i} \cup R_{j}$)에 관심이 있는 경우 아래와 같이 이항분포의 [결합분포](2023-01-01-probability_vector_covariance.md/#2-공분산과-상관계수)로 다룰 수 있다.  
+또한 특정 결과들($R_{i} \cup R_{j}$)에 관심이 있는 경우 아래와 같이 이항분포의 [결합분포](./2023-01-01-probability_vector_covariance.md/#2-공분산과-상관계수)로 다룰 수 있다.  
 
 $$
 \begin{align*}

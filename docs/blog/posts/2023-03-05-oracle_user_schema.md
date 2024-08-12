@@ -40,7 +40,7 @@ CREATE USER ID IDENTIFIED BY password;
 
 이 때 생성된 유저는 기본적으로 `USERS` Tablespace에 얼마만큼의 영역을 할당한 것인지 정해지지 않은 상태이기 때문에 데이터를 입력할 수 없어 `INSERT`에 대한 에러가 발생하는 것이다.  
 
-따라서 아래와 같이 [GRANT](2022-08-11-relational_database.md/#5-dcl)를 통해 관련 권한을 부여해주면 에러가 해결된다.  
+따라서 아래와 같이 [GRANT](./2022-08-11-relational_database.md/#5-dcl)를 통해 관련 권한을 부여해주면 에러가 해결된다.  
 
 ```sql
 -- 무제한 용량 권한 부여

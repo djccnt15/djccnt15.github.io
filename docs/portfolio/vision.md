@@ -41,7 +41,7 @@ tags:
 - 커넥션 풀(connection pool) 기반의 ORM 사용
     - SQL injection 방지
     - 데이터베이스 부하 방지
-- 이미지 Blob 데이터베이스 및 인식 결과 문서 저장을 위한 No-SQL DB 활용
+- 이미지 BLOB 데이터베이스 및 인식 결과 문서 저장을 위한 No-SQL DB 활용
 - 테서렉트 프로세스 관리를 위해 싱글턴 패턴 활용
 
     ??? note "테서렉트 프로세스 관리 class"
@@ -97,7 +97,7 @@ erDiagram
         string name UK
     }
 
-    ROLE |o..o{ USER : role
+    ROLE |o..o{ USER : ""
     USER {
         bigint      id                  PK
         string      name                UK  "null"
@@ -107,8 +107,8 @@ erDiagram
         bigint      role_id             FK  "null"
     }
 
-    STATE ||..o{ USER_STATE : state
-    USER ||..o{ USER_STATE : state
+    STATE ||..o{ USER_STATE : ""
+    USER ||..o{ USER_STATE : ""
     USER_STATE {
         bigint      user_id             PK, FK
         bigint      state_id            PK, FK
@@ -116,14 +116,14 @@ erDiagram
         datetime    created_datetime
     }
 
-    USER ||..o{ LOGGED_IN : history
+    USER ||..o{ LOGGED_IN : creates
     LOGGED_IN {
         bigint      id                  PK
         bigint      user_id             FK
         datetime    created_datetime
     }
 
-    USER ||..O{ IMAGE : owner
+    USER ||..o{ IMAGE : owns
     IMAGE {
         bigint      id                  PK
         string      name
@@ -134,24 +134,27 @@ erDiagram
         bigint      user_id             FK
     }
 
-    USER ||..O{ OCR : creator
-    IMAGE ||..o{ OCR : image
+    USER ||..o{ OCR : creates
+    IMAGE ||..o{ OCR : meta-data
     OCR {
         bigint      id                  PK
         int         version                 "default=1"
         datetime    created_datetime
         bigint      image_id            FK
         bigint      user_id             FK
-        string      content_id
+        string      content_id              "ocr result id at MongoDB"
     }
+
+    OCR ||..|| BLOB : meta-data
+    IMAGE ||..|| BLOB : meta-data
 ```
 
 - 데이터의 생성 및 관리 단위에 따라 테이블 분리 및 정규화
 - N + 1 문제 방지를 위해 연관 관계(relationship mapping) 사용 지양
-- IMAGE 엔티티의 `image_id`, `thumbnail_id` 칼럼은 Blob 데이터베이스에 저장된 이미지 데이터의 식별자
+- IMAGE 엔티티의 `image_id`, `thumbnail_id` 칼럼은 BLOB 데이터베이스에 저장된 이미지 데이터의 식별자
 - OCR 엔티티의 `content_id` 칼럼은 배열로 도출되는 인식 결과를 문서 형태로 저장한 NO-SQL DB에서의 식별자
 
-## 주요 비즈니스 프로세스 및 SW 설계
+## 주요 비즈니스 프로세스 및 설계
 
 ### 이미지 OCR 서비스
 
@@ -161,14 +164,14 @@ title: Image Upload Process
 ---
 sequenceDiagram
     Client ->> FastAPI: API request
-    FastAPI -->> Blob Database: upload thumbnail
     activate FastAPI
-    Blob Database --) FastAPI: thumbnail id
-    FastAPI -->> Blob Database: upload image
-    Blob Database --) FastAPI: image id
+    FastAPI -->> BLOB Database: upload thumbnail
+    BLOB Database --) FastAPI: thumbnail id
+    FastAPI -->> BLOB Database: upload image
+    BLOB Database --) FastAPI: image id
     FastAPI -->> Database: insert image meta data
-    deactivate FastAPI
     FastAPI ->> Client: response
+    deactivate FastAPI
 ```
 
 ```mermaid
@@ -177,11 +180,11 @@ title: Document OCR Process
 ---
 sequenceDiagram
     Client ->> FastAPI: API request
-    FastAPI -->> Database: query
     activate FastAPI
+    FastAPI -->> Database: query
     Database --) FastAPI: image meta data
-    FastAPI -->> Blob Database: query
-    Blob Database --) FastAPI: image data
+    FastAPI -->> BLOB Database: query
+    BLOB Database --) FastAPI: image data
     FastAPI ->> Tesseract: ocr request
     Tesseract ->> FastAPI: result
     FastAPI --) Client: response

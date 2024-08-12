@@ -29,7 +29,7 @@ Telegram Bot API로 Python 자동 알림 만들기
 
 Telegram을 가입 후 **BotFather**를 검색해서 새로운 bot을 만들자.  
 
-![telegram_bot_setting](img/telegram_bot_setting.png)
+![telegram_bot_setting](./img/telegram_bot_setting.png)
 
 검정색으로 가려진 부분이 **HTTP access token**이다.  
 
@@ -44,15 +44,15 @@ Telegram을 가입 후 **BotFather**를 검색해서 새로운 bot을 만들자.
 https://api.telegram.org/bot{YOUR_HTTP_ACCESS_TOKEN}/getMe
 ```
 
-![telegram_bot_getMe_01](img/telegram_bot_getMe_01.png)
+![telegram_bot_getMe_01](./img/telegram_bot_getMe_01.png)
 
-![telegram_bot_getMe_02](img/telegram_bot_getMe_02.png){ loading=lazy width="50%" }
+![telegram_bot_getMe_02](./img/telegram_bot_getMe_02.png){ loading=lazy width="50%" }
 
 ## 3. ID 확인
 
 bot에게 말을 걸어서 대화방을 생성하고 **id**를 확인하자. 스팸의 위험성 때문에 bot이 먼저 사용자에게 말을 걸 수는 없도록 되어있다고 한다.  
 
-![telegram_bot_getUpdates_01](img/telegram_bot_getUpdates_01.png){ loading=lazy width="50%" }
+![telegram_bot_getUpdates_01](./img/telegram_bot_getUpdates_01.png){ loading=lazy width="50%" }
 
 웹브라우저 주소창에 아래와 같이 입력하면 생성한 bot과의 대화방을 업데이트 한다.  
 
@@ -60,9 +60,9 @@ bot에게 말을 걸어서 대화방을 생성하고 **id**를 확인하자. 스
 https://api.telegram.org/bot{YOUR_HTTP_ACCESS_TOKEN}/getUpdates
 ```
 
-![telegram_bot_getUpdates_02](img/telegram_bot_getUpdates_02.png){ loading=lazy }
+![telegram_bot_getUpdates_02](./img/telegram_bot_getUpdates_02.png){ loading=lazy }
 
-![telegram_bot_getUpdates_03](img/telegram_bot_getUpdates_03.png){ loading=lazy width="50%" }
+![telegram_bot_getUpdates_03](./img/telegram_bot_getUpdates_03.png){ loading=lazy width="50%" }
 
 `message`의 `from` `id`를 보면 되는데, 이 경우에는 `5463934262`이다.  
 
@@ -84,7 +84,7 @@ import requests
 requests.get('https://api.telegram.org/bot{YOUR_HTTP_ACCESS_TOKEN}/sendMessage?chat_id=5463934262&text=Code Finished')
 ```
 
-![telegram_bot_test](img/telegram_bot_test.png){ loading=lazy width="25%" }
+![telegram_bot_test](./img/telegram_bot_test.png){ loading=lazy width="25%" }
 
 ### POST 방식
 
@@ -120,7 +120,7 @@ requests.post(
 )
 ```
 
-![telegram_bot_test_02](img/telegram_bot_test_02.png){ loading=lazy }
+![telegram_bot_test_02](./img/telegram_bot_test_02.png){ loading=lazy }
 
 정상적으로 메세지가 보내지는 것을 확인할 수 있다.  
 

@@ -11,6 +11,7 @@ tags:
     - cmd
     - terminal
     - taskkill
+    - troubleshooting
 ---
 
 port를 사용중인 프로세스가 제대로 종료되지 않아 문제가 될 때는 해당 프로세스를 강제로 종료해주면 된다.  

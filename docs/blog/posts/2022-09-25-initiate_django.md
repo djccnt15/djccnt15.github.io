@@ -29,7 +29,7 @@ Django도 기본적으로 Python 라이브러리이기 때문에 `pip`를 통해
 pip install Django
 ```
 
-아래와 같이 Django와 Python [호환성 제약](https://docs.djangoproject.com/en/4.1/faq/install/#what-python-version-can-i-use-with-django)이 있으니 [Python 가상환경](2022-01-05-venv_guide.md)을 사용해서 버전을 맞춰주어야 한다.  
+아래와 같이 Django와 Python [호환성 제약](https://docs.djangoproject.com/en/4.1/faq/install/#what-python-version-can-i-use-with-django)이 있으니 [Python 가상환경](./2022-01-05-venv_guide.md)을 사용해서 버전을 맞춰주어야 한다.  
 
 | Django version | Python versions                                            |
 | -------------- | ---------------------------------------------------------- |
@@ -115,13 +115,13 @@ Quit the server with CTRL-BREAK.
 
 위와 같이 개발 서버가 작동하면 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)로 접속할 수 있고, ++ctrl+c++로 서버를 중지할 수 있다. 개발 서버에 접속하면 아래와 같이 정상 작동 중인 것을 확인할 수 있다.  
 
-![django_localhost](img/django_localhost.png){ loading=lazy }
+![django_localhost](./img/django_localhost.png){ loading=lazy }
 
 ## 4. Secret Key 숨기기
 
 구성한 프로젝트를 GitHub에 그대로 push 하면 *Django Secret Key exposed on GitHub*이라는 제목으로 경고가 날아온다.  
 
-![django_secretkey_email](img/django_secretkey_email.png){ loading=lazy }
+![django_secretkey_email](./img/django_secretkey_email.png){ loading=lazy }
 
 Django 프로젝트의 Secret Key가 노출되었다는 것인데, Secret Key는 [디지털 서명](https://docs.djangoproject.com/en/1.11/topics/signing/)을 위해 사용되고, 사용 대상은 아래와 같다.  
 
@@ -132,7 +132,7 @@ Django 프로젝트의 Secret Key가 노출되었다는 것인데, Secret Key는
 
 Django의 Secret Key에 대한 상세한 설명은 [공식 문서](https://docs.djangoproject.com/en/4.1/ref/settings/#std:setting-SECRET_KEY)에서 확인할 수 있는데, Secret Key를 노출시키면 Django가 제공하는 보안 관련 기능을 무력화하니 주의하라고 한다.  
 
-![django_secretkey_warning](img/django_secretkey_warning.png){ loading=lazy }
+![django_secretkey_warning](./img/django_secretkey_warning.png){ loading=lazy }
 
 이번 경우에는 이미 노출되었으니 다음과 같은 두 단계로 해결해야 한다.  
 

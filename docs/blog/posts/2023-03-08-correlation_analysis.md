@@ -68,7 +68,7 @@ plt.savefig(fname='iris_corr.png', bbox_inches='tight')
 plt.show()
 ```
 
-![iris_corr](img/iris_corr.png){ loading=lazy }
+![iris_corr](./img/iris_corr.png){ loading=lazy }
 
 ## 필요한 칼럼만 골라서 분석하기
 
@@ -170,4 +170,4 @@ plt.savefig(fname='iris_corr_scatter.png', bbox_inches='tight')
 plt.show()
 ```
 
-![iris_corr_scatter](img/iris_corr_scatter.png){ loading=lazy }
+![iris_corr_scatter](./img/iris_corr_scatter.png){ loading=lazy }

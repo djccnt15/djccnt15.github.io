@@ -206,7 +206,7 @@ Django가 지원하는 여러 가지 DB의 백엔드 엔진은 아래와 같다.
 
 `board_qna/models.py` 파일에서 `board_qna` 앱이 사용할 데이터 모델을 설정할 수 있다. 기본적인 데이터 모델의 구상은 아래와 같다.  
 
-![django_erd_board_qna](img/django_erd_board_qna.png){ loading=lazy }
+![django_erd_board_qna](./img/django_erd_board_qna.png){ loading=lazy }
 
 위와 같이 구상한 데이터 모델을 구현하기 위해 아래와 같이 작성해준다.  
 
@@ -353,7 +353,7 @@ Running migrations:
 
 `db.sqlite3`를 데이터베이스 관리 도구로 열어 보면 아래 그림과 같이 실제 ERD가 설계대로 생성된 것을 확인할 수 있다.  
 
-![django_erd_board_qna_actual](img/django_erd_board_qna_actual.png){ loading=lazy }
+![django_erd_board_qna_actual](./img/django_erd_board_qna_actual.png){ loading=lazy }
 
 ### 2-6. Python shell로 API 접근하기
 
@@ -400,11 +400,11 @@ Superuser created successfully.
 
 접속하면 아래와 같이 관리자 로그인 화면이 뜬다.  
 
-![django_admin_login](img/django_admin_login.png){ loading=lazy }
+![django_admin_login](./img/django_admin_login.png){ loading=lazy }
 
 앞에서 설정한 이름과 비밀번호를 통해 접속하면 아래와 같이 관리자 화면이 나타난다.  
 
-![django_admin_page_01](img/django_admin_page_01.png){ loading=lazy }
+![django_admin_page_01](./img/django_admin_page_01.png){ loading=lazy }
 
 ### 3-2. 모델 관리 권한 부여
 
@@ -422,9 +422,9 @@ admin.site.register(Answer)
 
 로컬호스트 서버에서 아래와 같이 관리자가 글을 직접 관리할 수 있는 것을 확인할 수 있다.  
 
-![django_admin_page_02](img/django_admin_page_02.png){ loading=lazy }
+![django_admin_page_02](./img/django_admin_page_02.png){ loading=lazy }
 
-![django_admin_page_03](img/django_admin_page_03.png){ loading=lazy }
+![django_admin_page_03](./img/django_admin_page_03.png){ loading=lazy }
 
 만약 관리자에게 검색 기능을 주고 싶다면 아래와 같이 작성하면 된다.  
 

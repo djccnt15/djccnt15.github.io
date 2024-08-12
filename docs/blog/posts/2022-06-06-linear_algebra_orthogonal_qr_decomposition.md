@@ -21,7 +21,7 @@ tags:
 
 ### 직교, 정규 직교 벡터, 정규 직교 공간, 정규화
 
-**직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1([단위 벡터](2022-05-29-linear_algebra_basis_dimension.md/#단위-벡터))이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
+**직교(orthogonal)**란 두 직선 또는 두 평면이 직각을 이루며 만나는 것을 의미한다. 직교하는 두 벡터의 길이가 각 1([단위 벡터](./2022-05-29-linear_algebra_basis_dimension.md/#단위-벡터))이면 **정규 직교(orthonomal)**한다고 말하고, 정규 직교 하는 벡터들을 **정규 직교 벡터(orthonormal vector)**, 정규 직교 벡터가 만드는 공간을 **정규 직교 공간(orthonormal space)**이라고 한다. 직교 벡터를 정규 직교 벡터로 **정규화(normalization)** 하는 방법은 아래와 같다.  
 
 $$
 \textbf{v}_{n} = \frac{\textbf{u}_{n}}{\Vert \textbf{u}_{n} \Vert}
@@ -170,7 +170,7 @@ $$
 
 ## 3. 그람-슈미트 과정
 
-**그람-슈미트 과정(Gram-Schmidt Process)**은 [기저(basis) 벡터](2022-05-29-linear_algebra_basis_dimension.md/#기저-벡터) $\{ \textbf{s}_{1}, \textbf{s}_{2}, \cdots, \textbf{s}_{n} \}$를 [직교 기저(orthogonal basis) 벡터](#직교-정규-직교-벡터-정규-직교-공간-정규화) $\{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
+**그람-슈미트 과정(Gram-Schmidt Process)**은 [기저(basis) 벡터](./2022-05-29-linear_algebra_basis_dimension.md/#기저-벡터) $\{ \textbf{s}_{1}, \textbf{s}_{2}, \cdots, \textbf{s}_{n} \}$를 [직교 기저(orthogonal basis) 벡터](#직교-정규-직교-벡터-정규-직교-공간-정규화) $\{ \textbf{u}_{1}, \textbf{u}_{2}, \cdots, \textbf{u}_{n} \}$로 변환하는 과정을 의미한다. 그람-슈미트 과정은 다음과 같은 단계로 진행 된다.  
 
 - 1) 기존 기저 벡터 $\textbf{s}_{1}$을 통해 새로운 직교 기저 벡터 $\textbf{u}_{1}$을 정의한다.
 
@@ -196,7 +196,7 @@ $$
 
 이 과정을 그림으로 표현하면 아래와 같다.  
 
-![Gram-Schmidt_orthonormalization_process](img/Gram-Schmidt_orthonormalization_process.gif){ loading=lazy }  
+![Gram-Schmidt_orthonormalization_process](./img/Gram-Schmidt_orthonormalization_process.gif){ loading=lazy }  
 ^[출처: 위키피디아 그람-슈미트 과정](https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%8C-%EC%8A%88%EB%AF%B8%ED%8A%B8_%EA%B3%BC%EC%A0%95)([영문](https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process))^
 
 앞서 구현한 함수들을 바탕으로 Python으로 구현하면 아래와 같다.  
@@ -301,9 +301,9 @@ $$
 
 ### 하우스홀더 행렬을 이용한 QR분해
 
-[하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다. 하우스홀더 행렬을 사용한 QR분해 방법은 다음과 같다.  
+[하우스홀더 행렬](./2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬)을 사용해서 구하는 방법도 있다. 그람-슈미트 방법과는 달리 부동소수점 연산에서도 오차가 누적되지 않기 때문에 더 많이 활용된다고 한다. 하우스홀더 행렬을 사용한 QR분해 방법은 다음과 같다.  
 
-- 1) 주어진 행렬 $A$를 통해 $\textbf{v}_{1}$를 구한다. 아래 식에서 $sign$은 벡터의 첫 스칼라의 부호로, 0 이상이면 $+$, 0 미만이면 $-$가 된다. $\textbf{e}_{1}$은 [기저 벡터](2022-05-29-linear_algebra_basis_dimension.md/#기저-벡터)를 말한다.  
+- 1) 주어진 행렬 $A$를 통해 $\textbf{v}_{1}$를 구한다. 아래 식에서 $sign$은 벡터의 첫 스칼라의 부호로, 0 이상이면 $+$, 0 미만이면 $-$가 된다. $\textbf{e}_{1}$은 [기저 벡터](./2022-05-29-linear_algebra_basis_dimension.md/#기저-벡터)를 말한다.  
 
 $$
 A_{1} = A = \begin{bmatrix}
@@ -333,7 +333,7 @@ a_{41}\end{bmatrix}, \quad
 \end{align*}
 $$
 
-- 2) 위에서 구한 $\textbf{v}_{1}$를 통해서 [하우스홀더 행렬](2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬)을 구한다.  
+- 2) 위에서 구한 $\textbf{v}_{1}$를 통해서 [하우스홀더 행렬](./2022-05-19-linear_algebra_various_matrix.md/#8-하우스홀더-행렬)을 구한다.  
 
 $$
 \begin{align*}
@@ -496,7 +496,7 @@ Python으로 구현하면 아래와 같다.
     q, r = linalg.qr(s)
     ```
 
-??? note "중간의 3중첩 [list comprehension](2022-05-30-list_comprehension.md) 풀이"
+??? note "중간의 3중첩 [list comprehension](./2022-05-30-list_comprehension.md) 풀이"
 
     ```python
     h_list = []

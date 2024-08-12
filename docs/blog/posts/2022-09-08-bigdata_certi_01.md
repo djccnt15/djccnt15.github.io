@@ -29,7 +29,7 @@ scipy
 xgboost
 ```
 
-`pip install` 명령어를 사용해서 각각의 패키지들을 설치해주자. Python 환경을 분리해야할 경우 [가상환경](2022-01-05-venv_guide.md)을 만들어서 작업하면 된다.  
+`pip install` 명령어를 사용해서 각각의 패키지들을 설치해주자. Python 환경을 분리해야할 경우 [가상환경](./2022-01-05-venv_guide.md)을 만들어서 작업하면 된다.  
 
 ## 작업형 제1유형 : 데이터 처리 영역
 
@@ -114,7 +114,7 @@ test = pd.read_csv('data/X_test.csv', encoding='euc-kr')
 ```
 
 !!! note
-    [인코딩 문제](2022-09-07-csv_encoding_02.md)가 있어서 `encoding='euc-kr'` 옵션을 추가했는데, 한국데이터산업진흥원에서 제공하는 체험 환경에서는 없어도 작동한다. 아마 시험 환경에서도 입력하지 않아도 될 듯하다.  
+    [인코딩 문제](./2022-09-07-csv_encoding_02.md)가 있어서 `encoding='euc-kr'` 옵션을 추가했는데, 한국데이터산업진흥원에서 제공하는 체험 환경에서는 없어도 작동한다. 아마 시험 환경에서도 입력하지 않아도 될 듯하다.  
 
 **EDA**
 
@@ -297,7 +297,7 @@ df['환불금액'].fillna(value=0, inplace=True)
 
 **정규화**
 
-정규화는 이상점의 영향을 적게 받는 Robust Scaling을 적용해주는게 무난하다. 자세한 설명은 [이 글](2022-07-11-data_scalers.md) 참고  
+정규화는 이상점의 영향을 적게 받는 Robust Scaling을 적용해주는게 무난하다. 자세한 설명은 [이 글](./2022-07-11-data_scalers.md) 참고  
 
 ```python
 import numpy as np

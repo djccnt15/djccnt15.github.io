@@ -9,6 +9,7 @@ categories:
     - Data Analysis
 tags:
     - pandas
+    - troubleshooting
 ---
 
 pandas read_csv 함수의 UnicodeDecodeError 해결하기  

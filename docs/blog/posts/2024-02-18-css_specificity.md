@@ -44,7 +44,7 @@ CSS 적용 우선순위는 MDN Web Docs의 [Specificity](https://developer.mozil
     ```
 
 1. Classes, pseudo-classes, attribute selectors
-    - 클래스, [가상 클래스](2024-02-11-css_selector.md/#가상-클래스-선택자), 속성 선택자로 지정한 경우
+    - 클래스, [가상 클래스](./2024-02-11-css_selector.md/#가상-클래스-선택자), 속성 선택자로 지정한 경우
 
     ```css
     .intro {
@@ -53,7 +53,7 @@ CSS 적용 우선순위는 MDN Web Docs의 [Specificity](https://developer.mozil
     ```
 
 1. Elements and pseudo-elements
-    - 태그, [가상 태그](2024-02-11-css_selector.md/#가상-태그-선택자)로 지정한 경우
+    - 태그, [가상 태그](./2024-02-11-css_selector.md/#가상-태그-선택자)로 지정한 경우
 
     ```css
     p {

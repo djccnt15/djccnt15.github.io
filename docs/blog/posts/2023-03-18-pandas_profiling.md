@@ -37,7 +37,7 @@ profile.to_file("your_report.html")
 
 대략 아래와 같은 보고서를 만들어준다.  
 
-![ydata_sample](img/ydata_sample.gif){ loading=lazy width=600 }  
+![ydata_sample](./img/ydata_sample.gif){ loading=lazy width=600 }  
 ^[출처: https://ydata-profiling.ydata.ai](https://ydata-profiling.ydata.ai/docs/master/pages/integrations/data_apps.html)^
 
 ---

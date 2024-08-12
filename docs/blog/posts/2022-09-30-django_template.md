@@ -129,9 +129,9 @@ urlpatterns = [
 
 admin 권한으로 샘플 데이터를 몇 개 생성한 후 확인해보면 결과물을 아래 화면과 같이 확인할 수 있다.  
 
-![django_template_01](img/django_template_01.png){ loading=lazy }
+![django_template_01](./img/django_template_01.png){ loading=lazy }
 
-![django_template_02](img/django_template_02.png){ loading=lazy }
+![django_template_02](./img/django_template_02.png){ loading=lazy }
 
 Django에서는 [Django 템플릿 언어](https://docs.djangoproject.com/en/4.1/ref/templates/language/)를 사용해서 템플릿을 작성한다. Jekyll에서 사용하는 [liquid](https://shopify.github.io/liquid/)와 별 차이는 없는 것 같다.  
 

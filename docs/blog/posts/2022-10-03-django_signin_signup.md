@@ -147,7 +147,7 @@ urlpatterns = [  # include() is a function for including url file in each app
 
 아래와 같은 화면으로 생성된다.  
 
-![django_login](img/django_login.png){ loading=lazy }
+![django_login](./img/django_login.png){ loading=lazy }
 
 ### 1-5. 리다이렉트 지정
 
@@ -352,7 +352,7 @@ urlpatterns = [
 
 아래와 같은 화면으로 생성된다.  
 
-![django_signup](img/django_signup.png){ loading=lazy }
+![django_signup](./img/django_signup.png){ loading=lazy }
 
 ## 4. 회원 탈퇴
 
@@ -468,7 +468,7 @@ urlpatterns = [
 
 아래와 같은 화면으로 생성된다.  
 
-![django_user_drop](img/django_user_drop.png){ loading=lazy }
+![django_user_drop](./img/django_user_drop.png){ loading=lazy }
 
 ---
 ## Reference

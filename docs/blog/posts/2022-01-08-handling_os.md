@@ -46,7 +46,7 @@ C:\projects
 
 ## 3. system()
 
-각종 system 명령어를 실행한다. 자주 쓰는 system 명령어는 [여기](2022-01-13-manual_cmd.md)서 확인할 수 있다.  
+각종 system 명령어를 실행한다. 자주 쓰는 system 명령어는 [여기](./2022-01-13-manual_cmd.md)서 확인할 수 있다.  
 예시로 코드를 중간에 잠시 일시 정지 시키고 싶을 때는 아래와 같이 하면 된다.  
 
 ```python

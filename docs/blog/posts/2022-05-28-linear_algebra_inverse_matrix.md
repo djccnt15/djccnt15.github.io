@@ -51,7 +51,7 @@ $$
 
 ### n * n 행렬의 역행렬
 
-n * n 행렬의 역행렬을 구하는 방법은 행렬식에서 다룬 [수반 행렬](2022-05-23-linear_algebra_determinant.md/#수반-행렬)을 사용해야 한다. 구하는 방법은 아래와 같다.  
+n * n 행렬의 역행렬을 구하는 방법은 행렬식에서 다룬 [수반 행렬](./2022-05-23-linear_algebra_determinant.md/#수반-행렬)을 사용해야 한다. 구하는 방법은 아래와 같다.  
 
 $$
 A^{-1} = \frac{\text{adj}(A)}{\det(A)}
@@ -59,7 +59,7 @@ $$
 
 ## 2. 역행렬 계산
 
-역행렬을 구하는 방법은 다양하지만, 앞서 다뤘던 [가우스-조르단 소거법(Gauss Jordan elimination)](2022-05-22-linear_algebra_linear_system.md/#가우스-조르단-소거법)을 사용하는 것이 가장 간편하다. 절차는 아래와 같다.  
+역행렬을 구하는 방법은 다양하지만, 앞서 다뤘던 [가우스-조르단 소거법(Gauss Jordan elimination)](./2022-05-22-linear_algebra_linear_system.md/#가우스-조르단-소거법)을 사용하는 것이 가장 간편하다. 절차는 아래와 같다.  
 
 - 행렬 $A$의 오른쪽에 같은 크기를 갖는 단위 행렬 $I$를 첨가해 아래와 같이 첨가 행렬 $[A \vert I]$를 만든다.  
 
@@ -71,7 +71,7 @@ $$
 \end{array} \right]
 $$
 
-- 이 행렬을 [기본 행 연산](2022-05-01-linear_algebra_vector_scalar.md/#기본-행-연산)을 통해 아래와 같이 $[I \vert B]$를 만든다.  
+- 이 행렬을 [기본 행 연산](./2022-05-01-linear_algebra_vector_scalar.md/#기본-행-연산)을 통해 아래와 같이 $[I \vert B]$를 만든다.  
 
 $$
 [I|B] = \left[ \begin{array}{ccc|ccc}

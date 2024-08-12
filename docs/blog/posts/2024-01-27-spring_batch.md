@@ -23,7 +23,7 @@ Spring Batch를 활용한 Java 배치 프로그램 만들기
 
 Spring Batch는 아래 구조로 구성되어 있다.  
 
-![Batch Stereotypes](img/spring-batch-reference-model.png){ loading=lazy }  
+![Batch Stereotypes](./img/spring-batch-reference-model.png){ loading=lazy }  
 ^[출처: The Domain Language of Batch](https://docs.spring.io/spring-batch/reference/domain.html)^
 
 ## 2. Spring Batch 주요 도메인
@@ -36,7 +36,7 @@ Spring Batch는 아래 구조로 구성되어 있다.
 - Step 정의 및 순서
 - 작업을 다시 시작할 수 있는지 여부
 
-![Job Hierarchy With Steps](img/spring-batch-jobHeirarchyWithSteps.png){ loading=lazy }  
+![Job Hierarchy With Steps](./img/spring-batch-jobHeirarchyWithSteps.png){ loading=lazy }  
 ^[출처: The Domain Language of Batch](https://docs.spring.io/spring-batch/reference/domain.html#step)^
 
 #### 2-1-1. JobInstance
@@ -69,7 +69,7 @@ Step은 배치 작업의 독립적이고 순차적인 단계를 캡슐화한 도
 
 입력 자원의 설정 및 실질적인 배치 작업 로직에 대한 모든 정보를 갖고 있는 도메인으로, Step의 동작 구조는 아래와 같다.  
 
-![Chunk-oriented Processing](img/spring-batch-chunk-oriented-processing-with-item-processor.png){ loading=lazy }  
+![Chunk-oriented Processing](./img/spring-batch-chunk-oriented-processing-with-item-processor.png){ loading=lazy }  
 ^[출처: Chunk-oriented Processing](https://docs.spring.io/spring-batch/reference/step/chunk-oriented-processing.html)^
 
 #### 2-2-1. StepExecution
