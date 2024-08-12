@@ -33,7 +33,7 @@ search:
 
 - :fontawesome-brands-markdown: [GitHub Pages 작성에 유용한 마크다운 팁 정리](../blog/posts/2022-01-04-blog_markdown.md)
 - :fontawesome-brands-python: [Python 가상환경 사용법](../blog/posts/2022-01-05-venv_guide.md)
-- :simple-windowsterminal: [Windows/Linux terminal의 유용한 명령어 모음](../blog/posts/2022-01-13-manual_cmd.md)
+- :octicons-terminal-16: [Windows/Linux terminal의 유용한 명령어 모음](../blog/posts/2022-01-13-manual_cmd.md)
 - :material-ip-network: [TCP 포트 사용 범위 제외 문제 해결](../blog/posts/2023-09-08-tcp_port_error.md)
 - :material-cog-off: [port 사용중인 프로세스 강제 종료 방법](../blog/posts/2024-01-03-netstat_taskkill.md)
 - :fontawesome-brands-python: [Python logging 모듈 사용법](../blog/posts/2023-09-21-python_logging.md)
