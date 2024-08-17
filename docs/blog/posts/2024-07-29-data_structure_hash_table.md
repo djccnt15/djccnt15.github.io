@@ -1,5 +1,5 @@
 ---
-slug: data-structure-array
+slug: data-structure-hash-table
 title: '[자료구조] 06. 해시 테이블'
 date:
     created: 2024-07-29
@@ -52,22 +52,22 @@ tags:
 Python으로 해시 테이블을 구현하면 아래와 같다.  
 
 ```python
-class Slot:
+class ReprMixin:
+    def __repr__(self) -> str:
+        attrs = ", ".join(f"{k}={v!r}" for k, v in vars(self).items())
+        return f"{self.__class__.__name__}({attrs})"
+
+
+class Slot(ReprMixin):
     def __init__(self, key, value) -> None:
         self.key = key
         self.value = value
 
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(key={self.key}, value={self.value})"
 
-
-class ChainingHashTable:
+class ChainingHashTable(ReprMixin):
     def __init__(self, *, size: int) -> None:
         self.table: list[list[Slot]] = [None for _ in range(size)]
         self.size = size
-
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(size={self.size}, table={self.table})"
 
     def hash_key(self, data):
         return data % self.size
