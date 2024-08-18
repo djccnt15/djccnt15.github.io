@@ -38,7 +38,7 @@ from collections.abc import Iterable
 X = TypeVar('X')
 
 
-class MyArray(Generic[X]):
+class Array(Generic[X]):
     """all elements must be same type"""
 
     def __init__(self, capacity: int = 256) -> None:

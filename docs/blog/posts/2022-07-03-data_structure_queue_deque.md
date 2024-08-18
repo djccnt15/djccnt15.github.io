@@ -39,7 +39,7 @@ tags:
 위 내용들을 고려하면서 Python으로 큐를 구현하면 아래와 같다.  
 
 ```python
-class MyQeueu:
+class Qeueu:
     """all elements must be same type"""
 
     def __init__(self, capacity: int = 256) -> None:
