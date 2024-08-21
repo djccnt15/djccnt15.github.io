@@ -21,7 +21,12 @@ class의 representation을 쉽게 만드는 방법
 
 두 함수 모두 객체를 `str` 형태로 변환하여 반환한다는 점은 동일하지만, 세부적인 부분에서 차이가 있다.  
 
-`str` 함수는 프로그램 사용자를 위한 문자열을 반환하기 때문에 일반 사용자가 보기 쉬운 형식으로 반환하지만, `repr` 함수는 개발자를 위한 문자열을 반환하기 때문에 `eval` 함수에 넣어졌을 때 동일한 객체를 생성할 수 있는 문자열을 반환한다.  
+- `str`
+    - 프로그램 사용자를 위한 문자열 반환
+    - 일반 사용자가 보기 쉬운 형식으로 반환
+- `repr`
+    - 개발자를 위한 문자열 반환
+    - `eval` 함수에 넣어졌을 때 동일한 객체를 생성할 수 있는 문자열을 반환
 
 이 차이는 `datetime` 객체를 `str` 함수와 `repr` 함수에 넣어보면 확실하게 확인할 수 있다.  
 
@@ -30,7 +35,7 @@ from datetime import datetime
 
 now = datetime.now().replace(microsecond=0)
 
-print(now)
+print(str(now))
 print(repr(now))
 ```
 ```
