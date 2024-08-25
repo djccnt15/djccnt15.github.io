@@ -38,7 +38,7 @@ tags:
 스택을 Python으로 구현하면 아래와 같다.  
 
 ```python
-class MyStack:
+class Stack:
     """all elements must be same type"""
 
     def __init__(self, capacity: int = 256) -> None:

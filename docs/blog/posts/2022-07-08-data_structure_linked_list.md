@@ -37,16 +37,22 @@ tags:
 Python으로 연결 리스트를 구현하면 아래와 같다.  
 
 ```python
-class MyNode:
-    def __init__(self, data = None, next = None) -> None:
+class ReprMixin:
+    def __repr__(self) -> str:
+        attrs = ", ".join(f"{k}={v!r}" for k, v in vars(self).items())
+        return f"{self.__class__.__name__}({attrs})"
+
+
+class Node(ReprMixin):
+    def __init__(self, data=None, next=None) -> None:
         self.data = data
         self._next = next
 
 
-class MyLinkedList:
+class LinkedList(ReprMixin):
 
     def __init__(self, data) -> None:
-        self._head: MyNode = MyNode(data)
+        self._head: Node = Node(data)
         self._no: int = 1 if data else 0
         self.ptr = None
 
@@ -69,35 +75,35 @@ class MyLinkedList:
             return data
 
     def all(self):
-        ptr: MyNode | None = self._head
+        ptr: Node | None = self._head
         res: list = []
         while ptr is not None:
             res.append(ptr.data)
-            ptr: MyNode | None = ptr._next
+            ptr: Node | None = ptr._next
         return res
 
     def append(self, data) -> None:
-        ptr: MyNode = self._head
+        ptr: Node = self._head
         if ptr.data is None:
-            self._head: MyNode = MyNode(data)
+            self._head: Node = Node(data)
             self._no += 1
         else:
             while ptr._next is not None:
-                ptr: MyNode = ptr._next
-            ptr._next = MyNode(data)
+                ptr: Node = ptr._next
+            ptr._next = Node(data)
             self._no += 1
 
     def get(self, index: int):
         ptr: int = 0
-        node: MyNode = self._head
+        node: Node = self._head
         while ptr < index:
             ptr += 1
             node = node._next
         return node.data
 
-    def get_node(self, index: int) -> MyNode:
+    def get_node(self, index: int) -> Node:
         ptr: int = 0
-        node: MyNode = self._head
+        node: Node = self._head
         while ptr < index:
             ptr += 1
             node = node._next
@@ -106,7 +112,7 @@ class MyLinkedList:
     def index(self, data):
         ptr: int = 0
         res: list = []
-        node: MyNode = self._head
+        node: Node = self._head
         for _ in range(self._no):
             if node.data == data:
                 res.append(ptr)
@@ -114,12 +120,12 @@ class MyLinkedList:
             ptr += 1
         return res if bool(res) is True else None
 
-    def insert(self, index:int, data) -> list:
-        new_node: MyNode = MyNode(data)
+    def insert(self, index: int, data) -> list:
+        new_node: Node = Node(data)
         if index == 0:
             new_node._next = self._head
             self._head = new_node
-        node: MyNode = self.get_node(index - 1)
+        node: Node = self.get_node(index - 1)
         next_node = node._next
         node._next = new_node
         new_node._next = next_node
@@ -129,14 +135,14 @@ class MyLinkedList:
     def remove(self, index: int) -> list:
         if index == 0:
             self._head = self._head._next
-        node: MyNode = self.get_node(index - 1)
+        node: Node = self.get_node(index - 1)
         node._next = node._next._next
         self._no -= 1
         return self.all()
 
-    def replace(self, index:int, data) -> list:
+    def replace(self, index: int, data) -> list:
         ptr: int = 0
-        node: MyNode = self._head
+        node: Node = self._head
         while ptr <= index:
             if ptr == index:
                 node.data = data
