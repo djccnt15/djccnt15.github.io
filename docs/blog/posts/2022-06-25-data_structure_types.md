@@ -44,7 +44,7 @@ tags:
 - 그래프(Graph)
     - 정점(vertex) 사이에 변(edge)이 있는 자료구조
     - 일방통행을 나타내는 Directed graph와 양방향 통행을 나타내는 Undirected graph가 있음
-- 트리(Tree)
+- [트리(Tree)](./2024-08-25-data_structure_tree.md)
     - 그래프가 계층적 구조를 가진 형태의 자료구조
     - 부모 노드와 자식 노드의 연결 구조로 구현
 
