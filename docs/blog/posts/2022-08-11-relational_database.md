@@ -76,7 +76,7 @@ DBMS의 구성 요소는 아래와 같다.
 **테이블(Table)**은 데이터를 저장하는 객체(Object)로, 관계형 데이터베이스의 기본 단위이다. 테이블의 열을 칼럼(Column), 가로 방향을 행(Row)이라고 하고, 열과 행이 겹치는 하나의 공간을 필드(Field)라고 한다.  
 
 !!! note
-    테이블을 분할하여 데이터의 불필요한 중복을 줄이는 것을 [정규화(Normalization)](./2022-08-07-database_normalization.md/#2-정규화)라고 한다. 정규화(Normalization)를 통해 데이터의 정합성을 확보하고, 데이터 입력/수정/삭제 시 발생할 수 있는 이상 현상(Anomaly)을 방지할 수 있다.  
+    테이블을 분할하여 데이터의 불필요한 중복을 줄이는 것을 [정규화(Normalization)](./2022-08-07-database_normalization.md/#2-정규화)라고 한다. 정규화(Normalization)를 통해 데이터의 정합성을 확보하고, 데이터 입력/수정/삭제 시 발생할 수 있는 이상현상(Anomaly)을 방지할 수 있다.  
 
 테이블의 각 행을 한 가지 의미로 특정할 수 있는 한 개 이상의 칼럼을 **기본키(Primary Key, PK)**라고 하며, 다른 테이블의 기본 키로 사용되면서 테이블과의 관계를 연결하는 역할을 하는 칼럼을 **외부키(Foreign Key, FK)**라고 한다.  
 
@@ -143,11 +143,11 @@ SELECT expression INTO table_name FROM table_name;
 
 - `PRIMARY KEY`(기본키)
     - 하나의 테이블에 하나의 기본키 제약만 정의할 수 있음
-    - 기본키 제약 = 고유키 제약 & NOT NULL
+    - 기본키 제약 = 고유키 제약 & `NOT NULL`
 - `UNIQUE KEY`(고유키)
-    - 기본키와 비슷하나 NULL은 제약 대상이 아님
+    - 기본키와 비슷하나 `NULL`은 제약 대상이 아님
 - `NOT NULL`
-    - NULL 값 입력 금지
+    - `NULL` 값 입력 금지
 - `CHECK`
     - TRUE/FALSE를 반환하는 논리식을 통해 입력값 제한
 - `FOREIGN KEY`(외래키)
