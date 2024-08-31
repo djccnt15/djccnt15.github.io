@@ -371,6 +371,27 @@ SELECT col + 'CHAR' FROM table_name;
 - 영구적인 변경을 하기 전에 데이터의 변경 사항 확인 가능
 - 논리적으로 연관된 작업을 그룹핑하여 처리 가능
 
+!!! note "데이터 무결성(Data Integrity)"
+    - 개체(Entity) 무결성
+        - 한 엔티티는 중복과 누락이 있을 수 없음
+        - 중복된 PK를 가질 수 없고, PK 속성은 `NULL`을 허용할 수 없음
+        - `Primary Key`, `Unique Index`
+    - 참조(도메인) 무결성
+        - 외래 키가 참조하는 다른 개체의 기본 키에 해당하는 값이 기본 키 값이나 `NULL`이어야 함
+        - `Foreign Key`
+        - 입력 참조 무결성: `DEPENDENT`, `AUTOMATIC`, `DEFAULT`, `NULL`
+        - 수정 참조 무결성: `RESTRICT`, `CASCADE`
+        - 삭제 참조 무결성: `RESTRICT`, `CASCADE`, `DEFAULT`, `NULL`
+    - 속성 무결성
+        - 기본값, `NULL` 여부, 도메인(데이터 타입, 길이 등)이 지정된 규칙을 준수해야함
+        - `CHECK`, `NULL`/`NOT NULL`, `DEFAULT`
+    - 사용자(의미) 무결성
+        - 사용자의 의미적 요구사항을 준수해야함
+        - `Trigger`, `User Defined Data Type`
+    - 키 무결성
+        - 한 릴레이션에 같은 키 값을 가진 튜플들은 허용되지 않음
+        - `UNIQUE`
+
 ### 4-2. TCL과 데이터 상태
 
 트랜잭션이 시작된 이후 `COMMIT`, `ROLLBACK` 이전의 데이터 상태는 다음과 같다.  
