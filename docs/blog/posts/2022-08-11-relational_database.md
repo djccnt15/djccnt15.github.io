@@ -10,7 +10,7 @@ categories:
 tags:
     - database
     - RDB
-    - SQL
+    - SQLD
 ---
 
 SQL 기본: 관계형 데이터베이스, DDL, DML, TCL, DCL  

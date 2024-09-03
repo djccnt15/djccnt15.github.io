@@ -10,7 +10,7 @@ categories:
 tags:
     - database
     - RDB
-    - SQL
+    - SQLD
 ---
 
 데이터 모델링의 이해: 데이터 모델의 이해  

@@ -10,7 +10,7 @@ categories:
 tags:
     - database
     - RDB
-    - SQL
+    - SQLD
 ---
 
 데이터 모델과 성능: 대량 데이터, 데이터베이스 구조, 분산 데이터베이스와 성능  
