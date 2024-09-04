@@ -107,4 +107,4 @@ sequenceDiagram
 
 !!! note
     과거에는 웹서버가 클라이언트의 요청을 접수한 후에 복잡한 로직을 처리하기 위해 Common Gateway Interface(CGI)를 통해 고급언어로 작성된 프로그램을 실행하고 출력 결과를 회신하였음  
-    그러나 가상 머신을 기반으로 실행되는 언어로 작성된 프로그램을 매 요청마다 새롭게 실행하는 것은 처리속도가 너무 느리기 때문에 해당 언어로 개발된 어플리케이션을 상시 실행해두는 Web Application Server(WAS), Web Server Gateway Interface(WSGI) 등의 방식이 개발됨  
+    그러나 가상 머신을 기반으로 실행되는 언어로 작성된 프로그램을 매 요청마다 새롭게 실행하는 것은 처리속도가 너무 느리기 때문에 해당 언어로 개발된 애플리케이션을 상시 실행해두는 Web Application Server(WAS), Web Server Gateway Interface(WSGI) 등의 방식이 개발됨  

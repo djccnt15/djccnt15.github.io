@@ -38,7 +38,7 @@ Python은 Django의 경우 자체적인 ORM 엔진을 사용하고, 그 외의 �
 
 ## 2. 데이터베이스 엔진 생성
 
-[엔진](https://docs.sqlalchemy.org/en/20/core/engines.html)은 SQLAlchemy 어플리케이션의 시작점으로, 아래 그림과 같이 [Connection Pool](https://docs.sqlalchemy.org/en/20/core/pooling.html#sqlalchemy.pool.Pool)과 [Dialect](https://docs.sqlalchemy.org/en/20/core/internals.html#sqlalchemy.engine.Dialect)를 연결하여 데이터베이스 연결 및 동작을 위한 소스를 생성해준다.  
+[엔진](https://docs.sqlalchemy.org/en/20/core/engines.html)은 SQLAlchemy 애플리케이션의 시작점으로, 아래 그림과 같이 [Connection Pool](https://docs.sqlalchemy.org/en/20/core/pooling.html#sqlalchemy.pool.Pool)과 [Dialect](https://docs.sqlalchemy.org/en/20/core/internals.html#sqlalchemy.engine.Dialect)를 연결하여 데이터베이스 연결 및 동작을 위한 소스를 생성해준다.  
 
 !!! note
     컨넥션 풀이란 데이터베이스에 접속하는 객체를 일정 갯수로 생성하여 재활용하며 사용하는 것을 말한다.  
