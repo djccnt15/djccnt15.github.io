@@ -96,6 +96,28 @@ pip cache purge
 pip install [package] --no-cache-dir
 ```
 
+## pip list
+
+간혹 너무 오래된 레거시 프로그램의 경우 `pip list`로 패키지 목록을 호출하면 아래와 같이 이상한 양식으로 표기되는 경우가 있다.  
+
+```
+Jinja2 (2.10)
+pandas (0.25.2)
+pip (9.0.1)
+pycrypto (2.6.1)
+PyMySQL (0.9.3)
+PyYAML (3.12)
+requests (2.23.0)
+setuptools (39.0.1)
+SQLAlchemy (1.3.10)
+```
+
+이 경우 아래와 같이 `format`을 지정해서 호출하면 정상적인 양식으로 출력된다.  
+
+```bat
+pip list --format=columns
+```
+
 ---
 ## Reference
 - [There was an error checking the latest version of pip](https://stackoverflow.com/questions/72439001/there-was-an-error-checking-the-latest-version-of-pip)
