@@ -22,7 +22,7 @@ SQLAlchemy와 Alembic을 활용해 Python code로 Entity ORM 객체를 만들고
 
 ## 1. SQLAlchemy를 활용한 DAO 구현
 
-SQLAlchemy는 Python에서 가장 많이 사용되는 ORM 패키지인데, 아래와 같이 선언적 매핑(Declarative Mapping)과 상속을 통해 매핑을 구현하도록 하고 있다.  
+SQLAlchemy는 Python에서 가장 많이 사용되는 ORM 패키지인데, 아래와 같이 [선언적 매핑(Declarative Mapping)](https://docs.sqlalchemy.org/en/20/orm/declarative_styles.html)과 상속을 통해 매핑을 구현하도록 하고 있다.  
 
 ```python
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
@@ -44,6 +44,8 @@ class User(Base):
 
 !!! info
     과거 버전의 SQLAlchemy는 `declarative_base()`라는 함수를 통해 기초 Entity 객체를 생성하도록 했지만, 현재 버전에서는 `DeclarativeBase` 객체를 사용하도록 대체되었다.  
+
+    > Changed in version 2.0: Note that the declarative_base() function is superseded by the new DeclarativeBase class, which generates a new “base” class using subclassing, rather than return value of a function. This allows an approach that is compatible with PEP 484 typing tools.  
 
 매핑 Entity에 속성을 부여하는 방법은 여러 가지가 있는데, 아래와 같이 추상 테이블 객체에 칼럼을 만들어두면, 해당 추상 테이블을 상속 받는 테이블들에는 해당 칼럼이 기본적으로 생성되게 된다.  
 
@@ -89,7 +91,7 @@ class UserEntity(BigintIdEntity):
 !!! warning
     위 예시처럼 칼럼 길이를 Enum으로 별도 관리할 때는 SQLAlchemy Entity에 입력할 때는 반드시 `.value` 까지 입력해서 값만 불러오도록 해야한다. Alembic이 Enum 객체를 제대로 인식하지 못해 revision 생성 시 칼럼 길이에 값 대신 Enum 객체를 입력해버리는 문제가 있다.  
 
-??? tip "Pydantic DTO에 Enum 활용 방법"
+!!! tip "Pydantic DTO에 Enum 활용 방법"
     DTO를 위해 Pydantic을 활용할 경우 아래와 같이 DTO `max_length` 속성에 엔티티의 Enum을 재사용하면 데이터베이스 Entity의 최대 길이와 DTO의 속성값의 길이 제한을 동시에 관리할 수 있어 편리하다.  
 
     ```python
