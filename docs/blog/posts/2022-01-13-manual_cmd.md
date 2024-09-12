@@ -32,7 +32,7 @@ help cls
 
 - Linux
 
-```bash
+```shell
 clear --help
 ```
 
@@ -57,7 +57,7 @@ type <file_name>
 
 - Linux
 
-```bash
+```shell
 cat <file_name>
 ```
 
@@ -81,7 +81,7 @@ less <file_name>
 
 command 라인 단축 명령어 설정 및 관리
 
-```bash
+```shell
 # 전체 alias 목록
 alias
 
@@ -92,15 +92,15 @@ alias <alias_name>='<command>'
 새로운 alias 영구 등록 방법
 
 1. `.bashrc` 파일 생성 및 편집
-    ```bash
+    ```shell
     vim ~/.bashrc
     ```
 1. `.bashrc` 파일에 명령어 등록
-    ```bash
+    ```shell
     alias <alias_name>='<command>'
     ```
 1. `.bashrc` 파일 실행
-    ```bash
+    ```shell
     source ~/.bashrc
     ```
 
@@ -116,7 +116,7 @@ where <app_name>
 
 - Linux
 
-```bash
+```shell
 # search application with first match in PATH option
 which <app_name>
 
@@ -146,7 +146,7 @@ d:
 
 아래는 Linux에서만 사용 가능한 사용팁들이다.  
 
-```bash
+```shell
 # home 디렉토리로 이동
 cd ~
 
@@ -181,7 +181,7 @@ dir /p/o:-ge
 
 - Linux
 
-```bash
+```shell
 ls
 
 # 권한 등 상세 정보 표시
@@ -200,7 +200,7 @@ cls
 
 - Linux
 
-```bash
+```shell
 clear
 ```
 
@@ -239,7 +239,7 @@ del <file_name>
 
 - Linux
 
-```bash
+```shell
 rm <file_name>
 
 # 하위 디렉토리 및 파일 모두 삭제  
@@ -265,7 +265,7 @@ robocopy <source> <destination>
 
 - Linux
 
-```bash
+```shell
 # 파일 복사
 cp <file_name> <destination>
 
@@ -285,13 +285,13 @@ tasklist
 
 - Linux
 
-```bash
+```shell
 ps
 ```
 
 다른 사용자가 실행한 모든 작업 목록 모두 확인
 
-```bash
+```shell
 ps -ef
 ```
 
@@ -307,7 +307,7 @@ taskkill /pid <PID> /f
 
 - Linux
 
-```bash
+```shell
 # 기본 설정, 애플리케이션에게 종료 요청
 kill -15 <PID>  # (1)!
 
@@ -330,7 +330,7 @@ copy con <file_name>
 
 - Linux
 
-```bash
+```shell
 > <file_name>
 
 touch <file_name>  # (1)!
@@ -352,7 +352,7 @@ ipconfig
 
 - Linux
 
-```bash
+```shell
 ifconfig
 ```
 

@@ -23,7 +23,7 @@ Git을 시작하기 위한 명령어들 정리: help, init, remote, status
 
 해당 명령어의 Manual Page를 열어준다.  
 
-```bash
+```shell
 git help <command>
 ```
 
@@ -31,7 +31,7 @@ git help <command>
 
 현재 폴더를 git 저장소로 구성  
 
-```bash
+```shell
 git init
 ```
 
@@ -39,7 +39,7 @@ git init
 
 원격 저장소를 관리하는 명령어로, 주요 옵션 및 부가명령어는 아래와 같다.  
 
-```bash
+```shell
 git remote -v
 ```
 ```
@@ -49,55 +49,55 @@ origin  https://github.com/djccnt15/djccnt15.github.io.git (push)
 
 - 원격 저장소 추가
 
-```bash
+```shell
 git remote add <name> <url>
 ```
 
 - 원격 저장소 업데이트
 
-```bash
+```shell
 git remote update
 ```
 
 - 원격 저장소 이름 수정
 
-```bash
+```shell
 git remote rename <old> <new>
 ```
 
 - 원격 저장소 삭제
 
-```bash
+```shell
 git remote remove <name>
 ```
 
 - 브랜치의 head 변경
 
-```bash
+```shell
 git remote set-head <name> <branch>
 ```
 
 - 원격 저장소 주소 변경
 
-```bash
+```shell
 git remote set-url <name> <newurl> [<oldurl>]
 ```
 
 - 원격 저장소 주소 추가
 
-```bash
+```shell
 git remote set-url --add <name> <newurl>
 ```
 
 - 원격 저장소 주소 삭제
 
-```bash
+```shell
 git remote set-url --delete <name> <url>
 ```
 
 - 원격 저장소의 존재하지 않는 브랜치 정리
 
-```bash
+```shell
 git remote prune <name>
 ```
 
@@ -115,6 +115,6 @@ git remote prune <name>
 
 working tree의 상태 출력  
 
-```bash
+```shell
 git status
 ```
