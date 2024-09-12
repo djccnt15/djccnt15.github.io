@@ -20,7 +20,7 @@ Windows/Linux terminal의 유용한 명령어 모음
 
 ## 1. 기본 사용 팁
 
-### 1-1. help/\-\-help
+### help/\-\-help
 
 명령어 설명 보기  
 
@@ -36,7 +36,7 @@ help cls
 clear --help
 ```
 
-### 1-2. esc/ctrl + u/k
+### esc/ctrl + u/k
 
 작성중이던 명령어 라인 전체 삭제  
 
@@ -45,9 +45,9 @@ Linux는 Windows의 `esc`에 대응하는 기능의 단축키가 없음
 - ++ctrl+u++ : 커서의 왼쪽 내용 삭제
 - ++ctrl+k++ : 커서의 오른쪽 내용 삭제
 
-### 1-3. type/cat
+### 파일 내용 출력
 
-파일의 내용 출력  
+파일의 내용 전체 출력  
 
 - Windows
 
@@ -61,17 +61,50 @@ type <file_name>
 cat <file_name>
 ```
 
-### 1-4. more
-
 파일 내용을 한 페이지씩 출력  
 
-```bash
+- Windows
+
+```bat
 more <file_name>
+```
+
+- Linux
+
+```shell
+less <file_name>
 ```
 
 ## 2. 작업용 명령어들
 
-### 2-1. where/which/find
+### alias
+
+command 라인 단축 명령어 설정 및 관리
+
+```bash
+# 전체 alias 목록
+alias
+
+# 새로운 alias 등록 - 터미널 종료 시 삭제
+alias <alias_name>='<command>'
+```
+
+새로운 alias 영구 등록 방법
+
+1. `.bashrc` 파일 생성 및 편집
+    ```bash
+    vim ~/.bashrc
+    ```
+1. `.bashrc` 파일에 명령어 등록
+    ```bash
+    alias <alias_name>='<command>'
+    ```
+1. `.bashrc` 파일 실행
+    ```bash
+    source ~/.bashrc
+    ```
+
+### where/which/find
 
 파일/애플리케이션의 위치 확인  
 
@@ -96,7 +129,7 @@ find <file_name>
 
 이 때 `which`는 `PATH`에서 해당 이름을 가진 첫 번째 애플리케이션만을 검색하기 때문에 모두 검색하고 싶다면 `-a` 옵션 필요  
 
-### 2-2. cd
+### cd
 
 change directory의 약자로, 작업중인 폴더 이동  
 
@@ -121,7 +154,7 @@ cd ~
 cd -
 ```
 
-### 2-3. dir/ls
+### dir/ls
 
 현재 디렉토리의 하위 폴더 및 파일을 보여주는 명령어, 와일드카드(*, ?) 사용 가능  
 
@@ -150,9 +183,12 @@ dir /p/o:-ge
 
 ```bash
 ls
+
+# 권한 등 상세 정보 표시
+ls -l
 ```
 
-### 2-4. cls/clear
+### cls/clear
 
 화면 정리
 
@@ -168,7 +204,7 @@ cls
 clear
 ```
 
-### 2-5. mkdir
+### mkdir
 
 디렉토리 만들기
 
@@ -176,7 +212,7 @@ clear
 mkdir <dir_name>
 ```
 
-### 2-6. rmdir
+### rmdir
 
 디렉토리 지우기. Windows에서만 사용 가능  
 
@@ -191,7 +227,7 @@ rmdir <dir_name>
 rmdir /s/q <dir_name>
 ```
 
-### 2-7. del/rm
+### del/rm
 
 파일 삭제  
 
@@ -210,7 +246,7 @@ rm <file_name>
 rm -rf <dir_name>
 ```
 
-### 2-8. copy/cp
+### copy/cp
 
 파일 및 디렉토리 복사 명령어
 
@@ -237,7 +273,7 @@ cp <file_name> <destination>
 cp -r <dir_name> <destination>
 ```
 
-### 2-9. tasklist/ps
+### tasklist/ps
 
 프로세스 리스트를 확인하는 명령어  
 
@@ -259,7 +295,7 @@ ps
 ps -ef
 ```
 
-### 2-10. taskkill/kill
+### taskkill/kill
 
 프로세스 종료 명령어  
 
@@ -281,7 +317,7 @@ kill -9 <PID>
 
 1. 애플리케이션이 해당 요청을 종료로 처리하지 않을 경우 효력 없음
 
-### 2-11. 파일 생성
+### 파일 생성
 
 - Windows
 
@@ -304,7 +340,7 @@ touch <file_name>  # (1)!
 
 ## 3. 네트워크 관련 명령어들
 
-### 3-1. ipconfig/ifconfig
+### ipconfig/ifconfig
 
 네트워크 연결 상태 확인
 
@@ -320,7 +356,7 @@ ipconfig
 ifconfig
 ```
 
-### 3-2. ping
+### ping
 
 특정 호스트와 통신이 가능한지 확인. 명령어는 같지만 옵션은 조금 다르다.  
 
@@ -335,7 +371,7 @@ ping <host_name>
 - Linux
     - `-c`: count 에코를 요청할 횟수 count 숫자로 지정. 이 옵션을 주지 않으면 무한대로 에코 요청
 
-### 3-3. ssh
+### ssh
 
 터미널을 통해 원격 서버에 ssh 연결하는 명령어
 
@@ -345,7 +381,7 @@ ssh [id]@[ip] -p [port]
 
 ## 4. 환경 관련 명령어들
 
-### 4-1. set
+### set
 
 cmd에서 환경 변수를 보여주는 명령어
 
@@ -365,7 +401,7 @@ set <x>
 set COMPUTERNAME
 ```
 
-### 4-2. tree
+### tree
 
 현재 경로의 폴더 구조를 tree 형식으로 보여준다. Windows에서만 사용 가능  
 
