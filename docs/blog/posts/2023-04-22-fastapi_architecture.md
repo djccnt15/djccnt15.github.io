@@ -63,7 +63,7 @@ uvicorn main:app --reload
 - `--port`
     - 포트 설정. 기본값은 8000
 - `--host`
-    - 호스트 설정. 어플리케이션을 로컬 네트워크에 바인드 하려면 `0.0.0.0`으로 설정
+    - 호스트 설정. 애플리케이션을 로컬 네트워크에 바인드 하려면 `0.0.0.0`으로 설정
 
 구동한 서버로 접속해보면 단 몇 줄의 짧은 코드로 아래와 같이 API가 생성된 것을 확인할 수 있다.  
 
@@ -91,7 +91,7 @@ FastAPI 기반 백엔드 서버의 전체적인 아키텍처는 아래와 같다
 
 #### CGI
 
-WSGI, ASGI에 대해 설명하려면 [CGI(Common Gateway Interface)](https://en.wikipedia.org/wiki/Common_Gateway_Interface)에 대해 먼저 설명해야 한다. 웹 서버는 클라이언트의 요청을 처리하기 위해 서버의 어플리케이션 프로그램을 호출하는데, 호출되는 어플리케이션들의 표준 인터페이스를 CGI라고 한다.  
+WSGI, ASGI에 대해 설명하려면 [CGI(Common Gateway Interface)](https://en.wikipedia.org/wiki/Common_Gateway_Interface)에 대해 먼저 설명해야 한다. 웹 서버는 클라이언트의 요청을 처리하기 위해 서버의 애플리케이션 프로그램을 호출하는데, 호출되는 애플리케이션들의 표준 인터페이스를 CGI라고 한다.  
 
 - HTTP 요청 예시
 
@@ -101,14 +101,14 @@ GET /home.html HTTP/1.1
 
 CGI는 요청이 들어올 때마다 애플리케이션 프로세스 전체를 다시 처음부터 실행하기 때문에, Python과 같은 인터프리터 언어에서는 이 과정에서 프로세스의 실행이 느려진다는 단점이 있어 이를 보완하기 위해 WSGI라는 미들웨어를 도입하게 되었다.  
 
-Python으로 CGI 웹어플리케이션을 개발하려면 [cgi 모듈](https://docs.python.org/3/library/cgi.html)을 사용하고 개발한 어플리케이션을 웹서버에 직접 등록하면 되는데, 자세한 방법은 생활코딩님의 [WEB2 Python](https://youtube.com/playlist?list=PLuHgQVnccGMDMxfZEpLbzHPZUEwObEaZq) 수업에 잘 정리되어 있다.  
+Python으로 CGI 웹애플리케이션을 개발하려면 [cgi 모듈](https://docs.python.org/3/library/cgi.html)을 사용하고 개발한 애플리케이션을 웹서버에 직접 등록하면 되는데, 자세한 방법은 생활코딩님의 [WEB2 Python](https://youtube.com/playlist?list=PLuHgQVnccGMDMxfZEpLbzHPZUEwObEaZq) 수업에 잘 정리되어 있다.  
 
 !!! info
     참고로 Python의 [cgi 라이브러리](https://docs.python.org/3/library/cgi.html)는 Python 3.11 부터 deprecate 되었고, 3.13에서 완전히 제거될 예정이기 때문에 더이상 사용할 수 없다. 앞으로는 최소한 [wsgiref 라이브러리](https://docs.python.org/3/library/wsgiref.html)를 사용해야 한다.  
 
 #### WSGI
 
-[WSGI(Web Server Gateway Interface)](https://wsgi.readthedocs.io/)는 Python으로 개발된 어플리케이션 서버와 웹 서버가 통신하고 어플리케이션 서버가 웹 서버의 요청을 처리하기 위한 인터페이스로, WSGI 표준은 [PEP 3333](https://peps.python.org/pep-3333/)에 정의되어 있다.  
+[WSGI(Web Server Gateway Interface)](https://wsgi.readthedocs.io/)는 Python으로 개발된 애플리케이션 서버와 웹 서버가 통신하고 애플리케이션 서버가 웹 서버의 요청을 처리하기 위한 인터페이스로, WSGI 표준은 [PEP 3333](https://peps.python.org/pep-3333/)에 정의되어 있다.  
 
 WSGI의 핵심은 웹 서버와 Python 스크립트를 분리하여 Python 스크립트를 프로세스로 미리 실행시켜두고, 웹 서버가 클라이언트의 요청을 받아서 스크립트에 전달했을 때, 스크립트는 필요한 로직 하나만 실행한 후 결과를 응답함으로써 동적인 콘텐츠에 대한 요청에 빠르게 응답할 수 있게 한 것이다.  
 
@@ -130,9 +130,9 @@ Uvicorn의 [공식 문서](https://www.uvicorn.org/settings/#implementation)에 
 
 ### 2-4. Starlette, FastAPI
 
-[Starlette](https://www.starlette.io/)는 경량 ASGI 프레임워크로, Python 기반의 비동기 웹 어플리케이션을 개발하기에 최적화된 웹 프레임워크이고, [FastAPI](https://fastapi.tiangolo.com/) [공식 문서](https://fastapi.tiangolo.com/features/#starlette-features)는 FastAPI가 Starlette의 sub-class라고 밝히고 있다.  
+[Starlette](https://www.starlette.io/)는 경량 ASGI 프레임워크로, Python 기반의 비동기 웹 애플리케이션을 개발하기에 최적화된 웹 프레임워크이고, [FastAPI](https://fastapi.tiangolo.com/) [공식 문서](https://fastapi.tiangolo.com/features/#starlette-features)는 FastAPI가 Starlette의 sub-class라고 밝히고 있다.  
 
-FastAPI는 Django, Flask, Sanic과 같은 웹 프레임워크로, 브라우저의 요청이 웹 서버와 WSGI, ASGI를 통해 전달되면 해당 요청을 서버 어플리케이션에 코딩된 로직에 따라 작업하고 결과를 반환한다.  
+FastAPI는 Django, Flask, Sanic과 같은 웹 프레임워크로, 브라우저의 요청이 웹 서버와 WSGI, ASGI를 통해 전달되면 해당 요청을 서버 애플리케이션에 코딩된 로직에 따라 작업하고 결과를 반환한다.  
 
 ---
 ## Reference

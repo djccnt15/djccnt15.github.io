@@ -23,7 +23,7 @@ Git 원격 저장소에서 파일을 가져오기 위한 명령어들 정리: fe
 
 원격 저장소의 내용을 다운로드  
 
-```bash
+```shell
 git fetch <repository>
 ```
 
@@ -34,7 +34,7 @@ git fetch <repository>
 
 원격 저장소의 내용을 가져와서 현재 브랜치와 병합(merge)  
 
-```bash
+```shell
 git pull <repository> <branch>
 ```
 
@@ -42,11 +42,11 @@ git pull <repository> <branch>
 
 원격 저장소를 로컬 저장소로 복제  
 
-```bash
+```shell
 git clone <url>
 ```
 
-```bash
+```shell
 git clone <url> <directory>
 ```
 
@@ -55,6 +55,6 @@ git clone <url> <directory>
 
 특정 브랜치만 클론  
 
-```bash
+```shell
 git clone -b <branch> --single-branch <repository>
 ```

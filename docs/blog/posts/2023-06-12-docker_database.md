@@ -6,7 +6,7 @@ date:
 description: >
     도커를 활용해서 데이터베이스 간단 설치하는 방법
 categories:
-    - Server Engineering
+    - Data Engineering
 tags:
     - database
     - RDB

@@ -10,7 +10,7 @@ categories:
 tags:
     - database
     - RDB
-    - SQL
+    - SQLD
 ---
 
 데이터 모델링의 이해: 엔티티, 속성, 관계, 식별자  
@@ -203,7 +203,7 @@ tags:
 - 단일 속성으로 식별 여부
     - 단일식별자(Single Identifier), 복합식별자(Composit Identifier)
 - 대체 여부
-    - 본질식별자, 인조식별자
+    - 본질식별자(원조식별자), 인조식별자(대리식별자)
 
 ### 4-4. 주식별자 도출 기준
 

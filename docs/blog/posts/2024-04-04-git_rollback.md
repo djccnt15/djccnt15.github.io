@@ -25,7 +25,7 @@ Git을 사용해서 과거 코드 이력으로 되돌리는 방법
 
 아래와 같이 `--detach` 옵션을 사용하면 **과거 특정 커밋 상태인 코드를 보기 위한 이동 개념**으로 detached HEAD 상태를 만들어 저장 상태를 변경하지 않고 코드를 일시적으로 되돌릴 수 있다.  
 
-```bash
+```shell
 git switch --detach <commit>
 ```
 
@@ -39,11 +39,11 @@ git switch --detach <commit>
 
 [`restore`](./2022-01-17-git_tips.md/#restore) 명령어는 삭제한 파일을 되살리는 명령어인데, 아래와 같이 `-s`, `--sorce` 옵션과 함께 사용하면 특정 커밋에서 해당 파일의 내용을 되살릴 수 있다.  
 
-```bash
+```shell
 git restore --s <commit> <file>
 ```
 
-```bash
+```shell
 git restore --source=<commit> <file>
 ```
 
@@ -54,7 +54,7 @@ git restore --source=<commit> <file>
 
 [`reset`](./2022-01-17-git_tips.md/#reset) 명령어는 현재의 HEAD를 특정 상태로 되돌리는 명령어인데, 아래와 같이 특정 커밋의 특정 파일에 대해서도 지정할 수 있다.  
 
-```bash
+```shell
 git reset <commit> <file>
 ```
 
@@ -64,28 +64,28 @@ git reset <commit> <file>
 !!! warning
     `reset` 명령어를 사용해서 되돌릴 경우 **커밋 이력이 삭제**된다.  
 
-## 💡revert
+## revert
 
 `revert` 명령어를 사용하면 특정 커밋의 내용을 되돌리는 새로운 커밋을 생성한다. 새로운 커밋을 생성하기 때문에 커밋 이력을 삭제하지 않는다는 장점이 있다.  
 
-```bash
+```shell
 git revert <commit>
 ```
 
 아래와 같이 `--no-commit` 옵션을 사용하면 커밋을 자동 실행하지 않는다.  
 
-```bash
+```shell
 git revert --no-commit <commit>
 ```
 
 여러 커밋을 한 번에 되돌리려면 아래와 같이 `..`으로 범위를 지정해주면 된다.  
 
-```bash
+```shell
 git revert -n <start-commit>..<finish-commit>
 ```
 
 아래와 같이 마지막 범위를 지정하지 않을 경우 HEAD가 마지막 범위로 자동 지정된다.  
 
-```bash
+```shell
 git revert -n <start-commit>..
 ```

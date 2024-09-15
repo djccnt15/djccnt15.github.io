@@ -10,7 +10,7 @@ categories:
 tags:
     - database
     - RDB
-    - SQL
+    - SQLD
 ---
 
 SQL 활용: 계층형 질의, 셀프 조인  

@@ -10,7 +10,7 @@ categories:
 tags:
     - database
     - RDB
-    - SQL
+    - SQLD
 ---
 
 SQL 활용: 그룹 함수, 윈도우 함수  

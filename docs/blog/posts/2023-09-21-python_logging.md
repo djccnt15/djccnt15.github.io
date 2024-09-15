@@ -468,7 +468,7 @@ log_listener = QueueListener(
 
 1. 멀티프로세싱 환경에서 QueueHandler를 사용할 경우 [multiprocessing.Queue](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue)를 사용해야 한다.  
 
-실제 어플리케이션에서의 로그 활용  
+실제 애플리케이션에서의 로그 활용  
 
 ```python title="main.py"
 from src.log import log_listener, logger
@@ -586,7 +586,7 @@ if __name__ == "__main__":
 !!! tip
     3.12 버전부터는 `QueueHandler`에 로그 Queue를 자동으로 주입받고, `QueueListener` 역시 `dictConfig`를 통해 `handlers`를 주입받을 수 있도록 하는 내부적인 변경이 생겨 `dictConfig`를 통해 `QueueHandler`도 쉽게 다룰 수 있게 되었다.  
 
-`log_config.json`에서 입력받은 로그 설정을 어플리케이션에 주입하기 위한 코드  
+`log_config.json`에서 입력받은 로그 설정을 애플리케이션에 주입하기 위한 코드  
 
 ```python title="src/log/__init__.py"
 import atexit
@@ -624,7 +624,7 @@ def set_logger():
         )
 ```
 
-실제 어플리케이션에서의 로그 활용  
+실제 애플리케이션에서의 로그 활용  
 
 ```python title="main.py"
 from src.log import log_listener, logger
