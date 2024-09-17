@@ -410,7 +410,7 @@ stream_handler.setFormatter(fmt=simple_formatter)
 # TimedRotatingFileHandler
 file_handler = TimedRotatingFileHandler(
     filename=log_dir / "app.log",
-    when="midnight",  # rotate every midnight
+    when="midnight",  # rotate at every midnight
     backupCount=3,  # define number of log files, 0 to save all log files
     encoding="utf-8",
 )
@@ -784,7 +784,7 @@ formatter = logging.Formatter(
 # TimedRotatingFileHandler
 file_handler = TimedRotatingFileHandler(
     filename=log_dir / "debug_log.log",
-    when="midnight",  # rotate every midnight
+    when="midnight",  # rotate at every midnight
     backupCount=3,  # define number of log files, 0 to save all log files
     encoding="utf-8",
 )
