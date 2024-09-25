@@ -1,10 +1,10 @@
 ---
 slug: calculate-time
-title: calculate time
+title: 수행 시간 측정 방법
 date:
     created: 2022-01-08
 description: >
-    Python 코드의 실행시간을 측정하는 방법
+    Python 코드의 수행 시간을 측정하는 방법
 categories:
     - Python
 tags:
@@ -12,15 +12,15 @@ tags:
     - datetime
 ---
 
-Python 코드의 실행시간을 측정하는 방법  
+Python 코드의 수행 시간을 측정하는 방법  
 
 <!-- more -->
 
 ---
 
-## 1. time 사용
+## 1. 기초
 
-Python 내장 모듈 `time`을 활용해서 코드의 전체 또는 일부의 런타임을 잴 수 있다.  
+아래와 같이 Python 내장 모듈 `time`, `datetime`을 활용해서 코드의 전체 또는 일부의 수행 시간을 잴 수 있다.  
 
 ```python
 import time
@@ -31,10 +31,6 @@ time_start = time.time()
 runtime = time.time() - time_start
 print(f"run time: {runtime:.3f}")
 ```
-
-## 2. datetime 사용
-
-Python 내장 모듈 `datetime`을 사용하면 날짜 변경으로 인한 계산 오류 등을 예방할 수 있다. 나는 로그를 남기는 코드에서는 import를 하나 줄일 수 있다는 점 때문에 이 방식을 더 선호한다.  
 
 ```python
 from datetime import datetime
@@ -48,13 +44,17 @@ time_end = datetime.now().replace(microsecond=0)
 print(time_end - time_start)
 ```
 
-## 3. 💡with 사용
+!!! tip
+    `datetime`을 사용하면 날짜 변경으로 인한 계산 오류를 예방할 수 있다.  
 
-아래와 같이 `with` 문법을 통해 특정 구간의 실행 시간을 간편하게 측정할 수 있다. 자세한 내용은 [with 문법 심화 활용 포스팅](./2023-11-25-understanding_with.md) 참고  
+## 2. 활용
 
-```python
+### 2-1. with 사용
+
+아래와 같이 `with` 문법을 통해 특정 구간의 수행 시간을 간편하게 측정할 수 있다. 자세한 내용은 [with 문법 심화 활용 포스팅](./2023-11-25-understanding_with.md) 참고  
+
+```python title="utils.py"
 import contextlib
-import time
 from datetime import datetime
 
 
@@ -65,6 +65,11 @@ def cal_time(msg):
     t1 = datetime.now()
     print(f"{msg}: {t1 - t0}")
 
+```
+```python title="utils.py"
+import time
+
+from utils import cal_time
 
 with cal_time("test"):
     time.sleep(1)
@@ -73,9 +78,62 @@ with cal_time("test"):
 test: 0:00:01.013775
 ```
 
-## 4. timeit 사용
+### 2-2. 💡데코레이터 사용
 
-Python의 표준 라이브러리 중 `timeit` 패키지를 사용하면 코드의 실행 시간을 측정할 수 있다.  
+아래와 같이 데코레이터를 만들어 사용하면 특정 함수의 수행 시간을 간편하게 측정할 수 있다.  
+
+```python title="utils.py"
+from collections.abc import Callable
+from datetime import datetime
+from functools import wraps
+
+
+def elapse(msg: str = "LOG"):
+    def decorator(func: Callable):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            t0 = datetime.now()
+            result = func(*args, **kwargs)
+            t1 = datetime.now()
+            print(f"{msg} - elapsed time: {t1 - t0}")
+            return result
+
+        return wrapper
+
+    return decorator
+```
+```python title="main.py"
+import time
+
+from utils import elapse
+
+
+@elapse(msg="main")
+def main():
+    "main function"
+    time.sleep(1)
+
+
+if __name__ == "__main__":
+    main()
+    print(main.__doc__)
+    print(main.__name__)
+```
+```
+main - elapsed time: 0:00:01.013221
+main function
+main
+```
+
+## 3. timeit 사용
+
+Python의 표준 라이브러리 중 `timeit` 패키지를 사용하면 코드의 수행 시간을 측정할 수 있다. Python에서 자체적인 표준으로 제공한는 기능인 만큼 가장 정확하게 측정할 수 있는 기능을 제공한다.  
+
+`timeit` 라이브러리의 기능 중에는 `timeit.timeit`, `timeit.repeat` 함수를 가장 자주 사용하는데, `timeit.timeit`의 주요 파라미터와 활용 예시는 아래와 같다.  
+
+- `stmt`: 실제로 수행 시간을 측정할 코드
+- `setup`: `stmt`를 실행하기 위해 필요한 코드, `setup` 구문의 코드 실행 시간은 측정에서 제외됨
+- `number`: `stmt` 수행 횟수, 기본값은 `1,000,000`으로 지정되어 있음
 
 ```python
 import timeit
