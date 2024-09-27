@@ -95,4 +95,4 @@ WHERE alias_1.col_name = alias_2.col_name;
 
 ---
 ## Reference
-- [계층형 질의와 셀프 조인](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=348)
+- [DATA ON-AIR - 계층형 질의와 셀프 조인](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=348)

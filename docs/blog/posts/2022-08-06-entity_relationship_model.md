@@ -229,7 +229,7 @@ tags:
 
 ---
 ## Reference
-- [엔터티](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=326)
-- [속성](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=327)
-- [관계](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=328)
-- [식별자](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=329)
+- [DATA ON-AIR - 엔터티](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=326)
+- [DATA ON-AIR - 속성](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=327)
+- [DATA ON-AIR - 관계](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=328)
+- [DATA ON-AIR - 식별자](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=329)

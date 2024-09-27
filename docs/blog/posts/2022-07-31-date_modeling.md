@@ -127,4 +127,4 @@ ERD(Entity Relationship Diagram)는 각 업무분석에서 도출된 엔티티�
 
 ---
 ## Reference
-- [데이터 모델의 이해](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=330)
+- [DATA ON-AIR - 데이터 모델의 이해](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=330)

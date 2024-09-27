@@ -101,5 +101,5 @@ MSSQL에서는 지원하지 않고, Oracle에서만 지원한다.
 
 ---
 ## Reference
-- [그룹 함수](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=350)
-- [윈도우 함수](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=351)
+- [DATA ON-AIR - 그룹 함수](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=350)
+- [DATA ON-AIR - 윈도우 함수](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=351)

@@ -185,7 +185,7 @@ ALTER TABLE table_name DROP COLUMN col_name;
 
 ```sql
 -- Oracle
-ALTER TABLE table_name MODIFY (col_name_1 datatype dafault_value NOT NULL, col_name_2 datatype …);
+ALTER TABLE table_name MODIFY (col_name_1 datatype dafault_value NOT NULL, col_name_2 datatype ...);
 
 -- MSSQL
 ALTER TABLE table_name ALTER col_name datatype dafault_value NOT NULL;
@@ -559,8 +559,8 @@ MSSQL에서는 `ROLE`을 직접 생성하는 방법 보다는 기본 제공하�
 
 ---
 ## Reference
-- [관계형 데이터베이스 개요](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=337)
-- [DDL](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=338)
-- [DML](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=339)
-- [TCL](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=340)
-- [DCL](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=352)
+- [DATA ON-AIR - 관계형 데이터베이스 개요](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=337)
+- [DATA ON-AIR - DDL](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=338)
+- [DATA ON-AIR - DML](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=339)
+- [DATA ON-AIR - TCL](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=340)
+- [DATA ON-AIR - DCL](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=352)

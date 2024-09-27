@@ -55,6 +55,9 @@ sequenceDiagram
 HTTP 통신을 위해 TCP 헤더에 있는 SYN, ACK 비트를 통해 연결을 확인하는 과정을 **3-way handshake**라고 함
 
 ```mermaid
+---
+title: 3-way handshake
+---
 sequenceDiagram
     Client ->> Server : SYN
     Server ->> Client : SYN-ACK
@@ -66,16 +69,25 @@ sequenceDiagram
 HTTPS 통신을 위해서는 보안 절차(HTTP Secure)가 포함된 **SSL handshake** 절차를 진행해야 함
 
 ```mermaid
+---
+title: SSL handshake
+---
 sequenceDiagram
     Client ->> Server : Client Hello
     Server ->> Client : Server Hello
     Server ->> Client : Certificate
     Server ->> Client : Server Key Exchange
-    Server ->> Client : (optional) Certificate Request
+    opt
+        Server ->> Client : Certificate Request
+    end
     Server ->> Client : Server Hello Done
-    Client ->> Server : (optional) Certificate
+    opt
+        Client ->> Server : Certificate
+    end
     Client ->> Server : Client Key Exchange
-    Client ->> Server : (optional) Certificate Verify
+    opt
+        Client ->> Server : Certificate Verify
+    end
     Client ->> Server : Change Cipher spec
     Client ->> Server : Finished
     Server ->> Client : Change Cipher spec

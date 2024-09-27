@@ -339,7 +339,7 @@ ORDER BY expression ASC/DESC expression2; -- 6
 
 ---
 ## Reference
-- [WHERE 절](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=341)
-- [함수(FUNCTION)](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=342)
-- [GROUP BY, HAVING 절](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=343)
-- [ORDER BY 절](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=344)
+- [DATA ON-AIR - WHERE 절](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=341)
+- [DATA ON-AIR - 함수(FUNCTION)](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=342)
+- [DATA ON-AIR - GROUP BY, HAVING 절](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=343)
+- [DATA ON-AIR - ORDER BY 절](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=344)

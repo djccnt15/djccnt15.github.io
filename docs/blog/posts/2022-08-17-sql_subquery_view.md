@@ -109,4 +109,4 @@ DROP VIEW alias;
 
 ---
 ## Reference
-- [서브쿼리](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=349)
+- [DATA ON-AIR - 서브쿼리](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=349)
