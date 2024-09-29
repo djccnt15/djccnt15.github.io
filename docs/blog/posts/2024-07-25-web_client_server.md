@@ -60,8 +60,11 @@ title: 3-way handshake
 ---
 sequenceDiagram
     Client ->> Server : SYN
+    Note right of Server : TCP 헤더에 SYN 플래그 지정한 세그먼트 발송
     Server ->> Client : SYN-ACK
+    Note right of Server : 연결 수락 시 SYN과 ACK 플래그 지정 세그먼트 발송
     Client ->> Server : ACK
+    Note right of Server : 연결 수락 세그먼트 수신 확인
     Client ->> Server : HTTP request
     Server ->> Client : HTTP response
 ```
@@ -74,8 +77,11 @@ title: SSL handshake
 ---
 sequenceDiagram
     Client ->> Server : Client Hello
+    Note right of Server : 사용할 암호화 알고리즘 목록(cipher sweet)과 난수, 세션 ID 등을 전송
     Server ->> Client : Server Hello
+    Note right of Server : 암호화 알고리즘 중 사용할 알고리즘 선택 결과, 난수, 세션 ID 등을 전송
     Server ->> Client : Certificate
+    Note right of Server : 인증서를 전송하며 암호화에 사용할 공개키 전송
     Server ->> Client : Server Key Exchange
     opt
         Server ->> Client : Certificate Request
@@ -95,10 +101,6 @@ sequenceDiagram
     Client ->> Server : HTTPS request
     Server ->> Client : HTTPS response
 ```
-
-- Client Hello: 사용할 암호화 알고리즘 목록(cipher sweet)과 난수, 세션 ID 등을 전송
-- Server Hello: 암호화 알고리즘 중 사용할 알고리즘 선택 결과, 난수, 세션 ID 등을 전송
-- Certificate: 인증서를 전송하며 암호화에 사용할 공개키 전송
 
 ## 3. Web Server/WAS
 
