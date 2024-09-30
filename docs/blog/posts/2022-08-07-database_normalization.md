@@ -151,6 +151,6 @@ tags:
 
 ---
 ## Reference
-- [성능 데이터 모델링의 개요](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=331)
-- [정규화와 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=332)
-- [반정규화와 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=333)
+- [DATA ON-AIR - 성능 데이터 모델링의 개요](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=331)
+- [DATA ON-AIR - 정규화와 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=332)
+- [DATA ON-AIR - 반정규화와 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=333)

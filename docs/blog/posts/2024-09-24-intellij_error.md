@@ -36,3 +36,17 @@ tasks.named('test') {
     jvmArgs '-Xshare:off'
 }
 ```
+
+## 콘솔 한글 깨짐
+
+1. IntelliJ 설정
+    - File -> Settings -> Editor -> File Encodings
+    - Global Encodings, Project Encoding, Properties Files를 `UTF-8`로 설정
+2. VM Options 설정
+    - Help -> Edit Custom VM Options
+    - 아래 내용 추가
+
+        ```ini
+        -Dfile.encoding=UTF-8
+        -Dconsole.encoding=UTF-8
+        ```

@@ -23,7 +23,7 @@ tags:
 DB의 COLLATE가 유니코드를 지원하지 않을 때 테이블에 한글 값 `INSERT`시 `??`로 입력된다. 이 경우 아래와 같이 N을 붙여서 입력하면 정상 작동한다.  
 
 ```sql
-UPDATE tb_name
+UPDATE <tb_name>
 SET 
     col_name_1 = N'value_1',
     col_name_2 = N'value_2'
@@ -33,7 +33,7 @@ WHERE
 ```
 
 ```sql
-INSERT INTO tb_name (col_name_1, col_name_2, col_name_3)
+INSERT INTO <tb_name> (col_name_1, col_name_2, col_name_3)
 values (N'value_1', N'value_2', N'value_3')
 ;
 ```

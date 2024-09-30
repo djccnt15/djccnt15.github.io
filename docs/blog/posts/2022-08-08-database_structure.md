@@ -186,6 +186,6 @@ PK/FK 설계는 데이터를 접근할 때 경로를 제공하는 측면에서 �
 
 ---
 ## Reference
-- [대량 데이터에 따른 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=334)
-- [데이터베이스 구조와 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=335)
-- [분산 데이터베이스와 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=336)
+- [DATA ON-AIR - 대량 데이터에 따른 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=5&mod=document&uid=334)
+- [DATA ON-AIR - 데이터베이스 구조와 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=335)
+- [DATA ON-AIR - 분산 데이터베이스와 성능](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=4&mod=document&uid=336)

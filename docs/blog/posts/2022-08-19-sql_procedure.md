@@ -159,4 +159,4 @@ DROP PROCEDURE schema_name.procedure_name;
 
 ---
 ## Reference
-- [절차형 SQL](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=353)
+- [DATA ON-AIR - 절차형 SQL](https://dataonair.or.kr/db-tech-reference/d-guide/sql/?pageid=3&mod=document&uid=353)
