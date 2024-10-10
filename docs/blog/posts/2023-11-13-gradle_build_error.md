@@ -20,7 +20,7 @@ Gradle 빌드 에러 해결 기록들
 
 ---
 
-## Gradle 빌드 에러
+## Could not resolve all files
 
 Java 개발 프로젝트 세팅 중에 아래와 같은 에러가 발생했다.  
 
@@ -60,8 +60,6 @@ A problem occurred configuring root project 'my_project'.
                   - Doesn't say anything about its elements (required them packaged as a jar)
                   - Doesn't say anything about org.gradle.plugin.api-version (required '8.4')
 ```
-
-## 해결
 
 프로젝트에 사용된 Java 버전과 Gradle의 자바 버전이 달라서 발생한 에러로, IntelliJ의 경우 아래 경로에서 Gradle 버전을 프로젝트에 맞게 변경해주면 해결된다.  
 
