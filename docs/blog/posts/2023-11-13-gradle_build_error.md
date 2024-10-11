@@ -64,3 +64,20 @@ A problem occurred configuring root project 'my_project'.
 프로젝트에 사용된 Java 버전과 Gradle의 자바 버전이 달라서 발생한 에러로, IntelliJ의 경우 아래 경로에서 Gradle 버전을 프로젝트에 맞게 변경해주면 해결된다.  
 
 - File -> Settings -> Build -> Build Tool -> Gradle -> Gradle JVM
+
+## package does not exist
+
+MSA 아키텍처 구성을 위해 Gradle로 멀티 모듈 프로젝트를 구성해서 스프링부트 애플리케이션끼리 compile 의존 관계를 만들어 사용할 때, 물리적으로 존재하고 IntelliJ의 Gradle dependency에 인식은 되는데 IDE에서 Gradle task를 수행하면 다음과 같은 에러가 발생하는 경우가 있다.  
+
+```
+error: package [dependency] does not exist
+import [dependency];
+```
+
+참조 당하는 쪽의 `build.gradle` 설정에 오류가 있어 발생하는 문제로, 아래와 같이 jar 파일이 생성되도록 해주면 된다.  
+
+```
+jar {
+    enabled = true
+}
+```
