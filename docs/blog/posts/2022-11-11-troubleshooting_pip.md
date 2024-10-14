@@ -118,6 +118,20 @@ SQLAlchemy (1.3.10)
 pip list --format=columns
 ```
 
+## Fatal error in launcher
+
+pip 명령어 입력 시 아래와 같은 에러만 뜨고 실행이 되지 않는 경우가 있다.  
+
+```
+Fatal error in launcher: Unable to create process using
+```
+
+가상환경 경로가 바뀌거나 하는 문제로 발생하는데, 아래와 같이 pip를 재설치해주면 해결된다.  
+
+```
+python -m pip install --upgrade --force-reinstall pip
+```
+
 ---
 ## Reference
 - [There was an error checking the latest version of pip](https://stackoverflow.com/questions/72439001/there-was-an-error-checking-the-latest-version-of-pip)

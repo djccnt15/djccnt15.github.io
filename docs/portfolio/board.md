@@ -344,11 +344,11 @@ sequenceDiagram
     Client ->> FastAPI: API request
     activate FastAPI
     alt if cached data
-    FastAPI -->> Cache Server: check data
-    Cache Server --) FastAPI: response data
+        FastAPI -->> Cache Server: check data
+        Cache Server --) FastAPI: response data
     else if not cached data
-    FastAPI -->> Database: query
-    Database --) FastAPI: result
+        FastAPI -->> Database: query
+        Database --) FastAPI: result
     end
     FastAPI --) Client: response
     deactivate FastAPI
