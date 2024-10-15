@@ -41,15 +41,15 @@ sequenceDiagram
     activate Client
     activate DNS Resolver
     alt if data in DNS Resolver Cache
-        DNS Resolver ->> Client : service server IP
+        DNS Resolver -->> Client : service server IP
     else if not data in DNS Resolver Cache
         DNS Resolver ->> Root DNS : request TLD IP
-        Root DNS ->> DNS Resolver : return TLD IP
+        Root DNS -->> DNS Resolver : return TLD IP
         DNS Resolver ->> Top Level DNS : request Second Level DNS IP
-        Top Level DNS ->> DNS Resolver : return Second Level DNS IP
+        Top Level DNS -->> DNS Resolver : return Second Level DNS IP
         DNS Resolver ->> Second Level DNS : request service server IP
-        Second Level DNS ->> DNS Resolver : return service server IP
-        DNS Resolver ->> Client : service server IP
+        Second Level DNS -->> DNS Resolver : return service server IP
+        DNS Resolver -->> Client : service server IP
         deactivate DNS Resolver
     end
     Client ->> service server : request
@@ -70,16 +70,16 @@ sequenceDiagram
     activate Client
     activate DNS Resolver
     alt if data in DNS Resolver Cache
-        DNS Resolver ->> Client : service server IP
+        DNS Resolver -->> Client : service server IP
     else if not data in DNS Resolver Cache
         DNS Resolver ->> Root DNS : request TLD IP
-        Root DNS ->> DNS Resolver : return TLD IP
-        DNS Resolver ->> Client : return TLD IP
+        Root DNS -->> DNS Resolver : return TLD IP
+        DNS Resolver -->> Client : return TLD IP
         deactivate DNS Resolver
         Client ->> Top Level DNS : request Second Level DNS IP
-        Top Level DNS ->> Client : return Second Level DNS IP
+        Top Level DNS -->> Client : return Second Level DNS IP
         Client ->> Second Level DNS : request service server IP
-        Second Level DNS ->> Client : return service server IP
+        Second Level DNS -->> Client : return service server IP
     end
     Client ->> service server : request
     deactivate Client
@@ -98,12 +98,12 @@ title: 3-way handshake
 sequenceDiagram
     Client ->> Server : SYN
     Note over Client, Server : TCP 헤더에 SYN 플래그 지정한 세그먼트 발송
-    Server ->> Client : SYN-ACK
+    Server -->> Client : SYN-ACK
     Note over Client, Server : 연결 수락 시 SYN과 ACK 플래그 지정 세그먼트 발송
     Client ->> Server : ACK
     Note over Client, Server : 연결 수락 세그먼트 수신 확인
     Client ->> Server : HTTP request
-    Server ->> Client : HTTP response
+    Server -->> Client : HTTP response
 ```
 
 - SYN: SYNchronize
@@ -121,15 +121,15 @@ title: SSL handshake
 sequenceDiagram
     Client ->> Server : Client Hello
     Note over Client, Server : 사용할 암호화 알고리즘 목록(cipher sweet)과 난수, 세션 ID 등을 전송
-    Server ->> Client : Server Hello
+    Server -->> Client : Server Hello
     Note over Client, Server : 암호화 알고리즘 중 사용할 알고리즘 선택 결과, 난수, 세션 ID 등을 전송
-    Server ->> Client : Certificate
+    Server -->> Client : Certificate
     Note over Client, Server : 인증서를 전송하며 암호화에 사용할 공개키 전송
-    Server ->> Client : Server Key Exchange
+    Server -->> Client : Server Key Exchange
     opt
-        Server ->> Client : Certificate Request
+        Server -->> Client : Certificate Request
     end
-    Server ->> Client : Server Hello Done
+    Server -->> Client : Server Hello Done
     opt
         Client ->> Server : Certificate
     end
@@ -139,10 +139,10 @@ sequenceDiagram
     end
     Client ->> Server : Change Cipher spec
     Client ->> Server : Finished
-    Server ->> Client : Change Cipher spec
-    Server ->> Client : Finished
+    Server -->> Client : Change Cipher spec
+    Server -->> Client : Finished
     Client ->> Server : HTTPS request
-    Server ->> Client : HTTPS response
+    Server -->> Client : HTTPS response
 ```
 
 ## 3. Web Server/WAS
@@ -150,15 +150,18 @@ sequenceDiagram
 클라이언트가 서버로 요청을 보낼 경우 웹서버가 정적 요청을 처리하고, Web Application Server와 TCP/IP 통신을 통해 복잡한 로직을 처리하여 처리 결과를 회신함  
 
 ```mermaid
+---
+title: How response working with Web Server, WAS
+---
 sequenceDiagram
     Client ->> Web Server : request
     activate Client
-    Web Server ->> Client : static response
-    Web Server ->> WAS(WSGI) : request
     activate Web Server
-    WAS(WSGI) ->> Web Server : response
+    Web Server -->> Client : static response
+    Web Server ->> WAS(WSGI) : request
+    WAS(WSGI) -->> Web Server : response
+    Web Server -->> Client : response
     deactivate Web Server
-    Web Server ->> Client : response
     deactivate Client
 ```
 

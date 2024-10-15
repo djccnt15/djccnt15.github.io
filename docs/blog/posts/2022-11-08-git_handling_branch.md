@@ -132,7 +132,7 @@ git rebase --onto <newbase> <oldbase> <branch>  # (1)!
 
     ```mermaid
     gitGraph
-    commit id: "A"
+        commit id: "A"
         commit id: "B"
         branch feature/a
         commit id: "C"
@@ -155,7 +155,7 @@ git rebase --onto <newbase> <oldbase> <branch>  # (1)!
 
     ```mermaid
     gitGraph
-    commit id: "A"
+        commit id: "A"
         commit id: "B"
         branch feature/a
         commit id: "C"

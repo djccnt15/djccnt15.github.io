@@ -341,13 +341,13 @@ DB 호출 빈도가 가장 높은 API에 [Cache Aside 패턴](../blog/posts/2023
 title: Cache Aside Pattern - Read Sequence
 ---
 sequenceDiagram
-    Client ->> FastAPI: API request
+    Client -) FastAPI: API request
     activate FastAPI
     alt if cached data
-        FastAPI -->> Cache Server: check data
+        FastAPI -) Cache Server: check data
         Cache Server --) FastAPI: response data
     else if not cached data
-        FastAPI -->> Database: query
+        FastAPI -) Database: query
         Database --) FastAPI: result
     end
     FastAPI --) Client: response
