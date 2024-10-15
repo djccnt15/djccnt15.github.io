@@ -163,14 +163,14 @@ erDiagram
 title: Image Upload Process
 ---
 sequenceDiagram
-    Client ->> FastAPI: API request
+    Client -) FastAPI: API request
     activate FastAPI
-    FastAPI -->> BLOB Database: upload thumbnail
+    FastAPI -) BLOB Database: upload thumbnail
     BLOB Database --) FastAPI: thumbnail id
-    FastAPI -->> BLOB Database: upload image
+    FastAPI -) BLOB Database: upload image
     BLOB Database --) FastAPI: image id
-    FastAPI -->> Database: insert image meta data
-    FastAPI ->> Client: response
+    FastAPI -) Database: insert image meta data
+    FastAPI --) Client: response
     deactivate FastAPI
 ```
 
@@ -179,11 +179,11 @@ sequenceDiagram
 title: Document OCR Process
 ---
 sequenceDiagram
-    Client ->> FastAPI: API request
+    Client -) FastAPI: API request
     activate FastAPI
-    FastAPI -->> Database: query
+    FastAPI -) Database: query
     Database --) FastAPI: image meta data
-    FastAPI -->> BLOB Database: query
+    FastAPI -) BLOB Database: query
     BLOB Database --) FastAPI: image data
     FastAPI ->> Tesseract: ocr request
     Tesseract ->> FastAPI: result
