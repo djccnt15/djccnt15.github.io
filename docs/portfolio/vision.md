@@ -186,9 +186,9 @@ sequenceDiagram
     FastAPI -) BLOB Database: query
     BLOB Database --) FastAPI: image data
     FastAPI ->> Tesseract: ocr request
-    Tesseract ->> FastAPI: result
+    Tesseract -->> FastAPI: result
     FastAPI --) Client: response
-    FastAPI --) Database: Insert result meta data
-    FastAPI --) Document DB: Insert OCR result data
+    FastAPI -) Database: Insert result meta data
+    FastAPI -) Document DB: Insert OCR result data
     deactivate FastAPI
 ```
