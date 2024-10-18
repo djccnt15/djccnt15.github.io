@@ -9,7 +9,7 @@ categories:
     - Vision
 tags:
     - python
-    - OpenCV
+    - opencv
     - matplotlib
 ---
 

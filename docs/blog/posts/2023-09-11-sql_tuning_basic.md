@@ -9,8 +9,8 @@ categories:
     - Data Engineering
 tags:
     - database
-    - RDB
-    - SQL
+    - rdb
+    - sql
 ---
 
 SQL 조회 쿼리 튜닝 기초 팁  

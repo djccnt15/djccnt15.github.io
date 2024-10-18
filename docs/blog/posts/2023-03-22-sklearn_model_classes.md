@@ -8,7 +8,7 @@ description: >
 categories:
     - AI
 tags:
-    - AI
+    - ai
     - scikit-learn
 ---
 

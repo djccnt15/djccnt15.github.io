@@ -8,7 +8,7 @@ description: >
 categories:
     - SW Engineering
 tags:
-    - VS Code
+    - vs code
 ---
 
 markdown 형식에만 Trim Trailing Whitespace 옵션 끄기  

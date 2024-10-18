@@ -8,7 +8,7 @@ description: >
 categories:
     - Front-End
 tags:
-    - HTML
+    - html
 ---
 
 태그에 상관없이 사용 가능한 HTML의 주요 전역 속성 정리  

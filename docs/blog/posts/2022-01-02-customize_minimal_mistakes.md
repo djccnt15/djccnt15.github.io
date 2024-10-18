@@ -9,7 +9,7 @@ description: >
 categories:
     - Jekyll
 tags:
-    - Minimal Mistakes
+    - minimal mistakes
 ---
 
 Minimal Mistakes 테마 커스터마이징 방법  

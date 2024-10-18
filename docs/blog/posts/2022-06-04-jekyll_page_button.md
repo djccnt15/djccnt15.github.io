@@ -9,7 +9,7 @@ description: >
 categories:
     - Jekyll
 tags:
-    - Jekyll
+    - jekyll
 ---
 
 Jekyll 프레임워크의 이전 글, 다음 글 버튼 만들기  

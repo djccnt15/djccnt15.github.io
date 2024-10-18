@@ -8,7 +8,7 @@ description: >
 categories:
     - Vision
 tags:
-    - OpenCV
+    - opencv
     - python
 ---
 

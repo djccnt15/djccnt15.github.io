@@ -8,7 +8,7 @@ description: >
 categories:
     - Data Engineering
 tags:
-    - MySQL
+    - mysql
 ---
 
 MySQL 테이블 정보 보는 법  

@@ -8,7 +8,7 @@ description: >
 categories:
     - SW Engineering
 tags:
-    - VS Code
+    - vs code
     - debug
     - python
     - troubleshooting

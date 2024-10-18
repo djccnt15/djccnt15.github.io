@@ -8,8 +8,8 @@ description: >
 categories:
     - Front-End
 tags:
-    - HTML
-    - CSS
+    - html
+    - css
 ---
 
 HTML의 레이아웃에 대한 내용은 W3Schools의 [HTML Layout Elements and Techniques](https://www.w3schools.com/html/html_layout.asp)에 자세히 정리되어 있다.  

@@ -8,7 +8,7 @@ description: >
 categories:
     - Django
 tags:
-    - Django
+    - django
 ---
 
 Django 설치, 프로젝트 시작, 개발서버 구동, Secret Key 숨기기  

@@ -8,7 +8,8 @@ description: >
 categories:
     - SW Engineering
 tags:
-    - access modifier
+    - oop
+    - object oriented programming
     - java
     - python
 ---

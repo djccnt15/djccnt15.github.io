@@ -9,13 +9,13 @@ categories:
     - Data Engineering
 tags:
     - database
-    - RDB
+    - rdb
     - docker
     - oracle
-    - SQL Server
-    - MySQL
-    - MariaDB
-    - PostgreSQL
+    - sql server
+    - mysql
+    - mariadb
+    - postgresql
 ---
 
 도커를 활용해서 데이터베이스 간단 설치하는 방법  

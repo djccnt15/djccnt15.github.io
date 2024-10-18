@@ -8,7 +8,7 @@ description: >
 categories:
     - Front-End
 tags:
-    - CSS
+    - css
 ---
 
 CSS 적용 우선순위는 MDN Web Docs의 [Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)와 W3Schools의 [CSS Specificity](https://www.w3schools.com/css/css_specificity.asp)에 자세히 정리되어 있다.  

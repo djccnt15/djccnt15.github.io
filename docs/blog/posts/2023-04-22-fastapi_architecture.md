@@ -8,9 +8,9 @@ description: >
 categories:
     - FastAPI
 tags:
-    - WSGI
-    - ASGI
-    - FastAPI
+    - wsgi
+    - asgi
+    - fastapi
     - gunicorn
     - uvicorn
 ---

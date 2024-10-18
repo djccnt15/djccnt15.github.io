@@ -8,7 +8,7 @@ description: >
 categories:
     - Data Analysis
 tags:
-    - NumPy
+    - numpy
     - array
 ---
 

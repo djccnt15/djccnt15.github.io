@@ -9,7 +9,7 @@ description: >
 categories:
     - Jekyll
 tags:
-    - Jekyll
+    - jekyll
 ---
 
 Jekyll로 마크다운 기반 블로그 구축하는 방법 기초 입문  

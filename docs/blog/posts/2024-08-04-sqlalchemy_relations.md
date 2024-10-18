@@ -9,7 +9,7 @@ categories:
     - Python
 tags:
     - python
-    - ORM
+    - orm
     - sqlalchemy
 ---
 

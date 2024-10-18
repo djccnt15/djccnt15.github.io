@@ -10,7 +10,7 @@ categories:
 tags:
     - preprocessing
     - noise detection
-    - IQR
+    - iqr
 ---
 
 IQR 방식을 통한 데이터의 이상점 확인  

@@ -9,7 +9,7 @@ description: >
 categories:
     - Jekyll
 tags:
-    - Hydejack
+    - hydejack
 ---
 
 Hydejack 테마 카테고리/태그 통계 페이지 만들기  

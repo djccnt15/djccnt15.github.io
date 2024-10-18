@@ -8,7 +8,7 @@ description: >
 categories:
     - Data Analysis
 tags:
-    - Bigdata Certificate
+    - bigdata certificate
 ---
 
 빅데이터 분석기사 실기 예제 문제 풀이  
