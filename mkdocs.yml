@@ -174,62 +174,63 @@ extra:
   #     - accept
   #     - reject
   tags:
-    API: api
+    api: api
     bootstrap: bootstrap
     cmd: terminal
-    C: c
-    CPP: cpp
-    CSS: css
+    c: c
+    cpp: cpp
+    css: css
     database: db
-    Django: django
+    django: django
     docker: docker
-    FastAPI: fastapi
+    fastapi: fastapi
     git: git
-    Google Analytics: ga
+    ga: ga
+    google analytics: ga
     gradle: gradle
     gunicorn: gunicorn
-    HTML: html
-    IntelliJ: intellij
+    html: html
+    intellij: intellij
     java 17: java
     java: java
-    Jekyll: jekyll
-    Kafka: kafka
+    jekyll: jekyll
+    kafka: kafka
     list comprehension: python
-    MariaDB: mariadb
+    mariadb: mariadb
     markdown: markdown
     MongoDB: mongodb
-    MySQL: mysql
-    NumPy: numpy
-    OpenCV: cv
+    mysql: mysql
+    numpy: numpy
+    opencv: cv
     oracle: oracle
     pandas: pandas
-    PEP: python
+    pep: python
     pip: python
-    PostgreSQL: postgresql
+    postgresql: postgresql
     python: python
-    PyTorch: pytorch
-    R: r
-    RabbitMQ: rabbitmq
-    RDB: db
-    Redis: redis
-    REST API: api
-    RESTful API: api
+    pytorch: pytorch
+    r: r
+    rabbitmq: rabbitmq
+    rdb: db
+    redis: redis
+    rest api: api
+    restful api: api
     scikit-learn: skleran
-    SciPy: scipy
-    SCSS: css
+    scipy: scipy
+    scss: css
     shell: powershell
-    Spring: spring
-    Spring Batch: spring
-    Spring Boot: spring
-    SQL Server: mssql
-    SQL: db
-    SymPy: sympy
+    spring: spring
+    spring Batch: spring
+    spring Boot: spring
+    sql server: mssql
+    sql: db
+    sympy: sympy
     telegram: telegram
-    TensorFlow: tensorflow
+    tensorflow: tensorflow
     terminal: terminal
     tomcat: tomcat
     venv: python
-    VS Code: vscode
+    vs code: vscode
 plugins:
   - search:
       lang:

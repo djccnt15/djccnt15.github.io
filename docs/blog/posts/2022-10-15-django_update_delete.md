@@ -8,7 +8,7 @@ description: >
 categories:
     - Django
 tags:
-    - Django
+    - django
 ---
 
 수정 및 삭제  

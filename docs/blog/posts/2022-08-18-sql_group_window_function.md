@@ -9,8 +9,8 @@ categories:
     - Data Engineering
 tags:
     - database
-    - RDB
-    - SQLD
+    - rdb
+    - sqld
 ---
 
 SQL 활용: 그룹 함수, 윈도우 함수  

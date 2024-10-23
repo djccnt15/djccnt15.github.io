@@ -8,7 +8,7 @@ description: >
 categories:
     - Python
 tags:
-    - OOP
+    - oop
     - object oriented programming
     - encapsulation
     - python

@@ -8,7 +8,7 @@ description: >
 categories:
     - Mathematics
 tags:
-    - SymPy
+    - sympy
 ---
 
 symbolic computation을 다루는 SymPy 튜토리얼  

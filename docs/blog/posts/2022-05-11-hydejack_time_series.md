@@ -9,7 +9,7 @@ description: >
 categories:
     - Jekyll
 tags:
-    - Hydejack
+    - hydejack
 ---
 
 Hydejack 테마 list layout을 시계열 디자인으로 수정하는 방법  

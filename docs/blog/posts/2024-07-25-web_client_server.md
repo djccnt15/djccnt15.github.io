@@ -8,7 +8,7 @@ description: >
 categories:
     - Computer Science
 tags:
-    - Network
+    - network
 ---
 
 웹 환경에서 클라이언트와 서버의 통신 과정 정리  

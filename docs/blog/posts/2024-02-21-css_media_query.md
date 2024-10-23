@@ -8,7 +8,7 @@ description: >
 categories:
     - Front-End
 tags:
-    - CSS
+    - css
 ---
 
 반응형 웹페이지 개발을 위한 CSS 미디어 쿼리 정리는 MDN Web Docs의 [Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries)와 W3Schools의 [Responsive Web Design - Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp)에 자세히 정리되어 있다.  

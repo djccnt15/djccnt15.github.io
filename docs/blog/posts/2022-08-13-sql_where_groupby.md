@@ -9,8 +9,8 @@ categories:
     - Data Engineering
 tags:
     - database
-    - RDB
-    - SQLD
+    - rdb
+    - sqld
 ---
 
 SQL 기본: WHERE, 함수, GROUP BY, HAVING, ORDER BY  

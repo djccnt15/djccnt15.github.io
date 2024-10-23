@@ -9,7 +9,7 @@ description: >
 categories:
     - Jekyll
 tags:
-    - SCSS
+    - scss
 ---
 
 SCSS를 사용해서 Jekyll 프레임워크의 반응형 카테고리, 태그 페이지 만들기  

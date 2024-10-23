@@ -8,7 +8,7 @@ description: >
 categories:
     - Django
 tags:
-    - Django
+    - django
 ---
 
 views.py 정리를 통한 view 관리  

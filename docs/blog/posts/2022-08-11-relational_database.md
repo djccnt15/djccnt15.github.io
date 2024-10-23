@@ -9,8 +9,8 @@ categories:
     - Data Engineering
 tags:
     - database
-    - RDB
-    - SQLD
+    - rdb
+    - sqld
 ---
 
 SQL 기본: 관계형 데이터베이스, DDL, DML, TCL, DCL  

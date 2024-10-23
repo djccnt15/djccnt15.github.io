@@ -9,8 +9,8 @@ categories:
     - Data Engineering
 tags:
     - database
-    - RDB
-    - SQLD
+    - rdb
+    - sqld
 ---
 
 SQL 활용: 서브쿼리, 뷰  

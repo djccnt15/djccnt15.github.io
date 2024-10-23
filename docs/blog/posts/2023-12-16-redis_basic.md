@@ -9,7 +9,8 @@ categories:
     - Data Engineering
 tags:
     - in-memory database
-    - Redis
+    - nosql
+    - redis
 ---
 
 Redis의 입문을 위한 간단 정리  

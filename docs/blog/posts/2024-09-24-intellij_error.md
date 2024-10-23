@@ -8,7 +8,7 @@ description: >
 categories:
     - SW Engineering
 tags:
-    - IntelliJ
+    - intellij
     - troubleshooting
 ---
 

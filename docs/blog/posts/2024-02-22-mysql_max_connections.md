@@ -9,8 +9,8 @@ categories:
     - Data Engineering
 tags:
     - database
-    - MySQL
-    - MariaDB
+    - mysql
+    - mariadb
 ---
 
 MySQL, MariaDB 최대 동시 접속 제한 설정 확인 및 수정 방법  

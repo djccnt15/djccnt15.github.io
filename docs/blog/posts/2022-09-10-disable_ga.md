@@ -9,8 +9,9 @@ description: >
 categories:
     - Jekyll
 tags:
-    - Jekyll
-    - Google Analytics
+    - jekyll
+    - google analytics
+    - ga
 ---
 
 블로그 관련 작업을 할 때, local에서 구동하고 localhost에 접속한 기록도 Google Analytics에 집계가 되서 통계가 이상해진다. GitHub Pages에서 구동되었을 때만 Google Analytics에 집계가 되도록 수정해보았다.  

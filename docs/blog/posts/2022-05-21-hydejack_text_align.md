@@ -9,7 +9,7 @@ description: >
 categories:
     - Jekyll
 tags:
-    - Hydejack
+    - hydejack
 ---
 
 css로 Hydejack 테마 글자 정렬 기능 만들기  

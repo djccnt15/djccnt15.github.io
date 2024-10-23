@@ -8,7 +8,7 @@ description: >
 categories:
     - Django
 tags:
-    - Django
+    - django
 ---
 
 Django의 User 테이블 커스터마이징 방법  

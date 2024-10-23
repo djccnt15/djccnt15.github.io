@@ -8,8 +8,8 @@ description: >
 categories:
     - AI
 tags:
-    - AI
-    - TensorFlow
+    - ai
+    - tensorflow
     - troubleshooting
 ---
 

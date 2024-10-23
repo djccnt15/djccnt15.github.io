@@ -8,7 +8,7 @@ description: >
 categories:
     - Vision
 tags:
-    - OpenCV
+    - opencv
 ---
 
 OpenCV High-level GUI를 위한 Trackbar 사용법 예시  

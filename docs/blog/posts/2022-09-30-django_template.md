@@ -8,7 +8,7 @@ description: >
 categories:
     - Django
 tags:
-    - Django
+    - django
 ---
 
 기초 화면 구성, css와 Bootstrap을 활용한 스타일 적용  

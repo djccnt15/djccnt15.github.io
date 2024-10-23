@@ -8,7 +8,7 @@ description: >
 categories:
     - Django
 tags:
-    - Django
+    - django
 ---
 
 HTML 앵커 추가하기  

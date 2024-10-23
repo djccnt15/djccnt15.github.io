@@ -8,7 +8,7 @@ description: >
 categories:
     - Front-End
 tags:
-    - CSS
+    - css
 ---
 
 CSS의 위치 설정을 위한 `position` 속성은 MDN Web Docs의 [position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)과 W3Schools의 [CSS Layout - The position Property](https://www.w3schools.com/css/css_positioning.asp)에 자세히 정리되어 있다.  

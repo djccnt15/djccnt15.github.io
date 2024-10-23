@@ -9,8 +9,8 @@ categories:
     - Spring
 tags:
     - java
-    - Spring
-    - Spring Batch
+    - spring
+    - spring Batch
 ---
 
 Spring Batch를 활용한 Java 배치 프로그램 만들기  

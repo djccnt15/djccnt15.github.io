@@ -9,8 +9,8 @@ categories:
     - Data Engineering
 tags:
     - database
-    - RDB
-    - SQLD
+    - rdb
+    - sqld
 ---
 
 데이터 모델링의 이해: 엔티티, 속성, 관계, 식별자  

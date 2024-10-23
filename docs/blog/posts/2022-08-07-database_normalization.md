@@ -9,8 +9,8 @@ categories:
     - Data Engineering
 tags:
     - database
-    - RDB
-    - SQLD
+    - rdb
+    - sqld
 ---
 
 데이터 모델과 성능: 성능 데이터 모델링의 개요, 정규화, 반정규화  
