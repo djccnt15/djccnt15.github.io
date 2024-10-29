@@ -338,6 +338,26 @@ touch <file_name>  # (1)!
 
 1. `touch`는 원래 파일의 생성 및 수정 시간을 변경하는 명령어지만, 새로운 파일을 만들기 위해서 사용할 수 있다.  
 
+### 현재 날짜/시간
+
+- Windows
+
+```bat
+date /t
+
+time /t
+```
+
+- Linux
+
+```shell
+date -I[FMT]
+
+date -Iminutes
+
+date -Iseconds
+```
+
 ## 3. 네트워크 관련 명령어들
 
 ### ipconfig/ifconfig
