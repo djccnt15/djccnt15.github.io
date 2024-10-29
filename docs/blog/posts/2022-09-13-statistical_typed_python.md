@@ -1,6 +1,6 @@
 ---
 slug: statistical-typed-python
-title: 정적 타입 언어처럼 사용하기
+title: Python을 정적 타입 언어처럼 사용하기
 date:
     created: 2022-09-13
 description: >

@@ -1,10 +1,10 @@
 ---
 slug: handling-datetime
-title: 날짜/시간 데이터 다루기
+title: Python에서 날짜/시간 데이터 다루는 방법
 date:
     created: 2022-12-03
 description: >
-    strftime, strptime으로 날짜와 시간 데이터 다루기
+    `strftime`, `strptime`으로 날짜와 시간 데이터 다루기
 categories:
     - Python
 tags:
@@ -12,7 +12,7 @@ tags:
     - datetime
 ---
 
-strftime, strptime으로 날짜와 시간 데이터 다루기  
+`strftime`, `strptime`으로 날짜와 시간 데이터 다루기  
 
 <!-- more -->
 

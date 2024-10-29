@@ -1,10 +1,10 @@
 ---
 slug: calculate-time
-title: 수행 시간 측정 방법
+title: Python 코드 수행 시간 측정 방법
 date:
     created: 2022-01-08
 description: >
-    Python 코드의 수행 시간을 측정하는 방법
+    Python 코드의 수행 시간을 측정하는 방법 정리
 categories:
     - Python
 tags:
@@ -12,7 +12,7 @@ tags:
     - datetime
 ---
 
-Python 코드의 수행 시간을 측정하는 방법  
+Python 코드의 수행 시간을 측정하는 방법 정리  
 
 <!-- more -->
 

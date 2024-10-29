@@ -1,6 +1,6 @@
 ---
-slug: how-to-log-python
-title: logging 모듈을 사용하여 로깅하기
+slug: how-to-logging-python
+title: Python logging 제대로 하는 방법
 date:
     created: 2023-09-21
     updated: 2024-02-01
@@ -129,7 +129,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 
 | Attribute name |    Format     |              Description               |
 | :------------: | :-----------: | :------------------------------------: |
-|    asctime     |  %(asctime)s  |         로그가 생성된 시간[^2]         |
+|    asctime     |  %(asctime)s  |           로그가 생성된 시간           |
 |    filename    | %(filename)s  |      로그를 발생시킨 파일의 이름       |
 |   levelname    | %(levelname)s |             로그 레벨 이름             |
 |     lineno     |  %(lineno)d   | 소스코드에서 로그를 발생시킨 라인 넘버 |
@@ -139,11 +139,8 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 |    process     |  %(process)d  |      프로세스 ID(가능할 경우에만)      |
 |     thread     |  %(thread)d   |       쓰레드 ID(가능할 경우에만)       |
 
-[^2]: 엄밀히 말하면 `asctime`은 `LogRecord` 객체의 요소는 아니다. `LogRecord` 객체는 `time.time()`[^3]으로 생성시간을 저장한 후, [`Formatter`](#formatter)가 생성시간을 [`time.strftime`](./2022-12-03-python_datetime.md/#strftime)을 사용해서 입력받은 포맷대로 생성해준다.  
-[^3]: 시간의 시작점인 *epoch*[^4] 로부터의 초를 반환한다.  
-[^4]: January 1, 1970, 00:00:00 (UTC)  
-
-??? note "LogRecord"
+???+ note "Python Log의 asctime"
+    엄밀히 말하면 `asctime`은 `LogRecord` 객체의 요소는 아니다. `LogRecord` 객체는 `time.time()`[^2]으로 생성시간을 저장한 후, [`Formatter`](#formatter)가 생성시간을 [`time.strftime`](./2022-12-03-python_datetime.md/#strftime)을 사용해서 입력받은 포맷대로 생성해준다.  
 
     === "Python 3.11"
 
@@ -163,10 +160,6 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 
                 ...
         ```
-
-??? note "Formatter"
-
-    === "Python 3.11"
 
         ```python
         class Formatter(object):
@@ -193,6 +186,9 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
             ...
         ```
 
+[^2]: 시간의 시작점인 *epoch*[^3] 로부터의 초를 반환한다.  
+[^3]: January 1, 1970, 00:00:00 (UTC)  
+
 ### Filter
 
 필터는 로그 레벨에 따라 로그의 출력을 걸러주기 위해 사용하는 객체로, `LogRecord` 인스턴스를 필터링하는 규칙을 직접 만들 수 있다.  
@@ -213,14 +209,14 @@ class MyFilter(Filter):  # (1)!
         return logRecord.levelno in self.__level
 ```
 
-1. note에 작성했듯이 `class MyFilter(object)`로 만들어도 전혀 문제 없다.
+1. 아래 note에 작성했듯이 `class MyFilter(object)`로 만들어도 전혀 문제 없다.
 
-??? note "Filterer"
+???+ note "Filterer"
     참고로 Python 공식 문서 [Logging facility for Python](https://docs.python.org/3/library/logging.html#filter-objects)에서는 필터는 굳이 표준 라이브러리의 클래스를 상속해서 만들 필요 없이, 단순히 `filter` 메서드를 가진 객체는 아무 것이나 사용해도 된다고 한다.  
 
     > You don’t actually need to subclass `Filter`: you can pass any instance which has a `filter` method with the same semantics.
 
-    실제로 `logging.Handler` 클래스가 상속하고 있는 `logging.Filterer` 클래스를 살펴보면 아래와 같이 `addFilter` 메서드는 `filters` 리스트에 필터 객체를 추가해주기만 하며, `filter` 메서드는 `filters` 리스트에 속한 필터들의 `filter` 메서드를 호출하는 역할만 한다.  
+    실제로 `logging.Logger`, `logging.Handler` 클래스가 상속하고 있는 `logging.Filterer` 클래스를 살펴보면 아래와 같이 `addFilter` 메서드는 `filters` 리스트에 필터 객체를 추가해주기만 하며, `filter` 메서드는 `filters` 리스트에 속한 필터들의 `filter` 메서드를 호출하는 역할만 한다.  
 
     === "Python 3.11"
     

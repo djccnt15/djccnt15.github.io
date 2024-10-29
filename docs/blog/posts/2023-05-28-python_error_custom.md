@@ -1,6 +1,6 @@
 ---
 slug: custom-exception
-title: 커스텀 에러 사용법
+title: Python 에러 커스텀 방법
 date:
     created: 2023-05-28
 description: >

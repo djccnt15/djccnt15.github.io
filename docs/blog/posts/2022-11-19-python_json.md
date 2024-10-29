@@ -1,6 +1,6 @@
 ---
 slug: handling-json
-title: JSON 파일 다루기
+title: Python으로 JSON 파일 다루기
 date:
     created: 2022-11-19
 description: >

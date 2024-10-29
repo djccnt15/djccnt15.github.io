@@ -1,6 +1,6 @@
 ---
 slug: enum-to-data-structure
-title: Enum 객체의 자료구조화
+title: Python Enum 객체의 자료구조화
 date:
     created: 2024-03-05
 description: >

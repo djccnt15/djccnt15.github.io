@@ -1,10 +1,10 @@
 ---
 slug: understanding-with
-title: with 문법 심화 활용
+title: Python `with` 문법 심화 활용
 date:
     created: 2023-11-25
 description: >
-    contextmanager, yield를 사용한 with 심화 활용
+    `contextmanager`, `yield`를 사용한 `with` 심화 활용
 categories:
     - Python
 tags:
