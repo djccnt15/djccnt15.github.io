@@ -136,6 +136,7 @@ theme:
       skleran: simple/scikitlearn
       scipy: simple/scipy
       spring: simple/spring
+      spring_batch: simple/spring
       spring_boot: simple/springboot
       sympy: simple/sympy
       telegram: simple/telegram
@@ -220,8 +221,8 @@ extra:
     scss: css
     shell: powershell
     spring: spring
-    spring Batch: spring
-    spring Boot: spring
+    spring batch: spring_batch
+    spring boot: spring_boot
     sql server: mssql
     sql: db
     sympy: sympy

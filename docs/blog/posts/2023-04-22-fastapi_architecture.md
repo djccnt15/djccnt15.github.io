@@ -8,6 +8,7 @@ description: >
 categories:
     - FastAPI
 tags:
+    - python
     - wsgi
     - asgi
     - fastapi

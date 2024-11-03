@@ -26,7 +26,7 @@ Python에서 캡슐화를 위해 Getter, Setter를 사용하는 방법
 
 ## Python의 Getter, Setter
 
-여러가지 의견이 많긴 한데, 내가 동의하는 Pythonic하게 Getter, Setter를 사용하는 방법은 Getter, Setter를 사용하지 않는 것이다.  
+여러 가지 의견이 많긴 한데, 내가 동의하는 Pythonic하게 Getter, Setter를 사용하는 방법은 Getter, Setter를 사용하지 않는 것이다.  
 
 그러나 나는 Getter를 적절히 사용하면 computed attributes를 Getter로 처리하여 객체가 차지하는 메모리를 줄이고 코드를 간결하게 만들 수 있는 장점을 좋아해서 종종 사용한다.  
 

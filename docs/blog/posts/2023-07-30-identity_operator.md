@@ -1,17 +1,18 @@
 ---
 slug: identity-operator
-title: 동일성 vs 동등성
+title: Python의 동일성 vs 동등성
 date:
     created: 2023-07-30
 description: >
-    동일성(is) vs 동등성(==)
+    Python의 동일성(`is`)과 동등성(`==`) 차이점 정리
 categories:
     - Python
 tags:
+    - python
     - identity operator
 ---
 
-Python의 동일성(is)과 동등성(==)  
+Python의 동일성(`is`)과 동등성(`==`) 차이점 정리  
 
 <!-- more -->
 

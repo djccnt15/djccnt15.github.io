@@ -1,10 +1,10 @@
 ---
-slug: handling-binary-file
-title: 데이터를 저장하고 불러오기
+slug: object-serialization
+title: Python 객체의 저장 및 재활용 방법
 date:
     created: 2022-12-10
 description: >
-    메모리의 데이터를 파일로 저장하고 불러오기
+    메모리의 데이터를 파일로 저장하고 불러오는 방법
 categories:
     - Python
 tags:
@@ -13,7 +13,7 @@ tags:
     - joblib
 ---
 
-메모리의 데이터를 파일로 저장하고 불러오기  
+메모리의 데이터를 파일로 저장하고 불러오는 방법  
 
 <!-- more -->
 

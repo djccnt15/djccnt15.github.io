@@ -1,10 +1,10 @@
 ---
 slug: datetime-formatter
-title: 날짜/시간 데이터 다루기
+title: Java에서 날짜/시간 데이터 다루는 방법
 date:
     created: 2024-01-02
 description: >
-    DateTimeFormatter로 날짜 및 시간 데이터 다루기
+    `DateTimeFormatter`로 날짜 및 시간 데이터 다루기
 categories:
     - Java
 tags:
@@ -13,7 +13,7 @@ tags:
     - datetime
 ---
 
-DateTimeFormatter로 날짜 및 시간 데이터 다루기  
+`DateTimeFormatter`로 날짜 및 시간 데이터 다루기  
 
 <!-- more -->
 

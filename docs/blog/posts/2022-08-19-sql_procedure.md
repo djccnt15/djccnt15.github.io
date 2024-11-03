@@ -131,7 +131,7 @@ DROP PROCEDURE procedure_name;
     - 한줄 주석: `--`
     - 범위 주석: `/* code */`
 
-**T-SQL 구조**는 다음의 세가지 절로 이루어지며, `ERROR`절은 `BEGIN ~ END`절 안에 위치한다.  
+**T-SQL 구조**는 다음의 세 가지 절로 이루어지며, `ERROR`절은 `BEGIN ~ END`절 안에 위치한다.  
 
 - `DECLARE`절
     - `BEGIN ~ END`절에서 사용될 변수와 인수에 대한 정의 및 데이터 타입을 선언하는 선언부
