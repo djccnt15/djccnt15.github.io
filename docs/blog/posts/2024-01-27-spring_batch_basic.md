@@ -1,5 +1,5 @@
 ---
-slug: spring-batch
+slug: spring-batch-basic
 title: Spring Batch 기초
 date:
     created: 2024-01-27
@@ -107,6 +107,29 @@ JobRepository는 Spring Batch가 활용하는 객체들의 정보를 저장하�
 ### 2-8. ItemProcessor
 
 배치의 비즈니스 로직을 처리하는 도메인으로, 사용자는 ItemProcessor 인터페이스를 사용해 배치를 처리하는 로직을 주입할 수 있다.  
+
+## 3. Spring Batch App 실행방법
+
+`java -jar` 명령어를 통해 실행하면 되고, JobParameter는 `{paramName}={value}` 형식으로 입력하면 된다.  
+
+!!! note
+    윈도우 서버에서의 `bat` 파일을 통한 실행 방법은 아래와 같다.  
+
+    ```bat
+    @echo off
+
+    :: Set the path to your Java installation
+    set JAVA_PATH=C:\programming\java\jdk-17.0.0.1\bin\java.exe
+    set XMS=128M
+    set XMX=256M
+
+    :: Set the classpath
+    set CLASSPATH=C:\projects\springbatch_multidb\build\libs\multidb.jar
+    set CONFIG_PATH=C:\projects\springbatch_multidb\src\main\resources\application.yaml
+
+    :: Run the Spring Batch application
+    %JAVA_PATH% -jar "%CLASSPATH%" -Xms%XMS% -Xmx%XMX% --spring.config.location=%CONFIG_PATH%
+    ```
 
 ---
 ## Reference
