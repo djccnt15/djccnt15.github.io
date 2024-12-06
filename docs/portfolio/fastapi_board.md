@@ -1,12 +1,14 @@
 ---
-title: 게시판 서비스
+title: 게시판 서비스 FastAPI 벡엔드
 tags:
     - portfolio
 ---
 
-## FastAPI
+## 개요
 
 [GitHub 저장소 링크](https://github.com/djccnt15/fastapi_board)
+
+- FastAPI 기반 비동기 백엔드 서버
 
 ### 기술 스택
 

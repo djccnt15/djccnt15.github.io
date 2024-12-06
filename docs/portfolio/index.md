@@ -10,13 +10,13 @@ search:
 
 <div class="grid cards" markdown>
 
-- :material-bulletin-board:{ .lg .middle } **게시판 서비스 모음**
+- :material-bulletin-board:{ .lg .middle } **게시판 서비스 Backend**
 
     ---
 
-    FastAPI 기반 게시판 서비스  
+    FastAPI 기반 게시판 서비스 Backend  
 
-    [:octicons-arrow-right-24: Continue Reading](./board.md)
+    [:octicons-arrow-right-24: Continue Reading](./fastapi_board.md)
 
 - :material-ocr:{ .lg .middle } **비전 서비스 Backend**
 

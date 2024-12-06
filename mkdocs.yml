@@ -285,7 +285,7 @@ nav:
     - blog/index.md
   - Portfolios:
     - portfolio/index.md
-    - portfolio/board.md
+    - portfolio/fastapi_board.md
     - portfolio/vision.md
   - Tags:
     - pages/tags.md
