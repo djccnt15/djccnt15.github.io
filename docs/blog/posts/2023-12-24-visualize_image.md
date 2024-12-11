@@ -171,3 +171,18 @@ def imshow(
 ```
 
 1. `cv2.imread`는 이미지를 BGR로 불러오므로 matplotlib.pyplot로 이미지를 확인하려면 `cv2.cvtColor(image, cv2.COLOR_BGR2RGB)`을 통해서 RGB로 바꿔줘야 정상적으로 출력된다.  
+
+## Pillow 활용
+
+아래와 같이 Pillow 패키지를 활용하는 방법도 있다.  
+
+```python
+import cv2
+from PIL import Image
+
+
+def imshow(*, image: cv2.typing.MatLike):
+    rgb_img = cv2.cvtColor(src=image, code=cv2.COLOR_BGR2RGB)
+    pil_img = Image.fromarray(obj=rgb_img)
+    pil_img.show()
+```
