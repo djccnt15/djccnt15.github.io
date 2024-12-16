@@ -37,6 +37,7 @@ DNS 시스템을 구성하는 요소들은 아래와 같다.
 title: Recursive DNS Query
 ---
 sequenceDiagram
+    autonumber
     Client ->> DNS Resolver : request
     activate Client
     activate DNS Resolver
@@ -66,6 +67,7 @@ sequenceDiagram
 title: Iterative DNS Query
 ---
 sequenceDiagram
+    autonumber
     Client ->> DNS Resolver : request
     activate Client
     activate DNS Resolver
@@ -96,6 +98,7 @@ HTTP 통신을 위해 TCP 헤더에 있는 SYN, ACK 비트를 통해 연결을 �
 title: 3-way handshake
 ---
 sequenceDiagram
+    autonumber
     Client ->> Server : SYN
     Note over Client, Server : TCP 헤더에 SYN 플래그 지정한 세그먼트 발송
     Server -->> Client : SYN-ACK
@@ -119,6 +122,7 @@ HTTPS 통신을 위해서는 보안 절차(HTTP Secure)가 포함된 **SSL hands
 title: SSL handshake
 ---
 sequenceDiagram
+    autonumber
     Client ->> Server : Client Hello
     Note over Client, Server : 사용할 암호화 알고리즘 목록(cipher sweet)과 난수, 세션 ID 등을 전송
     Server -->> Client : Server Hello
@@ -154,6 +158,7 @@ sequenceDiagram
 title: How response working with Web Server, WAS
 ---
 sequenceDiagram
+    autonumber
     Client ->> Web Server : request
     activate Client
     activate Web Server
