@@ -43,3 +43,18 @@ The server selected protocol version TLS10 is not accepted by client preferences
         jdk.tls.disabledAlgorithms=SSLv3, RC4, DES, MD5withRSA, \
         DH keySize < 1024, EC keySize < 224, 3DES_EDE_CBC, anon, NULL
         ```
+
+## Java 한글 깨짐 현상
+
+자바 프로그램의 stdout에서 한글이 깨져서 나오는 경우가 있는데, 인코딩 설정이 제대로 잡히지 않아 그런 경우가 있다.  
+
+아래와 같이 빌드 인코딩과 실행 인코딩 설정을 한글을 지원하는 형식으로 통일[^1]해주면 된다.  
+
+1. (IntelliJ 사용시) Settings - Editor - File Encodings
+1. `jar` 파일 실행 시 실행 옵션에 `-Dfile.encoding=UTF-8` 지정
+
+    ```bat
+    java -jar -Dfile.encoding=UTF-8 [jar_file.jar]
+    ```
+
+[^1]: [IntelliJ의 콘솔창에서 한글이 깨질 때 해결 방법](./2024-09-24-intellij_error.md/#콘솔-한글-깨짐)과 동일하다.  
