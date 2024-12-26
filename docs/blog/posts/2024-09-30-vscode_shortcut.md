@@ -94,3 +94,10 @@ tags:
 - ++f6++ : 디버깅 일시중지
 - ++shift+f5++ : 디버깅 중지
 - ++f10++ : 건너뛰기
+
+## 콘솔창 이동 단축키
+
+- ++ctrl+alt+page-up++ / ++page-down++ : 위/아래 줄로 이동
+- ++shift+page-up++ / ++page-down++ : 위/아래 페이지로 이동
+- ++ctrl+home++ / ++end++ : 처음/끝으로 이동
+- ++ctrl+up++ / ++down++ : 이전/이후 명령어로 이동
