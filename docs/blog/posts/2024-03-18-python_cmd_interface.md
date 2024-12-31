@@ -71,7 +71,7 @@ True
 `ArgumentParser`를 통해 시스템 args를 입력 받는 프로그램의 설명을 출력하려면 `-h`, `--help` 옵션을 사용하면 된다.  
 
 ```python title='main.py'
-from argparse import ArgumentParser
+from argparse import ArgumentParser, RawTextHelpFormatter
 
 
 def main(*, arg: str):
@@ -79,8 +79,21 @@ def main(*, arg: str):
 
 
 if __name__ == "__main__":
-    parser = ArgumentParser()
-    parser.add_argument("--arg", type=str, default="test", help="argument sample")
+    parser = ArgumentParser(
+        formatter_class=RawTextHelpFormatter,
+        description="this is description\ninput your description",
+        epilog="""
+examples:
+  this is epilog
+  input your epilog
+""",
+    )
+    parser.add_argument(
+        "--arg",
+        type=str,
+        default="test",
+        help="argument sample",
+    )
     kwargs = vars(parser.parse_args())
 
     main(**kwargs)
@@ -91,9 +104,16 @@ main.py -h
 ```
 usage: main.py [-h] [--arg ARG]
 
+this is description
+input your description
+
 options:
   -h, --help  show this help message and exit
   --arg ARG   argument sample
+
+examples:
+  this is epilog
+  input your epilog
 ```
 
 ## 모듈 Docstring 출력
