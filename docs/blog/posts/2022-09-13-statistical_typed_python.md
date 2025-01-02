@@ -30,6 +30,8 @@ Python에서 변수 타입을 고정하고 엄격하게 사용하는 방법
 
 ### 사용 방법
 
+#### 변수 및 함수
+
 아래와 같이 Python 3.5 부터 추가된 타입 힌트를 사용하면 변수에 자료형에 대한 지침을 부여할 수 있다.  
 
 ```python
@@ -48,6 +50,21 @@ print(add.__annotations__)
 {'a': 'expression', 'b': <class 'int'>, 'return': <class 'int'>}
 ```
 
+#### Union/Optional
+
+둘 이상의 타입을 조합한 Union 타입이나 `None`을 조합한 Optional 타입을 만들 수 있다.  
+
+```python
+from typing import Union
+
+old: Union[int, None]
+new: int | None  # (1)!
+```
+
+1. 3.10 버전부터 사용 가능
+
+#### Alias
+
 아래와 같이 타입의 별칭을 만들 수 있다.  
 
 ```python
@@ -56,11 +73,7 @@ vector = list[scalar]
 matrix = list[vector]
 ```
 
-위에서 볼 수 있듯이 `|`를 사용해서 둘 이상의 타입을 조합한 Union 타입이나 `None`을 조합한 Optional 타입을 만들 수 있다.  
-
-```python
-a: int | None
-```
+#### Literal
 
 특정 목록 중 하나로 한정하고 싶을 경우 아래와 같이 `Literal` 객체를 사용하면 된다.  
 
@@ -70,6 +83,8 @@ from typing import Literal
 MyType = Literal[1, 2, 3]
 ```
 
+#### Final
+
 특정 변수의 값을 고정하고 싶을 때는 아래와 같이 `Final` 객체를 사용하면 된다.  
 
 ```python
@@ -78,11 +93,61 @@ from typing import Final
 bfg: Final = 9000
 ```
 
+#### Forward references
+
+뒤에 정의되는 타입을 정의되기 전에 사용하고 싶다면 [forward references](https://peps.python.org/pep-0484/#forward-references)를 사용하면 된다.  
+
+!!! quote
+    When a type hint contains names that have not been defined yet, that definition may be expressed as a string literal, to be resolved later.  
+
+```python
+class Outer:
+    def __init__(self):
+        self.name = "Outer"
+        self.inner = self.Inner(self)
+
+    def show(self):
+        print("Name:", self.name)
+
+    class Inner:
+        def __init__(self, outer: "Outer"):  # (1)!
+            self.name = "Inner"
+            self.outer = outer
+
+        def display(self):
+            print("Name:", self.name)
+            print("Outer:", id(self.outer))
+
+
+# create Outer class object and call method of it
+outer = Outer()
+outer.show()
+
+# create a Inner class and call method of it
+inner = outer.inner
+inner.display()
+
+# check if the outer class is actually pass to inner class
+print(outer is inner.outer)
+```
+
+1. forward reference
+
+```
+Name: Outer
+Name: Inner
+Outer: 2246742564560
+True
+```
+
+!!! warning
+    forward reference는 reference 될 객체가 해당 모듈에 작성되어 있거나 `import` 되어 있을 때 IDE가 해당 객체를 정상적으로 인식하는데, 순환참조를 조심해야한다.  
+
 ### 검사 방법
 
 #### Mypy 사용
 
-[Mypy](https://github.com/python/mypy)와 [Variable Annotations](https://peps.python.org/pep-0008/#variable-annotations)을 사용하면 정적 타입 언어처럼 미리 타입 에러를 체크해볼 수 있다.  
+[Mypy](https://github.com/python/mypy)를 사용하면 정적 타입 언어처럼 미리 타입 에러를 체크해볼 수 있다.  
 
 Mypy는 아래와 같이 pip을 통해서 설치할 수 있다.  
 
@@ -110,9 +175,6 @@ Found 1 error in 1 file (checked 1 source file)
 
 ![python_type_checking_mypy](./img/python_type_checking_mypy.png){ loading=lazy }
 
-!!! info
-    참고로 [Variable Annotations](https://peps.python.org/pep-0008/#variable-annotations)는 Python 3.6 부터 도입된 일종의 주석 기능으로, [PEP 526](https://peps.python.org/pep-0526/)에서 세부 내용을 확인할 수 있다.  
-
 #### IDE 기능 사용
 
 VS Code에서 Python 스크립트를 코딩할 때 사용하는 extension 중 [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)가 있다. Pylance의 `Type Checking Mode`옵션을 켜주면 아래 그림과 같이 데이터의 자료형을 검사해준다.  
@@ -132,5 +194,8 @@ a: int = "a"  # type: ignore
 ---
 ## Reference
 - [[CS 기초] 정적타입 언어 vs 동적타입 언어](https://algorfati.tistory.com/112)
+- [PEP 484 – Type Hints](https://peps.python.org/pep-0484/)
+- [PEP 526 – Syntax for Variable Annotations](https://peps.python.org/pep-0526/)
 - [typing — Support for type hints](https://docs.python.org/3/library/typing.html)
+- [mypy - Type hints cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 - [How to Use Static Type Checking in Python 3.6](https://medium.com/@ageitgey/learn-how-to-use-static-type-checking-in-python-3-6-in-10-minutes-12c86d72677b)
