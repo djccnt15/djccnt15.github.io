@@ -163,6 +163,7 @@ erDiagram
 title: Image Upload Process
 ---
 sequenceDiagram
+    autonumber
     Client -) FastAPI: API request
     activate FastAPI
     FastAPI -) BLOB Database: upload thumbnail
@@ -179,6 +180,7 @@ sequenceDiagram
 title: Document OCR Process
 ---
 sequenceDiagram
+    autonumber
     Client -) FastAPI: API request
     activate FastAPI
     FastAPI -) Database: query
