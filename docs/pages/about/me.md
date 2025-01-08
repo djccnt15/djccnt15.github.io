@@ -44,8 +44,9 @@ MLOps, 데이터 엔지니어링, 데이터 사이언티스트, 백엔드 엔지
 - Web Framework  
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white){ loading=lazy }
 ![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white){ loading=lazy }
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white){ loading=lazy }
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=spring&logoColor=white){ loading=lazy }
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white){ loading=lazy }
+![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat-square&logo=springsecurity&logoColor=white){ loading=lazy }
 
 - Web Server / Web Application Server  
 ![NGINX](https://img.shields.io/badge/NGINX-009639?style=flat-square&logo=nginx&logoColor=white){ loading=lazy }
@@ -86,9 +87,7 @@ MLOps, 데이터 엔지니어링, 데이터 사이언티스트, 백엔드 엔지
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white){ loading=lazy }
 ![Keras](https://img.shields.io/badge/Keras-D00000?style=flat-square&logo=keras&logoColor=white){ loading=lazy }
 
-- Version Control System  
+- SW Engineering Tool  
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white){ loading=lazy }
-
-- Editor  
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white){ loading=lazy }
 ![IntelliJ](https://img.shields.io/badge/IntelliJ-000000?style=flat-square&logo=intellijidea&logoColor=white){ loading=lazy }
