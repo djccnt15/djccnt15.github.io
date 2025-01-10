@@ -192,8 +192,9 @@ extra:
     gunicorn: gunicorn
     html: html
     intellij: intellij
-    java 17: java
+    jar: java
     java: java
+    java 17: java
     jekyll: jekyll
     kafka: kafka
     list comprehension: python
