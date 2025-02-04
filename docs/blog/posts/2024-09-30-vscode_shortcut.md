@@ -26,9 +26,13 @@ tags:
 - ++ctrl+shift+d++ : 디버깅 창으로 이동
 - ++ctrl+shift+x++ : 확장프로그램 창으로 이동
 - ++ctrl+n++ : n 번째 편집 목록으로 이동
-- ++ctrl+alt+left++ / ++right++ : 편집창을 다른 편집 목록으로 이동
 - ++ctrl+grave++ : 터미널로 이동
 - ++ctrl+shift+grave++ : 새로운 터미널 실행
+
+## 에디터 이동
+
+- ++ctrl+alt+left++ / ++right++ : 편집창을 다른 편집 목록으로 이동
+- ++ctrl+shift+page-up++ / ++page-down++ : 편집창을 앞/뒤 순서로 이동
 
 ## 편집 파일 이동
 
@@ -82,7 +86,7 @@ tags:
 - ++ctrl+d++ : 다음으로 일치하는 텍스트 선택
 - ++ctrl+shift+l++ : 일치하는 텍스트 전체 선택
 
-[^3]: 스펠 체커 설치 시  
+[^3]: [스펠 체커](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) 설치 시  
 
 ## 디버깅
 
