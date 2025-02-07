@@ -90,7 +90,7 @@ stateDiagram-v2
 
 ### Handler
 
-Python에서 기본 제공하는 로깅 모듈을 사용하면 시스템 로그를 아주 간편하게 남길 수 있는데, Handler를 사용하여 로깅을 위한 여러가지 설정을 쉽게 관리할 수 있다.  
+Python에서 기본 제공하는 로깅 모듈을 사용하면 시스템 로그를 아주 간편하게 남길 수 있는데, Handler를 사용하여 로깅을 위한 여러 가지 설정을 쉽게 관리할 수 있다.  
 
 #### TimedRotatingFileHandler
 

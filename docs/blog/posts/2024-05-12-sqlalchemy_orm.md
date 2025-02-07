@@ -32,7 +32,7 @@ Python은 Django의 경우 자체적인 ORM 엔진을 사용하고, 그 외의 �
 - [Microsoft SQL Server](https://docs.sqlalchemy.org/en/20/dialects/mssql.html)
 
 !!! tip
-    각 데이터베이스의 드라이버의 목록을 보면 여러가지가 있는데, 비동기처리를 DB I/O에까지 적용하려면 Async를 지원하는 DB 및 드라이버를 사용해야한다.  
+    각 데이터베이스의 드라이버의 목록을 보면 여러 가지가 있는데, 비동기처리를 DB I/O에까지 적용하려면 Async를 지원하는 DB 및 드라이버를 사용해야한다.  
 
     대표적으로 Microsoft SQL Server의 경우 SQLAlchemy가 지원하는 드라이버는 [pymssql](https://pymssql.readthedocs.io/en/latest/)와 [PyODBC](https://github.com/mkleehammer/pyodbc)가 있는데, 둘 다 비동기처리를 지원하지 않는다.  
 

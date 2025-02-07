@@ -34,11 +34,14 @@ The server selected protocol version TLS10 is not accepted by client preferences
 1. `<JAVA_HOME>\conf\security\java.security` 파일 열기
 1. 옵션 수정
     - before
+
         ```
         jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA, \
         DH keySize < 1024, EC keySize < 224, 3DES_EDE_CBC, anon, NULL
         ```
+
     - after
+
         ```
         jdk.tls.disabledAlgorithms=SSLv3, RC4, DES, MD5withRSA, \
         DH keySize < 1024, EC keySize < 224, 3DES_EDE_CBC, anon, NULL

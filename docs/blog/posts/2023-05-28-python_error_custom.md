@@ -18,9 +18,9 @@ Python Exception 커스텀 방법
 
 ---
 
-## 에러 메세지 커멘트 추가하는 방법
+## 에러 메세지 추가 방법
 
-에러에 특정 코멘트가 같이 나오도록 하고 싶을 경우 아래와 같이 원하는 문구를 넣어주면 된다.  
+에러에 특정 메세지가 출력되도록 하고 싶을 경우 아래와 같이 원하는 문구를 넣어주면 된다.  
 
 ```python
 raise Exception('Your own custom error comment')
@@ -32,7 +32,7 @@ Traceback (most recent call last):
 Exception: Your own custom error comment
 ```
 
-참고로 아래와 같이 에러를 문자열로 변환하면 에러 커멘트만 꺼내올 수 있다.  
+참고로 아래와 같이 에러를 문자열로 변환하면 에러 메세지만 꺼내올 수 있다.  
 
 ```python
 print(str(Exception('Your own custom error comment')))
@@ -75,7 +75,6 @@ except MyException as e:
 ```
 custom error
 ```
-
 
 ```python
 class MyException(Exception):
