@@ -126,7 +126,6 @@ theme:
       mongodb: simple/mongodb
       mysql: simple/mysql
       numpy: simple/numpy
-      oracle: simple/oracle
       pandas: simple/pandas
       postgresql: simple/postgresql
       python: fontawesome/brands/python
