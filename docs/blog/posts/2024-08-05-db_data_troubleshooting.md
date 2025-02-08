@@ -1,10 +1,10 @@
 ---
 slug: db-data-troubleshooting
-title: DB 데이터 트러블 슈팅 모음
+title: DB 데이터 트러블슈팅 모음
 date:
     created: 2024-08-05
 description: >
-    데이터베이스 데이터 관련 트러블 슈팅 모음
+    데이터베이스 데이터 관련 트러블슈팅 모음
 categories:
     - Data Engineering
 tags:
@@ -12,7 +12,7 @@ tags:
     - troubleshooting
 ---
 
-데이터베이스 데이터 관련 트러블 슈팅 모음  
+데이터베이스 데이터 관련 트러블슈팅 모음  
 
 <!-- more -->
 

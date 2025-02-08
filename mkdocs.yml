@@ -122,8 +122,9 @@ theme:
       kafka: simple/apachekafka
       mariadb: simple/mariadb
       markdown: fontawesome/brands/markdown
-      mysql: simple/mysql
+      maven: simple/apachemaven
       mongodb: simple/mongodb
+      mysql: simple/mysql
       numpy: simple/numpy
       oracle: simple/oracle
       pandas: simple/pandas
@@ -192,14 +193,16 @@ extra:
     gunicorn: gunicorn
     html: html
     intellij: intellij
-    java 17: java
+    jar: java
     java: java
+    java 17: java
     jekyll: jekyll
     kafka: kafka
     list comprehension: python
     mariadb: mariadb
     markdown: markdown
-    MongoDB: mongodb
+    maven: maven
+    mongodb: mongodb
     mysql: mysql
     numpy: numpy
     opencv: cv

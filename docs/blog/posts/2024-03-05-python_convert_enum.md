@@ -23,10 +23,10 @@ tags:
 아래와 같이 반복문을 사용해서 Enum 객체를 자료구조로 변환할 수 있다.  
 
 ```python
-from enum import StrEnum
+from enum import Enum, StrEnum
 
 
-class BaseStrEnum(StrEnum):
+class EnumMixin(Enum):
 
     @classmethod
     def to_list(cls):
@@ -37,7 +37,7 @@ class BaseStrEnum(StrEnum):
         return {i.name: i.value for i in cls}
 
 
-class TimeTypeEnum(BaseStrEnum):
+class TimeTypeEnum(EnumMixin, StrEnum):
     M10 = "10min"
     M30 = "30min"
     H1 = "1hour"

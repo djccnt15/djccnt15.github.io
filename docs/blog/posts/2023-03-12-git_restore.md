@@ -65,7 +65,7 @@ git restore --source=<branch> <file>
 git restore -p --source=<branch> <file>
 ```
 
-`restore` 명령어를 사용할 때 `-p|--patch` 옵션을 주면 현재 파일과 소스의 차이를 확인하면서 여러가지 옵션 중에 선택하여 가져오게 되는데, 각 옵션의 세부 내용은 아래와 같다.  
+`restore` 명령어를 사용할 때 `-p|--patch` 옵션을 주면 현재 파일과 소스의 차이를 확인하면서 여러 가지 옵션 중에 선택하여 가져오게 되는데, 각 옵션의 세부 내용은 아래와 같다.  
 
 ```
 y - stage this hunk

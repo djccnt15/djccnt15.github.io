@@ -1,10 +1,10 @@
 ---
 slug: tomcat-troubleshooting
-title: 톰캣 트러블 슈팅 모음
+title: 톰캣 트러블슈팅 모음
 date:
     created: 2024-08-02
 description: >
-    톰캣 트러블 슈팅 모음
+    톰캣 관련 트러블슈팅 모음
 categories:
     - Server Engineering
 tags:
@@ -12,7 +12,7 @@ tags:
     - troubleshooting
 ---
 
-톰캣 트러블 슈팅 모음  
+톰캣 관련 트러블슈팅 모음  
 
 <!-- more -->
 

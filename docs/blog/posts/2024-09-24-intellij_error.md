@@ -26,7 +26,7 @@ IntelliJ에서 자바 테스트 코드 실행 시 아래와 같은 경고가 발
 OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
 ```
 
-이 경고는 클래스 로딩 시 Class Data Sharing(CDS) 기능을 사용할 경우 발생한다고 하며, 실제 어플리케이션의 실행에는 문제가 없다.  
+이 경고는 클래스 로딩 시 Class Data Sharing(CDS) 기능을 사용할 경우 발생한다고 하며, 실제 애플리케이션의 실행에는 문제가 없다.  
 
 아래와 같이 `build.gradle` 설정에서 `-Xshare:off`로 설정해 CDS 기능을 비활성화 하면 해결된다.  
 
