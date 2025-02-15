@@ -50,3 +50,16 @@ tasks.named('test') {
         -Dfile.encoding=UTF-8
         -Dconsole.encoding=UTF-8
         ```
+
+## Gradle 빌드 문제
+
+간혹 IntelliJ로 신규 프로젝트를 시작했을 때, `build.gradle` 파일에 경고가 표시되고 아래와 같이 메세지가 표시되는 경우가 있다.  
+
+`plugins cannot be applied to '(groovy. lang. Closure)'`
+
+이는 IntelliJ가 프로젝트를 열 때 Gradle 파일을 제대로 인식하지 못해 발생하는 버그인데, 아래와 같은 절차로 해결 가능하다.  
+
+1. IntelliJ 관련 파일 삭제: `.idea`, `.iml`
+1. IntelliJ로 프로젝트를 열 때
+    - `build.gradle` 파일 선택해서 열기
+    - `Open as Project` 메뉴로 실행
