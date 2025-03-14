@@ -31,6 +31,9 @@ Python으로 포팅된 OpenCV를 설치하는건 당연히 pip를 사용하면 �
 - [opencv-contrib-python-headless](https://pypi.org/project/opencv-contrib-python-headless/)
     - 전체 패키지 설치, 화면이 없는 서버 환경용
 
+!!! note
+    headless 버전과 일반 버전이 동시에 설치되어 있을 경우 headless 버전이 우선된다.  
+
 contrib 환경에서 추가되는 모듈은 [공식 문서](https://docs.opencv.org/4.x/)를 참고하자  
 
 !!! info
