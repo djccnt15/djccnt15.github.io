@@ -3,7 +3,7 @@ slug: how-to-logging-python
 title: Python logging 제대로 하는 방법
 date:
     created: 2023-09-21
-    updated: 2024-02-01
+    updated: 2025-03-15
 description: >
     Python 로깅에 대한 정리와 Best Practice 예시
 categories:
@@ -86,7 +86,7 @@ stateDiagram-v2
     }
 ```
 
-[출처: Python - Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-flow)
+^[출처: Python - Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-flow)^
 
 ### Handler
 
@@ -131,10 +131,12 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 | :------------: | :-----------: | :------------------------------------: |
 |    asctime     |  %(asctime)s  |           로그가 생성된 시간           |
 |    filename    | %(filename)s  |      로그를 발생시킨 파일의 이름       |
+|    funcName    | %(funcName)s  |      로그를 발생시킨 함수의 이름       |
 |   levelname    | %(levelname)s |             로그 레벨 이름             |
 |     lineno     |  %(lineno)d   | 소스코드에서 로그를 발생시킨 라인 넘버 |
 |    message     |  %(message)s  |              로그 메세지               |
 |     module     |  %(module)s   |       로그를 발생시킨 모듈 이름        |
+|     msecs      |   %(msecs)d   |    로그가 생성된 시간의 밀리세컨드     |
 |      name      |   %(name)s    |              로거의 이름               |
 |    process     |  %(process)d  |      프로세스 ID(가능할 경우에만)      |
 |     thread     |  %(thread)d   |       쓰레드 ID(가능할 경우에만)       |
@@ -185,6 +187,8 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
             
             ...
         ```
+
+    `Formatter`는 시간 표시를 위해 `time.time()`을 통해 생성된 `LogRecord`의 `created`를 사용하기 때문에 milliseconds를 출력하려면 매우 귀찮아진다.  
 
 [^2]: 시간의 시작점인 *epoch*[^3] 로부터의 초를 반환한다.  
 [^3]: January 1, 1970, 00:00:00 (UTC)  
@@ -372,11 +376,23 @@ class MyFilter(Filter):  # (1)!
 ```python title="src/log/__init__.py"
 import logging
 import queue
-from logging import Formatter, StreamHandler
+from datetime import datetime
 from logging.handlers import QueueHandler, QueueListener, TimedRotatingFileHandler
 from pathlib import Path
 
 from src.log import filter, formatter
+
+
+# override formatTime method of Formatter
+def formatTime(self, record, datefmt=None):
+    return (
+        datetime.fromtimestamp(record.created)
+        .astimezone()
+        .isoformat(timespec="milliseconds")
+    )
+
+
+logging.Formatter.formatTime = formatTime  # (1)!
 
 # set log directory
 log_dir = Path("logs")
@@ -390,17 +406,15 @@ logger = logging.getLogger(name="logger")
 logger.setLevel(level=logging.DEBUG)
 
 # set log format
-simple_formatter = Formatter(
+simple_formatter = logging.Formatter(
     fmt="%(asctime)s - %(levelname)s - %(message)s",
-    datefmt="%Y-%m-%dT%H:%M:%S%z",
 )
-detailed_formatter = Formatter(
-    fmt="%(asctime)s - %(levelname)s - [%(module)s:%(lineno)d] %(message)s",
-    datefmt="%Y-%m-%dT%H:%M:%S%z",
+detailed_formatter = logging.Formatter(
+    fmt="%(asctime)s - %(levelname)s - [%(module)s:%(funcName)s:%(lineno)d] %(message)s",
 )
 
 # StreamHandler
-stream_handler = StreamHandler()
+stream_handler = logging.StreamHandler()
 stream_handler.setFormatter(fmt=simple_formatter)
 
 # TimedRotatingFileHandler
@@ -448,7 +462,7 @@ debug_handler.addFilter(
 )
 
 # QueueHandler
-log_queue = queue.Queue()  # (1)!
+log_queue = queue.Queue()  # (2)!
 queue_handler = QueueHandler(queue=log_queue)
 logger.addHandler(hdlr=queue_handler)
 
@@ -462,6 +476,7 @@ log_listener = QueueListener(
 )
 ```
 
+1. **ISO8601** 형식으로 로그 생성 시간을 출력하기 위한 `Formatter.formatTime` 메소드 오버라이드
 1. 멀티프로세싱 환경에서 QueueHandler를 사용할 경우 [multiprocessing.Queue](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue)를 사용해야 한다.  
 
 실제 애플리케이션에서의 로그 활용  
@@ -491,302 +506,326 @@ if __name__ == "__main__":
     main()
 ```
 
-### `dictConfig`를 통한 로그 설정
+??? tip "`dictConfig`를 통한 로그 설정"
+    로그 설정을 위한 실제 config 파일로 로그 설정을 JSON이나 YAML 등 외부 파일로 다루면 추후 사용자가 로그 기능을 쉽게 수정할 수 있다는 장점이 있다. ~~사용자를 믿을 수 있는지는 모르겠지만..~~  
 
-로그 설정을 위한 실제 config 파일로 로그 설정을 JSON이나 YAML 등 외부 파일로 다루면 추후 사용자가 로그 기능을 쉽게 수정할 수 있다는 장점이 있다. ~~사용자를 믿을 수 있는지는 모르겠지만..~~  
-
-```json title="log_config.json"
-{
-    "version": 1,
-    "disable_existing_loggers": false,
-    "formatters": {
-        "simple": {
-            "format": "%(asctime)s - %(levelname)s - %(message)s",
-            "datefmt": "%Y-%m-%dT%H:%M:%S%z"
+    ```json title="log_config.json"
+    {
+        "version": 1,
+        "disable_existing_loggers": false,
+        "formatters": {
+            "simple": {
+                "format": "%(asctime)s.%(msecs)03d - %(levelname)s - %(message)s",
+                "datefmt": "%Y-%m-%dT%H:%M:%S"
+            },
+            "detailed": {
+                "format": "%(asctime)s.%(msecs)03d - %(levelname)s - [%(module)s:%(funcName)s:%(lineno)d] %(message)s",
+                "datefmt": "%Y-%m-%dT%H:%M:%S"
+            },
+            "json": {
+                "()": "src.log.formatter.JsonFormatter",  // (1)!
+                "fmt_keys": {
+                    "level": "levelname",
+                    "message": "message",
+                    "logger": "name",
+                    "module": "module",
+                    "function": "funcName",
+                    "line": "lineno"
+                }
+            }
         },
-        "detailed": {
-            "format": "%(asctime)s - %(levelname)s - [%(module)s:%(lineno)d] %(message)s",
-            "datefmt": "%Y-%m-%dT%H:%M:%S%z"
+        "handlers": {
+            "stream": {
+                "class": "logging.StreamHandler",
+                "level": "DEBUG",
+                "formatter": "simple",
+                "stream": "ext://sys.stderr"
+            },
+            "rotating_file": {
+                "class": "logging.handlers.TimedRotatingFileHandler",
+                "level": "DEBUG",
+                "formatter": "detailed",
+                "filename": "logs/app.log",
+                "when": "midnight",
+                "backupCount": 3,
+                "encoding": "utf-8"
+            },
+            "rotating_json": {
+                "class": "logging.handlers.TimedRotatingFileHandler",
+                "level": "DEBUG",
+                "formatter": "json",
+                "filename": "logs/app.log.jsonl",
+                "when": "midnight",
+                "backupCount": 3,
+                "encoding": "utf-8"
+            },
+            "debug_handler": {
+                "class": "logging.handlers.TimedRotatingFileHandler",
+                "level": "DEBUG",
+                "formatter": "detailed",
+                "filename": "logs/debug.log",
+                "when": "midnight",
+                "backupCount": 3,
+                "encoding": "utf-8"
+            },
+            "queue_handler": {
+                "class": "logging.handlers.QueueHandler",
+                "handlers": [
+                    "stream",
+                    "rotating_file",
+                    "rotating_json",
+                    "debug_handler"
+                ],
+                "respect_handler_level": true
+            }
         },
-        "json": {
-            "()": "src.log.formatter.JsonFormatter",  // (1)!
-            "fmt_keys": {
-                "level": "levelname",
-                "message": "message",
-                "logger": "name",
-                "module": "module",
-                "function": "funcName",
-                "line": "lineno"
+        "loggers": {
+            "root": {
+                "level": "DEBUG",
+                "handlers": ["queue_handler"]
             }
         }
-    },
-    "handlers": {
-        "stream": {
-            "class": "logging.StreamHandler",
-            "level": "DEBUG",
-            "formatter": "simple",
-            "stream": "ext://sys.stderr"
-        },
-        "rotating_file": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "level": "DEBUG",
-            "formatter": "detailed",
-            "filename": "logs/app.log",
-            "when": "midnight",
-            "backupCount": 3,
-            "encoding": "utf-8"
-        },
-        "rotating_json": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "level": "DEBUG",
-            "formatter": "json",
-            "filename": "logs/app.log.jsonl",
-            "when": "midnight",
-            "backupCount": 3,
-            "encoding": "utf-8"
-        },
-        "debug_handler": {
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "level": "DEBUG",
-            "formatter": "detailed",
-            "filename": "logs/debug.log",
-            "when": "midnight",
-            "backupCount": 3,
-            "encoding": "utf-8"
-        },
-        "queue_handler": {
-            "class": "logging.handlers.QueueHandler",
-            "handlers": [
-                "stream",
-                "rotating_file",
-                "rotating_json",
-                "debug_handler"
-            ],
-            "respect_handler_level": true
-        }
-    },
-    "loggers": {
-        "root": {
-            "level": "DEBUG",
-            "handlers": ["queue_handler"]
-        }
     }
-}
-```
+    ```
 
-1. 사용자 class를 사용할 때는 키 값을 `()`으로 설정하지 않으면 key 들이 하드코딩으로 주입된다.
+    1. 사용자 class를 사용할 때는 키 값을 `()`으로 설정하지 않으면 key 들이 하드코딩으로 주입된다.
 
-!!! warning
-    3.11 버전까지는 `QueueHandler`와 `QueueListener`의 설정이 `dictConfig`를 통해 쉽게 주입하기 어렵다는 문제가 있다.  
+    `log_config.json`에서 입력받은 로그 설정을 애플리케이션에 주입하기 위한 코드  
 
-!!! tip
-    3.12 버전부터는 `QueueHandler`에 로그 Queue를 자동으로 주입받고, `QueueListener` 역시 `dictConfig`를 통해 `handlers`를 주입받을 수 있도록 하는 내부적인 변경이 생겨 `dictConfig`를 통해 `QueueHandler`도 쉽게 다룰 수 있게 되었다.  
+    ```python title="src/log/__init__.py"
+    import atexit
+    import json
+    import logging
+    import logging.config
+    from pathlib import Path
 
-`log_config.json`에서 입력받은 로그 설정을 애플리케이션에 주입하기 위한 코드  
+    from src.log import filter
 
-```python title="src/log/__init__.py"
-import atexit
-import json
-import logging
-import logging.config
-from pathlib import Path
-
-from src.log import filter
-
-logger = logging.getLogger(name="logger")
+    logger = logging.getLogger(name="logger")
 
 
-def set_logger():
-    log_config_file = Path(r"config\log_config.json")
-    with open(file=log_config_file, encoding="utf-8") as f:
-        log_config = json.load(fp=f)
-    logging.config.dictConfig(config=log_config)
+    def set_logger():
+        log_config_file = Path(r"config\log_config.json")
+        with open(file=log_config_file, encoding="utf-8") as f:
+            log_config = json.load(fp=f)
+        logging.config.dictConfig(config=log_config)
 
-    queue_handler = logging.getHandlerByName(name="queue_handler")
-    if queue_handler is not None:
-        queue_handler.listener.start()
-        atexit.register(func=queue_handler.listener.stop)
+        queue_handler = logging.getHandlerByName(name="queue_handler")
+        if queue_handler is not None:
+            queue_handler.listener.start()
+            atexit.register(func=queue_handler.listener.stop)
 
-    debug_handler = logging.getHandlerByName(name="debug_handler")
-    if debug_handler is not None:
-        debug_handler.addFilter(
-            filter=filter.MyFilter(
-                levels=[
-                    logging.DEBUG,
-                    logging.ERROR,
-                    logging.CRITICAL,
-                ]
+        debug_handler = logging.getHandlerByName(name="debug_handler")
+        if debug_handler is not None:
+            debug_handler.addFilter(
+                filter=filter.MyFilter(
+                    levels=[
+                        logging.DEBUG,
+                        logging.ERROR,
+                        logging.CRITICAL,
+                    ]
+                )
             )
-        )
-```
+    ```
 
-실제 애플리케이션에서의 로그 활용  
+    실제 애플리케이션에서의 로그 활용  
 
-```python title="main.py"
-from src.log import log_listener, logger
-
-
-def main():
-    set_logger()
-
-    logger.debug("debug message")
-    logger.info("info message")
-    logger.warning("warn message")
-    logger.error("error message")
-    logger.critical("critical message")
-
-    try:
-        raise Exception
-    except Exception as e:
-        logger.exception(e)  # log for error catch
+    ```python title="main.py"
+    from src.log import log_listener, logger
 
 
-if __name__ == "__main__":
-    main()
-```
+    def main():
+        set_logger()
+
+        logger.debug("debug message")
+        logger.info("info message")
+        logger.warning("warn message")
+        logger.error("error message")
+        logger.critical("critical message")
+
+        try:
+            raise Exception
+        except Exception as e:
+            logger.exception(e)  # log for error catch
+
+
+    if __name__ == "__main__":
+        main()
+    ```
+
+    !!! info
+        3.11 버전까지는 `QueueHandler`와 `QueueListener`의 설정이 `dictConfig`를 통해 쉽게 주입하기 어렵다는 문제가 있었으나, 3.12 버전부터는 `QueueHandler`에 로그 Queue를 자동으로 주입받고, `QueueListener` 역시 `dictConfig`를 통해 `handlers`를 주입받을 수 있도록 하는 내부적인 변경이 생겨 `dictConfig`를 통해 `QueueHandler`도 쉽게 다룰 수 있게 되었다.  
 
 ### 로그 출력 결과
 
-두 가지 설정 방식은 아래와 같이 로그들을 출력해준다.   
+아래와 같이 로그들을 출력해준다.   
 
 ```log title="standard out"
-2024-01-28T16:22:31+0900 - DEBUG - debug message
-2024-01-28T16:22:31+0900 - INFO - info message
-2024-01-28T16:22:31+0900 - WARNING - warn message
-2024-01-28T16:22:31+0900 - ERROR - error message
-2024-01-28T16:22:31+0900 - CRITICAL - critical message
-2024-01-28T16:22:31+0900 - ERROR - 
+2025-03-14T23:31:25.303+09:00 - DEBUG - debug message
+2025-03-14T23:31:25.303+09:00 - INFO - info message
+2025-03-14T23:31:25.303+09:00 - WARNING - warn message
+2025-03-14T23:31:25.303+09:00 - ERROR - error message
+2025-03-14T23:31:25.303+09:00 - CRITICAL - critical message
+2025-03-14T23:31:25.303+09:00 - ERROR - 
 Traceback (most recent call last):
-  File "C:\projects\python312\main.py", line 14, in main
+  File "C:\projects\python311\main.py", line 14, in main
     raise Exception
 Exception
 ```
 
 ```log title="app.log"
-2024-01-28T16:22:31+0900 - DEBUG - [main:7] debug message
-2024-01-28T16:22:31+0900 - INFO - [main:8] info message
-2024-01-28T16:22:31+0900 - WARNING - [main:9] warn message
-2024-01-28T16:22:31+0900 - ERROR - [main:10] error message
-2024-01-28T16:22:31+0900 - CRITICAL - [main:11] critical message
-2024-01-28T16:22:31+0900 - ERROR - [main:16] 
+2025-03-14T23:31:25.303+09:00 - DEBUG - [main:main:7] debug message
+2025-03-14T23:31:25.303+09:00 - INFO - [main:main:8] info message
+2025-03-14T23:31:25.303+09:00 - WARNING - [main:main:9] warn message
+2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:10] error message
+2025-03-14T23:31:25.303+09:00 - CRITICAL - [main:main:11] critical message
+2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:16] 
 Traceback (most recent call last):
-  File "C:\projects\python312\main.py", line 14, in main
+  File "C:\projects\python311\main.py", line 14, in main
     raise Exception
 Exception
 ```
 
 ```json title="app.log.jsonl"
-{"level": "DEBUG", "message": "debug message", "logger": "logger", "module": "main", "function": "main", "line": 7, "timestamp": "2024-01-28T16:22:31.069276+00:00"}
-{"level": "INFO", "message": "info message", "logger": "logger", "module": "main", "function": "main", "line": 8, "timestamp": "2024-01-28T16:22:31.069276+00:00"}
-{"level": "WARNING", "message": "warn message", "logger": "logger", "module": "main", "function": "main", "line": 9, "timestamp": "2024-01-28T16:22:31.069276+00:00"}
-{"level": "ERROR", "message": "error message", "logger": "logger", "module": "main", "function": "main", "line": 10, "timestamp": "2024-01-28T16:22:31.069276+00:00"}
-{"level": "CRITICAL", "message": "critical message", "logger": "logger", "module": "main", "function": "main", "line": 11, "timestamp": "2024-01-28T16:22:31.069276+00:00"}
-{"level": "ERROR", "message": "\nTraceback (most recent call last):\n  File \"C:\\projects\\python312\\main.py\", line 14, in main\n    raise Exception\nException", "logger": "logger", "module": "main", "function": "main", "line": 16, "timestamp": "2024-01-28T16:22:31.069276+00:00"}
+{"level": "DEBUG", "message": "debug message", "logger": "logger", "module": "main", "function": "main", "line": 7, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
+{"level": "INFO", "message": "info message", "logger": "logger", "module": "main", "function": "main", "line": 8, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
+{"level": "WARNING", "message": "warn message", "logger": "logger", "module": "main", "function": "main", "line": 9, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
+{"level": "ERROR", "message": "error message", "logger": "logger", "module": "main", "function": "main", "line": 10, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
+{"level": "CRITICAL", "message": "critical message", "logger": "logger", "module": "main", "function": "main", "line": 11, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
+{"level": "ERROR", "message": "\nTraceback (most recent call last):\n  File \"C:\\projects\\python311\\main.py\", line 14, in main\n    raise Exception\nException", "logger": "logger", "module": "main", "function": "main", "line": 16, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
 ```
 
 ```log title="debug.log"
-2024-01-28T16:22:31+0900 - DEBUG - [main:7] debug message
-2024-01-28T16:22:31+0900 - ERROR - [main:8] error message
-2024-01-28T16:22:31+0900 - CRITICAL - [main:9] critical message
-2024-01-28T16:22:31+0900 - ERROR - [main:14] 
+2025-03-14T23:31:25.303+09:00 - DEBUG - [main:main:7] debug message
+2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:10] error message
+2025-03-14T23:31:25.303+09:00 - CRITICAL - [main:main:11] critical message
+2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:16] 
 Traceback (most recent call last):
-  File "C:\projects\python311\main.py", line 12, in main
+  File "C:\projects\python311\main.py", line 14, in main
     raise Exception
 Exception
 ```
 
 ## 로거 프리셋
 
-### 디버그용 로거 설정
+??? note "디버그용 로거 설정"
+    프로그램 디버깅만을 위한 디버그 전용 로거 설정 방법  
 
-프로그램 디버깅만을 위한 디버그 전용 로거 설정 방법  
+    ```python title="src/log/__init__.py"
+    import logging
+    import queue
+    from datetime import datetime
+    from logging.handlers import QueueHandler, QueueListener, TimedRotatingFileHandler
+    from pathlib import Path
 
-```python title="src/log/__init__.py"
-import logging
-import queue
-from logging.handlers import QueueHandler, QueueListener, TimedRotatingFileHandler
-from pathlib import Path
+    from src.log import filter
 
-from src.log import filter
 
-# set log directory
-log_dir = Path("logs")
-try:
-    log_dir.mkdir()
-except FileExistsError:
-    ...
+    # override formatTime method of Formatter
+    def formatTime(self, record, datefmt=None):
+        return (
+            datetime.fromtimestamp(record.created)
+            .astimezone()
+            .isoformat(timespec="milliseconds")
+        )
 
-# create Logger instance
-logger = logging.getLogger("logger")
-logger.setLevel(logging.DEBUG)
 
-# set log format
-detailed_formatter = logging.Formatter(
-    fmt="%(asctime)s - %(levelname)s - [%(module)s:%(lineno)d] %(message)s",
-    datefmt="%Y-%m-%dT%H:%M:%S%z",
-)
+    logging.Formatter.formatTime = formatTime
 
-# DebugHandler
-debug_handler = TimedRotatingFileHandler(
-    filename=log_dir / "debug.log",
-    when="midnight",
-    backupCount=3,
-    encoding="utf-8",
-)
-debug_handler.setFormatter(detailed_formatter)
-debug_handler.addFilter(
-    filter.MyFilter(
-        levels=[
-            logging.DEBUG,
-            logging.ERROR,
-            logging.CRITICAL,
-        ]
+    # set log directory
+    log_dir = Path("logs")
+    try:
+        log_dir.mkdir()
+    except FileExistsError:
+        ...
+
+    # create Logger instance
+    logger = logging.getLogger("logger")
+    logger.setLevel(logging.DEBUG)
+
+    # set log format
+    detailed_formatter = logging.Formatter(
+        fmt="%(asctime)s.%(msecs)03d - %(levelname)s - [%(module)s:%(funcName)s:%(lineno)d] %(message)s",
     )
-)
 
-# QueueHandler
-log_queue = queue.Queue()
-queue_handler = QueueHandler(log_queue)
-logger.addHandler(queue_handler)
+    # DebugHandler
+    debug_handler = TimedRotatingFileHandler(
+        filename=log_dir / "debug.log",
+        when="midnight",
+        backupCount=3,
+        encoding="utf-8",
+    )
+    debug_handler.setFormatter(detailed_formatter)
+    debug_handler.addFilter(
+        filter.MyFilter(
+            levels=[
+                logging.DEBUG,
+                logging.ERROR,
+                logging.CRITICAL,
+            ]
+        )
+    )
 
-# QueueListener
-log_listener = QueueListener(log_queue, debug_handler)
-```
+    # QueueHandler
+    log_queue = queue.Queue()
+    queue_handler = QueueHandler(log_queue)
+    logger.addHandler(queue_handler)
 
-### 간단한 로거 설정
+    # QueueListener
+    log_listener = QueueListener(log_queue, debug_handler)
+    ```
 
-```python title="src/log/__init__.py"
-import logging
-from logging.handlers import TimedRotatingFileHandler
-from pathlib import Path
+??? note "간단한 로거 설정"
 
-# set log directory
-log_dir = Path("logs")
-try:
-    log_dir.mkdir()
-except FileExistsError:
-    ...
+    ```python title="src/log/__init__.py"
+    import logging
+    from datetime import datetime
+    from logging.handlers import TimedRotatingFileHandler
+    from pathlib import Path
 
-# create Logger instance
-logger = logging.getLogger("logger")
-logger.setLevel(logging.DEBUG)
 
-# set log format
-formatter = logging.Formatter(
-    fmt="%(asctime)s - %(levelname)s - [%(module)s:%(lineno)d] %(message)s",
-    datefmt="%Y-%m-%dT%H:%M:%S"
-)
+    # override formatTime method of Formatter
+    def formatTime(self, record, datefmt=None):
+        return (
+            datetime.fromtimestamp(record.created)
+            .astimezone()
+            .isoformat(timespec="milliseconds")
+        )
 
-# TimedRotatingFileHandler
-file_handler = TimedRotatingFileHandler(
-    filename=log_dir / "debug_log.log",
-    when="midnight",  # rotate at every midnight
-    backupCount=3,  # define number of log files, 0 to save all log files
-    encoding="utf-8",
-)
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
-```
+
+    logging.Formatter.formatTime = formatTime
+
+    # set log directory
+    log_dir = Path("logs")
+    try:
+        log_dir.mkdir()
+    except FileExistsError:
+        ...
+
+    # create Logger instance
+    logger = logging.getLogger("logger")
+    logger.setLevel(logging.DEBUG)
+
+    # set log format
+    formatter = logging.Formatter(
+        fmt="%(asctime)s - %(levelname)s - [%(module)s:%(funcName)s:%(lineno)d] %(message)s",
+    )
+
+    # StreamHandler
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(fmt=formatter)
+    logger.addHandler(stream_handler)
+
+    # TimedRotatingFileHandler
+    file_handler = TimedRotatingFileHandler(
+        filename=log_dir / "app.log",
+        when="midnight",  # rotate at every midnight
+        backupCount=3,  # define number of log files, 0 to save all log files
+        encoding="utf-8",
+    )
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    ```
 
 ---
 ## Reference
@@ -796,3 +835,4 @@ logger.addHandler(file_handler)
 - [LogRecord attributes](https://docs.python.org/3/library/logging.html#logrecord-attributes)
 - [mCoding](https://www.youtube.com/@mCoding): [Modern Python logging](https://youtu.be/9L77QExPmI0?si=uoS9br7Bv_8Ba9NK)  
     <iframe src="https://www.youtube.com/embed/9L77QExPmI0" title="Modern Python logging" frameborder="0" allowfullscreen></iframe>
+- [stackoverflow - Python logging: use milliseconds in time format](https://stackoverflow.com/questions/6290739/python-logging-use-milliseconds-in-time-format)
