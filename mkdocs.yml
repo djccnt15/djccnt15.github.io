@@ -110,6 +110,7 @@ theme:
       db: fontawesome/solid/database
       django: simple/django
       docker: simple/docker
+      elasticsearch: simple/elasticsearch
       fastapi: simple/fastapi
       ga: simple/googleanalytics
       git: simple/git
@@ -120,6 +121,8 @@ theme:
       java: fontawesome/brands/java
       jekyll: simple/jekyll
       kafka: simple/apachekafka
+      kibana: simple/kibana
+      logstash: simple/logstash
       mariadb: simple/mariadb
       markdown: fontawesome/brands/markdown
       maven: simple/apachemaven
@@ -128,6 +131,7 @@ theme:
       numpy: simple/numpy
       pandas: simple/pandas
       postgresql: simple/postgresql
+      prometheus: simple/prometheus
       python: fontawesome/brands/python
       pytorch: simple/pytorch
       r: simple/r
@@ -138,6 +142,8 @@ theme:
       spring: simple/spring
       spring_batch: simple/spring
       spring_boot: simple/springboot
+      spring_security: simple/springsecurity
+      sqlite: simple/sqlite
       sympy: simple/sympy
       telegram: simple/telegram
       tensorflow: simple/tensorflow
@@ -184,6 +190,8 @@ extra:
     database: db
     django: django
     docker: docker
+    elasticsearch: elasticsearch
+    elk: elasticsearch
     fastapi: fastapi
     git: git
     ga: ga
@@ -197,7 +205,9 @@ extra:
     java 17: java
     jekyll: jekyll
     kafka: kafka
+    kibana: kibana
     list comprehension: python
+    logstash: logstash
     mariadb: mariadb
     markdown: markdown
     maven: maven
@@ -210,6 +220,7 @@ extra:
     pep: python
     pip: python
     postgresql: postgresql
+    prometheus: prometheus
     python: python
     pytorch: pytorch
     r: r
@@ -225,8 +236,11 @@ extra:
     spring: spring
     spring batch: spring_batch
     spring boot: spring_boot
+    spring security: spring_security
+    spring webflux: spring
     sql server: mssql
     sql: db
+    sqlite: sqlite
     sympy: sympy
     telegram: telegram
     tensorflow: tensorflow
@@ -239,8 +253,7 @@ plugins:
       lang:
         - en
         - ko
-  - tags:
-      tags_file: pages/tags.md
+  - tags
   - glightbox:
       loop: true
   - blog:
