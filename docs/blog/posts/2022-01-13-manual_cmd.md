@@ -358,6 +358,24 @@ date -Iminutes
 date -Iseconds
 ```
 
+### findstr/grep
+
+문자열의 패턴을 검사하는 명령어. [`set`](#setexport)이나 [`where`](#wherewhichfind)와 같은 목록 출력 명령어와 조합하여 활용한다.  
+
+```bat
+set | findstr "FLASK."
+```
+
+```bash
+env | grep ^FLASK
+```
+
+!!! tip
+    `|`는 앞 명령어에서 확인된 리스트를 뒤 명령어로 전달한다.  
+
+!!! info
+    `findstr`에 대한 자세한 내용은 [MS 공식문서 - findstr](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr)를 참고하자.  
+
 ## 3. 네트워크 관련 명령어들
 
 ### ipconfig/ifconfig
@@ -401,9 +419,13 @@ ssh [id]@[ip] -p [port]
 
 ## 4. 환경 관련 명령어들
 
-### set
+### set/export
 
-cmd에서 환경 변수를 보여주는 명령어
+환경 변수를 설정하고 확인하는 명령어
+
+- Windows
+
+환경 변수 출력
 
 ```bat
 set
@@ -419,6 +441,34 @@ set <x>
 
 ```bat
 set COMPUTERNAME
+```
+
+환경 변수 설정
+
+```bat
+set <variable>=<string>
+```
+
+- Linux
+
+환경 변수 출력
+
+```bash
+env
+```
+
+```bash
+printenv
+```
+
+```bash
+export -p
+```
+
+환경 변수 설정
+
+```bash
+export <variable>=<string>
 ```
 
 ### tree
