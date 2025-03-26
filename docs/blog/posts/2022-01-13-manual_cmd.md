@@ -273,6 +273,31 @@ cp <file_name> <destination>
 cp -r <dir_name> <destination>
 ```
 
+### move/mv
+
+파일 및 디렉토리 이동 명령어
+
+- Windows
+
+```powershell
+move <source> <destination>
+
+# 여러 파일 복사
+move C:\source\*.* C:\dest\
+```
+
+- Linux
+
+```shell
+mv <file_name> <destination>
+
+# 덮어쓰기 금지
+mv -n <file_name> <destination>
+
+# 여러 파일 복사
+mv file1.txt file2.txt file3.txt /dest/
+```
+
 ### tasklist/ps
 
 프로세스 리스트를 확인하는 명령어  
