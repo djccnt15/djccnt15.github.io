@@ -136,6 +136,10 @@ SQLAlchemy로 구현한 테이블은 Alembic을 이용해서 DB에 해당 테이
     sqlalchemy.url = mysql+pymysql://qwer:asdf@localhost:3306/test
     ```
 
+    ```ini
+    sqlalchemy.url = sqlite:///./assets/embedded.db
+    ```
+
     !!! note
         driver로는 비동기 처리 드라이버 보다는 동기 처리 드라이버를 사용하는게 안정적이다.  
 
@@ -174,6 +178,12 @@ SQLAlchemy로 구현한 테이블은 Alembic을 이용해서 DB에 해당 테이
     INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
     INFO  [alembic.autogenerate.compare] Detected added table 'user'
     Generating C:\projects\python311\migrations\versions\99c928306efc_.py ...  done
+    ```
+
+    revision 생성 시 메세지를 추가하고 싶다면 아래와 같이 `-m` 옵션을 사용하면 된다.  
+
+    ```bat
+    alembic revision --autogenerate -m "commit message"
     ```
 
     `migrations/versions/` 아래에 테이블을 생성하기 위한 DDL 코드가 자동 생성된다.  
