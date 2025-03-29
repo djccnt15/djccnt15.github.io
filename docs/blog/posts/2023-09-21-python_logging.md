@@ -831,8 +831,7 @@ Exception
 ## Reference
 - [logging — Logging facility for Python](https://docs.python.org/3/library/logging.html)
 - [logging.handlers — Logging handlers](https://docs.python.org/3/library/logging.handlers.html)
-- [LogRecord Objects](https://docs.python.org/3/library/logging.html#logrecord-objects)
-- [LogRecord attributes](https://docs.python.org/3/library/logging.html#logrecord-attributes)
+- [logging — LogRecord Objects](https://docs.python.org/3/library/logging.html#logrecord-objects)
 - [mCoding](https://www.youtube.com/@mCoding): [Modern Python logging](https://youtu.be/9L77QExPmI0?si=uoS9br7Bv_8Ba9NK)  
     <iframe src="https://www.youtube.com/embed/9L77QExPmI0" title="Modern Python logging" frameborder="0" allowfullscreen></iframe>
 - [stackoverflow - Python logging: use milliseconds in time format](https://stackoverflow.com/questions/6290739/python-logging-use-milliseconds-in-time-format)

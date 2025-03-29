@@ -26,21 +26,21 @@ Black Formatter를 사용하면 Python 코딩 스타일을 쉽게 관리할 수 
 
 - Black Formatter로 검사하기
 
-```powershell
+```bat
 black -check {source_file_or_directory}
 ```
 
-```powershell
+```bat
 python -m black -check {source_file_or_directory}
 ```
 
 - Black Formatter로 Python 파일 포매팅하기
 
-```powershell
+```bat
 black {source_file_or_directory}
 ```
 
-```powershell
+```bat
 python -m black {source_file_or_directory}
 ```
 
@@ -62,7 +62,7 @@ python -m black {source_file_or_directory}
 
     아래와 같이 Black Formatter로 검사를 하면 포메팅이 필요하다고 알려준다.  
 
-    ```powershell
+    ```bat
     black --check main.py
     ```
     ```
@@ -74,7 +74,7 @@ python -m black {source_file_or_directory}
 
     Black Formatter로 포매팅을 실행한 후에 파일을 확인해보면 코딩 컨벤션에 맞게 정돈된 것을 볼 수 있다.  
 
-    ```powershell
+    ```bat
     black main.py
     ```
     ```

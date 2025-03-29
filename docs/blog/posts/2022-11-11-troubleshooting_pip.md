@@ -37,6 +37,14 @@ python.exe -m pip install --upgrade pip
 WARNING: There was an error checking the latest version of pip
 ```
 
+## pip 특정 버전 설치
+
+pip도 Python 패키지이기 때문에, 특정 버전의 pip를 설치하는 방법은 특정 버전의 패키지를 설치하는 방법과 같다.  
+
+```bat
+python -m pip install --upgrade pip==<version>
+```
+
 ## pip 버전 체크 오류
 
 pip 업그레이드 진행 후 아래와 같이 pip 버전을 확인할 수 없다는 경고가 뜰 때가 있다. 이미 고쳐진 문제라고 하는데, 아마 서버에서 사용하는 Python 버전이 너무 낮아서 발생한 것 같다.  
