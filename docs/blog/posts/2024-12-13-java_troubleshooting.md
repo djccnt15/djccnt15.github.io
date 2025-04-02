@@ -18,6 +18,39 @@ Java 트러블슈팅 모음
 
 ---
 
+## JVM 선택 실행
+
+Java로 `jar` 파일을 실행하는 기본적인 명령어는 아래와 같다.  
+
+```bat
+java -jar [app_path.jar]
+```
+
+!!! info
+    이 때 `java` 커맨드는 시스템 환경 변수에 등록되어 있는 `JAVA_HOME` 경로의 JVM을 사용해서 Java를 구동한다.  
+
+다양한 버전의 JAVA가 설치된 환경에서 특정 JVM을 사용해 `jar` 파일을 실행하는 방법은 아래와 같다.  
+
+```bat
+"C:\path\to\your\java\bin\java" -jar [app_path.jar]
+
+"C:\path\to\your\java\bin\java.exe" -jar [app_path.jar]
+```
+
+!!! tip
+    아래와 같이 `set`, `export` 명령어를 이용해서 현재 실행중인 콘솔에서 임시로 환경변수 경로를 변경해줘도 된다.  
+
+    ```bat
+    set JAVA_HOME=C:\path\to\your\java
+    set PATH=%JAVA_HOME%\bin;%PATH%
+    java -jar your-app.jar
+    ```
+    ```sh
+    $env:JAVA_HOME="C:\path\to\your\java"
+    $env:Path="$env:JAVA_HOME\bin;$env:Path"
+    java -jar your-app.jar
+    ```
+
 ## TLS10 이슈 해결 방법
 
 레거시 시스템을 다루다 보면 아래와 같은 문제로 Java 프로그램이 실행되지 않는 경우가 있다.  
