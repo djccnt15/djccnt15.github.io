@@ -44,10 +44,10 @@ taskkill /pid <PID> /f
 
 - Linux
 
-```shell
+```sh
 kill -15 <PID>
 ```
 
-```shell
+```sh
 kill -9 <PID>
 ```

@@ -42,16 +42,16 @@ GitHub과 같은 Git 서비스를 이용한다면 저장소를 생성할 때 프
 
 - 파일을 워킹 트리와 인덱스에서 삭제
 
-```shell
+```sh
 git rm <pathspec>
 ```
 
 - 파일/폴더를 원격 저장소에서만 삭제
 
-```shell
+```sh
 git rm --cached <pathspec>
 ```
 
-```shell
+```sh
 git rm -r --cached <directory>
 ```

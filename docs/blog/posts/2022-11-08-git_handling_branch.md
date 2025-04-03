@@ -25,25 +25,25 @@ Git 브랜치 관리를 위한 명령어들: branch, switch, merge
 
 - 브랜치 생성
 
-```shell
+```sh
 git branch <newbranch>
 ```
 
 - 브랜치 이름 변경
 
-```shell
+```sh
 git branch -m [<oldbranch>] <newbranch>
 ```
 
 - 브랜치 copy 생성
 
-```shell
+```sh
 git branch -c [<oldbranch>] <newbranch>
 ```
 
 - 브랜치 삭제
 
-```shell
+```sh
 git branch -d <branch>
 ```
 
@@ -52,7 +52,7 @@ git branch -d <branch>
 
 - 원격 저장소의 브랜치를 가져오기
 
-```shell
+```sh
 git branch -t <branch>
 ```
 
@@ -65,19 +65,19 @@ git branch -t <branch>
 
 - 브랜치 이동
 
-```shell
+```sh
 git switch <branch>
 ```
 
 - 브랜치 생성 및 이동. `<start-point>`를 입력할 경우 해당 커밋을 브랜치의 시작점으로 지정
 
-```shell
+```sh
 git switch -c <branch> [<start-point>]
 ```
 
 - 저장 상태를 변경하지 않고 단순히 과거 특정 커밋 상태인 코드를 보기 위한 이동
 
-```shell
+```sh
 git switch --detach <commit>
 ```
 
@@ -91,18 +91,18 @@ git switch --detach <commit>
 
 현재 HEAD가 위치한 브랜치로 대상 브랜치를 합칠 때 사용하는 명령어  
 
-```shell
+```sh
 git merge <branch>
 ```
 
-```shell
+```sh
 git merge --no-ff <branch>
 ```
 
 !!! tip
     `git merge`의 기본값인 fast-forward 방식 머지는 머지 commit을 생성하지 않는다. 따라서 `--no-ff` 옵션을 사용해서 머지 commit이 생성되도록 해줘야 이력 관리가 용이하다.  
 
-```shell
+```sh
 git merge --no-commit --no-ff <branch>
 ```
 
@@ -113,7 +113,7 @@ git merge --no-commit --no-ff <branch>
 
 공통 base를 가진 브랜치에서 한 브랜치의 base를 다른 브랜치의 최신 커밋으로 브랜치의 base를 옮기는 명령어  
 
-```shell
+```sh
 git rebase <branch>
 ```
 
@@ -122,7 +122,7 @@ git rebase <branch>
 
 `B` 브랜치를 베이스로 한 `C` 브랜치가 있다고 할 때, `C` 브랜치의 시작점을 `B` 브랜치에서 `main` 등 다른 브랜치로 옮기려면 `--onto` 옵션을 사용하면 된다.  
 
-```shell
+```sh
 git rebase --onto <newbase> <oldbase> <branch>  # (1)!
 ```
 
@@ -149,7 +149,7 @@ git rebase --onto <newbase> <oldbase> <branch>  # (1)!
 
     위와 같은 커밋 히스토리가 있을 때, `feature/b` 브랜치에서 작업한 커밋이 `feature/a` 브랜치의 커밋 내용과는 완전히 독립적이고, 따라서 `main` 브랜치에서 작업을 시작한 것으로 바꾸고 싶다면 아래와 같이 명령하면 된다.  
 
-    ```shell
+    ```sh
     git rebase --onto main feature/a feature/b
     ```
 

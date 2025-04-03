@@ -197,25 +197,25 @@ VIRTUAL_ENV=venv_location_b4 -> VIRTUAL_ENV=venv_location_now
 
 Ubuntu 업데이트  
 
-```shell
+```sh
 sudo apt update && sudo apt upgrade
 ```
 
 `python3` 업데이트  
 
-```shell
+```sh
 sudo apt upgrade python3
 ```
 
 `python3-pip` 설치  
 
-```shell
+```sh
 sudo apt install python3-pip
 ```
 
 `python3-venv` 설치  
 
-```shell
+```sh
 sudo apt-get install python3-venv
 ```
 
@@ -223,7 +223,7 @@ sudo apt-get install python3-venv
 
 `*` 위치에 사용하고 싶은 파이썬 버전 입력 (e.g. `python3.7`)  
 
-```shell
+```sh
 python* -m venv [venv_name]
 ```
 
@@ -231,7 +231,7 @@ python* -m venv [venv_name]
 
 linux에서 Python 가상환경을 실행하는 명령어는 아래와 같다.  
 
-```shell
+```sh
 source bin/activate
 ```
 

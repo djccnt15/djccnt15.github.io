@@ -35,7 +35,7 @@ VERSION 항목이 해당 os가 설치된 WSL 버전이다.
 
 WSL Ubuntu를 기본 os로 제공하는데 이 Ubuntu의 버전을 확인하는 명령어는 두 가지가 있다.  
 
-```shell
+```sh
 cat /etc/os-release
 ```
 ```
@@ -53,7 +53,7 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 UBUNTU_CODENAME=jammy
 ```
 
-```shell
+```sh
 lsb_release -a
 ```
 ```
@@ -72,11 +72,11 @@ Ubuntu를 업그레이드 하려면 아래와 같이 업그레이드 하려는 w
 wsl -d <Distro>
 ```
 
-```shell
+```sh
 sudo apt update && sudo apt upgrade
 ```
 
-```shell
+```sh
 sudo do-release-upgrade
 ```
 

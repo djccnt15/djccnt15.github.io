@@ -25,17 +25,17 @@ Git restore 명령어의 활용 방법
 
 - 수정 사항 되돌리기
 
-```shell
+```sh
 git restore <file>
 ```
 - 스테이징 취소(git add 취소)
 
-```shell
+```sh
 git restore --staged <file>
 ```
 - 특정 commit으로 되돌리기
 
-```shell
+```sh
 git restore --source=<commit> <file>
 ```
 
@@ -43,7 +43,7 @@ git restore --source=<commit> <file>
 
 `restore` 명령어의 상세 옵션은 아래와 같은데, `--source` 옵션을 사용하면 어느 소스의 내용으로 현재 파일의 내용을 바꿀 것인지 지정해줄 수 있다.  
 
-```shell
+```sh
 git restore (-p|--patch) [--source=<tree>] [--worktree] [<pathspec>...​]
 ```
 
@@ -51,17 +51,17 @@ git restore (-p|--patch) [--source=<tree>] [--worktree] [<pathspec>...​]
 
 - 내용을 가져올 브랜치의 commit 된 코드 업데이트
 
-```shell
+```sh
 git remote update
 ```
 - 내용을 가져올 소스 브랜치의 파일 선택하기
 
-```shell
+```sh
 git restore --source=<branch> <file>
 ```
 - 해당 파일의 현재 브랜치와 소스 브랜치의 차이를 확인하면서 옵션을 제어
 
-```shell
+```sh
 git restore -p --source=<branch> <file>
 ```
 
@@ -94,6 +94,6 @@ Only binary files changed.
 
 이 때는 `checkout` 명령어로 특정 커밋에서 파일을 가져올 수 있다.  
 
-```shell
+```sh
 git checkout <commit> <file>
 ```

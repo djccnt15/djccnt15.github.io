@@ -170,7 +170,7 @@ SQLAlchemy로 구현한 테이블은 Alembic을 이용해서 DB에 해당 테이
 
 1. Alembic revision 생성
 
-    ```
+    ```bat
     alembic revision --autogenerate
     ```
     ```
