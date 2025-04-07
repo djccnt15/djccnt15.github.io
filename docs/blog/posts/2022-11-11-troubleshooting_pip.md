@@ -126,6 +126,22 @@ SQLAlchemy (1.3.10)
 pip list --format=columns
 ```
 
+## 2020-resolver
+
+레거시 Python을 다루다보면 pip로 패키지 설치 시 아래와 같은 경고가 뜨는 경우가 있다.  
+
+```
+ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.
+
+We recommend you use --use-feature=2020-resolver to test your packages with the new resolver before it becomes the default.
+```
+
+이 경우 pip를 업데이트 하면 해결되기는 하는데, pip 업데이트가 어렵거나 꺼려진다면 아래와 같은 커맨드 옵션을 통해 우회할 수 있다.  
+
+```bat
+pip install <package> --use-feature=2020-resolver
+```
+
 ## Fatal error in launcher
 
 pip 명령어 입력 시 아래와 같은 에러만 뜨고 실행이 되지 않는 경우가 있다.  
