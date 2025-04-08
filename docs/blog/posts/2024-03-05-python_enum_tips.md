@@ -1,26 +1,26 @@
 ---
-slug: enum-to-data-structure
-title: Python Enum 객체의 자료구조화
+slug: enum-tips
+title: Python의 Enum
 date:
     created: 2024-03-05
 description: >
-    Python Enum 객체를 자료구조로 변형하는 방법
+    Python Enum 관련 팁 모음
 categories:
     - Python
 tags:
-    - enum
     - python
+    - enum
 ---
 
-개발을 하다보면 종종 Enum으로 다루는 데이터들을 자료구조로 바꿀 일이 있는데 아래와 같은 방법들을 사용해서 쉽게 처리할 수 있다.  
+Python Enum 관련 팁 모음  
 
 <!-- more -->
 
 ---
 
-## 자료구조화 하기
+## 자료구조화
 
-아래와 같이 반복문을 사용해서 Enum 객체를 자료구조로 변환할 수 있다.  
+개발을 하다보면 종종 `Enum`으로 다루는 데이터들을 자료구조로 바꿀 일이 있는데 아래와 같은 방법들을 사용해서 쉽게 처리할 수 있다.  
 
 ```python
 from enum import Enum, StrEnum

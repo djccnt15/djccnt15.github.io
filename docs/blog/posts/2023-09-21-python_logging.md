@@ -163,7 +163,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
                 ...
         ```
 
-        ```python
+        ```python hl_lines="4 13"
         class Formatter(object):
             ...
 
