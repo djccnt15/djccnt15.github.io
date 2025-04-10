@@ -188,7 +188,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
             ...
         ```
 
-    `Formatter`는 시간 표시를 위해 `time.time()`을 통해 생성된 `LogRecord`의 `created`를 사용하기 때문에 milliseconds를 출력하려면 매우 귀찮아진다.  
+    `Formatter`는 시간 표시를 위해 `time.time()`을 통해 생성된 `LogRecord`의 `created`를 `time.localtime`로 컨버팅 해서 사용하는데, `time.localtime`는 milliseconds를 다루지 않는 `time.struct_time` 객체로 시간 데이터를 변환하기 때문에 milliseconds를 출력하려면 매우 귀찮아진다.  
 
 [^2]: 시간의 시작점인 *epoch*[^3] 로부터의 초를 반환한다.  
 [^3]: January 1, 1970, 00:00:00 (UTC)  
@@ -478,6 +478,34 @@ log_listener = QueueListener(
 
 1. **ISO8601** 형식으로 로그 생성 시간을 출력하기 위한 `Formatter.formatTime` 메소드 오버라이드
 1. 멀티프로세싱 환경에서 QueueHandler를 사용할 경우 [multiprocessing.Queue](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue)를 사용해야 한다.  
+
+??? note "`formatTime` 메소드 오버라이딩 대안"
+    위 코드 예시에서 사용한 `formatTime` 메소드의 오버라이딩은 아래와 같다.  
+
+    ```python
+    import logging
+
+    def formatTime(self, record, datefmt=None): ...
+
+
+    logging.Formatter.formatTime = formatTime
+    ```
+
+    위와 같이 메소드를 오버라이드 하는 방식이 익숙하지 않다면 아래와 같이 `Formatter`를 상속받는 `MyFormatter`를 만들어서 사용해도 된다.  
+
+    ```python
+    import datetime as dt
+    from logging import Formatter
+
+
+    class MyFormatter(Formatter):
+        def formatTime(self, record, datefmt=None):
+            return (
+                dt.datetime.fromtimestamp(record.created)
+                .astimezone()
+                .isoformat(timespec="milliseconds")
+            )
+    ```
 
 실제 애플리케이션에서의 로그 활용  
 
