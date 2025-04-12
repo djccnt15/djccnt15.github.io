@@ -1,6 +1,6 @@
 ---
 slug: venv-guide
-title: 가상환경 사용법
+title: Python 가상환경 사용법
 date:
     created: 2022-01-05
 description: >
@@ -106,6 +106,27 @@ pip uninstall -r requirements.txt
     ```bat
     pip uninstall -r requirements.txt -y
     ```
+
+#### 3-3. 패키지 설치 위치 확인
+
+아래와 같이 `python -m site` 명령어를 사용해서 현재 환경의 Python이 사용하는 패키지들이 실제로 설치되어 있는 위치를 확인할 수 있다.  
+
+```bat
+python -m site
+```
+```
+sys.path = [
+    'C:\\',
+    'C:\\programming\\Python\\Python312\\python312.zip',
+    'C:\\programming\\Python\\Python312\\DLLs',
+    'C:\\programming\\Python\\Python312\\Lib',
+    'C:\\programming\\Python\\Python312',
+    'C:\\programming\\Python\\Python312\\Lib\\site-packages',
+]
+USER_BASE: 'C:\\Users\\doorh\\AppData\\Roaming\\Python' (doesn't exist)
+USER_SITE: 'C:\\Users\\doorh\\AppData\\Roaming\\Python\\Python312\\site-packages' (doesn't exist)
+ENABLE_USER_SITE: True
+```
 
 ### 4. 라이브러리 버전 관리
 
