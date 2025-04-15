@@ -92,6 +92,41 @@ stateDiagram-v2
 
 Python에서 기본 제공하는 로깅 모듈을 사용하면 시스템 로그를 아주 간편하게 남길 수 있는데, Handler를 사용하여 로깅을 위한 여러 가지 설정을 쉽게 관리할 수 있다.  
 
+#### StreamHandler
+
+`StreamHandler`는 콘솔에 로그를 출력해주는 Handler로, 다른 설정이 없다면 아래와 같이 `sys.stderr`로 로그를 출력한다.  
+
+```python
+import sys
+
+
+class StreamHandler(Handler):
+
+    def __init__(self, stream=None):
+        """
+        Initialize the handler.
+
+        If stream is not specified, sys.stderr is used.
+        """
+        Handler.__init__(self)
+        if stream is None:
+            stream = sys.stderr
+        self.stream = stream
+```
+
+따라서 아래와 같이 프로그램을 실행시킬 경우 `print`로 출력하는 내용과 달리 `StreamHandler`가 출력하는 로그는 파일에 저장되지 않는다.  
+
+```bat
+main.py >> log.txt
+```
+
+!!! note
+    `StreamHandler`를 통해 출력되는 로그를 파일로 저장하고 싶다면 아래와 같이 `stderr`의 출력을 `stdout`으로 바꿔줘야 한다.  
+
+    ```bat
+    main.py >> log.txt 2>&1
+    ```
+
 #### TimedRotatingFileHandler
 
 Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHandler](https://docs.python.org/3/library/logging.handlers.html#timedrotatingfilehandler)를 사용하면 일정한 시간 간격으로 로그가 새로운 파일로 나뉘어서 생성되도록 관리할 수 있다.  
