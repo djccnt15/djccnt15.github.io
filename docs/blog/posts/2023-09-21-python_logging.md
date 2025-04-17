@@ -156,6 +156,22 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 
 > Along with the [QueueListener](https://docs.python.org/3/library/logging.handlers.html#logging.handlers.QueueListener) class, [QueueHandler](https://docs.python.org/3/library/logging.handlers.html#logging.handlers.QueueHandler) can be used to let handlers do their work on a separate thread from the one which does the logging.
 
+#### NullHandler
+
+`NullHandler`는 아래와 같이 아무것도 하지 않는 핸들러로 자체적인 로거를 갖는 패키지의 객체들을 다룰 때 해당 로거가 로그를 생성만 하고 출력은 하지 않도록 하고 싶을 때 사용한다.  
+
+```python
+class NullHandler(Handler):
+    ...
+
+    def handle(self, record):
+        """Stub."""
+
+    def emit(self, record):
+        """Stub."""
+    ...
+```
+
 ### LogRecord
 
 로그가 출력될 때 실제로는 `LogRecord` 클래스의 인스턴스가 생성되고, 해당 인스턴스에 각종 정보들이 담긴 후 사용자가 설정한 내용들만 추려서 출력된다.  
