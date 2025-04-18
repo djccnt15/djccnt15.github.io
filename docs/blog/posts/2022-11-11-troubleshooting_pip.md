@@ -106,7 +106,7 @@ pip install [package] --no-cache-dir
 
 ## pip list
 
-간혹 너무 오래된 레거시 프로그램의 경우 `pip list`로 패키지 목록을 호출하면 아래와 같이 이상한 양식으로 표기되는 경우가 있다.  
+간혹 너무 오래된 레거시 Python의 경우 `pip list`로 패키지 목록을 호출하면 아래와 같이 이상한 양식으로 표기되는 경우가 있다.  
 
 ```
 Jinja2 (2.10)
@@ -152,7 +152,7 @@ Fatal error in launcher: Unable to create process using
 
 가상환경 경로가 바뀌거나 하는 문제로 발생하는데, 아래와 같이 pip를 재설치해주면 해결된다.  
 
-```
+```bat
 python -m pip install --upgrade --force-reinstall pip
 ```
 

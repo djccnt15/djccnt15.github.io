@@ -42,7 +42,7 @@ CRUD와 GET, POST, PUT, DELETE, PATCH
 `PATCH`는 Update를 수행하기 위해 사용하는 method로 데이터의 일부만 수정할 때 사용하며, 대부분의 경우에 `PUT`으로 대체 가능하기 때문에 굳이 사용하지는 않는 경우가 많다.  
 
 !!! note
-    `PATCH`는 반드시 멱등적이어야 하는 `PUT`과는 달리, 멱등적일수는 있지만 멱등적일 필요는 없다. 따라서 잘못된 `PATCH`의 사용은 `POST`와 마찬가지로 다른 리소스에 의도치 않은 부작용을 발생시킬 수 있다.  
+    `PATCH`는 반드시 멱등적이어야 하는 `PUT`과는 달리, 멱등적일 수는 있지만 멱등적일 필요는 없다. 따라서 잘못된 `PATCH`의 사용은 `POST`와 마찬가지로 다른 리소스에 의도치 않은 부작용을 발생시킬 수 있다.  
 
 ### DELETE
 
@@ -50,13 +50,13 @@ CRUD와 GET, POST, PUT, DELETE, PATCH
 
 ## 2. 주요 Method 비교
 
-| Method |       의미        |      CRUD      | Request Body | 안정성 | 멱등성 | HTML form 전송 |
-| :----: | :---------------: | :------------: | :----------: | :----: | :----: | :------------: |
-|  GET   |    리소스 요청    |      Read      |      X       |   O    |   O    |       O        |
-|  POST  |    리소스 생성    |     Create     |      O       |   X    |   X    |       O        |
-|  PUT   | 리소스 갱신, 생성 | Update, Create |      O       |   X    |   O    |       X        |
-| PATCH  | 리소스 일부 갱신  |     Update     |      O       |   X    |   X    |       X        |
-| DELETE |    리소스 삭제    |     Delete     |      △       |   X    |   O    |       X        |
+|  Method  |       의미        |      CRUD      | Request Body | 안정성 | 멱등성 | HTML form 전송 |
+| :------: | :---------------: | :------------: | :----------: | :----: | :----: | :------------: |
+|  `GET`   |    리소스 요청    |      Read      |      X       |   O    |   O    |       O        |
+|  `POST`  |    리소스 생성    |     Create     |      O       |   X    |   X    |       O        |
+|  `PUT`   | 리소스 갱신, 생성 | Update, Create |      O       |   X    |   O    |       X        |
+| `PATCH`  | 리소스 일부 갱신  |     Update     |      O       |   X    |   X    |       X        |
+| `DELETE` |    리소스 삭제    |     Delete     |      △       |   X    |   O    |       X        |
 
 ---
 ## Reference

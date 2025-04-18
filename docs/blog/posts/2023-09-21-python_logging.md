@@ -90,11 +90,11 @@ stateDiagram-v2
 
 ### Handler
 
-Python에서 기본 제공하는 로깅 모듈을 사용하면 시스템 로그를 아주 간편하게 남길 수 있는데, Handler를 사용하여 로깅을 위한 여러 가지 설정을 쉽게 관리할 수 있다.  
+Python에서 기본 제공하는 로깅 모듈을 사용하면 시스템 로그를 아주 간편하게 남길 수 있는데, 핸들러를 사용하여 로깅을 위한 여러 가지 설정을 쉽게 관리할 수 있다.  
 
 #### StreamHandler
 
-`StreamHandler`는 콘솔에 로그를 출력해주는 Handler로, 다른 설정이 없다면 아래와 같이 `sys.stderr`로 로그를 출력한다.  
+`StreamHandler`는 콘솔에 로그를 출력해주는 핸들러로, 다른 설정이 없다면 아래와 같이 `sys.stderr`로 로그를 출력한다.  
 
 ```python
 import sys
@@ -129,9 +129,7 @@ main.py >> log.txt
 
 #### TimedRotatingFileHandler
 
-Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHandler](https://docs.python.org/3/library/logging.handlers.html#timedrotatingfilehandler)를 사용하면 일정한 시간 간격으로 로그가 새로운 파일로 나뉘어서 생성되도록 관리할 수 있다.  
-
-`TimedRotatingFileHandler` Handler의 경우 아래 두 설정이 중요하다.  
+Python이 기본 제공하는 다양한 Log Handler 중에 [`TimedRotatingFileHandler`](https://docs.python.org/3/library/logging.handlers.html#timedrotatingfilehandler)를 사용하면 일정한 시간 간격으로 로그가 새로운 파일로 나뉘어서 생성되도록 관리할 수 있다.  
 
 - `when`: time rotate의 기준 시점
 - `backupCount`: 로그를 남길 파일 개수, 로그 파일이 해당 설정의 수보다 많을 경우 자동 삭제
@@ -152,7 +150,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [TimedRotatingFileHan
 
 #### QueueHandler
 
-로깅을 위한 IO는 프로그램의 속도를 저하시키는 원인이 되기 때문에 웹 서비스와 같이 빠른 속도가 중요한 프로그램을 만들 때에는 로깅을 메인 쓰레드와 분리된 새로운 쓰레드에서 수행해 줄 필요가 있는데, 이를 위해서 [QueueHandler](https://docs.python.org/3/library/logging.handlers.html#queuehandler)와 [QueueListener](https://docs.python.org/3/library/logging.handlers.html#queuelistener)를 사용한다.  
+로깅을 위한 IO는 프로그램의 속도를 저하시키는 원인이 되기 때문에 웹 서비스와 같이 빠른 속도가 중요한 프로그램을 만들 때에는 로깅을 메인 쓰레드와 분리된 새로운 쓰레드에서 수행해 줄 필요가 있는데, 이를 위해서 [`QueueHandler`](https://docs.python.org/3/library/logging.handlers.html#queuehandler)와 [`QueueListener`](https://docs.python.org/3/library/logging.handlers.html#queuelistener)를 사용한다.  
 
 > Along with the [QueueListener](https://docs.python.org/3/library/logging.handlers.html#logging.handlers.QueueListener) class, [QueueHandler](https://docs.python.org/3/library/logging.handlers.html#logging.handlers.QueueHandler) can be used to let handlers do their work on a separate thread from the one which does the logging.
 
@@ -527,11 +525,11 @@ log_listener = QueueListener(
 )
 ```
 
-1. **ISO8601** 형식으로 로그 생성 시간을 출력하기 위한 `Formatter.formatTime` 메소드 오버라이드
+1. **ISO8601** 형식으로 로그 생성 시간을 출력하기 위한 `Formatter.formatTime` 메서드 오버라이드
 1. 멀티프로세싱 환경에서 QueueHandler를 사용할 경우 [multiprocessing.Queue](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue)를 사용해야 한다.  
 
-??? note "`formatTime` 메소드 오버라이딩 대안"
-    위 코드 예시에서 사용한 `formatTime` 메소드의 오버라이딩은 아래와 같다.  
+??? note "`formatTime` 메서드 오버라이딩 대안"
+    위 코드 예시에서 사용한 `formatTime` 메서드의 오버라이딩은 아래와 같다.  
 
     ```python
     import logging
@@ -542,7 +540,7 @@ log_listener = QueueListener(
     logging.Formatter.formatTime = formatTime
     ```
 
-    위와 같이 메소드를 오버라이드 하는 방식이 익숙하지 않다면 아래와 같이 `Formatter`를 상속받는 `MyFormatter`를 만들어서 사용해도 된다.  
+    위와 같이 메서드를 오버라이드 하는 방식이 익숙하지 않다면 아래와 같이 `Formatter`를 상속받는 `MyFormatter`를 만들어서 사용해도 된다.  
 
     ```python
     import datetime as dt
