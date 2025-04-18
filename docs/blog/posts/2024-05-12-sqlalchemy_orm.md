@@ -151,6 +151,31 @@ db:
 !!! tip
     `engine` 생성 시에 `echo=true` 옵션을 주면 터미널에 SQLAlchemy 엔진의 로그가 출력 된다.  
 
+    다만 Flask나 Gunicorn 등 자체적인 로거가 있는 애플리케이션에서 SQLAlchemy를 사용할 때 `echo=true` 옵션을 사용한다면 SQLAlchemy의 로거와 상위 애플리케이션의 로거가 로그를 중복되게 출력하는 버그가 있다. 이 버그는 아래와 같이 SQLAlchemy의 로거가 [`NullHandler`](./2023-09-21-python_logging.md/#nullhandler)로 로그를 다루도록 설정해서 해결할 수 있다.  
+
+    ```python
+    logging.getLogger("sqlalchemy.engine.Engine").addHandler(logging.NullHandler())
+    ```
+
+    ```python hl_lines="10"
+    import logging
+
+    from sqlalchemy.engine import URL
+    from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+
+    from src.core import configs
+
+    config = configs.config
+
+    logging.getLogger("sqlalchemy.engine.Engine").addHandler(logging.NullHandler())
+
+    DB_URL = URL.create(**config.db.url)
+    db_engine = create_async_engine(
+        url=DB_URL,
+        **config.db.engine,
+    )
+    ```
+
 ## 3. 엔진 활용
 
 SQLAlchemy 엔진을 활용해서 DB에 접속하는 방법은 아래와 같다. `get_db` 함수를 굳이 추가로 만들어 사용하는 이유는, DB 쿼리에서 오류가 발생하더라도 반드시 해당 커넥션이 커넥션 풀로 반환되도록 하기 위해서이다.  
