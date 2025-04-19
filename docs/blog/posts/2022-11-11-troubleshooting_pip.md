@@ -156,6 +156,12 @@ Fatal error in launcher: Unable to create process using
 python -m pip install --upgrade --force-reinstall pip
 ```
 
+## Visual C++
+
+데이터 분석이나 인공지능 관련 개발을 하다보면 처리 속도를 위해 OS를 통해 제공되는 `C++`의 기능을 사용하는 패키지들을 자주 사용하게 되는데, 패키지를 정상적으로 설치했는데도 OS에 해당 기능이 없어 실행이 되지 않는 경우가 있다.  
+
+이 경우 [Microsoft Visual C++ Redistributable Version 최신 버전](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version)을 다운받아 설치해주면 대부분 해결된다.  
+
 ---
 ## Reference
 - [There was an error checking the latest version of pip](https://stackoverflow.com/questions/72439001/there-was-an-error-checking-the-latest-version-of-pip)
