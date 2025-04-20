@@ -25,39 +25,39 @@ Git 저장소에 파일을 업로드하기 위한 명령어들 정리: add, comm
 
 - 특정 파일 추가
 
-```shell
+```sh
 git add <file>
 ```
 
 - .gitignore를 제외한 모든 파일 추가
 
-```shell
+```sh
 git add -a
 ```
 
-```shell
+```sh
 git add .
 ```
 
 - 수정되거나 삭제된 파일만 추가
 
-```shell
+```sh
 git add -u
 ```
 
 - txt 파일 추가
 
-```shell
+```sh
 git add *.txt
 ```
 
 - 특정 블럭만 추가
 
-```shell
+```sh
 git add -p
 ```
 
-```shell
+```sh
 git add --patch
 ```
 
@@ -83,25 +83,25 @@ add된 파일들을 local 저장소에 추가
 
 - Tracked 상태의 파일을 자동으로 Staging Area에 추가하여 commit
 
-```shell
+```sh
 git commit -a
 ```
 
 - commit 메세지 수정
 
-```shell
+```sh
 git commit --amend
 ```
 
 - 최근 커밋 날짜를 현재 날짜로 변경
 
-```shell
+```sh
 git commit --amend --no-edit --date=now
 ```
 
 - 최근 커밋 날짜를 원하는 날짜로 변경
 
-```shell
+```sh
 git commit --amend --no-edit --date="May 23 11:08:49 2022 +0900"
 ```
 
@@ -109,18 +109,18 @@ git commit --amend --no-edit --date="May 23 11:08:49 2022 +0900"
 
 - commit된 내용을 원격 저장소로 업로드  
 
-```shell
+```sh
 git push <repository> <branch>
 ```
 
 - dry-run을 통해 명령을 수행할 시 어떤 일이 일어날지 출력
 
-```shell
+```sh
 git push -n <repository> <branch>
 ```
 
 - 원격 저장소의 브랜치 삭제
 
-```shell
+```sh
 git push <repository> -d <branch>
 ```

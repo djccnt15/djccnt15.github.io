@@ -23,19 +23,19 @@ Git 커밋 메세지를 수정하는 방법 정리
 
 - commit 메세지 수정
 
-```shell
+```sh
 git commit --amend
 ```
 
 - 최근 커밋 날짜를 현재 날짜로 변경
 
-```shell
+```sh
 git commit --amend --no-edit --date=now
 ```
 
 - 최근 커밋 날짜를 원하는 날짜로 변경
 
-```shell
+```sh
 git commit --amend --no-edit --date="May 23 11:08:49 2022 +0900"
 ```
 
@@ -43,14 +43,14 @@ git commit --amend --no-edit --date="May 23 11:08:49 2022 +0900"
 
 여러 커밋 메세지를 수정하고 싶을 때는 아래와 같이 `rebase` 명령어를 활용해서 처리 가능하다.  
 
-```shell
+```sh
 git rebase -i HEAD~n
 ```
 
 실제 활용 방법은 아래와 같다.  
 
 1. 명령어 입력
-    ```shell
+    ```sh
     git rebase -i HEAD~3
     ```
     ```

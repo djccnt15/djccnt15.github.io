@@ -36,7 +36,7 @@ search:
     - FastAPI 기반 백엔드 설계 및 개발
         - 프레임워크 설정 및 SW 아키텍처 설계
         - 백엔드 API 및 데이터 암호화 모듈 개발
-        - [Tesseract](https://tesseract-ocr.github.io/) 탑재 OCR 기능 개발
+        - [Tesseract](https://tesseract-ocr.github.io/) 기반 OCR 기능 개발
         - 비동기 처리 기반 공공데이터 포털 API 연동
     - SQLAlchemy 기반 테이블 개발 및 관리, ORM 쿼리 개발
     - AI 모델 개발 관리

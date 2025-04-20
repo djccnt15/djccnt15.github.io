@@ -23,7 +23,7 @@ Git staging area의 add 된 파일 취소하는 방법
 
 [`restore`](./2022-01-17-git_tips.md/#restore) 명령어로 add 취소하는 방법  
 
-```shell
+```sh
 git restore --staged <file>
 ```
 
@@ -31,10 +31,10 @@ git restore --staged <file>
 
 [`reset`](./2022-01-17-git_tips.md/#reset) 명령어로 add 취소하는 방법  
 
-```shell
+```sh
 git reset <file>
 ```
 
-```shell
+```sh
 git reset --mixed <file>
 ```

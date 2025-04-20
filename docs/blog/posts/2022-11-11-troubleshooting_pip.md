@@ -106,7 +106,7 @@ pip install [package] --no-cache-dir
 
 ## pip list
 
-간혹 너무 오래된 레거시 프로그램의 경우 `pip list`로 패키지 목록을 호출하면 아래와 같이 이상한 양식으로 표기되는 경우가 있다.  
+간혹 너무 오래된 레거시 Python의 경우 `pip list`로 패키지 목록을 호출하면 아래와 같이 이상한 양식으로 표기되는 경우가 있다.  
 
 ```
 Jinja2 (2.10)
@@ -126,6 +126,22 @@ SQLAlchemy (1.3.10)
 pip list --format=columns
 ```
 
+## 2020-resolver
+
+레거시 Python을 다루다보면 pip로 패키지 설치 시 아래와 같은 경고가 뜨는 경우가 있다.  
+
+```
+ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.
+
+We recommend you use --use-feature=2020-resolver to test your packages with the new resolver before it becomes the default.
+```
+
+이 경우 pip를 업데이트 하면 해결되기는 하는데, pip 업데이트가 어렵거나 꺼려진다면 아래와 같은 커맨드 옵션을 통해 우회할 수 있다.  
+
+```bat
+pip install <package> --use-feature=2020-resolver
+```
+
 ## Fatal error in launcher
 
 pip 명령어 입력 시 아래와 같은 에러만 뜨고 실행이 되지 않는 경우가 있다.  
@@ -136,9 +152,15 @@ Fatal error in launcher: Unable to create process using
 
 가상환경 경로가 바뀌거나 하는 문제로 발생하는데, 아래와 같이 pip를 재설치해주면 해결된다.  
 
-```
+```bat
 python -m pip install --upgrade --force-reinstall pip
 ```
+
+## Visual C++
+
+데이터 분석이나 인공지능 관련 개발을 하다보면 처리 속도를 위해 OS를 통해 제공되는 `C++`의 기능을 사용하는 패키지들을 자주 사용하게 되는데, 패키지를 정상적으로 설치했는데도 OS에 해당 기능이 없어 실행이 되지 않는 경우가 있다.  
+
+이 경우 [Microsoft Visual C++ Redistributable Version 최신 버전](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version)을 다운받아 설치해주면 대부분 해결된다.  
 
 ---
 ## Reference

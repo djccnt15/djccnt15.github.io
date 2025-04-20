@@ -32,7 +32,7 @@ help cls
 
 - Linux
 
-```shell
+```sh
 clear --help
 ```
 
@@ -57,7 +57,7 @@ type <file_name>
 
 - Linux
 
-```shell
+```sh
 cat <file_name>
 ```
 
@@ -71,7 +71,7 @@ more <file_name>
 
 - Linux
 
-```shell
+```sh
 less <file_name>
 ```
 
@@ -81,7 +81,7 @@ less <file_name>
 
 command 라인 단축 명령어 설정 및 관리
 
-```shell
+```sh
 # 전체 alias 목록
 alias
 
@@ -92,15 +92,15 @@ alias <alias_name>='<command>'
 새로운 alias 영구 등록 방법
 
 1. `.bashrc` 파일 생성 및 편집
-    ```shell
+    ```sh
     vim ~/.bashrc
     ```
 1. `.bashrc` 파일에 명령어 등록
-    ```shell
+    ```sh
     alias <alias_name>='<command>'
     ```
 1. `.bashrc` 파일 실행
-    ```shell
+    ```sh
     source ~/.bashrc
     ```
 
@@ -116,15 +116,21 @@ where <app_name>
 
 - Linux
 
-```shell
+```sh
 # search application with first match in PATH option
 which <app_name>
 
 # search application with all matches in PATH option
 which -a <app_name>
 
-# search file
+# search file in current directory
 find <file_name>
+
+# search file with case-sensitive name in whole system
+find / -name <filename>
+
+# search file with case-insensitive name in whole system
+find / -iname <filename>
 ```
 
 이 때 `which`는 `PATH`에서 해당 이름을 가진 첫 번째 애플리케이션만을 검색하기 때문에 모두 검색하고 싶다면 `-a` 옵션 필요  
@@ -146,7 +152,7 @@ d:
 
 아래는 Linux에서만 사용 가능한 사용팁들이다.  
 
-```shell
+```sh
 # home 디렉토리로 이동
 cd ~
 
@@ -181,7 +187,7 @@ dir /p/o:-ge
 
 - Linux
 
-```shell
+```sh
 ls
 
 # 권한 등 상세 정보 표시
@@ -200,7 +206,7 @@ cls
 
 - Linux
 
-```shell
+```sh
 clear
 ```
 
@@ -239,7 +245,7 @@ del <file_name>
 
 - Linux
 
-```shell
+```sh
 rm <file_name>
 
 # 하위 디렉토리 및 파일 모두 삭제  
@@ -265,7 +271,7 @@ robocopy <source> <destination>
 
 - Linux
 
-```shell
+```sh
 # 파일 복사
 cp <file_name> <destination>
 
@@ -288,7 +294,7 @@ move C:\source\*.* C:\dest\
 
 - Linux
 
-```shell
+```sh
 mv <file_name> <destination>
 
 # 덮어쓰기 금지
@@ -310,13 +316,13 @@ tasklist
 
 - Linux
 
-```shell
+```sh
 ps
 ```
 
 다른 사용자가 실행한 모든 작업 목록 모두 확인
 
-```shell
+```sh
 ps -ef
 ```
 
@@ -332,7 +338,7 @@ taskkill /pid <PID> /f
 
 - Linux
 
-```shell
+```sh
 # 기본 설정, 애플리케이션에게 종료 요청
 kill -15 <PID>  # (1)!
 
@@ -355,7 +361,7 @@ copy con <file_name>
 
 - Linux
 
-```shell
+```sh
 > <file_name>
 
 touch <file_name>  # (1)!
@@ -375,7 +381,7 @@ time /t
 
 - Linux
 
-```shell
+```sh
 date -I[FMT]
 
 date -Iminutes
@@ -391,7 +397,7 @@ date -Iseconds
 set | findstr "FLASK."
 ```
 
-```bash
+```sh
 env | grep ^FLASK
 ```
 
@@ -415,7 +421,7 @@ ipconfig
 
 - Linux
 
-```shell
+```sh
 ifconfig
 ```
 
@@ -478,21 +484,21 @@ set <variable>=<string>
 
 환경 변수 출력
 
-```bash
+```sh
 env
 ```
 
-```bash
+```sh
 printenv
 ```
 
-```bash
+```sh
 export -p
 ```
 
 환경 변수 설정
 
-```bash
+```sh
 export <variable>=<string>
 ```
 

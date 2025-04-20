@@ -30,11 +30,11 @@ tags:
 
 특정 폴더에서 해당 워크스페이스의 사용자를 설정하는 방법은 아래와 같다.  
 
-```shell
+```sh
 git config user.name {YOUR_NAME}
 ```
 
-```shell
+```sh
 git config user.email {your@email.com}
 ```
 
@@ -48,11 +48,11 @@ ssh key를 관리하는 `.ssh` 폴더는 `C:\Users\{user_name}` 디렉토리 아
 
 ssh key를 만드는 명령어는 아래와 같다.  
 
-```shell
+```sh
 ssh-keygen -t rsa -C {YOUR_EMAIL} -f {YOUR_NAME}
 ```
 
-```shell
+```sh
 ssh-keygen -t rsa -C djccnt15@gmail.com -f djccnt15
 ```
 ```
@@ -76,7 +76,7 @@ The key's randomart image is:
 
 ssh key는 파일로 생성되니 `ls` 명령어를 통해 생성을 확인할 수 있다.  
 
-```shell
+```sh
 ls -l
 ```
 ```
@@ -90,7 +90,7 @@ ls -l
 
 ssh-agent를 등록해야 ssh key를 통해서 접근할 수 있다. `ssh-agent`를 실행해야한다.  
 
-```shell
+```sh
 eval $(ssh-agent -s)
 ```
 ```
@@ -99,11 +99,11 @@ Agent pid 731
 
 표시되는 `pid` 값은 매번 달라진다. `ssh-agent`를 실행한 후에는 `ssh-add` 명령어를 통해 생성한 ssh key를 등록해준다.  
 
-```shell
+```sh
 ssh-add {YOUR_NAME}
 ```
 
-```shell
+```sh
 ssh-add djccnt15
 ```
 ```
@@ -112,7 +112,7 @@ Identity added: djccnt15 (djccnt15@gmail.com)
 
 `ssh-agent` 등록을 확인하는 명령어는 아래와 같다.  
 
-```shell
+```sh
 ssh-add -l
 ```
 ```
@@ -136,7 +136,7 @@ Host github.com
 
 `{YOUR_NAME}.pub` 파일의 내용을 설정의 ssh키 등록하는 곳에 등록해야한다. 편집기 프로그램을 사용해서 확인해도 되고, 아래와 같이 `cat` 명령어를 사용해도 된다.  
 
-```shell
+```sh
 cat djccnt15.pub
 ```
 
@@ -148,7 +148,7 @@ GitHub의 경우 ssh 키를 아래와 같이 설정에 있는 SSH and GPG keys �
 
 ssh 연결을 테스트하는 명령어는 아래와 같다.  
 
-```shell
+```sh
 ssh -T git@github.com
 ```
 
@@ -175,11 +175,11 @@ Hi djccnt15! You've successfully authenticated, but GitHub does not provide shel
 
 ssh-agent 시작과 ssh key 등록을 한번에 하는 명령어는 아래와 같다. 참고로 위에서 ssh key를 생성할 때 비밀번호를 등록했다면 매번 비밀번호를 입력해줘야 해서 불편하지만, 대신 보안성을 조금 확보할 수 있다.  
 
-```shell
+```sh
 eval $(ssh-agent -s) ssh-add ~/.ssh/{YOUR_KEY}
 ```
 
-```shell
+```sh
 eval $(ssh-agent -s) ssh-add ~/.ssh/djccnt15
 ```
 

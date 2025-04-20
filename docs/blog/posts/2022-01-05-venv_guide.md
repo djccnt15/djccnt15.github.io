@@ -1,6 +1,6 @@
 ---
 slug: venv-guide
-title: 가상환경 사용법
+title: Python 가상환경 사용법
 date:
     created: 2022-01-05
 description: >
@@ -107,6 +107,27 @@ pip uninstall -r requirements.txt
     pip uninstall -r requirements.txt -y
     ```
 
+#### 3-3. 패키지 설치 위치 확인
+
+아래와 같이 `python -m site` 명령어를 사용해서 현재 환경의 Python이 사용하는 패키지들이 실제로 설치되어 있는 위치를 확인할 수 있다.  
+
+```bat
+python -m site
+```
+```
+sys.path = [
+    'C:\\',
+    'C:\\programming\\Python\\Python312\\python312.zip',
+    'C:\\programming\\Python\\Python312\\DLLs',
+    'C:\\programming\\Python\\Python312\\Lib',
+    'C:\\programming\\Python\\Python312',
+    'C:\\programming\\Python\\Python312\\Lib\\site-packages',
+]
+USER_BASE: 'C:\\Users\\doorh\\AppData\\Roaming\\Python' (doesn't exist)
+USER_SITE: 'C:\\Users\\doorh\\AppData\\Roaming\\Python\\Python312\\site-packages' (doesn't exist)
+ENABLE_USER_SITE: True
+```
+
 ### 4. 라이브러리 버전 관리
 
 #### 4-1. 특정 버전의 라이브러리 설치
@@ -197,25 +218,25 @@ VIRTUAL_ENV=venv_location_b4 -> VIRTUAL_ENV=venv_location_now
 
 Ubuntu 업데이트  
 
-```shell
+```sh
 sudo apt update && sudo apt upgrade
 ```
 
 `python3` 업데이트  
 
-```shell
+```sh
 sudo apt upgrade python3
 ```
 
 `python3-pip` 설치  
 
-```shell
+```sh
 sudo apt install python3-pip
 ```
 
 `python3-venv` 설치  
 
-```shell
+```sh
 sudo apt-get install python3-venv
 ```
 
@@ -223,7 +244,7 @@ sudo apt-get install python3-venv
 
 `*` 위치에 사용하고 싶은 파이썬 버전 입력 (e.g. `python3.7`)  
 
-```shell
+```sh
 python* -m venv [venv_name]
 ```
 
@@ -231,7 +252,7 @@ python* -m venv [venv_name]
 
 linux에서 Python 가상환경을 실행하는 명령어는 아래와 같다.  
 
-```shell
+```sh
 source bin/activate
 ```
 

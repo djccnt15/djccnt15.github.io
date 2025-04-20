@@ -2,6 +2,13 @@
 title: 비전 검사 서비스 Backend
 tags:
     - portfolio
+    - fastapi
+    - gunicorn
+    - uvicorn
+    - mariadb
+    - mongodb
+    - tesseract
+    - docker
 ---
 
 ## 개요
@@ -23,7 +30,7 @@ tags:
 - 배포: 
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white){ loading=lazy }
 
-### 서비스 설명
+## 서비스 설명
 
 - 절차적 프로그래밍을 기반으로 한 도메인 주도의 레이어드 아키텍처 구성을 통해 코드 가독성 확보
 - 객체 지향적 프로그래밍 기반의 헥사고날 아키텍처(port - adapter 패턴) 적용을 통해 설계 유연성 확보

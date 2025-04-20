@@ -2,6 +2,14 @@
 title: 게시판 서비스 FastAPI 벡엔드
 tags:
     - portfolio
+    - fastapi
+    - gunicorn
+    - uvicorn
+    - mariadb
+    - redis
+    - proetheus
+    - elk
+    - docker
 ---
 
 ## 개요
@@ -10,7 +18,7 @@ tags:
 
 - FastAPI 기반 비동기 백엔드 서버
 
-### 기술 스택
+## 기술 스택
 
 - 백엔드 서버 구성: 
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white){ loading=lazy }
@@ -26,7 +34,7 @@ tags:
 - 배포: 
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white){ loading=lazy }
 
-### 서비스 설명
+## 서비스 설명
 
 - 절차적 프로그래밍을 기반으로 한 도메인 주도의 레이어드 아키텍처 구성을 통해 코드 가독성 확보
 
@@ -146,9 +154,9 @@ tags:
 - 서버 상태 측정을 위한 Prometheus, API 호출과 처리 결과 로깅을 위한 ELK 스택 적용
 - 배포를 위한 docker 컨테이너화
 
-### 아키텍처
+## 아키텍처
 
-#### 시스템 아키텍처
+### 시스템 아키텍처
 
 ![fastapi_board_architecture](./assets/fastapi_board_architecture.png)
 
@@ -166,7 +174,7 @@ tags:
         - 따라서 DBMS가 데이터 생성 후 생성한 튜플을 반환해주는 `INSERT...RETURNING` 기능을 사용해야 하며, 해당 기능을 지원하는 MariaDB 사용
         - 애플리케이션에서 UUID 등 유니크한 ID 값을 생성하여 게시글의 PK, 게시글 내용의 FK로 사용하는 방법도 있음
 
-#### DB 설계
+### DB 설계
 
 ```mermaid
 erDiagram
@@ -331,7 +339,7 @@ erDiagram
         LIMIT :size OFFSET :page
         ```
 
-#### 캐시 패턴
+### 캐시 패턴
 
 DB 호출 빈도가 가장 높은 API에 [Cache Aside 패턴](../blog/posts/2023-12-23-cache_pattern.md/#cache-aside-pattern)을 활용한 캐싱 적용
 

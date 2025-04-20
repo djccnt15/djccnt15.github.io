@@ -91,7 +91,7 @@ sequenceDiagram
 
 ### 3-way handshake
 
-HTTP 통신을 위해 TCP 헤더에 있는 SYN, ACK 비트를 통해 연결을 확인하는 과정을 **3-way handshake**라고 한다.  
+HTTP 통신을 시작하기 위해 TCP 헤더에 있는 SYN, ACK 비트를 통해 연결을 확인하는 과정을 **3-way handshake**라고 한다.  
 
 ```mermaid
 ---
@@ -113,41 +113,40 @@ sequenceDiagram
 - SYN-ACK: SYNchronize-ACKnowledgement
 - ACK: ACKnowledgement
 
-### SSL handshake
+??? note "SSL handshake"
+    HTTPS 통신을 위해서는 보안 절차(HTTP Secure)가 포함된 **SSL handshake** 절차를 진행해야 한다.  
 
-HTTPS 통신을 위해서는 보안 절차(HTTP Secure)가 포함된 **SSL handshake** 절차를 진행해야 한다.  
-
-```mermaid
----
-title: SSL handshake
----
-sequenceDiagram
-    autonumber
-    Client ->> Server : Client Hello
-    Note over Client, Server : 사용할 암호화 알고리즘 목록(cipher sweet)과 난수, 세션 ID 등을 전송
-    Server -->> Client : Server Hello
-    Note over Client, Server : 암호화 알고리즘 중 사용할 알고리즘 선택 결과, 난수, 세션 ID 등을 전송
-    Server -->> Client : Certificate
-    Note over Client, Server : 인증서를 전송하며 암호화에 사용할 공개키 전송
-    Server -->> Client : Server Key Exchange
-    opt
-        Server -->> Client : Certificate Request
-    end
-    Server -->> Client : Server Hello Done
-    opt
-        Client ->> Server : Certificate
-    end
-    Client ->> Server : Client Key Exchange
-    opt
-        Client ->> Server : Certificate Verify
-    end
-    Client ->> Server : Change Cipher spec
-    Client ->> Server : Finished
-    Server -->> Client : Change Cipher spec
-    Server -->> Client : Finished
-    Client ->> Server : HTTPS request
-    Server -->> Client : HTTPS response
-```
+    ```mermaid
+    ---
+    title: SSL handshake
+    ---
+    sequenceDiagram
+        autonumber
+        Client ->> Server : Client Hello
+        Note over Client, Server : 사용할 암호화 알고리즘 목록(cipher sweet)과 난수, 세션 ID 등을 전송
+        Server -->> Client : Server Hello
+        Note over Client, Server : 암호화 알고리즘 중 사용할 알고리즘 선택 결과, 난수, 세션 ID 등을 전송
+        Server -->> Client : Certificate
+        Note over Client, Server : 인증서를 전송하며 암호화에 사용할 공개키 전송
+        Server -->> Client : Server Key Exchange
+        opt
+            Server -->> Client : Certificate Request
+        end
+        Server -->> Client : Server Hello Done
+        opt
+            Client ->> Server : Certificate
+        end
+        Client ->> Server : Client Key Exchange
+        opt
+            Client ->> Server : Certificate Verify
+        end
+        Client ->> Server : Change Cipher spec
+        Client ->> Server : Finished
+        Server -->> Client : Change Cipher spec
+        Server -->> Client : Finished
+        Client ->> Server : HTTPS request
+        Server -->> Client : HTTPS response
+    ```
 
 ## 3. Web Server/WAS
 

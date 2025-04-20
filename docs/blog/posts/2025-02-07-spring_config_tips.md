@@ -10,6 +10,8 @@ categories:
 tags:
     - java
     - spring
+    - application.yaml
+    - application.properties
 ---
 
 Spring 설정 관련 팁 정리  
@@ -19,6 +21,22 @@ Spring 설정 관련 팁 정리
 ---
 
 ## Spring 설정 외부 주입 방법
+
+!!! warning
+    아래와 같은 구조로 파일을 만든 후 테스트 서버를 구동하면 IntelliJ가 프로젝트의 root 경로에 있는 `application.yaml`을 우선 인식한다.  
+
+    ```
+    /project-root/
+    ├─ app.jar
+    ├─ application.yaml
+    └─ src/
+        └─ main/
+            └─ resources/
+                └─ application.yaml
+    ```
+
+    이를 피하려면 프로젝트 외부 경로에 저장하거나 아니면 `configuration.yaml` 등으로 이름을 바꿔주면 된다.  
+
 
 ### spring.config.additional-location
 
