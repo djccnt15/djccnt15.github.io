@@ -927,6 +927,37 @@ Exception
 
 ## 로거 프리셋
 
+??? note "기초 콘솔 로거"
+
+    ```python title="src/log/__init__.py"
+    import logging
+    from datetime import datetime
+
+
+    # override formatTime method of Formatter
+    def formatTime(self, record, datefmt=None):
+        return (
+            datetime.fromtimestamp(record.created)
+            .astimezone()
+            .isoformat(timespec="milliseconds")
+        )
+
+
+    logging.Formatter.formatTime = formatTime
+
+    # set log format
+    formatter = logging.Formatter(
+        fmt="%(asctime)s - %(levelname)s - [%(module)s:%(funcName)s:%(lineno)d] %(message)s",
+    )
+
+    handler = logging.StreamHandler()
+    handler.setFormatter(fmt=formatter)
+
+    logger = logging.getLogger(name="logger")
+    logger.setLevel(level=logging.DEBUG)
+    logger.addHandler(handler)
+    ```
+
 ??? note "디버그용 로거 설정"
     프로그램 디버깅만을 위한 디버그 전용 로거 설정 방법  
 
