@@ -27,6 +27,21 @@ docker [CMD] --help
 
 ## 이미지 관련
 
+### Dockerfile 빌드
+
+`Dockerfile` 파일을 작성한 후 `Dockerfile`로 이미지를 빌드하는 방법은 아래와 같다.  
+
+```bat
+docker build -t [IMAGE_NAME:TAG_NAME] [DOCKERFILE_PATH]
+```
+
+```bat
+docker build -t my_image .
+```
+
+!!! into
+    `-t` 옵션 미입력 시 이미지 `tag`가 자동으로 `latest`로 지정된다.  
+
 ### 이미지 다운로드
 
 ```bat
