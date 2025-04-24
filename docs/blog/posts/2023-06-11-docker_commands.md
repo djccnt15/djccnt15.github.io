@@ -42,6 +42,26 @@ docker build -t my_image .
 !!! into
     `-t` 옵션 미입력 시 이미지 `tag`가 자동으로 `latest`로 지정된다.  
 
+### docker-compose 활용 관련
+
+- `docker-compose.yaml` 빌드
+
+```powershell
+docker-compose up --build -d
+```
+
+- `docker-compose.yaml`로 빌드한 이미지 삭제
+
+```powershell
+docker-compose down
+```
+
+- `docker-compose.yaml`의 configuration 확인
+
+```powershell
+docker compose config
+```
+
 ### 이미지 다운로드
 
 ```bat
