@@ -304,6 +304,7 @@ nav:
     - blog/index.md
   - Portfolios:
     - portfolio/index.md
+    - portfolio/spring-board.md
     - portfolio/fastapi-board.md
     - portfolio/fastapi-vision.md
   - Tags:

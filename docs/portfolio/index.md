@@ -10,6 +10,14 @@ search:
 
 <div class="grid cards" markdown>
 
+- :material-bulletin-board:{ .lg .middle } **게시판 서비스**
+
+    ---
+
+    Spring 기반 게시판 서비스  
+
+    [:octicons-arrow-right-24: Continue Reading](./spring-board.md)
+
 - :material-bulletin-board:{ .lg .middle } **게시판 서비스 Backend**
 
     ---
