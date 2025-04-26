@@ -52,11 +52,13 @@ CRUD와 GET, POST, PUT, DELETE, PATCH
 
 |  Method  |       의미        |      CRUD      | Request Body | 안정성 | 멱등성 | HTML form 전송 |
 | :------: | :---------------: | :------------: | :----------: | :----: | :----: | :------------: |
-|  `GET`   |    리소스 요청    |      Read      |      X       |   O    |   O    |       O        |
+|  `GET`   |    리소스 요청    |      Read      |    X[^2]     |   O    |   O    |       O        |
 |  `POST`  |    리소스 생성    |     Create     |      O       |   X    |   X    |       O        |
 |  `PUT`   | 리소스 갱신, 생성 | Update, Create |      O       |   X    |   O    |       X        |
 | `PATCH`  | 리소스 일부 갱신  |     Update     |      O       |   X    |   X    |       X        |
 | `DELETE` |    리소스 삭제    |     Delete     |      △       |   X    |   O    |       X        |
+
+[^2]: 엄밀히 말하면 `GET` method가 Request Body를 받을 수 없도록 강제되는 것은 아니다. 다만 Request Body를 받는 `GET` method는 REST 하지도 않고 프레임워크 차원에서 Request Body를 받지 못하도록 막기도 한다.  
 
 ---
 ## Reference
