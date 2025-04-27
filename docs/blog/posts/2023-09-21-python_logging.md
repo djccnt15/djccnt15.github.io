@@ -3,7 +3,7 @@ slug: how-to-logging-python
 title: Python logging 제대로 하는 방법
 date:
     created: 2023-09-21
-    updated: 2025-03-15
+    updated: 2025-04-22
 description: >
     Python 로깅에 대한 정리와 Best Practice 예시
 categories:
@@ -13,7 +13,7 @@ tags:
     - logging
 ---
 
-Python 로깅에 대한 정리와 Best Practice 예시  
+Python에서 기본 제공하는 로깅 모듈을 사용하면 시스템 로그를 아주 간편하게 남길 수 있는데, Python 로깅에 대한 정리와 Best Practice에 대해 정리하면 아래와 같다.  
 
 <!-- more -->
 
@@ -88,9 +88,151 @@ stateDiagram-v2
 
 ^[출처: Python - Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-flow)^
 
+### Logger
+
+로거는 `logging` 모듈의 `getLogger` 함수를 통해 생성하고, 로깅을 위한 `LogRecord` 객체를 생성해주기 때문에 전체 로깅 과정에서 핵심적인 역할을 수행한다.  
+
+로거의 이름, 해당 로거가 출력할 로그의 레벨, 로그의 `propagate` 여부 등을 설정할 수 있다.  
+
+```python
+import logging
+
+
+logger = logging.getLogger(name="logger")
+logger.setLevel(level=logging.DEBUG)
+logger.propagate = True
+
+logger.debug("debug message")
+logger.info("info message")
+logger.warning("warn message")
+logger.error("error message")
+logger.critical("critical message")
+```
+
+!!! warning
+    `getLogger` 함수는 로거 객체를 생성할 때 기본 핸들러를 주입해주지 않기 때문에, 개발자가 직접 핸들러를 추가해주지 않으면 실제 로그는 출력되지 않는다.  
+
+??? note "Logger의 주요 구조"
+
+    === "Python 3.11"
+
+        ```python
+        class Logger(Filterer):
+            ...
+
+            def info(self, msg, *args, **kwargs):
+                """
+                Log 'msg % args' with severity 'INFO'.
+
+                To pass exception information, use the keyword argument exc_info with
+                a true value, e.g.
+
+                logger.info("Houston, we have a %s", "interesting problem", exc_info=True)
+                """
+                if self.isEnabledFor(INFO):
+                    self._log(INFO, msg, args, **kwargs)
+
+            ...
+
+            def makeRecord(self, name, level, fn, lno, msg, args, exc_info,
+                        func=None, extra=None, sinfo=None):
+                """
+                A factory method which can be overridden in subclasses to create
+                specialized LogRecords.
+                """
+                rv = _logRecordFactory(name, level, fn, lno, msg, args, exc_info, func,
+                                    sinfo)
+                if extra is not None:
+                    for key in extra:
+                        if (key in ["message", "asctime"]) or (key in rv.__dict__):
+                            raise KeyError("Attempt to overwrite %r in LogRecord" % key)
+                        rv.__dict__[key] = extra[key]
+                return rv
+
+            def _log(self, level, msg, args, exc_info=None, extra=None, stack_info=False,
+                    stacklevel=1):
+                """
+                Low-level logging routine which creates a LogRecord and then calls
+                all the handlers of this logger to handle the record.
+                """
+                sinfo = None
+                if _srcfile:
+                    #IronPython doesn't track Python frames, so findCaller raises an
+                    #exception on some versions of IronPython. We trap it here so that
+                    #IronPython can use logging.
+                    try:
+                        fn, lno, func, sinfo = self.findCaller(stack_info, stacklevel)
+                    except ValueError: # pragma: no cover
+                        fn, lno, func = "(unknown file)", 0, "(unknown function)"
+                else: # pragma: no cover
+                    fn, lno, func = "(unknown file)", 0, "(unknown function)"
+                if exc_info:
+                    if isinstance(exc_info, BaseException):
+                        exc_info = (type(exc_info), exc_info, exc_info.__traceback__)
+                    elif not isinstance(exc_info, tuple):
+                        exc_info = sys.exc_info()
+                record = self.makeRecord(self.name, level, fn, lno, msg, args,
+                                        exc_info, func, extra, sinfo)
+                self.handle(record)
+
+            def handle(self, record):
+                """
+                Call the handlers for the specified record.
+
+                This method is used for unpickled records received from a socket, as
+                well as those created locally. Logger-level filtering is applied.
+                """
+                if (not self.disabled) and self.filter(record):
+                    self.callHandlers(record)
+
+
+            def callHandlers(self, record):
+                """
+                Pass a record to all relevant handlers.
+
+                Loop through all handlers for this logger and its parents in the
+                logger hierarchy. If no handler was found, output a one-off error
+                message to sys.stderr. Stop searching up the hierarchy whenever a
+                logger with the "propagate" attribute set to zero is found - that
+                will be the last logger whose handlers are called.
+                """
+                c = self
+                found = 0
+                while c:
+                    for hdlr in c.handlers:
+                        found = found + 1
+                        if record.levelno >= hdlr.level:
+                            hdlr.handle(record)
+                    if not c.propagate:
+                        c = None    #break out
+                    else:
+                        c = c.parent
+                if (found == 0):
+                    if lastResort:
+                        if record.levelno >= lastResort.level:
+                            lastResort.handle(record)
+                    elif raiseExceptions and not self.manager.emittedNoHandlerWarning:
+                        sys.stderr.write("No handlers could be found for logger"
+                                        " \"%s\"\n" % self.name)
+                        self.manager.emittedNoHandlerWarning = True
+        ```
+
+아래와 같이 로거의 이름에 `.`을 사용해서 로거 간의 계층 구조를 설정할 수 있다. 로거의 `propagate` 필드는 하위 로거에서 생성한 로그가 상위 로그로 전달되어 출력될지 여부를 설정한다.  
+
+```python
+import logging
+
+main_logger = logging.getLogger("main")
+sub_logger = logging.getLogger("main.sub")
+sub_logger.propagate = True
+```
+
+!!! warning
+    계층 관계에 있는 로거가 각자 핸들러를 가지고 있다면 `propagate` 된 로그는 각각의 핸들러에서 모두 출력된다.  
+
 ### Handler
 
-Python에서 기본 제공하는 로깅 모듈을 사용하면 시스템 로그를 아주 간편하게 남길 수 있는데, 핸들러를 사용하여 로깅을 위한 여러 가지 설정을 쉽게 관리할 수 있다.  
+핸들러는 로그를 어디에 출력 할지를 설정하기 위해 사용된다.  
 
 #### StreamHandler
 
@@ -156,7 +298,7 @@ Python이 기본 제공하는 다양한 Log Handler 중에 [`TimedRotatingFileHa
 
 #### NullHandler
 
-`NullHandler`는 아래와 같이 아무것도 하지 않는 핸들러로 자체적인 로거를 갖는 패키지의 객체들을 다룰 때 해당 로거가 로그를 생성만 하고 출력은 하지 않도록 하고 싶을 때 사용한다.  
+`NullHandler`는 아래와 같이 아무것도 하지 않는 핸들러로, 자체적인 로거를 갖는 패키지의 객체들을 다룰 때 해당 로거가 로그를 생성만 하고 출력은 하지 않도록 하고 싶을 때 사용한다.  
 
 ```python
 class NullHandler(Handler):
@@ -244,7 +386,7 @@ class NullHandler(Handler):
 
 ### Filter
 
-필터는 로그 레벨에 따라 로그의 출력을 걸러주기 위해 사용하는 객체로, `LogRecord` 인스턴스를 필터링하는 규칙을 직접 만들 수 있다.  
+필터는 로그의 출력을 필터링해주는 역할로, `LogRecord` 인스턴스를 필터링하는 규칙을 직접 만들 수 있다.  
 
 `logging` 모듈의 기본 필터는 로그 레벨로 필터링하고, 그 중에서도 **지정된 레벨보다 상위 레벨 전체의 로그**를 필터링한다.  
 
@@ -309,7 +451,7 @@ class MyFilter(Filter):  # (1)!
 
 ### Formatter
 
-`Formatter` 클래스를 직접 만들어 사용한다면, 로그를 `jsonl`과 같이 특이한 형태의 파일로도 출력 만들 수 있다.  
+포매터는 로그를 어떤 형태로 출력할지를 정하는 역할로, `Formatter` 클래스를 직접 만들어 사용한다면, 로그를 `jsonl`과 같이 특이한 형태의 파일로도 출력 만들 수 있다.  
 
 === "Python 3.11"
 
@@ -784,6 +926,37 @@ Exception
 ```
 
 ## 로거 프리셋
+
+??? note "기초 콘솔 로거"
+
+    ```python title="src/log/__init__.py"
+    import logging
+    from datetime import datetime
+
+
+    # override formatTime method of Formatter
+    def formatTime(self, record, datefmt=None):
+        return (
+            datetime.fromtimestamp(record.created)
+            .astimezone()
+            .isoformat(timespec="milliseconds")
+        )
+
+
+    logging.Formatter.formatTime = formatTime
+
+    # set log format
+    formatter = logging.Formatter(
+        fmt="%(asctime)s - %(levelname)s - [%(module)s:%(funcName)s:%(lineno)d] %(message)s",
+    )
+
+    handler = logging.StreamHandler()
+    handler.setFormatter(fmt=formatter)
+
+    logger = logging.getLogger(name="logger")
+    logger.setLevel(level=logging.DEBUG)
+    logger.addHandler(handler)
+    ```
 
 ??? note "디버그용 로거 설정"
     프로그램 디버깅만을 위한 디버그 전용 로거 설정 방법  

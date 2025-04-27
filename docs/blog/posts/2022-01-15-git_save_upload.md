@@ -113,6 +113,18 @@ git commit --amend --no-edit --date="May 23 11:08:49 2022 +0900"
 git push <repository> <branch>
 ```
 
+- `tag`를 원격 저장소로 업로드
+
+```sh
+git push <repository> <tagname>
+```
+
+- 모든 `tag`를 원격 저장소로 업로드
+
+```sh
+git push --tags
+```
+
 - dry-run을 통해 명령을 수행할 시 어떤 일이 일어날지 출력
 
 ```sh

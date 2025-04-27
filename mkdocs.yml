@@ -2,7 +2,7 @@ site_url: https://djccnt15.github.io/  # necessary to enable sitemap
 site_name: Note of Jay.D
 site_author: djccnt15
 copyright: Copyright &copy; djccnt15
-# repo_url: https://github.com/djccnt15
+repo_url: https://github.com/djccnt15
 extra_javascript:
   - javascripts/shortcuts.js
   - javascripts/katex.js
@@ -101,6 +101,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
     tag:
+      apache: simple/apache
       api: material/api
       bootstrap: simple/bootstrap
       c: simple/c
@@ -128,6 +129,7 @@ theme:
       maven: simple/apachemaven
       mongodb: simple/mongodb
       mysql: simple/mysql
+      nginx: simple/nginx
       numpy: simple/numpy
       pandas: simple/pandas
       postgresql: simple/postgresql
@@ -181,6 +183,7 @@ extra:
   #     - accept
   #     - reject
   tags:
+    apache: apache
     api: api
     bootstrap: bootstrap
     cmd: terminal
@@ -213,6 +216,7 @@ extra:
     maven: maven
     mongodb: mongodb
     mysql: mysql
+    nginx: nginx
     numpy: numpy
     opencv: cv
     oracle: oracle
@@ -300,6 +304,7 @@ nav:
     - blog/index.md
   - Portfolios:
     - portfolio/index.md
+    - portfolio/spring-board.md
     - portfolio/fastapi-board.md
     - portfolio/fastapi-vision.md
   - Tags:
