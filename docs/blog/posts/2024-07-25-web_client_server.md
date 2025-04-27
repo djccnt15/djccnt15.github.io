@@ -148,6 +148,28 @@ sequenceDiagram
         Server -->> Client : HTTPS response
     ```
 
+HTTP 통신을 정상적으로 종료할 때는 아래와 같이 **4-way handshake**를 통해 종료하게 된다.  
+
+```mermaid
+sequenceDiagram
+    autonumber
+    Server ->> Client : FIN
+    Client -->> Server : ACK
+    Client ->> Server : FIN-ACK
+    Server -->> Client : ACK
+```
+
+TCP 연결 중에 문제가 발생해서 강제 종료를 하게 될 경우 아래와 같이 `RST` 패킷이 반환된다.  
+
+```mermaid
+sequenceDiagram
+    autonumber
+    Server ->> Client : FIN
+    Client -->> Server : ACK
+    Client ->> Server : PUSH
+    Server -->> Client : RST
+```
+
 ## 3. Web Server/WAS
 
 클라이언트가 서버로 요청을 보낼 경우 웹서버가 정적 요청을 처리하고, Web Application Server와 TCP/IP 통신을 통해 복잡한 로직을 처리하여 처리 결과를 회신함  
