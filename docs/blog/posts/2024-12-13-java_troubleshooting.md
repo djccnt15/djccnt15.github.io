@@ -38,7 +38,7 @@ java -jar [app_path.jar]
 ```
 
 !!! tip
-    아래와 같이 `set`, `export` 명령어를 이용해서 현재 실행중인 콘솔에서 임시로 환경변수 경로를 변경해줘도 된다.  
+    아래와 같이 `set`, `export` 명령어를 이용해서 현재 실행중인 콘솔에서 임시로 환경 변수 경로를 변경해줘도 된다.  
 
     ```bat
     set JAVA_HOME=C:\path\to\your\java

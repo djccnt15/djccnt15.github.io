@@ -405,7 +405,7 @@ env | grep ^FLASK
     `|`는 앞 명령어에서 확인된 리스트를 뒤 명령어로 전달한다.  
 
 !!! info
-    `findstr`에 대한 자세한 내용은 [MS 공식문서 - findstr](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr)를 참고하자.  
+    `findstr`에 대한 자세한 내용은 [MS 공식 문서 - findstr](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr)를 참고하자.  
 
 ## 3. 네트워크 관련 명령어들
 

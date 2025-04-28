@@ -113,6 +113,7 @@ theme:
       docker: simple/docker
       elasticsearch: simple/elasticsearch
       fastapi: simple/fastapi
+      flask: simple/flask
       ga: simple/googleanalytics
       git: simple/git
       gradle: simple/gradle
@@ -196,6 +197,7 @@ extra:
     elasticsearch: elasticsearch
     elk: elasticsearch
     fastapi: fastapi
+    flask: flask
     git: git
     ga: ga
     google analytics: ga
