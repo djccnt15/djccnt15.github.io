@@ -139,7 +139,7 @@ find / -iname <filename>
 
 change directory의 약자로, 작업중인 폴더 이동  
 
-```bat
+```powershell
 # 상위 디렉토리로 이동
 cd ..
 
@@ -162,7 +162,9 @@ cd -
 
 ### dir/ls
 
-현재 디렉토리의 하위 폴더 및 파일을 보여주는 명령어, 와일드카드(*, ?) 사용 가능  
+현재 디렉토리의 하위 폴더 및 파일을 보여주는 명령어, 와일드카드[^1] 사용 가능  
+
+[^1]: `*`, `?`
 
 - Windows
 
@@ -456,50 +458,35 @@ ssh [id]@[ip] -p [port]
 
 - Windows
 
-환경 변수 출력
 
-```bat
+```powershell
+# 환경 변수 출력
 set
-```
 
-특정 문자로 시작하는 환경 변수 호출
-
-```bat
+# 특정 문자로 시작하는 환경 변수 호출
 set <x>
-```
 
-환경 변수 중 컴퓨터 이름 호출
-
-```bat
+# 환경 변수 중 컴퓨터 이름 호출
 set COMPUTERNAME
-```
 
-환경 변수 설정
-
-```bat
+# 환경 변수 설정
 set <variable>=<string>
 ```
 
 - Linux
 
-환경 변수 출력
 
 ```sh
+# 환경 변수 출력
 env
-```
-
-```sh
 printenv
-```
-
-```sh
 export -p
-```
 
-환경 변수 설정
-
-```sh
+# 환경 변수 설정
 export <variable>=<string>
+
+# 특정 환경 변수 확인
+echo ${NAME}
 ```
 
 ### tree
