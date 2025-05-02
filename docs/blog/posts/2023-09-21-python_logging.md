@@ -318,19 +318,21 @@ class NullHandler(Handler):
 
 `LogRecord` 클래스의 요소들은 [공식 문서](https://docs.python.org/3/library/logging.html#logrecord-attributes)에서 확인할 수 있는데, 주로 사용할만한 속성들은 아래와 같다.  
 
-| Attribute name |    Format     |              Description               |
-| :------------: | :-----------: | :------------------------------------: |
-|    asctime     |  %(asctime)s  |           로그가 생성된 시간           |
-|    filename    | %(filename)s  |      로그를 발생시킨 파일의 이름       |
-|    funcName    | %(funcName)s  |      로그를 발생시킨 함수의 이름       |
-|   levelname    | %(levelname)s |             로그 레벨 이름             |
-|     lineno     |  %(lineno)d   | 소스코드에서 로그를 발생시킨 라인 넘버 |
-|    message     |  %(message)s  |              로그 메세지               |
-|     module     |  %(module)s   |       로그를 발생시킨 모듈 이름        |
-|     msecs      |   %(msecs)d   |    로그가 생성된 시간의 밀리세컨드     |
-|      name      |   %(name)s    |              로거의 이름               |
-|    process     |  %(process)d  |      프로세스 ID(가능할 경우에만)      |
-|     thread     |  %(thread)d   |       쓰레드 ID(가능할 경우에만)       |
+| Attribute name |     Format      |              Description               |
+| :------------: | :-------------: | :------------------------------------: |
+|    asctime     |   %(asctime)s   |           로그가 생성된 시간           |
+|    filename    |  %(filename)s   |      로그를 발생시킨 파일의 이름       |
+|    funcName    |  %(funcName)s   |      로그를 발생시킨 함수의 이름       |
+|   levelname    |  %(levelname)s  |             로그 레벨 이름             |
+|     lineno     |   %(lineno)d    | 소스코드에서 로그를 발생시킨 라인 넘버 |
+|    message     |   %(message)s   |              로그 메세지               |
+|     module     |   %(module)s    |       로그를 발생시킨 모듈 이름        |
+|     msecs      |    %(msecs)d    |    로그가 생성된 시간의 밀리세컨드     |
+|      name      |    %(name)s     |              로거의 이름               |
+|    process     |   %(process)d   |      프로세스 ID(가능할 경우에만)      |
+|  processName   | %(processName)s |     프로세스 이름(가능할 경우에만)     |
+|     thread     |   %(thread)d    |       쓰레드 ID(가능할 경우에만)       |
+|   threadName   | %(threadName)s  |      쓰레드 이름(가능할 경우에만)      |
 
 ???+ note "Python Log의 asctime"
     엄밀히 말하면 `asctime`은 `LogRecord` 객체의 요소는 아니다. `LogRecord` 객체는 `time.time()`[^2]으로 생성시간을 저장한 후, [`Formatter`](#formatter)가 생성시간을 [`time.strftime`](./2022-12-03-python_datetime.md/#strftime)을 사용해서 입력받은 포맷대로 생성해준다.  
