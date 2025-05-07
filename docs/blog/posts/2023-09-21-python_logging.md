@@ -707,8 +707,6 @@ from src.log import log_listener, logger
 
 
 def main():
-    log_listener.start()
-
     logger.debug("debug message")
     logger.info("info message")
     logger.warning("warn message")
@@ -720,11 +718,11 @@ def main():
     except Exception as e:
         logger.exception(e)  # logging error traceback
 
-    log_listener.stop()
-
 
 if __name__ == "__main__":
+    log_listener.start()
     main()
+    log_listener.stop()
 ```
 
 ??? tip "`dictConfig`를 통한 로그 설정"
