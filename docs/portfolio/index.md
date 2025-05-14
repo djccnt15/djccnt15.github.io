@@ -10,6 +10,14 @@ search:
 
 <div class="grid cards" markdown>
 
+- :fontawesome-solid-gears:{ .lg .middle } **On Device AI**
+
+    ---
+
+    온디바이스 AI 시스템  
+
+    [:octicons-arrow-right-24: Continue Reading](./on-device-ai.md)
+
 - :material-bulletin-board:{ .lg .middle } **게시판 서비스**
 
     ---

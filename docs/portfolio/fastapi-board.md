@@ -214,39 +214,11 @@ erDiagram
         datetime    created_datetime
     }
 
-    CATEGORY |o..o{ CATEGORY : child
-    CATEGORY {
-        bigint      id          PK
-        int         tier
-        string      name
-        bigint      parent_id   FK  "null"
-    }
-
-    USER ||..o{ POST : create
-    CATEGORY ||..o{ POST : categorize
-    POST {
-        bigint      id                  PK
-        bigint      user_id             FK
-        bigint      category_id         FK
-        datetime    created_datetime
-        bool        is_active               "default=True"
-    }
-
-    POST ||..|{ POST_CONTENT : meta-data
-    POST_CONTENT {
-        bigint      id                  PK
-        int         version                 "default=0"
-        datetime    created_datetime
-        string      title
-        text        content
-        bigint      post_id             FK
-    }
-
-    USER ||..o{ VOTER_POST : vote
-    POST ||..o{ VOTER_POST : voted
-    VOTER_POST {
-        bigint user_id PK, FK
-        bigint post_id PK, FK
+    USER ||..o{ VOTER_COMMENT : vote
+    COMMENT ||..o{ VOTER_COMMENT : voted
+    VOTER_COMMENT {
+        bigint user_id      PK, FK
+        bigint comment_id   PK, FK
     }
 
     USER ||..o{ COMMENT : creates
@@ -267,11 +239,39 @@ erDiagram
         bigint comment_id FK
     }
 
-    USER ||..o{ VOTER_COMMENT : vote
-    COMMENT ||..o{ VOTER_COMMENT : voted
-    VOTER_COMMENT {
-        bigint user_id      PK, FK
-        bigint comment_id   PK, FK
+    CATEGORY |o..o{ CATEGORY : child
+    CATEGORY {
+        bigint      id          PK
+        int         tier
+        string      name
+        bigint      parent_id   FK  "null"
+    }
+
+    USER ||..o{ VOTER_POST : vote
+    POST ||..o{ VOTER_POST : voted
+    VOTER_POST {
+        bigint user_id PK, FK
+        bigint post_id PK, FK
+    }
+
+    USER ||..o{ POST : create
+    CATEGORY ||..o{ POST : categorize
+    POST {
+        bigint      id                  PK
+        bigint      user_id             FK
+        bigint      category_id         FK
+        datetime    created_datetime
+        bool        is_active               "default=True"
+    }
+
+    POST ||..|{ POST_CONTENT : meta-data
+    POST_CONTENT {
+        bigint      id                  PK
+        int         version                 "default=0"
+        datetime    created_datetime
+        string      title
+        text        content
+        bigint      post_id             FK
     }
 ```
 

@@ -23,7 +23,7 @@ isort를 사용해 import를 정렬하는 방법
 
 ## 독립된 프로그램으로 활용
 
-pip를 통해서 설치 후 [공식문서](https://pycqa.github.io/isort/#using-isort) 가이드 참고  
+pip를 통해서 설치 후 [공식 문서](https://pycqa.github.io/isort/#using-isort) 가이드 참고  
 
 ## Black과 같이 사용
 
