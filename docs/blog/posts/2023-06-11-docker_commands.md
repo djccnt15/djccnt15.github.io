@@ -39,8 +39,8 @@ docker build -t [IMAGE_NAME:TAG_NAME] [DOCKERFILE_PATH]
 docker build -t my_image .
 ```
 
-!!! into
-    `-t` 옵션 미입력 시 이미지 `tag`가 자동으로 `latest`로 지정된다.  
+!!! info
+    `-t` 옵션에서 태그 이름 미입력 시 이미지 `tag`가 자동으로 `latest`로 지정된다.  
 
 ### docker-compose 활용 관련
 
