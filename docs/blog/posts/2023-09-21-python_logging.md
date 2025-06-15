@@ -716,7 +716,8 @@ def main():
     try:
         raise Exception
     except Exception as e:
-        logger.exception(e)  # logging error traceback
+        logger.exception("exception")  # logging error traceback
+        logger.error("error", exc_info=True)
 
 
 if __name__ == "__main__":
@@ -865,7 +866,8 @@ if __name__ == "__main__":
         try:
             raise Exception
         except Exception as e:
-            logger.exception(e)  # log for error catch
+            logger.exception("exception")  # logging error traceback
+            logger.error("error", exc_info=True)
 
 
     if __name__ == "__main__":
@@ -885,7 +887,12 @@ if __name__ == "__main__":
 2025-03-14T23:31:25.303+09:00 - WARNING - warn message
 2025-03-14T23:31:25.303+09:00 - ERROR - error message
 2025-03-14T23:31:25.303+09:00 - CRITICAL - critical message
-2025-03-14T23:31:25.303+09:00 - ERROR - 
+2025-03-14T23:31:25.303+09:00 - ERROR - exception
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 14, in main
+    raise Exception
+Exception
+2025-03-14T23:31:25.303+09:00 - ERROR - error
 Traceback (most recent call last):
   File "C:\projects\python311\main.py", line 14, in main
     raise Exception
@@ -898,7 +905,12 @@ Exception
 2025-03-14T23:31:25.303+09:00 - WARNING - [main:main:9] warn message
 2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:10] error message
 2025-03-14T23:31:25.303+09:00 - CRITICAL - [main:main:11] critical message
-2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:16] 
+2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:16] exception
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 14, in main
+    raise Exception
+Exception
+2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:16] error
 Traceback (most recent call last):
   File "C:\projects\python311\main.py", line 14, in main
     raise Exception
@@ -911,14 +923,20 @@ Exception
 {"level": "WARNING", "message": "warn message", "logger": "logger", "module": "main", "function": "main", "line": 9, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
 {"level": "ERROR", "message": "error message", "logger": "logger", "module": "main", "function": "main", "line": 10, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
 {"level": "CRITICAL", "message": "critical message", "logger": "logger", "module": "main", "function": "main", "line": 11, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
-{"level": "ERROR", "message": "\nTraceback (most recent call last):\n  File \"C:\\projects\\python311\\main.py\", line 14, in main\n    raise Exception\nException", "logger": "logger", "module": "main", "function": "main", "line": 16, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
+{"level": "ERROR", "message": "exception\nTraceback (most recent call last):\n  File \"C:\\projects\\python311\\main.py\", line 14, in main\n    raise Exception\nException", "logger": "logger", "module": "main", "function": "main", "line": 16, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
+{"level": "ERROR", "message": "error\nTraceback (most recent call last):\n  File \"C:\\projects\\python311\\main.py\", line 14, in main\n    raise Exception\nException", "logger": "logger", "module": "main", "function": "main", "line": 16, "timestamp": "2025-03-14T23:31:25.303853+09:00"}
 ```
 
 ```log title="debug.log"
 2025-03-14T23:31:25.303+09:00 - DEBUG - [main:main:7] debug message
 2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:10] error message
 2025-03-14T23:31:25.303+09:00 - CRITICAL - [main:main:11] critical message
-2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:16] 
+2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:16] exception
+Traceback (most recent call last):
+  File "C:\projects\python311\main.py", line 14, in main
+    raise Exception
+Exception
+2025-03-14T23:31:25.303+09:00 - ERROR - [main:main:16] error
 Traceback (most recent call last):
   File "C:\projects\python311\main.py", line 14, in main
     raise Exception
