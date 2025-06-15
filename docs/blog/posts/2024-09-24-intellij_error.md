@@ -8,6 +8,8 @@ description: >
 categories:
     - SW Engineering
 tags:
+    - java
+    - gradle
     - intellij
     - troubleshooting
 ---
@@ -75,3 +77,11 @@ tasks.named('test') {
 1. IntelliJ로 프로젝트를 열 때
     - `build.gradle` 파일 선택해서 열기
     - `Open as Project` 메뉴로 실행
+
+## Gradle 로딩 문제
+
+간혹 IntelliJ로 기존의 Gradle 프로젝트를 열었는데 `annotation`들이 적용이 되지 않는 경우가 있다. 아래와 같은 절차로 해결해보면 된다.  
+
+1. Java 버전 등이 정상적으로 인식되었는지 확인 후 잘못 인식되었을 경우 자바 버전 변경
+1. Gradle 리로딩
+1. 프로젝트 환경을 관리하는 `.idea` 폴더 삭제 후 프로젝트 리로딩
