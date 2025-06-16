@@ -49,3 +49,40 @@ dependencies {
       symbol:   method builder()
       location: class MyModel
     ```
+
+## Spring 테스트 코드에서 사용방법
+
+Spring Initializr를 사용해서 Spring 프로젝트를 구성할 경우 아래와 같이 Lombok을 `compileOnly`, `annotationProcessor`에만 주입해준다.  
+
+```title="build.gradle" hl_lines="5-6"
+...
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter'
+  compileOnly 'org.projectlombok:lombok'
+  annotationProcessor 'org.projectlombok:lombok'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+...
+```
+
+Lombok을 테스트 코드에서도 사용하고 싶은 경우 아래와 같이 `testCompileOnly`, `testAnnotationProcessor`에도 주입해줘야 한다.  
+
+
+```title="build.gradle" hl_lines="5-8"
+...
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter'
+  compileOnly 'org.projectlombok:lombok'
+  annotationProcessor 'org.projectlombok:lombok'
+  testCompileOnly 'org.projectlombok:lombok'
+  testAnnotationProcessor 'org.projectlombok:lombok'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+...
+```
