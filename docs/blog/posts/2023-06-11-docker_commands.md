@@ -46,19 +46,19 @@ docker build -t my_image .
 
 - `docker-compose.yaml` 빌드
 
-```powershell
+```bat
 docker-compose up --build -d
 ```
 
 - `docker-compose.yaml`로 빌드한 이미지 삭제
 
-```powershell
+```bat
 docker-compose down
 ```
 
 - `docker-compose.yaml`의 configuration 확인
 
-```powershell
+```bat
 docker compose config
 ```
 
