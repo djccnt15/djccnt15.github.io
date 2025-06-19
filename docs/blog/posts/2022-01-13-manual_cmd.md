@@ -139,14 +139,14 @@ find / -iname <filename>
 
 change directory의 약자로, 작업중인 폴더 이동  
 
-```powershell
-# 상위 디렉토리로 이동
+```bat
+:: 상위 디렉토리로 이동
 cd ..
 
-# 최상위 디렉토리로 이동
+:: 최상위 디렉토리로 이동
 cd /
 
-# 드라이브를 바꿀 때는 사용하지 않음
+:: 드라이브를 바꿀 때는 사용하지 않음
 d:
 ```
 
@@ -260,14 +260,14 @@ rm -rf <dir_name>
 
 - Windows
 
-```powershell
-# 파일 복사
+```bat
+:: 파일 복사
 copy <source> <destination>
 
-# 디렉토리 복사
+:: 디렉토리 복사
 xcopy <source> <destination>
 
-# 디렉토리 복사
+:: 디렉토리 복사
 robocopy <source> <destination>
 ```
 
@@ -287,10 +287,10 @@ cp -r <dir_name> <destination>
 
 - Windows
 
-```powershell
+```bat
 move <source> <destination>
 
-# 여러 파일 복사
+:: 여러 파일 복사
 move C:\source\*.* C:\dest\
 ```
 
@@ -459,17 +459,17 @@ ssh [id]@[ip] -p [port]
 - Windows
 
 
-```powershell
-# 환경 변수 출력
+```bat
+:: 환경 변수 출력
 set
 
-# 특정 문자로 시작하는 환경 변수 호출
+:: 특정 문자로 시작하는 환경 변수 호출
 set <x>
 
-# 환경 변수 중 컴퓨터 이름 호출
+:: 환경 변수 중 컴퓨터 이름 호출
 set COMPUTERNAME
 
-# 환경 변수 설정
+:: 환경 변수 설정
 set <variable>=<string>
 ```
 
