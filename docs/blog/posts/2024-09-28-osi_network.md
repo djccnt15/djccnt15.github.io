@@ -1,5 +1,5 @@
 ---
-slug: osi-tcpip
+slug: osi-network
 title: OSI 7계층과 TCP/IP
 date:
     created: 2024-09-28
@@ -10,7 +10,9 @@ categories:
 tags:
     - network
     - osi
-    - tcp/ip
+    - tcp
+    - ip
+    - udp
 ---
 
 네트워크 이론: OSI 7계층과 TCP/IP 정리  
@@ -25,15 +27,15 @@ tags:
 
 OSI 7 계층을 요약하면 아래와 같다.  
 
-|              |  Num  | Layer        | PDU[^1]           | TCP/IP         | TCP/IP Protocols                 |
-| ------------ | :---: | ------------ | ----------------- | -------------- | -------------------------------- |
-| Host Layers  |   7   | Application  | Data              | Application    | HTTP, HTTPS, FTP, SMTP           |
-| Host Layers  |   6   | Presentation | Data              | Application    | MIME, SSL/TLS, XDR               |
-| Host Layers  |   5   | Session      | Data              | Application    | Sockets                          |
-| Host Layers  |   4   | Transport    | Segment, Datagram | Transport      | TCP, UDP, SCTP, QUIC, DCCP       |
-| Media Layers |   3   | Network      | Packet            | Internet       | IP, IPsec, ICMP, IGMP, OSPF, RIP |
-| Media Layers |   2   | Data Link    | Frame             | Network Access | PPP, SBTV, SLIP                  |
-| Media Layers |   1   | Physical     | Bit, Symbol       | Physical       | -                                |
+|              |  Num  | Layer        | PDU[^1]          |
+| ------------ | :---: | ------------ | ---------------- |
+| Host Layers  |   7   | Application  | Data             |
+| Host Layers  |   6   | Presentation | Data             |
+| Host Layers  |   5   | Session      | Data             |
+| Host Layers  |   4   | Transport    | Segment          |
+| Media Layers |   3   | Network      | Packet, Datagram |
+| Media Layers |   2   | Data Link    | Frame            |
+| Media Layers |   1   | Physical     | Bit, Symbol      |
 
 [^1]: [Protocol Data Unit](https://en.wikipedia.org/wiki/Protocol_data_unit), 통신에서 네트워크의 피어 엔티티 간에 전송되는 단일 정보 단위
 
@@ -71,36 +73,44 @@ OSI 7 계층을 요약하면 아래와 같다.
 [^2]: UDP와 같은 프로토콜은 패킷 손실, 재정렬, 오류 또는 중복을 허용할 의향이 있는 애플리케이션에서 사용  
 [^3]: MIME 인코딩, 암호화, 압축 등  
 
-## TCP/IP
+## IP
 
 인터넷 프로토콜 스위트(Internet Protocol Suite)는 네트워크에서 컴퓨터들이 통신하는데 쓰이는 통신규약(프로토콜)의 모음으로, 논리적인 개념 모델인 OSI 7 모델을 실제로 구현한 구현체들을 말한다.  
 
 이 중 가장 많이 사용되는 프토토콜이 TCP(Transmission Control Protocol, 전송 제어 프로토콜)와 IP(Internet Protocol, 인터넷 프로토콜)이기 때문에 일반적으로 TCP/IP라고 부른다.  
 
-TCP/IP는 일반적으로 아래와 같은 계층으로 이루어진다.  
+TCP/IP는 OSI 7 계층과 아래와 같은 층위에서 연결된다.  
 
-|  Num  | TCP/IP         | TCP/IP Protocols                                         | OSI 7 Layer                        |
-| :---: | -------------- | -------------------------------------------------------- | ---------------------------------- |
-|   5   | Application    | HTTP, HTTPS, FTP, SMTP, MIME, SSL/TLS, XDR, Sockets, SSH | Application, Presentation, Session |
-|   4   | Transport      | TCP, UDP, SCTP, QUIC, DCCP, RTP                          | Transport                          |
-|   3   | Internet       | IP, IPsec, ICMP, IGMP, OSPF, RIP                         | Network                            |
-|   2   | Network Access | PPP, SBTV, SLIP, Ethernet                                | Data Link                          |
-|   1   | Physical       | -                                                        | Physical                           |
+|  Num  | OSI 7 Layer  | TCP/IP Protocols                        |
+| :---: | ------------ | --------------------------------------- |
+|   7   | Application  | HTTP, HTTPS, FTP, SMTP                  |
+|   6   | Presentation | MIME, SSL/TLS, XDR                      |
+|   5   | Session      | Sockets                                 |
+|   4   | Transport    | **TCP**, **UDP**, SCTP, QUIC, DCCP, RTP |
+|   3   | Network      | **IP**, IPsec, ICMP, IGMP, OSPF, RIP    |
+|   2   | Data Link    | PPP, SBTV, SLIP, Ethernet               |
+|   1   | Physical     | -                                       |
 
 각 계층의 주요 기능 및 장비는 아래와 같다.  
 
-- Application
+- Application, Presentation, Session
     - 응용 애플리케이션 수행
     - 로드 밸런서 및 웹방화벽
 - Transport
     - 통신 노드 간의 연결 제어 및 데이터 송수신, 데이터 재전송 및 흐름제어
     - 로드 밸런서(Port 기반)
-- Internet
+- Network
     - 통신 노드 간의 IP 패킷 전송 라우팅
     - 라우터, VPN, 방화벽
-- Network Access
+- Data Link(Network Access)
     - 네트워크 인터페이스, 물리적 식별
     - 스위치, 허브, 리피터, NIC
+
+## TCP/UDP
+
+TCP(Transmission Control Protocol)는 [3-way handshake](./2024-07-25-web_client_server.md/#3-way-handshake)를 통해 데이터의 전달 여부와 순서를 보장한다는 특징이 있어 신뢰성이 높기 때문에 대부분 TCP를 사용한다.  
+
+반면 UDP(User Datagram Protocol)는 3-way handshake와 같은 기능이 없어 데이터 전달 및 순서가 보장되지 않지만 단순하고 속도가 빠르다는 장점이 있다.  
 
 ---
 ## Reference
