@@ -106,11 +106,10 @@ TCP/IP는 OSI 7 계층과 아래와 같은 층위에서 연결된다.
     - 네트워크 인터페이스, 물리적 식별
     - 스위치, 허브, 리피터, NIC
 
-## TCP/UDP
+!!! note "TCP vs UDP"
+    TCP(Transmission Control Protocol)는 [3-way handshake](./2024-07-25-web_client_server.md/#3-way-handshake)를 통해 데이터의 전달 여부와 순서를 보장한다는 특징이 있어 신뢰성이 높기 때문에 대부분 TCP를 사용한다.  
 
-TCP(Transmission Control Protocol)는 [3-way handshake](./2024-07-25-web_client_server.md/#3-way-handshake)를 통해 데이터의 전달 여부와 순서를 보장한다는 특징이 있어 신뢰성이 높기 때문에 대부분 TCP를 사용한다.  
-
-반면 UDP(User Datagram Protocol)는 3-way handshake와 같은 기능이 없어 데이터 전달 및 순서가 보장되지 않지만 단순하고 속도가 빠르다는 장점이 있다.  
+    반면 UDP(User Datagram Protocol)는 3-way handshake와 같은 기능이 없어 데이터 전달 및 순서가 보장되지 않지만 단순하고 속도가 빠르다는 장점이 있다.  
 
 ---
 ## Reference
