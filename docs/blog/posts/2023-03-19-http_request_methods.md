@@ -60,6 +60,15 @@ CRUD와 GET, POST, PUT, DELETE, PATCH
 
 [^2]: 엄밀히 말하면 `GET` method가 Request Body를 받을 수 없도록 강제되는 것은 아니다. 다만 Request Body를 받는 `GET` method는 REST 하지도 않고 프레임워크 차원에서 Request Body를 받지 못하도록 막기도 한다.  
 
+## 3. 그 외 Method
+
+|  Method   | 의미                                                                 |
+| :-------: | -------------------------------------------------------------------- |
+|  `HEAD`   | `GET`과 동일하나 메세지를 제외한 상태 줄과 헤더만 반환               |
+| `OPTIONS` | 대상 리소스에 대한 통신 가능 옵션(method)을 설명(CORS에서 주로 사용) |
+| `CONNECT` | 대상 자원으로 식별되는 서버에 대한 터널 설정                         |
+|  `TRACE`  | 대상 리소스에 대한 경로를 따라 메세지 루프백 테스트 수행             |
+
 ---
 ## Reference
 - [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
