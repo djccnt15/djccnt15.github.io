@@ -65,7 +65,7 @@ CSS 적용 우선순위는 MDN Web Docs의 [Specificity](https://developer.mozil
 
 ## 우선순위 가중치 계산법
 
-MDN Web Docs와 W3Schools의 설명에 따르면 `!important`를 제외한 CSS의 정확한 우선 순위는 선택자의 가중치를 계산하여 가중치가 높은 순서로 정해지는데, 선택자별 가중치와 계산 예시는 아래와 같다.  
+MDN Web Docs와 W3Schools의 설명에 따르면 `!important`를 제외한 CSS의 정확한 우선순위는 선택자의 가중치를 계산하여 가중치가 높은 순서로 정해지는데, 선택자별 가중치와 계산 예시는 아래와 같다.  
 
 - 인라인 스타일: 1000
 - ID 선택자: 100

@@ -65,7 +65,7 @@ SELECT col_name AS alias FROM table_name WHERE expression;
 !!! tip
     `''`값을 조회하려면, Oracle에서는 `IS NULL` 조건, MSSQL에서는 `= ''` 조건을 사용해야 한다.  
 
-**연산자의 우선 순위**는 아래와 같다.  
+**연산자의 우선순위**는 아래와 같다.  
 
 1. 괄호 `()`
 1. NOT 연산자
