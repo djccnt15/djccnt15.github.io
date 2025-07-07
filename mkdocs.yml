@@ -106,7 +106,7 @@ theme:
       bootstrap: simple/bootstrap
       c: simple/c
       cpp: simple/cplusplus
-      css: simple/css3
+      css: simple/css
       cv: simple/opencv
       db: fontawesome/solid/database
       django: simple/django
