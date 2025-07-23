@@ -35,6 +35,8 @@ DNS 시스템을 구성하는 요소들은 아래와 같다.
 ```mermaid
 ---
 title: Recursive DNS Query
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber
@@ -65,6 +67,8 @@ sequenceDiagram
 ```mermaid
 ---
 title: Iterative DNS Query
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber
@@ -96,6 +100,8 @@ HTTP 통신을 시작하기 위해 TCP 헤더에 있는 SYN, ACK 비트를 통�
 ```mermaid
 ---
 title: 3-way handshake
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber
@@ -119,6 +125,8 @@ sequenceDiagram
     ```mermaid
     ---
     title: SSL handshake
+    config:
+        theme: 'neutral'
     ---
     sequenceDiagram
         autonumber
@@ -151,6 +159,10 @@ sequenceDiagram
 HTTP 통신을 정상적으로 종료할 때는 아래와 같이 **4-way handshake**를 통해 종료하게 된다.  
 
 ```mermaid
+---
+config:
+    theme: 'neutral'
+---
 sequenceDiagram
     autonumber
     Server ->> Client : FIN
@@ -162,6 +174,10 @@ sequenceDiagram
 TCP 연결 중에 문제가 발생해서 강제 종료를 하게 될 경우 아래와 같이 `RST` 패킷이 반환된다.  
 
 ```mermaid
+---
+config:
+    theme: 'neutral'
+---
 sequenceDiagram
     autonumber
     Server ->> Client : FIN
@@ -177,6 +193,8 @@ sequenceDiagram
 ```mermaid
 ---
 title: How response working with Web Server, WAS
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber

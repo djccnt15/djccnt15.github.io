@@ -177,6 +177,10 @@ tags:
 ### DB 설계
 
 ```mermaid
+---
+config:
+    theme: 'neutral'
+---
 erDiagram
     ROLE {
         bigint id   PK
@@ -349,6 +353,8 @@ DB 호출 빈도가 가장 높은 API에 [Cache Aside 패턴](../blog/posts/2023
 ```mermaid
 ---
 title: Cache Aside Pattern - Read Sequence
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber
