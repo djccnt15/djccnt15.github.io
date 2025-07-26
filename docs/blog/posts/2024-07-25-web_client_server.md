@@ -17,7 +17,9 @@ tags:
 
 ---
 
-## 1. DNS Query
+## 1. DNS(Domain Name System)
+
+### DNS Query
 
 클라이언트가 DNS Resolver로 검색 요청을 보내고 DNS Resolver가 실제 서비스 서버의 IP를 탐색해서 알려주는 과정을 **DNS Query**라고 하며, 수행 방식에 따라 **Iterative**, **Recursive** 두 가지 방식이 있다.  
 
@@ -30,7 +32,7 @@ DNS 시스템을 구성하는 요소들은 아래와 같다.
     - 클라이언트 사이드의 DNS 역할 수행
     - DNS 쿼리 시작 및 수행 관리
 
-### Recursive DNS Query
+#### Recursive DNS Query
 
 ```mermaid
 ---
@@ -62,7 +64,7 @@ sequenceDiagram
 !!! tip
     Iterative DNS Query 방식에 비해 응답 속도가 빠르다는 장점이 있으나, 부하가 심해 공격에 취약한 단점이 있다.  
 
-### Iterative DNS Query
+#### Iterative DNS Query
 
 ```mermaid
 ---
@@ -90,6 +92,18 @@ sequenceDiagram
     Client ->> service server : request
     deactivate Client
 ```
+
+### DNS Caching
+
+대부분의 경우 IP 주소는 일정하게 유지되기 때문에, 확인한 IP 주소를 재활용할 수 있다. DNS Caching은 아래와 같은 단계 및 경우에 따라 사용된다.  
+
+1. Browser DNS 캐싱
+1. OS level DNS 캐싱
+1. Recursive Resolver 캐싱
+    1. Resolver가 IP 주소를 캐싱하고 있는 경우
+    1. Resolver가 IP 주소를 캐싱하고 있지는 않지만, 해당 IP 주소를 아는 DNS를 아는 경우
+    1. Resolver가 IP 주소를 캐싱하지도 않고, 해당 IP 주소를 아는 DNS도 모르는 경우
+
 
 ## 2. HTTP/HTTPS
 
