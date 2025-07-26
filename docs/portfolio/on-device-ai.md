@@ -39,6 +39,8 @@ tags:
 ```mermaid
 ---
 title: 제어 서비스 및 판정 서비스 작동 과정
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber
@@ -83,6 +85,8 @@ sequenceDiagram
 ```mermaid
 ---
 title: 학습 서비스 작동 및 모델 배포 과정
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber
@@ -125,6 +129,8 @@ sequenceDiagram
 ```mermaid
 ---
 title: 관리자용 화면 시각화 과정
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber
@@ -161,6 +167,8 @@ sequenceDiagram
 ```mermaid
 ---
 title: 아카이빙 데이터 파이프라인 작동 과정
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber

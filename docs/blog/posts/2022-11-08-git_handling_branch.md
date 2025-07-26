@@ -131,6 +131,10 @@ git rebase --onto <newbase> <oldbase> <branch>  # (1)!
 ??? note "좀 더 자세한 설명"
 
     ```mermaid
+    ---
+    config:
+        theme: 'neutral'
+    ---
     gitGraph
         commit id: "A"
         commit id: "B"
@@ -154,6 +158,10 @@ git rebase --onto <newbase> <oldbase> <branch>  # (1)!
     ```
 
     ```mermaid
+    ---
+    config:
+        theme: 'neutral'
+    ---
     gitGraph
         commit id: "A"
         commit id: "B"

@@ -24,6 +24,10 @@ Python에서 기본 제공하는 로깅 모듈을 사용하면 시스템 로그�
 Python 로깅의 workflow는 아래와 같다.  
 
 ```mermaid
+---
+config:
+    theme: 'neutral'
+---
 stateDiagram-v2
     logging_flow : Logging Flow
     state logging_flow {

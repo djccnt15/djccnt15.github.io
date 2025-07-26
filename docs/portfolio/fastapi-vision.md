@@ -93,6 +93,10 @@ tags:
 #### OCR 서비스
 
 ```mermaid
+---
+config:
+    theme: 'neutral'
+---
 erDiagram
     ROLE {
         bigint id   PK
@@ -168,6 +172,8 @@ erDiagram
 ```mermaid
 ---
 title: Image Upload Process
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber
@@ -185,6 +191,8 @@ sequenceDiagram
 ```mermaid
 ---
 title: Document OCR Process
+config:
+    theme: 'neutral'
 ---
 sequenceDiagram
     autonumber
