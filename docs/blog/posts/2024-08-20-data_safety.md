@@ -9,6 +9,9 @@ categories:
     - Computer Science
 tags:
     - data
+    - encoding
+    - hashing
+    - encrypt
 ---
 
 데이터의 안전한 전송을 위한 변환의 종류와 차이점 관련 정리  
