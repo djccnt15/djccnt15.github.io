@@ -44,7 +44,7 @@ MLOps, 데이터 엔지니어링, 데이터 사이언티스트, 백엔드 엔지
 - Web Framework  
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white){ loading=lazy }
 ![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white){ loading=lazy }
-![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white){ loading=lazy }  
+![Flask](https://img.shields.io/badge/Flask-3BABC3?style=flat-square&logo=flask&logoColor=white){ loading=lazy }  
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=spring&logoColor=white){ loading=lazy }
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white){ loading=lazy }
 ![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat-square&logo=springsecurity&logoColor=white){ loading=lazy }
