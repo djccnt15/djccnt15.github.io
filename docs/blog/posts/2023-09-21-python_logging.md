@@ -1,5 +1,5 @@
 ---
-slug: how-to-logging-python
+slug: how-to-logging
 title: Python logging 제대로 하는 방법
 date:
     created: 2023-09-21
