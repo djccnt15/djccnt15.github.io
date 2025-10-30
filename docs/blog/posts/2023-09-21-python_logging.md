@@ -599,8 +599,8 @@ except FileExistsError:
     ...
 
 # create Logger instance
-logger = logging.getLogger(name="logger")
-logger.setLevel(level=logging.DEBUG)
+log = logging.getLogger(name="logger")
+log.setLevel(level=logging.DEBUG)
 
 # set log format
 simple_formatter = logging.Formatter(
@@ -661,7 +661,7 @@ debug_handler.addFilter(
 # QueueHandler
 log_queue = queue.Queue()  # (2)!
 queue_handler = QueueHandler(queue=log_queue)
-logger.addHandler(hdlr=queue_handler)
+log.addHandler(hdlr=queue_handler)
 
 # QueueListener
 log_listener = QueueListener(
@@ -707,21 +707,21 @@ log_listener = QueueListener(
 실제 애플리케이션에서의 로그 활용  
 
 ```python title="main.py"
-from src.log import log_listener, logger
+from src.log import log_listener, log
 
 
 def main():
-    logger.debug("debug message")
-    logger.info("info message")
-    logger.warning("warn message")
-    logger.error("error message")
-    logger.critical("critical message")
+    log.debug("debug message")
+    log.info("info message")
+    log.warning("warn message")
+    log.error("error message")
+    log.critical("critical message")
 
     try:
         raise Exception
     except Exception as e:
-        logger.exception("exception")  # logging error traceback
-        logger.error("error", exc_info=True)
+        log.exception("exception")  # logging error traceback
+        log.error("error", exc_info=True)
 
 
 if __name__ == "__main__":
@@ -825,7 +825,7 @@ if __name__ == "__main__":
 
     from src.log import filter
 
-    logger = logging.getLogger(name="logger")
+    log = logging.getLogger(name="logger")
 
 
     def set_logger():
@@ -855,23 +855,23 @@ if __name__ == "__main__":
     실제 애플리케이션에서의 로그 활용  
 
     ```python title="main.py"
-    from src.log import log_listener, logger
+    from src.log import log_listener, log
 
 
     def main():
         set_logger()
 
-        logger.debug("debug message")
-        logger.info("info message")
-        logger.warning("warn message")
-        logger.error("error message")
-        logger.critical("critical message")
+        log.debug("debug message")
+        log.info("info message")
+        log.warning("warn message")
+        log.error("error message")
+        log.critical("critical message")
 
         try:
             raise Exception
         except Exception as e:
-            logger.exception("exception")  # logging error traceback
-            logger.error("error", exc_info=True)
+            log.exception("exception")  # logging error traceback
+            log.error("error", exc_info=True)
 
 
     if __name__ == "__main__":
@@ -975,9 +975,9 @@ Exception
     handler = logging.StreamHandler()
     handler.setFormatter(fmt=formatter)
 
-    logger = logging.getLogger(name="logger")
-    logger.setLevel(level=logging.DEBUG)
-    logger.addHandler(handler)
+    log = logging.getLogger(name="logger")
+    log.setLevel(level=logging.DEBUG)
+    log.addHandler(handler)
     ```
 
 ??? note "디버그용 로거 설정"
@@ -1012,8 +1012,8 @@ Exception
         ...
 
     # create Logger instance
-    logger = logging.getLogger("logger")
-    logger.setLevel(logging.DEBUG)
+    log = logging.getLogger("logger")
+    log.setLevel(logging.DEBUG)
 
     # set log format
     detailed_formatter = logging.Formatter(
@@ -1041,7 +1041,7 @@ Exception
     # QueueHandler
     log_queue = queue.Queue()
     queue_handler = QueueHandler(log_queue)
-    logger.addHandler(queue_handler)
+    log.addHandler(queue_handler)
 
     # QueueListener
     log_listener = QueueListener(log_queue, debug_handler)
@@ -1075,8 +1075,8 @@ Exception
         ...
 
     # create Logger instance
-    logger = logging.getLogger("logger")
-    logger.setLevel(logging.DEBUG)
+    log = logging.getLogger("logger")
+    log.setLevel(logging.DEBUG)
 
     # set log format
     formatter = logging.Formatter(
@@ -1086,7 +1086,7 @@ Exception
     # StreamHandler
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(fmt=formatter)
-    logger.addHandler(stream_handler)
+    log.addHandler(stream_handler)
 
     # TimedRotatingFileHandler
     file_handler = TimedRotatingFileHandler(
@@ -1096,7 +1096,7 @@ Exception
         encoding="utf-8",
     )
     file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
+    log.addHandler(file_handler)
     ```
 
 ---
