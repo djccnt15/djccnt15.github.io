@@ -36,3 +36,9 @@ git show <commit-hash>
 ```sh
 git log -p -- <file>
 ```
+
+- 좀 더 자세한 로그 확인
+
+```sh
+git log --pretty=fuller
+```
