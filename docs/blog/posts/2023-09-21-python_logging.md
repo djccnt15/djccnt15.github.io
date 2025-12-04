@@ -593,10 +593,7 @@ logging.Formatter.formatTime = formatTime  # (1)!
 
 # set log directory
 log_dir = Path("logs")
-try:
-    log_dir.mkdir()
-except FileExistsError:
-    ...
+log_dir.mkdir(parents=True, exist_ok=True)
 
 # create Logger instance
 log = logging.getLogger(name="logger")
@@ -1006,10 +1003,7 @@ Exception
 
     # set log directory
     log_dir = Path("logs")
-    try:
-        log_dir.mkdir()
-    except FileExistsError:
-        ...
+    log_dir.mkdir(parents=True, exist_ok=True)
 
     # create Logger instance
     log = logging.getLogger("logger")
@@ -1069,10 +1063,7 @@ Exception
 
     # set log directory
     log_dir = Path("logs")
-    try:
-        log_dir.mkdir()
-    except FileExistsError:
-        ...
+    log_dir.mkdir(parents=True, exist_ok=True)
 
     # create Logger instance
     log = logging.getLogger("logger")
