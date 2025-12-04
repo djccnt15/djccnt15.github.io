@@ -73,6 +73,16 @@ Press Enter to Continue
 os.mkdir('./test')
 ```
 
+!!! tip
+    `Path` 객체를 사용하면 아래와 같이 유용한 기능을 추가로 사용할 수 있다.  
+
+    ```python
+    Path.mkdir(parents=True, exist_ok=True)
+    ```
+
+    - `parents`: `True` 설정 시 경로를 생성하는데 필요한 부모 경로 전체를 생성
+    - `exist_ok`: `True` 설정 시 대상 경로가 이미 있어도 파일이 아니라 디렉토리이면 `FileExistsError` 에러 미발생
+
 ## 5. rmdir()
 
 폴더를 지운다.  

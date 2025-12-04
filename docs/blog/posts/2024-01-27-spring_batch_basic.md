@@ -46,13 +46,24 @@ Spring Batch는 아래 구조로 구성되어 있다.
 - `Job` 이름
 - `JobParameters`
 
-`JobInstance` 정보는 *`BATCH_JOB_INSTANCE`* 테이블에 저장된다.  
+`JobInstance` 정보는 *`BATCH_JOB_INSTANCE`* 테이블에 아래와 같이 저장된다.  
+
+- `JOB_INSTANCE_ID`: Job 인스턴스의 고유 식별자
+- `JOB_NAME`: Job 이름. JobInstance 식별에 반드시 필요
+- `JOB_KEY`: JobParameters의 해시값
+- `VERSION`: 낙관적 락(Optimistic Lock) 버전. JobInstance의 경우 항상 0으로 유지됨
 
 #### 2-1-2. JobParameters
 
 `JobParameters`는 `Job`을 실행할 때 사용되는 파라미터 도메인으로, 하나의 `Job`에 존재하는 여러 `JobInstance`를 구분하는 키 역할을 한다.  
 
-`JobParameters` 정보는 *`BATCH_JOB_EXECUTION_PARAMS`* 테이블에 저장된다.  
+`JobParameters` 정보는 *`BATCH_JOB_EXECUTION_PARAMS`* 테이블에 아래와 같이 저장된다.  
+
+- `JOB_EXECUTION_ID`(FK): 작업 실행의 ID
+- `PARAMETER_NAME`: 파라미터 이름
+- `PARAMETER_TYPE`: 파라미터 타입
+- `PARAMETER_VALUE`: 파라미터 값
+- `IDENTIFYING`: JobInstance 식별에 사용 여부
 
 #### 2-1-3. JobExecution
 
@@ -61,7 +72,18 @@ Spring Batch는 아래 구조로 구성되어 있다.
 - 배치 작업 상태, 배치 종료 상태
 - 시작 시간, 종료 시간, 생성 시간
 
-`JobExecution` 정보는 *`BATCH_JOB_EXECUTION`* 테이블에 저장된다.  
+`JobExecution` 정보는 *`BATCH_JOB_EXECUTION`* 테이블에 아래와 같이 저장된다.  
+
+- `JOB_EXECUTION_ID`: 작업 실행의 고유 식별자
+- `VERSION`: 낙관적 락 버전
+- `JOB_INSTANCE_ID`(FK): 연관된 JobInstance의 ID
+- `CREATE_TIME`: JobExecution 생성 시간
+- `START_TIME`: JobExecution 시작 시간
+- `END_TIME`: JobExecution 종료 시간
+- `STATUS`: JobExecution 현재 상태(BatchStatus)
+- `EXIT_CODE`: JobExecution 종료 코드
+- `EXIT_MESSAGE`: JobExecution 종료 메시지(오류 포함)
+- `LAST_UPDATED`: 마지막 업데이트 시간
 
 ### 2-2. Step
 
@@ -80,13 +102,43 @@ Spring Batch는 아래 구조로 구성되어 있다.
 - 시작 시간, 종료 시간, 생성 시간
 - 읽은 수, 쓰기 수, 저장 수
 
-`StepExecution` 정보는 *`BATCH_STEP_EXECUTION`* 테이블에 저장된다.  
+`StepExecution` 정보는 *`BATCH_STEP_EXECUTION`* 테이블에 아래와 같이 저장된다.  
+
+- `STEP_EXECUTION_ID`: StepExecution 고유 식별자
+- `VERSION`: 낙관적 락 버전
+- `STEP_NAME`: Step 이름
+- `JOB_EXECUTION_ID`(FK): 연관된 JobExecution의 ID
+- `CREATE_TIME`: 실행 레코드 생성 시간
+- `START_TIME`: StepExecution 시작 시간
+- `END_TIME`: StepExecution 종료 시간
+- `STATUS`: StepExecution의 현재 상태(BatchStatus)
+- `COMMIT_COUNT`: 커밋 횟수
+- `READ_COUNT`: 읽은 아이템 수
+- `FILTER_COUNT`: 필터링된 아이템 수
+- `WRITE_COUNT`: 쓴 아이템 수
+- `READ_SKIP_COUNT`: 읽기 건너뛴 수
+- `WRITE_SKIP_COUNT`: 쓰기 건너뛴 수
+- `PROCESS_SKIP_COUNT`: 처리 건너뛴 수
+- `ROLLBACK_COUNT`: 롤백 횟수
+- `EXIT_CODE`: StepExecution 종료 코드
+- `EXIT_MESSAGE`: StepExecution 종료 메시지
+- `LAST_UPDATED`: 마지막 업데이트 시간
 
 ### 2-3. ExecutionContext
 
 key-value 구조로 이루어져 `Job`와 `Step`의 상태에 대한 DB 저장 정보를 저장하는 객체로, Batch의 세션 역할로 활용 된다.  
 
-`ExecutionContext` 정보는 각각 *`BATCH_JOB_EXECUTION_CONTEXT`*, *`STEP_JOB_EXECUTION_CONTEXT`* 테이블에 저장된다.  
+`Job`의 `ExecutionContext` 정보는 *`BATCH_JOB_EXECUTION_CONTEXT`* 테이블에 아래와 같이 저장된다.  
+
+- `JOB_EXECUTION_ID`(FK): `JobExecution`의 ID
+- `SHORT_CONTEXT`: 직렬화된 `ExecutionContext`의 문자열 버전
+- `SERIALIZED_CONTEXT`: 전체 컨텍스트, 직렬화된 형태
+
+`Step`의 `ExecutionContext` 정보는 *`BATCH_STEP_EXECUTION_CONTEXT`* 테이블에 아래와 같이 저장된다.  
+
+- `STEP_EXECUTION_ID`(FK): StepExecution의 ID
+- `SHORT_CONTEXT`: 직렬화된 ExecutionContext의 문자열 버전
+- `SERIALIZED_CONTEXT`: 전체 컨텍스트, 직렬화된 형태
 
 ### 2-4. JobRepository
 

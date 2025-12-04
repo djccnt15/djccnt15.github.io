@@ -115,3 +115,16 @@ artist_id|name             |
       131|Smashing Pumpkins|
       141|The Police       |
 ```
+
+??? note "더 나은 쿼리"
+
+    ```sql
+    SELECT a.artist_id, a.name
+    FROM Artist a
+    WHERE EXISTS (
+        SELECT 1
+        FROM Album al
+        WHERE al.artist_id = a.artist_id
+        AND al.title LIKE '%greatest%'
+    );
+    ```

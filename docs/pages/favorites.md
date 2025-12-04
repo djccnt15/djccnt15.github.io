@@ -17,14 +17,6 @@ search:
 
     [:octicons-arrow-right-24: Continue Reading](../blog/posts/2022-11-12-tasks_you_should_take.md)
 
-- :material-notebook-outline:{ .lg .middle } **데이터 사이언티스트, MLOps로 성장하기**
-
-    ---
-
-    Data Science와 MLOps 입문을 위한 공부 로드맵  
-
-    [:octicons-arrow-right-24: Continue Reading](../blog/posts/2022-09-18-datascience_roadmap.md)
-
 - :fontawesome-brands-python:{ .lg .middle } **Python 가상환경 사용법**
 
     ---
