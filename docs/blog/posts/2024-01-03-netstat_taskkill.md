@@ -36,13 +36,29 @@ netstat -ano
 
 ## 프로세스 강제 종료 방법
 
-- Windows
+### Windows
+
+- 포트 사용중인 프로세스 확인
+
+```bat
+netstat -ano | findstr : <PORT_NUMBER>
+```
+
+- 프로세스 종료
 
 ```bat
 taskkill /pid <PID> /f
 ```
 
-- Linux
+### Linux
+
+- 포트 사용중인 프로세스 확인
+
+```sh
+sudo lsof -i : <PORT_NUMBER>
+```
+
+- 프로세스 종료
 
 ```sh
 kill -15 <PID>
