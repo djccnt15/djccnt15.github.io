@@ -86,6 +86,10 @@ search:
 
 <!-- ## Competition -->
 
+## Conference
+
+- PyCon Korea 2025. Let's Logging Like a Pro!
+
 ## Education
 
 - 2021 충북대학교 경영정보학 석사 졸업
