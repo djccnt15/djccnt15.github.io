@@ -1,4 +1,4 @@
-site_url: https://djccnt15.github.io/  # necessary to enable sitemap
+site_url: https://djccnt15.github.io/ # necessary to enable sitemap
 site_name: Note of Jay.D
 site_author: djccnt15
 copyright: Copyright &copy; djccnt15
@@ -81,18 +81,18 @@ theme:
     - content.tabs.link
     - content.tooltips
   palette:
-    - media: "(prefers-color-scheme)"  # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)" # Palette toggle for automatic mode
       primary: blue
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"  # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)" # Palette toggle for light mode
       scheme: default
       primary: blue
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"  # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)" # Palette toggle for dark mode
       scheme: slate
       primary: blue grey
       toggle:
@@ -139,6 +139,7 @@ theme:
       pytorch: simple/pytorch
       r: simple/r
       rabbitmq: simple/rabbitmq
+      react: simple/react
       redis: simple/redis
       skleran: simple/scikitlearn
       scipy: simple/scipy
@@ -152,6 +153,7 @@ theme:
       tensorflow: simple/tensorflow
       tomcat: simple/apachetomcat
       vscode: material/microsoft-visual-studio-code
+      vite: simple/vite
 extra:
   # generator: false  # enable to remove `Made with Material for MkDocs` comment at footer
   social:
@@ -232,6 +234,7 @@ extra:
     r: r
     rabbitmq: rabbitmq
     rdb: db
+    react: react
     redis: redis
     rest api: api
     restful api: api
@@ -253,6 +256,7 @@ extra:
     terminal: terminal
     tomcat: tomcat
     venv: python
+    vite: vite
     vs code: vscode
 plugins:
   - search:
@@ -298,19 +302,19 @@ plugins:
         - Web
 nav:
   - Home:
-    - index.md
+      - index.md
   - About:
-    - pages/about/me.md
-    - pages/about/career.md
+      - pages/about/me.md
+      - pages/about/career.md
   - Note:
-    - blog/index.md
+      - blog/index.md
   - Portfolios:
-    - portfolio/index.md
-    - portfolio/on-device-ai.md
-    - portfolio/spring-board.md
-    - portfolio/fastapi-board.md
-    - portfolio/fastapi-vision.md
+      - portfolio/index.md
+      - portfolio/on-device-ai.md
+      - portfolio/spring-board.md
+      - portfolio/fastapi-board.md
+      - portfolio/fastapi-vision.md
   - Tags:
-    - pages/tags.md
+      - pages/tags.md
   - Favorites:
-    - pages/favorites.md
+      - pages/favorites.md
