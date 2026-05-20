@@ -172,35 +172,38 @@ config:
 ---
 sequenceDiagram
     autonumber
+    participant SecBatch as (초)배치 서비스
+    participant DayBatch as (일)배치 서비스
+    
     par Embedded DB to 수집 DB
-        (초)배치 서비스 ->> Embedded DB : 판정 이력
-        activate (초)배치 서비스
-        Embedded DB -->> (초)배치 서비스 : 판정 이력
-        deactivate (초)배치 서비스
-        (초)배치 서비스 ->> 수집 DB : 판정 이력
+        SecBatch ->> Embedded DB : 판정 이력
+        activate SecBatch
+        Embedded DB -->> SecBatch : 판정 이력
+        deactivate SecBatch
+        SecBatch ->> 수집 DB : 판정 이력
     and Storage to SAMBA DB
-        (초)배치 서비스 ->> Embedded DB : 판정 이력
-        activate (초)배치 서비스
-        Embedded DB -->> (초)배치 서비스 : 판정 완료 목록
-        deactivate (초)배치 서비스
-        (초)배치 서비스 ->> Storage : 파일 이동
-        activate (초)배치 서비스
-        Storage -->> (초)배치 서비스 : 데이터 파일
-        deactivate (초)배치 서비스
-        (초)배치 서비스 ->> SAMBA DB : 데이터 파일 이동
+        SecBatch ->> Embedded DB : 판정 이력
+        activate SecBatch
+        Embedded DB -->> SecBatch : 판정 완료 목록
+        deactivate SecBatch
+        SecBatch ->> Storage : 파일 이동
+        activate SecBatch
+        Storage -->> SecBatch : 데이터 파일
+        deactivate SecBatch
+        SecBatch ->> SAMBA DB : 데이터 파일 이동
     end
-    (초)배치 서비스 ->> Embedded DB : 과거 이력 삭제
+    SecBatch ->> Embedded DB : 과거 이력 삭제
     par SAMBA DB to Azure Blob Storage
-        (일)배치 서비스 ->> SAMBA DB : 파일 이동
-        activate (일)배치 서비스
-        SAMBA DB -->> (일)배치 서비스 : 데이터 파일
-        deactivate (일)배치 서비스
-        (일)배치 서비스 ->> Azure Blob Storage : 데이터 파일 이동
+        DayBatch ->> SAMBA DB : 파일 이동
+        activate DayBatch
+        SAMBA DB -->> DayBatch : 데이터 파일
+        deactivate DayBatch
+        DayBatch ->> Azure Blob Storage : 데이터 파일 이동
     and 수집 DB to Azure MS SQL
-        (일)배치 서비스 ->> 수집 DB : 판정 이력
-        activate (일)배치 서비스
-        수집 DB -->> (일)배치 서비스 : 판정 이력
-        deactivate (일)배치 서비스
-        (일)배치 서비스 ->> Azure MS SQL : 판정 이력
+        DayBatch ->> 수집 DB : 판정 이력
+        activate DayBatch
+        수집 DB -->> DayBatch : 판정 이력
+        deactivate DayBatch
+        DayBatch ->> Azure MS SQL : 판정 이력
     end
 ```
