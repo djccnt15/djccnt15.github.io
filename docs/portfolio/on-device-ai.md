@@ -45,40 +45,40 @@ config:
 sequenceDiagram
     autonumber
     제어 서비스 ->> Storage : 데이터 파일 전송
-    activate 제어 서비스
+    activate Storage
     Storage -->> 제어 서비스 : 전송 완료
-    deactivate 제어 서비스
+    deactivate Storage
     par 작업 목록 생성
         제어 서비스 ->> Queue : 파일 경로 전송
-        activate 제어 서비스
+        activate Queue
         Queue -->> 제어 서비스 : 전송 완료
-        deactivate 제어 서비스
+        deactivate Queue
     and 데이터 판정
         ML 서비스 ->> Queue : 파일 경로 요청
-        activate ML 서비스
+        activate Queue
         Queue -->> ML 서비스 : 파일 경로
-        deactivate ML 서비스
+        deactivate Queue
         ML 서비스 ->> Storage : 데이터 파일 읽기
-        activate ML 서비스
+        activate Storage
         Storage -->> ML 서비스 : 데이터 파일
-        deactivate ML 서비스
+        deactivate Storage
         ML 서비스 ->> Embedded DB : 판정 결과
     end
     par 제품 분류
         제어 서비스 ->> Embedded DB : 판정 결과 요청
-        activate 제어 서비스
+        activate Embedded DB
         Embedded DB -->> 제어 서비스 : 판정 결과 회신
-        deactivate 제어 서비스
+        deactivate Embedded DB
         제어 서비스 ->> PLC : 제품 분류 / 경광등
     and 사용자 화면
         Client Page ->> 대시보드 서비스 : 판정 결과 요청
-        activate Client Page
-        대시보드 서비스 ->> Embedded DB : 판정 이력 요청
         activate 대시보드 서비스
+        대시보드 서비스 ->> Embedded DB : 판정 이력 요청
+        activate Embedded DB
         Embedded DB -->> 대시보드 서비스 : 판정 이력
-        deactivate 대시보드 서비스
+        deactivate Embedded DB
         대시보드 서비스 -->> Client Page : 판정 결과
-        deactivate Client Page
+        deactivate 대시보드 서비스
     end
 ```
 
@@ -92,11 +92,11 @@ sequenceDiagram
     autonumber
     par 모델 학습
         Client Page ->> 학습 서비스 : 학습 요청
-        activate Client Page
-        학습 서비스 ->> Azure Blob Storage : 학습 데이터 요청
         activate 학습 서비스
+        학습 서비스 ->> Azure Blob Storage : 학습 데이터 요청
+        activate Azure Blob Storage
         Azure Blob Storage -->> 학습 서비스 : 학습 데이터
-        deactivate 학습 서비스
+        deactivate Azure Blob Storage
         Note over 학습 서비스 : 모델 학습
         par 학습 서비스 to Azure Blob Storage
             학습 서비스 ->> Azure Blob Storage : 모델
@@ -104,25 +104,25 @@ sequenceDiagram
             학습 서비스 ->> Azure MS SQL : 모델 메타 데이터
         end
         학습 서비스 ->> Client Page : 학습 결과
-        deactivate Client Page
+        deactivate 학습 서비스
     and 모델 배포
         Azure DevOps ->> 배포 Agent : 배포 요청
-        activate Azure DevOps
+        activate 배포 Agent
         par 모델
             배포 Agent ->> Azure Blob Storage : 모델 요청
-            activate 배포 Agent
+            activate Azure Blob Storage
             Azure Blob Storage -->> 배포 Agent : 모델
-            deactivate 배포 Agent
-        and 프로그램
+            deactivate Azure Blob Storage
+        and 판정 프로그램
             배포 Agent ->> 프로그램 Repo : 소스코드 요청
-            activate 배포 Agent
+            activate 프로그램 Repo
             프로그램 Repo -->> 배포 Agent : 소스코드
-            deactivate 배포 Agent
+            deactivate 프로그램 Repo
         end
         Note over 배포 Agent : 소스코드 빌드
         배포 Agent ->> 업데이트 서비스 : 프로그램 배포
         배포 Agent -->> Azure DevOps : 배포 결과
-        deactivate Azure DevOps
+        deactivate 배포 Agent
     end
 ```
 
@@ -138,29 +138,33 @@ sequenceDiagram
         par Embedded DB to 수집 DB
             배치 서비스 ->> Embedded DB : 판정 이력 요청
             activate 배치 서비스
+            activate Embedded DB
             Embedded DB -->> 배치 서비스 : 판정 이력
-            deactivate 배치 서비스
+            deactivate Embedded DB
             배치 서비스 ->> 수집 DB : 판정 이력
+            deactivate 배치 서비스
         and Storage to SAMBA DB
-            배치 서비스 ->> Embedded DB : 판정 이력 요청
+            배치 서비스 ->> Embedded DB : 판정 이력 
             activate 배치 서비스
+            activate Embedded DB
             Embedded DB -->> 배치 서비스 : 판정 완료 목록
-            deactivate 배치 서비스
+            deactivate Embedded DB
             배치 서비스 ->> Storage : 파일 이동
-            activate 배치 서비스
+            activate Storage
             Storage -->> 배치 서비스 : 데이터 파일
-            deactivate 배치 서비스
+            deactivate Storage
             배치 서비스 ->> SAMBA DB : 데이터 파일
+            deactivate 배치 서비스
         end
     and 사용자 화면
         Client Page ->> 대시보드 서비스 : 판정 결과 요청
-        activate Client Page
-        대시보드 서비스 ->> 수집 DB : 판정 이력 요청
         activate 대시보드 서비스
+        대시보드 서비스 ->> 수집 DB : 판정 이력 요청
+        activate 수집 DB
         수집 DB -->> 대시보드 서비스 : 판정 이력
-        deactivate 대시보드 서비스
+        deactivate 수집 DB
         대시보드 서비스 -->> Client Page : 판정 결과
-        deactivate Client Page
+        deactivate 대시보드 서비스
     end
 ```
 
@@ -178,32 +182,40 @@ sequenceDiagram
     par Embedded DB to 수집 DB
         SecBatch ->> Embedded DB : 판정 이력
         activate SecBatch
+        activate Embedded DB
         Embedded DB -->> SecBatch : 판정 이력
-        deactivate SecBatch
+        deactivate Embedded DB
         SecBatch ->> 수집 DB : 판정 이력
+        deactivate SecBatch
     and Storage to SAMBA DB
         SecBatch ->> Embedded DB : 판정 이력
         activate SecBatch
+        activate Embedded DB
         Embedded DB -->> SecBatch : 판정 완료 목록
-        deactivate SecBatch
+        deactivate Embedded DB
         SecBatch ->> Storage : 파일 이동
-        activate SecBatch
+        activate Storage
         Storage -->> SecBatch : 데이터 파일
-        deactivate SecBatch
+        deactivate Storage
         SecBatch ->> SAMBA DB : 데이터 파일 이동
+        deactivate SecBatch
     end
     SecBatch ->> Embedded DB : 과거 이력 삭제
     par SAMBA DB to Azure Blob Storage
         DayBatch ->> SAMBA DB : 파일 이동
         activate DayBatch
+        activate SAMBA DB
         SAMBA DB -->> DayBatch : 데이터 파일
-        deactivate DayBatch
+        deactivate SAMBA DB
         DayBatch ->> Azure Blob Storage : 데이터 파일 이동
+        deactivate DayBatch
     and 수집 DB to Azure MS SQL
         DayBatch ->> 수집 DB : 판정 이력
         activate DayBatch
+        activate 수집 DB
         수집 DB -->> DayBatch : 판정 이력
-        deactivate DayBatch
+        deactivate 수집 DB
         DayBatch ->> Azure MS SQL : 판정 이력
+        deactivate DayBatch
     end
 ```
