@@ -49,11 +49,17 @@ sequenceDiagram
         DNS Resolver -->> Client : service server IP
     else if not data in DNS Resolver Cache
         DNS Resolver ->> Root DNS : request TLD IP
+        activate Root DNS
         Root DNS -->> DNS Resolver : return TLD IP
+        deactivate Root DNS
         DNS Resolver ->> Top Level DNS : request Second Level DNS IP
+        activate Top Level DNS
         Top Level DNS -->> DNS Resolver : return Second Level DNS IP
+        deactivate Top Level DNS
         DNS Resolver ->> Second Level DNS : request service server IP
+        activate Second Level DNS
         Second Level DNS -->> DNS Resolver : return service server IP
+        deactivate Second Level DNS
         DNS Resolver -->> Client : service server IP
         deactivate DNS Resolver
     end
@@ -81,13 +87,19 @@ sequenceDiagram
         DNS Resolver -->> Client : service server IP
     else if not data in DNS Resolver Cache
         DNS Resolver ->> Root DNS : request TLD IP
+        activate Root DNS
         Root DNS -->> DNS Resolver : return TLD IP
+        deactivate Root DNS
         DNS Resolver -->> Client : return TLD IP
         deactivate DNS Resolver
         Client ->> Top Level DNS : request Second Level DNS IP
+        activate Top Level DNS
         Top Level DNS -->> Client : return Second Level DNS IP
+        deactivate Top Level DNS
         Client ->> Second Level DNS : request service server IP
+        activate Second Level DNS
         Second Level DNS -->> Client : return service server IP
+        deactivate Second Level DNS
     end
     Client ->> service server : request
     deactivate Client
@@ -217,7 +229,9 @@ sequenceDiagram
     activate Web Server
     Web Server -->> Client : static response
     Web Server ->> WAS(WSGI) : request
+    activate WAS(WSGI)
     WAS(WSGI) -->> Web Server : response
+    deactivate WAS(WSGI)
     Web Server -->> Client : response
     deactivate Web Server
     deactivate Client

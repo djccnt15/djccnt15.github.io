@@ -133,7 +133,7 @@ git rebase --onto <newbase> <oldbase> <branch>  # (1)!
     ```mermaid
     ---
     config:
-        theme: 'neutral'
+        theme: 'base'
     ---
     gitGraph
         commit id: "A"
@@ -160,7 +160,7 @@ git rebase --onto <newbase> <oldbase> <branch>  # (1)!
     ```mermaid
     ---
     config:
-        theme: 'neutral'
+        theme: 'base'
     ---
     gitGraph
         commit id: "A"
