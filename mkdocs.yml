@@ -257,7 +257,7 @@ extra:
     tomcat: tomcat
     venv: python
     vite: vite
-    vs code: vscode
+    vscode: vscode
 plugins:
   - search:
       lang:
