@@ -258,6 +258,7 @@ extra:
     venv: python
     vite: vite
     vscode: vscode
+    winpython: python
 plugins:
   - search:
       lang:
