@@ -229,6 +229,7 @@ extra:
     pip: python
     postgresql: postgresql
     prometheus: prometheus
+    pylance: python
     python: python
     pytorch: pytorch
     r: r
