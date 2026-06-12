@@ -9,7 +9,6 @@ categories:
     - Java
 tags:
     - java
-    - java 17
     - datetime
 ---
 

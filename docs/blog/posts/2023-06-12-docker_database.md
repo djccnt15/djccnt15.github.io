@@ -12,7 +12,7 @@ tags:
     - rdb
     - docker
     - oracle
-    - sql server
+    - sql-server
     - mysql
     - mariadb
     - postgresql

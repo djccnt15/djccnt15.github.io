@@ -4,7 +4,7 @@ tags:
     - portfolio
     - flask
     - spring
-    - spring boot
+    - spring-boot
     - sqlite
     - mariadb
 ---

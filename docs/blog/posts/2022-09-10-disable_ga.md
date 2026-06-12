@@ -10,7 +10,7 @@ categories:
     - Jekyll
 tags:
     - jekyll
-    - google analytics
+    - google-analytics
     - ga
 ---
 

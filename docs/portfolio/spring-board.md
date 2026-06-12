@@ -3,8 +3,8 @@ title: Spring 기반 게시판 서비스
 tags:
     - portfolio
     - spring
-    - spring boot
-    - spring security
+    - spring-boot
+    - spring-security
     - postgresql
     - redis
     - prometheus

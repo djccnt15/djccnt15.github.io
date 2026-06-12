@@ -202,18 +202,17 @@ extra:
     flask: flask
     git: git
     ga: ga
-    google analytics: ga
+    google-analytics: ga
     gradle: gradle
     gunicorn: gunicorn
     html: html
     intellij: intellij
     jar: java
     java: java
-    java 17: java
     jekyll: jekyll
     kafka: kafka
     kibana: kibana
-    list comprehension: python
+    list-comprehension: python
     logstash: logstash
     mariadb: mariadb
     markdown: markdown
@@ -244,11 +243,11 @@ extra:
     scss: css
     shell: powershell
     spring: spring
-    spring batch: spring_batch
-    spring boot: spring_boot
-    spring security: spring_security
-    spring webflux: spring
-    sql server: mssql
+    spring-batch: spring_batch
+    spring-boot: spring_boot
+    spring-security: spring_security
+    spring-webflux: spring
+    sql-server: mssql
     sql: db
     sqlite: sqlite
     sympy: sympy

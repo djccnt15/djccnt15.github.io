@@ -9,7 +9,7 @@ categories:
     - Python
 tags:
     - python
-    - list comprehension
+    - list-comprehension
 ---
 
 Python의 List Comprehensions 이해하기  
