@@ -265,10 +265,14 @@ sequenceDiagram
     activate Spring
     alt if cached data
         Spring -) Cache Server: check data
+        activate Cache Server
         Cache Server --) Spring: response data
+        deactivate Cache Server
     else if not cached data
         Spring -) Database: query
+        activate Database
         Database --) Spring: result
+        deactivate Database
     end
     Spring --) Client: response
     deactivate Spring
