@@ -59,6 +59,22 @@ git branch -t <branch>
 !!! note
     원격 저장소에 여러 브랜치가 있는 경우 `pull`이나 `clone`을 하면 `main` 브랜치가 다운로드 되고 다른 브랜치들을 받아오지는 않는다. 따라서 [`git remote update`](./2022-01-14-git_initiate.md/#remote) 명령어를 사용해서 원격 저장소의 브랜치에 접근할 수 있도록 해줘야 한다.  
 
+- 로컬 저장소의 현재 브랜치와 원격 저장소의 특정 브랜치를 추적(track) 관계로 연결
+
+```sh
+git branch --set-upstream-to=origin/<remote-branch-name>
+
+git branch -u origin <remote-branch-name>
+```
+
+!!! note
+    tracking branch를 설정하면 아래와 같은 이점이 생긴다.  
+
+    - `git push origin <브랜치명>` -> `git push`만 해도 tracking 브랜치로 `push`
+    - `git pull origin <브랜치명>` -> `git pull`만 해도 tracking 브랜치에서 `pull`
+    - `git status` 명령어를 통해 로컬 브랜치와 원격 브랜치의 ahead/behind를 쉽게 확인 가능
+    - `IntelliJ` 등 IDE에서 위 기능을 실시간/자동으로 수행해주기도 함
+
 ## switch
 
 위의 `branch` 명령어로 생성한 브랜치 간에 이동할 때, 즉 작업할 브랜치를 변경할 때 사용하는 명령어  

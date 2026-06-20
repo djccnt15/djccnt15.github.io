@@ -9,7 +9,7 @@ categories:
     - Spring
 tags:
     - spring
-    - spring batch
+    - spring-batch
     - troubleshooting
 ---
 

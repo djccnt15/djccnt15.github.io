@@ -8,7 +8,7 @@ description: >
 categories:
     - SW Engineering
 tags:
-    - vs code
+    - vscode
 ---
 
 각종 유용한 Visual Studio Code 단축키 모음  
