@@ -105,6 +105,7 @@ theme:
       api: material/api
       bootstrap: simple/bootstrap
       c: simple/c
+      claude: simple/claude
       cpp: simple/cplusplus
       css: simple/css
       cv: simple/opencv
@@ -191,6 +192,7 @@ extra:
     bootstrap: bootstrap
     cmd: terminal
     c: c
+    claude: claude
     cpp: cpp
     css: css
     database: db
@@ -279,6 +281,7 @@ plugins:
       pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
       categories_allowed:
         - _Draft
+        - Claude
         - AI
         - C
         - Coding Test
