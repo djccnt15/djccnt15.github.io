@@ -136,7 +136,7 @@ python -m black {source_file_or_directory}
 1. 저장 시에 `import` 구문 정리, Black Formatter 기능은 아님
 
 ??? info "레거시 Python 환경에서 사용하는 방법"
-    Black Formatter는 기본적으로 구동을 위해 VS Code가 사용중인 Python interpreter를 사용하고, VS Code는 프로젝트에서 사용중인 가상 환경[^1]을 자동으로 인식해서 해당 interpreter를 사용한다.
+    Black Formatter는 기본적으로 구동을 위해 VS Code가 사용 중인 Python interpreter를 사용하고, VS Code는 프로젝트에서 사용 중인 가상 환경[^1]을 자동으로 인식해서 해당 interpreter를 사용한다.
 
     [^1]: `.venv` 등
 

@@ -4,7 +4,7 @@ title: 프로세스 강제 종료 방법
 date:
     created: 2024-01-03
 description: >
-    port 사용중인 프로세스 강제 종료 방법
+    port 사용 중인 프로세스 강제 종료 방법
 categories:
     - Server Engineering
 tags:
@@ -14,7 +14,7 @@ tags:
     - troubleshooting
 ---
 
-port를 사용중인 프로세스가 제대로 종료되지 않아 문제가 될 때는 해당 프로세스를 강제로 종료해주면 된다.  
+port를 사용 중인 프로세스가 제대로 종료되지 않아 문제가 될 때는 해당 프로세스를 강제로 종료해주면 된다.  
 
 <!-- more -->
 
@@ -38,7 +38,7 @@ netstat -ano
 
 ### Windows
 
-- 포트 사용중인 프로세스 확인
+- 포트 사용 중인 프로세스 확인
 
 ```bat
 netstat -ano | findstr : <PORT_NUMBER>
@@ -52,7 +52,7 @@ taskkill /pid <PID> /f
 
 ### Linux
 
-- 포트 사용중인 프로세스 확인
+- 포트 사용 중인 프로세스 확인
 
 ```sh
 sudo lsof -i : <PORT_NUMBER>

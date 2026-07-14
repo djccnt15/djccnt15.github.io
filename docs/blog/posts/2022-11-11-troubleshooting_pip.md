@@ -55,7 +55,7 @@ There was an error checking the latest version of pip
 
 찾아보니 수동 업그레이드 등 몇 가지 해결책이 제시되는데, 아래와 같이 pip cache를 삭제해주니 원인 자체가 해결되었다.  
 
-1. 사용중인 Python 환경에서 `python -m pip cache dir` 명령어를 통해 pip 설치 위치 확인
+1. 사용 중인 Python 환경에서 `python -m pip cache dir` 명령어를 통해 pip 설치 위치 확인
 1. 위에서 확인한 위치 접근
 1. `selfcheck` 폴더 삭제
 
