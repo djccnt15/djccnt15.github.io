@@ -22,21 +22,47 @@ Spring 설정 관련 팁 정리
 
 ## Spring 설정 외부 주입 방법
 
-!!! warning
-    아래와 같은 구조로 파일을 만든 후 테스트 서버를 구동하면 IntelliJ가 프로젝트의 root 경로에 있는 `application.yaml`을 우선 인식한다.  
+### Spring 인자 전달
 
+아래와 같이 `-Dspring` 방식으로 Spring 인자를 전달할 수 있다.  
+
+```bat
+java -jar my-app.jar -Dspring.profiles.active=prod
+```
+
+!!! tip "Spring 인자 동적 주입 방법"
+    아래와 같이 `${}`로 플레이스홀더를 사용하면 동적으로 주입할 수 있다.  
+
+    ```yaml
+    spring:
+    profiles:
+        active: "${target.group:dev-group}"  # (1)!
+        group:
+        dev-group: "dev,dev-db,common"
+        prod-group: "prod,prod-db,common"
     ```
-    /project-root/
-    ├─ app.jar
-    ├─ application.yaml
-    └─ src/
-        └─ main/
-            └─ resources/
-                └─ application.yaml
+
+    1. 실행할 때 target.group 값이 입력되지 않으면 기본값으로 dev-group 사용
+
+    이 경우 인자를 입력할 때 아래와 같이 지정한 변수명을 사용해서 입력해야 한다.  
+
+    ```bat
+    java -jar my-app.jar -Dtarget.group=prod-group
     ```
 
-    이를 피하려면 프로젝트 외부 경로에 저장하거나 아니면 `configuration.yaml` 등으로 이름을 바꿔주면 된다.  
+### 💡application.yaml
 
+아래와 같은 구조로 배포한 후 서버를 구동하면 IntelliJ가 프로젝트의 root 경로에 있는 `application.yaml`을 우선 인식한다.  
+
+```
+/project-root/
+├─ app.jar
+├─ application.yaml
+└─ src/
+    └─ main/
+        └─ resources/
+            └─ application.yaml
+```
 
 ### spring.config.additional-location
 
@@ -57,7 +83,7 @@ java -jar [app_path.jar] --spring.config.location=[path/to/external/application.
 !!! note
     만약 `jar` 파일에서 설정 파일을 제외하고 싶다면 `build.gradle`에 아래와 같이 작성하면 된다.  
 
-    ```
+    ```gradle
     jar {
         exclude 'application.yaml'
     }

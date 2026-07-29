@@ -42,7 +42,7 @@ Gradle로 빌드를 통합 관리할 예정이기 때문에 Front-End의 소스�
 
 1. React 프로젝트의 위치
 
-## Gradle + Vite 방식
+### Gradle + Vite 방식
 
 Vite 빌드 결과 파일이 Spring 앱의 static 경로에 생성되도록 설정해준다.  
 
@@ -81,7 +81,7 @@ task buildFrontend(type: Exec) {
 processResources.dependsOn buildFrontend
 ```
 
-## Gradle 단일 관리 방식
+### Gradle 단일 관리 방식
 
 아래와 같이 설정하면 Vite 설정은 기본으로 유지하고 Gradle 설정만 변경해서 빌드를 통합할 수 있다.  
 
@@ -107,3 +107,57 @@ processResources.dependsOn copyFrontendContents
 
 1. Vite의 빌드 결과물 기본 경로
 1. SpringBoot 정적 자원 경로
+
+## npm 패키지 연결
+
+위 방식으로 Monorepo를 구성하면 `worktree`를 사용해서 작업용 코드를 생성 할 때 npm 패키지가 복사되지 않아 `worktree` 단독으로는 정상적으로 실행 및 통합 테스트가 불가능하다. Windows의 경우 아래와 같이 `junction`을 만들어서 해결 가능하다.  
+
+### cmd
+
+- `junction` 생성
+
+```bat
+mklink /J "<worktree>\frontend\node_modules" "D:\projects\<main>\frontend\node_modules"
+```
+
+```bat
+if not exist "<worktree>\frontend\node_modules" mklink /J "<worktree>\frontend\node_modules" "D:\projects\<main>\frontend\node_modules"
+```
+
+- `junction` 확인
+
+```bat
+dir "<worktree>\frontend"
+```
+
+- `junction` 삭제
+
+```bat
+rmdir "<worktree>\frontend\node_modules"
+```
+
+
+### PowerShell
+
+- `junction` 생성
+
+```powershell
+$worktree = "<worktree 경로>"
+$mainRepo = "D:\projects\<main 경로>"
+if (-not (Test-Path "$worktree\frontend\node_modules")) {
+  New-Item -ItemType Junction -Path "$worktree\frontend\node_modules" -Target "$mainRepo\frontend\node_modules" | Out-Null
+}
+```
+
+- `junction` 확인
+
+```powershell
+Get-Item "$worktree\frontend\node_modules" | Select-Object LinkType, Target
+```
+
+- `junction` 삭제
+
+```powershell
+cmd /c rmdir "$worktree\frontend\node_modules"
+cd "$worktree\frontend"; npm install
+```

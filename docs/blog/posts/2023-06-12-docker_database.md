@@ -34,7 +34,7 @@ tags:
 
 ### 이미지 다운로드
 
-`gvenzl/oracle-xe` 이미지는 공식 이미지는 아니지만 다운로드 횟수가 `1M+`을 찍을 정도로 많이 사용중이다.  
+`gvenzl/oracle-xe` 이미지는 공식 이미지는 아니지만 다운로드 횟수가 `1M+`을 찍을 정도로 많이 사용 중이다.  
 
 ```bat
 docker pull gvenzl/oracle-xe

@@ -21,7 +21,7 @@ Spring Batch 에러 해결 모음
 
 ## Batch 미종료 현상
 
-Spring Batch가 작업이 끝난 후에도 종료되지 않고 마치 Spring Web 처럼 계속 켜져 있는 현상이 발생했는데, Spring Initializr 사용중 부주의로 인해 WAS 개발을 위한 Spring Web 관련 Dependency가 섞여 들어온 것이 원인이었다.  
+Spring Batch가 작업이 끝난 후에도 종료되지 않고 마치 Spring Web 처럼 계속 켜져 있는 현상이 발생했는데, Spring Initializr 사용 중 부주의로 인해 WAS 개발을 위한 Spring Web 관련 Dependency가 섞여 들어온 것이 원인이었다.  
 
 아래 두 가지 조치 후 정상 작동을 확인할 수 있었다.  
 
