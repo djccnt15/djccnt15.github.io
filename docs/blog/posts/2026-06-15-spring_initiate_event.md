@@ -65,11 +65,15 @@ public class AppRunnerImpl implements ApplicationRunner {
 따라서 Spring MVC 구조에서 부모 컨텍스트(Root)와 자식 컨텍스트(Servlet)가 각각 존재할 경우, 이 이벤트가 2번 이상 발생할 수 있고 딱 한 번만 실행되게 하려면 아래와 같이 부모 컨텍스트인지 체크하는 로직이 필요하다.  
 
 ```java
-@EventListener(ContextRefreshedEvent.class)
-public void onApplicationEvent(ContextRefreshedEvent event) {
-    // 루트 컨텍스트가 초기화될 때만 실행하도록 방어 코드 작성 필요
-    if (event.getApplicationContext().getParent() == null) {
-        // 실행할 로직
+@Component
+public class ContextRefreshListener {
+
+    @EventListener(ContextRefreshedEvent.class)
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+        // 루트 컨텍스트에서만 실행
+        if (event.getApplicationContext().getParent() == null) {
+            // 실행할 로직
+        }
     }
 }
 ```
